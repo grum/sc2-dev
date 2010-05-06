@@ -1347,17 +1347,17 @@
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="UpgradeBuildingArmorLevel1" State="Restricted" Requirements="LearnTerranBuildingArmor"/>
         </InfoArray>
-        <InfoArray index="Research3" Time="190" Upgrade="TerranInfantryWeaponsLevel1">
+        <InfoArray index="Research3" Time="160" Upgrade="TerranInfantryWeaponsLevel1">
             <Resource index="Minerals" value="100"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="TerranInfantryWeaponsLevel1" State="Restricted" Requirements="LearnTerranInfantryWeapon1"/>
         </InfoArray>
-        <InfoArray index="Research4" Time="220" Upgrade="TerranInfantryWeaponsLevel2">
+        <InfoArray index="Research4" Time="190" Upgrade="TerranInfantryWeaponsLevel2">
             <Resource index="Minerals" value="175"/>
             <Resource index="Vespene" value="175"/>
             <Button DefaultButtonFace="TerranInfantryWeaponsLevel2" State="Restricted" Requirements="LearnTerranInfantryWeapon2"/>
         </InfoArray>
-        <InfoArray index="Research5" Time="250" Upgrade="TerranInfantryWeaponsLevel3">
+        <InfoArray index="Research5" Time="220" Upgrade="TerranInfantryWeaponsLevel3">
             <Resource index="Minerals" value="250"/>
             <Resource index="Vespene" value="250"/>
             <Button DefaultButtonFace="TerranInfantryWeaponsLevel3" State="Restricted" Requirements="LearnTerranInfantryWeapon3"/>
@@ -1367,17 +1367,17 @@
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="ResearchNeosteelFrame" State="Restricted" Requirements="LearnNeosteelFrame"/>
         </InfoArray>
-        <InfoArray index="Research7" Time="190" Upgrade="TerranInfantryArmorsLevel1">
+        <InfoArray index="Research7" Time="160" Upgrade="TerranInfantryArmorsLevel1">
             <Resource index="Minerals" value="100"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="TerranInfantryArmorLevel1" State="Restricted" Requirements="LearnTerranInfantryArmor1"/>
         </InfoArray>
-        <InfoArray index="Research8" Time="220" Upgrade="TerranInfantryArmorsLevel2">
+        <InfoArray index="Research8" Time="190" Upgrade="TerranInfantryArmorsLevel2">
             <Resource index="Minerals" value="175"/>
             <Resource index="Vespene" value="175"/>
             <Button DefaultButtonFace="TerranInfantryArmorLevel2" State="Restricted" Requirements="LearnTerranInfantryArmor2"/>
         </InfoArray>
-        <InfoArray index="Research9" Time="250" Upgrade="TerranInfantryArmorsLevel3">
+        <InfoArray index="Research9" Time="220" Upgrade="TerranInfantryArmorsLevel3">
             <Resource index="Minerals" value="250"/>
             <Resource index="Vespene" value="250"/>
             <Button DefaultButtonFace="TerranInfantryArmorLevel3" State="Restricted" Requirements="LearnTerranInfantryArmor3"/>
@@ -1511,62 +1511,62 @@
     </CAbilResearch>
     <CAbilResearch id="ArmoryResearch">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
-        <InfoArray index="Research3" Time="190" Upgrade="TerranVehicleArmorsLevel1">
+        <InfoArray index="Research3" Time="160" Upgrade="TerranVehicleArmorsLevel1">
             <Resource index="Minerals" value="100"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="TerranVehiclePlatingLevel1" State="Restricted" Requirements="LearnTerranVehicleArmor1"/>
         </InfoArray>
-        <InfoArray index="Research4" Time="220" Upgrade="TerranVehicleArmorsLevel2">
+        <InfoArray index="Research4" Time="190" Upgrade="TerranVehicleArmorsLevel2">
             <Resource index="Minerals" value="175"/>
             <Resource index="Vespene" value="175"/>
             <Button DefaultButtonFace="TerranVehiclePlatingLevel2" State="Restricted" Requirements="LearnTerranVehicleArmor2"/>
         </InfoArray>
-        <InfoArray index="Research5" Time="250" Upgrade="TerranVehicleArmorsLevel3">
+        <InfoArray index="Research5" Time="220" Upgrade="TerranVehicleArmorsLevel3">
             <Resource index="Minerals" value="250"/>
             <Resource index="Vespene" value="250"/>
             <Button DefaultButtonFace="TerranVehiclePlatingLevel3" State="Restricted" Requirements="LearnTerranVehicleArmor3"/>
         </InfoArray>
-        <InfoArray index="Research6" Time="190" Upgrade="TerranVehicleWeaponsLevel1">
+        <InfoArray index="Research6" Time="160" Upgrade="TerranVehicleWeaponsLevel1">
             <Resource index="Minerals" value="100"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="TerranVehicleWeaponsLevel1" State="Restricted" Requirements="LearnTerranVehicleWeapon1"/>
         </InfoArray>
-        <InfoArray index="Research7" Time="220" Upgrade="TerranVehicleWeaponsLevel2">
+        <InfoArray index="Research7" Time="190" Upgrade="TerranVehicleWeaponsLevel2">
             <Resource index="Minerals" value="175"/>
             <Resource index="Vespene" value="175"/>
             <Button DefaultButtonFace="TerranVehicleWeaponsLevel2" State="Restricted" Requirements="LearnTerranVehicleWeapon2"/>
         </InfoArray>
-        <InfoArray index="Research8" Time="250" Upgrade="TerranVehicleWeaponsLevel3">
+        <InfoArray index="Research8" Time="220" Upgrade="TerranVehicleWeaponsLevel3">
             <Resource index="Minerals" value="250"/>
             <Resource index="Vespene" value="250"/>
             <Button DefaultButtonFace="TerranVehicleWeaponsLevel3" State="Restricted" Requirements="LearnTerranVehicleWeapon3"/>
         </InfoArray>
-        <InfoArray index="Research9" Time="190" Upgrade="TerranShipArmorsLevel1">
+        <InfoArray index="Research9" Time="160" Upgrade="TerranShipArmorsLevel1">
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="TerranShipPlatingLevel1" State="Restricted" Requirements="LearnTerranShipArmor1"/>
         </InfoArray>
-        <InfoArray index="Research10" Time="220" Upgrade="TerranShipArmorsLevel2">
+        <InfoArray index="Research10" Time="190" Upgrade="TerranShipArmorsLevel2">
             <Resource index="Minerals" value="225"/>
             <Resource index="Vespene" value="225"/>
             <Button DefaultButtonFace="TerranShipPlatingLevel2" State="Restricted" Requirements="LearnTerranShipArmor2"/>
         </InfoArray>
-        <InfoArray index="Research11" Time="250" Upgrade="TerranShipArmorsLevel3">
+        <InfoArray index="Research11" Time="220" Upgrade="TerranShipArmorsLevel3">
             <Resource index="Minerals" value="300"/>
             <Resource index="Vespene" value="300"/>
             <Button DefaultButtonFace="TerranShipPlatingLevel3" State="Restricted" Requirements="LearnTerranShipArmor3"/>
         </InfoArray>
-        <InfoArray index="Research12" Time="190" Upgrade="TerranShipWeaponsLevel1">
+        <InfoArray index="Research12" Time="160" Upgrade="TerranShipWeaponsLevel1">
             <Resource index="Minerals" value="100"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="TerranShipWeaponsLevel1" State="Restricted" Requirements="LearnTerranShipWeapon1"/>
         </InfoArray>
-        <InfoArray index="Research13" Time="220" Upgrade="TerranShipWeaponsLevel2">
+        <InfoArray index="Research13" Time="190" Upgrade="TerranShipWeaponsLevel2">
             <Resource index="Minerals" value="175"/>
             <Resource index="Vespene" value="175"/>
             <Button DefaultButtonFace="TerranShipWeaponsLevel2" State="Restricted" Requirements="LearnTerranShipWeapon2"/>
         </InfoArray>
-        <InfoArray index="Research14" Time="250" Upgrade="TerranShipWeaponsLevel3">
+        <InfoArray index="Research14" Time="220" Upgrade="TerranShipWeaponsLevel3">
             <Resource index="Minerals" value="250"/>
             <Resource index="Vespene" value="250"/>
             <Button DefaultButtonFace="TerranShipWeaponsLevel3" State="Restricted" Requirements="LearnTerranShipWeapon3"/>

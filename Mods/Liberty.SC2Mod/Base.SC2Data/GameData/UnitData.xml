@@ -1352,8 +1352,8 @@
         <LifeMax value="100"/>
         <LifeArmor value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
-        <ShieldsStart value="60"/>
-        <ShieldsMax value="60"/>
+        <ShieldsStart value="50"/>
+        <ShieldsMax value="50"/>
         <ShieldRegenRate value="2"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <Speed value="2.25"/>

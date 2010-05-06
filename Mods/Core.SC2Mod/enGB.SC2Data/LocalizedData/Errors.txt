@@ -129,6 +129,7 @@ e_errorXMLStateNotTagContent=XML: State not TagContent
 // Gfx2
 e_gfxErrorFailedToInitialize=Starcraft II has encountered an error while initializing your videocard. Please try starting Starcraft II again. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
 e_gfxErrorOutofVideoMemory=Starcraft II has encountered an error. Your system may be running low on available video memory. Please restart your machine. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
+e_gfxErrorOutofMemory=Starcraft II has encountered an error. Your graphics system may be running low on available memory. Please restart your machine. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
 e_gfxErrorWeRequireAdditionalPShaders=Starcraft II requires a videocard with pixel shader 2.0 support. This PC does not meet minimum system requirements. For more information on required hardware, consult our support website at http://starcraft2.com/support.
 e_gfxErrorWeRequireAdditionalVShaders=Starcraft II requires a videocard with vertex shader 2.0 support. This PC does not meet minimum system requirements. For more information on required hardware, consult our support website at http://starcraft2.com/support.
 e_gfxGraphicsAPIError=Starcraft II has encountered an unexpected D3D/OpenGL error. If the problem persists, for more information consult our support website at http://starcraft2.com/support.

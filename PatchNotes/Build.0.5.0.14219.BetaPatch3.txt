@@ -1,0 +1,34 @@
+StarCraft II Beta - Patch 3 (version 0.5.0.14219B)
+
+Balance Changes
+
+
+    * TERRAN
+
+          o Engineering Bay
+
+                + Infantry Armor: The time required for each upgrade has been reduced by 30 seconds, decreasing each upgrade time from 190/220/250 seconds to 160/190/220 seconds.
+                + Infantry Weapons: The time required for each upgrade has been reduced by 30 seconds, decreasing each upgrade time from 190/220/250 seconds to 160/190/220 seconds.
+
+          o Armory
+
+                + Vehicle Plating: The time required for each upgrade has been reduced by 30 seconds, decreasing each upgrade time from 190/220/250 seconds to 160/190/220 seconds.
+                + Vehicle Weapons: The time required for each upgrade has been reduced by 30 seconds, decreasing each upgrade time from 190/220/250 seconds to 160/190/220 seconds.
+                + Ship Plating: The time required for each upgrade has been reduced by 30 seconds, decreasing each upgrade time from 190/220/250 seconds to 160/190/220 seconds.
+                + Ship Weapons: The time required for each upgrade has been reduced by 30 seconds, decreasing each upgrade time from 190/220/250 seconds to 160/190/220 seconds.
+
+    * PROTOSS
+
+          o Zealot
+
+                + The maximum shield capacity of this unit has been decreased from 60 to 50.
+
+
+Bug Fixes
+
+
+    * Fixed a bug where the Infestor's Neural Parasite ability could cause Reapers to lose the ability to move.
+    * Fixed an issue that could use an incorrect HDR format on some ATI cards.
+    * Fixed a crash that could happen on some ATI cards.
+
+
