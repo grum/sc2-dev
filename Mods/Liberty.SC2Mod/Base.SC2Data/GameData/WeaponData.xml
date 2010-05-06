@@ -357,7 +357,7 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="7"/>
-        <Period value="2.2"/>
+        <Period value="1.6"/>
         <DamagePoint value="0.3332"/>
         <RangeSlop value="0"/>
         <Effect value="SpineCrawlerLM"/>

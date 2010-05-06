@@ -1963,7 +1963,7 @@
             <Button DefaultButtonFace="SpineCrawler" Requirements="HaveSpawningPool"/>
         </InfoArray>
         <InfoArray index="Build16" Unit="SporeCrawler" Time="30">
-            <Resource index="Minerals" value="100"/>
+            <Resource index="Minerals" value="75"/>
             <Button DefaultButtonFace="SporeCrawler" Requirements="HaveEvolutionChamber"/>
         </InfoArray>
     </CAbilBuild>

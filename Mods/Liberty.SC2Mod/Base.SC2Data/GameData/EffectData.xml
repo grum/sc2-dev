@@ -1313,8 +1313,7 @@
     </CEffectLaunchMissile>
     <CEffectDamage id="MissileTurretU" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Terran"/>
-        <Amount value="7"/>
-        <AttributeBonus index="Armored" value="7"/>
+        <Amount value="12"/>
     </CEffectDamage>
     <CEffectDamage id="AutoTurret" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
@@ -1640,7 +1639,7 @@
     <CEffectEnumArea id="PsiStormSearch">
         <EditorCategories value="Race:Protoss"/>
         <SearchFilters value="-;Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="2" Effect="PsiStormApplyBehavior"/>
+        <AreaArray Radius="1.5" Effect="PsiStormApplyBehavior"/>
         <SearchFlags index="CallForHelp" value="1"/>
         <AINotifyFlags index="HurtFriend" value="1"/>
         <AINotifyFlags index="HurtEnemy" value="1"/>
@@ -1746,8 +1745,8 @@
     </CEffectLaunchMissile>
     <CEffectDamage id="SpineCrawlerU" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Zerg"/>
-        <Amount value="20"/>
-        <AttributeBonus index="Armored" value="10"/>
+        <Amount value="25"/>
+        <AttributeBonus index="Armored" value="5"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="SporeCrawler">
         <EditorCategories value="Race:Zerg"/>
@@ -1862,11 +1861,14 @@
     <CEffectDamage id="ThorAADamage" parent="DU_WEAP_SPLASH">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="10"/>
+        <Amount value="8"/>
         <Death value="Blast"/>
-        <SearchFilters value="Air;Self,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFilters value="Air;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <ExcludeArray Value="Target"/>
-        <AttributeBonus index="Light" value="6"/>
+        <AttributeBonus index="Light" value="4"/>
+        <AreaArray Radius="0.5" Fraction="1"/>
+        <ArmorReduction value="1"/>
+        <Kind value="Splash"/>
     </CEffectDamage>
     <CEffectDamage id="UltraliskU" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -2282,7 +2284,7 @@
         <ImpactLocation Effect="BroodlingEscort" Value="TargetUnit"/>
         <EditorCategories value="Race:Zerg"/>
         <Visibility value="Visible"/>
-        <Amount value="25"/>
+        <Amount value="20"/>
     </CEffectDamage>
     <CEffectCreateUnit id="ZergBuildingSpawnBroodling6">
         <EditorCategories value="Race:Zerg"/>

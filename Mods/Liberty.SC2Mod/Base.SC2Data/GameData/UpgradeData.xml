@@ -1179,7 +1179,6 @@
     <CUpgrade id="OrganicCarapace">
         <Race value="Zerg"/>
         <Icon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
-        <EffectArray Reference="Unit,Roach,LifeRegenRate" Value="5.000000"/>
         <EffectArray Reference="Unit,RoachBurrowed,LifeRegenRate" Value="10.000000"/>
         <EditorCategories value="Race:Zerg,UpgradeType:Talents"/>
         <ScoreResult value="BuildOrder"/>
