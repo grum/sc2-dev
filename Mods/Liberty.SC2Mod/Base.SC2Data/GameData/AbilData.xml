@@ -595,8 +595,8 @@
         <Cost>
             <Vital index="Energy" value="50"/>
         </Cost>
-        <TargetFilters value="Visible;Self,Player,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
-        <Range value="9"/>
+        <TargetFilters value="Ground,Visible;Self,Player,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
+        <Range value="7"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="NeuralParasite"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
         <Effect index="0" value="NeuralParasiteLaunchMissile"/>
@@ -2018,9 +2018,9 @@
             <Button DefaultButtonFace="zergmissileweapons3" State="Restricted" Requirements="LearnZergMissileWeapon3"/>
         </InfoArray>
         <InfoArray index="Research10" Time="90"/>
-        <InfoArray index="Research11" Time="50" Upgrade="Burrow">
-            <Resource index="Minerals" value="50"/>
-            <Resource index="Vespene" value="50"/>
+        <InfoArray index="Research11" Time="100" Upgrade="Burrow">
+            <Resource index="Minerals" value="100"/>
+            <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="ResearchBurrow" State="Restricted" Requirements="LearnBurrow"/>
         </InfoArray>
     </CAbilResearch>
@@ -3137,7 +3137,7 @@
             <Resource index="Vespene" value="300"/>
             <Button DefaultButtonFace="ProtossAirArmorLevel3" State="Restricted" Requirements="LearnProtossAirArmor3"/>
         </InfoArray>
-        <InfoArray index="Research7" Time="60" Upgrade="WarpGateResearch">
+        <InfoArray index="Research7" Time="140" Upgrade="WarpGateResearch">
             <Resource index="Minerals" value="50"/>
             <Resource index="Vespene" value="50"/>
             <Button DefaultButtonFace="ResearchWarpGate" State="Restricted" Requirements="LearnWarpGate"/>
@@ -3496,7 +3496,7 @@
     <CAbilBuild id="BuildNydusCanal">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
         <Range value="500"/>
-        <InfoArray index="Build1" Category="Army" Unit="NydusCanal" Time="10">
+        <InfoArray index="Build1" Category="Army" Unit="NydusCanal" Time="20">
             <Resource index="Minerals" value="100"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="NydusCanal" State="Restricted" Requirements="HaveNydusNetwork"/>

@@ -7591,8 +7591,8 @@
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
-        <LifeStart value="120"/>
-        <LifeMax value="120"/>
+        <LifeStart value="90"/>
+        <LifeMax value="90"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <EnergyStart value="50"/>
@@ -7667,8 +7667,8 @@
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
         <Mover value="Burrowed"/>
-        <LifeStart value="120"/>
-        <LifeMax value="120"/>
+        <LifeStart value="90"/>
+        <LifeMax value="90"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <EnergyStart value="50"/>
@@ -7689,6 +7689,7 @@
         <FlagArray index="UseLineOfSight" value="1"/>
         <FlagArray index="Cloaked" value="1"/>
         <FlagArray index="Buried" value="1"/>
+        <FlagArray index="AlwaysThreatens" value="1"/>
         <FlagArray index="AIThreatGround" value="1"/>
         <FlagArray index="AIThreatAir" value="1"/>
         <FlagArray index="AICaster" value="1"/>
@@ -7722,7 +7723,7 @@
         <TacticalAIRange value="AIRangeInfestor"/>
         <Radius value="0.75"/>
         <Description value="Button/Tooltip/Infestor"/>
-        <Speed value="1.5"/>
+        <Speed value="1.0"/>
         <KillDisplay value="Always"/>
     </CUnit>
     <CUnit id="BeaconRally" parent="BEACON"/>

@@ -6248,6 +6248,7 @@ Terran_AttackLaunch"/>
         <On Terms="UnitBirth.InfestorBurrowed" Send="AnimGroupApply Burrow Burrow Unburrow ClosingFull,Instant"/>
         <On Terms="UnitMovementUpdate.InfestorBurrowed.Stand" Send="Create InfestorBurrowedSplat"/>
         <On Terms="UnitMovementUpdate.InfestorBurrowed.Walk" Target="InfestorBurrowedSplat" Send="Destroy"/>
+        <On Terms="Abil.NeuralParasite.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="AnimPlay NeuralParasite Attack PlayForever"/>
         <On Terms="Abil.Siphon.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="AnimPlay Siphon Attack PlayForever"/>
         <On Terms="Abil.InfestedTerrans.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="$Spell 0 -1.000000 -1.000000 2.000000 AsDuration"/>
         <On Terms="Abil.AcidSpores.SourceCastStart; ValidateUnit NotInfestorBurrowed" Send="$Spell,A"/>
@@ -6255,6 +6256,7 @@ Terran_AttackLaunch"/>
         <On Terms="Abil.InfestedTerrans.SourceCastStart; !ValidateUnit NotInfestorBurrowed" Send="AnimPlay Spell Stand,Burrow,Spell 0 -1.000000 -1.000000 2.000000 AsDuration"/>
         <On Terms="Abil.AcidSpores.SourceCastStart; !ValidateUnit NotInfestorBurrowed" Send="AnimPlay Spell Stand,Burrow,Spell,A"/>
         <On Terms="Abil.Siphon.SourceChannelStop" Send="AnimClear Siphon"/>
+        <On Terms="Abil.NeuralParasite.SourceChannelStop" Send="AnimClear NeuralParasite"/>
         <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownMedium"/>
         <On Terms="AbilMorph.*.Cancel; MorphFrom Infestor; MorphTo InfestorBurrowed" Send="AnimClear Burrow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo Infestor; MorphFrom InfestorBurrowed" Send="AnimBracketStop Burrow"/>

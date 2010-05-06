@@ -2461,7 +2461,7 @@ Button/Tooltip/MoveHoldPosition=Orders selected units to stay where they are and
 Button/Tooltip/MovePatrol=Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.
 Button/Tooltip/Mutalisk=Air unit that bounces its shot to strike multiple targets.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/MutaliskCocoon=This egg contains a Corruptor as it is morphing into a powerful Brood Lord.
-Button/Tooltip/NeuralParasite=Target unit is controlled by the Infestor for <d ref="Behavior,NeuralParasite,Duration"/> seconds. The Infestor cannot take any other action while controlling an enemy unit.<n/><n/><c val="ffff8a">Channeled ability.</c>
+Button/Tooltip/NeuralParasite=Target unit is controlled by the Infestor until one of them dies, or the Infestor relinquishes control. The Infestor cannot take any other action while controlling an enemy unit.<n/><n/><c val="#ColorAttackInfo">Air units are immune.</c><n/><c val="ffff8a">Channeled ability.</c>
 Button/Tooltip/Nexus=Primary structure. Can receive gathered resources. Can use the Chrono Boost ability.<n/><n/><c val="ffff8a">Enables:</c><n/>- Probes
 Button/Tooltip/NuclearReactor=Allows two units to be built simultaneously.
 Button/Tooltip/NukeArm=Arms the Silo with a tactical nuke.<n/><n/>Nukes take 20 seconds to land, but deal up to 300 damage (+200 vs Structures) in a large radius.<n/><n/>Use a Ghost to designate the target.
@@ -2480,7 +2480,7 @@ Button/Tooltip/OverlordCocoon=This egg contains an Overlord as it is morphing in
 Button/Tooltip/OverlordTransportLoad=Loads units into the Overlord's ventral sacs.
 Button/Tooltip/OverlordTransportUnload=Unloads all units.
 Button/Tooltip/Overseer=Advanced aerial observer. Maintains the unit cap set by the Overlord. Can use Spawn Changeling.<n/><n/><c val="FFE303">Detector</c>
-Button/Tooltip/OverseerMut=Advanced aerial observer. Provides the same supply as an Overlord. Can use the Spawn Changeling and Fungal Growth abilities.<n/><n/><c val="FFE303">Detector</c>
+Button/Tooltip/OverseerMut=Advanced aerial observer. Provides the same supply as an Overlord. Can use Spawn Changeling.<n/><n/><c val="FFE303">Detector</c>
 Button/Tooltip/PermanentlyCloaked=The Dark Templar is permanently cloaked.
 Button/Tooltip/PermanentlyCloakedObserver=The Observer is permanently cloaked.
 Button/Tooltip/PhaseShift=Causes the targeted unit to phase out for <d ref="Behavior,Ethereal,Duration"/> seconds.  Phased units are immune to all damage and most effects, but are unable to attack or use abilities.

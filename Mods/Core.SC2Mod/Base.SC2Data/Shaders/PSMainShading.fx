@@ -148,7 +148,7 @@ half4 MainShading( VertexTransport vertOut ) {
     // terrain
     } else if (b_iShadingMode == SHADINGMODE_TERRAIN) {
         float4 cResult = ShadeTerrain(vertOut);
-        if ( b_iUse8BitHDR )
+        if ( b_iUse8BitHDR && !b_computeHeight)
             cResult.rgb *= 0.5f;
         return cResult;
 

@@ -1,0 +1,46 @@
+StarCraft II Beta – Patch 5 (version 0.7.0.14356)
+
+The latest patch notes can always be found at http://forums.battle.net/thread.html?topicId=23094049316&sid=5000
+
+Balance Changes
+
+
+    * PROTOSS
+
+          o Cybernetics Core
+
+                + Warp Gate research time increased from 60 seconds to 140 seconds.
+
+    * ZERG
+
+          o Hatchery/Lair/Hive
+
+                + Burrow research time increased from 50 seconds to 100 seconds.
+                + Burrow research cost increased from 50 Minerals and 50 Vespene Gas to 100 Minerals and 100 Vespene Gas.
+
+          o Nydus Network
+
+                + Nydus Worm build time increased from 10 seconds to 20 seconds.
+
+          o Hydralisk
+
+                + The delay between attacks has been increased from 0.75 seconds to 0.83 seconds.
+
+          o Infestor
+
+                + Neural Parasite has been redesigned:
+
+                      # The limited duration of 10 seconds has been removed.
+                      # Can no longer target air units.
+                      # Cast range decreased from 9 to 7.
+
+                + Burrowed Infestor move speed decreased from 1.5 to 1.
+                + Infestor life decreased from 120 to 90.
+                + Infestors that are burrowed now have the same threat level as above-ground units for the purposes of automatically acquiring targets. 
+
+
+Bug Fixes
+
+
+    * Fixed an issue with High graphics settings that could cause particles not to render.
+

@@ -326,7 +326,6 @@
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <Duration value="10"/>
         <Player Value="Caster"/>
         <Modification>
             <StateFlags index="Benign" value="1"/>
@@ -334,8 +333,6 @@
             <AbilClassDisableArray index="CAbilTransport" value="1"/>
             <AbilLinkDisableArray value="ArchonWarp"/>
         </Modification>
-        <DisplayCountdown index="Ally" value="1"/>
-        <DisplayCountdown index="Enemy" value="1"/>
         <BuffFlags index="Channeled" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="NeuralParasiteWait">

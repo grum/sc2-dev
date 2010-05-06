@@ -27,7 +27,7 @@
         <Cost>
             <Cooldown Link="Weapon/Hydralisk"/>
         </Cost>
-        <Period value="0.75"/>
+        <Period value="0.83"/>
         <DamagePoint value="0.5"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestorTerran">
@@ -377,7 +377,7 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level1.dds"/>
         <DisplayEffect value="HydraliskU"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="0.75"/>
+        <Period value="0.83"/>
         <DamagePoint value="0.208"/>
         <Effect value="HydraliskGround"/>
     </CWeaponLegacy>

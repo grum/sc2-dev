@@ -457,7 +457,7 @@
         <WhichLocation Value="CasterUnit"/>
         <Flags index="Channeled" value="1"/>
         <InitialEffect value="NeuralParasite"/>
-        <PeriodCount value="20"/>
+        <PeriodCount value="9999"/>
         <PeriodicEffectArray value=""/>
         <PeriodicPeriodArray value="0.5"/>
         <PeriodicValidator value="CasterHasEnergyAndNotDead"/>
