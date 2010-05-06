@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="ScreenSave" name="ScreenSave">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="250"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Width val="1600"/>
+        <Height val="850"/>
+
+        <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardDialogBorderTemplate">
+            <Anchor relative="$parent"/>
+        </Frame>
+
+        <Frame type="Image" name="TopLeftImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="14"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="@@UI/OptionsTopLeft"/>
+            <TextureType val="Normal"/>
+        </Frame>
+
+        <Frame type="Image" name="TopRightImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="12"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Texture val="@@UI/OptionsTopRight"/>
+            <TextureType val="Normal"/>
+        </Frame>
+
+        <Frame type="Label" name="TitleLabel">
+            <Style val="StandardPanelTitle"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+            <Text val="@UI/LoadSave"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="MultiplayerButton" template="StandardTemplates/StandardVerticalTabButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="120"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
+            <Text val="@UI/FilePanelMultiplayer_Control"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="SkirmishButton" template="StandardTemplates/StandardVerticalTabButtonTemplate">
+            <Anchor side="Top" relative="$parent/MultiplayerButton" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent/MultiplayerButton" pos="Min" offset="0"/>
+            <Text val="@UI/FilePanelSkirmish_Control"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="ChallengeButton" template="StandardTemplates/StandardVerticalTabButtonTemplate">
+            <Anchor side="Top" relative="$parent/SkirmishButton" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent/SkirmishButton" pos="Min" offset="0"/>
+            <Text val="@UI/FilePanelChallenge_Control"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="CampaignButton" template="StandardTemplates/StandardVerticalTabButtonTemplate">
+            <Anchor side="Top" relative="$parent/ChallengeButton" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent/ChallengeButton" pos="Min" offset="0"/>
+            <Text val="@UI/FilePanelCampaign_Control"/>
+        </Frame>
+
+        <Frame type="SaveFilePanel" name="SavePanel" template="StandardFilePanel/SavePanel">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
+            <Width val="1200"/>
+            <Height val="800"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="AcceptButton" template="StandardTemplates/StandardButtonAlternateTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-25"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Width val="300"/>
+            <Shortcut val="@UI/GameMenuLoad_Hotkey"/>
+            <Text val="@UI/GameMenuLoad_Control"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/AcceptButton" pos="Min" offset="-10"/>
+            <Anchor side="Left" relative="$parent/AcceptButton" pos="Min" offset="0"/>
+            <Width val="300"/>
+            <Shortcut val="@UI/GameMenuClose_Hotkey"/>
+            <Text val="@UI/GameMenuClose_Control"/>
+        </Frame>
+    </Frame>
+</Desc>

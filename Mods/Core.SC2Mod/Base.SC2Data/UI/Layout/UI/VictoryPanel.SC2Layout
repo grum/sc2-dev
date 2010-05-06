@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="VictoryPanelStatisticListBoxItem" name="VictoryPanelStatisticListBoxItemTemplate">
+        <Frame type="Label" name="TextLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Width val="400"/>
+            <Style val="VictoryPanelStatisticText"/>
+            <Alpha val="120"/>
+        </Frame>
+
+        <Frame type="Label" name="ValueLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/TextLabel" pos="Max" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>            
+            <Style val="VictoryPanelStatisticValue"/>
+            <Alpha val="190"/>
+        </Frame>
+    </Frame>
+    
+    <Frame type="VictoryPanel" name="VictoryPanelTemplate">
+        <Anchor relative="$parent"/>
+        <Visible val="false"/>
+
+        <Frame type="Frame" name="MainPanel">
+            <Anchor relative="$parent"/>
+            <Visible val="false"/>
+            
+            <Frame type="Frame" name="BackgroundFrame" template="CampaignTemplates/CampaignPanelBackgroundFrameTemplate">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <Height val="1100"/>
+                <Width val="1500"/>
+            </Frame>
+
+            <Frame type="Label" name="TimeHeadingLabel">
+                <Anchor side="Top" relative="$parent/BackgroundFrame/TitleBackgroundImage" pos="Min" offset="80"/>
+                <Anchor side="Left" relative="$parent/BackgroundFrame/TitleBackgroundImage" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/TitleBackgroundImage" pos="Max" offset="-10"/>
+                <Style val="VictoryPanelTimeHeading"/>
+                <Text val="@UI/VictoryPanelTimeHeading"/>
+                <Alpha val="120"/>
+            </Frame>
+
+            <Frame type="Label" name="TimeLabel">
+                <Anchor side="Top" relative="$parent/TimeHeadingLabel" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/BackgroundFrame/TitleBackgroundImage" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/TitleBackgroundImage" pos="Max" offset="-10"/>
+                <Style val="VictoryPanelTime"/>
+                <Alpha val="120"/>
+            </Frame>
+
+            <Frame type="Portrait" name="BackgroundPortrait">
+                <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="80"/>
+                <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
+                <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
+            </Frame>
+
+            <Frame type="Image" name="BackgroundGradientImage">
+                <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="80"/>
+                <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
+                <Texture val="@@UI/PlanetPanelGradient" layer="0"/>
+            </Frame>
+
+            <Frame type="Image" name="BackgroundInterlaceImage">
+                <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="80"/>
+                <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
+                <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
+                <Texture val="@@UI/PlanetPanelInterlace" layer="0"/>
+                <Tiled val="true" layer="0"/>
+            </Frame>
+
+            <Frame type="Image" name="MissionImageBorderImage">
+                <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="80"/>
+                <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="80"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-80"/>
+                <Height val="400"/>
+                <Texture val="@@UI/VictoryPanelMissionImageBorder" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <LayerColor val="7ed3ea"/>
+            </Frame>
+
+            <Frame type="Image" name="MissionImageGradientImage">
+                <Anchor side="Bottom" relative="$parent/MissionImageBorderImage" pos="Max" offset="-20"/>
+                <Anchor side="Left" relative="$parent/MissionImageBorderImage" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent/MissionImageBorderImage" pos="Max" offset="-10 "/>
+                <Height val="50"/>
+                <Texture val="@@UI/VictoryPanelTitleGradient"/>
+                <TextureType val="Border"/>
+                <Tiled val="true"/>
+                <LayerColor val="7dd1e9"/>
+                <Alpha val="20"/>
+                <BlendMode val="Add"/>
+            </Frame>
+
+            <Frame type="Label" name="MissionNameHeadingLabel">
+                <Anchor side="Bottom" relative="$parent/MissionImageGradientImage" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/MissionImageGradientImage" pos="Min" offset="20"/>
+                <Style val="VictoryPanelMissionNameHeading"/>
+                <Text val="@UI/VictoryPanelMissionNameHeading"/>
+                <Alpha val="120"/>
+            </Frame>
+
+            <Frame type="Label" name="MissionNameLabel">
+                <Anchor side="Top" relative="$parent/MissionImageGradientImage" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MissionImageGradientImage" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/MissionImageGradientImage" pos="Min" offset="20"/>
+                <Style val="VictoryPanelMissionName"/>
+                <Alpha val="190"/>
+            </Frame>
+
+            <Frame type="Label" name="RewardHeadingLabel">
+                <Anchor side="Bottom" relative="$parent/MissionImageGradientImage" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/MissionImageGradientImage" pos="Max" offset="-20"/>
+                <Style val="VictoryPanelRewardHeading"/>
+                <Text val="@UI/VictoryPanelRewardHeading"/>
+                <Alpha val="120"/>
+            </Frame>
+
+            <Frame type="Label" name="RewardLabel">
+                <Anchor side="Top" relative="$parent/MissionImageGradientImage" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MissionImageGradientImage" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/MissionImageGradientImage" pos="Max" offset="-20"/>
+                <Style val="VictoryPanelReward"/>
+                <Alpha val="120"/>
+            </Frame>
+
+            <Frame type="Image" name="AchievementBackgroundImage">
+                <Anchor side="Top" relative="$parent/MissionImageBorderImage" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
+                <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
+                <Width val="500"/>
+                <Texture val="@@UI/BattleReportPanelSummaryBackground" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+            </Frame>
+
+            <Frame type="AchievementFrame" name="AchievementFrame0" template="AchievementPanel/AchievementFrameTemplate">
+                <Anchor side="Top" relative="$parent/AchievementBackgroundImage" pos="Min" offset="40"/>
+                <Anchor side="Left" relative="$parent/AchievementBackgroundImage" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/AchievementBackgroundImage" pos="Mid" offset="0"/>
+                <Visible val="false"/>
+            </Frame>
+
+            <Frame type="AchievementFrame" name="AchievementFrame1" template="AchievementPanel/AchievementFrameTemplate">
+                <Anchor side="Top" relative="$parent/AchievementFrame0" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/AchievementBackgroundImage" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/AchievementBackgroundImage" pos="Mid" offset="0"/>
+                <Visible val="false"/>
+            </Frame>
+
+            <Frame type="AchievementFrame" name="AchievementFrame2" template="AchievementPanel/AchievementFrameTemplate">
+                <Anchor side="Top" relative="$parent/AchievementFrame1" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/AchievementBackgroundImage" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/AchievementBackgroundImage" pos="Mid" offset="0"/>
+                <Visible val="false"/>
+            </Frame>
+
+            <Frame type="AchievementFrame" name="AchievementFrame3" template="AchievementPanel/AchievementFrameTemplate">
+                <Anchor side="Top" relative="$parent/AchievementFrame2" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/AchievementBackgroundImage" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/AchievementBackgroundImage" pos="Mid" offset="0"/>
+                <Visible val="false"/>
+            </Frame>
+
+            <Frame type="Image" name="SummaryBackgroundImage">
+                <Anchor side="Top" relative="$parent/MissionImageBorderImage" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/AchievementBackgroundImage" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/AchievementBackgroundImage" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
+                <Texture val="@@UI/BattleReportPanelSummaryBackground" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+            </Frame>
+
+            <Frame type="Image" name="SummaryMetalBackgroundImage">
+                <Anchor side="Top" relative="$parent/SummaryBackgroundImage" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/SummaryBackgroundImage" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/SummaryBackgroundImage" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/SummaryBackgroundImage" pos="Max" offset="0"/>
+                <Texture val="@@UI/BattleReportPanelListBackground" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+            </Frame>
+
+            <Frame type="Image" name="SummaryInnerBackgroundImage">
+                <Anchor side="Top" relative="$parent/SummaryBackgroundImage" pos="Min" offset="35"/>
+                <Anchor side="Bottom" relative="$parent/SummaryBackgroundImage" pos="Max" offset="-35"/>
+                <Anchor side="Left" relative="$parent/SummaryBackgroundImage" pos="Min" offset="35"/>
+                <Anchor side="Right" relative="$parent/SummaryBackgroundImage" pos="Max" offset="-35 "/>
+                <Texture val="@@UI/BattleReportPanelListInnerBackground" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <LayerColor val="7ed3ea" layer="0"/>
+                <BlendMode val="Add"/>
+            </Frame>
+
+            <Frame type="Image" name="SummaryTitleGradientImage">
+                <Anchor side="Top" relative="$parent/SummaryBackgroundImage" pos="Min" offset="54"/>
+                <Anchor side="Left" relative="$parent/SummaryBackgroundImage" pos="Min" offset="48"/>
+                <Anchor side="Right" relative="$parent/SummaryBackgroundImage" pos="Max" offset="-48 "/>
+                <Height val="30"/>
+                <Texture val="@@UI/VictoryPanelTitleGradient"/>
+                <TextureType val="Border"/>
+                <Tiled val="true"/>
+                <LayerColor val="7dd1e9"/>
+                <Alpha val="50"/>
+                <BlendMode val="Add"/>
+            </Frame>
+
+            <Frame type="Label" name="SummaryHeadingLabel">
+                <Anchor side="Top" relative="$parent/SummaryTitleGradientImage" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/SummaryTitleGradientImage" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/SummaryTitleGradientImage" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/SummaryTitleGradientImage" pos="Mid" offset="0"/>
+                <Style val="VictoryPanelSummaryHeading"/>
+                <Text val="@UI/VictoryPanelMissionSummaryHeading"/>
+                <Alpha val="120"/>
+            </Frame>
+
+            <Frame type="ListBox" name="StatisticListBox">
+                <Anchor side="Top" relative="$parent/SummaryHeadingLabel" pos="Max" offset="20"/>
+                <Anchor side="Bottom" relative="$parent/SummaryInnerBackgroundImage" pos="Max" offset="-20"/>
+                <Anchor side="Left" relative="$parent/SummaryInnerBackgroundImage" pos="Min" offset="50"/>
+                <Anchor side="Right" relative="$parent/SummaryInnerBackgroundImage" pos="Max" offset="-50"/>
+                <ItemDesc val="VictoryPanel/VictoryPanelStatisticListBoxItemTemplate"/>
+                <ScrollBar val="$root/StandardTemplates/StandardScrollBarTemplate"/>
+                <SelectedImage val="SelectedImage"/>
+                <HoverImage val="HoverImage"/>
+                <BackgroundImage val="BackgroundImage"/>
+                <ItemGap val="3"/>
+                
+                <Frame type="Image" name="SelectedImage">
+                    <Alpha val="0"/>
+                    <DescFlags val="Internal"/>
+                </Frame>
+
+                <Frame type="Image" name="HoverImage">
+                    <Alpha val="0"/>
+                    <DescFlags val="Internal"/>
+                </Frame>
+
+                <Frame type="Image" name="BackgroundImage">
+                    <Alpha val="0"/>
+                    <DescFlags val="Internal"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Image" name="PlayAgainButtonBackground">
+                <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-25"/>
+                <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="20"/>
+                <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
+            </Frame>
+
+            <Frame type="ThumbButton" name="PlayAgainButton" template="StandardTemplates/StandardGamePanelLargeLeftButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/PlayAgainButtonBackground" pos="Max" offset="-55"/>
+                <Anchor side="Left" relative="$parent/PlayAgainButtonBackground" pos="Min" offset="65"/>
+                <Shortcut val="@UI/VictoryPanelPlay_Again_Hotkey"/>
+                <Text val="@UI/VictoryPanelPlay_Again_Control"/>
+            </Frame>
+
+            <Frame type="Image" name="SaveReplayButtonBackground">
+                <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-40"/>
+                <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Mid" offset="0"/>
+                <Texture val="@@UI/InGameFrameLargeMiddleButtonBackground" layer="0"/>
+            </Frame>
+
+            <Frame type="ThumbButton" name="SaveReplayButton" template="StandardTemplates/StandardGamePanelLargeMiddleButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/SaveReplayButtonBackground" pos="Max" offset="-39"/>
+                <Anchor side="Left" relative="$parent/SaveReplayButtonBackground" pos="Min" offset="52"/>
+                <Shortcut val="@UI/SaveReplay_Hotkey"/>
+                <Text val="@UI/SaveReplay_Control"/>
+            </Frame>
+
+            <Frame type="Image" name="ContinueButtonBackground">
+                <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-25"/>
+                <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-20"/>
+                <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
+                <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+            </Frame>
+
+            <Frame type="ThumbButton" name="ContinueButton" template="StandardTemplates/StandardGamePanelLargeRightButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/ContinueButtonBackground" pos="Max" offset="-55"/>
+                <Anchor side="Left" relative="$parent/ContinueButtonBackground" pos="Min" offset="51"/>
+                <Shortcut val="@UI/VictoryPanelContinue_Hotkey"/>
+                <Text val="@UI/VictoryPanelContinue_Control"/>
+            </Frame>
+        </Frame>
+        
+        <Frame type="GameMenuDialogReplayPanel" name="SaveReplayPanel" template="GameMenuDialog/GameMenuDialogReplayPanelTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="100"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Visible val="false"/>
+        </Frame>
+
+        <Frame type="VictoryPanelPlayAgainPanel" name="PlayAgainPanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="100"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="500"/>
+            <Height val="435"/>
+            <Visible val="false"/>
+            
+            <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardBackgroundFrameTemplate">
+                <Anchor relative="$parent"/>
+
+                <Frame type="Image" name="GlassBorder">
+                    <Visible val="false"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Image" name="SubFrame">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="55"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-55"/>
+                <Height val="120"/>
+                <Texture val="@@UI/InGameFrameSubFrame" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+            </Frame>
+
+            <Frame type="Label" name="DifficultyLabel">
+                <Anchor side="Top" relative="$parent/SubFrame" pos="Min" offset="10"/>
+                <Anchor side="Left" relative="$parent/SubFrame" pos="Min" offset="20"/>
+                <Text val="@UI/Difficulty_Colon"/>
+                <Style val="RestartPanelDifficultyLabel"/>
+            </Frame>
+
+            <Frame type="DifficultyPulldown" name="DifficultyPulldown" template="StandardTemplates/StandardPulldownTemplate">
+                <Anchor side="Top" relative="$parent/DifficultyLabel" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/DifficultyLabel" pos="Min" offset="0"/>
+                <Style val="RestartPanelDifficultyPulldown"/>
+            </Frame>
+
+            <Frame type="Frame" name="PlayAgainButton" template="StandardTemplates/StandardMenuButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Top" relative="$parent/SubFrame" pos="Max" offset="0"/>
+
+                <Frame type="ThumbButton" name="Button">
+                    <Shortcut val="@UI/GameMenuRestart_Hotkey"/>
+                    <Text val="@UI/GameMenuRestart_Control"/>                    
+                </Frame>
+            </Frame>
+
+            <Frame type="Frame" name="CancelButton" template="StandardTemplates/StandardMenuButtonTemplate">
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Top" relative="$parent/PlayAgainButton" pos="Max" offset="0"/>
+
+                <Frame type="ThumbButton" name="Button">
+                    <Shortcut val="@UI/GameMenuCancel_Hotkey"/>
+                    <Text val="@UI/GameMenuCancel_Control"/>                    
+                </Frame>
+            </Frame>
+        </Frame>
+    
+    </Frame>       
+
+</Desc>
+

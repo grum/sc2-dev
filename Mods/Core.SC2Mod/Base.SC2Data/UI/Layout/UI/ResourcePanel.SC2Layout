@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="ResourcePanel" name="ResourcePanelTemplate">
+        <Frame type="Image" name="PlayerImage">
+            <Texture val="@@UI/ResourceIconPlayer" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Width val="32"/>
+            <Height val="32"/>
+            <AcceptsMouse val="true"/>
+        </Frame>
+
+        <Frame type="Image" name="ResourceIcon0">
+            <AcceptsMouse val="true"/>
+            <Texture val="@@UI/ResourceIcon0" layer="0"/>
+            <TextureType val="Normal" layer="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
+            <Anchor side="Left" relative="$parent/PlayerImage" pos="max" offset="20"/>
+            <Width val="32"/>
+            <Height val="32"/>
+        </Frame>
+
+        <Frame type="Label" name="ResourceLabel0">
+            <Style val="ResourcePanel"/>
+            <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ResourceIcon0" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceIcon0" pos="Max" offset="5"/>
+            <Width val="95"/>
+        </Frame>
+
+        <Frame type="Image" name="ResourceIcon1">
+            <AcceptsMouse val="true"/>
+            <Texture val="@@UI/ResourceIcon1" layer="0"/>
+            <TextureType val="Normal" layer="0"/>
+            <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceLabel0" pos="Max" offset="5"/>
+            <Width val="32"/>
+            <Height val="32"/>
+        </Frame>
+
+        <Frame type="Label" name="ResourceLabel1">
+            <Style val="ResourcePanel"/>
+            <Anchor side="Top" relative="$parent/ResourceIcon1" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ResourceIcon1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceIcon1" pos="Max" offset="5"/>
+            <Width val="95"/>
+        </Frame>
+
+        <Frame type="Image" name="ResourceIcon2">
+            <AcceptsMouse val="true"/>
+            <Texture val="@@UI/ResourceIcon2" layer="0"/>
+            <TextureType val="Normal" layer="0"/>
+            <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceLabel1" pos="Max" offset="5"/>
+            <Width val="32"/>
+            <Height val="32"/>
+        </Frame>
+
+        <Frame type="Label" name="ResourceLabel2">
+            <Style val="ResourcePanel"/>
+            <Anchor side="Top" relative="$parent/ResourceIcon2" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ResourceIcon2" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceIcon2" pos="Max" offset="5"/>
+            <Width val="95"/>
+        </Frame>
+
+        <Frame type="Image" name="ResourceIcon3">
+            <AcceptsMouse val="true"/>
+            <Texture val="@@UI/ResourceIcon3" layer="0"/>
+            <TextureType val="Normal" layer="0"/>
+            <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceLabel2" pos="Max" offset="5"/>
+            <Width val="32"/>
+            <Height val="32"/>
+        </Frame>
+
+        <Frame type="Label" name="ResourceLabel3">
+            <Style val="ResourcePanel"/>
+            <Anchor side="Top" relative="$parent/ResourceIcon3" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ResourceIcon3" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceIcon3" pos="Max" offset="5"/>
+            <Width val="95"/>
+        </Frame>
+
+        <Frame type="Image" name="SupplyIcon">
+            <AcceptsMouse val="true"/>
+            <Texture val="@@UI/ResourceIconSupply" layer="0"/>
+            <TextureType val="Normal" layer="0"/>
+            <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResourceLabel3" pos="Max" offset="5"/>
+            <Width val="32"/>
+            <Height val="32"/>
+        </Frame>
+
+        <Frame type="Label" name="SupplyLabel">
+            <Style val="ResourcePanel"/>
+            <Anchor side="Top" relative="$parent/SupplyIcon" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/SupplyIcon" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/SupplyIcon" pos="Max" offset="5"/>
+        </Frame>
+    </Frame>
+</Desc>

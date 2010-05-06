@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="FlashFrame" name="RoomPanelFlashFrameTemplate">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <File val="UI/Flash/GameUI/S2RoomPanel.swf"/>
+    </Frame>
+    
+    <Frame type="RoomPanel" name="RoomPanelTemplate">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+    </Frame>
+</Desc>

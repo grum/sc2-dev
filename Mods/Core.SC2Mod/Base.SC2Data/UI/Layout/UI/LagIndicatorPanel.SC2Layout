@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    
+    <Frame type="LagIndicatorPanel" name="LagIndicatorPanelTemplate">
+        <Frame type="Label" name="LagIndicatorLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="LagIndicatorLabel"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+        
+        <Frame type="Label" name="PagedPoolModeLabel">
+            <Anchor side="Top" relative="$parent/LagIndicatorLabel" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="LagIndicatorLabel"/>            
+        </Frame>
+    </Frame>
+    
+</Desc>

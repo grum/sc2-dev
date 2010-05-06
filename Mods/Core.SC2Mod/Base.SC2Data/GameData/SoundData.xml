@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <SSoundAsset>
+        <FacialGroup value="Default"/>
+    </SSoundAsset>
+    <CSound default="1">
+        <Category value="Voice"/>
+        <ConeAngle value="360.000000,360.000000"/>
+        <ConeVolume value="1.000000,1.000000"/>
+        <DopplerLevel value="1.000000"/>
+        <DupeDestroyCount value="16"/>
+        <DupeFadeBlend value="Unknown"/>
+        <DupeMuteCount value="10"/>
+        <DupeRepeatCount value="65535"/>
+        <DupeThresholdFadeTime value="500"/>
+        <FogFadeBlend value="Unknown"/>
+        <LowPassGain value="1.000000"/>
+        <MuteFadeBlend value="Unknown"/>
+        <OverlapPitchDelta value="0.022000"/>
+        <OverlapTimeDelta value="250"/>
+        <PanLevel value="1.000000"/>
+        <ResourcePriority value="32"/>
+        <ReverbBalance Room="-10000"/>
+        <ReverbRolloffBlend value="Unknown"/>
+        <Select value="Shuffle"/>
+        <SpeakerMix index="FrontLeft" value="1.000000"/>
+        <SpeakerMix index="FrontRight" value="1.000000"/>
+        <SpeakerMix index="Center" value="1.000000"/>
+        <SpeakerMix index="LFE" value="1.000000"/>
+        <SpeakerMix index="BackLeft" value="1.000000"/>
+        <SpeakerMix index="BackRight" value="1.000000"/>
+        <SpeakerMix index="SideLeft" value="1.000000"/>
+        <SpeakerMix index="SideRight" value="1.000000"/>
+        <SustainFade/>
+        <SustainFade Time="500" Volume="-96.000000"/>
+        <VolumeRolloffBlend value="Unknown"/>
+        <VolumeRolloffFadeBlend value="Unknown"/>
+    </CSound>
+    <CSound default="1" id="IGNORE"/>
+    <CSound default="1" id="WORLD">
+        <Flags index="World" value="1"/>
+        <ReverbBalance Room="0"/>
+        <SpeakerMix index="LFE" value="0.000000"/>
+    </CSound>
+    <CSound default="1" id="MUSIC">
+        <Flags index="Stream" value="1"/>
+        <Category value="Music"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound default="1" id="SM">
+        <Category value="Mission"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Stream" value="1"/>
+    </CSound>
+    <CSound default="1" id="SM_Old">
+        <Category value="Dialogue"/>
+        <Flags index="Stream" value="1"/>
+    </CSound>
+    <CSound default="1" id="Highlight">
+        <Flags index="Ignorable" value="1"/>
+        <Category value="UI"/>
+        <AssetArray File="Assets\Sounds\Uni\UI\UI_Hotspot_Hightlights0.wav" Volume="-8.920000,-8.920000"/>
+        <AssetArray File="Assets\Sounds\Uni\UI\UI_Hotspot_Hightlights1.wav" Volume="-8.920000,-8.920000"/>
+        <AssetArray File="Assets\Sounds\Uni\UI\UI_Hotspot_Hightlights2.wav" Volume="-8.920000,-8.920000"/>
+        <AssetArray File="Assets\Sounds\Uni\UI\UI_Hotspot_Hightlights3.wav" Volume="-8.920000,-8.920000"/>
+        <AssetArray File="Assets\Sounds\Uni\UI\UI_Hotspot_Hightlights4.wav" Volume="-8.920000,-8.920000"/>
+    </CSound>
+    <CSound default="1" id="Ambience_Map">
+        <Flags index="Stream" value="1"/>
+        <Category value="Ambient"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="5000"/>
+        <LoopCount value="-1"/>
+    </CSound>
+    <CSound default="1" id="Alert">
+        <Category value="Alert"/>
+        <Flags index="Ignorable" value="1"/>
+        <Flags index="Stream" value="1"/>
+        <Volume value="-5.000000,-5.000000"/>
+    </CSound>
+    <CSound default="1" id="Installer">
+        <Flags index="Ignorable" value="1"/>
+        <Flags index="Stream" value="1"/>
+        <AssetArray File="LocalizedData\Sounds\Installer\##id##.ogg" FacialAnim="##id##"/>
+    </CSound>
+    <CSound default="1" id="Death" parent="WORLD">
+        <Flags index="Ignorable" value="1"/>
+        <Category value="Death"/>
+    </CSound>
+    <CSound default="1" id="DeathVoice" parent="Death">
+        <Chance value="25"/>
+    </CSound>
+    <CSound default="1" id="Ready" parent="WORLD">
+        <Flags index="Ignorable" value="1"/>
+        <Flags index="Stream" value="1"/>
+        <Category value="Ready"/>
+    </CSound>
+    <CSound default="1" id="Spell" parent="WORLD">
+        <Flags index="Purgable" value="1"/>
+        <Category value="Spell"/>
+    </CSound>
+    <CSound default="1" id="Combat" parent="WORLD">
+        <Flags index="Purgable" value="1"/>
+        <Category value="Combat"/>
+    </CSound>
+    <CSound default="1" id="Voice" parent="WORLD">
+        <Flags index="Ignorable" value="1"/>
+        <Flags index="Stream" value="1"/>
+    </CSound>
+    <CSound default="1" id="Pissed" parent="Voice">
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound default="1" id="UI">
+        <Flags index="Ignorable" value="1"/>
+        <Category value="UI"/>
+    </CSound>
+    <CSound default="1" id="Flames" parent="WORLD">
+        <Flags index="Purgable" value="1"/>
+        <Category value="Flames"/>
+    </CSound>
+    <CSound default="1" id="Build" parent="WORLD">
+        <Flags index="Purgable" value="1"/>
+        <Category value="Build"/>
+    </CSound>
+    <CSound default="1" id="Gather" parent="WORLD">
+        <Flags index="Purgable" value="1"/>
+        <Category value="Gather"/>
+    </CSound>
+    <CSound default="1" id="Ambience_Object" parent="WORLD">
+        <Category value="Doodad"/>
+        <DupeDestroyCount value="32"/>
+    </CSound>
+    <CSound default="1" id="Movement" parent="WORLD">
+        <Flags index="Ignorable" value="1"/>
+        <Flags index="Purgable" value="1"/>
+        <Category value="Movement"/>
+    </CSound>
+    <CSound default="1" id="Other">
+        <Category value="Other"/>
+    </CSound>
+    <CSound default="1" id="Interactive" parent="WORLD">
+        <?token id="Race"?>
+        <Category value="Dialogue"/>
+        <AssetArray File="LocalizedData\Sounds\##Race##VO\CampaignVO\##id##.ogg" FacialAnim="##id##"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Stream" value="1"/>
+    </CSound>
+    <CSound default="1" id="CutScene" parent="WORLD">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\StoryModeVO\##id##.wav" FacialAnim="##id##"/>
+        <Category value="Dialogue"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Stream" value="1"/>
+        <Flags index="Wait" value="1"/>
+        <Flags index="World" value="0"/>
+    </CSound>
+    <CSound default="1" id="Briefings" parent="Interactive"/>
+    <CSound default="1" id="Mission" parent="WORLD">
+        <Category value="Mission"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Stream" value="1"/>
+        <Flags index="Wait" value="1"/>
+    </CSound>
+    <CSound default="1" id="Campaign" parent="Mission">
+        <?token id="Race"?>
+        <AssetArray File="LocalizedData\Sounds\##Race##VO\CampaignVO\##id##.ogg" FacialAnim="##id##"/>
+    </CSound>
+    <CSound default="1" id="TutorialTerran" parent="Mission">
+        <AssetArray File="LocalizedData\Sounds\Tutorial\##id##.wav" FacialAnim="##id##"/>
+    </CSound>
+    <CSound default="1" id="Challenges" parent="Mission">
+        <AssetArray File="LocalizedData\Sounds\Challenges\##id##.wav" FacialAnim="##id##"/>
+    </CSound>
+    <CSound default="1" id="TV" parent="Interactive">
+        <Category value="TV"/>
+    </CSound>
+    <CSound default="1" id="Movie">
+        <Category value="Movie"/>
+    </CSound>
+    <CSound default="1" id="Movie3D" parent="WORLD">
+        <Category value="Movie"/>
+    </CSound>
+    <CSound id="EditorDefaultSound"/>
+</Catalog>

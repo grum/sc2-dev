@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="ScreenVersion" name="ScreenVersion">
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-75"/>
+        <Width val="300"/>
+        <Height val="100"/>
+    
+        <Frame type="Image" name="VersionBackground">
+            <Color val="0,0,0"/>
+            <Alpha val="128"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+            <Width val="300"/>
+            <Height val="24"/>
+            <Frame type="Label" name="VersionLabel">
+                <Text val="0.0"/>
+                <Style val="Version"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Image" name="ModBackground">
+            <Color val="0,0,0"/>
+            <Alpha val="128"/>
+            <Anchor side="Bottom" relative="$parent/VersionBackground" pos="Min" offset="-5"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+            <Width val="300"/>
+            <Height val="24"/>
+            <Frame type="Label" name="ModLabel">
+                <Text val="0"/>
+                <Style val="Version"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

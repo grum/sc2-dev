@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="SkirmishPanel" name="SkirmishPanel">            
+        <Frame type="Label" name="SingleTitle">
+            <Text val="@UI/Singleplayer"/>
+            <Style val="GlueTitle"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="36"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+        </Frame>
+
+        <Frame type="Label" name="MapListLabel">
+            <Text val="@UI/MapList"/>
+            <Style val="GlueLabel"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="78"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+        </Frame>
+
+        <Frame type="FileListBox" name="MapListBox" template="StandardTemplates/StandardFileListBoxTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="94"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+            <Width val="687"/>
+            <Height val="352"/>
+        </Frame>
+
+        <Frame type="Label" name="GameSpeedLabel">
+            <Text val="@UI/GameSpeed_Colon"/>
+            <Style val="GlueLabel"/>
+            <Anchor side="Top" relative="$parent/MapListBox" pos="Max" offset="22"/>
+            <Anchor side="Left" relative="$parent/MapListBox" pos="Min" offset="0"/>
+        </Frame>
+
+        <Frame type="Slider" name="GameSpeedSlider" template="StandardTemplates/StandardSliderTemplate">
+            <MinValue val="0.000000"/>
+            <MaxValue val="4.000000"/>
+            <StepValue val="1.000000"/>
+            <Anchor side="Top" relative="$parent/GameSpeedLabel" pos="Max" offset="-28"/>
+            <Anchor side="Left" relative="$parent/GameSpeedLabel" pos="Max" offset="10"/>
+            <Width val="194"/>
+            <Height val="38"/>
+        </Frame>
+
+        <Frame type="Label" name="GameSpeedValue">
+            <Text val="@UI/Fastest"/>
+            <Style val="GameSpeedSlider"/>
+            <Anchor side="Top" relative="$parent/GameSpeedSlider" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/GameSpeedSlider" pos="Max" offset="10"/>
+            <Anchor side="Bottom" relative="$parent/GameSpeedSlider" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="MapInfoPanel" name="MapInfoPanel" template="MapInfoPanel/MapInfoPanelTemplate">
+            <Anchor side="Top" relative="$parent/MapListBox" pos="Max" offset="50"/>
+            <Anchor side="Left" relative="$parent/MapListBox" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/MapListBox" pos="Max" offset="0"/>
+            <Height val="200"/>
+        </Frame>        
+    </Frame>
+
+    <Frame type="ScreenSingle" name="ScreenSingle">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="270"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-100"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Width val="1600"/>
+
+        <Frame type="Image" name="Background">
+            <Anchor relative="$parent"/>
+            <Color val="0, 0, 0"/>
+            <Alpha val="230"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="SkirmishButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="SkirmishButtonLabel"/>
+            <Shortcut val="@UI/Skirmish_Hotkey"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="80"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Width val="200"/>
+            <Height val="50"/>
+            <Frame type="Label" name="SkirmishButtonLabel">
+                <Text val="@UI/Skirmish_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="ChallengeButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="ChallengeButtonLabel"/>
+            <Shortcut val="@UI/Challenge_Hotkey"/>
+            <Anchor side="Top" relative="$parent/SkirmishButton" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/SkirmishButton" pos="Min" offset="0"/>
+            <Width val="200"/>
+            <Height val="50"/>
+            <Frame type="Label" name="ChallengeButtonLabel">
+                <Text val="@UI/Challenge_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="LoadButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="LoadButtonLabel"/>
+            <Shortcut val="@UI/Load_Hotkey"/>
+            <Anchor side="Top" relative="$parent/ChallengeButton" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/ChallengeButton" pos="Min" offset="0"/>
+            <Width val="200"/>
+            <Height val="50"/>
+            <Frame type="Label" name="LoadButtonLabel">
+                <Text val="@UI/Load_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="BackButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="BackButtonLabel"/>
+            <Shortcut val="@UI/Back_Hotkey"/>
+            <Anchor side="Top" relative="$parent/LoadButton" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/LoadButton" pos="Min" offset="0"/>
+            <Width val="200"/>
+            <Height val="50"/>
+            <Frame type="Label" name="BackButtonLabel">
+                <Text val="@UI/Back_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="SkirmishPanel" name="SkirmishPanel" template="ScreenSingle/SkirmishPanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="570"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+        </Frame>
+
+        <Frame type="ChallengePanel" name="ChallengePanel" template="ChallengePanel/ChallengePanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="540"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+        </Frame>
+
+        <Frame type="SaveFilePanel" name="LoadPanel" template="StandardFilePanel/SavePanel">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-80"/>
+            <Width val="700"/>
+            <Height val="700"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="PlayButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="PlayButtonLabel"/>
+            <Shortcut val="@UI/Play_Hotkey"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+            <Width val="200"/>
+            <Height val="50"/>
+            <Frame type="Label" name="PlayButtonLabel">
+                <Text val="@UI/Play_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

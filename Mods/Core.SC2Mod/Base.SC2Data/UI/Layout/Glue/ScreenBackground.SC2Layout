@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <!--<Constant name="FontTestText" val="The quick brown fox jumps over the lazy dog.  1234567890.,:'(!?)+-*/="/>-->
+    <!--<Constant name="FontTestText" val="선택한 지점으로 이동하며 도중에 만나는 적을 공격합니다. 공격 명령으로 유닛을 지정하면 지정한 유닛이 파괴될 때까지 공격합니다."/>-->
+    <!--<Constant name="FontTestText" val="命令选中的单位移动到目标地点，并对沿途遭遇的敌人发起攻击。收到此攻击命令的单位会持续攻击目标，直到对方被消灭。"/>-->
+    <!--<Constant name="FontTestText" val="При указании в качестве цели конкретной боевой единицы отдается приказ атаковать ее до уничтожения."/>-->
+    <!--<Constant name="TestWidth" val="250"/>-->
+
+    <Frame type="ScreenBackground" name="ScreenBackground">
+        <Anchor relative="$parent"/>
+        <Frame type="Model" name="BackgroundModel">
+            <Anchor relative="$parent"/>                        
+        </Frame>
+
+<!--
+        <Frame type="Frame" name="FontTestPanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Width val="950"/>
+            <Height val="1000"/>
+
+            <Frame type="Image" name="Background">
+                <Anchor relative="$parent"/>
+                <Color val="0, 0, 0"/>
+                <Alpha val="255"/>
+            </Frame>
+
+            <Frame type="Label" name="HeaderHeader">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="130"/>
+                <Text val="Header"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+
+            <Frame type="Label" name="StandardHeader">
+                <Anchor side="Top" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-450"/>
+                <Text val="Standard"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+
+            <Frame type="Label" name="InternationalHeader">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Text val="International"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+
+            <Frame type="Label" name="10pixels">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="10 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            <Frame type="Label" name="11pixels">
+                <Anchor side="Top" relative="$parent/10pixels" pos="Max" offset="75"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="11 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            <Frame type="Label" name="12pixels">
+                <Anchor side="Top" relative="$parent/11pixels" pos="Max" offset="75"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="12 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            <Frame type="Label" name="13pixels">
+                <Anchor side="Top" relative="$parent/12pixels" pos="Max" offset="75"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="13 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            <Frame type="Label" name="14pixels">
+                <Anchor side="Top" relative="$parent/13pixels" pos="Max" offset="75"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="14 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            <Frame type="Label" name="15pixels">
+                <Anchor side="Top" relative="$parent/14pixels" pos="Max" offset="75"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="15 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            <Frame type="Label" name="16pixels">
+                <Anchor side="Top" relative="$parent/15pixels" pos="Max" offset="75"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="16 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            <Frame type="Label" name="17pixels">
+                <Anchor side="Top" relative="$parent/16pixels" pos="Max" offset="95"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="17 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            <Frame type="Label" name="18pixels">
+                <Anchor side="Top" relative="$parent/17pixels" pos="Max" offset="115"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+                <Text val="18 pixels"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+
+            <Frame type="Label" name="Header10">
+                <Anchor side="Top" relative="$parent/10pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header10"/>
+            </Frame>
+            <Frame type="Label" name="Header11">
+                <Anchor side="Top" relative="$parent/11pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header11"/>
+            </Frame>
+            <Frame type="Label" name="Header12">
+                <Anchor side="Top" relative="$parent/12pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header12"/>
+            </Frame>
+            <Frame type="Label" name="Header13">
+                <Anchor side="Top" relative="$parent/13pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header13"/>
+            </Frame>
+            <Frame type="Label" name="Header14">
+                <Anchor side="Top" relative="$parent/14pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header14"/>
+            </Frame>
+            <Frame type="Label" name="Header15">
+                <Anchor side="Top" relative="$parent/15pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header15"/>
+            </Frame>
+            <Frame type="Label" name="Header16">
+                <Anchor side="Top" relative="$parent/16pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header16"/>
+            </Frame>
+            <Frame type="Label" name="Header17">
+                <Anchor side="Top" relative="$parent/17pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header17"/>
+            </Frame>
+            <Frame type="Label" name="Header18">
+                <Anchor side="Top" relative="$parent/18pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/HeaderHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Header18"/>
+            </Frame>
+
+            <Frame type="Label" name="Standard10">
+                <Anchor side="Top" relative="$parent/10pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard10"/>
+            </Frame>
+            <Frame type="Label" name="Standard11">
+                <Anchor side="Top" relative="$parent/11pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard11"/>
+            </Frame>
+            <Frame type="Label" name="Standard12">
+                <Anchor side="Top" relative="$parent/12pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard12"/>
+            </Frame>
+            <Frame type="Label" name="Standard13">
+                <Anchor side="Top" relative="$parent/13pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard13"/>
+            </Frame>
+            <Frame type="Label" name="Standard14">
+                <Anchor side="Top" relative="$parent/14pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard14"/>
+            </Frame>
+            <Frame type="Label" name="Standard15">
+                <Anchor side="Top" relative="$parent/15pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard15"/>
+            </Frame>
+            <Frame type="Label" name="Standard16">
+                <Anchor side="Top" relative="$parent/16pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard16"/>
+            </Frame>
+            <Frame type="Label" name="Standard17">
+                <Anchor side="Top" relative="$parent/17pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard17"/>
+            </Frame>
+            <Frame type="Label" name="Standard18">
+                <Anchor side="Top" relative="$parent/18pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/StandardHeader" pos="Min" offset="0"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="Standard18"/>
+            </Frame>
+
+            <Frame type="Label" name="International10">
+                <Anchor side="Top" relative="$parent/10pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International10"/>
+            </Frame>
+            <Frame type="Label" name="International11">
+                <Anchor side="Top" relative="$parent/11pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International11"/>
+            </Frame>
+            <Frame type="Label" name="International12">
+                <Anchor side="Top" relative="$parent/12pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International12"/>
+            </Frame>
+            <Frame type="Label" name="International13">
+                <Anchor side="Top" relative="$parent/13pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International13"/>
+            </Frame>
+            <Frame type="Label" name="International14">
+                <Anchor side="Top" relative="$parent/14pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International14"/>
+            </Frame>
+            <Frame type="Label" name="International15">
+                <Anchor side="Top" relative="$parent/15pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International15"/>
+            </Frame>
+            <Frame type="Label" name="International16">
+                <Anchor side="Top" relative="$parent/16pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International16"/>
+            </Frame>
+            <Frame type="Label" name="International17">
+                <Anchor side="Top" relative="$parent/17pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International17"/>
+            </Frame>
+            <Frame type="Label" name="International18">
+                <Anchor side="Top" relative="$parent/18pixels" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Max" offset="-260"/>
+                <Width val="#TestWidth"/>
+                <Text val="#FontTestText"/>
+                <Style val="International18"/>
+            </Frame>
+        </Frame>
+-->        
+    </Frame>
+</Desc>

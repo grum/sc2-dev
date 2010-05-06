@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <SSoundData default="1">
+        <DupeFadeIn Volume="-96.000000"/>
+        <DupeFadeIn Time="250"/>
+        <DupeFadeOut/>
+        <DupeFadeOut Time="250" Volume="-96.000000"/>
+        <FogFadeIn Volume="-96.000000"/>
+        <FogFadeIn Time="250"/>
+        <FogFadeOut/>
+        <FogFadeOut Time="250" Volume="-96.000000"/>
+        <MuteFadeIn Volume="-96.000000"/>
+        <MuteFadeIn Time="250"/>
+        <MuteFadeOut/>
+        <MuteFadeOut Time="250" Volume="-96.000000"/>
+        <ThresholdFadeTime value="500"/>
+        <VolumeRolloffFadeIn Volume="-96.000000"/>
+        <VolumeRolloffFadeIn Time="100"/>
+        <VolumeRolloffFadeOut/>
+        <VolumeRolloffFadeOut Time="100" Volume="-96.000000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="30.000000" Volume="-96.000000"/>
+    </SSoundData>
+    <CGameUI default="1"/>
+    <CGameUI id="Dflt">
+        <SoundQuality>
+            <AutoDetectCPUCoreMaximum value="1"/>
+            <Channels value="16"/>
+            <Name value="UI/Low"/>
+            <Format value="PCM16"/>
+            <Resampler value="None"/>
+            <SampleRate value="22050"/>
+            <SpeakerMode value="Stereo"/>
+            <VariationMaximum index="Ambient" value="3"/>
+            <VariationMaximum index="Death" value="3"/>
+            <VariationMaximum index="Spell" value="3"/>
+            <VariationMaximum index="Combat" value="3"/>
+            <VariationMaximum index="UI" value="3"/>
+            <VariationMaximum index="Flames" value="3"/>
+            <VariationMaximum index="Build" value="3"/>
+            <VariationMaximum index="Gather" value="3"/>
+            <VariationMaximum index="Doodad" value="3"/>
+            <VariationMaximum index="Movement" value="3"/>
+            <VariationMaximum index="Other" value="3"/>
+        </SoundQuality>
+        <SoundQuality>
+            <AutoDetectCPUCoreMaximum value="2"/>
+            <Channels value="32"/>
+            <Name value="UI/Medium"/>
+            <Format value="PCM16"/>
+            <Resampler value="Linear"/>
+            <SampleRate value="44100"/>
+            <VariationMaximum index="Ambient" value="6"/>
+            <VariationMaximum index="Death" value="6"/>
+            <VariationMaximum index="Spell" value="6"/>
+            <VariationMaximum index="Combat" value="6"/>
+            <VariationMaximum index="UI" value="6"/>
+            <VariationMaximum index="Flames" value="6"/>
+            <VariationMaximum index="Build" value="6"/>
+            <VariationMaximum index="Gather" value="6"/>
+            <VariationMaximum index="Doodad" value="6"/>
+            <VariationMaximum index="Movement" value="6"/>
+            <VariationMaximum index="Other" value="6"/>
+        </SoundQuality>
+        <SoundQuality>
+            <Name value="UI/High"/>
+            <Channels value="64"/>
+            <Format value="PCM16"/>
+            <Resampler value="Linear"/>
+            <SampleRate value="44100"/>
+        </SoundQuality>
+        <RegionNameSize value="28"/>
+        <SelectionData>
+            <SelectionWidth value="0.030000"/>
+            <SelectionFallOff value="0.030000"/>
+            <SelectionAlpha value="1.000000,1.000000,1.000000"/>
+            <SelectionTiming value="0.000000,340282346638528860000000000000000000000.000000,0.000000"/>
+            <SelectionSegmentCount value="1"/>
+            <SelectionSegmentPercentSolid value="1.000000"/>
+            <SelectionInnerOffsetRatio value="0.140000"/>
+            <SelectionInnerBoundaryRatio value="0.860000"/>
+            <SelectionInnerBoundaryFallOffRatio value="0.400000"/>
+            <PreselectionWidth value="0.030000"/>
+            <PreselectionFallOff value="0.030000"/>
+            <PreselectionAlpha value="0.750000,0.750000,0.750000"/>
+            <PreselectionTiming value="0.000000,340282346638528860000000000000000000000.000000,0.000000"/>
+            <PreselectionSegmentCount value="8"/>
+            <PreselectionSegmentPercentSolid value="0.800000"/>
+            <PreselectionRotationSpeed value="0.500000"/>
+        </SelectionData>
+        <SoundData index="Movie">
+            <VolumeRolloffPoints index="0" Distance="100.000000"/>
+            <VolumeRolloffPoints index="1" Distance="1000.000000"/>
+        </SoundData>
+        <SoundData index="TV">
+            <VolumeRolloffPoints index="0" Distance="100.000000"/>
+            <VolumeRolloffPoints index="1" Distance="1000.000000"/>
+        </SoundData>
+        <SoundData index="Voice">
+            <VolumeRolloffPoints index="0" Distance="100.000000"/>
+            <VolumeRolloffPoints index="1" Distance="1000.000000"/>
+        </SoundData>
+        <SoundData index="Dialogue">
+            <VolumeRolloffPoints index="0" Distance="100.000000"/>
+            <VolumeRolloffPoints index="1" Distance="1000.000000"/>
+        </SoundData>
+        <SoundData index="Mission">
+            <VolumeRolloffPoints index="0" Distance="100.000000"/>
+            <VolumeRolloffPoints index="1" Distance="1000.000000"/>
+        </SoundData>
+        <SoundData index="Ready">
+            <VolumeRolloffPoints index="0" Distance="100.000000"/>
+            <VolumeRolloffPoints index="1" Distance="1000.000000"/>
+        </SoundData>
+        <SoundData index="Combat">
+            <ThresholdPoints Count="20" Volume="0.0"/>
+            <ThresholdPoints Count="50" Volume="-6.020600"/>
+        </SoundData>
+        <LookAtTypes Id="FastStanding" Name="LookAtType/FastStanding">
+            <Start Group="Head" Weight="0.75" Time="250"/>
+            <Start Group="Chest" Weight="0.50" Time="375"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Start Group="EyeRight" Weight="1.0" Time="100"/>
+            <Stop Group="Head" Weight="1.0" Time="250"/>
+            <Stop Group="Chest" Weight="1.0" Time="750"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="50"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="50"/>
+        </LookAtTypes>
+        <LookAtTypes Id="FastStandingSubtle" Name="LookAtType/FastStandingSubtle">
+            <Start Group="Head" Weight="0.50" Time="250"/>
+            <Start Group="Chest" Weight="0.25" Time="375"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="200"/>
+            <Start Group="EyeRight" Weight="1.0" Time="200"/>
+            <Stop Group="Head" Weight="1.0" Time="250"/>
+            <Stop Group="Chest" Weight="1.0" Time="750"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="50"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="50"/>
+        </LookAtTypes>
+        <LookAtTypes Id="FastHeadOnly" Name="LookAtType/FastHeadOnly">
+            <Start Group="Head" Weight="0.75" Time="250"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Start Group="EyeRight" Weight="1.0" Time="100"/>
+            <Stop Group="Head" Weight="1.0" Time="250"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="50"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="50"/>
+        </LookAtTypes>
+        <LookAtTypes Id="FastHeadOnlySubtle" Name="LookAtType/FastHeadOnlySubtle">
+            <Start Group="Head" Weight="0.45" Time="250"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="200"/>
+            <Start Group="EyeRight" Weight="1.0" Time="200"/>
+            <Stop Group="Head" Weight="1.0" Time="250"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="50"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="50"/>
+        </LookAtTypes>
+        <LookAtTypes Id="MedStanding" Name="LookAtType/MedStanding">
+            <Start Group="Head" Weight="0.75" Time="500"/>
+            <Start Group="Chest" Weight="0.50" Time="750"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="200"/>
+            <Start Group="EyeRight" Weight="1.0" Time="200"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="Chest" Weight="1.0" Time="1500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="MedStandingSubtle" Name="LookAtType/MedStandingSubtle">
+            <Start Group="Head" Weight="0.50" Time="500"/>
+            <Start Group="Chest" Weight="0.25" Time="700"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="300"/>
+            <Start Group="EyeRight" Weight="1.0" Time="300"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="Chest" Weight="1.0" Time="1500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="MedHeadOnly" Name="LookAtType/MedHeadOnly">
+            <Start Group="Head" Weight="0.75" Time="500"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="200"/>
+            <Start Group="EyeRight" Weight="1.0" Time="200"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="MedHeadOnlySubtle" Name="LookAtType/MedHeadOnlySubtle">
+            <Start Group="Head" Weight="0.45" Time="500"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="300"/>
+            <Start Group="EyeRight" Weight="1.0" Time="300"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="SlowStanding" Name="LookAtType/SlowStanding">
+            <Start Group="Head" Weight="0.75" Time="1000"/>
+            <Start Group="Chest" Weight="0.50" Time="1250"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="200"/>
+            <Start Group="EyeRight" Weight="1.0" Time="200"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="Chest" Weight="1.0" Time="1500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="SlowStandingSubtle" Name="LookAtType/SlowStandingSubtle">
+            <Start Group="Head" Weight="0.50" Time="1000"/>
+            <Start Group="Chest" Weight="0.25" Time="1250"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="300"/>
+            <Start Group="EyeRight" Weight="1.0" Time="300"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="Chest" Weight="1.0" Time="1500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="SlowHeadOnly" Name="LookAtType/SlowHeadOnly">
+            <Start Group="Head" Weight="0.75" Time="1000"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="200"/>
+            <Start Group="EyeRight" Weight="1.0" Time="200"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="SlowHeadOnlySubtle" Name="LookAtType/SlowHeadOnlySubtle">
+            <Start Group="Head" Weight="0.45" Time="1000"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="300"/>
+            <Start Group="EyeRight" Weight="1.0" Time="300"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="VerySlowStanding" Name="LookAtType/VerySlowStanding">
+            <Start Group="Head" Weight="0.75" Time="2000"/>
+            <Start Group="Chest" Weight="0.50" Time="2250"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="400"/>
+            <Start Group="EyeRight" Weight="1.0" Time="400"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="Chest" Weight="1.0" Time="1500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="VerySlowStandingSubtle" Name="LookAtType/VerySlowStandingSubtle">
+            <Start Group="Head" Weight="0.50" Time="2000"/>
+            <Start Group="Chest" Weight="0.25" Time="2250"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="500"/>
+            <Start Group="EyeRight" Weight="1.0" Time="500"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="Chest" Weight="1.0" Time="1500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="VerySlowHeadOnly" Name="LookAtType/VerySlowHeadOnly">
+            <Start Group="Head" Weight="0.75" Time="2000"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="400"/>
+            <Start Group="EyeRight" Weight="1.0" Time="400"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="VerySlowHeadOnlySubtle" Name="LookAtType/VerySlowHeadOnlySubtle">
+            <Start Group="Head" Weight="0.45" Time="2000"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="500"/>
+            <Start Group="EyeRight" Weight="1.0" Time="500"/>
+            <Stop Group="Head" Weight="1.0" Time="500"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="100"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="100"/>
+        </LookAtTypes>
+        <LookAtTypes Id="InstantStanding" Name="LookAtType/InstantStanding">
+            <Start Group="Head" Weight="0.75" Time="0"/>
+            <Start Group="Chest" Weight="0.50" Time="0"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="0"/>
+            <Start Group="EyeRight" Weight="1.0" Time="0"/>
+            <Stop Group="Head" Weight="1.0" Time="0"/>
+            <Stop Group="Chest" Weight="1.0" Time="0"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="0"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="0"/>
+        </LookAtTypes>
+        <LookAtTypes Id="InstantStandingSubtle" Name="LookAtType/InstantStandingSubtle">
+            <Start Group="Head" Weight="0.50" Time="0"/>
+            <Start Group="Chest" Weight="0.25" Time="0"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="0"/>
+            <Start Group="EyeRight" Weight="1.0" Time="0"/>
+            <Stop Group="Head" Weight="1.0" Time="0"/>
+            <Stop Group="Chest" Weight="1.0" Time="0"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="0"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="0"/>
+        </LookAtTypes>
+        <LookAtTypes Id="InstantHeadOnly" Name="LookAtType/InstantHeadOnly">
+            <Start Group="Head" Weight="0.75" Time="0"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="0"/>
+            <Start Group="EyeRight" Weight="1.0" Time="0"/>
+            <Stop Group="Head" Weight="1.0" Time="0"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="0"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="0"/>
+        </LookAtTypes>
+        <LookAtTypes Id="InstantHeadOnlySubtle" Name="LookAtType/InstantHeadOnlySubtle">
+            <Start Group="Head" Weight="0.45" Time="0"/>
+            <Start Group="EyeLeft" Weight="1.0" Time="0"/>
+            <Start Group="EyeRight" Weight="1.0" Time="0"/>
+            <Stop Group="Head" Weight="1.0" Time="0"/>
+            <Stop Group="EyeLeft" Weight="1.0" Time="0"/>
+            <Stop Group="EyeRight" Weight="1.0" Time="0"/>
+        </LookAtTypes>
+        <ListenerAngleRolloff CameraValue="25.0" ListenerFactor="1.0"/>
+        <ListenerAngleRolloff CameraValue="50.0" ListenerFactor="1.56"/>
+        <ListenerAngleRolloff CameraValue="60.0" ListenerFactor="1.67"/>
+        <ListenerAngleRolloff CameraValue="90.0" ListenerFactor="1.0"/>
+        <ListenerDistanceRolloff CameraValue="5.0" ListenerFactor="1.0"/>
+        <ListenerDistanceRolloff CameraValue="30.0" ListenerFactor="0.15"/>
+        <ListenerDistanceRolloff CameraValue="40.0" ListenerFactor="0.15"/>
+        <ListenerDistanceRolloff CameraValue="60.0" ListenerFactor="1.00"/>
+        <PlanetPanelDefaultBackground value="PlanetViewGalaxy"/>
+        <WayPointMultiUnitFadePoint value="0.9"/>
+        <WayPointMultiUnitFadeAlpha value="0.25"/>
+        <WayPointLineWidth value="0.15"/>
+        <WayPointTileLength value="0.8"/>
+        <PointModels index="Normal">
+            <Model value="Assets/Effects/Terran/VeterancyFlagFour/VeterancyFlagFour.m3"/>
+            <Scale value="2.500000"/>
+            <NameSize value="24"/>
+            <SelectionOffset value="0.000000,0.000000,1.000000"/>
+            <SelectionRadius value="0.500000"/>
+        </PointModels>
+        <PointModels index="StartLoc">
+            <Model value="Assets/Effects/Terran/VeterancyFlagFour/VeterancyFlagFour.m3"/>
+            <Scale value="4.000000"/>
+            <NameSize value="32"/>
+            <SelectionOffset value="0.000000,0.000000,1.000000"/>
+            <SelectionRadius value="0.500000"/>
+        </PointModels>
+        <OverrideColors index="Self">
+            <Value index="Diffuse" value="0,0.7333,0,1"/>
+            <Value index="Emissive" value="0,0.7333,0,1"/>
+        </OverrideColors>
+        <OverrideColors index="Ally">
+            <Value index="Diffuse" value="1,1,0,1"/>
+            <Value index="Emissive" value="1,1,0,1"/>
+        </OverrideColors>
+        <OverrideColors index="Hostile">
+            <Value index="Diffuse" value="1,0,0,1"/>
+            <Value index="Emissive" value="1,0,0,1"/>
+        </OverrideColors>
+        <OverrideColors index="Neutral">
+            <Value index="Diffuse" value="0.4941,0.749,0.945,1"/>
+            <Value index="Emissive" value="0.4941,0.749,0.945,1"/>
+        </OverrideColors>
+        <LocalColorBlendPercentage value="0.5"/>
+        <RadarAlpha value="128"/>
+        <MovementSpeedSlow value="1"/>
+        <MovementSpeedFast value="3"/>
+        <WeaponTimeSlow value="3"/>
+        <WeaponTimeFast value="1"/>
+        <WeaponRangeShort value="2"/>
+        <WeaponRangeLong value="6"/>
+        <InfoColorBuffed value="255,0,255,0"/>
+        <InfoColorDebuffed value="255,255,0,0"/>
+        <InfoColorUpgraded value="255,255,255,0"/>
+        <RequirementsSatisfiedColor value="255,255,255,255"/>
+        <RequirementsUnsatisfiedColor value="255,255,0,0"/>
+        <UnitDamageFlashDuration value="3000"/>
+        <UnitDamageNotificationCooldown value="3000"/>
+        <UnitDamageNotificationDelay value="15000"/>
+        <CancelTargetModeButtonFace value="Cancel"/>
+        <CancelPlacementModeButtonFace value="Cancel"/>
+        <PlacementDisplayBonusRadius value="3"/>
+        <PlacementErrorColor value="255,255,0,0"/>
+        <PlacementGridDimensions value="56,48"/>
+        <WorldConsoleBottom value="230"/>
+        <ScreenModeTransitionDuration value="600"/>
+        <CostDisplayFade value="6"/>
+        <CostDisplayHeight value="24"/>
+        <CostDisplayHeightOffset value="0.45"/>
+        <CostDisplaySpeed value="150"/>
+        <CostDisplayTime value="8"/>
+        <TargetedTintColorStart value="255,255,64,0"/>
+        <TargetedTintColorEnd value="255,255,0,0"/>
+        <TargetedUnitTintColorStart value="255,255,192,192"/>
+        <TargetedUnitTintColorEnd value="255,255,128,128"/>
+        <MinimapData>
+            <InnerBorderColor value="255,136,136,136"/>
+            <OuterBorderColor value="255,255,255,255"/>
+            <FrustumColor value="255,255,255,255"/>
+            <SelectedUnitColor value="255,0,255,0"/>
+            <UnderAttackUnitColor value="255,255,0,0"/>
+            <ResourceUnitColor value="255,126,191,241"/>
+            <BlipUnitColor value="255,255,0,0"/>
+            <UnitBorderColor value="255,0,0,0"/>
+            <SelectedUnitBorderColor value="255,0,0,0"/>
+            <BorderSize value="1.000000"/>
+            <SelectedBorderSize value="1.000000"/>
+            <MinUnitDotSize value="3.000000"/>
+            <RadarAlpha value="60"/>
+        </MinimapData>
+        <BehaviorIconColors index="Neutral" value="255,255,255,255"/>
+        <BehaviorIconColors index="Positive" value="255,0,255,0"/>
+        <BehaviorIconColors index="Negative" value="255,255,0,0"/>
+        <BehaviorBorderColors index="Neutral" value="255,180,180,180"/>
+        <BehaviorBorderColors index="Positive" value="255,0,180,0"/>
+        <BehaviorBorderColors index="Negative" value="255,180,0,0"/>
+        <VitalColors index="Life">
+            <ColorArray value="255,208,34,0"/>
+            <ColorArray value="255,229,129,0"/>
+            <ColorArray value="255,229,221,0"/>
+            <ColorArray value="255,22,229,0"/>
+        </VitalColors>
+        <VitalColors index="Shields">
+            <ColorArray value="255,176,176,255"/>
+        </VitalColors>
+        <VitalColors index="Energy">
+            <ColorArray value="255,255,255,255"/>
+        </VitalColors>
+        <MercenaryPortraitColors index="Available" value="255,255,255,255"/>
+        <MercenaryPortraitColors index="Purchased" value="255,0,255,0"/>
+        <MercenaryPortraitColors index="InsufficientCredits" value="255,255,0,0"/>                
+        <SelectionColors index="Subgroup" value="255,0,250,25"/>
+        <SelectionColors index="Selected" value="255,0,168,90"/>
+        <SelectionColors index="Ally" value="255,255,255,0"/>
+        <SelectionColors index="Enemy" value="255,230,0,0"/>
+        <WireframeColorArray value="255,255,0,0"/>
+        <WireframeColorArray value="255,229,129,0"/>
+        <WireframeColorArray value="255,255,255,0"/>
+        <WireframeColorArray value="255,0,255,0"/>
+        <CostDisplayColor index="Life" value="255,208,34,0"/>
+        <CostDisplayColor index="Shields" value="255,0,0,255"/>
+        <CostDisplayColor index="Energy" value="255,150,40,220"/>
+        <CostDisplayColor index="Minerals" value="255,0,128,192"/>
+        <CostDisplayColor index="Vespene" value="255,100,180,80"/>
+        <GlowCycleLength value="1200"/>
+        <GlowStartMultiplier value="1.0,1.0,1.0"/>
+        <GlowPeakMultiplier value="2.0,2.0,2.0"/>
+        <!-- W = Weapons -->
+        <!-- B = Behaviors -->
+        <!-- A = Abilities -->
+        <!-- Un = Units produced -->
+        <!-- UpP = Upgrades produced -->
+        <!-- UpR = Upgrades received -->
+        <DefaultInfoTooltipTypes value="W,D,A,B,Un,UpP,UpR"/>
+    </CGameUI>
+</Catalog>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CAchievement default="1">
+        <Name value="Achievement/Name/##id##"/>
+        <Description value="Achievement/Description/##id##"/>
+        <Filters index="MapSignature" value="1"/>
+        <Icon value="Assets\Textures\ui_achievement.dds"/>
+        <Points value="10"/>
+    </CAchievement>
+    <CAchievement default="1" id="CAMPAIGN">
+        <Filters index="MatchSingle" value="1"/>
+    </CAchievement>
+    <CAchievement default="1" id="SKIRMISH">
+        <Filters index="MapMelee" value="1"/>
+        <Filters index="MatchSingle" value="1"/>
+    </CAchievement>
+    <CAchievement default="1" id="COMBAT">
+        <Filters index="MapMelee" value="1"/>
+        <Filters index="MatchAnonymous" value="1"/>
+        <Filters index="MatchMulti" value="1"/>
+        <Filters index="MatchRanked" value="1"/>
+    </CAchievement>
+</Catalog>

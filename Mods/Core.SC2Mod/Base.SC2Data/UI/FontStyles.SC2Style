@@ -1,0 +1,884 @@
+<!--
+    <Style  name="" 
+            font="" 
+            height="" 
+            vjustify="" 
+            hjustify="" 
+            fontflags="" 
+            styleflags="" 
+            textcolor="" 
+            disabledcolor="" 
+            highlightcolor="" 
+            hotkeycolor="" 
+            hyperlinkcolor="" 
+            shadowcolor="" 
+            shadowoffset=""/>
+-->
+
+<StyleFile>
+    <!-- Fonts -->
+
+    <!-- NOTE: PLEASE DO NOT CHANGE THE FONT CONSTANT NAMES, AS THEY ARE REFERENCED BY CODE -->
+    <!-- AND LOCALIZED FONT STYLE FILES.  IF YOU CHANGE THEM YOU NEED TO UPDATE CODE AND    -->
+    <!-- DATA WHICH REFERENCES THEM.                                                        -->
+
+    <!-- FontHeader, FontStandard, FontHeaderExtended, and FontStandardExtended can be      -->
+    <!-- overriden in each locales FontStyles.SC2Style file in their respective             -->
+    <!-- LocalizedData directory.  By default this points to the "English" font which has   -->
+    <!-- most of the languages we support in it.                                            -->
+    <Constant name="FontHeader" val="UI\Fonts\Eurostile-Bol.otf"/>
+    <Constant name="FontStandard" val="UI\Fonts\Eurostile-Reg.otf"/>
+    <Constant name="FontHeaderExtended" val="UI\Fonts\EurostileExt-Med.otf"/>
+    <Constant name="FontStandardExtended" val="UI\Fonts\EurostileExt-Reg.otf"/>
+
+    <!-- FontInternational is used by all localizations and exists in the Base UI fonts     -->
+    <!-- directory.  It is intended to be used for any label which can contain user         -->
+    <!-- generated text that can be seen by multiple localizations of the game.             -->
+    <!-- For example: user names, chat text, profile text, etc.                             -->
+    <Constant name="FontInternational" val="UI\Fonts\bl.ttf"/>
+
+    <!-- Constants -->
+    <Constant name="ShadowOffsetNormal" val="2"/>
+    <Constant name="FontSizeTiny" val="10"/>
+    <Constant name="FontSizeSmall" val="16"/>
+    <Constant name="FontSizeMedium" val="24"/>
+    <Constant name="FontSizeLarge" val="32"/>
+    <Constant name="ColorGray0" val="25, 25, 25"/>
+    <Constant name="ColorGray1" val="50, 50, 50"/>
+    <Constant name="ColorGray2" val="75, 75, 75"/>
+    <Constant name="ColorGray3" val="100, 100, 100"/>
+    <Constant name="ColorGray4" val="125, 125, 125"/>
+    <Constant name="ColorGray5" val="150, 150, 150"/>
+    <Constant name="ColorGray6" val="175, 175, 175"/>
+    <Constant name="ColorGray7" val="200, 200, 200"/>
+    <Constant name="ColorGray8" val="225, 225, 225"/>
+    <Constant name="ColorRed" val="255, 0, 0"/>
+    <Constant name="ColorBlue" val="0, 255, 0"/>
+    <Constant name="ColorGreen" val="0, 0, 255"/>
+    <Constant name="ColorWhite" val="255, 255, 255"/>
+    <Constant name="ColorBlack" val="0, 0, 0"/>
+    <Constant name="ColorGlueLabel" val="#ColorWhite"/>
+    <Constant name="ColorGlueValue" val="00daff"/>
+    <Constant name="ColorGlueHeading" val="00daff"/>
+    <Constant name="ColorAutocastInfo" val="ffff8a"/>
+    <Constant name="ColorAttackInfo" val="ffff8a"/>
+    <Constant name="ColorDetectorInfo" val="ffe303"/>
+    <Constant name="ColorProtossLabel" val="110,170,255"/>
+    <Constant name="ColorTerranLabel" val="155,255,190"/>
+    <Constant name="ColorZergLabel" val="245,140,70"/>   
+    <Constant name="ObjectiveCategory" val="00faff"/>
+    <Constant name="ObjectiveNew" val="ffffff"/>
+    <Constant name="ObjectiveActive" val="ffffff"/>
+    <Constant name="ObjectiveCompleted" val="808080"/>
+    <Constant name="ObjectiveFailed" val="ff3329"/>
+    <Constant name="ColorLoadingPercentage" val="225,215,0"/>
+    <Constant name="ColorChallengeValue" val="255, 239, 0"/>
+
+    <Constant name="ColorProtossHighlightLabel" val="0078ff"/>
+    <Constant name="ColorTerranHighlightLabel" val="00bd1b"/>
+    <Constant name="ColorZergHighlightLabel" val="ed5f00"/>
+
+    <Constant name="ColorStandardVerticalTabButton" val="12,149,250"/>
+    <Constant name="ColorProtossStandardVerticalTabButton" val="12,149,250"/>
+    <Constant name="ColorTerranStandardVerticalTabButton" val="28ac44"/>
+    <Constant name="ColorZergStandardVerticalTabButton" val="c96c27"/>
+    <Constant name="ColorStandardVerticalTabButtonHotkey" val="50,180,250"/>
+    <Constant name="ColorProtossStandardVerticalTabButtonHotkey" val="50,180,250"/>
+    <Constant name="ColorTerranStandardVerticalTabButtonHotkey" val="6cd3a6"/>
+    <Constant name="ColorZergStandardVerticalTabButtonHotkey" val="ffcd91"/>
+    
+    <Constant name="ColorStandardButton" val="#ColorGray7"/>
+    <Constant name="ColorStandardButtonHotkey" val="#ColorWhite"/>
+    <Constant name="ColorStandardButtonHighlight" val="#ColorWhite"/>
+
+    <!-- Template Styles -->
+    <Style name="BaseTemplate" styleflags="Shadow" shadowoffset="#ShadowOffsetNormal"/>
+
+    <Style name="HeaderTemplate" template="BaseTemplate" font="#FontHeader"/>
+    <Style name="StandardTemplate" template="BaseTemplate" font="#FontStandard"/>
+    <Style name="HeaderExtendedTemplate" template="BaseTemplate" font="#FontHeaderExtended"/>
+    <Style name="StandardExtendedTemplate" template="BaseTemplate" font="#FontStandardExtended"/>
+    <Style name="InternationalTemplate" template="BaseTemplate" font="#FontInternational"/>
+    
+    <!-- In-Game UI Styles -->
+    <Style name="DebugDisplay" template="StandardExtendedTemplate" height="28"/>
+    <Style name="ChatDisplay" template="StandardExtendedTemplate" height="26"/>
+    <Style name="ChatDisplayInternational" template="InternationalTemplate" height="26"/>
+    <Style name="BattleChatPrefix" template="InternationalTemplate" height="26" textcolor="161, 75, 190"/>
+    <Style name="BattleChat" template="InternationalTemplate" height="26" textcolor="#ColorWhite"/>    
+    <Style name="WarningDisplay" template="StandardExtendedTemplate" height="36" hjustify="Center"/>
+    <Style name="ChatDisplayRecipient" template="StandardExtendedTemplate" height="20" shadowoffset="1"/>
+    <Style name="ErrorDisplay" template="StandardExtendedTemplate" height="24" shadowoffset="1" textcolor="ff0000"/>
+    <Style name="ObjectiveDisplay" template="StandardExtendedTemplate" height="30"/>
+    <Style name="ObjectiveTitleDisplay" template="StandardExtendedTemplate" height="26" textcolor="ffcc00"/>
+    <Style name="ObjectiveStateDisplay" template="StandardExtendedTemplate" height="22"/>
+    <Style name="ObjectiveHeaderDisplay" template="StandardExtendedTemplate" height="24"/>
+    <Style name="ObjectiveTaskDisplay" template="StandardExtendedTemplate" height="20"/>
+    <Style name="CommandTargetPrompt" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="CommandTargetPrompt_Prot" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Center" textcolor="ffff8a"/>
+    <Style name="CommandTargetPrompt_Terr" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="CommandTargetPrompt_Zerg" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Center" textcolor="#ColorZergLabel"/>
+    <Style name="CommandTargetName" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hotkeycolor="#ColorTerranLabel"/>
+    <Style name="CommandTargetName_Terr" template="CommandTooltipName" hotkeycolor="#ColorTerranLabel"/>
+    <Style name="CommandTargetName_Prot" template="CommandTooltipName" hotkeycolor="#ColorProtossLabel"/>
+    <Style name="CommandTargetName_Zerg" template="CommandTooltipName" hotkeycolor="#ColorZergLabel"/>
+    <Style name="CinematicLabel" template="StandardExtendedTemplate" height="38"/>
+    <Style name="ObserverLabel" template="StandardExtendedTemplate" height="38" hjustify="Center"/>
+    <Style name="ReplayLabel" template="StandardExtendedTemplate" height="38" hjustify="Center"/>
+    <Style name="TimeLabel" template="StandardExtendedTemplate" height="#FontSizeLarge"/>
+    <Style name="ResourcePanel" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="TimePanelHeaderLabel" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="TimePanelLabel" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="AlertTooltipName" template="StandardExtendedTemplate" height="16" vjustify="Middle" hotkeycolor="#ColorTerranLabel"/>
+    <Style name="AlertTooltipName_Terr" template="CommandTooltipName" hotkeycolor="#ColorTerranLabel"/>
+    <Style name="AlertTooltipName_Prot" template="CommandTooltipName" hotkeycolor="#ColorProtossLabel"/>
+    <Style name="AlertTooltipName_Zerg" template="CommandTooltipName" hotkeycolor="#ColorZergLabel"/>
+    <Style name="AlertTooltipTip" template="StandardExtendedTemplate" height="14" vjustify="Middle"/>
+    <Style name="CommandTooltipName" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hotkeycolor="#ColorTerranLabel"/>
+    <Style name="CommandTooltipName_Terr" template="CommandTooltipName" hotkeycolor="#ColorTerranLabel"/>
+    <Style name="CommandTooltipName_Prot" template="CommandTooltipName" hotkeycolor="#ColorProtossLabel"/>
+    <Style name="CommandTooltipName_Zerg" template="CommandTooltipName" hotkeycolor="#ColorZergLabel"/>
+    <Style name="CommandTooltipResource" template="StandardExtendedTemplate" height="18" vjustify="Middle"/>
+    <Style name="CommandTooltipUsage" template="StandardExtendedTemplate" height="18" vjustify="Middle"/>
+    <Style name="CommandTooltipTime" template="StandardExtendedTemplate" height="18" vjustify="Middle"/>
+    <Style name="CommandTooltipCooldown" template="StandardExtendedTemplate" height="18" vjustify="Middle"/>
+    <Style name="CommandTooltipInventory" template="StandardExtendedTemplate" height="18" vjustify="Middle" textcolor="ffff00"/>
+    <Style name="CommandTooltipRequirements" template="StandardExtendedTemplate" height="18" vjustify="Middle" textcolor="#ColorTerranLabel"/>
+    <Style name="CommandTooltipRequirements_Terr" template="CommandTooltipRequirements" textcolor="#ColorTerranLabel"/>
+    <Style name="CommandTooltipRequirements_Prot" template="CommandTooltipRequirements" textcolor="#ColorProtossLabel"/>
+    <Style name="CommandTooltipRequirements_Zerg" template="CommandTooltipRequirements" textcolor="#ColorZergLabel"/>
+    <Style name="CommandTooltipTip" template="StandardExtendedTemplate" height="18" vjustify="Middle"/>
+    <Style name="CommandTooltipAutocast" template="StandardExtendedTemplate" height="18" vjustify="Middle" textcolor="#ColorAutocastInfo"/>
+    <Style name="GameButtonCharge" template="StandardExtendedTemplate" height="12" vjustify="Middle" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="UnitButtonInfo" template="StandardExtendedTemplate" height="12" vjustify="Middle" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="IdleButtonCharge" template="StandardExtendedTemplate" height="10" hjustify="Center" vjustify="Middle" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="AlertIconCount" template="StandardExtendedTemplate" height="10" hjustify="Center" vjustify="Middle" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="WorldTooltipTip" template="StandardExtendedTemplate" height="20" vjustify="Middle"/>
+    <Style name="WorldTooltipSubTip" template="StandardExtendedTemplate" height="16" vjustify="Middle" textcolor="#ColorGray7"/>
+    <Style name="StarmapTooltipPlanet" template="StandardExtendedTemplate" height="22" vjustify="Middle"/>
+    <Style name="StarmapTooltipLabel" template="StandardExtendedTemplate" height="18" vjustify="Middle" textcolor="#ColorTerranLabel"/>
+	<Style name="StarmapTooltipValue" template="StandardExtendedTemplate" height="18" vjustify="Middle" textcolor="#ColorWhite"/>
+    <Style name="IdleTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="InfoPaneUnitName" template="HeaderExtendedTemplate" height="28" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitName_Terr" template="InfoPaneUnitName" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitName_Prot" template="InfoPaneUnitName" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneUnitName_Zerg" template="InfoPaneUnitName" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneUnitNameCondensed" template="InfoPaneUnitName" height="20"/>
+    <Style name="InfoPaneUnitNameCondensed_Terr" template="InfoPaneUnitNameCondensed" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitNameCondensed_Prot" template="InfoPaneUnitNameCondensed" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneUnitNameCondensed_Zerg" template="InfoPaneUnitNameCondensed" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneUnitRank" template="HeaderExtendedTemplate" height="#FontSizeMedium" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitRank_Terr" template="InfoPaneUnitRank" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitRank_Prot" template="InfoPaneUnitRank" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneUnitRank_Zerg" template="InfoPaneUnitRank" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneUnitType" template="HeaderExtendedTemplate" height="14" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitType_Terr" template="InfoPaneUnitType" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitType_Prot" template="InfoPaneUnitType" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneUnitType_Zerg" template="InfoPaneUnitType" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneUnitInfo" template="HeaderExtendedTemplate" height="#FontSizeSmall" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitInfo_Terr" template="InfoPaneUnitInfo" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneUnitInfo_Prot" template="InfoPaneUnitInfo" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneUnitInfo_Zerg" template="InfoPaneUnitInfo" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneHeroLevel" template="StandardExtendedTemplate" shadowoffset="1"  height="18" hjustify="Center" textcolor="#ColorWhite"/>
+    <Style name="InfoPaneHeroExperienceTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorWhite"/>
+    <Style name="InfoPaneHeroName" template="StandardExtendedTemplate" height="28" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroName_Terr" template="InfoPaneHeroName" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroName_Prot" template="InfoPaneHeroName" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneHeroName_Zerg" template="InfoPaneHeroName" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneHeroRank" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroRank_Terr" template="InfoPaneHeroRank" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroRank_Prot" template="InfoPaneHeroRank" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneHeroRank_Zerg" template="InfoPaneHeroRank" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneHeroType" template="StandardExtendedTemplate" height="14" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroType_Terr" template="InfoPaneHeroType" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroType_Prot" template="InfoPaneHeroType" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneHeroType_Zerg" template="InfoPaneHeroType" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneHeroInfo" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroInfo_Terr" template="InfoPaneHeroInfo" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroInfo_Prot" template="InfoPaneHeroInfo" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneHeroInfo_Zerg" template="InfoPaneHeroInfo" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneHeroLevel" template="StandardExtendedTemplate" shadowoffset="1"  height="18" hjustify="Center" textcolor="#ColorWhite"/>
+    <Style name="InfoPaneHeroWeapon" template="StandardExtendedTemplate" height="18" vjustify="Middle" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroWeapon_Terr" template="InfoPaneHeroWeapon" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroWeapon_Prot" template="InfoPaneHeroWeapon" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneHeroWeapon_Zerg" template="InfoPaneHeroWeapon" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneHeroArmor" template="StandardExtendedTemplate" height="18" vjustify="Middle" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroArmor_Terr" template="InfoPaneHeroArmor" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroArmor_Prot" template="InfoPaneHeroArmor" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneHeroArmor_Zerg" template="InfoPaneHeroArmor" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneHeroAttribute" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Left" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroAttribute_Terr" template="InfoPaneHeroAttribute" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneHeroAttribute_Prot" template="InfoPaneHeroAttribute" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneHeroAttribute_Zerg" template="InfoPaneHeroAttribute" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneHeroExperienceTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorWhite"/>
+    <Style name="MinimapTooltipTip" template="StandardExtendedTemplate" height="14"/>
+    <Style name="EquipmentIconLevel" template="StandardExtendedTemplate" height="12"/>
+    <Style name="EquipmentTooltipName" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Left" textcolor="#ColorTerranLabel"/>
+    <Style name="EquipmentTooltipName_Prot" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Left" textcolor="#ColorProtossLabel"/>
+    <Style name="EquipmentTooltipName_Terr" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Left" textcolor="#ColorTerranLabel"/>
+    <Style name="EquipmentTooltipName_Zerg" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Left" textcolor="#ColorZergLabel"/>
+    <Style name="EquipmentTooltipTip" template="StandardExtendedTemplate" height="14" textcolor="70, 120, 120"/>
+    <Style name="InfoPaneQueueName" template="HeaderExtendedTemplate" height="28" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneQueueName_Terr" template="InfoPaneQueueName" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneQueueName_Prot" template="InfoPaneQueueName" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneQueueName_Zerg" template="InfoPaneQueueName" textcolor="#ColorZergLabel"/>
+    <Style name="QueueActivity" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="QueueActivity_Terr" template="QueueActivity" textcolor="#ColorTerranLabel"/>
+    <Style name="QueueActivity_Prot" template="QueueActivity" textcolor="#ColorProtossLabel"/>
+    <Style name="QueueActivity_Zerg" template="QueueActivity" textcolor="#ColorZergLabel"/>
+    <Style name="QueueTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="InfoPaneProgressName" template="HeaderExtendedTemplate" height="28" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneProgressName_Terr" template="InfoPaneProgressName" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneProgressName_Prot" template="InfoPaneProgressName" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneProgressName_Zerg" template="InfoPaneProgressName" textcolor="#ColorZergLabel"/>
+    <Style name="ProgressActivity" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="ProgressActivity_Terr" template="ProgressActivity" textcolor="#ColorTerranLabel"/>
+    <Style name="ProgressActivity_Prot" template="ProgressActivity" textcolor="#ColorProtossLabel"/>
+    <Style name="ProgressActivity_Zerg" template="ProgressActivity" textcolor="#ColorZergLabel"/>
+    <Style name="ProgressTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="InfoPaneCargoName" template="StandardExtendedTemplate" height="28" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneCargoName_Terr" template="InfoPaneCargoName" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneCargoName_Prot" template="InfoPaneCargoName" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneCargoName_Zerg" template="InfoPaneCargoName" textcolor="#ColorZergLabel"/>
+    <Style name="InfoPaneCargoCurrentCargo" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Center" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneCargoCurrentCargo_Terr" template="InfoPaneCargoCurrentCargo" textcolor="#ColorTerranLabel"/>
+    <Style name="InfoPaneCargoCurrentCargo_Prot" template="InfoPaneCargoCurrentCargo" textcolor="#ColorProtossLabel"/>
+    <Style name="InfoPaneCargoCurrentCargo_Zerg" template="InfoPaneCargoCurrentCargo" textcolor="#ColorZergLabel"/>
+    <Style name="CargoTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="BehaviorTooltipName" template="StandardExtendedTemplate" height="#FontSizeSmall" hjustify="Left" textcolor="#ColorGlueValue"/>
+    <Style name="BehaviorTooltipTip" template="StandardExtendedTemplate" height="14"/>
+    <Style name="UnitWireframeVital" template="StandardExtendedTemplate" height="14" hjustify="Center" vjustify="Middle"/>
+    <Style name="SubgroupTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="UnitNameTooltip" template="StandardExtendedTemplate" height="18" textcolor="255, 255, 255"/>
+    <Style name="UnitTipName" template="HeaderExtendedTemplate" height="16" textcolor="255, 255, 255"/>
+    <Style name="UnitTipTooltip" template="StandardExtendedTemplate" height="14" textcolor="255, 255, 255"/>
+    <Style name="PageButton" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" textcolor="#ColorTerranLabel" highlightcolor="#ColorWhite"/>
+    <Style name="PageButton_Terr" template="PageButton" textcolor="#ColorTerranLabel"/>
+    <Style name="PageButton_Prot" template="PageButton" textcolor="#ColorProtossLabel"/>
+    <Style name="PageButton_Zerg" template="PageButton" textcolor="#ColorZergLabel"/>
+    <Style name="GroupButtonCount" template="StandardExtendedTemplate" height="12" vjustify="Middle" hjustify="Center"/>
+    <Style name="ChatBar" template="InternationalTemplate" height="26" vjustify="Middle"/>
+    <Style name="ChatBarRecipient" template="InternationalTemplate" height="#FontSizeMedium" vjustify="Middle" textcolor="#ColorGlueValue"/>
+    
+    <!-- Dialogs-->
+
+    
+    <Style name="ExitDialogTitle" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Center" textcolor="0, 255, 255"/>
+    <Style name="GameOverDialogTitle" template="HeaderExtendedTemplate" height="28" vjustify="Middle" hjustify="Center" textcolor="00daff"/>
+    <Style name="ComputerButton" template="StandardExtendedTemplate" height="28" hjustify="Center" vjustify="Middle"/>
+    <Style name="AISurrenderTitle" template="HeaderExtendedTemplate" height="18" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+    <Style name="AISurrenderTitleAlt" template="HeaderExtendedTemplate" height="18" vjustify="Top" hjustify="Left" textcolor="00daff"/>
+    <Style name="AISurrenderText" template="StandardExtendedTemplate" height="18" vjustify="Top" hjustify="Left"/>
+    <Style name="AISurrenderButton" template="StandardExtendedTemplate" height="22" vjustify="Middle" hjustify="Center"/>
+
+    <!-- Team Resource Panel -->
+    <Style name="TeamResourceTradingNotAllowed" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Center"/>
+    <Style name="TeamResourceTradingNotAllowed_Prot" template="TeamResourceTradingNotAllowed" textcolor="176fdb"/>
+    <Style name="TeamResourceTradingNotAllowed_Terr" template="TeamResourceTradingNotAllowed" textcolor="16918c"/>
+    <Style name="TeamResourceTradingNotAllowed_Zerg" template="TeamResourceTradingNotAllowed" textcolor="b26c39"/>
+    <Style name="TeamResourceTradingNotAllowedTime" template="HeaderExtendedTemplate" height="28" vjustify="Middle" hjustify="Center"/>
+    <Style name="TeamResourceTradingNotAllowedTime_Prot" template="TeamResourceTradingNotAllowedTime" textcolor="1ddcff"/>
+    <Style name="TeamResourceTradingNotAllowedTime_Terr" template="TeamResourceTradingNotAllowedTime" textcolor="61ffa8"/>
+    <Style name="TeamResourceTradingNotAllowedTime_Zerg" template="TeamResourceTradingNotAllowedTime" textcolor="ffa92e"/>
+    <Style name="TeamResourcePlayer" template="HeaderExtendedTemplate" height="16" vjustify="Middle" hjustify="Left"/>
+    <Style name="TeamResourceValue" template="HeaderExtendedTemplate" height="16" vjustify="Middle" hjustify="Center"/>    
+    <Style name="TeamResourceButton" template="HeaderExtendedTemplate" height="16" vjustify="Middle" hjustify="Center"/>
+    <Style name="TeamResourceButton_Prot" template="TeamResourceButton" textcolor="5588f0" highlightcolor="5588f0"/>
+    <Style name="TeamResourceButton_Terr" template="TeamResourceButton" textcolor="4faf5e" highlightcolor="4faf5e"/>
+    <Style name="TeamResourceButton_Zerg" template="TeamResourceButton" textcolor="b27b4e" highlightcolor="b27b4e"/>
+    
+    <!--Alliance Panel -->
+    <Style name="AllianceHeader" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Left" textcolor="0, 255, 255"/>
+    <Style name="AllianceColumnHeader" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Center" textcolor="0, 255, 255"/>
+    <Style name="AlliancePlayer" template="HeaderExtendedTemplate" height="16" vjustify="Middle" hjustify="Left"/>
+
+    <!--Control Group -->
+    <Style name="ControlGroupButtonIndex" template="StandardExtendedTemplate" height="#FontSizeTiny" vjustify="Middle" hjustify="Center" textcolor="#ColorWhite"/>
+    <Style name="ControlGroupButtonCount" template="StandardExtendedTemplate" height="#FontSizeTiny" vjustify="Middle" hjustify="Left" textcolor="#ColorTerranLabel"/>
+    <Style name="ControlGroupButtonCount_Terr" template="ControlGroupButtonCount" textcolor="#ColorTerranLabel"/>
+    <Style name="ControlGroupButtonCount_Prot" template="ControlGroupButtonCount" textcolor="#ColorProtossLabel"/>
+    <Style name="ControlGroupButtonCount_Zerg" template="ControlGroupButtonCount" textcolor="#ColorZergLabel"/>
+    <Style name="ControlGroupTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+
+    <!--Menu Bar -->
+    <Style name="MenuBarButton" template="StandardExtendedTemplate" height="14" vjustify="Middle" hjustify="Center" textcolor="#ColorTerranLabel" highlightcolor="#ColorWhite"/>
+    <Style name="MenuBarButton_Terr" template="MenuBarButton" textcolor="#ColorTerranLabel"/>
+    <Style name="MenuBarButton_Prot" template="MenuBarButton" textcolor="#ColorProtossLabel"/>
+    <Style name="MenuBarButton_Zerg" template="MenuBarButton" textcolor="#ColorZergLabel"/>
+    <Style name="MenuBarButtonKey" template="StandardExtendedTemplate" height="14" vjustify="Middle" hjustify="Center"/>
+
+    <!--Replay Panel -->    
+    <Style name="ReplayPanelSpeed" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="ReplayPanelTime" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+
+    <!--Replay Panel -->
+    <Style name="PausePanelTime" template="StandardExtendedTemplate" height="#FontSizeMedium" vjustify="Middle"/>
+    
+    <Style name="AlertItem" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    <Style name="AlertDisplay" template="StandardExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center"/>
+    <Style name="ObserverPanelPulldown" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="ObserverPanelLabel" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="ObserverPanelCheckBox" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>   
+    <Style name="SavePanelTitle" template="StandardExtendedTemplate" height="#FontSizeMedium"/>
+    <Style name="SavePanelName" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="SavePanelTime" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="SavePanelSpeed" template="StandardExtendedTemplate" height="#FontSizeMedium"/>
+    <Style name="SubtitlePanel" template="StandardExtendedTemplate" height="34" vjustify="Middle" hjustify="Left"/>
+    <Style name="ConversationReplyUnread" template="StandardExtendedTemplate" height="22" vjustify="Middle" hjustify="Left" textcolor="255, 255, 255" highlightcolor="80, 200, 200"/>
+    <Style name="ConversationReplyRead" template="StandardExtendedTemplate" height="22" vjustify="Middle" hjustify="Left" textcolor="128, 128, 128" highlightcolor="40, 100, 100"/>
+    <Style name="MissionName" template="StandardExtendedTemplate" height="16" textcolor="#ColorWhite" hjustify="Left" vjustify="Middle"/>
+    <Style name="MissionDescription" template="StandardExtendedTemplate" height="16" textcolor="#ColorWhite" hjustify="Left" vjustify="Top"/>
+    <Style name="MissionRewardLabel" template="StandardExtendedTemplate" height="16" textcolor="#ColorWhite" hjustify="Left" vjustify="Middle"/>
+    <Style name="MissionRewardValue" template="StandardExtendedTemplate" height="16" textcolor="#ColorWhite" hjustify="Right" vjustify="Middle"/>
+    <Style name="MissionListTitle" template="StandardExtendedTemplate" height="16" textcolor="#ColorWhite" hjustify="Left" vjustify="Middle"/>
+    <Style name="MissionListName" template="StandardExtendedTemplate" height="16" textcolor="#ColorWhite" hjustify="Left" vjustify="Middle"/>
+    <Style name="MissionListInfo" template="StandardExtendedTemplate" height="13" textcolor="128, 128, 128" hjustify="Left" vjustify="Middle" shadowoffset="1"/>
+    <Style name="InGameOptionsPulldown" template="StandardExtendedTemplate" height="14" vjustify="Middle"/>
+    <Style name="BoardTitle" template="StandardExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center"/>
+    <Style name="BoardItemCenter" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="BoardItemLeft" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="BoardItemRight" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Right" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="TimerTitle" template="StandardExtendedTemplate" height="#FontSizeMedium" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="TimerText" template="StandardExtendedTemplate" height="#FontSizeSmall" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="TimerTitleLeft" template="TimerTitle" vjustify="Middle" hjustify="Left"/>
+    <Style name="TimerTitleRight" template="TimerTitle" vjustify="Middle" hjustify="Right"/>
+    <Style name="TimerTitleTop" template="TimerTitle" vjustify="Top" hjustify="Center"/>
+    <Style name="TimerTitleBottom" template="TimerTitle" vjustify="Bottom" hjustify="Center"/>
+    <Style name="TimerTextLeft" template="TimerText" vjustify="Middle" hjustify="Left"/>
+    <Style name="TimerTextRight" template="TimerText" vjustify="Middle" hjustify="Right"/>
+    <Style name="TimerTextTop" template="TimerText" vjustify="Top" hjustify="Center"/>
+    <Style name="TimerTextBottom" template="TimerText" vjustify="Bottom" hjustify="Center"/>
+    <Style name="ObserverTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>    
+    <Style name="ReplayTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="ScreenButton" template="StandardExtendedTemplate" height="18" vjustify="Middle" hjustify="Center"/>
+    <Style name="StarmapTooltipName" template="StandardExtendedTemplate" height="18" vjustify="Middle"/>
+    <Style name="StarmapButton" template="StandardExtendedTemplate" height="18" vjustify="Middle" hjustify="Center"/>
+    <Style name="WaitingForPlayersDialogTitle" template="StandardExtendedTemplate" height="26" vjustify="Middle" hjustify="Center"/>
+    <Style name="WaitingForPlayersDialogList" template="StandardExtendedTemplate" height="16" vjustify="Middle" hjustify="Center"/>
+    <Style name="WaitingForPlayersDialogChat" template="InternationalTemplate"  height="20" />
+    <Style name="WaitingForUsersDialogTitle" template="StandardExtendedTemplate" height="26" vjustify="Middle" hjustify="Center"/>
+    <Style name="WaitingForUsersDialogList" template="StandardExtendedTemplate" height="16" vjustify="Middle" hjustify="Center"/>
+    <Style name="TriggerDialogFrameTitle" template="StandardExtendedTemplate" height="26" vjustify="Middle" hjustify="Center"/>
+    <Style name="TriggerControlLabel" template="StandardExtendedTemplate" height="16"/>
+    <Style name="LeaderPlayer" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="ResourceValue" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center"/>
+    <Style name="SpendingValue" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center"/>
+    <Style name="UnitCountValue" template="StandardExtendedTemplate" height="16" hjustify="Right" vjustify="Bottom" styleflags="Shadow" shadowoffset="1"/>
+    <Style name="PlayerIconTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="UnitIconTooltip" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="TipAlertPanel" template="StandardExtendedTemplate" height="22" vjustify="Middle" hjustify="Right"/>
+
+    <!-- Resource Request Alert -->
+    <Style name="ResourceRequestAlertItemTitle" template="HeaderTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    <Style name="ResourceRequestAlertItemTitle_Prot" template="ResourceRequestAlertItemTitle" textcolor="74d8fd"/>
+    <Style name="ResourceRequestAlertItemTitle_Terr" template="ResourceRequestAlertItemTitle" textcolor="a3d39c"/>
+    <Style name="ResourceRequestAlertItemTitle_Zerg" template="ResourceRequestAlertItemTitle" textcolor="ffcb8d"/>
+    <Style name="ResourceRequestAlertItemPlayer" template="HeaderTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    <Style name="ResourceRequestAlertItemValue" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Lef^t"/>
+    
+    <!-- Generic In Game Frame -->
+    <Style name="GameFrameTitle" template="HeaderExtendedTemplate" height="#FontSizeMedium" hjustify="Center" vjustify="Middle" textcolor="00daff"/>
+    <Style name="GameFrameSmallBottomButton" template="HeaderExtendedTemplate" height="16" hjustify="Center" vjustify="Middle"/>
+    <Style name="GameFrameLargeBottomButton" template="HeaderExtendedTemplate" height="20" hjustify="Center" vjustify="Middle"/>
+    <Style name="GameFrameMenuButton" template="HeaderExtendedTemplate" height="24" hjustify="Center" vjustify="Middle"/>    
+
+    <!-- Restart Panel -->
+    <Style name="RestartPanelDifficultyLabel" template="HeaderExtendedTemplate" height="#FontSizeMedium" textcolor="00daff"/>
+    <Style name="RestartPanelDifficultyPulldown" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    
+    <!-- Options Panel -->    
+    <Style name="OptionsLabel" template="StandardTemplate" height="20" textcolor="5797dc" vjustify="Middle" hjustify="Right"/>
+    <Style name="OptionsLabel_Prot" template="OptionsLabel" textcolor="5797dc"/>
+    <Style name="OptionsLabel_Terr" template="OptionsLabel" textcolor="66bc96"/>
+    <Style name="OptionsLabel_Zerg" template="OptionsLabel" textcolor="9b7047"/>
+    <Style name="OptionsLabelLeft" template="OptionsLabel" hjustify="Left"/>
+    <Style name="OptionsLabelLeft_Prot" template="OptionsLabel_Prot" hjustify="Left"/>
+    <Style name="OptionsLabelLeft_Terr" template="OptionsLabel_Terr" hjustify="Left"/>
+    <Style name="OptionsLabelLeft_Zerg" template="OptionsLabel_Zerg" hjustify="Left"/>
+    <Style name="OptionsLabelRight" template="OptionsLabel" hjustify="Right"/>
+    <Style name="OptionsLabelRight_Prot" template="OptionsLabel_Prot" hjustify="Right"/>
+    <Style name="OptionsLabelRight_Terr" template="OptionsLabel_Terr" hjustify="Right"/>
+    <Style name="OptionsLabelRight_Zerg" template="OptionsLabel_Zerg" hjustify="Right"/>    
+    <Style name="OptionsPlayerToonName" template="StandardTemplate" height="20" textcolor="ffffff" vjustify="Middle" hjustify="Left"/>
+    <Style name="OptionsPlayerKeyword" template="StandardTemplate" height="20" textcolor="2675dc" vjustify="Middle" hjustify="Left"/>
+
+    <!-- File Panel -->
+    <Style name="FilePanelFileManagementButtonLabel" template="HeaderTemplate" height="#FontSizeSmall" hjustify="Center" vjustify="Bottom" textcolor="0276d8"/>
+    <Style name="FilePanelFileManagementButtonLabel_Terr" template="FilePanelFileManagementButtonLabel" textcolor="2f873a"/>
+    <Style name="FilePanelFileListHeadingButtonLabel" template="HeaderTemplate" height="#FontSizeMedium" hjustify="Center" vjustify="Middle" textcolor="97dcff"/>
+    <Style name="FilePanelFileListHeadingButtonLabel_Terr" template="FilePanelFileListHeadingButtonLabel" textcolor="5ee8cc"/>
+    <Style name="FilePanelFileListItemNameLabel" template="HeaderTemplate" height="#FontSizeSmall" hjustify="Left" vjustify="Middle"/>
+    <Style name="FilePanelFileListItemDateTimeLabel" template="HeaderTemplate" height="#FontSizeSmall" hjustify="Center" vjustify="Middle"/>
+    <Style name="FilePanelDetailsTitleLabel" template="HeaderTemplate" height="#FontSizeLarge" hjustify="Right" vjustify="Middle" textcolor="05f9eb"/>
+    <Style name="FilePanelDetailsTitleLabel_Prot" template="FilePanelDetailsTitleLabel" textcolor="4cffca"/>
+    <Style name="FilePanelDetailsTitleLabel_Terr" template="FilePanelDetailsTitleLabel" textcolor="4cffca"/>
+    <Style name="FilePanelDetailsTitleLabel_Zerg" template="FilePanelDetailsTitleLabel" textcolor="4cffca"/>
+    <Style name="FilePanelDetailsDurationHeadingLabel" template="HeaderTemplate" height="#FontSizeMedium" hjustify="Right" vjustify="Middle" textcolor="00569f"/>
+    <Style name="FilePanelDetailsDurationHeadingLabel_Prot" template="FilePanelDetailsDurationHeadingLabel" textcolor="184b3c"/>
+    <Style name="FilePanelDetailsDurationHeadingLabel_Terr" template="FilePanelDetailsDurationHeadingLabel" textcolor="184b3c"/>
+    <Style name="FilePanelDetailsDurationHeadingLabel_Zerg" template="FilePanelDetailsDurationHeadingLabel" textcolor="184b3c"/>
+    <Style name="FilePanelDetailsDurationLabel" template="HeaderTemplate" height="#FontSizeMedium" hjustify="Right" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="FilePanelDetailsHyphen" template="HeaderTemplate" height="20" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="FilePanelDetailsPlayerName" template="HeaderTemplate" height="20" hjustify="Right" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="FilePanelDetailsPlayerRace" template="HeaderTemplate" height="20" hjustify="Left" vjustify="Middle" textcolor="ffffff"/>
+    
+    <!-- Help Panel -->
+    <Style name="HelpPanelToggleButton" template="HeaderExtendedTemplate" height="#FontSizeMedium" hjustify="Center" vjustify="Middle"/>
+    <Style name="HelpPanelGenericButton" template="HeaderExtendedTemplate" height="#FontSizeSmall" hjustify="Center" vjustify="Middle"/>
+    <Style name="HelpPanelListItemTitle" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" textcolor="00daff"/>
+    <Style name="HelpPanelListItemDescription" template="StandardExtendedTemplate" height="18" vjustify="Middle" textcolor="dcdedd"/>
+    <Style name="HelpPanelHideTipsLabel" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="HelpPanelCategoryButton" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center"/>
+    <Style name="HelpPanelCategoryButton_Prot" template="HelpPanelCategoryButton" textcolor="#ColorProtossLabel" highlightcolor="#ColorProtossHighlightLabel"/>
+    <Style name="HelpPanelCategoryButton_Terr" template="HelpPanelCategoryButton" textcolor="#ColorTerranLabel" highlightcolor="#ColorTerranHighlightLabel"/>
+    <Style name="HelpPanelCategoryButton_Zerg" template="HelpPanelCategoryButton" textcolor="#ColorZergLabel" highlightcolor="#ColorZergHighlightLabel"/>
+        
+    <Style name="HelpPanelUnitSummaryTitle" template="HeaderExtendedTemplate" height="#FontSizeMedium" hjustify="Center" vjustify="Middle"/>
+    <Style name="HelpPanelUnitSummaryTitle_Prot" template="HelpPanelUnitSummaryTitle" textcolor="#ColorProtossLabel"/>
+    <Style name="HelpPanelUnitSummaryTitle_Terr" template="HelpPanelUnitSummaryTitle" textcolor="#ColorTerranLabel"/>
+    <Style name="HelpPanelUnitSummaryTitle_Zerg" template="HelpPanelUnitSummaryTitle" textcolor="#ColorZergLabel"/>
+    <Style name="HelpPanelUnitSummaryVitals" template="StandardExtendedTemplate" height="16" hjustify="Center" vjustify="Bottom"/>
+    <Style name="HelpPanelUnitSummaryAttributes" template="StandardExtendedTemplate" height="16" hjustify="Center" vjustify="Middle"/>
+    <Style name="HelpPanelUnitSummaryDescription" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Center" vjustify="Top"/>
+    <Style name="HelpPanelUnitSummaryRequirement" template="StandardExtendedTemplate" height="16" hjustify="Center" vjustify="Middle"/>
+    <Style name="HelpPanelUnitSummaryHeader" template="StandardExtendedTemplate" height="16" hjustify="Left" vjustify="Top"/>
+    <Style name="HelpPanelTechGlossaryStrong" template="StandardExtendedTemplate" height="16" hjustify="Left" vjustify="Top" textcolor="1, 255, 32"/>
+    <Style name="HelpPanelTechGlossaryWeak" template="StandardExtendedTemplate" height="16" hjustify="Left" vjustify="Top" textcolor="254, 0, 2"/>
+    
+    <Style name="TechTreeBuildingLabel" template="HeaderExtendedTemplate" height="#FontSizeSmall" hjustify="Center" vjustify="Middle"/>
+    <Style name="TechTreeBuildingLabel_Prot" template="TechTreeBuildingLabel" textcolor="00a2ff"/>
+    <Style name="TechTreeBuildingLabel_Terr" template="TechTreeBuildingLabel" textcolor="74ec74"/>    
+    <Style name="TechTreeBuildingLabel_Zerg" template="TechTreeBuildingLabel" textcolor="ba4120"/>
+    <Style name="TechTreeUnitLabel" template="HeaderExtendedTemplate" height="#FontSizeSmall" hjustify="Center" vjustify="Middle"/>
+    
+    <!-- Message Log Panel -->
+    <Style name="MessageLogPanelNoMessagesLabel" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Center" vjustify="Middle" textcolor="125, 125, 125"/>
+    
+    <!-- Save/Load Panel -->
+    <Style name="SavePanelHeader" template="HeaderExtendedTemplate" height="16" vjustify="Middle" hjustify="Center" textcolor="00daff"/>
+
+    <!-- Achievement Frame -->
+    <Style name="AchievementFrameName" template="StandardExtendedTemplate" height="18" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="AchievementFrameScore" template="StandardExtendedTemplate" height="24" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="AchievementFrameLabel" template="StandardExtendedTemplate" height="14" hjustify="Center" vjustify="Bottom" textcolor="00ff00"/>
+    <Style name="AchievementFrameInfo" template="StandardExtendedTemplate" height="12" hjustify="Center" vjustify="Top" textcolor="ffcc00"/>
+
+    <!-- Leaderboard Panel -->
+    <Style name="LeaderboardHeaderLabel" template="HeaderExtendedTemplate" height="#FontSizeSmall" hjustify="Center" vjustify="Top"/>
+    <Style name="LeaderboardPulldownLabel" template="HeaderExtendedTemplate" height="#FontSizeSmall" hjustify="Center" vjustify="Middle"/>
+
+    <!-- Generic Campaign Panel Styles -->
+    <Style name="CampaignPanelTitle" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="7dd4ec"/>
+    <Style name="CampaignPanelSelectionInfoCreditsHeading" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="bdf7fd"/>
+    <Style name="CampaignPanelSelectionInfoCredits" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    <Style name="CampaignPanelSelectionInfoCostHeading" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="bdf7fd"/>
+    <Style name="CampaignPanelSelectionInfoCost" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center"/>
+    
+    <Style name="CampaignActionButton" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="04ff0f" highlightcolor="80ff80"/>
+    
+    
+    <!-- Victory Panel -->
+    <Style name="VictoryPanelTimeHeading" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="7dd1e9"/>
+    <Style name="VictoryPanelTime" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    <Style name="VictoryPanelMissionNameHeading" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left" textcolor="7dd1e9"/>
+    <Style name="VictoryPanelMissionName" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Left" textcolor="ffffff"/>
+    <Style name="VictoryPanelRewardHeading" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Right" textcolor="7dd1e9"/>
+    <Style name="VictoryPanelReward" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Right" textcolor="ade1ee"/>
+    <Style name="VictoryPanelSummaryHeading" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="7dd1e9"/>
+    <Style name="VictoryPanelStatisticText" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Left" textcolor="7dd1e9"/>
+    <Style name="VictoryPanelStatisticValue" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Right" textcolor="ffffff"/>
+    
+    <!-- Battle Report Panel -->
+    <Style name="BattleReportPanelTitle" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="7dd4ec"/>
+    <Style name="BattleReportPanelSelectHeading" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="7fd5ec"/>
+    <Style name="BattleReportPanelMissionsCompletedHeading" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="7fd5ec"/>
+    <Style name="BattleReportPanelMissionsCompleted" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="7fd5ec"/>
+    <Style name="BattleReportPanelSummaryText" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left"/>
+    <Style name="BattleReportPanelSummaryType" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    <Style name="BattleReportPanelPlaySceneButton" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Center" textcolor="d49736" highlightcolor="d49736"/>
+    <Style name="BattleReportPanelDifficultyButton" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" highlightcolor="ffffff"/>
+    <Style name="BattleReportPanelDifficultyButtonBestTime" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center"/>
+    <Style name="BattleReportPanelHardestDifficultyCompleteHeading" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="84d9ec"/>
+    <Style name="BattleReportPanelHardestDifficultyCompleteText" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center"/>        
+    <Style name="BattleReportPanelListBoxText" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    <Style name="BattleReportPanelListBoxType" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    
+    <!-- Objective Panel -->
+    <Style name="ObjectivePanelCategory" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" textColor="#ObjectiveCategory"/>
+    <Style name="ObjectivePanelNew" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" textColor="#ObjectiveNew"/>
+    <Style name="ObjectivePanelActive" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" textColor="#ObjectiveActive"/>
+    <Style name="ObjectivePanelCompleted" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" textColor="#ObjectiveCompleted"/>
+    <Style name="ObjectivePanelFailed" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" textColor="#ObjectiveFailed"/>
+    
+    <Style name="InputMethodCompositionLabel" template="InternationalTemplate" height="#FontSizeSmall" textcolor="#ColorGlueLabel" vjustify="Middle"/>
+    <Style name="InputMethodLanguageLabel" template="InternationalTemplate" height="#FontSizeSmall" textcolor="#ColorGlueLabel" hjustify="Center" vjustify="Middle"/>
+    <Style name="InputMethodCandidateList" template="InternationalTemplate" height="#FontSizeSmall" textcolor="#ColorGlueLabel"/>
+
+    <!-- Mission Objective Research Reward Style -->
+    <Style name="ObjRewardSummary_Unstarted" template="HeaderExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="808080"/>
+    <Style name="ObjRewardSummary_Zerg" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+    <Style name="ObjRewardSummary_Protoss" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+    <Style name="ObjRewardSummary" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+    <Style name="ObjRewardRollover_Zerg" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="fe8503"/>
+    <Style name="ObjRewardRollover_Protoss" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="2854c1"/>
+
+    <!-- Research Panel Styles -->
+    <Style name="ResearchPanelTitle" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="7dd4ec"/>
+    <Style name="ResearchPanelResearchButton" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="04ff0f" highlightcolor="80ff80"/>
+    <Style name="ResearchPanelSelectedName" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    <Style name="ResearchPanelSelectedDescription" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left" textcolor="ffffff"/>
+    <Style name="ResearchPanelNoSelection" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    
+    <Style name="ResearchDescSummary_Protoss" template="HeaderExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="2754b1"/>
+    <Style name="ResearchAbilitySummary_Protoss" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="657db0"/>
+    <Style name="ResearchLevelReq_Protoss" template="StandardExtendedTemplate" height="14" vjustify="Top" hjustify="Left" textcolor="2754b1"/>
+    <Style name="ResearchLevelReqNumber_Protoss" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="dfdfdf"/>
+    <Style name="ResearchDescription_Protoss" template="StandardTemplate" height="19" vjustify="Top" hjustify="Left" textcolor="dfdfdf"/>
+    
+    <Style name="TooltipTitle_Protoss" template="HeaderExtendedTemplate" height="17" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+    <Style name="TooltipCost_Protoss" template="HeaderExtendedTemplate" height="14" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+    <Style name="TooltipDescription_Protoss" template="StandardTemplate" height="19" vjustify="Top" hjustify="Left" textcolor="dfdfdf"/>
+    <Style name="TooltipNotResearchable_Protoss" template="HeaderExtendedTemplate" height="14" vjustify="Top" hjustify="Left" textcolor="fb0808"/> 
+ 
+    <Style name="ResearchDescSummary_Zerg" template="HeaderExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="b15427"/>
+    <Style name="ResearchAbilitySummary_Zerg" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="b07d65"/>
+    <Style name="ResearchLevelReq_Zerg" template="StandardExtendedTemplate" height="14" vjustify="Top" hjustify="Left" textcolor="b15427"/>
+    <Style name="ResearchLevelReqNumber_Zerg" template="StandardExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="dfdfdf"/>
+    <Style name="ResearchDescription_Zerg" template="StandardTemplate" height="19" vjustify="Top" hjustify="Left" textcolor="dfdfdf"/>
+    
+    <Style name="TooltipTitle_Zerg" template="HeaderExtendedTemplate" height="17" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+    <Style name="TooltipCost_Zerg" template="HeaderExtendedTemplate" height="14" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+    <Style name="TooltipDescription_Zerg" template="StandardTemplate" height="19" vjustify="Top" hjustify="Left" textcolor="dfdfdf"/>
+    <Style name="TooltipNotResearchable_Zerg" template="HeaderExtendedTemplate" height="14" vjustify="Top" hjustify="Left" textcolor="fb0808"/>
+
+    <Style name="ResearchCategoryName_Protoss" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="6684c8"/>
+    <Style name="ResearchCategoryProgress_Protoss" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="6684c8"/>
+    <Style name="ResearchCategoryCurrentLevel_Protoss" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="6684c8"/>
+   
+    <Style name="ResearchTierSelectAvailable_Protoss" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="7ea5ff"/>
+    <Style name="ResearchTierRequiredLevel_Protoss" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="74adbe"/>
+
+    <Style name="ResearchCategoryName_Zerg" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="ffd179"/>
+    <Style name="ResearchCategoryProgress_Zerg" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="ffd179"/>
+    <Style name="ResearchCategoryCurrentLevel_Zerg" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="ffd179"/>
+
+    <Style name="ResearchTierSelectAvailable_Zerg" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="ffd179"/>
+    <Style name="ResearchTierRequiredLevel_Zerg" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="ffd179"/>
+ 
+    <!-- Tech Purchase Panel Styles -->
+   <Style name="TechSummary" template="HeaderExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="02c708"/>
+   <Style name="TechDescription" template="StandardTemplate" height="19" vjustify="Top" hjustify="Left" textcolor="dfdfdf"/>
+   <Style name="TooltipTitle_Tech" template="HeaderExtendedTemplate" height="17" vjustify="Top" hjustify="Left" textcolor="ffffff"/>
+   <Style name="TooltipDescription_Tech" template="StandardTemplate" height="19" vjustify="Top" hjustify="Left" textcolor="dfdfdf"/>
+
+    <!-- Mercenary Panel Styles -->
+   <Style name="MercCategory" template="HeaderExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="04ff0f"/>
+   <Style name="MercSummary" template="HeaderExtendedTemplate" height="16" vjustify="Top" hjustify="Left" textcolor="c5ffca"/>
+   <Style name="MercDescription" template="StandardTemplate" height="19" vjustify="Top" hjustify="Left" textcolor="82d6ed"/>
+ 
+   <!-- Research Kicker Style -->
+   <Style name="Kicker_Zerg" template="HeaderExtendedTemplate" height="30" vjustify="Top" hjustify="Left" textcolor="fe8503"/>
+   <Style name="Kicker_Protoss" template="HeaderExtendedTemplate" height="30" vjustify="Top" hjustify="Left" textcolor="0a4ffa"/>
+   
+    <!-- Mercenary Panel Styles -->
+    <Style name="MercenaryPanelTitle" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="7dd4ec"/>
+    <Style name="MercenaryPanelSelectHeading" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left" textcolor="7fd5ec"/>
+    <Style name="MercenaryPanelCreditsHeading" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="bdf7fd"/>
+    <Style name="MercenaryPanelCredits" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    <Style name="MercenaryPanelCost" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center"/>
+    <Style name="MercenaryPanelHire" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center"/>
+    <Style name="MercenaryPanelSelectedMercenaryTitle" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left"/>
+    <Style name="MercenaryPanelSelectedMercenaryUnit" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left"/>
+    <Style name="MercenaryPanelSelectedMercenaryAvailability" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left"/>
+    <Style name="MercenaryPanelSelectedMercenarySpecial" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left"/>
+    <Style name="MercenaryPanelSelectedMercenaryDescription" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    <Style name="MercenaryPanelHireButton" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="04ff0f" highlightcolor="80ff80"/>
+    <Style name="MercenaryFrameTitle" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center"/>
+    
+    <!-- Purchase Panel Styles -->
+    <Style name="PurchasePanelTitle" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="7dd4ec"/>
+    <Style name="PurchasePanelSelectHeading" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left" textcolor="7fd5ec"/>
+    <Style name="PurchasePanelCreditsHeading" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="bdf7fd"/>
+    <Style name="PurchasePanelCredits" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    <Style name="PurchasePanelCost" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center"/>    
+    <Style name="PurchasePanelSelectedPurchaseItemName" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left"/>
+    <Style name="PurchasePanelSelectedPurchaseItemDescription" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    <Style name="PurchasePanelPurchaseButton" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="04ff0f" highlightcolor="80ff80"/>
+    <Style name="PurchasePanelNoSelection" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    <Style name="PurchasePanelCategoryName" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left" textcolor="79d0e3"/>
+    <Style name="PurchasePanelGroupName" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Center" textcolor="79d0e3"/>
+    
+    <!-- CharacterSheet Panel Styles -->
+    <Style name="CharacterSheetName" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Left"/>
+    <Style name="CharacterSheetCreditsTitle" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Left"/>
+    <Style name="CharacterSheetCreditsLabel" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Left"/>
+
+    <!-- Planet Panel Styles -->
+    <Style name="PlanetPanelTitle" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="7dd4ec"/>    
+    <Style name="PlanetPanelCredits" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="a2dceb"/>
+    <Style name="PlanetPanelNoSelection" template="HeaderExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    <Style name="PlanetPanelHeading" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left" textcolor="7dd4ec"/>
+    <Style name="PlanetPanelMission" template="HeaderExtendedTemplate" height="35" vjustify="Middle" hjustify="Left" textcolor="ffffff"/>
+    <Style name="PlanetPanelObjective" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left" textcolor="a2dceb"/>
+    <Style name="PlanetPanelReward" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Left" textcolor="a2dceb"/>
+    <Style name="PlanetPanelContactHeading" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Left" textcolor="8edcef"/>
+    <Style name="PlanetPanelContactName" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Left" textcolor="ffffff"/>
+    <Style name="PlanetPanelTechnologyHeading" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Right" textcolor="8edcef"/>
+    <Style name="PlanetPanelTechnologyName" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Right" textcolor="ffffff"/>
+    <Style name="PlanetPanelTechnologyDescription" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Bottom" hjustify="Center" textcolor="7ed3eb"/>
+    <Style name="PlanetPanelPlanetName" template="HeaderExtendedTemplate" height="20" vjustify="Middle" hjustify="Center" textcolor="ffffff"/>
+    <Style name="PlanetPanelPlanetDescription" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="7ed3eb"/>
+    <Style name="PlanetFramePlanetName" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="7ed3eb"/>
+    <Style name="PlanetPanelLaunchButton" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="7ed3eb" highlightcolor="8edcef"/>
+    <Style name="PlanetPanelMissionInfo" vjustify="Top" hjustify="Center"/>
+    
+    <!-- Planet Panel Research Reward Style -->
+    <Style name="RewardSummary_Zerg" template="HeaderExtendedTemplate" height="22" vjustify="Top" hjustify="Left" textcolor="fe8503"/>
+    <Style name="RewardSummary_Protoss" template="HeaderExtendedTemplate" height="22" vjustify="Top" hjustify="Left" textcolor="2854c1"/>
+    
+    <!-- Zeratul Planet Panel Research Reward Style -->
+    <Style name="ZPlanetPanelHeading" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center" textcolor="2A6C46"/>
+    <Style name="ZPlanetPanelMission" template="HeaderExtendedTemplate" height="35" vjustify="Middle" hjustify="Center" textcolor="51A882"/>
+    <Style name="ZPlanetPanelObjective" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="4BA57E"/>
+    <Style name="ZPlanetPanelButtonLaunch" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="60ff60" highlightcolor="ffffff"/>
+    <Style name="ZPlanetPanelButtonClose" template="HeaderExtendedTemplate" height="#FontSizeMedium" vjustify="Middle" hjustify="Center" textcolor="60ff60" highlightcolor="ffffff"/>
+    <Style name="ZRewardSummary_Zerg" template="HeaderExtendedTemplate" height="22" vjustify="Top" hjustify="Center" textcolor="fe8503"/>
+    <Style name="ZRewardSummary_Protoss" template="HeaderExtendedTemplate" height="22" vjustify="Top" hjustify="Center" textcolor="2854c1"/>
+
+   
+    
+    <!-- A/B Choice -->
+    <Style name="ABChoiceButtonText" template="HeaderExtendedTemplate" height="36" vjustify="Middle" hjustify="Center" textcolor="7dd4ec"/>    
+    <Style name="ABChoiceDescription" template="StandardExtendedTemplate" height="20" vjustify="Top" hjustify="Left" textcolor="ffffff"/>    
+    <Style name="ABChoiceRewardsTitle" template="StandardExtendedTemplate" height="18" vjustify="Middle" hjustify="Left" textcolor="ffffff"/>
+    <Style name="ABChoiceRewards" template="StandardExtendedTemplate" height="18" vjustify="Top" hjustify="Right" textcolor="ffffff"/>
+    <Style name="ABChoiceResearchPoints_Protoss" template="StandardExtendedTemplate" height="28" vjustify="Middle" hjustify="Left" textcolor="2754b1"/>
+    <Style name="ABChoiceResearchPoints_Zerg" template="StandardExtendedTemplate" height="28" vjustify="Middle" hjustify="Left" textcolor="b15427"/>
+    <Style name="ABChoiceResearchPoints" template="StandardExtendedTemplate" height="24" vjustify="Middle" hjustify="Left"/>
+
+    <!-- Lag Indicator Panel Styles -->
+    <Style name="LagIndicatorLabel" template="StandardExtendedTemplate" height="20" textcolor="#ColorGlueLabel"/>
+
+    <!-- Credits Panel -->
+    <Style name="CreditsPanelLabel" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Left"/>
+    <Style name="CreditsPanelValue" template="HeaderExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Right"/>
+    
+    <!-- Glue Styles -->
+	<Style name="LoadingLabel" template="StandardExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center"/>
+    <Style name="LoadingCampaignTitle" template="StandardExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center"/>
+    <Style name="LoadingCampaignSubtitle" template="StandardExtendedTemplate" height="28" vjustify="Middle" hjustify="Center"/>
+    <Style name="LoadingCampaignText" template="StandardExtendedTemplate" height="20" vjustify="Top" hjustify="Left"/>
+    <Style name="MultiplayerLoadingPanelMapName" template="StandardExtendedTemplate" height="40" vjustify="Middle" hjustify="Center" textcolor="8fecff"/>
+    <Style name="MultiplayerLoadingPanelMapMode" template="HeaderExtendedTemplate" height="68" vjustify="Middle" hjustify="Center" textcolor="41b0ff"/>
+    <Style name="MultiplayerLoadingPanelFavored" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Center" textcolor="46d3fe"/>
+    <Style name="MultiplayerLoadingPanelPlayerName" template="HeaderExtendedTemplate" height="22" vjustify="Middle" hjustify="Center" textcolor="8fecff"/>
+    <Style name="MultiplayerLoadingPanelPlayerTeam" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Center" textcolor="00bff3"/>
+    <Style name="MultiplayerLoadingPanelPlayerRace" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Center" textcolor="0090ff"/>
+    <Style name="MultiplayerLoadingPanelPlayerLoading" template="HeaderExtendedTemplate" height="18" vjustify="Middle" hjustify="Center" textcolor="00b1f3"/>    
+    
+    <Style name="Version" template="StandardExtendedTemplate" height="#FontSizeSmall"/>
+    <Style name="NewCampaignTitle" template="StandardExtendedTemplate" height="#FontSizeLarge" textcolor="255, 239, 0" hjustify="Left"/>
+    <Style name="NewCampaignDescription" template="StandardExtendedTemplate" height="18" hjustify="Left"/>
+    <Style name="DifficultyDescription" template="StandardExtendedTemplate" height="18" hjustify="Center"/>
+    <Style name="GlueHeading" template="StandardTemplate" height="#FontSizeMedium" textcolor="#ColorGlueHeading" hjustify="Center"/>
+    <Style name="GlueHeadingSmall" template="StandardTemplate" height="#FontSizeSmall" textcolor="#ColorGlueHeading" hjustify="Center"/>
+    <Style name="GlueTitle" template="StandardTemplate" height="28"/>
+    <Style name="GlueLabel" template="StandardTemplate" height="#FontSizeSmall" textcolor="#ColorGlueLabel"/>
+    <Style name="GlueValue" template="StandardTemplate" height="#FontSizeSmall" textcolor="#ColorGlueValue"/>
+    <Style name="GlueButton" template="StandardTemplate" height="28" textcolor="#ColorGray7" hotkeycolor="#ColorWhite" highlightcolor="#ColorWhite" vjustify="Middle" hjustify="Center"/>
+    <Style name="GlueButtonSmall" template="StandardExtendedTemplate" height="20" textcolor="#ColorGray7" hotkeycolor="#ColorWhite" highlightcolor="#ColorWhite" vjustify="Middle" hjustify="Center"/>
+    <Style name="GlueListBox" template="StandardExtendedTemplate" height="20" vjustify="Middle"/>
+    <Style name="GlueEditBox" template="InternationalTemplate" height="#FontSizeMedium" vjustify="Middle"/>
+    <Style name="GlueSpinner" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Right"/>
+    <Style name="GlueCheckBox" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="200, 200, 200" highlightcolor="#ColorWhite" vjustify="Middle"/>
+    <Style name="GlueSliderValue" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorWhite" vjustify="Middle" hjustify="Right"/>
+    <Style name="GlueDescription" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorWhite"/>
+    <Style name="GameListName" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorWhite" vjustify="Middle"/>
+    <Style name="GameListUserCount" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="180, 180, 180" vjustify="Middle"/>
+    <Style name="GlueMessageDisplay" template="StandardExtendedTemplate" height="#FontSizeMedium"/>
+    <Style name="LobbySlotProgress" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="StandardTooltip" template="StandardExtendedTemplate" height="18" vjustify="Middle" hjustify="Left"/>
+    <Style name="InternationalTooltip" template="InternationalTemplate" height="18" vjustify="Middle" hjustify="Left"/>    
+    <Style name="GameSpeedSlider" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorGlueValue" vjustify="Middle"/>
+    <Style name="BattleNetConnect" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorGlueLabel" vjustify="Middle"/>
+    <Style name="BattleNetTaskItem" template="StandardExtendedTemplate" height="#FontSizeMedium" textcolor="#ColorWhite" vjustify="Middle"/>
+    <Style name="BattleNetProfileName" template="StandardExtendedTemplate" height="18" textcolor="#ColorWhite" vjustify="Middle"/>
+    <Style name="BattleNetProfileRealm" template="StandardExtendedTemplate" height="12" textcolor="#ColorGray5" vjustify="Middle"/>
+    <Style name="ReplayListNumPlayers" template="StandardExtendedTemplate" height="16" textcolor="#ColorGlueValue" vjustify="Middle" hjustify="Center"/>
+    <Style name="ReplayListName" template="StandardExtendedTemplate" height="20" textcolor="#ColorWhite" vjustify="Middle"/>
+    <Style name="ReplayListVersion" template="StandardExtendedTemplate" height="16" textcolor="#ColorGray3" vjustify="Middle" hjustify="Right"/>
+    <Style name="ReplayListDuration" template="StandardExtendedTemplate" height="16" textcolor="#ColorGray5" vjustify="Middle" hjustify="Right"/>
+    <Style name="SaveHeader" template="StandardExtendedTemplate" height="18" vjustify="Bottom"/>
+    <Style name="SaveName" template="StandardExtendedTemplate" height="22" vjustify="Middle" hjustify="Left"/>
+    <Style name="SaveDescription" template="StandardExtendedTemplate" height="16"/>
+    <Style name="SaveListName" template="StandardExtendedTemplate" height="14" textcolor="#ColorWhite" vjustify="Middle"/>
+    <Style name="SaveListDuration" template="StandardExtendedTemplate" height="12" textcolor="#ColorWhite" vjustify="Middle"/>
+    <Style name="OptionsTab" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorGray7" hotkeycolor="#ColorWhite" highlightcolor="#ColorWhite" vjustify="Middle" hjustify="Center"/>
+    <Style name="VoiceOptionsSlider" template="GlueSliderValue" vjustify="Middle" hjustify="Center"/>
+    <Style name="TradeShowSingleTitle" template="StandardExtendedTemplate" height="30" vjustify="Middle" hjustify="Center"/>
+    <Style name="TradeShowSingleLabel" template="StandardExtendedTemplate" height="18" vjustify="Middle" hjustify="Center"/>
+    <Style name="TradeShowMultiReadyValue" template="StandardExtendedTemplate" height="28" vjustify="Middle" hjustify="Center"/>
+    <Style name="TradeShowMultiRaceValue" template="StandardExtendedTemplate" height="20" vjustify="Middle" hjustify="Right"/>
+    <Style name="TradeShowTitle" template="StandardExtendedTemplate" height="30" vjustify="Middle" hjustify="Center"/>
+    <Style name="TradeShowLabel" template="StandardExtendedTemplate" height="20" vjustify="Middle" hjustify="Center"/>
+    <Style name="GlueButtonSubtitle" template="StandardExtendedTemplate" height="16" textcolor="#ColorGray4" hotkeycolor="#ColorWhite" highlightcolor="#ColorWhite" vjustify="Middle" hjustify="Center"/>
+    <Style name="ProfilerOptionsTitle" template="StandardExtendedTemplate" height="#FontSizeMedium"/>
+    <Style name="ProfilerOptionsInstructions" template="StandardExtendedTemplate" height="14"/>
+    <Style name="ProfilerOptionsControlLabel" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="ProfilerOptionsEditBox" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="ProfilerOptionsButton" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle" hjustify="Center"/>
+    <Style name="ProfilerOptionsPulldown" template="StandardExtendedTemplate" height="14" vjustify="Middle"/>
+    <Style name="TalkerName" template="HeaderExtendedTemplate" textcolor="#ColorWhite" disabledcolor="#ColorGray5" height="18" vjustify="Middle" hjustify="Right"/>
+
+    <Style name="StandardButton" template="HeaderTemplate" height="28" textcolor="#ColorStandardButton" hotkeycolor="#ColorStandardButtonHotkey" highlightcolor="#ColorStandardButtonHighlight" vjustify="Middle" hjustify="Center"/>
+    <Style name="StandardButtonSmall" template="StandardTemplate" height="22" textcolor="#ColorStandardButton" hotkeycolor="#ColorStandardButtonHotkey" highlightcolor="#ColorStandardButton" vjustify="Middle" hjustify="Center"/>
+    <Style name="StandardVerticalTabButton" template="HeaderTemplate" height="22" textcolor="#ColorStandardVerticalTabButton" hotkeycolor="#ColorStandardVerticalTabButtonHotkey" highlightcolor="#ColorStandardVerticalTabButton" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardVerticalTabButton_Prot" template="StandardVerticalTabButton" textcolor="#ColorProtossStandardVerticalTabButton" hotkeycolor="#ColorProtossStandardVerticalTabButtonHotkey" highlightcolor="#ColorProtossStandardVerticalTabButton"/>
+    <Style name="StandardVerticalTabButton_Terr" template="StandardVerticalTabButton" textcolor="#ColorTerranStandardVerticalTabButton" hotkeycolor="#ColorTerranStandardVerticalTabButtonHotkey" highlightcolor="#ColorTerranStandardVerticalTabButton"/>
+    <Style name="StandardVerticalTabButton_Zerg" template="StandardVerticalTabButton" textcolor="#ColorZergStandardVerticalTabButton" hotkeycolor="#ColorZergStandardVerticalTabButtonHotkey" highlightcolor="#ColorZergStandardVerticalTabButton"/>    
+    <Style name="StandardPanelTitle" template="HeaderTemplate" height="36" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardPanelHeader" template="HeaderTemplate" height="24" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardLabel" template="StandardTemplate" height="20" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardValue" template="StandardTemplate" height="20" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardPulldown" template="HeaderTemplate" height="18" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="InternationalPulldown" template="InternationalTemplate" height="18" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardPulldownMenu" template="HeaderTemplate" height="20" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardListBox" template="StandardTemplate" height="20" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardDialogTitle" template="HeaderTemplate" height="32" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardDialogMessage" template="StandardTemplate" height="24" textcolor="#ColorWhite" vjustify="Middle" hjustify="Left"/>
+    <Style name="StandardEditBox" template="InternationalTemplate" height="#FontSizeMedium" vjustify="Middle"/>
+    
+    <!-- Challenge Panel -->
+    <Style name="ChallengePanelListItemTitle" template="HeaderExtendedTemplate" height="#FontSizeMedium" textcolor="#ColorGlueValue"/>
+    <Style name="ChallengePanelListItemDescription" template="StandardExtendedTemplate" height="14" textcolor="#ColorWhite"/>
+    <Style name="ChallengePanelListItemBestScoreValue" template="StandardExtendedTemplate" hjustify="Left" height="#FontSizeMedium" textcolor="#ColorChallengeValue"/>
+    <Style name="ChallengePanelListItemBestScoreLabel" template="StandardExtendedTemplate" hjustify="Left" height="14" textcolor="#ColorGlueValue"/>
+    <Style name="ChallengePanelListItemFriendRankValue" template="StandardExtendedTemplate" hjustify="Left" height="#FontSizeMedium" textcolor="#ColorChallengeValue"/>
+    <Style name="ChallengePanelListItemFriendRankLabel" template="StandardExtendedTemplate" hjustify="Left" height="14" textcolor="#ColorGlueValue"/>
+    <Style name="ChallengePanelListItemCompletedLabel" template="HeaderExtendedTemplate" hjustify="Center" height="#FontSizeMedium" textcolor="#ColorChallengeValue"/>
+    <Style name="ChallengePanelListItemDifficultyValue" template="StandardExtendedTemplate" hjustify="Right" height="20" textcolor="#ColorWhite"/>
+    <Style name="ChallengePanelListItemDifficultyLabel" template="StandardExtendedTemplate" hjustify="Right" height="20" textcolor="#ColorGlueValue"/>
+
+    
+    <!-- Challenges -->
+    <Style name="ChallengeScoreScreenTitle" template="StandardExtendedTemplate" height="52" vjustify="Middle" hjustify="Center" textcolor="ffcc00"/>
+    <Style name="ChallengeScoreScreenNewRecord" template="StandardExtendedTemplate" height="32" vjustify="Middle" hjustify="Center" textcolor="04F1E9"/>
+    <Style name="ChallengeScoreScreenScore" template="StandardExtendedTemplate" height="36" vjustify="Middle" hjustify="Right" textcolor="d8d8d8"/>
+    <Style name="ChallengeScoreScreenScoreCount" template="StandardExtendedTemplate" height="34" vjustify="Middle" hjustify="Left" textcolor="05c82e"/>
+    <Style name="ChallengeScoreScreenScoreTime" template="StandardExtendedTemplate" height="32" vjustify="Middle" hjustify="Right" textcolor="05c82e"/>
+    <Style name="ChallengeScoreScreenTips" template="StandardExtendedTemplate" height="18" hjustify="Left" textcolor="d8d8d8"/>
+    <Style name="ChallengeScoreScreenStatsTitle" template="StandardExtendedTemplate" height="20" vjustify="Middle" hjustify="Center" textcolor="ffcc00"/>
+    <Style name="ChallengeScoreScreenStats" template="StandardExtendedTemplate" height="16" vjustify="Middle" hjustify="Right" textcolor="05c82e"/>
+    <Style name="ChallengeScoreScreenStatsNames" template="StandardExtendedTemplate" height="16" vjustify="Middle" hjustify="Left" textcolor="d8d8d8"/>
+    <Style name="ChallengeReadyButton" template="StandardExtendedTemplate" height="36" hjustify="Center" vjustify="Middle"/>
+    <Style name="ChallengeReady" template="StandardExtendedTemplate" height="52" vjustify="Middle" hjustify="Center" textcolor="FF003C"/>
+    <Style name="ChallengeSet" template="StandardExtendedTemplate" height="52" vjustify="Middle" hjustify="Center" textcolor="FFD200"/>
+    <Style name="ChallengeGo" template="StandardExtendedTemplate" height="52" vjustify="Middle" hjustify="Center" textcolor="04E409"/>
+    <Style name="ChallengeCountdown" template="StandardExtendedTemplate" height="52" vjustify="Middle" hjustify="Center" textcolor="FF002A"/>
+
+
+    <!-- Text Tags and Editor -->
+    <Style name="SceneObjectText" template="StandardExtendedTemplate"/>
+    <Style name="TextTag" template="StandardExtendedTemplate"/>
+    <Style name="EditorOverlay" template="StandardExtendedTemplate" height="64" hjustify="Center" vjustify="Bottom"/>
+    <Style name="EditorTextPreview" template="StandardExtendedTemplate"/>
+
+    <!-- Story Mode -->
+    <Style name="StarmapMissionPanelUnitTitle" template="HeaderExtendedTemplate" height="18" hjustify="Left" vjustify="Middle" textcolor="#ColorTerranLabel"/>
+    <Style name="StarmapMissionPanelUnitDesc" template="StandardExtendedTemplate" height="14" hjustify="Left" vjustify="Middle"/>
+    <Style name="StoryModeNewItemTooltip" template="StandardExtendedTemplate" height="24" hjustify="Left" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="TVTextTemp" template="StandardExtendedTemplate" height="24" vjustify="Middle"/>
+    <Style name="BattleReportTitle" template="StandardExtendedTemplate" height="36" hjustify="Center" vjustify="Middle"/>
+    <Style name="ABOptionButton" template="StandardExtendedTemplate" height="36" hjustify="Center" vjustify="Middle"/>
+    <Style name="SecondaryObjectiveDialogLabel" template="StandardExtendedTemplate" height="20" hjustify="Left" vjustify="Middle"/>
+    <Style name="SecondaryObjectiveDialogTitle" template="StandardExtendedTemplate" height="36" hjustify="Center" vjustify="Middle"/>
+    <Style name="ArcadeFighterBossBar" template="StandardExtendedTemplate" height="24" hjustify="Right" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="WeaponUI" template="StandardExtendedTemplate" height="18" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="WeaponUIAddAmmo" template="StandardExtendedTemplate" height="24" hjustify="Center" vjustify="Middle" textcolor="00ff00"/>
+    <Style name="WeaponUIAddAmmoSmall" template="StandardExtendedTemplate" height="18" hjustify="Center" vjustify="Middle" textcolor="00ff00"/>
+    <Style name="AchievementToastName" template="StandardExtendedTemplate" height="18" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="AchievementToastScore" template="StandardExtendedTemplate" height="24" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="AchievementToastLabel" template="StandardExtendedTemplate" height="14" hjustify="Center" vjustify="Top" textcolor="00ff00"/>
+    <Style name="AchievementToastInfo" template="StandardExtendedTemplate" height="14" hjustify="Center" vjustify="Top" textcolor="ffcc00"/>
+    <Style name="LoadingScreenMission" template="StandardExtendedTemplate" height="28" hjustify="Center" vjustify="Top" textcolor="ffffff"/>
+    <Style name="LoadingScreenTitle" template="HeaderExtendedTemplate" height="45" hjustify="Center" vjustify="Bottom" textcolor="ffffff"/>
+    <Style name="LoadingScreenBody" template="StandardExtendedTemplate" height="28" hjustify="Left" vjustify="Center" textcolor="ffffff"/>
+    <Style name="TCampaignIntroTextBox" template="StandardExtendedTemplate" height="22" hjustify="Left" vjustify="Top" textcolor="ffffff"/>
+    <Style name="TCampaign4YearsLater" template="StandardExtendedTemplate" height="28" hjustify="Left" vjustify="Top" textcolor="ffffff"/>
+    <Style name="TCampaignEpilogue" template="StandardExtendedTemplate" height="24" hjustify="Left" vjustify="Top" textcolor="ffffff"/>
+    <Style name="TCampaignAnyKey" template="StandardExtendedTemplate" height="24" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="TCampaignAutoSaving" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="TCampaignTimestamp" template="StandardExtendedTemplate" height="24" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="CantinaGameTip" template="StandardExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Left"/>
+    <Style name="CantinaQuitGame" template="StandardExtendedTemplate" height="#FontSizeLarge" vjustify="Middle" hjustify="Center"/>
+    <Style name="StoryModeBlizzcon" template="StandardExtendedTemplate" height="32" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="RoomChangePanelText" template="StandardExtendedTemplate" height="18" hjustify="Center" vjustify="Middle" textcolor="ffffff"/>
+    <Style name="ResearchOverflowTitle" template="HeaderExtendedTemplate" height="26" hjustify="Center" vjustify="Top" textcolor="185,205,229"/>
+    <Style name="ResearchOverflowBody1" template="StandardExtendedTemplate" height="20" hjustify="Left" vjustify="Top" textcolor="ffffff"/>
+	<Style name="ResearchOverflowBody2" template="StandardExtendedTemplate" height="24" hjustify="Center" vjustify="Bottom" textcolor="185,205,229"/>
+
+    <!-- Tutorial -->
+    <Style name="TutorialMenuTitle" template="FontHeaderExtended" height="40" hjustify="Center" vjustify="Middle" textcolor="ffcc00"/>
+
+    <!-- Message Dialog -->
+    <Style name="MessageDialogTitle" template="HeaderExtendedTemplate" height="26" hjustify="Center" vjustify="Top" textcolor="185,205,229"/>
+    <Style name="MessageDialogBody1" template="StandardExtendedTemplate" height="20" hjustify="Left" vjustify="Top" textcolor="ffffff"/>
+    <Style name="MessageDialogBody2" template="StandardExtendedTemplate" height="24" hjustify="Center" vjustify="Bottom" textcolor="185,205,229"/>
+
+    <!-- Debug -->
+    <Style name="UIEditorInfoTip" template="StandardExtendedTemplate" height="14"/>
+    <Style name="DebugPanelTitle" template="StandardExtendedTemplate" height="#FontSizeMedium"/>
+    <Style name="DebugPanelLabel" template="StandardExtendedTemplate" height="#FontSizeSmall" vjustify="Middle"/>
+    <Style name="DebugPanelLabelSmall" template="StandardExtendedTemplate" height="#FontSizeTiny" vjustify="Middle"/>
+    <Style name="DebugPanelLabelSmallCentered" template="StandardExtendedTemplate" height="#FontSizeTiny" hjustify="Center" vjustify="Middle"/>
+    <Style name="DebugPanelLabelSound" template="StandardExtendedTemplate" height="#FontSizeTiny" hjustify="Center" vjustify="Middle"/>
+    <Style name="DebugPanelTab" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorGray7" hotkeycolor="#ColorWhite" highlightcolor="#ColorWhite" vjustify="Middle" hjustify="Center"/>
+    <Style name="DebugPanelTabTiny" template="StandardExtendedTemplate" height="#FontSizeTiny" textcolor="#ColorGray7" hotkeycolor="#ColorWhite" highlightcolor="#ColorWhite" vjustify="Middle" hjustify="Center"/>
+    <Style name="LeftJustified" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorGlueLabel" hjustify="Left"/>
+    <Style name="CenterJustified" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorGlueLabel" hjustify="Center"/>
+    <Style name="RightJustified" template="StandardExtendedTemplate" height="#FontSizeSmall" textcolor="#ColorGlueLabel" hjustify="Right"/>
+    <Style name="PerfPanelLabel" template="StandardExtendedTemplate" height="#FontSizeTiny" vjustify="Middle"/>
+    <Style name="PerfPanelButton" template="StandardExtendedTemplate" height="#FontSizeTiny" vjustify="Middle" hjustify="Center"/>
+    <Style name="DebugTechPanelTitle" template="StandardExtendedTemplate" height="#FontSizeLarge" hjustify="Center" vjustify="Middle"/>
+    <Style name="DebugTechPanelLabel" template="StandardExtendedTemplate" height="20" hjustify="Center" vjustify="Middle"/>
+    <Style name="DebugTechPanelTitle" template="StandardExtendedTemplate" height="#FontSizeLarge" hjustify="Center" vjustify="Middle"/>
+    <Style name="DebugProgressPanelLabelProgress" template="StandardExtendedTemplate" height="15" hjustify="Right" vjustify="Top"/>
+    <Style name="DebugProgressPanelLabelUnit" template="StandardExtendedTemplate" height="15" hjustify="Left" vjustify="Bottom"/>
+    <Style name="DebugProgressPanelLabelCredits" template="StandardExtendedTemplate" height="15" hjustify="Right" vjustify="Bottom"/>
+    <Style name="DebugProgressPanelLabelRequirement" template="StandardExtendedTemplate" height="18" hjustify="Left" vjustify="Bottom"/>
+    <Style name="DebugProgressPanelLabel" template="StandardExtendedTemplate" height="#FontSizeMedium" hjustify="Left" vjustify="Top"/>
+    <Style name="DebugProgressPanelLabelUnlock" template="StandardExtendedTemplate" height="22" hjustify="Center" vjustify="Middle"/>
+    <Style name="DebugScenePanelButton" template="StandardExtendedTemplate" height="22" hjustify="Center" vjustify="Middle"/>
+    <Style name="BriefingDebugButtonText" template="StandardExtendedTemplate" height="20" hjustify="Center" vjustify="Middle"/>
+
+    <Style name="Header10" template="HeaderTemplate" height="10"/>
+    <Style name="Header11" template="HeaderTemplate" height="11"/>
+    <Style name="Header12" template="HeaderTemplate" height="12"/>
+    <Style name="Header13" template="HeaderTemplate" height="13"/>
+    <Style name="Header14" template="HeaderTemplate" height="14"/>
+    <Style name="Header15" template="HeaderTemplate" height="15"/>
+    <Style name="Header16" template="HeaderTemplate" height="16"/>
+    <Style name="Header17" template="HeaderTemplate" height="17"/>
+    <Style name="Header18" template="HeaderTemplate" height="18"/>
+
+    <Style name="Standard10" template="StandardTemplate" height="10"/>
+    <Style name="Standard11" template="StandardTemplate" height="11"/>
+    <Style name="Standard12" template="StandardTemplate" height="12"/>
+    <Style name="Standard13" template="StandardTemplate" height="13"/>
+    <Style name="Standard14" template="StandardTemplate" height="14"/>
+    <Style name="Standard15" template="StandardTemplate" height="15"/>
+    <Style name="Standard16" template="StandardTemplate" height="16"/>
+    <Style name="Standard17" template="StandardTemplate" height="17"/>
+    <Style name="Standard18" template="StandardTemplate" height="18"/>
+
+    <Style name="International10" template="InternationalTemplate" height="10"/>
+    <Style name="International11" template="InternationalTemplate" height="11"/>
+    <Style name="International12" template="InternationalTemplate" height="12"/>
+    <Style name="International13" template="InternationalTemplate" height="13"/>
+    <Style name="International14" template="InternationalTemplate" height="14"/>
+    <Style name="International15" template="InternationalTemplate" height="15"/>
+    <Style name="International16" template="InternationalTemplate" height="16"/>
+    <Style name="International17" template="InternationalTemplate" height="17"/>
+    <Style name="International18" template="InternationalTemplate" height="18"/>
+
+</StyleFile>

@@ -1,0 +1,656 @@
+0x0240|IntegratedChipset|GeForce 6150
+0x014F|GeForce6Poor|GeForce 6200
+0x00F3|GeForce6Poor|GeForce 6200
+0x0221|GeForce6Poor|GeForce 6200
+0x0222|GeForce6Poor|GeForce 6200 A-LE
+0x0163|GeForce6Poor|GeForce 6200 LE
+0x0161|GeForce6Poor|GeForce 6200 TurboCache(TM)
+0x0162|GeForce6Poor|GeForce 6200SE TurboCache(TM)
+0x0169|GeForce6Poor|GeForce 6250
+0x0160|GeForce6Poor|GeForce 6500
+0x0141|GeForce6Poor|GeForce 6600
+0x00F2|GeForce6Poor|GeForce 6600
+0x0140|GeForce6Poor|GeForce 6600 GT
+0x00F1|GeForce6Poor|GeForce 6600 GT
+0x0142|GeForce6Poor|GeForce 6600 LE
+0x00F4|GeForce6Poor|GeForce 6600 LE
+0x0143|GeForce6Poor|GeForce 6600 VE
+0x0145|GeForce6Poor|GeForce 6610 XL
+0x0147|GeForce6Poor|GeForce 6700 XL
+0x0041|GeForce6Poor|GeForce 6800
+0x00C1|GeForce6Poor|GeForce 6800
+0x0211|GeForce6Poor|GeForce 6800
+0x0212|GeForce6Poor|GeForce 6800 LE
+0x0215|GeForce6Poor|GeForce 6800 GT
+0x0042|GeForce6Poor|GeForce 6800 LE
+0x0047|GeForce6Poor|GeForce 6800 GS
+0x00F6|GeForce6Poor|GeForce 6800 GS/XT
+0x00C0|GeForce6Poor|GeForce 6800 GS
+0x0045|GeForce6Poor|GeForce 6800 GT
+0x0046|GeForce6Poor|GeForce 6800 GT
+0x00C2|GeForce6Poor|GeForce 6800 LE
+0x0040|GeForce6Poor|GeForce 6800 Ultra
+0x00F9|GeForce6Poor|GeForce 6800 Series GPU
+0x0043|GeForce6Poor|GeForce 6800 XE
+0x0044|GeForce6Poor|GeForce 6800 Xt
+0x0048|GeForce6Poor|GeForce 6800 XT
+0x0218|GeForce6Poor|GeForce 6800 XT
+0x00C3|GeForce6Poor|GeForce 6800 XT
+0x053A|GeForce7Poor|GeForce 7050 PV / NVIDIA nForce 630a
+0x053B|GeForce7Poor|GeForce 7050 PV / NVIDIA nForce 630a
+0x053E|GeForce7Poor|GeForce 7025 PV / NVIDIA nForce 630a
+0x07e0|GeForce7Poor|GeForce 7150 PV / NVIDIA nForce 630i
+0x07e1|GeForce7Poor|GeForce 7100 PV / NVIDIA nForce 630i
+0x07e2|GeForce7Poor|GeForce 7050 PV / NVIDIA nForce 630i
+0x07e3|GeForce7Poor|GeForce 7050 PV / NVIDIA nForce 610i
+0x07e5|GeForce7Poor|GeForce 7050 PV / NVIDIA nForce 620i
+0x016a|GeForce7Poor|GeForce 7100 GS
+0x01DF|GeForce7Poor|GeForce 7300 GS
+0x0393|GeForce7Poor|GeForce 7300 GT
+0x0395|GeForce7Poor|GeForce 7300 GT
+0x02E2|GeForce7Poor|GeForce 7300 GT
+0x01D1|GeForce7Poor|GeForce 7300 LE
+0x01D3|GeForce7Poor|GeForce 7300 SE/7200 GS
+0x01D0|GeForce7Poor|GeForce 7350 LE
+0x01DD|GeForce7Poor|GeForce 7500 LE
+0x0392|GeForce7Poor|GeForce 7600 GS
+0x02E1|GeForce7Poor|GeForce 7600 GS
+0x0390|GeForce7Poor|GeForce 7650 GS
+0x0391|GeForce7Common|GeForce 7600 GT
+0x0394|GeForce7Poor|GeForce 7600 LE
+0x02e0|GeForce7Poor|GeForce 7600 GT
+0x00F5|GeForce7Common|GeForce 7800 GS
+0x0092|GeForce7Common|GeForce 7800 GT
+0x0091|GeForce7Common|GeForce 7800 GTX
+0x0095|GeForce7Common|GeForce 7800 SLI
+0x0292|GeForce7Common|GeForce 7900 GS
+0x0093|GeForce7Common|GeForce 7800 GS
+0x02E3|GeForce7Common|GeForce 7900 GS
+0x0291|GeForce7Common|GeForce 7900 GT/GTO
+0x0290|GeForce7Common|GeForce 7900 GTX
+0x0293|GeForce7Common|GeForce 7950 GX2
+0x0294|GeForce7Common|GeForce 7950 GX2
+0x02E4|GeForce7Common|GeForce 7950 GT
+0x0322|GeForceFX|GeForce FX 5200
+0x0321|GeForceFX|GeForce FX 5200 Ultra
+0x0323|GeForceFX|GeForce FX 5200LE
+0x0326|GeForceFX|GeForce FX 5500
+0x0312|GeForceFX|GeForce FX 5600
+0x0311|GeForceFX|GeForce FX 5600 Ultra
+0x0314|GeForceFX|GeForce FX 5600XT
+0x0342|GeForceFX|GeForce FX 5700
+0x0341|GeForceFX|GeForce FX 5700 Ultra
+0x0343|GeForceFX|GeForce FX 5700LE
+0x0344|GeForceFX|GeForce FX 5700VE
+0x0302|GeForceFX|GeForce FX 5800
+0x0301|GeForceFX|GeForce FX 5800 Ultra
+0x0331|GeForceFX|GeForce FX 5900
+0x0330|GeForceFX|GeForce FX 5900 Ultra
+0x0333|GeForceFX|GeForce FX 5950 Ultra
+0x0324|GeForceFX|GeForce FX Go5200 64M
+0x031A|GeForceFX|GeForce FX Go5600
+0x0347|GeForceFX|GeForce FX Go5700
+0x0167|GeForce6Poor|GeForce Go 6200/6400
+0x0168|GeForce6Poor|GeForce Go 6200/6400
+0x0148|GeForce6Poor|GeForce Go 6600
+0x00c8|GeForce6Poor|GeForce Go 6800
+0x00c9|GeForce6Poor|GeForce Go 6800 Ultra
+0x0098|GeForce7Poor|GeForce Go 7800
+0x0099|GeForce7Poor|GeForce Go 7800 GTX
+0x0090|GeForce7Common|GeForce 7800 GTX
+0x0298|GeForce7Poor|GeForce Go 7900 GS
+0x0299|GeForce7Common|GeForce Go 7900 GTX
+0x0185|GeForce256|GeForce MX 4000
+0x00FA|GeForce256|GeForce PCX 5750
+0x00FB|GeForce256|GeForce PCX 5900
+0x0111|GeForce2|GeForce2 MX200
+0x0110|GeForce2|GeForce2 MX/MX 400
+0x0200|GeForce3|GeForce3
+0x0201|GeForce3|GeForce3 Ti200
+0x0202|GeForce3|GeForce3 Ti500
+0x0172|GeForce4|GeForce4 MX 420
+0x0171|GeForce4|GeForce4 MX 440
+0x0181|GeForce4|GeForce4 MX 440 with AGP8X
+0x0173|GeForce4|GeForce4 MX 440-SE
+0x0170|GeForce4|GeForce4 MX 460
+0x0253|GeForce4|GeForce4 Ti 4200
+0x0281|GeForce4|GeForce4 Ti 4200 with AGP8X
+0x0251|GeForce4|GeForce4 Ti 4400
+0x0250|GeForce4|GeForce4 Ti 4600
+0x0280|GeForce4|GeForce4 Ti 4800
+0x0282|GeForce4|GeForce4 Ti 4800SE
+0x0203|Unknown|Quadro DCC
+0x0309|Unknown|Quadro FX 1000
+0x034E|Unknown|Quadro FX 1100
+0x00FE|Unknown|Quadro FX 1300
+0x00CE|Unknown|Quadro FX 1400
+0x0308|Unknown|Quadro FX 2000
+0x0338|Unknown|Quadro FX 3000
+0x004E|Unknown|Quadro FX 4000
+0x00CD|Unknown|Quadro FX 3450/4000 SDI
+0x00F8|Unknown|Quadro FX 3400/4400
+0x009D|Unknown|Quadro FX 4500
+0x029F|Unknown|Quadro FX 4500 X2
+0x014E|Unknown|Quadro FX 540
+0x014C|Unknown|Quadro FX 540 M
+0x032B|Unknown|Quadro FX 500/FX 600
+0X033F|Unknown|Quadro FX 700
+0x034C|Unknown|Quadro FX Go1000
+0x00CC|Unknown|Quadro FX Go1400
+0x031C|Unknown|Quadro FX Go700
+0x032A|Unknown|Quadro NVS 280 PCI
+0x01DB|Unknown|Quadro NVS 120M
+0x00FD|Unknown|Quadro PCI-E Series
+0x0165|Unknown|Quadro NVS 285
+0x018A|Unknown|Quadro NVS with AGP8X
+0x0113|Unknown|Quadro2 MXR/EX
+0x017A|Unknown|Quadro NVS
+0x018B|Unknown|Quadro4 380 XGL
+0x0178|Unknown|Quadro4 550 XGL
+0x0188|Unknown|Quadro4 580 XGL
+0x025B|Unknown|Quadro4 700 XGL
+0x0259|Unknown|Quadro4 750 XGL
+0x0258|Unknown|Quadro4 900 XGL
+0x0288|Unknown|Quadro4 980 XGL
+0x028C|Unknown|Quadro4 Go700
+0x0295|GeForce7Common|NVIDIA GeForce 7950 GT
+0x03D0|IntegratedChipset|NVIDIA GeForce 6100 nForce 430
+0x03D1|IntegratedChipset|NVIDIA GeForce 6100 nForce 405
+0x03D2|IntegratedChipset|NVIDIA GeForce 6100 nForce 400
+0x0241|IntegratedChipset|NVIDIA GeForce 6150 LE
+0x0242|IntegratedChipset|NVIDIA GeForce 6100
+0x03d5|IntegratedChipset|NVIDIA GeForce 6100 nForce 420
+0x0141|GeForce6Poor|NVIDIA GeForce 6600
+0x0245|GeForce6Poor|NVIDIA Quadro NVS 210S / NVIDIA GeForce 6150LE
+0x029E|Unknown|Quadro FX 1500
+0x040f|Unknown|NVIDIA Quadro FX 1700
+0x029D|Unknown|Quadro FX 3500
+0x029C|Unknown|NVIDIA Quadro FX 5500
+0x019D|Unknown|NVIDIA Quadro FX 5600
+0x019E|Unknown|NVIDIA Quadro FX 4600
+0x01de|Unknown|NVIDIA Quadro FX 350
+0x040a|Unknown|NVIDIA Quadro FX 370
+0x039e|Unknown|Quadro FX 560
+0x040e|Unknown|NVIDIA Quadro FX 570
+0x06e2|GeForce8Poor|NVIDIA GeForce 8400
+0x06e3|GeForce8Poor|NVIDIA GeForce 8400 SE
+0x06e4|GeForce8Poor|NVIDIA GeForce 8400 GS
+0x0194|GeForce8Epic|NVIDIA GeForce 8800 Ultra
+0x0611|GeForce8Rare|NVIDIA GeForce 8800 GT
+0x0602|GeForce8Rare|NVIDIA GeForce 8800 GT
+0x0191|GeForce8Epic|NVIDIA GeForce 8800 GTX
+0x0600|GeForce8Epic|NVIDIA GeForce 8800 GTS 512
+0x0193|GeForce8Rare|NVIDIA GeForce 8800 GTS
+0x0606|GeForce8Rare|NVIDIA GeForce 8800 GS
+0x0400|GeForce8Common|NVIDIA GeForce 8600 GTS
+0x0401|GeForce8Common|NVIDIA GeForce 8600 GT
+0x0402|GeForce8Common|NVIDIA GeForce 8600 GT
+0x0403|GeForce8Common|NVIDIA GeForce 8600GS
+0x0404|GeForce8Poor|NVIDIA GeForce 8400 GS
+0x0420|GeForce8Poor|NVIDIA GeForce 8400 SE
+0x0406|GeForce8Poor|NVIDIA GeForce 8300 GS
+0x0849|GeForce8Poor|GeForce 8200
+0x0848|GeForce8Poor|GeForce 8300
+0x084b|GeForce8Poor|GeForce 8200
+0x084f|GeForce8Poor|GeForce 8100 / nForce720a
+0x0407|GeForce8Mobile|NVIDIA GeForce 8600M GT
+0x0421|GeForce8Common|NVIDIA GeForce 8500 GT
+0x0422|GeForce8Poor|NVIDIA GeForce 8400 GS
+0x0423|GeForce8Poor|NVIDIA GeForce 8300 GS
+0x0424|GeForce8Poor|NVIDIA GeForce 8400 GS
+0x06e0|GeForce9Poor|NVIDIA GeForce 9300 GE
+0x06e1|GeForce9Common|NVIDIA GeForce 9300 GS
+0x042C|GeForce9Common|NVIDIA GeForce 9400 GT
+0x0641|GeForce9Common|NVIDIA GeForce 9400 GT
+0x0867|GeForce9Mobile|NVIDIA GeForce 9400 M
+0x0640|GeForce9Common|NVIDIA GeForce 9500 GT
+0x0643|GeForce9Common|NVIDIA GeForce 9500 GT
+0x0644|GeForce9Common|NVIDIA GeForce 9500 GS
+0x0645|GeForce9Common|NVIDIA GeForce 9500 GS
+0x0610|GeForce9Rare|NVIDIA GeForce 9600 GSO
+0x0622|GeForce9Epic|NVIDIA GeForce 9600 GT
+0x0623|GeForce9Rare|NVIDIA GeForce 9600 GS
+0x0601|GeForce9Epic|NVIDIA GeForce 9800 GT
+0x0604|GeForce9Epic|NVIDIA GeForce 9800 GX2
+0x0605|GeForce9Epic|NVIDIA GeForce 9800 GT
+0x0612|GeForce9Epic|NVIDIA GeForce 9800 GTX/9800 GTX+
+0x0613|GeForce9Epic|NVIDIA GeForce 9800 GTX+
+0x0614|GeForce9Epic|NVIDIA GeForce 9800 GT
+0x05E1|GeForceX200Epic|NVIDIA GeForce GTX 280
+0x05E2|GeForceX200Epic|NVIDIA GeForce GTX 260
+0x05E6|GeForceX200Epic|NVIDIA GeForce GTX 275
+0x05E3|GeForceX200Epic|NVIDIA GeForce GTX 285
+0x05E0|GeForceX200Epic|NVIDIA GeForce GTX 295
+0x0A60|GeForceX200Common|Nvidia GeForce G210
+0x0A20|GeForceX200Common|Nvidia GeForce GT 220
+0x0A2A|GeForceX200Mobile|Nvidia GeForce GT 230M
+0x0A34|GeForceX200Mobile|Nvidia GeForce GT 240M
+0x0CA8|GeForceX200Mobile|Nvidia GeForce GT 260M
+0x0CA9|GeForceX200Mobile|Nvidia GeForce GT 250M
+0x0197|Unknown|Tesla C870
+0x042F|Unknown|Quadro NVS 290
+0x061A|Unknown|Quadro FX 3700
+0x06F9|Unknown|Quadro FX 370 LP
+0x05FD|Unknown|Quadro FX 5800
+0x05FE|Unknown|Quadro FX 4800
+0x014A|Unknown|Quadro NVS 440
+0x014D|Unknown|Quadro FX 550
+0x084A|Unknown|nForce 730a
+0x084C|Unknown|nForce 780a SLI
+0x084D|Unknown|nForce 750a SLI
+0x5653|RadeonXx00Poor|ATI MOBILITY/RADEON X700
+0x7248|RadeonX1x00Rare|Radeon X1950 XTX Uber - Limited Edition
+0x7268|RadeonX1x00Rare|Radeon X1950 XTX Uber - Limited Edition Secondary
+0x554D|RadeonXx00Common|Radeon X800 CrossFire Edition
+0x556D|RadeonXx00Common|Radeon X800 CrossFire Edition Secondary
+0x5D52|RadeonXx00Common|Radeon X850 CrossFire Edition
+0x5D72|RadeonXx00Common|Radeon X850 CrossFire Edition Secondary
+0x564F|RadeonXx00Poor|Radeon X550/X700 Series
+0x4154|Unknown|ATI FireGL T2
+0x4174|Unknown|ATI FireGL T2 Secondary
+0x5B64|Unknown|ATI FireGL V3100
+0x5B74|Unknown|ATI FireGL V3100 Secondary
+0x3E54|Unknown|ATI FireGL V3200
+0x3E74|Unknown|ATI FireGL V3200 Secondary
+0x7152|Unknown|ATI FireGL V3300
+0x7172|Unknown|ATI FireGL V3300 Secondary
+0x7153|Unknown|ATI FireGL V3350
+0x7173|Unknown|ATI FireGL V3350 Secondary
+0x71D2|Unknown|ATI FireGL V3400
+0x71F2|Unknown|ATI FireGL V3400 Secondary
+0x5E48|Unknown|ATI FireGL V5000
+0x5E68|Unknown|ATI FireGL V5000 Secondary
+0x5551|Unknown|ATI FireGL V5100
+0x5571|Unknown|ATI FireGL V5100  Secondary
+0x71DA|Unknown|ATI FireGL V5200
+0x71FA|Unknown|ATI FireGL V5200 Secondary
+0x7105|Unknown|ATI FireGL V5300
+0x7125|Unknown|ATI FireGL V5300 Secondary
+0x5550|Unknown|ATI FireGL V7100
+0x5570|Unknown|ATI FireGL V7100 Secondary
+0x5D50|Unknown|ATI FireGL V7200
+0x7104|Unknown|ATI FireGL V7200
+0x5D70|Unknown|ATI FireGL V7200 Secondary
+0x7124|Unknown|ATI FireGL V7200 Secondary
+0x710E|Unknown|ATI FireGL V7300
+0x712E|Unknown|ATI FireGL V7300 Secondary
+0x710F|Unknown|ATI FireGL V7350
+0x712F|Unknown|ATI FireGL V7350 Secondary
+0x4E47|Unknown|ATI FireGL X1
+0x4E67|Unknown|ATI FireGL X1 Secondary
+0x4E4B|Unknown|ATI FireGL X2-256/X2-256t
+0x4E6B|Unknown|ATI FireGL X2-256/X2-256t Secondary
+0x4A4D|Unknown|ATI FireGL X3-256
+0x4A6D|Unknown|ATI FireGL X3-256 Secondary
+0x4147|Unknown|ATI FireGL Z1
+0x4167|Unknown|ATI FireGL Z1 Secondary
+0x5B65|Unknown|ATI FireMV 2200
+0x5B75|Unknown|ATI FireMV 2200 Secondary
+0x719B|Unknown|ATI FireMV 2250
+0x71BB|Unknown|ATI FireMV 2250 Secondary
+0x3151|Unknown|ATI FireMV 2400
+0x3171|Unknown|ATI FireMV 2400 Secondary
+0x724E|Unknown|ATI FireStream 2U
+0x726E|Unknown|ATI FireStream 2U Secondary
+0x4C58|Unknown|ATI MOBILITY FIRE GL 7800
+0x4E54|Unknown|ATI MOBILITY FIRE GL T2/T2e
+0x5464|Unknown|ATI MOBILITY FireGL V3100
+0x3154|Unknown|ATI MOBILITY FireGL V3200
+0x564A|Unknown|ATI MOBILITY FireGL V5000
+0x564B|Unknown|ATI MOBILITY FireGL V5000
+0x5D49|Unknown|ATI MOBILITY FireGL V5100
+0x71C4|Unknown|ATI MOBILITY FireGL V5200
+0x71D4|Unknown|ATI MOBILITY FireGL V5250
+0x7106|Unknown|ATI MOBILITY FireGL V7100
+0x7103|Unknown|ATI MOBILITY FireGL V7200
+0x4C59|Radeon9x00Unsupported|ATI MOBILITY RADEON
+0x4C57|Radeon9x00Unsupported|ATI MOBILITY RADEON 7500
+0x4E52|Radeon9x00Unsupported|ATI MOBILITY RADEON 9500
+0x4E56|Radeon9x00Unsupported|ATI MOBILITY RADEON 9550
+0x4E50|Radeon9x00Poor|ATI MOBILITY RADEON 9600/9700 Series
+0x4A4E|Radeon9x00Poor|ATI MOBILITY RADEON 9800
+0x7210|RadeonX2x00Poor|ATI Mobility Radeon HD 2300
+0x7211|RadeonX2x00Poor|ATI Mobility Radeon HD 2300
+0x94C9|RadeonX2x00Poor|ATI Mobility Radeon HD 2400
+0x94C8|RadeonX2x00Poor|ATI Mobility Radeon HD 2400 XT
+0x9581|RadeonX2x00Poor|ATI Mobility Radeon HD 2600
+0x9583|RadeonX2x00Poor|ATI Mobility Radeon HD 2600 XT
+0x958A|RadeonX2x00Poor|ATI Mobility Radeon HD 2600 X2 Series
+0x714A|RadeonX1x00Poor|ATI Mobility Radeon X1300
+0x7149|RadeonX1x00Poor|ATI Mobility Radeon X1300
+0x714B|RadeonX1x00Poor|ATI Mobility Radeon X1300 
+0x714C|RadeonX1x00Poor|ATI Mobility Radeon X1300  
+0x718B|RadeonX1x00Poor|ATI Mobility Radeon X1350
+0x718C|RadeonX1x00Poor|ATI Mobility Radeon X1350
+0x7196|RadeonX1x00Poor|ATI Mobility Radeon X1350 
+0x7145|RadeonX1x00Poor|ATI Mobility Radeon X1400
+0x7186|RadeonX1x00Poor|ATI Mobility Radeon X1450
+0x718D|RadeonX1x00Poor|ATI Mobility Radeon X1450
+0x71C5|RadeonX1x00Poor|ATI Mobility Radeon X1600
+0x71D5|RadeonX1x00Poor|ATI Mobility Radeon X1700
+0x71DE|RadeonX1x00Poor|ATI Mobility Radeon X1700
+0x71D6|RadeonX1x00Poor|ATI Mobility Radeon X1700 XT
+0x7102|RadeonX1x00Poor|ATI Mobility Radeon X1800
+0x7101|RadeonX1x00Poor|ATI Mobility Radeon X1800 XT
+0x7284|RadeonX1x00Poor|ATI Mobility Radeon X1900
+0x718A|RadeonX2x00Poor|ATI Mobility Radeon X2300
+0x7188|RadeonX2x00Poor|ATI Mobility Radeon X2300
+0x5461|RadeonXx00Poor|ATI MOBILITY RADEON X300
+0x5460|RadeonXx00Poor|ATI MOBILITY RADEON X300
+0x3152|RadeonXx00Poor|ATI MOBILITY RADEON X300 
+0x3150|RadeonXx00Poor|ATI MOBILITY RADEON X600
+0x5462|RadeonXx00Poor|ATI MOBILITY RADEON X600 SE
+0x5652|RadeonXx00Poor|ATI MOBILITY RADEON X700
+0x5653|RadeonXx00Poor|ATI MOBILITY RADEON X700
+0x5673|RadeonXx00Poor|ATI MOBILITY RADEON X700 Secondary
+0x5D4A|RadeonXx00Poor|ATI MOBILITY RADEON X800
+0x5D48|RadeonXx00Poor|ATI MOBILITY RADEON X800  XT
+0x4153|Radeon9x00Unsupported|ATI Radeon 9550/X1050 Series
+0x4173|Radeon9x00Unsupported|ATI Radeon 9550/X1050 Series Secondary
+0x4150|Radeon9x00Poor|ATI RADEON 9600 Series
+0x4E51|Radeon9x00Poor|ATI RADEON 9600 Series
+0x4E53|Radeon9x00Poor|ATI RADEON 9600 Series
+0x4151|Radeon9x00Poor|ATI RADEON 9600 Series 
+0x4155|Radeon9x00Poor|ATI RADEON 9600 Series  
+0x4152|Radeon9x00Poor|ATI RADEON 9600 Series   
+0x4E71|Radeon9x00Poor|ATI RADEON 9600 Series Secondary
+0x4171|Radeon9x00Poor|ATI RADEON 9600 Series Secondary
+0x4170|Radeon9x00Poor|ATI RADEON 9600 Series Secondary
+0x4175|Radeon9x00Poor|ATI RADEON 9600 Series Secondary
+0x4172|Radeon9x00Poor|ATI RADEON 9600 Series Secondary
+0x94C7|RadeonX2x00Poor|ATI Radeon HD 2350
+0x94CC|RadeonX2x00Poor|ATI Radeon HD 2400
+0x94C3|RadeonX2x00Poor|ATI Radeon HD 2400 Pro
+0x94C6|RadeonX2x00Poor|ATI Radeon HD 2400 Series
+0x94C4|RadeonX2x00Poor|ATI Radeon HD 2400 Pro AGP
+0x94C1|RadeonX2x00Poor|ATI Radeon HD 2400 Pro XT
+0x958E|RadeonX2x00Poor|ATI Radeon HD 2400 Pro LE
+0x9589|RadeonX2x00Poor|ATI Radeon HD 2400 Pro
+0x9587|RadeonX2x00Poor|ATI Radeon HD 2400 Pro AGP
+0x94C5|RadeonX2x00Poor|ATI Radeon HD 2400 LE
+0x9588|RadeonX2x00Common|ATI Radeon HD 2600 XT
+0x9586|RadeonX2x00Common|ATI Radeon HD 2600 XT AGP
+0x9402|RadeonX2x00Rare|ATI Radeon HD 2900 XT
+0x9403|RadeonX2x00Rare|ATI Radeon HD 2900 PRO
+0x9405|RadeonX2x00Rare|ATI Radeon HD 2900 GT
+0x9400|RadeonX2x00Rare|ATI Radeon HD 2900 XT 
+0x9401|RadeonX2x00Rare|ATI Radeon HD 2900 XT  
+0x95C5|RadeonX3x00Poor|ATI Radeon 3450 HD
+0x9598|RadeonX3x00Common|ATI Radeon 3650 HD
+0x9501|RadeonX3x00Epic|ATI Radeon 3870 HD
+0x950F|RadeonX3x00Epic|ATI Radeon HD 3870 X2
+0x9505|RadeonX3x00Rare|ATI Radeon 3850 HD
+0x9442|RadeonX4x00Epic|ATI Radeon 4800 HD
+0x9440|RadeonX4x00Epic|ATI Radeon 4870 HD
+0x791E|RadeonX1x00Poor|ATI Radeon X1200 Series
+0x791F|RadeonX1x00Poor|ATI Radeon X1200 Series
+0x7288|RadeonX1x00Rare|ATI Radeon X1950 GT
+0x72A8|RadeonX1x00Rare|ATI Radeon X1950 GT Secondary
+0x554E|RadeonXx00Poor|ATI RADEON X800 GT
+0x556E|RadeonXx00Poor|ATI RADEON X800 GT Secondary
+0x554D|RadeonXx00Common|ATI RADEON X800 XL
+0x556D|RadeonXx00Common|ATI RADEON X800 XL Secondary
+0x4B4B|RadeonXx00Poor|ATI RADEON X850 PRO
+0x4B48|RadeonXx00Poor|ATI RADEON X850 Consumer
+0x4B68|RadeonXx00Poor|ATI RADEON X850 Consumer Secondary
+0x4B6B|RadeonXx00Poor|ATI RADEON X850 PRO Secondary
+0x4B4A|RadeonXx00Poor|ATI RADEON X850 SE
+0x4B6A|RadeonXx00Poor|ATI RADEON X850 SE Secondary
+0x4B49|RadeonXx00Common|ATI RADEON X850 XT
+0x4B4C|RadeonXx00Common|ATI RADEON X850 XT Platinum Edition
+0x4B6C|RadeonXx00Common|ATI RADEON X850 XT Platinum Edition Secondary
+0x4B69|RadeonXx00Common|ATI RADEON X850 XT Secondary
+0x793F|IntegratedChipset|ATI Radeon Xpress 1200 Series
+0x7941|IntegratedChipset|ATI Radeon Xpress 1200 Series
+0x7942|IntegratedChipset|ATI Radeon Xpress 1200 Series 
+0x5A61|IntegratedChipset|ATI Radeon Xpress Series
+0x5A63|IntegratedChipset|ATI Radeon Xpress Series
+0x5A62|IntegratedChipset|ATI Radeon Xpress Series
+0x5A41|IntegratedChipset|ATI Radeon Xpress Series
+0x5A43|IntegratedChipset|ATI Radeon Xpress Series
+0x5A42|IntegratedChipset|ATI Radeon Xpress Series
+0x5954|IntegratedChipset|ATI Radeon Xpress Series
+0x5854|IntegratedChipset|ATI Radeon Xpress Series
+0x5955|IntegratedChipset|ATI Radeon Xpress Series
+0x5974|IntegratedChipset|ATI Radeon Xpress Series
+0x5874|IntegratedChipset|ATI Radeon Xpress Series
+0x5975|IntegratedChipset|ATI Radeon Xpress Series
+0x4144|Radeon9x00Unsupported|Radeon 9500
+0x4149|Radeon9x00Unsupported|Radeon 9500
+0x4E45|Radeon9x00Unsupported|Radeon 9500 PRO / 9700
+0x4E65|Radeon9x00Unsupported|Radeon 9500 PRO / 9700 Secondary
+0x4164|Radeon9x00Unsupported|Radeon 9500 Secondary
+0x4169|Radeon9x00Unsupported|Radeon 9500 Secondary
+0x4E46|Radeon9x00Poor|Radeon 9600 TX
+0x4E66|Radeon9x00Poor|Radeon 9600 TX Secondary
+0x4146|Radeon9x00Poor|Radeon 9600TX
+0x4166|Radeon9x00Poor|Radeon 9600TX Secondary
+0x4E44|Radeon9x00Poor|Radeon 9700 PRO
+0x4E64|Radeon9x00Poor|Radeon 9700 PRO Secondary
+0x4E49|Radeon9x00Poor|Radeon 9800
+0x4E48|Radeon9x00Poor|Radeon 9800 PRO
+0x4E68|Radeon9x00Poor|Radeon 9800 PRO Secondary
+0x4148|Radeon9x00Poor|Radeon 9800 SE
+0x4168|Radeon9x00Poor|Radeon 9800 SE Secondary
+0x4E69|Radeon9x00Poor|Radeon 9800 Secondary
+0x4E4A|Radeon9x00Poor|Radeon 9800 XT
+0x4E6A|Radeon9x00Poor|Radeon 9800 XT Secondary
+0x7146|RadeonX1x00Poor|Radeon X1300 / X1550 Series
+0x7166|RadeonX1x00Poor|Radeon X1300 / X1550 Series Secondary
+0x714E|RadeonX1x00Poor|Radeon X1300 Series
+0x715E|RadeonX1x00Poor|Radeon X1300 Series|
+0x714D|RadeonX1x00Poor|Radeon X1300 Series 
+0x71C3|RadeonX1x00Poor|Radeon X1300 Series  
+0x718F|RadeonX1x00Poor|Radeon X1300 Series   
+0x716E|RadeonX1x00Poor|Radeon X1300 Series Secondary
+0x717E|RadeonX1x00Poor|Radeon X1300 Series Secondary
+0x716D|RadeonX1x00Poor|Radeon X1300 Series Secondary 
+0x71E3|RadeonX1x00Poor|Radeon X1300 Series Secondary  
+0x71AF|RadeonX1x00Poor|Radeon X1300 Series Secondary   
+0x7142|RadeonX1x00Poor|Radeon X1300/X1550 Series
+0x7180|RadeonX1x00Poor|Radeon X1300/X1550 Series
+0x7183|RadeonX1x00Poor|Radeon X1300/X1550 Series 
+0x7187|RadeonX1x00Poor|Radeon X1300/X1550 Series  
+0x7162|RadeonX1x00Poor|Radeon X1300/X1550 Series Secondary
+0x71A0|RadeonX1x00Poor|Radeon X1300/X1550 Series Secondary
+0x71A3|RadeonX1x00Poor|Radeon X1300/X1550 Series Secondary 
+0x71A7|RadeonX1x00Poor|Radeon X1300/X1550 Series Secondary  
+0x7147|RadeonX1x00Poor|Radeon X1550 64-bit
+0x715F|RadeonX1x00Poor|Radeon X1550 64-bit
+0x719F|RadeonX1x00Poor|Radeon X1550 64-bit 
+0x7167|RadeonX1x00Poor|Radeon X1550 64-bit Secondary
+0x717F|RadeonX1x00Poor|Radeon X1550 64-bit Secondary
+0x71BF|RadeonX1x00Poor|Radeon X1550 64-bit Secondary
+0x7143|RadeonX1x00Poor|Radeon X1550 Series
+0x7193|RadeonX1x00Poor|Radeon X1550 Series
+0x7163|RadeonX1x00Poor|Radeon X1550 Series Secondary
+0x71B3|RadeonX1x00Poor|Radeon X1550 Series Secondary
+0x71CE|RadeonX1x00Poor|Radeon X1600 Pro / Radeon X1300 XT
+0x71EE|RadeonX1x00Poor|Radeon X1600 Pro / Radeon X1300 XT Secondary
+0x7140|RadeonX1x00Poor|Radeon X1600 Series
+0x71C0|RadeonX1x00Poor|Radeon X1600 Series
+0x71C2|RadeonX1x00Poor|Radeon X1600 Series
+0x71C6|RadeonX1x00Poor|Radeon X1600 Series
+0x7181|RadeonX1x00Poor|Radeon X1600 Series
+0x71CD|RadeonX1x00Poor|Radeon X1600 Series
+0x7160|RadeonX1x00Poor|Radeon X1600 Series Secondary
+0x71E2|RadeonX1x00Poor|Radeon X1600 Series Secondary
+0x71E6|RadeonX1x00Poor|Radeon X1600 Series Secondary 
+0x71A1|RadeonX1x00Poor|Radeon X1600 Series Secondary  
+0x71ED|RadeonX1x00Poor|Radeon X1600 Series Secondary   
+0x71E0|RadeonX1x00Poor|Radeon X1600 Series Secondary    
+0x71C1|RadeonX1x00Poor|Radeon X1650 Series
+0x7293|RadeonX1x00Poor|Radeon X1650 Series
+0x7291|RadeonX1x00Poor|Radeon X1650 Series
+0x71C7|RadeonX1x00Poor|Radeon X1650 Series
+0x71E1|RadeonX1x00Poor|Radeon X1650 Series Secondary
+0x72B3|RadeonX1x00Poor|Radeon X1650 Series Secondary
+0x72B1|RadeonX1x00Poor|Radeon X1650 Series Secondary
+0x71E7|RadeonX1x00Poor|Radeon X1650 Series Secondary
+0x7100|RadeonX1x00Rare|Radeon X1800 Series
+0x7108|RadeonX1x00Rare|Radeon X1800 Series
+0x7109|RadeonX1x00Rare|Radeon X1800 Series
+0x710A|RadeonX1x00Rare|Radeon X1800 Series
+0x710B|RadeonX1x00Rare|Radeon X1800 Series
+0x710C|RadeonX1x00Rare|Radeon X1800 Series
+0x7120|RadeonX1x00Rare|Radeon X1800 Series Secondary
+0x7128|RadeonX1x00Rare|Radeon X1800 Series Secondary
+0x7129|RadeonX1x00Rare|Radeon X1800 Series Secondary
+0x712A|RadeonX1x00Rare|Radeon X1800 Series Secondary
+0x712B|RadeonX1x00Rare|Radeon X1800 Series Secondary
+0x712C|RadeonX1x00Rare|Radeon X1800 Series Secondary
+0x7243|RadeonX1x00Rare|Radeon X1900 Series
+0x7245|RadeonX1x00Rare|Radeon X1900 Series
+0x7246|RadeonX1x00Rare|Radeon X1900 Series
+0x7247|RadeonX1x00Rare|Radeon X1900 Series
+0x7248|RadeonX1x00Rare|Radeon X1900 Series
+0x7249|RadeonX1x00Rare|Radeon X1900 Series
+0x724A|RadeonX1x00Rare|Radeon X1900 Series
+0x724B|RadeonX1x00Rare|Radeon X1900 Series
+0x724C|RadeonX1x00Rare|Radeon X1900 Series
+0x724D|RadeonX1x00Rare|Radeon X1900 Series
+0x724F|RadeonX1x00Rare|Radeon X1900 Series
+0x7263|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x7265|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x7266|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x7267|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x7268|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x7269|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x726A|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x726B|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x726C|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x726D|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x726F|RadeonX1x00Rare|Radeon X1900 Series Secondary
+0x7280|RadeonX1x00Rare|Radeon X1950 Series
+0x7240|RadeonX1x00Rare|Radeon X1950 Series
+0x7244|RadeonX1x00Rare|Radeon X1950 Series
+0x72A0|RadeonX1x00Rare|Radeon X1950 Series Secondary
+0x7260|RadeonX1x00Rare|Radeon X1950 Series Secondary
+0x7264|RadeonX1x00Rare|Radeon X1950 Series Secondary 
+0x5B60|RadeonXx00Poor|Radeon X300/X550/X1050 Series
+0x5B63|RadeonXx00Poor|Radeon X300/X550/X1050 Series
+0x5B73|RadeonXx00Poor|Radeon X300/X550/X1050 Series Secondary
+0x5B70|RadeonXx00Poor|Radeon X300/X550/X1050 Series Secondary
+0x5657|RadeonXx00Poor|Radeon X550/X700 Series
+0x5677|RadeonXx00Poor|Radeon X550/X700 Series Secondary
+0x5B62|RadeonXx00Poor|Radeon X600 Series
+0x5B72|RadeonXx00Poor|Radeon X600 Series Secondary
+0x3E50|RadeonXx00Poor|Radeon X600/X550 Series
+0x3E70|RadeonXx00Poor|Radeon X600/X550 Series Secondary
+0x5E4D|RadeonXx00Poor|Radeon X700
+0x5E4B|RadeonXx00Poor|Radeon X700 PRO
+0x5E6B|RadeonXx00Poor|Radeon X700 PRO Secondary
+0x5E4C|RadeonXx00Poor|Radeon X700 SE
+0x5E6C|RadeonXx00Poor|Radeon X700 SE Secondary
+0x5E6D|RadeonXx00Poor|Radeon X700 Secondary
+0x5E4A|RadeonXx00Poor|Radeon X700 XT
+0x5E6A|RadeonXx00Poor|Radeon X700 XT Secondary
+0x5E4F|RadeonXx00Poor|Radeon X700/X550 Series
+0x5E6F|RadeonXx00Poor|Radeon X700/X550 Series Secondary
+0x554B|RadeonXx00Poor|Radeon X800 GT
+0x556B|RadeonXx00Poor|Radeon X800 GT Secondary
+0x5549|RadeonXx00Poor|Radeon X800 GTO
+0x554F|RadeonXx00Poor|Radeon X800 GTO
+0x5D4F|RadeonXx00Poor|Radeon X800 GTO 
+0x5569|RadeonXx00Poor|Radeon X800 GTO Secondary
+0x556F|RadeonXx00Poor|Radeon X800 GTO Secondary
+0x5D6F|RadeonXx00Poor|Radeon X800 GTO Secondary 
+0x4A49|RadeonXx00Poor|Radeon X800 PRO
+0x4A69|RadeonXx00Poor|Radeon X800 PRO Secondary
+0x4A4F|RadeonXx00Poor|Radeon X800 SE
+0x4A6F|RadeonXx00Poor|Radeon X800 SE Secondary
+0x4A48|RadeonXx00Poor|Radeon X800 Series
+0x4A4A|RadeonXx00Poor|Radeon X800 Series
+0x4A4C|RadeonXx00Poor|Radeon X800 Series
+0x5548|RadeonXx00Poor|Radeon X800 Series  
+0x4A68|RadeonXx00Poor|Radeon X800 Series Secondary
+0x4A6A|RadeonXx00Poor|Radeon X800 Series Secondary
+0x4A6C|RadeonXx00Poor|Radeon X800 Series Secondary 
+0x5568|RadeonXx00Poor|Radeon X800 Series Secondary  
+0x4A54|RadeonXx00Poor|Radeon X800 VE
+0x4A74|RadeonXx00Poor|Radeon X800 VE Secondary
+0x4A4B|RadeonXx00Common|Radeon X800 XT
+0x5D57|RadeonXx00Common|Radeon X800 XT
+0x4A50|RadeonXx00Common|Radeon X800 XT Platinum Edition
+0x554A|RadeonXx00Common|Radeon X800 XT Platinum Edition
+0x4A70|RadeonXx00Common|Radeon X800 XT Platinum Edition Secondary
+0x556A|RadeonXx00Common|Radeon X800 XT Platinum Edition Secondary
+0x4A6B|RadeonXx00Common|Radeon X800 XT Secondary
+0x5D77|RadeonXx00Common|Radeon X800 XT Secondary
+0x5D52|RadeonXx00Common|Radeon X850 XT
+0x5D4D|RadeonXx00Common|Radeon X850 XT Platinum Edition
+0x5D6D|RadeonXx00Common|Radeon X850 XT Platinum Edition Secondary
+0x5D72|RadeonXx00Common|Radeon X850 XT Secondary
+0x796E|RadeonX2x00Poor|ATI Radeon HD 2100
+0x94CB|RadeonX2x00Poor|ATI Radeon E2400
+0x9611|RadeonX3x00Poor|ATI Radeon HD 3100 Graphics
+0x9613|RadeonX3x00Poor|ATI Radeon HD 3100 Graphics
+0x9610|RadeonX3x00Poor|ATI Radeon HD 3200 Graphics
+0x9612|RadeonX3x00Poor|ATI Radeon HD 3200 Graphics
+0x9614|RadeonX3x00Poor|ATI Radeon HD 3200 Graphics
+0x95C7|RadeonX3x00Poor|ATI Radeon HD 3430
+0x95C5|RadeonX3x00Poor|ATI Radeon HD 3450
+0x95C6|RadeonX3x00Poor|ATI Radeon HD 3450
+0x95C0|RadeonX3x00Common|ATI Radeon HD 3470
+0x9590|RadeonX3x00Common|ATI Radeon 3600 Series
+0x9597|RadeonX3x00Common|ATI Radeon 3600 Series
+0x9598|RadeonX3x00Common|ATI Radeon 3600 Series
+0x9599|RadeonX3x00Common|ATI Radeon 3600 Series
+0x9596|RadeonX3x00Common|ATI Radeon 3650 AGP
+0x9507|RadeonX3x00Rare|ATI Radeon 3830
+0x9505|RadeonX3x00Rare|ATI Radeon 3850
+0x9515|RadeonX3x00Rare|ATI Radeon 3850 AGP
+0x9513|RadeonX3x00Epic|ATI Radeon 3850 X2
+0x9501|RadeonX3x00Rare|ATI Radeon 3870
+0x950F|RadeonX3x00Epic|ATI Radeon 3870 X2
+0x954F|RadeonX4x00Common|ATI Radeon 4350
+0x9540|RadeonX4x00Common|ATI Radeon 4550
+0x9495|RadeonX4x00Common|ATI Radeon 4600 Series
+0x9490|RadeonX4x00Rare|ATI Radeon 4670
+0x94B3|RadeonX4x00Epic|ATI Radeon 4770
+0x9440|RadeonX4x00Epic|ATI Radeon 4800 Series
+0x9442|RadeonX4x00Epic|ATI Radeon 4800 Series
+0x944C|RadeonX4x00Epic|ATI Radeon 4800 Series
+0x9460|RadeonX4x00Epic|ATI Radeon 4800 Series
+0x9443|RadeonX4x00Epic|ATI Radeon 4850 X2
+0x9441|RadeonX4x00Epic|ATI Radeon 4870 X2
+0x9498|RadeonX4x00Common|ATI Radeon HD4650
+0x8108|IntelGMA|GMA 500
+0x8109|IntelGMA|GMA 500
+0x2582|IntelGMA|GMA 900
+0x2782|IntelGMA|GMA 900
+0x2592|IntelGMA|GMA 900
+0x2792|IntelGMA|GMA 900
+0x2772|IntelGMA|GMA 950
+0x2776|IntelGMA|GMA 950
+0x27A2|IntelGMA|GMA 950
+0x27A6|IntelGMA|GMA 950
+0x27AE|IntelGMA|GMA 950
+0x2972|IntelGMA|GMA 3000
+0x2973|IntelGMA|GMA 3000
+0x2992|IntelGMA|GMA 3000
+0x2993|IntelGMA|GMA 3000
+0x29B2|IntelGMA|GMA 3100
+0x29B3|IntelGMA|GMA 3100
+0x29D2|IntelGMA|GMA 3100
+0x29D3|IntelGMA|GMA 3100
+0x29C2|IntelGMA|GMA 3100
+0x29C3|IntelGMA|GMA 3100
+0x29A2|IntelGMA|GMA X3000
+0x29A3|IntelGMA|GMA X3000
+0x2A02|IntelGMA|GMA X3100
+0x2A03|IntelGMA|GMA X3100
+0x2A12|IntelGMA|GMA X3100
+0x2A13|IntelGMA|GMA X3100
+0x2982|IntelGMA|GMA X3500
+0x2983|IntelGMA|GMA X3500
+0x2A42|IntelGMA|GMA 4500MHD
+0x2A43|IntelGMA|GMA 4500MHD
+0x2E12|IntelGMA|GMA 4500
+0x2E13|IntelGMA|GMA 4500
+0x2E02|IntelGMA|GMA X4500
+0x2E03|IntelGMA|GMA X4500
+0x2E22|IntelGMA|GMA X4500
+0x2E23|IntelGMA|GMA X4500
+0x2E32|IntelGMA|GMA X4500
+0x2E33|IntelGMA|GMA X4500

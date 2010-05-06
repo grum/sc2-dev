@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CCursor id="Arrow">
+        <Texture value="Assets\Textures\cursor.dds"/>
+        <HotspotX value="0"/>
+        <HotspotY value="0"/>
+    </CCursor>
+    <CCursor id="Wait">
+        <Texture value="Assets\Textures\cursor.dds"/>
+        <HotspotX value="0"/>
+        <HotspotY value="0"/>
+    </CCursor>
+    <CCursor id="Crosshairs">
+        <Texture value="Assets\Textures\cursor.dds"/>
+        <HotspotX value="0"/>
+        <HotspotY value="0"/>
+    </CCursor>
+    <CCursor id="DragScroll">
+        <Texture value="Assets\Textures\cursor.dds"/>
+        <HotspotX value="0"/>
+        <HotspotY value="0"/>
+    </CCursor>
+    <CCursor id="EditBar">
+        <Texture value="Assets\Textures\cursor-ibeam.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="TargetInvalid">
+        <Texture value="Assets\Textures\cursor-target-invalid.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="TargetNormal">
+        <Texture value="Assets\Textures\cursor-target-none.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="TargetAllied">
+        <Texture value="Assets\Textures\cursor-target-allied.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="TargetEnemy">
+        <Texture value="Assets\Textures\cursor-target-enemy.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="SelectNormal">
+        <Texture value="Assets\Textures\cursor-select-none.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="SelectAllied">
+        <Texture value="Assets\Textures\cursor-select-allied.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="SelectEnemy">
+        <Texture value="Assets\Textures\cursor-select-enemy.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTopLeft">
+        <Texture value="Assets\Textures\cursor-edgescroll-top-left.dds"/>
+    </CCursor>
+    <CCursor id="EdgeScrollTop">
+        <Texture value="Assets\Textures\cursor-edgescroll-top.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="0"/>        
+    </CCursor>
+    <CCursor id="EdgeScrollTopRight">
+        <Texture value="Assets\Textures\cursor-edgescroll-top-right.dds"/>
+        <HotspotX value="31"/>
+    </CCursor>
+    <CCursor id="EdgeScrollLeft">
+        <Texture value="Assets\Textures\cursor-edgescroll-left.dds"/>
+        <HotspotX value="0"/>        
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="EdgeScrollRight">
+        <Texture value="Assets\Textures\cursor-edgescroll-right.dds"/>
+        <HotspotX value="31"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottomLeft">
+        <Texture value="Assets\Textures\cursor-edgescroll-bottom-left.dds"/>
+        <HotspotX value="0"/>
+        <HotspotY value="31"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottom">
+        <Texture value="Assets\Textures\cursor-edgescroll-bottom.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="31"/>
+    </CCursor>
+    <CCursor id="EdgeScrollBottomRight">
+        <Texture value="Assets\Textures\cursor-edgescroll-bottom-right.dds"/>
+        <HotspotX value="31"/>
+        <HotspotY value="31"/>
+    </CCursor>
+    <CCursor id="ResizeVertical">
+        <Texture value="Assets\Textures\cursor-resize-vertical.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="ResizeHorizontal">
+        <Texture value="Assets\Textures\cursor-resize-horizontal.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="ResizeDiagonalLeft">
+        <Texture value="Assets\Textures\cursor-resize-diagonal-left.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="ResizeDiagonalRight">
+        <Texture value="Assets\Textures\cursor-resize-diagonal-right.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="Hyperlink">
+        <Texture value="Assets\Textures\cursor-hyperlink.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="0"/>
+    </CCursor>
+    <CCursor id="GripOpen">
+        <Texture value="Assets\Textures\cursor-grip-open.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+    <CCursor id="GripClosed">
+        <Texture value="Assets\Textures\cursor-grip-closed.dds"/>
+        <HotspotX value="15"/>
+        <HotspotY value="15"/>
+    </CCursor>
+</Catalog>

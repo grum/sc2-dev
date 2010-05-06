@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Constant name="HeroButtonGap" val="-5"/>
+
+    <Frame type="HeroButton" name="HeroButtonTemplate" template="GameButton/GameButtonTemplate">
+        <Width val="64"/>
+        <Height val="64"/>
+    </Frame>
+
+    <Frame type="HeroFrame" name="HeroFrameTemplate">
+        <Width val="64"/>
+        <Height val="80"/>
+
+        <Frame type="HeroButton" name="Button" template="HeroPanel/HeroButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
+        </Frame>
+
+        <Frame type="Image" name="HealthBarBackground">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="58"/>
+            <Height val="12"/>            
+            <Texture val="@@UI/LoadingScreenPlayerLoadingBarBackground" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="HealthBar">
+            <Anchor side="Top" relative="$parent/HealthBarBackground" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/HealthBarBackground" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/HealthBarBackground" pos="Min" offset="0"/>
+            <Texture val="@@UI/LoadingScreenPlayerLoadingBar" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>        
+    </Frame>   
+
+    <Frame type="HeroPanel" name="HeroPanelTemplate">
+        <Frame type="HeroFrame" name="HeroFrame07" template="HeroPanel/HeroFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="HeroFrame" name="HeroFrame06" template="HeroPanel/HeroFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HeroFrame07" pos="Min" offset="#HeroButtonGap"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="HeroFrame" name="HeroFrame05" template="HeroPanel/HeroFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HeroFrame06" pos="Min" offset="#HeroButtonGap"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="HeroFrame" name="HeroFrame04" template="HeroPanel/HeroFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HeroFrame05" pos="Min" offset="#HeroButtonGap"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="HeroFrame" name="HeroFrame03" template="HeroPanel/HeroFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HeroFrame04" pos="Min" offset="#HeroButtonGap"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="HeroFrame" name="HeroFrame02" template="HeroPanel/HeroFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HeroFrame03" pos="Min" offset="#HeroButtonGap"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="HeroFrame" name="HeroFrame01" template="HeroPanel/HeroFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HeroFrame02" pos="Min" offset="#HeroButtonGap"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="HeroFrame" name="HeroFrame00" template="HeroPanel/HeroFrameTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/HeroFrame01" pos="Min" offset="#HeroButtonGap"/>
+        </Frame>        
+    </Frame>
+    
+</Desc>

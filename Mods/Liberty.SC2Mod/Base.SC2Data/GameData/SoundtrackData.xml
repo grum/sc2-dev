@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CSoundtrack id="Ambience_Aiur" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Castanar" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Haven" parent="Ambience_Map"/>
+    <!-- Ambience ============================================================================== -->
+    <CSoundtrack id="Ambience_Liberty" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Char" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_MarSara" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Monlyth" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_PortZion" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Redstone" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_SteppesOfWar" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_ToxicWastes" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Typhon" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Ulaan" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Valhalla" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Wasteland" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Starmap_Jotun" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Starmap_MarSara" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Starmap_Redstone" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Agria" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Avernus" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_BelShir" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_BraxisAlpha" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Korhal" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Meinhoff" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_NewFolsom" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Shakuras" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Tarsonis" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_Xil" parent="Ambience_Map"/>
+    <CSoundtrack id="Ambience_ZhakulDas" parent="Ambience_Map"/>
+    <!-- Music ================================================================================= -->
+    <CSoundtrack id="Music_LibertyStartup" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GlueMusicLibertyStartup"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_LibertyIntro" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GlueMusicLibertyIntro"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_LibertyLoop" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GlueMusicLibertyLoop"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_ProtLow" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GameMusicProt"/>
+        </CueArray>
+        <Delay value="60,120"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_TerrLow" parent="Music">
+        <!--
+        <CueArray>
+            <MasterLayer Sound="TerranLowIntensityMusicMaster"/>
+            <SlaveLayers>
+                <Sections Sound="TerranLowIntensityMusicMiddleSection" Start="325124"/>
+                <Sections Sound="TerranLowIntensityMusicEndSection" Start="1302240"/>
+            </SlaveLayers>
+        </CueArray>
+        -->
+        <CueArray>
+            <MasterLayer Sound="GameMusicTerr"/>
+        </CueArray>
+        <Delay value="60,120"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_TerrHigh" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="TerranHighIntensityMusicMaster"/>
+            <SlaveLayers>
+                <Sections Sound="TerranHighIntensityMusicSectionOne" Start="44868"/>
+                <Sections Sound="TerranHighIntensityMusicSectionTwo" Start="533808"/>
+                <Sections Sound="TerranHighIntensityMusicSectionOne" Start="1510729"/>
+                <Sections Sound="TerranHighIntensityMusicSectionTwo" Start="1999669"/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_ZergLow" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GameMusicZerg"/>
+        </CueArray>
+        <Delay value="60,120"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_ProtDefeat" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="ScoreDefeatMusicProt"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_ProtVictory" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="ScoreVictoryMusicProt"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_TerrDefeat" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="ScoreDefeatMusicTerr"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_TerrVictory" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="ScoreVictoryMusicTerr"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_ZergDefeat" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="ScoreDefeatMusicZerg"/>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="Music_ZergVictory" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="ScoreVictoryMusicZerg"/>
+        </CueArray>
+    </CSoundtrack>
+</Catalog>

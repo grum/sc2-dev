@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CTerrainTex id="BelShirDirtLight">
+        <Texture value="Assets\Textures\Bel_Shir_Dirt_Light.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Bel_Shir_Dirt_Light.dds"/>
+        <Normalmap value="Assets\Textures\Bel_Shir_Dirt_LightNormal.dds"/>
+        <DoodadEntry Model="PlantMixBelShir" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixBelShir" Probability="0.200000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="BelShirDirtDark">
+        <Texture value="Assets\Textures\Bel_Shir_Dirt_Dark.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Bel_Shir_Dirt_Dark.dds"/>
+        <Normalmap value="Assets\Textures\Bel_Shir_Dirt_DarkNormal.dds"/>
+        <DoodadEntry Model="PlantMixBelShir" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixBelShir" Probability="0.200000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="BelShirBrush">
+        <Texture value="Assets\Textures\Bel_Shir_Brush.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Bel_Shir_Brush.dds"/>
+        <Normalmap value="Assets\Textures\Bel_Shir_BrushNormal.dds"/>
+        <DoodadEntry Model="PlantMixBelShir" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassBelShir"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="BelShirGrassLight">
+        <Texture value="Assets\Textures\Bel_Shir_Grass_Light.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Bel_Shir_Grass_Light.dds"/>
+        <Normalmap value="Assets\Textures\Bel_Shir_Grass_LightNormal.dds"/>
+        <DoodadEntry Model="PlantMixBelShir" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassBelShir"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.750000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="BelShirGrassDark">
+        <Texture value="Assets\Textures\Bel_Shir_Grass_Dark.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Bel_Shir_Grass_Dark.dds"/>
+        <Normalmap value="Assets\Textures\Bel_Shir_Grass_DarkNormal.dds"/>
+        <DoodadEntry Model="PlantMixBelShir" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassBelShir"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.500000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="BelShirSmallTiles">
+        <Texture value="Assets\Textures\Bel_Shir_SmallTiles.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Bel_Shir_SmallTiles.dds"/>
+        <Normalmap value="Assets\Textures\Bel_Shir_SmallTilesNormal.dds"/>
+        <DoodadEntry Model="RockMixBelShir" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="BelShirBricksSmall">
+        <Texture value="Assets\Textures\Bel_Shir_Bricks_Small.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Bel_Shir_Bricks_Small.dds"/>
+        <Normalmap value="Assets\Textures\Bel_Shir_Bricks_SmallNormal.dds"/>
+        <DoodadEntry Model="RockMixBelShir" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="BelShirBricksLarge">
+        <Texture value="Assets\Textures\Bel_Shir_Bricks_Large.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Bel_Shir_Bricks_Large.dds"/>
+        <Normalmap value="Assets\Textures\Bel_Shir_Bricks_LargeNormal.dds"/>
+        <DoodadEntry Model="RockMixBelShir" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="BraxisAlphaMetal">
+        <Texture value="Assets\Textures\Braxis_Metal.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Braxis_Metal.dds"/>
+        <Normalmap value="Assets\Textures\Braxis_MetalNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="BraxisAlphaMetalDetail">
+        <Texture value="Assets\Textures\Braxis_MetalDetail.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Braxis_MetalDetail.dds"/>
+        <Normalmap value="Assets\Textures\Braxis_MetalDetailNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="BraxisAlphaPlates">
+        <Texture value="Assets\Textures\Braxis_Plates.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Braxis_Plates.dds"/>
+        <Normalmap value="Assets\Textures\Braxis_PlatesNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="BraxisAlphaDarkPlates">
+        <Texture value="Assets\Textures\Braxis_DarkPlates.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Braxis_DarkPlates.dds"/>
+        <Normalmap value="Assets\Textures\Braxis_DarkPlatesNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="BraxisAlphaWreckedPlates">
+        <Texture value="Assets\Textures\Braxis_WreckedPlates.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Braxis_WreckedPlates.dds"/>
+        <Normalmap value="Assets\Textures\Braxis_WreckedPlatesNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="BraxisAlphaMesh">
+        <Texture value="Assets\Textures\Braxis_Mesh.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Braxis_Mesh.dds"/>
+        <Normalmap value="Assets\Textures\Braxis_MeshNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="BraxisAlphaRust">
+        <Texture value="Assets\Textures\Braxis_Rust.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Braxis_Rust.dds"/>
+        <Normalmap value="Assets\Textures\Braxis_RustNormal.dds"/>
+        <DoodadEntry Model="RockMixBraxisAlpha" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="BraxisAlphaRock">
+        <Texture value="Assets\Textures\Braxis_Rock.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Braxis_Rock.dds"/>
+        <Normalmap value="Assets\Textures\Braxis_RockNormal.dds"/>
+        <DoodadEntry Model="RockMixBraxisAlpha" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="Korhal1">
+        <Texture value="Assets\Textures\Korhal1.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Korhal1.dds"/>
+        <Normalmap value="Assets\Textures\Korhal1Normal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="Korhal2">
+        <Texture value="Assets\Textures\Korhal2.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Korhal2.dds"/>
+        <Normalmap value="Assets\Textures\Korhal2Normal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="Korhal3">
+        <Texture value="Assets\Textures\Korhal3.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Korhal3.dds"/>
+        <Normalmap value="Assets\Textures\Korhal3Normal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="Korhal4">
+        <Texture value="Assets\Textures\Korhal4.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Korhal4.dds"/>
+        <Normalmap value="Assets\Textures\Korhal4Normal.dds"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassKorhal"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.500000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="Korhal5">
+        <Texture value="Assets\Textures\Korhal5.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Korhal5.dds"/>
+        <Normalmap value="Assets\Textures\Korhal5Normal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="Korhal6">
+        <Texture value="Assets\Textures\Korhal6.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Korhal6.dds"/>
+        <Normalmap value="Assets\Textures\Korhal6Normal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="Korhal7">
+        <Texture value="Assets\Textures\Korhal7.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Korhal7.dds"/>
+        <Normalmap value="Assets\Textures\Korhal7Normal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="Korhal8">
+        <Texture value="Assets\Textures\Korhal8.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Korhal8.dds"/>
+        <Normalmap value="Assets\Textures\Korhal8Normal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="MarSaraDirt">
+        <Texture value="Assets\Textures\MarSara_Dirt.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-MarSara_Dirt.dds"/>
+        <Normalmap value="Assets\Textures\MarSara_DirtNormal.dds"/>
+        <DoodadEntry Model="PlantMixMarSara" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixMarSara" Probability="0.200000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassMarSara"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="MarSaraDirtCracked">
+        <Texture value="Assets\Textures\MarSara_Dirt_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-MarSara_Dirt_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\MarSara_Dirt_CrackedNormal.dds"/>
+        <DoodadEntry Model="PlantMixMarSara" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixMarSara" Probability="0.200000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="MarSaraSand">
+        <Texture value="Assets\Textures\MarSara_Sand.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-MarSara_Sand.dds"/>
+        <Normalmap value="Assets\Textures\MarSara_SandNormal.dds"/>
+        <DoodadEntry Model="PlantMixMarSara" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixMarSara" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassMarSara"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="MarSaraDarkSand">
+        <Texture value="Assets\Textures\MarSara_Dark_Sand.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-MarSara_Dark_Sand.dds"/>
+        <Normalmap value="Assets\Textures\MarSara_Dark_SandNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="MarSaraRocky">
+        <Texture value="Assets\Textures\MarSara_Rocky.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-MarSara_Rocky.dds"/>
+        <Normalmap value="Assets\Textures\MarSara_RockyNormal.dds"/>
+        <DoodadEntry Model="PlantMixMarSara" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixMarSara" Probability="0.200000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="MarSaraBlackenedRock">
+        <Texture value="Assets\Textures\MarSara_Blackened_Rock.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-MarSara_Blackened_Rock.dds"/>
+        <Normalmap value="Assets\Textures\MarSara_Blackened_RockNormal.dds"/>
+        <DoodadEntry Model="RockMixMarSara" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="MarSaraConcrete">
+        <Texture value="Assets\Textures\MarSara_Concrete.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-MarSara_Concrete.dds"/>
+        <Normalmap value="Assets\Textures\MarSara_ConcreteNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="MarSaraPanels">
+        <Texture value="Assets\Textures\MarSara_Panels.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-MarSara_Panels.dds"/>
+        <Normalmap value="Assets\Textures\MarSara_PanelsNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="MonlythDirt">
+        <Texture value="Assets\Textures\Monlyth_Dirt.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Monlyth_Dirt.dds"/>
+        <Normalmap value="Assets\Textures\Monlyth_DirtNormal.dds"/>
+        <DoodadEntry Model="PlantMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        </CTerrainTex>
+    <CTerrainTex id="MonlythDunes">
+        <Texture value="Assets\Textures\Monlyth_Dunes.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Monlyth_Dunes.dds"/>
+        <Normalmap value="Assets\Textures\Monlyth_DunesNormal.dds"/>
+        <DoodadEntry Model="PlantMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="MonlythSand">
+        <Texture value="Assets\Textures\Monlyth_Sand.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Monlyth_Sand.dds"/>
+        <Normalmap value="Assets\Textures\Monlyth_SandNormal.dds"/>
+        <DoodadEntry Model="PlantMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="MonlythCracked">
+        <Texture value="Assets\Textures\Monlyth_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Monlyth_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\Monlyth_CrackedNormal.dds"/>
+        <DoodadEntry Model="PlantMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="MonlythRock">
+        <Texture value="Assets\Textures\Monlyth_Rock.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Monlyth_Rock.dds"/>
+        <Normalmap value="Assets\Textures\Monlyth_RockNormal.dds"/>
+        <DoodadEntry Model="RockMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="MonlythTiles">
+        <Texture value="Assets\Textures\Monlyth_Tiles.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Monlyth_Tiles.dds"/>
+        <Normalmap value="Assets\Textures\Monlyth_TilesNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="MonlythBricks">
+        <Texture value="Assets\Textures\Monlyth_Bricks.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Monlyth_Bricks.dds"/>
+        <Normalmap value="Assets\Textures\Monlyth_BricksNormal.dds"/>
+        <DoodadEntry Model="RockMixMonlyth" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="MonlythPlates">
+        <Texture value="Assets\Textures\Monlyth_Plates.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Monlyth_Plates.dds"/>
+        <Normalmap value="Assets\Textures\Monlyth_PlatesNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="RedstoneDirt">
+        <Texture value="Assets\Textures\Redstone_Dirt.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Redstone_Dirt.dds"/>
+        <Normalmap value="Assets\Textures\Redstone_DirtNormal.dds"/>
+        <DoodadEntry Model="RockMixRedstone" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="RedstoneRockyDirt">
+        <Texture value="Assets\Textures\Redstone_Rocky_Dirt.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Redstone_Rocky_Dirt.dds"/>
+        <Normalmap value="Assets\Textures\Redstone_Rocky_DirtNormal.dds"/>
+        <DoodadEntry Model="RockMixRedstone" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="RedstoneRough">
+        <Texture value="Assets\Textures\Redstone_Rough.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Redstone_Rough.dds"/>
+        <Normalmap value="Assets\Textures\Redstone_RoughNormal.dds"/>
+        <DoodadEntry Model="RockMixRedstone" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="RedstoneFossils">
+        <Texture value="Assets\Textures\Redstone_Fossils.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Redstone_Fossils.dds"/>
+        <Normalmap value="Assets\Textures\Redstone_FossilsNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="RedstoneMud">
+        <Texture value="Assets\Textures\Redstone_Mud.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Redstone_Mud.dds"/>
+        <Normalmap value="Assets\Textures\Redstone_MudNormal.dds"/>
+        <DoodadEntry Model="RockMixRedstone" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="RedstonePanels">
+        <Texture value="Assets\Textures\Redstone_Panels.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Redstone_Panels.dds"/>
+        <Normalmap value="Assets\Textures\Redstone_PanelsNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="RedstoneRock">
+        <Texture value="Assets\Textures\Redstone_Rock.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Redstone_Rock.dds"/>
+        <Normalmap value="Assets\Textures\Redstone_RockNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="RedstoneLavaCracks">
+        <Texture value="Assets\Textures\Redstone_Lava_Cracks.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Redstone_Lava_Cracks.dds"/>
+        <Normalmap value="Assets\Textures\Redstone_Lava_CracksNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="ShakurasSand">
+        <Texture value="Assets\Textures\Shakuras_Sand.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Sand.dds"/>
+        <Normalmap value="Assets\Textures\Shakuras_SandNormal.dds"/>
+        <DoodadEntry Model="RockMixShakuras" Probability="0.500000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="PlantMixShakuras" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="ShakurasSandDark">
+        <Texture value="Assets\Textures\Shakuras_Sand_Dark.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Sand_Dark.dds"/>
+        <Normalmap value="Assets\Textures\Shakuras_Sand_DarkNormal.dds"/>
+        <DoodadEntry Model="PlantMixShakuras" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassShakuras"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.500000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="ShakurasDirtCracked">
+        <Texture value="Assets\Textures\Shakuras_Dirt_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Dirt_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\Shakuras_Dirt_CrackedNormal.dds"/>
+        <DoodadEntry Model="PlantMixShakuras" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixShakuras" Probability="0.500000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassShakuras"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="ShakurasStone">
+        <Texture value="Assets\Textures\Shakuras_Stone.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Stone.dds"/>
+        <Normalmap value="Assets\Textures\Shakuras_StoneNormal.dds"/>
+        <DoodadEntry Model="PlantMixShakuras" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="ShakurasRockCracked">
+        <Texture value="Assets\Textures\Shakuras_Rock_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Rock_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\Shakuras_Rock_CrackedNormal.dds"/>
+        <DoodadEntry Model="PlantMixShakuras" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixShakuras" Probability="0.500000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="ShakurasRockRough">
+        <Texture value="Assets\Textures\Shakuras_Rock_Rough.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Rock_Rough.dds"/>
+        <Normalmap value="Assets\Textures\Shakuras_Rock_RoughNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="ShakurasBricks">
+        <Texture value="Assets\Textures\Shakuras_Bricks.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Bricks.dds"/>
+        <Normalmap value="Assets\Textures\Shakuras_BricksNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="ShakurasHextiles">
+        <Texture value="Assets\Textures\Shakuras_Hextiles.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Hextiles.dds"/>
+        <Normalmap value="Assets\Textures\Shakuras_HextilesNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="XilDirt">
+        <Texture value="Assets\Textures\Xil_Dirt.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Xil_Dirt.dds"/>
+        <Normalmap value="Assets\Textures\Xil_DirtNormal.dds"/>
+        <DoodadEntry Model="PlantMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassXil"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="XilDirtCracked">
+        <Texture value="Assets\Textures\Xil_Dirt_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Xil_Dirt_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\Xil_Dirt_CrackedNormal.dds"/>
+        <DoodadEntry Model="PlantMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassXil"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="XilSand">
+        <Texture value="Assets\Textures\Xil_Sand.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Xil_Sand.dds"/>
+        <Normalmap value="Assets\Textures\Xil_SandNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="XilSandCracked">
+        <Texture value="Assets\Textures\Xil_Sand_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Xil_Sand_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\Xil_Sand_CrackedNormal.dds"/>
+        <DoodadEntry Model="RockMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="XilRockCracked">
+        <Texture value="Assets\Textures\Xil_Rock_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Xil_Rock_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\Xil_Rock_CrackedNormal.dds"/>
+        <DoodadEntry Model="PlantMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="XilDirtRocky">
+        <Texture value="Assets\Textures\Xil_Dirt_Rocky.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Xil_Dirt_Rocky.dds"/>
+        <Normalmap value="Assets\Textures\Xil_Dirt_RockyNormal.dds"/>
+        <DoodadEntry Model="PlantMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="XilGrass">
+        <Texture value="Assets\Textures\xil_grass.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-xil_grass.dds"/>
+        <Normalmap value="Assets\Textures\xil_grassnormal.dds"/>
+        <DoodadEntry Model="PlantMixXil" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassXil"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.500000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="XilRockDark">
+        <Texture value="Assets\Textures\Xil_Rock_Dark.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Xil_Rock_Dark.dds"/>
+        <Normalmap value="Assets\Textures\Xil_Rock_DarkNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="ZhakulDasGrass">
+        <Texture value="Assets\Textures\zhakuldas_grass.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-zhakuldas_grass.dds"/>
+        <Normalmap value="Assets\Textures\zhakuldas_grassnormal.dds"/>
+        <DoodadEntry Model="PlantMixZhakulDas" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassZhakulDas"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.500000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="ZhakulDasDirtCracked">
+        <Texture value="Assets\Textures\ZhakulDas_Dirt_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-ZhakulDas_Dirt_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\ZhakulDas_Dirt_CrackedNormal.dds"/>
+        <DoodadEntry Model="PlantMixZhakulDas" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixZhakulDas" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="ZhakulDasDirtRough">
+        <Texture value="Assets\Textures\ZhakulDas_Dirt_Rough.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-ZhakulDas_Dirt_Rough.dds"/>
+        <Normalmap value="Assets\Textures\ZhakulDas_Dirt_RoughNormal.dds"/>
+        <DoodadEntry Model="PlantMixZhakulDas" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixZhakulDas" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassZhakulDas"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="ZhakulDasDarkRock">
+        <Texture value="Assets\Textures\ZhakulDas_Dark_Rock.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-ZhakulDas_Dark_Rock.dds"/>
+        <Normalmap value="Assets\Textures\ZhakulDas_Dark_RockNormal.dds"/>
+        <DoodadEntry Model="RockMixZhakulDas" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="ZhakulDasLightRock">
+        <Texture value="Assets\Textures\ZhakulDas_Light_Rock.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-ZhakulDas_Light_Rock.dds"/>
+        <Normalmap value="Assets\Textures\ZhakulDas_Light_RockNormal.dds"/>
+        <DoodadEntry Model="RockMixZhakulDas" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="ZhakulDasMercuryCracks">
+        <Texture value="Assets\Textures\ZhakulDas_Mercury_Cracks.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-ZhakulDas_Mercury_Cracks.dds"/>
+        <Normalmap value="Assets\Textures\ZhakulDas_Mercury_CracksNormal.dds"/>
+        <DoodadEntry Model="PlantMixZhakulDas" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="ZhakulDasTiles">
+        <Texture value="Assets\Textures\zhakuldas_tiles.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-zhakuldas_tiles.dds"/>
+        <Normalmap value="Assets\Textures\zhakuldas_tilesnormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="ZhakulDasBricks">
+        <Texture value="Assets\Textures\ZhakulDas_Bricks.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-ZhakulDas_Bricks.dds"/>
+        <Normalmap value="Assets\Textures\ZhakulDas_BricksNormal.dds"/>
+    </CTerrainTex>
+</Catalog>

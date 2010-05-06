@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CAchievementTerm default="1">
+        <Name value="AchievementTerm/Name/##id##"/>
+        <Description value="AchievementTerm/Description/##id##"/>
+    </CAchievementTerm>
+</Catalog>

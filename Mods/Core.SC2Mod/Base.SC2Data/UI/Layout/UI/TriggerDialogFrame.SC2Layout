@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Label" name="TriggerControlLabelTemplate">
+        <Style val="TriggerControlLabel"/>
+    </Frame>
+
+    <Frame type="Image" name="TriggerControlImageTemplate">
+        <TextureType val="Normal"/>
+    </Frame>
+
+    <Frame type="ThumbButton" name="TriggerControlThumbButtonTemplate" template="StandardTemplates/StandardGlueThumbButton">
+        <Label val="TriggerControlButtonTemplateLabel"/>
+        <Frame type="Label" name="TriggerControlButtonTemplateLabel">
+            <Style val="GlueButton"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="CheckBox" name="TriggerControlCheckBoxTemplate" template="StandardTemplates/StandardCheckBoxTemplate">
+    </Frame>
+
+    <Frame type="ListBox" name="TriggerControlListBoxTemplate" template="StandardTemplates/StandardListBoxTemplate">
+    </Frame>
+
+    <Frame type="Pulldown" name="TriggerControlPulldownTemplate" template="StandardTemplates/StandardPulldownTemplate">
+    </Frame>
+
+    <Frame type="ProgressBar" name="TriggerControlProgressBarTemplate">
+        <Texture val="@@UI/ProgressQueue"/>
+        <Color val="##StandardProgressBorder"/>
+        <ColorStep val="##StandardProgressFill"/>
+    </Frame>
+
+    <Frame type="Slider" name="TriggerControlSliderTemplate" template="StandardTemplates/StandardSliderTemplate">
+    </Frame>
+
+    <Frame type="EditBox" name="TriggerControlEditBoxTemplate" template="StandardTemplates/StandardGlueEditBox">
+    </Frame>
+
+    <Frame type="FlashFrame" name="TriggerControlFlashFrameTemplate">
+    </Frame>
+
+    <Frame type="TriggerDialogFrame" name="TriggerDialogFrameTemplate">
+        <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardDialogBorderTemplate">
+            <Anchor relative="$parent"/>
+        </Frame>
+
+        <Frame type="Label" name="TitleLabel">
+            <Style val="TriggerDialogFrameTitle"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
+        </Frame>
+    </Frame>
+</Desc>

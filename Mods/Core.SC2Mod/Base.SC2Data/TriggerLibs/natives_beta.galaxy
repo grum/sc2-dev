@@ -1,0 +1,69 @@
+include "TriggerLibs/GameData/Abil.galaxy"
+include "TriggerLibs/GameData/Effect.galaxy"
+include "TriggerLibs/GameData/Game.galaxy"
+include "TriggerLibs/GameData/GameData.galaxy"
+include "TriggerLibs/GameData/Unit.galaxy"
+include "TriggerLibs/GameData/Weapon.galaxy"
+
+const int c_playerAny = -1;
+const int c_maxPlayers = 32;
+const int c_noMaxCount = 0;
+
+const int c_playerPropMinerals              = 0;
+const int c_playerPropVespene               = 1;
+const int c_playerPropSuppliesUsed          = 4;
+const int c_playerPropSuppliesMade          = 5;
+
+const int c_playerGroupAlly     = 0;
+const int c_playerGroupEnemy    = 1;
+
+const int c_techCountQueuedOnly         = 0;
+const int c_techCountQueuedOrBetter     = 1;
+const int c_techCountInProgressOnly     = 2;
+const int c_techCountInProgressOrBetter = 3;
+const int c_techCountCompleteOnly       = 4;
+const int c_techCountIncompleteOnly     = 5;
+
+const int c_unitAllianceAny                = 0;
+const int c_unitAllianceAlly               = 1;
+const int c_unitAllianceEnemy              = 2;
+
+const int c_unitPropLife            =  0;
+const int c_unitPropLifePercent     =  1;
+const int c_unitPropLifeMax         =  2;
+const int c_unitPropEnergy          =  4;
+const int c_unitPropEnergyPercent   =  5;
+const int c_unitPropEnergyMax       =  6;
+const int c_unitPropShields         =  8;
+const int c_unitPropShieldsPercent  =  9;
+const int c_unitPropShieldsMax      = 10;
+const int c_unitPropVitality        = 15;
+const int c_unitPropVitalityPercent = 16;
+const int c_unitPropVitalityMax     = 17;
+
+const bool c_unitPropCurrent = true;
+const bool c_unitPropNormal  = false;
+
+const int c_unitStateInsideTransport    = 14;
+
+const int c_unitCountAll    = 0;
+const int c_unitCountAlive  = 1;
+const int c_unitCountDead   = 2;
+
+const int c_unitCostMinerals            = 0;
+const int c_unitCostVespene             = 1;
+const int c_unitCostSumMineralsVespene  = 4;
+
+const int c_unitCargoSpaceUsed      = 2;
+const int c_unitCargoSpaceFree      = 3;
+
+const int c_unitFilterAllowed   = 0;
+const int c_unitFilterRequired  = 1;
+const int c_unitFilterExcluded  = 2;
+
+const int   c_messageAreaChat               = 1;
+const int   c_messageAreaSubtitle           = 4;
+
+include "TriggerLibs/AI"
+include "TriggerLibs/MeleeAI"
+include "TriggerLibs/TacticalAI"

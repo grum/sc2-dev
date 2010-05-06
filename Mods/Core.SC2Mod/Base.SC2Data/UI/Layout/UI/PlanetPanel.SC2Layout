@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="PlanetFrame" name="PlanetFrameTemplate">
+        <Height val="350"/>
+        <Width val="220"/>
+        <Visible val="false"/>        
+
+        <Frame type="ThumbButton" name="Button">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>            
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
+            <Height val="125"/>
+            <Width val="125"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <HighlightOnHover val="true"/>
+            <HighlightOnFocus val="true"/>
+            <ClickSound val="@UI_Starmap_ButtonSelect"/>
+            <HoverSound val="@UI_Starmap_ButtonHover"/>
+            
+            <Frame type="Image" name="NormalImage">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <Texture val="@@UI/PlanetPanelPlanetButtonNormal" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <BlendMode val="Add"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <Texture val="@@UI/PlanetPanelPlanetButtonHover" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <BlendMode val="Add"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Label" name="NameLabel">
+            <Style val="PlanetFramePlanetName"/>
+            <Anchor side="Bottom" relative="$parent/Button" pos="Min" offset="-10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>            
+            <Alpha val="120"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Portrait" name="Portrait">
+            <Anchor side="Top" relative="$parent/Button" pos="Min" offset="5"/>
+            <Anchor side="Left" relative="$parent/Button" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent/Button" pos="Max" offset="-5"/>
+            <Anchor side="Right" relative="$parent/Button" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="Image" name="SelectedBorderImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@@UI/PlanetPanelSelectedPlanetBorder" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Label" name="SelectedDescriptionLabel">
+            <Style val="PlanetPanelPlanetDescription"/>
+            <Anchor side="Bottom" relative="$parent/SelectedBorderImage" pos="Min" offset="-10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>           
+            <Alpha val="120"/>
+            <BlendMode val="Add"/>
+        </Frame>
+        
+        <Frame type="Label" name="SelectedNameLabel">
+            <Style val="PlanetPanelPlanetName"/>
+            <Anchor side="Bottom" relative="$parent/SelectedDescriptionLabel" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>           
+            <Alpha val="120"/>
+            <BlendMode val="Add"/>
+        </Frame>
+        
+        <Frame type="Portrait" name="SelectedPortrait">
+            <Anchor side="Top" relative="$parent/SelectedBorderImage" pos="Min" offset="5"/>
+            <Anchor side="Left" relative="$parent/SelectedBorderImage" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent/SelectedBorderImage" pos="Max" offset="-5"/>
+            <Anchor side="Right" relative="$parent/SelectedBorderImage" pos="Max" offset="-10"/>
+        </Frame>        
+    </Frame>
+
+    <Frame type="UnitModelFrame" name="UnitModelFrameTemplate">
+        <Frame type="Model" name="Model">
+            <Anchor relative="$parent"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="PlanetPanel" name="PlanetPanelTemplate">
+        <Anchor relative="$parent"/>
+        <Visible val="false"/>
+
+        <Frame type="Frame" name="BackgroundFrame" template="CampaignTemplates/CampaignPanelBackgroundFrameTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="1190"/>
+            <Width val="1570"/>
+
+            <Frame type="Label" name="TitleLabel">
+                <Anchor side="Top" relative="$parent/TitleBackgroundImage" pos="Min" offset="75"/>
+                <Text val="@UI/PlanetPanelTitle"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Label" name="CreditsTextLabel">
+            <Style val="PlanetPanelCredits"/>
+            <Anchor side="Top" relative="$parent/BackgroundFrame/TitleLabel" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/TitleBackgroundImage" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/TitleBackgroundImage" pos="Max" offset="-10"/>
+            <Alpha val="120"/>
+        </Frame>
+        
+        <Frame type="Portrait" name="BackgroundPortrait">
+            <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
+        </Frame>
+
+        <Frame type="Image" name="BackgroundPortraitGradientImage">
+            <Anchor side="Left" relative="$parent/BackgroundPortrait" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundPortrait" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/BackgroundPortrait" pos="Max" offset="0"/>
+            <Texture val="@@UI/PlanetPanelGradient" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="PlanetPanelInterlaceImage">
+            <Anchor side="Top" relative="$parent/BackgroundPortrait" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BackgroundPortrait" pos="Min" offset="244"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundPortrait" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/BackgroundPortrait" pos="Max" offset="0"/>
+            <Texture val="@@UI/PlanetPanelInterlace" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="PlanetPanelLeftInterlaceImage">
+            <Anchor side="Top" relative="$parent/BackgroundPortrait" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BackgroundPortrait" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundPortrait" pos="Max" offset="-360"/>
+            <Anchor side="Right" relative="$parent/PlanetPanelInterlaceImage" pos="Min" offset="0"/>
+            <Texture val="@@UI/PlanetPanelInterlace" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="PlanetPanelBottomLeftInterlaceImage">
+            <Anchor side="Left" relative="$parent/BackgroundPortrait" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundPortrait" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/PlanetPanelInterlaceImage" pos="Max" offset="0"/>
+            <Height val="26"/>
+            <Texture val="@@UI/PlanetPanelInterlace" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderBottomImage">
+            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-185"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Mid" offset="0"/>
+            <Texture val="@@UI/PlanetPanelBorderBottomImage" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderBottomLeftVerticalLine">
+            <Texture val="@@UI/PlanetPanelBorderBottomVerticalLine" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BorderBottomImage" pos="Min" offset="0"/>
+            <Height val="220"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderBottomRightVerticalLine">
+            <Texture val="@@UI/PlanetPanelBorderBottomVerticalLine" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderBottomImage" pos="Max" offset="0"/>
+            <Anchor side="Top" relative="$parent/BorderBottomLeftVerticalLine" pos="Min" offset="0"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderLeftMiddleRightCorner">
+            <Texture val="@@UI/PlanetPanelBorderMiddleInnerCorner" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomLeftVerticalLine" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderBottomLeftVerticalLine" pos="Max" offset="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderRightMiddleLeftCorner">
+            <Texture val="@@UI/PlanetPanelBorderMiddleInnerCorner" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomRightVerticalLine" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BorderBottomRightVerticalLine" pos="Min" offset="0"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderLeftMiddleHorizontalLine">
+            <Texture val="@@UI/PlanetPanelBorderMiddleHorizontalLine" layer="0"/>
+            <Anchor side="Top" relative="$parent/BorderLeftMiddleRightCorner" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderLeftMiddleRightCorner" pos="Min" offset="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderRightMiddleHorizontalLine">
+            <Texture val="@@UI/PlanetPanelBorderMiddleHorizontalLine" layer="0"/>
+            <Anchor side="Top" relative="$parent/BorderRightMiddleLeftCorner" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BorderRightMiddleLeftCorner" pos="Max" offset="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderLeftMiddleLeftCorner">
+            <Texture val="@@UI/PlanetPanelBorderMiddleOuterCorner" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderLeftMiddleHorizontalLine" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderLeftMiddleHorizontalLine" pos="Min" offset="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderRightMiddleRightCorner">
+            <Texture val="@@UI/PlanetPanelBorderMiddleOuterCorner" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderRightMiddleHorizontalLine" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/BorderRightMiddleHorizontalLine" pos="Max" offset="0"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderTopLeftVerticalLine">
+            <Texture val="@@UI/PlanetPanelBorderTopVerticalLine" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderLeftMiddleLeftCorner" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BorderLeftMiddleLeftCorner" pos="Min" offset="0"/>
+            <Height val="515"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderTopRightVerticalLine">
+            <Texture val="@@UI/PlanetPanelBorderTopVerticalLine" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderRightMiddleRightCorner" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderRightMiddleRightCorner" pos="Max" offset="0"/>
+            <Anchor side="Top" relative="$parent/BorderTopLeftVerticalLine" pos="Min" offset="0"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderTopLeftCorner">
+            <Texture val="@@UI/PlanetPanelBorderTopCorner" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderTopLeftVerticalLine" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BorderTopLeftVerticalLine" pos="Min" offset="3"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderTopRightCorner">
+            <Texture val="@@UI/PlanetPanelBorderTopCorner" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderTopRightVerticalLine" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderTopRightVerticalLine" pos="Max" offset="-3"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderTopHorizontalLine">
+            <Texture val="@@UI/PlanetPanelBorderTopHorizontalLine" layer="0"/>
+            <Anchor side="Top" relative="$parent/BorderTopLeftCorner" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/BorderTopLeftCorner" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderTopRightCorner" pos="Min" offset="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Label" name="MissionTitleLabel">
+            <Anchor side="Top" relative="$parent/BorderTopLeftCorner" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/BorderTopLeftCorner" pos="Min" offset="30"/>
+            <Style val="PlanetPanelHeading"/>
+            <Text val="@UI/PlanetPanelMissionTitle"/>
+            <Alpha val="75"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Label" name="MissionTextLabel">
+            <Anchor side="Top" relative="$parent/MissionTitleLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/MissionTitleLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelMission"/>
+            <Alpha val="170"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Label" name="ObjectiveTitleLabel">
+            <Anchor side="Top" relative="$parent/MissionTextLabel" pos="Max" offset="20"/>
+            <Anchor side="Left" relative="$parent/MissionTextLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelHeading"/>
+            <Text val="@UI/PlanetPanelObjectiveTitle"/>
+            <Alpha val="75"/>
+            <BlendMode val="Add"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="ObjectiveTextLabel">
+            <Anchor side="Top" relative="$parent/ObjectiveTitleLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ObjectiveTitleLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelObjective"/>
+            <Alpha val="190"/>
+            <BlendMode val="Add"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="BonusObjectiveTitleLabel">
+            <Anchor side="Top" relative="$parent/ObjectiveTextLabel" pos="Max" offset="20"/>
+            <Anchor side="Left" relative="$parent/ObjectiveTextLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelHeading"/>
+            <Text val="@UI/PlanetPanelBonusObjectiveTitle"/>
+            <Alpha val="75"/>
+            <BlendMode val="Add"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="BonusObjectiveTextLabel">
+            <Anchor side="Top" relative="$parent/BonusObjectiveTitleLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/BonusObjectiveTitleLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelObjective"/>
+            <Alpha val="190"/>
+            <BlendMode val="Add"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="RewardTitleLabel">
+            <Anchor side="Top" relative="$parent/BonusObjectiveTextLabel" pos="Max" offset="20"/>
+            <Anchor side="Left" relative="$parent/BonusObjectiveTextLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelHeading"/>
+            <Text val="@UI/PlanetPanelRewardTitle"/>
+            <Alpha val="75"/>
+            <BlendMode val="Add"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="RewardTextLabel">
+            <Anchor side="Top" relative="$parent/RewardTitleLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/RewardTitleLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelReward"/>
+            <Alpha val="190"/>
+            <BlendMode val="Add"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="ResearchTitleLabel">
+            <Anchor side="Top" relative="$parent/RewardTextLabel" pos="Max" offset="20"/>
+            <Anchor side="Left" relative="$parent/RewardTextLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelHeading"/>
+            <Text val="@UI/PlanetPanelResearchTitle"/>
+            <Alpha val="75"/>
+            <BlendMode val="Add"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="ResearchTextLabel">
+            <Anchor side="Top" relative="$parent/ResearchTitleLabel" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ResearchTitleLabel" pos="Min" offset="0"/>
+            <Style val="PlanetPanelObjective"/>
+            <Alpha val="190"/>
+            <BlendMode val="Add"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Image" name="ContactPortratBorderImage">
+            <Anchor side="Top" relative="$parent/BorderLeftMiddleHorizontalLine" pos="Max" offset="-30"/>
+            <Anchor side="Left" relative="$parent/BorderLeftMiddleLeftCorner" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent/BorderBottomLeftVerticalLine" pos="Min" offset="60"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Max" offset="30"/>
+            <Texture val="@@UI/PlanetPanelContactPortraitBorder" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Portrait" name="ContactPortrait">
+            <Anchor side="Top" relative="$parent/ContactPortratBorderImage" pos="Min" offset="12"/>
+            <Anchor side="Left" relative="$parent/ContactPortratBorderImage" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent/ContactPortratBorderImage" pos="Max" offset="-10"/>
+            <Anchor side="Bottom" relative="$parent/ContactPortratBorderImage" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="ContactPlayButton">
+            <Anchor side="Bottom" relative="$parent/ContactPortratBorderImage" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent/ContactPortratBorderImage" pos="Min" offset="10"/>
+            <Width val="80"/>
+            <Height val="40"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <HighlightOnHover val="true"/>
+            <HighlightOnFocus val="true"/>
+            <ClickSound val="@UI_ActionButtonSelect"/>
+            <HoverSound val="@UI_ActionButtonHover"/>
+
+            <Frame type="Image" name="NormalImage">
+                <Texture val="@@UI/PlanetPanelPlayButtonNormal" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Texture val="@@UI/PlanetPanelPlayButtonHover" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="ContactStopButton">
+            <Anchor side="Bottom" relative="$parent/ContactPortratBorderImage" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent/ContactPortratBorderImage" pos="Min" offset="10"/>
+            <Width val="80"/>
+            <Height val="40"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <HighlightOnHover val="true"/>
+            <HighlightOnFocus val="true"/>
+            <ClickSound val="@UI_ActionButtonSelect"/>
+            <HoverSound val="@UI_ActionButtonHover"/>
+
+            <Frame type="Image" name="NormalImage">
+                <Texture val="@@UI/PlanetPanelStopButtonNormal" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Texture val="@@UI/PlanetPanelStopButtonHover" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Label" name="ContactHeadingLabel">
+            <Anchor side="Top" relative="$parent/BorderBottomImage" pos="Min" offset="4"/>
+            <Anchor side="Left" relative="$parent/BorderBottomImage" pos="Min" offset="100"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Max" offset="0"/>
+            <Style val="PlanetPanelContactHeading"/>
+            <Text val="@UI/PlanetPanelContactTitle"/>
+            <Alpha val="100"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="ContactTextBackgroundImage">
+            <Anchor side="Top" relative="$parent/ContactPortratBorderImage" pos="Min" offset="5"/>
+            <Anchor side="Left" relative="$parent/ContactPortratBorderImage" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/ContactPortratBorderImage" pos="Max" offset="0"/>
+            <Height val="50"/>
+            <Texture val="@@UI/PlanetPanelTechnologyNameBackground" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+        </Frame>
+
+        <Frame type="Label" name="ContactTextLabel">
+            <Anchor side="Top" relative="$parent/ContactTextBackgroundImage" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ContactTextBackgroundImage" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent/ContactTextBackgroundImage" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/ContactTextBackgroundImage" pos="Max" offset="-10"/>
+            <Style val="PlanetPanelContactName"/>
+            <Alpha val="170"/>
+        </Frame>
+
+        <Frame type="Image" name="TechnologyBorderImage">
+            <Anchor side="Top" relative="$parent/BorderRightMiddleHorizontalLine" pos="Max" offset="-30"/>
+            <Anchor side="Left" relative="$parent/BorderBottomRightVerticalLine" pos="Max" offset="-60"/>
+            <Anchor side="Right" relative="$parent/BorderRightMiddleRightCorner" pos="Max" offset="-5"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Max" offset="30"/>
+            <Texture val="@@UI/PlanetPanelTechnologyBorder" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Image" name="TechnologyTextBackgroundImage">
+            <Anchor side="Top" relative="$parent/TechnologyBorderImage" pos="Min" offset="5"/>
+            <Anchor side="Left" relative="$parent/TechnologyBorderImage" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/TechnologyBorderImage" pos="Max" offset="0"/>
+            <Height val="50"/>
+            <Texture val="@@UI/PlanetPanelTechnologyNameBackground" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="TechnologyBackgroundImage">
+            <Anchor side="Top" relative="$parent/TechnologyBorderImage" pos="Min" offset="12"/>
+            <Anchor side="Left" relative="$parent/TechnologyBorderImage" pos="Min" offset="9"/>
+            <Anchor side="Right" relative="$parent/TechnologyBorderImage" pos="Max" offset="-9"/>
+            <Anchor side="Bottom" relative="$parent/TechnologyBorderImage" pos="Max" offset="-9"/>
+            <Texture val="@@UI/PlanetPanelTechnologyBackground" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="UnitModelFrame" name="TechnologyUnitModelFrame" template="PlanetPanel/UnitModelFrameTemplate">
+            <Anchor side="Top" relative="$parent/TechnologyBorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/TechnologyBorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/TechnologyBorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/TechnologyBorderImage" pos="Mid" offset="0"/>
+            <Height val="360"/>
+            <Width val="750"/>
+        </Frame>
+
+        <Frame type="Label" name="TechnologyTextLabel">
+            <Anchor side="Top" relative="$parent/TechnologyTextBackgroundImage" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/TechnologyTextBackgroundImage" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent/TechnologyTextBackgroundImage" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/TechnologyTextBackgroundImage" pos="Max" offset="-15"/>
+            <Style val="PlanetPanelTechnologyName"/>
+            <Alpha val="170"/>
+        </Frame>
+
+        <Frame type="Image" name="TechnologyImage">
+            <Anchor side="Top" relative="$parent/TechnologyBorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/TechnologyBorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/TechnologyBorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/TechnologyBorderImage" pos="Mid" offset="0"/>
+        </Frame>
+
+        <Frame type="Label" name="TechnologyDescriptionLabel">
+            <Anchor side="Left" relative="$parent/TechnologyBorderImage" pos="Min" offset="15"/>
+            <Anchor side="Bottom" relative="$parent/TechnologyBorderImage" pos="Max" offset="-15"/>
+            <Anchor side="Right" relative="$parent/TechnologyBorderImage" pos="Max" offset="-15"/>
+            <Height val="200"/>
+            <Style val="PlanetPanelTechnologyDescription"/>
+            <Alpha val="120"/>
+        </Frame>
+
+        <Frame type="Label" name="TechnologyHeadingLabel">
+            <Anchor side="Top" relative="$parent/BorderBottomImage" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent/BorderBottomImage" pos="Max" offset="-100"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Max" offset="0"/>
+            <Style val="PlanetPanelTechnologyHeading"/>
+            <Text val="@UI/PlanetPanelTechnologyTitle"/>
+            <Alpha val="100"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="DecrementArrowButton">
+            <Anchor side="Bottom" relative="$parent/ContactPortratBorderImage" pos="Min" offset="-30"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="90"/>
+            <Width val="80"/>
+            <Height val="80"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <HighlightOnHover val="true"/>
+            <HighlightOnFocus val="true"/>
+            <ClickSound val="@UI_ActionButtonSelect"/>
+            <HoverSound val="@UI_ActionButtonHover"/>
+
+            <Frame type="Image" name="NormalImage">
+                <Texture val="@@UI/PlanetPanelLeftArrowButtonNormal" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Texture val="@@UI/PlanetPanelLeftArrowButtonHover" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="IncrementArrowButton">
+            <Anchor side="Bottom" relative="$parent/DecrementArrowButton" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-90"/>
+            <Width val="80"/>
+            <Height val="80"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <HighlightOnHover val="true"/>
+            <HighlightOnFocus val="true"/>
+            <ClickSound val="@UI_ActionButtonSelect"/>
+            <HoverSound val="@UI_ActionButtonHover"/>
+
+            <Frame type="Image" name="NormalImage">
+                <Texture val="@@UI/PlanetPanelRightArrowButtonNormal" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Texture val="@@UI/PlanetPanelRightArrowButtonHover" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Label" name="SelectPlanetLabel">
+            <Style val="PlanetPanelNoSelection"/>
+            <Text val="@UI/PlanetPanelNoSelection"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Min" offset="-300"/>
+            <Anchor side="Left" relative="$parent/BackgroundPortrait" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent/BackgroundPortrait" pos="Max" offset="-10"/>
+            <Alpha val="170"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="LaunchButton">
+            <Anchor side="Top" relative="$parent/BorderBottomImage" pos="Max" offset="-20"/>
+            <Anchor side="Left" relative="$parent/BorderBottomImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderBottomImage" pos="Mid" offset="0"/>
+            <Height val="80"/>
+            <Width val="280"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <Label val="ButtonLabel"/>
+            <HighlightOnHover val="true"/>
+            <HighlightOnFocus val="true"/>
+
+            <Frame type="Image" name="NormalImage">
+                <Texture val="@@UI/PlanetPanelLaunchButtonNormal" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <LayerColor val="7ed3ea" layer="0"/>
+                <BlendMode val="Add"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Texture val="@@UI/PlanetPanelLaunchButtonHover" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <LayerColor val="7ed3ea" layer="0"/>
+                <BlendMode val="Add"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Label" name="ButtonLabel">
+                <Text val="@UI/PlanetPanelLaunch"/>
+                <Style val="PlanetPanelLaunchButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="DifficultyPulldown" name="DifficultyPulldown" template="StandardTemplates/StandardPulldownTemplate">
+            <Anchor side="Top" relative="$parent/LaunchButton" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/LaunchButton" pos="Min" offset="0"/>
+            <Style val="RestartPanelDifficultyPulldown"/>
+        </Frame>
+        
+        <Frame type="Image" name="CloseButtonBackground">
+            <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-25"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-20"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardGamePanelLargeRightButtonTemplate">
+            <Label val="ButtonLabel"/>
+            <Anchor side="Bottom" relative="$parent/CloseButtonBackground" pos="Max" offset="-55"/>
+            <Anchor side="Left" relative="$parent/CloseButtonBackground" pos="Min" offset="51"/>
+
+            <Frame type="Label" name="ButtonLabel">
+                <Text val="@UI/Close"/>
+                <Style val="GameFrameLargeBottomButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="PlanetGuideFrame">
+            <Anchor side="Left" relative="$parent/BorderBottomImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderBottomImage" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Min" offset="70"/>
+            <Height val="0"/>
+            <Width val="0"/>
+        </Frame>
+
+        <Frame type="PlanetFrame" name="PlanetFrame0" template="PlanetPanel/PlanetFrameTemplate">
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Min" offset="70"/>
+            <Anchor side="Left" relative="$parent/PlanetGuideFrame" pos="Min" offset="0"/>
+        </Frame>
+
+        <Frame type="PlanetFrame" name="PlanetFrame1" template="PlanetPanel/PlanetFrameTemplate">
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Min" offset="70"/>
+            <Anchor side="Left" relative="$parent/PlanetFrame0" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PlanetFrame" name="PlanetFrame2" template="PlanetPanel/PlanetFrameTemplate">
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Min" offset="70"/>
+            <Anchor side="Left" relative="$parent/PlanetFrame1" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PlanetFrame" name="PlanetFrame3" template="PlanetPanel/PlanetFrameTemplate">
+            <Anchor side="Bottom" relative="$parent/BorderBottomImage" pos="Min" offset="70"/>
+            <Anchor side="Left" relative="$parent/PlanetFrame2" pos="Max" offset="0"/>
+        </Frame>
+        
+        <Frame type="Frame" name="SubtitleAnchor">
+            <Anchor side="Bottom" relative="$parent/LaunchButton" pos="Min" offset="10"/>            
+            <Anchor side="Left" relative="$parent/BackgroundPortrait" pos="Min" offset="40"/>
+            <Anchor side="Right" relative="$parent/BackgroundPortrait" pos="Max" offset="-40"/>
+            <Height val="200"/>
+            <Visible val="false"/>
+        </Frame>
+    </Frame>     
+    
+</Desc>

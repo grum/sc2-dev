@@ -1,0 +1,35 @@
+//GENERATED CODE====================================================================================
+//  
+//  Copyright Blizzard Entertainment 2003-2005
+//  
+//  AchievementTerm.galaxy generated from AchievementTerm.xml using GalaxyHeader.xtc
+//  
+//  !!! WARNING !!! This is generated code. Changes made here will be overwritten.
+//  
+//GENERATED CODE====================================================================================
+
+//  EClassIdCAchievementTerm
+const int c_classIdCAchievementTerm = 0;
+const int c_classIdCAchievementTermAchievement = 1;
+const int c_classIdCAchievementTermCombine = 2;
+const int c_classIdCAchievementTermQuantity = 3;
+const int c_classIdCAchievementTermRace = 4;
+const int c_classIdCAchievementTermRequirement = 5;
+const int c_classIdCAchievementTermAbil = 6;
+const int c_classIdCAchievementTermEffect = 7;
+const int c_classIdCAchievementTermAbilUse = 8;
+const int c_classIdCAchievementTermDamage = 9;
+const int c_classIdCAchievementTermEffectUse = 10;
+const int c_classIdCAchievementTermScoreValue = 11;
+const string c_classIdCAchievementTermName = "CAchievementTerm";
+const string c_classIdCAchievementTermAchievementName = "CAchievementTermAchievement";
+const string c_classIdCAchievementTermCombineName = "CAchievementTermCombine";
+const string c_classIdCAchievementTermQuantityName = "CAchievementTermQuantity";
+const string c_classIdCAchievementTermRaceName = "CAchievementTermRace";
+const string c_classIdCAchievementTermRequirementName = "CAchievementTermRequirement";
+const string c_classIdCAchievementTermAbilName = "CAchievementTermAbil";
+const string c_classIdCAchievementTermEffectName = "CAchievementTermEffect";
+const string c_classIdCAchievementTermAbilUseName = "CAchievementTermAbilUse";
+const string c_classIdCAchievementTermDamageName = "CAchievementTermDamage";
+const string c_classIdCAchievementTermEffectUseName = "CAchievementTermEffectUse";
+const string c_classIdCAchievementTermScoreValueName = "CAchievementTermScoreValue";

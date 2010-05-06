@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="TradeShowSearchingDialog" name="TradeShowSearchingDialog">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="490"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="120"/>
+        <Width val="540"/>
+        <Height val="450"/>
+        
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor relative="$parent"/>
+            <Texture val="@UI/BlizzconSearchingPanel" layer="0"/>
+        </Frame>
+
+        <Frame type="Label" name="TitleLabel">
+            <Style val="TradeShowSingleTitle"/>
+            <Text val="Multiplayer"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="45"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="45"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-45"/>
+        </Frame>
+
+        <Frame type="Label" name="SearchingLabel">
+            <Style val="TradeShowSingleLabel"/>
+            <Text val="Searching for opponent..."/>
+            <Anchor side="Top" relative="$parent/TitleLabel" pos="Min" offset="40"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="45"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-45"/>
+            <Height val="80"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="CancelButton">
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <HighlightOnFocus val="true"/>
+            <HighlightOnHover val="true"/>            
+            <Label val="CancelButtonLabel"/>
+            <Anchor side="Top" relative="$parent/SearchingLabel" pos="Max" offset="120"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="300"/>
+            <Height val="70"/>
+            
+            <Frame type="Label" name="CancelButtonLabel">
+                <Text val="@UI/Cancel_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+            
+            <Frame type="Image" name="NormalImage">
+                <LayerCount val="3"/>
+                <Texture val="@UI/BlizzconCancelButtonBorder" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <Texture val="@UI/BlizzconCancelButtonBorderHover" layer="1"/>
+                <TextureType val="Border" layer="1"/>
+                <LayerVisible val="false" layer="1"/>
+                <Texture val="@UI/BlizzconCancelButtonBorderHover" layer="2"/>
+                <TextureType val="Border" layer="2"/>
+                <LayerVisible val="false" layer="2"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <LayerCount val="3"/>
+                <Texture val="@UI/BlizzconCancelButtonBorder" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <Texture val="@UI/BlizzconCancelButtonBorderHover" layer="1"/>
+                <TextureType val="Border" layer="1"/>
+                <LayerVisible val="false" layer="1"/>
+                <Texture val="@UI/BlizzconCancelButtonBorderHover" layer="2"/>
+                <TextureType val="Border" layer="2"/>
+                <LayerVisible val="false" layer="2"/>
+                <DescFlags val="Internal"/>
+            </Frame>            
+        </Frame>
+    </Frame>
+</Desc>

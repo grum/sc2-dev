@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="BattleUI" name="BattleUI">
+        <Anchor relative="$parent"/>
+
+        <Frame type="FlashFrame" name="Flash">
+            <Anchor relative="$parent"/>
+        </Frame>
+
+        <Frame type="Frame" name="MenuButtonPosition">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-50"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-80"/>
+            <Width val="1"/>
+            <Height val="1"/>
+        </Frame>
+
+        <Frame type="Frame" name="GameButtonPosition">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-325"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-160"/>
+            <Width val="1"/>
+            <Height val="1"/>
+        </Frame>
+
+        <Frame type="Frame" name="StoryModeButtonPosition">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-50"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-80"/>
+            <Width val="1"/>
+            <Height val="1"/>
+        </Frame>
+    </Frame>
+</Desc>

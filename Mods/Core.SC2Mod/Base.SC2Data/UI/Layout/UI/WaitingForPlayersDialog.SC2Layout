@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="WaitingPlayerListBoxItem" name="WaitingPlayerListBoxItem">
+        <Frame type="Label" name="NameLabel">
+            <Style val="WaitingForPlayersDialogList"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="6"/>
+        </Frame>
+
+        <Frame type="Label" name="TimeLabel">
+            <Style val="WaitingForPlayersDialogList"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+            <Anchor side="Right" relative="$parent\NameLabel" pos="Max" offset="400"/>
+        </Frame>
+
+        <Frame type="Image" name="ColorImage">
+            <Texture val="@@UI/ResourceIconPlayer" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+            <Anchor side="Left" relative="$parent\TimeLabel" pos="Max" offset="15"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Image" name="ChatBorder">
+        <LayerCount val="1"/>
+        <Texture val="@@UI/StandardTechBorderButton" layer="0"/>
+        <TextureType val="Border" layer="0"/>
+        <StateCount val="2" layer="0"/>
+        <Tiled val="true" layer="0"/>
+    </Frame>
+
+    <Frame type="WaitingForPlayersDialog" name="WaitingForPlayersDialog">
+        <Anchor side="Top" relative="$parent" pos="Mid" offset="-200"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Width val="700"/>
+        <Height val="850"/>
+        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardSmallBackgroundFrameTemplate">
+            <Anchor relative="$parent"/>
+        </Frame>
+
+        <Frame type="Label" name="TitleLabel">
+            <Text val="@UI/WaitingForPlayers"/>
+            <Style val="WaitingForPlayersDialogTitle"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="65"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="45"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-45"/>
+        </Frame>
+
+        <Frame type="Frame" name="InfestationFrame" template="StandardTemplates/StandardSmallInfestationFrameTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-15"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-30"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="ListBox" name="PlayerListBox" template="StandardTemplates/StandardListBoxTemplate">
+            <UseScrollBar val="true"/>
+            <ItemHeight val="35"/>
+            <ItemGap val="0"/>
+            <Insets top="1" left="3" bottom="0" right="0"/>
+            <ItemDesc val="WaitingForPlayersDialog/WaitingPlayerListBoxItem"/>
+            <HighlightOnHover val="false"/>
+            <Visible val="true"/>
+            <Enabled val="true"/>
+            <Anchor side="Top" relative="$parent/TitleLabel" pos="Min" offset="40"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="49"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-48"/>
+            <Height val="148"/>
+        </Frame>
+
+        <Frame type="EditBox" name="ChatEditBox" template="StandardTemplates/StandardGlueEditBox">
+            <Anchor side="Left" relative="$parent" pos="Min" offset="45"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-176"/>
+            <Style val="WaitingForPlayersDialogChat"/>
+            <Width val="609"/>
+            <Height val="58"/>
+        </Frame>
+
+        <Frame type="Image" name="MessageDisplayBackground" template="WaitingForPlayersDialog/ChatBorder">
+            <Anchor side="Left" relative="$parent/ChatEditBox" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ChatEditBox" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/ChatEditBox" pos="Max" offset="0"/>
+            <Height val="358"/>
+            <Frame type="MessageDisplay" name="MessageDisplay">
+                <Style val="WaitingForPlayersDialogChat"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="32"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-32"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-32"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="DropButton" template="StandardTemplates/StandardMenuButtonTemplate">
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ChatEditBox" pos="Max" offset="88"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+             <Frame type="ThumbButton" name="Button">
+               <Shortcut val="@UI/DropPlayers_Hotkey"/>
+               <Frame type="Label" name="ButtonLabel">
+                <Text val="@UI/DropPlayers_Control"/>
+               </Frame>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

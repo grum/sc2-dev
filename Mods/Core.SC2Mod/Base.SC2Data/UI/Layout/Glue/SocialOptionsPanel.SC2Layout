@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Constant name="SocialColumnLeftMarginGap" val="30"/>
+    <Constant name="SocialColumnLeftMarginIndentGap" val="70"/>
+    <Constant name="SocialColumnRightMarginGap" val="-30"/>
+
+    <Frame type="Label" name="SocialHeaderLabelTemplate">
+        <Style val="StandardPanelHeader"/>
+    </Frame>
+
+    <Frame type="Label" name="SocialLabelLeftTemplate">
+        <Style val="@@OptionsLabelLeft"/>
+    </Frame>
+
+    <Frame type="Label" name="SocialLabelRightTemplate">
+        <Style val="@@OptionsLabelRight"/>
+    </Frame>
+
+    <Frame type="CheckBox" name="SocialCheckBoxTemplate" template="StandardTemplates/StandardCheckBoxTemplate">
+    </Frame>
+    
+    <Frame type="Slider" name="SocialSliderTemplate" template="StandardTemplates/StandardSliderTemplate">
+    </Frame>
+
+    <Frame type="Pulldown" name="SocialPulldownTemplate" template="StandardTemplates/StandardPulldownTemplate">
+        <Style val="StandardPulldown"/>
+    </Frame>
+
+    <Frame type="ListBox" name="SocialListBoxTemplate" template="StandardTemplates/StandardListBoxTemplate">
+    </Frame>
+
+    <Frame type="BlockedPlayerItem" name="BlockedPlayerItem">
+        <Frame type="Label" name="Label">
+            <Style val="GlueListBox"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="SocialOptionsPanel" name="SocialOptionsPanelTemplate">
+        <Frame type="Image" name="OuterBackground" template="StandardTemplates/StandardOuterBorderTemplate">
+            <Anchor relative="$parent"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="RestoreButton" template="StandardTemplates/StandardButtonSmallTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+            <Width val="340"/>
+            <Height val="40"/>
+            <Text val="@UI/RestoreDefaults"/>
+        </Frame>
+
+        <Frame type="Frame" name="FriendsPanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="-10"/>
+
+            <Frame type="Label" name="FriendsHeader" template="SocialOptionsPanel/SocialHeaderLabelTemplate">
+                <Text val="@UI/Friends"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Image" name="FriendsHeaderBackground">
+                <RenderPriority val="0"/>
+                <Texture val="@@UI/OptionsHeaderGlow"/>
+                <Anchor side="Top" relative="$parent/FriendsHeader" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/FriendsHeader" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/FriendsHeader" pos="Min" offset="-20"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Label" name="FriendsListLabel" template="SocialOptionsPanel/SocialLabelRightTemplate">
+                <Text val="@UI/FriendsListDisplay_Colon"/>
+                <Anchor side="Top" relative="$parent/FriendsHeader" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="FriendsListPulldown" template="SocialOptionsPanel/SocialPulldownTemplate">
+                <Anchor side="Top" relative="$parent/FriendsListLabel" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent/FriendsListLabel" pos="Min" offset="0"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="ToastNotificationsCheckBox" template="SocialOptionsPanel/SocialCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/FriendsListPulldown" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+            </Frame>
+
+            <Frame type="Label" name="ToastNotificationsLabel" template="SocialOptionsPanel/SocialLabelRightTemplate">
+                <Text val="@UI/ToastNotifications"/>
+                <Anchor side="Top" relative="$parent/ToastNotificationsCheckBox" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/ToastNotificationsCheckBox" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/ToastNotificationsCheckBox" pos="Max" offset="10"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="ToastFriendOnlineCheckBox" template="SocialOptionsPanel/SocialCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/ToastNotificationsCheckBox" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginIndentGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Label" name="ToastFriendOnlineLabel" template="SocialOptionsPanel/SocialLabelRightTemplate">
+                <Text val="@UI/ToastFriendOnline"/>
+                <Anchor side="Top" relative="$parent/ToastFriendOnlineCheckBox" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/ToastFriendOnlineCheckBox" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/ToastFriendOnlineCheckBox" pos="Max" offset="10"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="ToastFriendUpdateCheckBox" template="SocialOptionsPanel/SocialCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/ToastFriendOnlineCheckBox" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginIndentGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Label" name="ToastFriendUpdateLabel" template="SocialOptionsPanel/SocialLabelRightTemplate">
+                <Text val="@UI/ToastFriendUpdate"/>
+                <Anchor side="Top" relative="$parent/ToastFriendUpdateCheckBox" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/ToastFriendUpdateCheckBox" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/ToastFriendUpdateCheckBox" pos="Max" offset="10"/>
+              <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Label" name="ToastFadeLabel" template="SocialOptionsPanel/SocialLabelRightTemplate">
+                <Text val="@UI/ToastFade_Colon"/>
+                <Anchor side="Top" relative="$parent/ToastFriendUpdateCheckBox" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Slider" name="ToastFadeSlider" template="SocialOptionsPanel/SocialSliderTemplate">
+                <Anchor side="Top" relative="$parent/ToastFadeLabel" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#SocialColumnRightMarginGap"/>
+                <MinValue val="0"/>
+                <MaxValue val="100"/>
+                <Continuous val="true"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Label" name="BlockedPlayersLabel" template="SocialOptionsPanel/SocialLabelRightTemplate">
+                <Text val="@UI/BlockedPlayers_Colon"/>
+                <Anchor side="Top" relative="$parent/ToastFadeSlider" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+            </Frame>
+
+            <Frame type="ThumbButton" name="UnblockButton" template="StandardTemplates/StandardButtonSmallTemplate">
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#SocialColumnRightMarginGap"/>
+                <Width val="200"/>
+                <Height val="40"/>
+                <Text val="@UI/Unblock"/>
+            </Frame>
+
+            <Frame type="ListBox" name="BlockedPlayersListBox" template="SocialOptionsPanel/SocialListBoxTemplate">
+                <ItemDesc val="SocialOptionsPanel/BlockedPlayerItem"/>
+                <Anchor side="Top" relative="$parent/BlockedPlayersLabel" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#SocialColumnRightMarginGap"/>
+                <Anchor side="Bottom" relative="$parent/UnblockButton" pos="Min" offset="-10"/>
+            </Frame>
+        </Frame>
+
+          <Frame type="Frame" name="StatusPanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Height val="200"/>
+
+            <Frame type="Label" name="StatusHeader" template="SocialOptionsPanel/SocialHeaderLabelTemplate">
+                <Text val="@UI/Status"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Image" name="StatusHeaderBackground">
+                <RenderPriority val="0"/>
+                <Texture val="@@UI/OptionsHeaderGlow"/>
+                <Anchor side="Top" relative="$parent/StatusHeader" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/StatusHeader" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/StatusHeader" pos="Min" offset="-20"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="BusyStatusCheckBox" template="SocialOptionsPanel/SocialCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/StatusHeader" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Label" name="BusyStatusLabel" template="SocialOptionsPanel/SocialLabelLeftTemplate">
+                <Text val="@UI/BusyStatus"/>
+                <Anchor side="Top" relative="$parent/BusyStatusCheckBox" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/BusyStatusCheckBox" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/BusyStatusCheckBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#SocialColumnRightMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="AutoClearAFKCheckBox" template="SocialOptionsPanel/SocialCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/BusyStatusCheckBox" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Label" name="AutoClearAFKLabel" template="SocialOptionsPanel/SocialLabelLeftTemplate">
+                <Text val="@UI/AutoClearAFK"/>
+                <Anchor side="Top" relative="$parent/AutoClearAFKCheckBox" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/AutoClearAFKCheckBox" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/AutoClearAFKCheckBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#SocialColumnRightMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+        </Frame>
+
+        <Frame type="Frame" name="ChatPanel">
+            <Anchor side="Top" relative="$parent/StatusPanel" pos="Max" offset="20"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Height val="240"/>
+
+            <Frame type="Label" name="ChatHeader" template="SocialOptionsPanel/SocialHeaderLabelTemplate">
+                <Text val="@UI/Chat"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Image" name="ChatHeaderBackground">
+                <RenderPriority val="0"/>
+                <Texture val="@@UI/OptionsHeaderGlow"/>
+                <Anchor side="Top" relative="$parent/ChatHeader" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/ChatHeader" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/ChatHeader" pos="Min" offset="-20"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Label" name="FriendsListLabel" template="SocialOptionsPanel/SocialLabelRightTemplate">
+                <Text val="@UI/FriendsListDisplay_Colon"/>
+                <Anchor side="Top" relative="$parent/ChatHeader" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="FriendsListPulldown" template="SocialOptionsPanel/SocialPulldownTemplate">
+                <Anchor side="Top" relative="$parent/FriendsListLabel" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent/FriendsListLabel" pos="Min" offset="0"/>
+                <Enabled val="false"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="MatureLanguageCheckBox" template="SocialOptionsPanel/SocialCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/FriendsListPulldown" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#SocialColumnLeftMarginGap"/>
+            </Frame>
+
+            <Frame type="Label" name="MatureLanguageLabel" template="SocialOptionsPanel/SocialLabelRightTemplate">
+                <Text val="@UI/MatureLanguageFilter"/>
+                <Anchor side="Top" relative="$parent/MatureLanguageCheckBox" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MatureLanguageCheckBox" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/MatureLanguageCheckBox" pos="Max" offset="10"/>
+                <Enabled val="false"/>
+            </Frame>
+
+        </Frame>
+    </Frame>
+</Desc>

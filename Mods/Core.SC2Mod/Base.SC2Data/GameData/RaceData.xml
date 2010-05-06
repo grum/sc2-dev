@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CRace default="1">
+        <Name value="Race/Name/##id##"/>
+        <StartLocationAlert value="StartLocation"/>
+        <LoadingImage value="UI/Loading##id##"/>
+        <DefeatImage value="UI/ScoreDefeatImage##id##"/>
+        <DefeatMusic value="Music_##id##Defeat"/>
+        <VictoryImage value="UI/ScoreVictoryImage##id##"/>
+        <VictoryMusic value="Music_##id##Victory"/>
+        <GameMusic value="Music_##id##Low"/>
+        <FoodCeiling value="200"/>
+        <ShowResource index="Minerals" value="1"/>
+        <ShowResource index="Vespene" value="1"/>
+    </CRace>
+    <CRace id="Neut">
+        <AttributeId value="Neut"/>
+    </CRace>
+</Catalog>

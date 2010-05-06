@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CGameUI id="Dflt">
+        <MovieArray Name="Movie/Cinematic0" Path="Assets/Textures/Cinematic_BetterMarine.ogv" Source="Campaigns/Liberty.SC2Campaign"/>
+        <MovieArray Name="Movie/Cinematic1" Path="Assets/Textures/Cinematic_OldRivals.ogv" Source="Campaigns/Liberty.SC2Campaign"/>
+        <MovieArray Name="Movie/Cinematic2" Path="Assets/Textures/Cinematic_TheDream.ogv" Source="Campaigns/Liberty.SC2Campaign"/>
+        <MovieArray Name="Movie/Cinematic3" Path="Assets/Textures/Cinematic_End.ogv" Source="Campaigns/Liberty.SC2Campaign"/>
+        <CampaignIntroMovie value="2"/>
+        <MusicArray value="Music_LibertyStartup"/>
+        <IntroMusic value="Music_LibertyIntro"/>
+        <LoopMusic value="Music_LibertyLoop"/>
+        <LoopAmbience value="Ambience_Liberty"/>
+        <CampaignArray>
+            <Name value="UI/WingsOfLiberty"/>
+            <Description value="UI/WingsOfLibertyDescription"/>
+            <ImagePath value="Assets/Textures/ui_icon_wingsoflibertyicon.dds"/>
+            <LaunchMap value="Campaign/TStory01.SC2Map"/>
+            <SaveName value="LastCampaignSave.SC2Save"/>
+        </CampaignArray>
+        <ChallengeArray Name="Economy" Difficulty="Challenge/Normal" Path="Challenges/Economy.SC2Map"/>
+        <ChallengeArray>
+            <Name value="TerranCombat"/>
+            <Difficulty value="Challenge/Normal"/>
+            <Path value="Challenges/TerranCombat.SC2Map"/>
+            <ScoreType value="RemainingUnits"/>
+        </ChallengeArray>
+        <ChallengeArray>
+            <Name value="TerranCovertOps"/>
+            <Difficulty value="Challenge/Normal"/>
+            <Path value="Challenges/TerranCovertOps.SC2Map"/>
+            <ScoreType value="Kills"/>
+        </ChallengeArray>
+        <ChallengeArray>
+            <Name value="AdvancedCommand"/>
+            <Difficulty value="Challenge/Insane"/>
+            <Path value="Challenges/AdvancedCommand.SC2Map"/>
+            <ScoreType value="Kills"/>
+        </ChallengeArray>
+        <ChallengeArray>
+            <Name value="ProtossCombat"/>
+            <Difficulty value="Challenge/Normal"/>
+            <Path value="Challenges/ProtossCombat.SC2Map"/>
+            <ScoreType value="RemainingUnits"/>
+        </ChallengeArray>
+        <ChallengeArray>
+            <Name value="ProtossPsionics"/>
+            <Difficulty value="Challenge/Hard"/>
+            <Path value="Challenges/ProtossPsionics.SC2Map"/>
+            <ScoreType value="Kills"/>
+        </ChallengeArray>
+        <ChallengeArray>
+            <Name value="ZergCombat"/>
+            <Difficulty value="Challenge/Normal"/>
+            <Path value="Challenges/ZergCombat.SC2Map"/>
+            <ScoreType value="RemainingUnits"/>
+        </ChallengeArray>
+        <ChallengeArray>
+            <Name value="ZergInfestation"/>
+            <Difficulty value="Challenge/Normal"/>
+            <Path value="Challenges/ZergInfestation.SC2Map"/>
+            <ScoreType value="Kills"/>
+        </ChallengeArray>
+        <ObjectGroupData MinimapIcon="Assets\Textures\ui_minimap_icon_destructablerocks.dds"/>
+        <ObjectGroupData MinLevel="10" MinimapIcon="Assets\Textures\ui_minimap_icon_xelnagawatchtower.dds"/>
+        <ListenerDistanceRolloff index="0" ListenerFactor="0.500000"/>
+        <ListenerDistanceRolloff index="1" ListenerFactor="0.300000"/>
+        <ListenerDistanceRolloff index="2" ListenerFactor="0.600000"/>
+    </CGameUI>
+</Catalog>

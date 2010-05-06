@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="RecipientTooltip" name="RecipientTooltip">
+        <Insets top="15" left="15" bottom="15" right="15"/>
+        <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardBorderTooltipGame">
+            <Anchor relative="$parent"/>
+        </Frame>
+
+        <Frame type="Label" name="Label">
+            <Style val="InternationalTooltip"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-15"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+            <Options val="NoWrapping"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="ChatBar" name="ChatBarTemplate">
+        <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardDialogBorderTemplate">
+            <Anchor relative="$parent"/>
+        </Frame>
+
+        <Frame type="Image" name="RecipientImage">
+            <Texture val="@@UI/ResourceIconMinerals" layer="0"/>
+            <TextureType val="Normal" layer="0"/>
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="32"/>
+            <Height val="32"/>
+        </Frame>
+
+        <Frame type="Label" name="RecipientLabel">
+            <Style val="ChatBarRecipient"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent/RecipientImage" pos="Max" offset="5"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+        </Frame>
+
+        <Frame type="EditBox" name="ChatEditBox">
+            <Style val="ChatBar"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Left" relative="$parent/RecipientLabel" pos="Max" offset="5"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-15"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-38"/>
+        </Frame>
+    </Frame>
+</Desc>

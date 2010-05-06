@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <!--
+    
+    Reaper D8Charge Targetfind
+    
+    -->
+    <CTargetFindSet id="TacticalD8ChargeTarget">
+        <Type value="Successful"/>
+        <Array value="D8ChargeBuildingOnly"/>
+        <Array value="D8ChargeAllUnits"/>
+    </CTargetFindSet>
+    <CTargetFindEnumArea id="D8ChargeBuildingOnly">
+        <CasterValidator value="CasterLifeLT60Percent"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <AreaArray Radius="0"/>
+        <Abil value="D8Charge"/>
+        <SearchFilters value="Ground,Structure,Enemy;Ally,Self,Stasis,Dead,Hidden,Invulnerable,Missile"/>
+        <TargetValidator value="D8ChargeTargetValidator"/>
+    </CTargetFindEnumArea>
+    <CTargetFindEnumArea id="D8ChargeAllUnits" parent="D8ChargeBuildingOnly">
+        <CasterValidator value="D8ChargeAllUnitValidator"/>
+        <SearchFilters value="Ground,Enemy;Ally,Self,Stasis,Dead,Hidden,Invulnerable,Missile"/>
+    </CTargetFindEnumArea>
+    <!--
+    
+    Phoenix AntiGrav Targetfind
+    
+    -->
+    <CTargetFindSet id="GravitonBeamTarget">
+        <Type value="Successful"/>
+        <CasterValidator value="IdleAttackAirGroundValidator"/>
+        <Array value="GravitonBeamThreat"/>
+        <Array value="GravitonBeamHostile"/>
+    </CTargetFindSet>
+    <CTargetFindEnumArea id="GravitonBeamThreat">
+        <ExtendRadius value="3.0"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <AreaArray Radius="0"/>
+        <CasterValidator value="GravitonBeamThreatValidatorCaster"/>
+        <TargetValidator value="GravitonBeamThreatValidatorTarget"/>
+        <Abil value="GravitonBeam"/>
+        <SearchFilters value="Enemy;Ally,Self,Neutral"/>
+        <TargetSorts>
+            <SortArray value="TSLifeLargestFirst"/>
+            <RequestCount value="1"/>
+        </TargetSorts>
+    </CTargetFindEnumArea>
+    <CTargetFindEnumArea id="GravitonBeamHostile" parent="GravitonBeamThreat">
+        <CasterValidator value="GravitonBeamHostileValidatorCaster"/>
+        <TargetValidator value="GravitonBeamHostileValidatorTarget"/>
+    </CTargetFindEnumArea>
+    <!--
+    
+    Worker Rally Point
+    
+    -->
+    <CTargetFindSet id="WorkerRallyPoint">
+        <Type value="Sequential"/>
+        <Array value="TargetFindWorkerRallyPoint"/>
+    </CTargetFindSet>
+    <CTargetFindWorkerRallyPoint id="TargetFindWorkerRallyPoint">
+        <CommandIndex value="0"/>
+    </CTargetFindWorkerRallyPoint>
+    <CTargetFindSet id="WorkerRallyPointHatchery">
+        <Type value="Sequential"/>
+        <Array value="TargetFindWorkerRallyPointHatchery"/>
+    </CTargetFindSet>
+    <CTargetFindWorkerRallyPoint id="TargetFindWorkerRallyPointHatchery" parent="TargetFindWorkerRallyPoint">
+        <CommandIndex value="1"/>
+    </CTargetFindWorkerRallyPoint>
+    <!--
+    
+    Default Rally Point
+    
+    -->
+    <CTargetFindSet id="DefaultRallyPoint">
+        <Type value="Sequential"/>
+        <Array value="TargetFindDefaultRallyPoint"/>
+    </CTargetFindSet>
+    <CTargetFindRallyPoint id="TargetFindDefaultRallyPoint">
+        <CommandIndex value="0"/>
+    </CTargetFindRallyPoint>
+    <!--
+    
+    Ghost Emp
+    
+    -->
+    <CTargetFindSet id="EMP">
+        <Type value="Sequential"/>
+        <Array value="EMP2A"/>
+        <Array value="EMPBestPoint"/>
+    </CTargetFindSet>
+    <CTargetFindEffect id="EMP2A">
+        <TargetValidator value="TargetShieldsGE50"/>
+    </CTargetFindEffect>
+    <CTargetFindBestPoint id="EMPBestPoint">
+        <Flags index="EvaluateCmd" value="1"/>
+        <DamageBase value="40"/>
+        <MinCount value="5"/>
+        <MinScore value="4"/>
+        <Effect value="EMP2A"/>
+    </CTargetFindBestPoint>
+    <!--
+    
+    Raven Auto Turret
+    
+    -->
+    <CTargetFindSet id="TacticalAutoTurret">
+        <Type value="Sequential"/>
+        <Array value="AutoTurret"/>
+        <Array value="AutoTurretBestPoint"/>
+    </CTargetFindSet>
+    <CTargetFindEffect id="AutoTurret"/>
+    <CTargetFindBestPoint id="AutoTurretBestPoint">
+        <Flags index="EvaluateCmd" value="1"/>
+        <DamageBase value="40"/>
+        <MinCount value="2"/>
+        <MinScore value="2.0"/>
+        <Effect value="AutoTurret"/>
+    </CTargetFindBestPoint>
+    <!--
+    
+    Infestor Disease
+    
+    -->
+    <CTargetFindSet id="InfestorDisease">
+        <Type value="Sequential"/>
+        <Array value="InfestorDiseaseSearch"/>
+        <Array value="InfestorDiseaseBestPoint"/>
+    </CTargetFindSet>
+    <CTargetFindEffect id="InfestorDiseaseSearch">
+        <TargetValidator value="DiseaseTestBuff"/>
+        <!--<TargetSorts>
+            <SortArray value="TSLife"/>
+            <RequestCount value="1"/>
+        </TargetSorts>--> <!--TargetSorts example. Doesn't work to declare with id and then pass by value...-->
+    </CTargetFindEffect>
+    <CTargetFindBestPoint id="InfestorDiseaseBestPoint">
+        <Flags index="EvaluateCmd" value="1"/>
+        <DamageBase value="50"/>
+        <MinCount value="4"/>
+        <MinScore value="4"/>
+        <Effect value="InfestorDiseaseSearch"/>
+    </CTargetFindBestPoint>
+    <!--
+    
+    Battlecruiser MissilePods
+    
+    -->
+    <CTargetFindSet id="MissilePods">
+        <Type value="Sequential"/>
+        <Array value="HurricaneMissileDamage"/>
+        <Array value="MissilePodsBestPoint"/>
+    </CTargetFindSet>
+    <CTargetFindEffect id="HurricaneMissileDamage"/>
+    <CTargetFindBestPoint id="MissilePodsBestPoint">
+        <Flags index="EvaluateCmd" value="1"/>
+        <DamageBase value="40"/>
+        <MinCount value="3"/>
+        <MinScore value="5"/>
+        <BonusAttri value="Light"/>
+        <Effect value="HurricaneMissileDamage"/>
+    </CTargetFindBestPoint>
+    <!--
+    
+    High Templar PsiStorm
+    
+    -->
+    <CTargetFindSet id="PsiStorm">
+        <Type value="Sequential"/>
+        <Array value="PsiStormSearch"/>
+        <Array value="PsiStormBestPoint"/>
+    </CTargetFindSet>
+    <CTargetFindEffect id="PsiStormSearch">
+        <TargetValidator value="PsiStormTestBuff"/>
+    </CTargetFindEffect>
+    <CTargetFindBestPoint id="PsiStormBestPoint">
+        <Flags index="EvaluateCmd" value="1"/>
+        <DamageBase value="40"/>
+        <MinCount value="3"/>
+        <MinScore value="3"/>
+        <Effect value="PsiStormSearch"/>
+    </CTargetFindBestPoint>
+    <!--
+    
+    Stalker Blink
+    
+    -->
+    <CTargetFindSet id="Blink">
+        <Type value="Successful"/>
+        <Array value="BlinkRetreat"/>
+        <Array value="BlinkAttack"/>
+        <Array value="BlinkChase"/>
+    </CTargetFindSet>
+    <!-- Run away if we're low on health and being attacked. -->
+    <CTargetFindSet id="BlinkRetreat">
+        <CasterValidator value="CasterVitalityLE70Percent"/>
+        <Type value="Sequential"/>
+        <Array value="BlinkAttacker"/>
+        <Array value="BlinkAwayOffset"/>
+    </CTargetFindSet>
+    <CTargetFindLastAttacker id="BlinkAttacker">
+        <TargetValidator value="TacticalBlinkRetreatTest"/>
+    </CTargetFindLastAttacker>
+    <CTargetFindOffset id="BlinkAwayOffset">
+        <Flags index="EvaluateCmd" value="1"/>
+        <Angle value="180"/>
+        <Distance value="8,8"/>
+    </CTargetFindOffset>
+    <!-- If we have an attack target and it is outside of attack range, blink to within attack range. -->
+    <CTargetFindSet id="BlinkAttack">
+        <Type value="Sequential"/>
+        <Array value="BlinkAttackTarget"/>
+        <Array value="BlinkAttackOffset"/>
+    </CTargetFindSet>
+    <CTargetFindOrder id="BlinkAttackTarget" parent="AttackOrderTarget">
+        <TargetValidator value="TacticalBlinkAttackRange"/>
+    </CTargetFindOrder>
+    <CTargetFindOffset id="BlinkAttackOffset">
+        <Flags index="EvaluateCmd" value="1"/>
+        <Distance value="-6,-6"/>
+    </CTargetFindOffset>
+    <!-- If the target is retreating, blink a random distance in its direction. -->
+    <CTargetFindSet id="BlinkChase">
+        <Type value="Sequential"/>
+        <Array value="BlinkChaseTarget"/>
+        <Array value="BlinkChaseOffset"/>
+    </CTargetFindSet>
+    <CTargetFindOrder id="BlinkChaseTarget" parent="AttackOrderTarget">
+        <TargetValidator value="TacticalBlinkChaseTest"/>
+    </CTargetFindOrder>
+    <CTargetFindOffset id="BlinkChaseOffset">
+        <Flags index="EvaluateCmd" value="1"/>
+        <Distance value="4,8"/>
+    </CTargetFindOffset>
+</Catalog>

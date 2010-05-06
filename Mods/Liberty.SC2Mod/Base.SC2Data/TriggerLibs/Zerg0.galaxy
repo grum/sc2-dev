@@ -1,0 +1,319 @@
+//==================================================================================================
+//  Zerg Melee Very Easy
+//==================================================================================================
+
+static void RandomInfantry (int player);
+static void LateGround (int player);
+
+//--------------------------------------------------------------------------------------------------
+//  ZergOpenGnd0
+//--------------------------------------------------------------------------------------------------
+void ZergOpenGnd0 (int player) {
+    AIClearStock(player);
+
+    AISetStock( player, 1, c_ZB_Hatchery_Alias );
+	AISetStock( player, 2, c_ZU_Drone );
+    AISetStock( player, 1, c_ZU_Overlord );
+	AISetStock( player, 8, c_ZU_Drone );
+    AISetStock( player, 1, c_ZB_Extractor );
+
+    AISetStock( player, 1, c_ZU_Queen );
+    AISetStock( player, 2, c_ZU_Overlord_Alias );    
+
+    // around 100 resources in about 2 units
+    AISetStock( player, 1, c_ZU_Hydralisk );
+    ZergTechUp(player, 1);
+
+	if (AIEnableVeryEasyStockOpen(player, c_ZU_Drone)) {
+		return;
+	}
+
+    // around 300 resources in about 3 unit
+    RandomInfantry(player);
+}
+
+//--------------------------------------------------------------------------------------------------
+//  ZergMidGndA
+//--------------------------------------------------------------------------------------------------
+static void ZergMidGndA (int player) {
+    AIClearStock(player);
+
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockIdle);
+
+    if (AISawCloakedUnit(player)) {
+        AISetStock( player, 1, c_ZU_Overseer );
+    }
+
+	AISetStockUserData(player);
+    AISetStock( player, 1, c_ZU_Queen );
+    ZergTechUp(player, 2);
+
+	if (AIEnableVeryEasyStockMidA(player, c_ZU_Drone, 3)) {
+		return;
+	}
+
+    // around 600 resources in about 4 unit
+    RandomInfantry(player);
+	AIAddStringInt(player, c_ZU_Infestor, 1);
+}
+
+//--------------------------------------------------------------------------------------------------
+//  ZergMidGndB
+//--------------------------------------------------------------------------------------------------
+static void ZergMidGndB (int player) {
+    AIClearStock(player);
+
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockIdle);
+
+    if (AISawCloakedUnit(player)) {
+        AISetStock( player, 1, c_ZU_Overseer );
+        AISetStock( player, 2, c_ZB_SporeCrawler );
+    }
+
+	AISetStockUserData(player);
+    AISetStock( player, 1, c_ZU_Queen );
+	ZergTechUp(player, 3);
+
+    if (AIEnableVeryEasyStockMidB(player, c_ZU_Drone, 4)) {
+        return;
+    }
+
+    // around 900 resources in about 5 unit
+    LateGround(player);
+}
+
+//--------------------------------------------------------------------------------------------------
+//  LateGround
+//--------------------------------------------------------------------------------------------------
+static void LateGround (int player) {
+    int roll = RandomInt(0,2); // infestors
+    if (roll == 0) {
+        AIAddStringInt(player, c_ZU_Zergling, 1);
+        roll = RandomInt(2,6);
+        AIAddStringInt(player, c_ZU_Hydralisk, roll);
+        AIAddStringInt(player, c_ZU_Roach, 8 - roll);
+    }
+    else if (roll == 1) {
+        AIAddStringInt(player, c_ZU_Zergling, 1);
+        roll = RandomInt(2,3);
+        AIAddStringInt(player, c_ZU_Hydralisk, roll);
+        AIAddStringInt(player, c_ZU_Roach, 5 - roll);
+    	AIAddStringInt(player, c_ZU_Infestor, 1);
+    }
+    else { // infestors == 2
+	    AIAddStringInt(player, AIPickFrom2(c_ZU_Zergling, c_ZU_Roach), 1);
+        AIAddStringInt(player, c_ZU_Hydralisk, 2);
+    	AIAddStringInt(player, c_ZU_Infestor, 2);
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+//  LateGnd
+//--------------------------------------------------------------------------------------------------
+static void LateGnd (int player) {
+    AIClearStock(player);
+
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord, c_ZU_Drone, 8, c_stockIdle);
+    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 6000, 0, c_expandDefault);
+
+	AISetStockUserData(player);
+    AISetStock( player, 1, c_ZR_OverlordTransport );
+    AISetStock( player, 3, c_ZU_Overseer );
+    ZergTechUp(player, 4);
+
+    if (AIEnableVeryEasyStockLate(player, c_TU_SCV, 4)) {
+        return;
+    }
+    LateGround(player);
+}
+
+//--------------------------------------------------------------------------------------------------
+//  ZergOpenAir0
+//--------------------------------------------------------------------------------------------------
+void ZergOpenAir0 (int player) {
+    fixed time = AIGetTime();
+
+    AIClearStock(player);
+    AISetGasPeons(player, 3, c_ZU_Drone, c_ZB_Extractor );
+
+    AISetStock( player, 1, c_ZB_Hatchery_Alias );
+    AISetStock( player, 1, c_ZU_Overlord );
+    AISetStock( player, 10, c_ZU_Drone );
+    AISetStock( player, 1, c_ZB_Extractor );
+    AISetStock( player, 1, c_ZB_SpawningPool );
+
+    if (time >= 150) {
+        AISetStock( player, 2, c_ZB_Extractor );
+        AISetStock( player, 1, c_ZB_Lair );
+
+        if (time >= 200) {
+            AISetStock( player, 2, c_ZU_Overlord );
+            AISetStock( player, 1, c_ZB_Spire );
+            AISetStock( player, 1, c_ZU_Queen );
+            AISetStock( player, 1, c_ZB_HydraliskDen );
+            AISetStock( player, 1, c_ZU_Mutalisk );
+            AISetStock( player, 2, c_ZU_Hydralisk );
+
+            AISetGasPeons(player, 4, c_ZU_Drone, c_ZB_Extractor );
+        }
+    }
+    AIEnableStock(player);
+
+    //---------------------------------------------------------
+
+    if (AITechCount(player, c_ZU_Mutalisk, c_techCountCompleteOnly) < 1) {
+        return;
+    }
+    AIWaveMerge(player, c_waveMain, c_waveAttack);
+    AISetAttackState(player, e_attackState_Attack);
+    AISetMainState(player, e_mainState_Mid1, e_mainSubState_AirA);
+}
+
+//--------------------------------------------------------------------------------------------------
+//  ZergMidAirA
+//--------------------------------------------------------------------------------------------------
+static void ZergMidAirA (int player) {
+    AIClearStock(player);
+
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord, c_ZU_Drone, 8, c_stockIdle);
+
+    AISetStock( player, 1, c_ZU_Queen );
+    AISetStock( player, 1, c_ZB_Lair );
+    AISetStock( player, 1, c_ZU_Mutalisk );
+    AISetStock( player, 2, c_ZU_Hydralisk );
+
+    AISetStock( player, 1, c_ZR_OverlordTransport );
+    AISetStock( player, 1, c_ZU_Overseer );
+
+    AISetStock( player, 1, c_ZB_EvolutionChamber );
+    AISetStock( player, 2, c_ZU_Mutalisk );
+    AISetStock( player, 3, c_ZB_SporeCrawler );
+    AISetStock( player, 1, c_ZU_Corruptor );
+
+    AIEnableStock(player);
+
+    AISetGasPeons(player, 4, c_ZU_Drone, c_ZB_Extractor );
+
+    //---------------------------------------------------------
+
+    if (AITechCount(player, c_ZU_Corruptor, c_techCountCompleteOnly) < 1) {
+        return;
+    }
+    AIWaveMerge(player, c_waveMain, c_waveAttack);
+    AISetAttackState(player, e_attackState_Attack);
+    AISetMainState(player, e_mainState_Mid1, e_mainSubState_AirB);
+}
+
+//--------------------------------------------------------------------------------------------------
+//  ZergMidAirB
+//--------------------------------------------------------------------------------------------------
+static void ZergMidAirB (int player) {
+    AIClearStock(player);
+
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord, c_ZU_Drone, 8, c_stockIdle);
+    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 6000, 1000, c_expandDefault);
+
+    AISetStock( player, 1, c_ZU_Queen );
+    AISetStock( player, 2, c_ZU_Mutalisk );
+    AISetStock( player, 2, c_ZU_Hydralisk );
+
+    AISetStock( player, 1, c_ZR_OverlordTransport );
+    AISetStock( player, 1, c_ZR_OverseerSpeed );
+    AISetStock( player, 1, c_ZU_Overseer );
+
+    AISetStock( player, 3, c_ZB_SporeCrawler );
+    AISetStock( player, 1, c_ZU_Corruptor );
+
+    AISetStock( player, 3, c_ZU_Mutalisk );
+    AISetStock( player, 2, c_ZU_Corruptor );
+
+    AIEnableStock(player);
+
+    AISetGasPeons(player, 4, c_ZU_Drone, c_ZB_Extractor );
+
+    //---------------------------------------------------------
+
+    if (AIGetTime() < 1200) {
+        return;
+    }
+    AIWaveMerge(player, c_waveMain, c_waveAttack);
+    AISetAttackState(player, e_attackState_Attack);
+    AISetMainState(player, e_mainState_Late1, e_mainSubState_AirA);
+
+    AISetFlag(player, e_flagsScouting, true);
+    AISetFlag(player, e_flagsClearObs, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+//  LateAir
+//--------------------------------------------------------------------------------------------------
+static void LateAir (int player) {
+    AIClearStock(player);
+
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord, c_ZU_Drone, 8, c_stockIdle);
+    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 6000, 1000, c_expandDefault);
+
+    AISetStock( player, 1, c_ZU_Queen );
+    AISetStock( player, 2, c_ZU_Mutalisk );
+    AISetStock( player, 2, c_ZU_Hydralisk );
+
+    AISetStock( player, 1, c_ZR_OverlordTransport );
+    AISetStock( player, 1, c_ZR_OverseerSpeed );
+    AISetStock( player, 2, c_ZU_Overseer );
+
+    AISetStock( player, 3, c_ZB_SporeCrawler );
+    AISetStock( player, 1, c_ZU_Corruptor );
+
+    AISetStock( player, 4, c_ZU_Mutalisk );
+    AISetStock( player, 3, c_ZU_Corruptor );
+    AISetStock( player, 1, c_ZU_BroodLord );
+    AISetStock( player, 4, c_ZU_Overseer );
+
+    AISetStock( player, 1, c_ZR_CorruptorAttack );
+
+    AIEnableStock(player);
+
+    AISetGasPeons(player, 4, c_ZU_Drone, c_ZB_Extractor );
+
+    //---------------------------------------------------------
+
+    if (AIGetTime() % 300 > 5) {
+        return;
+    }
+    AIWaveMerge(player, c_waveMain, c_waveAttack);
+    AISetAttackState(player, e_attackState_Attack);
+
+    AISetFlag(player, e_flagsScouting, true);
+    AISetFlag(player, e_flagsClearObs, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+//	RandomInfantry
+//--------------------------------------------------------------------------------------------------
+static void RandomInfantry (int player) {
+	AIAddStringInt(player, c_ZU_Hydralisk, 1);
+	AIAddStringInt(player, AIPickFrom2(c_ZU_Hydralisk, c_ZU_Roach), 1);
+	AIAddStringInt(player, AIPickFrom2(c_ZU_Zergling, c_ZU_Roach), 1);
+}
+
+//--------------------------------------------------------------------------------------------------
+//  ZergMid0
+//--------------------------------------------------------------------------------------------------
+void ZergMid0 (int player) {
+    int mainSubState = AIState(player, e_mainSubState);
+    if (mainSubState == e_mainSubState_GndA)          { ZergMidGndA(player);  }
+    else if (mainSubState == e_mainSubState_GndB)     { ZergMidGndB(player);  }
+    else if (mainSubState == e_mainSubState_AirA)     { ZergMidAirA(player);  }
+    else if (mainSubState == e_mainSubState_AirB)     { ZergMidAirB(player);  }
+    else { ErrorMeleeScript(player, "Invalid Mid mainSubState"); }
+}
+
+//--------------------------------------------------------------------------------------------------
+//  ZergLate0
+//--------------------------------------------------------------------------------------------------
+void ZergLate0 (int player) {
+    int mainSubState = AIState(player, e_mainSubState);
+    if (mainSubState == e_mainSubState_GndA)          { LateGnd(player);  }
+    else if (mainSubState == e_mainSubState_AirA)     { LateAir(player);  }
+    else { ErrorMeleeScript(player, "Invalid Late mainSubState"); }
+}

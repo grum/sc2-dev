@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Constant name="PurchasePanelCostAvailable" val="00fd00"/>
+    <Constant name="PurchasePanelCostPurchased" val="7fd7eb"/>
+    <Constant name="PurchasePanelCostInsufficient" val="ff0000"/>
+
+    <Constant name="PurchaseItemAvailable" val="3ae121"/>
+    <Constant name="PurchaseItemPurchased" val="79d0e3"/>
+    <Constant name="PurchaseItemInsufficient" val="e12121"/>
+    
+    <Frame type="PurchaseItemFrame" name="PurchaseItemFrameTemplate">
+        <Height val="90"/>
+        <Width val="90"/>
+        <Visible val="false"/>
+
+        <Frame type="ThumbButton" name="Button">
+            <Anchor relative="$parent"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>            
+            <HighlightOnHover val="true"/>
+            <HighlightOnFocus val="true"/>
+
+            <Frame type="Image" name="NormalImage">
+                <Texture val="@@UI/PurchasePanelItemFrameButtonNormal" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <BlendMode val="Add"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Texture val="@@UI/PurchasePanelItemFrameButtonHover" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <BlendMode val="Add"/>
+                <DescFlags val="Internal"/>
+            </Frame>          
+        </Frame>
+
+        <Frame type="Image" name="IconImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="PurchaseGroupFrame" name="PurchaseGroupFrameTemplate">
+        <Height val="400"/>
+        <Width val="210"/>
+        <Visible val="false"/>
+
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@@UI/PurchasePanelGroupBorder" layer="0"/>
+            <StateCount val="2" layer="0"/>
+        </Frame>
+
+        <Frame type="Label" name="NameLabel">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="25"/>
+            <Anchor side="Bottom" relative="$parent/BorderImage" pos="Min" offset="70"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-20"/>
+            <Style val="PurchasePanelGroupName"/>            
+        </Frame>
+        
+        <Frame type="Image" name="IconImage">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="80"/>            
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Mid" offset="0"/>
+        </Frame>
+        
+        <Frame type="PurchaseItemFrame" name="PurchaseItemFrame0" template="PurchasePanel/PurchaseItemFrameTemplate">
+            <Anchor side="Top" relative="$parent\BorderImage" pos="Min" offset="294"/>
+            <Anchor side="Left" relative="$parent\BorderImage" pos="Min" offset="35"/>                        
+        </Frame>
+
+        <Frame type="PurchaseItemFrame" name="PurchaseItemFrame1" template="PurchasePanel/PurchaseItemFrameTemplate">
+            <Anchor side="Top" relative="$parent\BorderImage" pos="Min" offset="294"/>
+            <Anchor side="Right" relative="$parent\BorderImage" pos="Max" offset="-35"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrameTemplate">
+        <Height val="60"/>
+        <Width val="300"/>
+        <Visible val="false"/>
+
+        <Frame type="ThumbButton" name="Button">
+            <Anchor relative="$parent"/>
+            <NormalImage val="NormalImage"/>
+            <HoverImage val="HoverImage"/>
+            <Label val="ButtonLabel"/>
+            <HighlightOnHover val="true"/>
+            <HighlightOnFocus val="true"/>
+
+            <Frame type="Image" name="NormalImage">
+                <Texture val="@@UI/PurchasePanelCategoryFrameButtonNormal" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <BlendMode val="Add"/>
+                <LayerColor val="7ed3ea" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Texture val="@@UI/PurchasePanelCategoryFrameButtonHover" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <StateCount val="2" layer="0"/>
+                <BlendMode val="Add"/>
+                <LayerColor val="7ed3ea" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Label" name="ButtonLabel">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Style val="PurchasePanelCategoryName"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+    </Frame>
+    
+    <Frame type="PurchasePanel" name="PurchasePanelTemplate">
+        <Anchor relative="$parent"/>
+        <Visible val="false"/>
+
+        <Frame type="Image" name="FullscreenBackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="Assets/Textures/loading-belshir.dds" layer="0"/>
+            <Alpha val="125"/>
+        </Frame>
+        
+        <Frame type="Frame" name="BackgroundFrame" template="CampaignTemplates/CampaignPanelBackgroundFrameTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="1190"/>
+            <Width val="1536"/>
+
+            <Frame type="Label" name="TitleLabel">                
+                <Text val="@UI/PurchasePanelTitle"/>                
+            </Frame>
+        </Frame>
+
+        <Frame type="Image" name="BackgroundGradientImage">
+            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
+            <Texture val="@@UI/PlanetPanelGradient" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="BackgroundInterlaceImage">
+            <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
+            <Texture val="@@UI/PlanetPanelInterlace" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+        
+        <Frame type="Image" name="CategoryBorderImage">
+            <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="80"/>           
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
+            <Width val="1100"/>
+            <Height val="500"/>
+            <Texture val="@@UI/PurchasePanelCategoryBorder" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <LayerColor val="7ed3ea" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="SelectUpgradeBorderImage">
+            <Anchor side="Top" relative="$parent/CategoryBorderImage" pos="Min" offset="15"/>
+            <Anchor side="Left" relative="$parent/CategoryBorderImage" pos="Min" offset="15"/>
+            <Anchor side="Right" relative="$parent/CategoryBorderImage" pos="Max" offset="-15"/>
+            <Height val="80"/>
+            <Texture val="@@UI/PurchasePanelSelectUpgradeBorder" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <LayerColor val="7ed3ea" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <BlendMode val="Add"/>
+        </Frame>
+
+        <Frame type="Label" name="SelectUpgradeLabel">
+            <Anchor side="Bottom" relative="$parent/SelectUpgradeBorderImage" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent/SelectUpgradeBorderImage" pos="Min" offset="20"/>
+            <Style val="PurchasePanelSelectHeading"/>
+            <Text val="@UI/PurchasePanelSelectHeading"/>
+            <Alpha val="50"/>
+        </Frame>
+        
+        <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrame0" template="PurchasePanel/PurchaseCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/CategoryBorderImage" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent/CategoryBorderImage" pos="Min" offset="4"/>            
+        </Frame>
+
+        <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrame1" template="PurchasePanel/PurchaseCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseCategoryFrame0" pos="Max" offset="5"/>
+            <Anchor side="Right" relative="$parent/PurchaseCategoryFrame0" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrame2" template="PurchasePanel/PurchaseCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseCategoryFrame1" pos="Max" offset="5"/>
+            <Anchor side="Right" relative="$parent/PurchaseCategoryFrame1" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrame3" template="PurchasePanel/PurchaseCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseCategoryFrame2" pos="Max" offset="5"/>
+            <Anchor side="Right" relative="$parent/PurchaseCategoryFrame2" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrame4" template="PurchasePanel/PurchaseCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseCategoryFrame3" pos="Max" offset="5"/>
+            <Anchor side="Right" relative="$parent/PurchaseCategoryFrame3" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrame5" template="PurchasePanel/PurchaseCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseCategoryFrame4" pos="Max" offset="5"/>
+            <Anchor side="Right" relative="$parent/PurchaseCategoryFrame4" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrame6" template="PurchasePanel/PurchaseCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseCategoryFrame5" pos="Max" offset="5"/>
+            <Anchor side="Right" relative="$parent/PurchaseCategoryFrame5" pos="Max" offset="0"/>
+        </Frame>
+        
+        <Frame type="PurchaseCategoryFrame" name="PurchaseCategoryFrame7" template="PurchasePanel/PurchaseCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseCategoryFrame6" pos="Max" offset="5"/>
+            <Anchor side="Right" relative="$parent/PurchaseCategoryFrame6" pos="Max" offset="0"/>
+        </Frame>
+        
+        <Frame type="PurchaseGroupFrame" name="PurchaseGroupFrame0" template="PurchasePanel/PurchaseGroupFrameTemplate">
+            <Anchor side="Top" relative="$parent/SelectUpgradeBorderImage" pos="Max" offset="-15"/>
+            <Anchor side="Left" relative="$parent/CategoryBorderImage" pos="Min" offset="25"/>
+        </Frame>
+
+        <Frame type="PurchaseGroupFrame" name="PurchaseGroupFrame1" template="PurchasePanel/PurchaseGroupFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseGroupFrame0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/PurchaseGroupFrame0" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PurchaseGroupFrame" name="PurchaseGroupFrame2" template="PurchasePanel/PurchaseGroupFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseGroupFrame1" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/PurchaseGroupFrame1" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PurchaseGroupFrame" name="PurchaseGroupFrame3" template="PurchasePanel/PurchaseGroupFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseGroupFrame2" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/PurchaseGroupFrame2" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="PurchaseGroupFrame" name="PurchaseGroupFrame4" template="PurchasePanel/PurchaseGroupFrameTemplate">
+            <Anchor side="Top" relative="$parent/PurchaseGroupFrame3" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/PurchaseGroupFrame3" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="SelectionInfoFrame" template="CampaignTemplates/CampaignPanelSelectionInfoFrameTemplate">
+            <Anchor side="Top" relative="$parent/CategoryBorderImage" pos="Max" offset="-10"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-110"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="40"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-40"/>
+
+            <Frame type="ThumbButton" name="PurchaseButton">
+                <Frame type="Label" name="ButtonLabel">
+                    <Text val="@UI/PurchasePanelPurchase"/>                    
+                </Frame>
+            </Frame>
+        </Frame>        
+
+        <Frame type="Label" name="NameLabel">
+            <Anchor side="Top" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Min" offset="12"/>
+            <Anchor side="Left" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Min" offset="20"/>
+            <Style val="PurchasePanelSelectedPurchaseItemName"/>
+            <Alpha val="170"/>
+        </Frame>        
+
+        <Frame type="Label" name="DescriptionLabel">
+            <Anchor side="Top" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Min" offset="50"/>
+            <Anchor side="Left" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Max" offset="-20"/>
+            <Style val="PurchasePanelSelectedPurchaseItemDescription"/>            
+        </Frame>
+
+        <Frame type="Label" name="NoSelectionLabel">
+            <Anchor side="Top" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent/SelectionInfoFrame/DescriptionBackgroundImage" pos="Max" offset="-10"/>
+            <Style val="PurchasePanelNoSelection"/>
+            <Text val="@UI/PurchasePanelNoSelection"/>
+        </Frame>        
+
+        <Frame type="Portrait" name="MoviePortrait">
+            <Anchor side="Top" relative="$parent/SelectionInfoFrame/MovieTopImage" pos="Max" offset="30"/>
+            <Anchor side="Right" relative="$parent/SelectionInfoFrame/MovieBackgroundImage" pos="Max" offset="-20"/>            
+            <Height val="290"/>
+            <Width val="515"/>
+        </Frame>
+
+        <Frame type="Image" name="CloseButtonBackground">
+            <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
+            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-25"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-20"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardGamePanelLargeRightButtonTemplate">
+            <Label val="CloseButtonLabel"/>
+            <Anchor side="Bottom" relative="$parent/CloseButtonBackground" pos="Max" offset="-55"/>
+            <Anchor side="Left" relative="$parent/CloseButtonBackground" pos="Min" offset="51"/>
+
+            <Frame type="Label" name="CloseButtonLabel">
+                <Text val="@UI/Close"/>
+                <Style val="GameFrameLargeBottomButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>
+

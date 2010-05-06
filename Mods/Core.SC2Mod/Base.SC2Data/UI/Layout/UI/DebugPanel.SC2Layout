@@ -1,0 +1,1692 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="ThumbButton" name="TabTemplate" template="StandardTemplates/StandardGlueThumbButton">
+        <Height val="40"/>
+        <Width val="160"/>
+    </Frame>
+
+  <Frame type="ThumbButton" name="SmallTabTemplate" template="StandardTemplates/StandardGlueThumbButton">
+    <Height val="30"/>
+    <Width val="100"/>
+  </Frame>
+
+  <Frame type="Frame" name="PanelTemplate">
+        <Anchor side="Top" relative="$parent/TabPanel" pos="Max" offset="4"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-60"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor relative="$parent"/>
+            <Texture val="@UI/BorderRoundedWhite" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Color val="150,200,200"/>
+            <Alpha val="30"/>
+        </Frame>
+    </Frame>
+    
+    <Frame type="EditBox" name="ValueEditBoxTemplate">
+        <Insets top="2" left="2" bottom="2" right="2"/>
+        <Style val="DebugPanelLabel"/>
+
+        <Width val="300"/>
+
+        <Image val="ValueEditBoxBackground"/>
+        <Frame type="Image" name="ValueEditBoxBackground">
+            <TextureType val="None"/>
+            <Color val="0, 0, 0"/>
+            <Alpha val="90"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="VariableListItem" name="VariableListItem">
+        <Frame type="EditBox" name="ValueEditBox" template="DebugPanel/ValueEditBoxTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Label" name="KeyLabel">
+            <Style val="DebugPanelLabel"/>
+            <Options val="Ellipsis"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/ValueEditBox" pos="Min" offset="0"/>
+        </Frame>
+    </Frame>
+    
+    <Frame type="ScoreListItem" name="ScoreListItem">
+        <Frame type="Label" name="ValueLabel">
+            <Style val="DebugPanelLabel"/>
+            <Options val="Ellipsis"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Label" name="KeyLabel">
+            <Style val="DebugPanelLabel"/>
+            <Options val="Ellipsis"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/ValueLabel" pos="Min" offset="0"/>
+        </Frame>
+    </Frame>
+    
+    <Frame type="SoundCategoryListItem" name="SoundCategoryListItem">
+        <Frame type="CheckBox" name="ViewCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Width val="50"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="StopButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Height val="30"/>
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/ViewCheckBox" pos="Min" offset="0"/>
+            <Width val="75"/>
+            <Label val="StopLabel"/>
+            <Frame type="Label" name="StopLabel">
+                <Text val="Stop"/>
+                <Style val="DebugPanelLabelSound"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="CheckBox" name="MuteCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/StopButton" pos="Min" offset="0"/>
+            <Width val="50"/>
+        </Frame>
+
+        <Frame type="CheckBox" name="PauseCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/MuteCheckBox" pos="Min" offset="0"/>
+            <Width val="75"/>
+        </Frame>
+
+        <Frame type="Slider" name="VolumeSlider" template="StandardTemplates/StandardSliderTemplate">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/PauseCheckBox" pos="Min" offset="-10"/>
+            <Width val="150"/>
+            <MinValue val="0.000000"/>
+            <MaxValue val="1.000000"/>
+            <Continuous val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="VolumeValue">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/VolumeSlider" pos="Min" offset="-10"/>
+            <Width val="75"/>
+            <Style val="DebugPanelLabelSound"/>
+        </Frame>
+        
+        <Frame type="Label" name="NameLabel">
+            <Style val="DebugPanelLabelSound"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/VolumeValue" pos="Min" offset="-10"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="SoundInstanceListItem" name="SoundInstanceListItem">
+        <Frame type="ThumbButton" name="StopButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Height val="30"/>
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Width val="75"/>
+            <Label val="StopLabel"/>
+            <Frame type="Label" name="StopLabel">
+                <Text val="Stop"/>
+                <Style val="DebugPanelLabelSound"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="CheckBox" name="MuteCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/StopButton" pos="Min" offset="0"/>
+            <Width val="50"/>
+        </Frame>
+
+        <Frame type="CheckBox" name="PauseCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/MuteCheckBox" pos="Min" offset="0"/>
+            <Width val="75"/>
+        </Frame>
+
+        <Frame type="Slider" name="VolumeSlider" template="StandardTemplates/StandardSliderTemplate">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/PauseCheckBox" pos="Min" offset="-10"/>
+            <Width val="150"/>
+            <MinValue val="0.000000"/>
+            <MaxValue val="1.000000"/>
+            <Continuous val="true"/>
+        </Frame>
+
+        <Frame type="Label" name="VolumeValue">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent/VolumeSlider" pos="Min" offset="-10"/>
+            <Width val="75"/>
+            <Style val="DebugPanelLabelSound"/>
+        </Frame>
+        
+        <Frame type="Label" name="NameLabel">
+            <Style val="DebugPanelLabelSound"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/VolumeValue" pos="Min" offset="-10"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="DebugPanel" name="DebugPanelTemplate">
+        <Visible val="False"/>
+        <Anchor side="Top" relative="$parent" pos="Min" offset="100"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Width val="650"/>
+        <Height val="800"/>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor relative="$parent"/>
+            <TextureType val="None"/>
+            <Color val="0, 0, 0"/>
+            <Alpha val="240"/>
+        </Frame>
+
+        <Frame type="Label" name="TitleLabel">
+            <Text val="Debug Menu"/>
+            <Style val="DebugPanelTitle"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="4"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-4"/>
+        </Frame>
+
+        <Frame type="Frame" name="TabPanel">
+            <Frame type="Image" name="BackgroundImage">
+                <Anchor relative="$parent"/>
+                <TextureType val="None"/>
+                <Color val="60, 60, 60"/>
+                <Alpha val="60"/>
+            </Frame>
+
+            <Anchor side="Top" relative="$parent/TitleLabel" pos="Max" offset="6"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-4"/>
+            <Height val="44"/>
+
+            <Frame type="ThumbButton" name="VariableTab" template="DebugPanel/TabTemplate">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
+                <Label val="VariableTabLabel"/>
+                <Frame type="Label" name="VariableTabLabel">
+                    <Text val="Variables"/>
+                    <Style val="DebugPanelTab"/>
+                    <DescFlags val="Internal"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="ThumbButton" name="GraphicsTab" template="DebugPanel/TabTemplate">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/VariableTab" pos="Max" offset="0"/>
+                <Label val="GraphicsTabLabel"/>
+                <Frame type="Label" name="GraphicsTabLabel">
+                    <Text val="Graphics"/>
+                    <Style val="DebugPanelTab"/>
+                    <DescFlags val="Internal"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="ThumbButton" name="SoundTab" template="DebugPanel/TabTemplate">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/GraphicsTab" pos="Max" offset="0"/>
+                <Label val="SoundTabLabel"/>
+                <Frame type="Label" name="SoundTabLabel">
+                    <Text val="Sound"/>
+                    <Style val="DebugPanelTab"/>
+                    <DescFlags val="Internal"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="ThumbButton" name="ScoreTab" template="DebugPanel/TabTemplate">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/SoundTab" pos="Max" offset="0"/>
+                <Label val="ScoreTabLabel"/>
+                <Frame type="Label" name="ScoreTabLabel">
+                    <Text val="Score"/>
+                    <Style val="DebugPanelTab"/>
+                    <DescFlags val="Internal"/>
+                </Frame>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="VariablesPanel" template="DebugPanel/PanelTemplate">
+            <Frame type="VariableListBox" name="VariableListBox" template="StandardTemplates/StandardListBoxTemplate">
+                <ItemGap val="2"/>
+                <ItemDesc val="DebugPanel/VariableListItem"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="16"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-16"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-16"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="GraphicsPanel" template="DebugPanel/PanelTemplate">
+
+          <Frame type="Frame" name="TabPanel">
+            <Frame type="Image" name="BackgroundImage">
+              <Anchor relative="$parent"/>
+              <TextureType val="None"/>
+              <Color val="60, 60, 60"/>
+              <Alpha val="60"/>
+            </Frame>
+
+            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-4"/>
+            <Height val="34"/>
+
+            <Frame type="ThumbButton" name="GraphicsMainTab" template="DebugPanel/SmallTabTemplate">
+              <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+              <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+              <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
+              <Label val="GraphicsMainTabLabel"/>
+              <Frame type="Label" name="GraphicsMainTabLabel">
+                <Text val="Main"/>
+                <Style val="DebugPanelTabTiny"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>           
+
+            <Frame type="ThumbButton" name="HDRTab" template="DebugPanel/SmallTabTemplate">
+              <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+              <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+              <Anchor side="Left" relative="$parent/GraphicsMainTab" pos="Max" offset="0"/>
+              <Label val="HDRTabLabel"/>
+              <Frame type="Label" name="HDRTabLabel">
+                <Text val="HDR"/>
+                <Style val="DebugPanelTabTiny"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+
+            <Frame type="ThumbButton" name="LightsTab" template="DebugPanel/SmallTabTemplate">
+              <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+              <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+              <Anchor side="Left" relative="$parent/HDRTab" pos="Max" offset="0"/>
+              <Label val="LightsTabLabel"/>
+              <Frame type="Label" name="LightsTabLabel">
+                <Text val="Lights"/>
+                <Style val="DebugPanelTabTiny"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+          </Frame>
+
+          <Frame type="Frame" name="GraphicsMainPanel">
+
+            <Anchor side="Top" relative="$parent/TabPanel" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+            <Frame type="CheckBox" name="WireframeCheckbox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent" pos="Min" offset="16"/>
+              <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+              <Width val="200"/>
+              <Label val="WireframeLabel"/>
+              <Frame type="Label" name="WireframeLabel">
+                <Text val="Wireframe"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+            
+            <Frame type="CheckBox" name="ShadowsCheckbox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent/WireframeCheckBox" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/WireframeCheckBox" pos="Min" offset="0"/>
+              <Width val="200"/>
+              <Label val="ShadowsLabel"/>
+              <Frame type="Label" name="ShadowsLabel">
+                <Text val="Shadows"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+
+            <Frame type="Label" name="DebugModeLabel">
+              <Text val="Debug Mode"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="30"/>
+              <Anchor side="Top" relative="$parent/ShadowsCheckbox" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/ShadowsCheckbox" pos="Min" offset="0"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="DebugModePulldown" template="StandardTemplates/StandardPulldownTemplate">
+              <Anchor side="Top" relative="$parent/DebugModeLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/DebugModeLabel" pos="Max" offset="8"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Width val="300"/>
+            </Frame>
+
+            <Frame type="Label" name="TerrainDebugModeLabel">
+              <Text val="Terrain Dbg"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="30"/>
+              <Anchor side="Top" relative="$parent/DebugModeLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/DebugModeLabel" pos="Min" offset="0"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="TerrainDebugPulldown" template="StandardTemplates/StandardPulldownTemplate">
+              <Anchor side="Top" relative="$parent/TerrainDebugModeLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/DebugModePulldown" pos="Min" offset="0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Width val="300"/>
+            </Frame>
+
+            <Frame type="Label" name="LightingModeLabel">
+              <Text val="Light Dbg"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="30"/>
+              <Anchor side="Top" relative="$parent/TerrainDebugModeLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/DebugModeLabel" pos="Min" offset="0"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="LightingModePulldown" template="StandardTemplates/StandardPulldownTemplate">
+              <Anchor side="Top" relative="$parent/LightingModeLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/DebugModePulldown" pos="Min" offset="0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Width val="300"/>
+            </Frame>
+
+            <Frame type="Label" name="ViewRTLabel">
+              <Text val="View RT"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="30"/>
+              <Anchor side="Top" relative="$parent/LightingModeLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/DebugModeLabel" pos="Min" offset="0"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="ViewRTPulldown" template="StandardTemplates/StandardPulldownTemplate">
+              <Anchor side="Top" relative="$parent/ViewRTLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/DebugModePulldown" pos="Min" offset="0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Width val="300"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="TextureReduceCheckbox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent/ViewRTLabel" pos="Max" offset="10"/>
+              <Anchor side="Left" relative="$parent/ViewRTLabel" pos="Min" offset="0"/>
+              <Width val="400"/>
+              <Height val="30"/>
+              <Label val="TextureReduceLabel"/>
+              <Frame type="Label" name="TextureReduceLabel">
+                <Text val="Dynamic Texture Reduction"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+            <Frame type="Label" name="TextureReduceQualityLabel">
+              <Text val="Texture Quality"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="30"/>
+              <Anchor side="Top" relative="$parent/TextureReduceCheckbox" pos="Max" offset="4"/>
+              <Anchor side="Left" relative="$parent/TextureReduceCheckbox" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="TextureReduceQualitySlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.010000"/>
+              <MaxValue val="8.000000"/>
+              <StepValue val="0.010000"/>
+              <Anchor side="Top" relative="$parent/TextureReduceQualityLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/TextureReduceQualityLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="TextureReduceQualityValueLabel">
+              <Text val="0.01"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/TextureReduceQualitySlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/TextureReduceQualitySlider" pos="Max" offset="-40"/>
+            </Frame>
+          </Frame>
+
+          <Frame type="Frame" name="HDRPanel">
+
+            <Anchor side="Top" relative="$parent/TabPanel" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+            <Frame type="CheckBox" name="HDRCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent" pos="Min" offset="16"/>
+              <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+              <Width val="300"/>
+              <Height val="24"/>
+              <Label val="HDREnableLabel"/>
+              <Frame type="Label" name="HDREnableLabel">
+                <Text val="HDR"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+            <Frame type="CheckBox" name="HDRBloomCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent/HDRCheckBox" pos="Min" offset="36"/>
+              <Anchor side="Left" relative="$parent/HDRCheckBox" pos="Min" offset="0"/>
+              <Width val="300"/>
+              <Height val="24"/>
+              <Label val="HDRBloomLabel"/>
+              <Frame type="Label" name="HDRBloomLabel">
+                <Text val="HDR Bloom"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+            <Frame type="CheckBox" name="HDRShowCurveCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent/HDRBloomCheckBox" pos="Min" offset="36"/>
+              <Anchor side="Left" relative="$parent/HDRBloomCheckBox" pos="Min" offset="0"/>
+              <Width val="300"/>
+              <Height val="24"/>
+              <Label val="HDRShowCurveLabel"/>
+              <Frame type="Label" name="HDRShowCurveLabel">
+                <Text val="Show HDR Curve"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+
+            <Frame type="CheckBox" name="CorrectGammaCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent/HDRShowCurveCheckBox" pos="Min" offset="36"/>
+              <Anchor side="Left" relative="$parent/HDRShowCurveCheckBox" pos="Min" offset="0"/>
+              <Width val="300"/>
+              <Height val="24"/>
+              <Label val="GammaCorrectLabel"/>
+              <Frame type="Label" name="GammaCorrectLabel">
+                <Text val="Correct Gamma"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+
+            <Frame type="Label" name="TonemapLabel">
+              <Text val="Tonemapping"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/CorrectGammaCheckBox" pos="Max" offset="10"/>
+              <Anchor side="Left" relative="$parent/CorrectGammaCheckBox" pos="Min" offset="0"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="TonemapPulldown" template="StandardTemplates/StandardPulldownTemplate">
+              <Anchor side="Top" relative="$parent/TonemapLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/TonemapLabel" pos="Min" offset="150"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Width val="300"/>
+            </Frame>
+
+            <Frame type="Label" name="ExposureLabel">
+              <Text val="Exposure"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/TonemapLabel" pos="Max" offset="10"/>
+              <Anchor side="Left" relative="$parent/TonemapLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="ExposureSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="16.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/ExposureLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/ExposureLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="ExposureValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/ExposureSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/ExposureSlider" pos="Max" offset="-40"/>
+            </Frame>
+
+            <Frame type="Label" name="ContrastLabel">
+              <Text val="Contrast"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/ExposureLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/ExposureLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="ContrastSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="5.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/ContrastLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/ContrastLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="ContrastValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/ContrastSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/ContrastSlider" pos="Max" offset="-40"/>
+            </Frame>
+            <Frame type="Label" name="WhitePointLabel">
+              <Text val="White Pt"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/ContrastLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/ContrastLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="WhitePointSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="8.000000"/>
+              <StepValue val="0.02000"/>
+              <Anchor side="Top" relative="$parent/WhitePointLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/WhitePointLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="WhitePointValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/WhitePointSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/WhitePointSlider" pos="Max" offset="-40"/>
+            </Frame>
+            <Frame type="Label" name="BloomThresholdLabel">
+              <Text val="Bloom Threshold"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/WhitePointLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/WhitePointLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="BloomThresholdSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="16.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/BloomThresholdLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/BloomThresholdLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="BloomThresholdValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/BloomThresholdSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/BloomThresholdSlider" pos="Max" offset="-40"/>
+            </Frame>
+            <!--<Frame type="Label" name="GainLabel">
+            <Text val="Gain"/>
+            <Style val="DebugPanelLabelSmall"/>
+            <Height val="24"/>
+            <Anchor side="Top" relative="$parent/ContrastLabel" pos="Max" offset="2"/>
+            <Anchor side="Left" relative="$parent/ContrastLabel" pos="Min" offset="0"/>
+          </Frame>
+          <Frame type="Slider" name="GainSlider" template="StandardTemplates/StandardSliderTemplate">
+            <MinValue val="0.000000"/>
+            <MaxValue val="6.000000"/>
+            <StepValue val="0.020000"/>
+            <Anchor side="Top" relative="$parent/GainLabel" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/GainLabel" pos="Min" offset="150"/>
+            <Width val="450"/>
+          </Frame>
+          <Frame type="Label" name="GainValueLabel">
+            <Text val="0.0"/>
+            <Style val="DebugPanelLabelSmall"/>
+            <Height val="24"/>
+            <Anchor side="Top" relative="$parent/GainSlider" pos="Min" offset="3"/>
+            <Anchor side="Right" relative="$parent/GainSlider" pos="Max" offset="-40"/>
+          </Frame>
+
+          <Frame type="Label" name="ScaleLabel">
+            <Text val="Scale"/>
+            <Style val="DebugPanelLabelSmall"/>
+            <Height val="24"/>
+            <Anchor side="Top" relative="$parent/GainLabel" pos="Max" offset="2"/>
+            <Anchor side="Left" relative="$parent/GainLabel" pos="Min" offset="0"/>
+          </Frame>
+          <Frame type="Slider" name="ScaleSlider" template="StandardTemplates/StandardSliderTemplate">
+            <MinValue val="0.000000"/>
+            <MaxValue val="6.000000"/>
+            <StepValue val="0.020000"/>
+            <Anchor side="Top" relative="$parent/ScaleLabel" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ScaleLabel" pos="Min" offset="150"/>
+            <Width val="450"/>
+          </Frame>
+          <Frame type="Label" name="ScaleValueLabel">
+            <Text val="0.0"/>
+            <Style val="DebugPanelLabelSmall"/>
+            <Height val="24"/>
+            <Anchor side="Top" relative="$parent/ScaleSlider" pos="Min" offset="3"/>
+            <Anchor side="Right" relative="$parent/ScaleSlider" pos="Max" offset="-40"/>
+          </Frame>
+
+          <Frame type="Label" name="SaturationLabel">
+                <Text val="Saturation"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <Height val="24"/>
+                <Anchor side="Top" relative="$parent/ScaleLabel" pos="Max" offset="2"/>
+                <Anchor side="Left" relative="$parent/ScaleLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="SaturationSlider" template="StandardTemplates/StandardSliderTemplate">
+                <MinValue val="0.000000"/>
+                <MaxValue val="2.000000"/>
+                <StepValue val="0.010000"/>
+                <Anchor side="Top" relative="$parent/SaturationLabel" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/SaturationLabel" pos="Min" offset="150"/>
+                <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="SaturationValueLabel">
+                <Text val="1.0"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <Height val="24"/>
+                <Anchor side="Top" relative="$parent/SaturationSlider" pos="Min" offset="3"/>
+                <Anchor side="Right" relative="$parent/SaturationSlider" pos="Max" offset="-40"/>
+            </Frame>
+            -->
+
+            <Frame type="Label" name="AmbientMulLabel">
+              <Text val="Ambient Multiplier"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/BloomThresholdLabel" pos="Max" offset="24"/>
+              <Anchor side="Left" relative="$parent/BloomThresholdLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="AmbientMulSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="16.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/AmbientMulLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/AmbientMulLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="AmbientMulValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/AmbientMulSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/AmbientMulSlider" pos="Max" offset="-40"/>
+            </Frame>
+            <Frame type="Label" name="DiffuseMulLabel">
+              <Text val="Diffuse Multiplier"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/AmbientMulLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/AmbientMulLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="DiffuseMulSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="16.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/DiffuseMulLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/DiffuseMulLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="DiffuseMulValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/DiffuseMulSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/DiffuseMulSlider" pos="Max" offset="-40"/>
+            </Frame>
+            <Frame type="Label" name="SpecMulLabel">
+              <Text val="Specular Multiplier"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/DiffuseMulLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/DiffuseMulLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="SpecMulSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="16.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/SpecMulLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/SpecMulLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="SpecMulValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/SpecMulSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/SpecMulSlider" pos="Max" offset="-40"/>
+            </Frame>
+            <Frame type="Label" name="EmissiveMulLabel">
+              <Text val="Emissive Multiplier"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/SpecMulLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/SpecMulLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="EmissiveMulSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="16.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/EmissiveMulLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/EmissiveMulLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="EmissiveMulValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/EmissiveMulSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/EmissiveMulSlider" pos="Max" offset="-40"/>
+            </Frame>
+
+            <Frame type="Label" name="TerrainDiffuseLabel">
+              <Text val="Terrain Diffuse Multiplier"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/EmissiveMulLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/EmissiveMulLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="TerrainDiffuseSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="16.000000"/>
+              <StepValue val="0.02000"/>
+              <Anchor side="Top" relative="$parent/TerrainDiffuseLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/TerrainDiffuseLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="TerrainDiffuseValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/TerrainDiffuseSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/TerrainDiffuseSlider" pos="Max" offset="-40"/>
+            </Frame>
+            <Frame type="Label" name="TerrainSpecLabel">
+              <Text val="Terrain Specular Mult."/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/TerrainDiffuseLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/TerrainDiffuseLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="TerrainSpecSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="16.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/TerrainSpecLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/TerrainSpecLabel" pos="Min" offset="150"/>
+              <Width val="450"/>
+            </Frame>
+            <Frame type="Label" name="TerrainSpecValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/TerrainSpecSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/TerrainSpecSlider" pos="Max" offset="-40"/>
+            </Frame>
+          </Frame>
+          <Frame type="Frame" name="LightsPanel">
+            <Anchor side="Top" relative="$parent/TabPanel" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+
+            <Frame type="Label" name="LightDebugModeLabel">
+              <Text val="Light Debug Mode"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="30"/>
+              <Anchor side="Top" relative="$parent" pos="Min" offset="16"/>
+              <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="LightDebugModePulldown" template="StandardTemplates/StandardPulldownTemplate">
+              <Anchor side="Top" relative="$parent/LightDebugModeLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/LightDebugModeLabel" pos="Max" offset="8"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Width val="300"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="LightEnableCheckbox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent/LightDebugModeLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent" pos="Min" offset="8"/>
+              <Width val="130"/>
+              <Label val="LightEnableLabel"/>
+              <Frame type="Label" name="LightEnableLabel">
+                <Text val="Enable"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+
+            <Frame type="CheckBox" name="LightShadowCheckbox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent\LightEnableCheckbox" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent\LightEnableCheckbox" pos="Min" offset="100"/>
+              <Width val="130"/>
+              <Label val="LightShadowLabel"/>
+              <Frame type="Label" name="LightShadowLabel">
+                <Text val="Shadow"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+
+            <Frame type="CheckBox" name="LightSpecularCheckbox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent\LightShadowCheckbox" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent\LightShadowCheckbox" pos="Min" offset="100"/>
+              <Width val="130"/>
+              <Label val="LightSpecularLabel"/>
+              <Frame type="Label" name="LightSpecularLabel">
+                <Text val="Spec"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+
+            <Frame type="CheckBox" name="LightAOCheckbox" template="StandardTemplates/StandardCheckBoxTemplate">
+              <Anchor side="Top" relative="$parent\LightSpecularCheckbox" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent\LightSpecularCheckbox" pos="Min" offset="100"/>
+              <Width val="130"/>
+              <Label val="LightAOLabel"/>
+              <Frame type="Label" name="LightAOLabel">
+                <Text val="AO"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <DescFlags val="Internal"/>
+              </Frame>
+            </Frame>
+
+            <Frame type="Label" name="LightMulLabel">
+              <Text val="Multiplier"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightEnableCheckbox" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/LightEnableCheckbox" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="LightMulSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="5.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/LightMulLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/LightMulLabel" pos="Min" offset="80"/>
+              <Width val="220"/>
+            </Frame>
+            <Frame type="Label" name="LightMulValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightMulSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/LightMulSlider" pos="Max" offset="-40"/>
+            </Frame>
+
+            <Frame type="Label" name="LightAttnStartLabel">
+              <Text val="Attn Start"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightMulLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/LightMulLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="LightAttnStartSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="5.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/LightAttnStartLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/LightAttnStartLabel" pos="Min" offset="80"/>
+              <Width val="220"/>
+            </Frame>
+            <Frame type="Label" name="LightAttnStartValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightAttnStartSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/LightAttnStartSlider" pos="Max" offset="-40"/>
+            </Frame>
+
+            <Frame type="Label" name="LightRangeLabel">
+              <Text val="Range"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightAttnStartLabel" pos="Max" offset="2"/>
+              <Anchor side="Left" relative="$parent/LightAttnStartLabel" pos="Min" offset="0"/>
+            </Frame>
+            <Frame type="Slider" name="LightRangeSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="5.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/LightRangeLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/LightRangeLabel" pos="Min" offset="80"/>
+              <Width val="220"/>
+            </Frame>
+            <Frame type="Label" name="LightRangeValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightRangeSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/LightRangeSlider" pos="Max" offset="-40"/>
+            </Frame>
+
+            <Frame type="Label" name="LightHotspotLabel">
+              <Text val="Hotspot"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightAttnStartLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/LightAttnStartSlider" pos="Max" offset="8"/>
+            </Frame>
+            <Frame type="Slider" name="LightHotspotSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="5.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/LightHotspotLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/LightHotspotLabel" pos="Min" offset="80"/>
+              <Width val="220"/>
+            </Frame>
+            <Frame type="Label" name="LightHotspotValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightHotspotSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/LightHotspotSlider" pos="Max" offset="-40"/>
+            </Frame>
+
+            <Frame type="Label" name="LightFalloffLabel">
+              <Text val="Falloff"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightRangeLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/LightRangeSlider" pos="Max" offset="8"/>
+            </Frame>
+            <Frame type="Slider" name="LightFalloffSlider" template="StandardTemplates/StandardSliderTemplate">
+              <MinValue val="0.000000"/>
+              <MaxValue val="5.000000"/>
+              <StepValue val="0.020000"/>
+              <Anchor side="Top" relative="$parent/LightFalloffLabel" pos="Min" offset="0"/>
+              <Anchor side="Left" relative="$parent/LightFalloffLabel" pos="Min" offset="80"/>
+              <Width val="220"/>
+            </Frame>
+            <Frame type="Label" name="LightFalloffValueLabel">
+              <Text val="0.0"/>
+              <Style val="DebugPanelLabelSmall"/>
+              <Height val="24"/>
+              <Anchor side="Top" relative="$parent/LightFalloffSlider" pos="Min" offset="3"/>
+              <Anchor side="Right" relative="$parent/LightFalloffSlider" pos="Max" offset="-40"/>
+            </Frame>
+
+            <Frame type="ListBox" name="LightsListBox" template="StandardTemplates/StandardListBoxTemplate">
+              <ItemGap val="2"/>
+              <Anchor side="Top" relative="$parent/LightRangeLabel" pos="Max" offset="8"/>
+              <Anchor side="Bottom" relative="$parent" pos="Max" offset="-2"/>
+              <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+              <Anchor side="Right" relative="$parent" pos="Max" offset="-16"/>
+            </Frame>
+          </Frame>
+        </Frame>
+
+      <Frame type="Frame" name="SoundPanel" template="DebugPanel/PanelTemplate">
+        <Frame type="ThumbButton" name="ReverbTab" template="DebugPanel/TabTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="160"/>
+            <Label val="TabLabel"/>
+            <Frame type="Label" name="TabLabel">
+                <Text val="Reverb"/>
+                <Style val="DebugPanelTab"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+        <Frame type="ThumbButton" name="MixTab" template="DebugPanel/TabTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/ReverbTab" pos="Min" offset="-4"/>
+            <Label val="TabLabel"/>
+            <Frame type="Label" name="TabLabel">
+                <Text val="Mix"/>
+                <Style val="DebugPanelTab"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+        <Frame type="ThumbButton" name="CreateTab" template="DebugPanel/TabTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ReverbTab" pos="Max" offset="4"/>
+            <Label val="TabLabel"/>
+            <Frame type="Label" name="TabLabel">
+                <Text val="Create"/>
+                <Style val="DebugPanelTab"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+        
+        <Frame type="Frame" name="MixPanel">
+            <Anchor side="Top" relative="$parent/MixTab" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            
+            <Frame type="Frame" name="MasterVolumeControl">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Height val="80"/>
+                
+                <Frame type="Slider" name="SoundVolumeSlider" template="StandardTemplates/StandardSliderTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Height val="30"/>
+                    <Width val="400"/>
+                    <MinValue val="0.000000"/>
+                    <MaxValue val="1.000000"/>
+                    <Continuous val="true"/>
+                </Frame>
+                <Frame type="Label" name="SoundVolumeValue">
+                    <Anchor side="Top" relative="$parent/SoundVolumeSlider" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/SoundVolumeSlider" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent/SoundVolumeSlider" pos="Min" offset="-10"/>
+                    <Width val="75"/>
+                    <Style val="DebugPanelLabelSound"/>
+                </Frame>
+                <Frame type="Label" name="SoundVolumeLabel">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Text val="Sound Volume"/>
+                    <Anchor side="Top" relative="$parent/SoundVolumeSlider" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/SoundVolumeSlider" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/SoundVolumeValue" pos="Min" offset="-10"/>
+                </Frame>
+                <Frame type="Slider" name="MusicVolumeSlider" template="StandardTemplates/StandardSliderTemplate">
+                    <Anchor side="Top" relative="$parent/SoundVolumeSlider" pos="Max" offset="10"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Height val="30"/>
+                    <Width val="400"/>
+                    <MinValue val="0.000000"/>
+                    <MaxValue val="1.000000"/>
+                    <Continuous val="true"/>
+                </Frame>
+                <Frame type="Label" name="MusicVolumeValue">
+                    <Anchor side="Top" relative="$parent/MusicVolumeSlider" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/MusicVolumeSlider" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent/MusicVolumeSlider" pos="Min" offset="-10"/>
+                    <Width val="75"/>
+                    <Style val="DebugPanelLabelSound"/>
+                </Frame>
+                <Frame type="Label" name="MusicVolumeLabel">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Text val="Music Volume"/>
+                    <Anchor side="Top" relative="$parent/MusicVolumeSlider" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/MusicVolumeSlider" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/MusicVolumeValue" pos="Min" offset="-10"/>
+                </Frame>
+            </Frame>
+            
+            <Frame type="Frame" name="SpecificVolumeControl">
+                <Anchor side="Top" relative="$parent/MasterVolumeControl" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                
+                <Frame type="SoundCategoryListBox" name="SoundCategoryListBox" template="StandardTemplates/StandardListBoxTemplate">
+                    <ItemGap val="2"/>
+                    <ItemDesc val="DebugPanel/SoundCategoryListItem"/>
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="-10"/>
+                </Frame>
+                <Frame type="SoundInstanceListBox" name="SoundInstanceListBox" template="StandardTemplates/StandardListBoxTemplate">
+                    <ItemGap val="2"/>
+                    <ItemDesc val="DebugPanel/SoundInstanceListItem"/>
+                    <Anchor side="Top" relative="$parent" pos="Mid" offset="40"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+                </Frame>
+                
+                <Frame type="Frame" name="CategoryListBoxHeader">
+                    <Anchor side="Top" relative="$parent/SoundCategoryListBox" pos="Min" offset="-30"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Height val="20"/>
+                    
+                    <Frame type="Label" name="ViewLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                        <Width val="50"/>
+                        <Text val="View"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+
+                    <Frame type="Label" name="MuteLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Anchor side="Right" relative="$parent/ViewLabel" pos="Min" offset="-75"/>
+                        <Width val="50"/>
+                        <Text val="Mute"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+
+                    <Frame type="Label" name="PauseLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Anchor side="Right" relative="$parent/MuteLabel" pos="Min" offset="-10"/>
+                        <Width val="75"/>
+                        <Text val="Pause"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+
+                    <Frame type="Label" name="VolumeLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Anchor side="Right" relative="$parent/PauseLabel" pos="Min" offset="-10"/>
+                        <Width val="300"/>
+                        <Text val="Volume"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+                    
+                    <Frame type="Label" name="NameLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/VolumeLabel" pos="Min" offset="-10"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Text val="Category"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+                </Frame>
+
+                <Frame type="Frame" name="InstanceListBoxHeader">
+                    <Anchor side="Top" relative="$parent/SoundInstanceListBox" pos="Min" offset="-30"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Height val="20"/>
+                    
+                    <Frame type="Label" name="MuteLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                        <Width val="50"/>
+                        <Text val="Mute"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+
+                    <Frame type="Label" name="PauseLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Anchor side="Right" relative="$parent/MuteLabel" pos="Min" offset="-10"/>
+                        <Width val="75"/>
+                        <Text val="Pause"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+
+                    <Frame type="Label" name="VolumeLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Anchor side="Right" relative="$parent/PauseLabel" pos="Min" offset="-10"/>
+                        <Width val="300"/>
+                        <Text val="Volume"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+                    
+                    <Frame type="Label" name="NameLabel">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Right" relative="$parent/VolumeLabel" pos="Min" offset="-10"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                        <Text val="Instance"/>
+                        <Style val="DebugPanelLabelSound"/>
+                    </Frame>
+                </Frame>
+            </Frame>
+        </Frame>
+        
+        <Frame type="Frame" name="ReverbPanel">
+            <Anchor side="Top" relative="$parent/ReverbTab" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            
+            <Frame type="ListBox" name="PresetListBox" template="StandardTemplates/StandardListBoxTemplate">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="8"/>
+                <Style val="DebugPanelLabel"/>
+                <Width val="200"/>
+            </Frame>
+            <Frame type="Label" name="RoomLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Room"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="RoomValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="RoomSlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/RoomValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="-10000"/>
+                <MaxValue val="0"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="RoomHFLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Room HF"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/RoomSlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="RoomHFValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/RoomSlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="RoomHFSlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/RoomHFValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="-10000"/>
+                <MaxValue val="0"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="RoomLFLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Room LF"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/RoomHFSlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="RoomLFValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/RoomHFSlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="RoomLFSlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/RoomLFValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="-10000"/>
+                <MaxValue val="0"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="DecayTimeLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Decay Time"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/RoomLFSlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="DecayTimeValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/RoomLFSlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="DecayTimeSlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/DecayTimeValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="0.1"/>
+                <MaxValue val="20.0"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="DecayHFRatioLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Decay HF Ratio"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/DecayTimeSlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="DecayHFRatioValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/DecayTimeSlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="DecayHFRatioSlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/DecayHFRatioValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="0.1"/>
+                <MaxValue val="2.0"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="ReflectionsLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Reflections"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/DecayHFRatioSlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="ReflectionsValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/DecayHFRatioSlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="ReflectionsSlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/ReflectionsValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="-10000"/>
+                <MaxValue val="1000"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="ReflectionsDelayLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Reflections Delay"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/ReflectionsSlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="ReflectionsDelayValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/ReflectionsSlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="ReflectionsDelaySlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/ReflectionsDelayValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="0.0"/>
+                <MaxValue val="0.3"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="ReverbLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Reverb"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/ReflectionsDelaySlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="ReverbValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/ReflectionsDelaySlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="ReverbSlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/ReverbValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="-10000"/>
+                <MaxValue val="2000"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="ReverbDelayLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Reverb Delay"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/ReverbSlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="ReverbDelayValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/ReverbSlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="ReverbDelaySlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/ReverbDelayValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="0.0"/>
+                <MaxValue val="0.1"/>
+                <Continuous val="true"/>
+            </Frame>
+            <Frame type="Label" name="RoomRolloffFactorLabel">
+                <Style val="DebugPanelLabelSound"/>
+                <Text val="Room Rolloff Factor"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/ReverbDelaySlider" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+            </Frame>
+            <Frame type="Label" name="RoomRolloffFactorValue">
+                <Style val="DebugPanelLabelSound"/>
+                <Height val="32"/>
+                <Anchor side="Top" relative="$parent/ReverbDelaySlider" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            </Frame>
+            <Frame type="Slider" name="RoomRolloffFactorSlider" template="StandardTemplates/StandardSliderTemplate">
+                <Anchor side="Top" relative="$parent/RoomRolloffFactorValue" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/PresetListBox" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                <Height val="30"/>
+                <MinValue val="0.0"/>
+                <MaxValue val="10.0"/>
+                <Continuous val="true"/>
+            </Frame>
+          </Frame>
+        
+            <Frame type="Frame" name="CreatePanel">
+                <Anchor side="Top" relative="$parent/CreateTab" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+
+                <Frame type="ListBox" name="FileListBox" template="StandardTemplates/StandardListBoxTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="8"/>
+                    <Style val="DebugPanelLabel"/>
+                    <Width val="400"/>
+                </Frame>
+                <Frame type="Pulldown" name="CategoryPulldown" template="StandardTemplates/StandardPulldownTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Style val="DebugPanelLabel"/>
+                    <Width val="150"/>
+                    <Height val="40"/>
+                </Frame>
+                <Frame type="Label" name="CategoryLabel">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Text val="Category"/>
+                    <Anchor side="Top" relative="$parent/CategoryPulldown" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/CategoryPulldown" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent/CategoryPulldown" pos="Min" offset="-10"/>
+                </Frame>
+                <Frame type="Pulldown" name="SelectPulldown" template="StandardTemplates/StandardPulldownTemplate">
+                    <Anchor side="Top" relative="$parent/CategoryPulldown" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Style val="DebugPanelLabel"/>
+                    <Width val="150"/>
+                    <Height val="40"/>
+                </Frame>
+                <Frame type="Label" name="SelectLabel">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Text val="Select"/>
+                    <Anchor side="Top" relative="$parent/SelectPulldown" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent/SelectPulldown" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent/SelectPulldown" pos="Min" offset="-10"/>
+                </Frame>
+                <Frame type="CheckBox" name="PauseCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+                    <Anchor side="Top" relative="$parent/SelectPulldown" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Width val="100"/>
+                    <Height val="32"/>
+                    <Label val="PauseLabel"/>
+                    <Frame type="Label" name="PauseLabel">
+                        <Text val="Pause"/>
+                        <Style val="DebugPanelLabel"/>
+                        <DescFlags val="Internal"/>
+                    </Frame>
+                </Frame>
+                <Frame type="CheckBox" name="MuteCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+                    <Anchor side="Top" relative="$parent/PauseCheckBox" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Width val="100"/>
+                    <Height val="32"/>
+                    <Label val="MuteLabel"/>
+                    <Frame type="Label" name="MuteLabel">
+                        <Text val="Mute"/>
+                        <Style val="DebugPanelLabel"/>
+                        <DescFlags val="Internal"/>
+                    </Frame>
+                </Frame>
+                <Frame type="Label" name="PitchLabel">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Text val="Pitch Min/Max"/>
+                    <Height val="32"/>
+                    <Anchor side="Top" relative="$parent/MuteCheckBox" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/FileListBox" pos="Max" offset="10"/>
+                </Frame>
+                <Frame type="Label" name="PitchValue">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Height val="32"/>
+                    <Anchor side="Top" relative="$parent/PitchLabel" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                </Frame>
+                <Frame type="Slider" name="PitchMaxSlider" template="StandardTemplates/StandardSliderTemplate">
+                    <Anchor side="Top" relative="$parent/PitchValue" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Height val="30"/>
+                    <Width val="100"/>
+                    <MinValue val="-1.000000"/>
+                    <MaxValue val="1.000000"/>
+                    <Continuous val="true"/>
+                </Frame>
+                <Frame type="Slider" name="PitchMinSlider" template="StandardTemplates/StandardSliderTemplate">
+                    <Anchor side="Top" relative="$parent/PitchValue" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent/PitchMaxSlider" pos="Min" offset="-10"/>
+                    <Height val="30"/>
+                    <Width val="100"/>
+                    <MinValue val="-1.000000"/>
+                    <MaxValue val="1.000000"/>
+                    <Continuous val="true"/>
+                </Frame>
+                 <Frame type="Label" name="VolumeLabel">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Text val="Volume Min/Max"/>
+                    <Height val="32"/>
+                    <Anchor side="Top" relative="$parent/PitchMinSlider" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/FileListBox" pos="Max" offset="10"/>
+                </Frame>
+                <Frame type="Label" name="VolumeValue">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Height val="32"/>
+                    <Anchor side="Top" relative="$parent/VolumeLabel" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                </Frame>
+                <Frame type="Slider" name="VolumeMaxSlider" template="StandardTemplates/StandardSliderTemplate">
+                    <Anchor side="Top" relative="$parent/VolumeValue" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Height val="30"/>
+                    <Width val="100"/>
+                    <MinValue val="0.000000"/>
+                    <MaxValue val="1.000000"/>
+                    <Continuous val="true"/>
+                </Frame>
+                <Frame type="Slider" name="VolumeMinSlider" template="StandardTemplates/StandardSliderTemplate">
+                    <Anchor side="Top" relative="$parent/VolumeValue" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent/VolumeMaxSlider" pos="Min" offset="-10"/>
+                    <Height val="30"/>
+                    <Width val="100"/>
+                    <MinValue val="0.000000"/>
+                    <MaxValue val="1.000000"/>
+                    <Continuous val="true"/>
+                </Frame>
+               <Frame type="CheckBox" name="WorldCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+                    <Anchor side="Top" relative="$parent/VolumeMinSlider" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Width val="100"/>
+                    <Height val="32"/>
+                    <Label val="WorldLabel"/>
+                    <Frame type="Label" name="WorldLabel">
+                        <Text val="World"/>
+                        <Style val="DebugPanelLabel"/>
+                        <DescFlags val="Internal"/>
+                    </Frame>
+                </Frame>
+                <Frame type="Label" name="PositionLabel">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Text val="Position"/>
+                    <Height val="32"/>
+                    <Anchor side="Top" relative="$parent/WorldCheckBox" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/FileListBox" pos="Max" offset="10"/>
+                </Frame>
+                <Frame type="ThumbButton" name="PositionButton" template="StandardTemplates/StandardGlueThumbButton">
+                    <Height val="30"/>
+                    <Anchor side="Top" relative="$parent/WorldCheckBox" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Width val="75"/>
+                    <Label val="RefreshLabel"/>
+                    <Frame type="Label" name="RefreshLabel">
+                        <Text val="Refresh"/>
+                        <Style val="DebugPanelLabelSound"/>
+                        <DescFlags val="Internal"/>
+                    </Frame>
+                </Frame>
+                <Frame type="Label" name="PositionValue">
+                    <Style val="DebugPanelLabelSound"/>
+                    <Anchor side="Top" relative="$parent/PositionLabel" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Height val="32"/>
+                </Frame>
+                
+                <Frame type="ThumbButton" name="SpawnButton" template="StandardTemplates/StandardGlueThumbButton">
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                    <Width val="75"/>
+                    <Label val="SpawnLabel"/>
+                    <Frame type="Label" name="SpawnLabel">
+                        <Text val="Spawn"/>
+                        <Style val="DebugPanelLabelSound"/>
+                        <DescFlags val="Internal"/>
+                    </Frame>
+                </Frame>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="ScorePanel" template="DebugPanel/PanelTemplate">
+            <Frame type="Pulldown" name="ScorePulldown" template="StandardTemplates/StandardPulldownTemplate">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="16"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                <Style val="DebugPanelLabelSmall"/>
+                <Width val="300"/>
+            </Frame>
+
+            <Frame type="ScoreListBox" name="ScoreListBox" template="StandardTemplates/StandardListBoxTemplate">
+                <ItemGap val="2"/>
+                <ItemDesc val="DebugPanel/ScoreListItem"/>
+                <Anchor side="Top" relative="$parent/ScorePulldown" pos="Max" offset="16"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-16"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="16"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-16"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="CloseButtonLabel"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-8"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-8"/>
+            <Width val="120"/>
+            <Height val="40"/>
+            <Frame type="Label" name="CloseButtonLabel">
+                <Text val="Close"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="CargoButton" name="CargoButtonTemplate">        
+        <Width val="64"/>
+        <Height val="64"/>       
+    </Frame>
+
+    <Frame type="InfoPaneCargo" name="InfoPaneCargoTemplate">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Width val="430"/>
+
+        <Frame type="Label" name="NameLabel">            
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Options val="NoWrapping"/>
+        </Frame>
+
+        <Frame type="Label" name="CurrentCargoLabel">
+            <Style val="@@InfoPaneCargoCurrentCargo"/>
+            <Text val="@UI/CurrentCargo_Colon"/>
+            <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+
+        <Frame type="Frame" name="CargoContainer">
+            <Anchor side="Top" relative="$parent/CurrentCargoLabel" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="128"/>
+
+            <Frame type="CargoButton" name="CargoButton00" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton01" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton02" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton03" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton04" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton05" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton06" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton07" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton08" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton09" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton10" template="InfoPaneCargo/CargoButtonTemplate"/>
+
+            <Frame type="CargoButton" name="CargoButton11" template="InfoPaneCargo/CargoButtonTemplate"/>
+    </Frame>
+
+    </Frame>
+</Desc>

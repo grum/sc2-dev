@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VideoOptionsOverrides>
+    
+<!-- HOW TO USE THIS FILE -->
+    
+<!-- By default, every video card will be autodetected by the game and assigned to a particular quality
+     setting based on the card family.  For example, a GeForce 7600 GS is a part of the GeForce 7000 family and
+     is thus automatically assigned to a High Overall Quality setting, which correlates to a particular level for 
+     all other settings.
+     
+     However, specific cards within a particular family may need additional tweaking.  Let's say there is a known
+     issue with the GeForce 7600 GS where Displacement runs very poorly.  We can use this file to specifically
+     override post-processing to a lower setting.  This only changes the default value to use when we assign settings
+     during AutoDetect.  It does not change what is actually available in the drop-downs.
+     
+     Each element represents a different option to override for a particular overall quality.  You can override as many or as 
+     few options as you want.  Any options that are not overridden will use the default for that family.
+     
+     ALL TAGS AND VALUES ARE CASE-SENSITIVE!
+     
+     VideoCardOption:           This encompasses all the overrides for a given video card.  The id is the numerical 
+                                identifier for that specific device.  You can get this value by issuing the 
+                                cheat "deviceid"
+                        
+     Ultra, High, Medium, Low:  This specifies the defaults you want to override for the given overall quality.
+     
+     Texture:                   Texture Quality.  Low, Medium, High, Ultra, Extreme
+     Lighting:                  Lighting Quality.  Low, Medium, High, Ultra
+     HDR:                       HDR Enabled.  Low, High
+     Shadow:                    Shadow Quality.  Low, Medium, High, Ultra
+     SoftShadow:                Soft Shadow Quality.  Low, High, Ultra
+     PostProc:                  Post Processing Quality.  Low, Medium, High, Ultra
+     Environment:               Environment Quality.  Low, Medium, High, Ultra
+     Water:                     Water Quality.  Low, Medium, High, Ultra
+     Particle:                  Particle Quality.  Low, Medium, High, Ultra
+     Decal:                     Decal Quality.  Low, Medium, High, Ultra
+     Physics:                   Physics Quality.  Low, Medium, High, Ultra
+     Shading:                   Shading Quality.  Low, Medium, High, Ultra
+     SSAO:                      SSAO Enabled.  Low, High
+     
+                                
+     The following is a listing of the mapping for each OverallQuality setting.  This is subject to change:
+     
+-->
+    
+ <!-- Sample Video Card -->
+ <VideoCardOption id="0">
+    <Ultra>
+        <Shading>High</Shading>
+        <Environment>Medium</Environment>
+    </Ultra>
+</VideoCardOption>
+
+    
+</VideoOptionsOverrides>

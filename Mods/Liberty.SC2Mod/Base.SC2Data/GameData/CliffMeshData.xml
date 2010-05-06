@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CCliffMesh id="BelShirCliff0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="BelShirCliff1">
+        <WeldNormals value="0"/>
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="BraxisAlphaCliff0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="BraxisAlphaCliff1">
+        <CliffHeights index="0" value="-7.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="CliffNatural0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="CliffNatural1">
+      <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+  <CCliffMesh id="CliffMade0">
+    <CliffHeights index="0" value="-8.000000"/>
+  </CCliffMesh>
+  <CCliffMesh id="CliffMade1">
+    <CliffHeights index="0" value="-8.000000"/>
+  </CCliffMesh>
+  <CCliffMesh id="CliffMade2">
+    <CliffHeights index="0" value="-8.000000"/>
+  </CCliffMesh>
+  <CCliffMesh id="CliffMade3">
+    <CliffHeights index="0" value="-8.000000"/>
+  </CCliffMesh>
+  <CCliffMesh id="CliffMade4">
+    <CliffHeights index="0" value="-8.000000"/>
+  </CCliffMesh>
+  <CCliffMesh id="CliffMade5">
+    <CliffHeights index="0" value="-8.000000"/>
+  </CCliffMesh>
+  <CCliffMesh id="CliffMade6">
+    <CliffHeights index="0" value="-7.000000"/>
+  </CCliffMesh>
+  <CCliffMesh id="CliffMade7">
+    <WeldNormals value="0"/>
+    <CliffHeights index="0" value="-20.000000"/>
+  </CCliffMesh>
+    <CCliffMesh id="KorhalCliff0">
+        <WeldNormals value="0"/>
+        <CliffHeights index="0" value="-20.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="KorhalCliff1">
+        <WeldNormals value="0"/>
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="MarSaraCliff0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="MarSaraCliff1">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="MonlythCliff0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="MonlythCliff1">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="RedstoneCliff0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="RedstoneCliff1">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="ShakurasCliff0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="ShakurasCliff1">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="XilCliff0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="XilCliff1">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="ZhakulDasCliff0">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+    <CCliffMesh id="ZhakulDasCliff1">
+        <CliffHeights index="0" value="-8.000000"/>
+    </CCliffMesh>
+</Catalog>

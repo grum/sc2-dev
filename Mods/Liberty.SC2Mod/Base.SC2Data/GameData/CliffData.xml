@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CCliff id="BelShirCliff0">
+      <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\BelShir_Cliff0_Diff.dds"/>
+    </CCliff>
+    <CCliff id="BelShirCliff1">
+        <CliffMesh value="CliffMade5"/>
+        <EditorIcon value="Assets\Textures\BelShir_Cliff1.dds"/>
+    </CCliff>
+    <CCliff id="BraxisAlphaCliff0">
+        <CliffMesh value="CliffNatural1"/>
+        <EditorIcon value="Assets\Textures\Braxis_Cliff0_Diffuse.dds"/>
+    </CCliff>
+    <CCliff id="BraxisAlphaCliff1">
+        <CliffMesh value="CliffMade6"/>
+        <EditorIcon value="Assets\Textures\Braxis_Cliff1.dds"/>
+    </CCliff>
+    <CCliff id="KorhalCliff0">
+        <CliffMesh value="CliffMade7"/>
+        <EditorIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
+    </CCliff>
+    <CCliff id="KorhalCliff1">
+      <CliffMesh value="CliffMade2"/>
+        <EditorIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
+    </CCliff>
+    <CCliff id="MarSaraCliff0">
+        <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\marSara_cliff0_diffuse.dds"/>
+    </CCliff>
+    <CCliff id="MarSaraCliff1">
+        <CliffMesh value="CliffMade0"/>
+        <EditorIcon value="Assets\Textures\marSara_cliff1_diffuse.dds"/>
+    </CCliff>
+    <CCliff id="MonlythCliff0">
+        <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\monlyth_cliff0_diffuse.dds"/>
+    </CCliff>
+    <CCliff id="MonlythCliff1">
+        <CliffMesh value="CliffMade1"/>
+        <EditorIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
+    </CCliff>
+    <CCliff id="RedstoneCliff0">
+        <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\Redstone_Cliff0.dds"/>
+    </CCliff>
+    <CCliff id="RedstoneCliff1">
+        <CliffMesh value="CliffMade0"/>
+        <EditorIcon value="Assets\Textures\Redstone_Cliff1_diffuse.dds"/>
+    </CCliff>
+    <CCliff id="ShakurasCliff0">
+        <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\Shakuras_Cliff0.dds"/>
+    </CCliff>
+    <CCliff id="ShakurasCliff1">
+        <CliffMesh value="CliffMade4"/>
+        <EditorIcon value="Assets\Textures\Shakuras_Cliff1.dds"/>
+    </CCliff>
+    <CCliff id="XilCliff0">
+      <CliffMesh value="CliffNatural0"/>
+      <EditorIcon value="Assets\Textures\xil_cliff0_diffuse.dds"/>
+    </CCliff>
+    <CCliff id="XilCliff1">
+        <EditorIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
+    </CCliff>
+    <CCliff id="ZhakulDasCliff0">
+        <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\zhakuldas_cliff0_diffuse.dds"/>
+    </CCliff>
+    <CCliff id="ZhakulDasCliff1">
+        <CliffMesh value="CliffMade1"/>
+        <EditorIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
+    </CCliff>
+</Catalog>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Constant name="DisableFeatures" val="false"/>
+
+    <Frame type="ScreenMainMenu" name="ScreenMainMenu">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Height val="450"/>
+        <Width val="350"/>
+        <Visible val="false"/>
+
+        <Frame type="Image" name="Background">
+            <Anchor relative="$parent"/>
+            <Color val="0, 0, 0"/>
+            <Alpha val="180"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="DebugButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="DebugButtonLabel"/>
+            <Shortcut val="@UI/DebugMap_Hotkey"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="50"/>
+            <Frame type="Label" name="DebugButtonLabel">
+                <Text val="@UI/DebugMap_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="CampaignButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="CampaignButtonLabel"/>
+            <Shortcut val="@UI/Campaign_Hotkey"/>
+            <Anchor side="Top" relative="$parent/DebugButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="50"/>
+            <Frame type="Label" name="CampaignButtonLabel">
+                <Text val="@UI/Campaign_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="SingleButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="SingleButtonLabel"/>
+            <Shortcut val="@UI/Singleplayer_Hotkey"/>
+            <Anchor side="Top" relative="$parent/CampaignButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="50"/>
+            <Frame type="Label" name="SingleButtonLabel">
+                <Text val="@UI/Singleplayer_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="MultiButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="MultiButtonLabel"/>
+            <Shortcut val="@UI/Multiplayer_Hotkey"/>
+            <Anchor side="Top" relative="$parent/SingleButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="50"/>
+            <Frame type="Label" name="MultiButtonLabel">
+                <Text val="@UI/Multiplayer_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="ReplayButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="ReplayButtonLabel"/>
+            <Shortcut val="@UI/Replay_Hotkey"/>
+            <Anchor side="Top" relative="$parent/MultiButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="50"/>
+            <Frame type="Label" name="ReplayButtonLabel">
+                <Text val="@UI/Replay_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="SaveButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="SaveButtonLabel"/>
+            <Shortcut val="@UI/Load_Hotkey"/>
+            <Anchor side="Top" relative="$parent/ReplayButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="50"/>
+            <Frame type="Label" name="SaveButtonLabel">
+                <Text val="@UI/Load_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+        
+        <Frame type="ThumbButton" name="OptionsButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="OptionsButtonLabel"/>
+            <Shortcut val="@UI/Options_Hotkey"/>
+            <Anchor side="Top" relative="$parent/SaveButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="50"/>
+            <Frame type="Label" name="OptionsButtonLabel">
+                <Text val="@UI/Options_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="ThumbButton" name="QuitButton" template="StandardTemplates/StandardGlueThumbButton">
+            <Label val="QuitButtonLabel"/>
+            <Shortcut val="@UI/Quit_Hotkey"/>
+            <Anchor side="Top" relative="$parent/OptionsButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Height val="50"/>
+            <Frame type="Label" name="QuitButtonLabel">
+                <Text val="@UI/Quit_Control"/>
+                <Style val="GlueButton"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>
