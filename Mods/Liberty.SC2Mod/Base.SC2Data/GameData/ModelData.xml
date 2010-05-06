@@ -789,7 +789,6 @@
         <Occlusion value="Show"/>
     </CModel>
     <CModel id="SentryDeath" parent="UnitDeath" Race="Protoss">
-        <Model value="Assets\Units\Protoss\SentryDeath\SentryDeath.m3"/>
         <LowQualityModel value="ProtossMediumUnitDeathLow"/>
         <Occlusion value="Show"/>
     </CModel>
@@ -930,7 +929,6 @@
         <EditorCategories value="Race:Zerg"/>
     </CModel>
     <CModel id="PointDefenseDrone" parent="Unit" Race="Terran">
-        <Model value="Assets\Units\Terran\PointDefenseDrone\PointDefenseDrone.m3"/>
         <AttachProps Id="Ref_Target" SquibType="Metal" RadiusTarget="0.2"/>
         <Radius value="0.600000"/>
         <SelectionLayer value="1"/>
@@ -941,7 +939,6 @@
         <ShadowRadius value="0.8571"/>
     </CModel>
     <CModel id="PointDefenseDroneDeath" parent="UnitDeath" Race="Terran">
-        <Model value="Assets\Units\Terran\PointDefenseDroneDeath\PointDefenseDroneDeath.m3"/>
         <AttachProps Id="Ref_Target" SquibType="Metal" RadiusTarget="0.2"/>
         <LowQualityModel value="TerranSmallUnitDeathLow"/>
     </CModel>
@@ -1810,6 +1807,8 @@
     <CModel id="VortexModel" parent="ImpactFX">
         <Model value="Assets\Effects\Protoss\SingularityAreaImpact\SingularityAreaImpact.m3"/>
         <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
     </CModel>
     <CModel id="VespeneGeyserSplat" parent="Splat">
         <Model value="Assets\Splats\Splat_VespeneGeyser\Splat_VespeneGeyser.m3"/>
@@ -2222,6 +2221,18 @@
         <ScaleMax value="0.800000,0.800000,0.800000"/>
         <ScaleMin value="0.800000,0.800000,0.800000"/>
     </CModel>
+    <CModel id="RecallingImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Protoss\RecallImpactOut\RecallImpactOut.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
+    <CModel id="RecalledImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Protoss\RecallImpactIn\RecallImpactIn.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
     <CModel id="HighTemplarPsiStormModel" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Protoss\PsiStorm\PsiStorm.m3"/>
         <EditorCategories value="Race:Protoss"/>
@@ -2230,6 +2241,16 @@
         <Model value="Assets\Effects\Protoss\PsiStormImpact\PsiStormImpact.m3"/>
         <Radius value="1.000000"/>
         <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="FeedbackImpact" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\FeedbackImpact\FeedbackImpact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="FeedbackLaunch" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Protoss\FeedbackLaunch\FeedbackLaunch.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
     </CModel>
     <CModel id="ImmortalAttackImpact" parent="ImpactFX">
         <Model value="Assets\Effects\Protoss\ImmortalMissileImpact\ImmortalMissileImpact.m3"/>
@@ -5410,7 +5431,7 @@
         <SelectionRadius value="0.6665"/>
         <ShadowRadius value="0.6665"/>
     </CModel>
-<!--    <CModel id="EggDeath" parent="UnitDeath" Race="Zerg" Parent="Egg">
+    <!--    <CModel id="EggDeath" parent="UnitDeath" Race="Zerg" Parent="Egg">
         <AttachProps Id="Ref_Target" SquibType="Flesh" RadiusTarget="0.5"/>
         <VariationCount value="3"/>
         <Model value="Assets\Units\Zerg\ZergEggUnitBirth\ZergEggUnitBirth.m3"/>
@@ -7120,8 +7141,8 @@
     </CModel>
     <CModel id="BlinkOriginModel" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Protoss\BlinkOut\BlinkOut.m3"/>
-        <ScaleMax value="0.600000,0.600000,0.600000"/>
-        <ScaleMin value="0.600000,0.600000,0.600000"/>
+        <ScaleMax value="0.690000,0.690000,0.690000"/>
+        <ScaleMin value="0.690000,0.690000,0.690000"/>
         <EditorCategories value="Race:Protoss"/>
         <SelectionRadius value="0.8332"/>
         <ShadowRadius value="0.8332"/>
@@ -7235,6 +7256,13 @@
         <ScaleMin value="0.500000,0.500000,0.500000"/>
         <SelectionRadius value="1"/>
         <ShadowRadius value="1"/>
+    </CModel>
+    <CModel id="NeuralParasiteTentacle" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\InfestorSiphon\InfestorSiphon.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Lighting value=""/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
     </CModel>
     <CModel id="FungalGrowth" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Zerg\FungalGrowth\FungalGrowth.m3"/>

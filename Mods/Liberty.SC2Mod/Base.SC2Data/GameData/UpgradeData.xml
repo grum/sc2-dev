@@ -13,7 +13,7 @@
         <EffectArray Reference="Weapon,Reaper,Level" Value="1"/>
         <EffectArray Reference="Weapon,ReaperD8,Level" Value="1"/>
         <EffectArray Reference="Effect,Reaper,Amount" Value="1"/>
-        <EffectArray Reference="Effect,ReaperD8Damage,Amount" Value="4"/>
+        <EffectArray Reference="Effect,ReaperD8Damage,Amount" Value="3"/>
         <!--  Marauder -->
         <EffectArray Reference="Weapon,Marauder,Level" Value="1"/>
         <EffectArray Reference="Effect,MarauderU,Amount" Value="1.000000"/>
@@ -65,7 +65,7 @@
         <!--  Thor -->
         <EffectArray Reference="Weapon,ThorHandGunDuo,Level" Value="1"/>
         <EffectArray Reference="Weapon,ThorAntiAir,Level" Value="1"/>
-        <EffectArray Reference="Effect,ThorHandGunSplashDamageTarget,Amount" Value="3.000000"/>
+        <EffectArray Reference="Effect,ThorHandGunSplashDamageTarget,Amount" Value="5"/>
         <EffectArray Reference="Effect,ThorAADamage,Amount" Value="1.000000"/>
         <!--  Siege Tank -->
         <EffectArray Reference="Weapon,SiegeTank,Level" Value="1"/>
@@ -78,6 +78,7 @@
         <EffectArray Reference="Weapon,Hellion,Level" Value="1"/>
         <EffectArray Reference="Effect,SiegeTank,AttributeBonus[e_unitAttributeArmored]" Value="1.000000"/>
         <EffectArray Reference="Effect,Hellion,AttributeBonus[Light]" Value="1"/>
+        <EffectArray Reference="Effect,ThorAADamage,AttributeBonus[Light]" Value="1"/>
         <AffectedUnitArray value="Hellion"/>
         <AffectedUnitArray value="SiegeTankSieged"/>
         <AffectedUnitArray value="SiegeTank"/>
@@ -126,7 +127,6 @@
         <EffectArray Reference="Weapon,VikingAssault,Level" Value="1"/>
         <EffectArray Reference="Effect,VikingFighterU,Amount" Value="1.000000"/>
         <EffectArray Reference="Effect,VikingAssault,Amount" Value="1"/>
-        <EffectArray Reference="Effect,VikingFighterU,AttributeBonus[e_unitAttributeArmored]" Value="1.000000"/>
         <AffectedUnitArray value="Banshee"/>
         <AffectedUnitArray value="Battlecruiser"/>
         <AffectedUnitArray value="BattlecruiserDefensiveMatrix"/>
@@ -223,7 +223,7 @@
         <!--  Stalker -->
         <EffectArray Reference="Weapon,Stalker,Level" Value="1"/>
         <EffectArray Reference="Effect,StalkerU,Amount" Value="1.000000"/>
-	<EffectArray Reference="Effect,StalkerU,AttributeBonus[e_unitAttributeArmored]" Value="1"/>
+        <EffectArray Reference="Effect,StalkerU,AttributeBonus[e_unitAttributeArmored]" Value="1"/>
         <!--  Immortal -->
         <EffectArray Reference="Weapon,PsiBlaster,Level" Value="1"/>
         <EffectArray Reference="Effect,PsiBlaster,Amount" Value="2"/>
@@ -469,9 +469,9 @@
         <EffectArray Reference="Effect,Broodling,Amount" Value="1.000000"/>
         <EffectArray Reference="Weapon,Broodling,Level" Value="1"/>
         <EffectArray Reference="Effect,BanelingU,Amount" Value="2"/>
-        <EffectArray Reference="Effect,BanelingU2,Amount" Value="8"/>
+        <EffectArray Reference="Effect,BanelingU2,Amount" Value="5"/>
         <EffectArray Reference="Effect,BanelingFriendlyUnitDamage,Amount" Value="2"/>
-        <EffectArray Reference="Effect,BanelingFriendlyBuildingDamage,Amount" Value="8"/>
+        <EffectArray Reference="Effect,BanelingFriendlyBuildingDamage,Amount" Value="5"/>
         <EffectArray Reference="Weapon,BanelingUnitDummy,Level" Value="1"/>
         <EffectArray Reference="Effect,BanelingU,AttributeBonus[e_unitAttributeLight]" Value="2.000000"/>
         <EffectArray Reference="Effect,BanelingFriendlyUnitDamage,AttributeBonus[e_unitAttributeLight]" Value="2.000000"/>
@@ -499,10 +499,10 @@
         <EffectArray Reference="Effect,HydraliskUAir,Amount" Value="1.000000"/>
         <EffectArray Reference="Weapon,HydraliskAir,Level" Value="1"/>
         <EffectArray Reference="Weapon,Roach,Level" Value="1"/>
-        <EffectArray Reference="Effect,RoachU,Amount" Value="1.000000"/>
+        <EffectArray Reference="Effect,RoachU,Amount" Value="2"/>
         <EffectArray Reference="Weapon,AcidSpines,Level" Value="1"/>
         <EffectArray Reference="Effect,HydraliskMelee,Amount" Value="1"/>
-        <EffectArray Reference="Effect,RoachUMelee,Amount" Value="1"/>
+        <EffectArray Reference="Effect,RoachUMelee,Amount" Value="2"/>
         <!--  Infestor Terran -->
         <EffectArray Reference="Weapon,InfestorTerran,Level" Value="1"/>
         <EffectArray Reference="Effect,InfestorTerran,Amount" Value="1"/>
@@ -604,6 +604,11 @@
         <!--  Corruptor -->
         <EffectArray Reference="Unit,BroodLord,LifeArmorLevel" Value="1"/>
         <EffectArray Reference="Unit,BroodLord,LifeArmor" Value="1"/>
+        <EffectArray Reference="Unit,OverlordCocoon,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,OverlordCocoon,LifeArmor" Value="1"/>
+        <EffectArray Operation="Set" Reference="Unit,EngineeringBay,-"/>
+        <EffectArray Reference="Unit,MutaliskCocoon,LifeArmorLevel" Value="1"/>
+        <EffectArray Reference="Unit,MutaliskCocoon,LifeArmor" Value="1"/>
         <AffectedUnitArray value="BroodLord"/>
         <AffectedUnitArray value="Corruptor"/>
         <AffectedUnitArray value="Mutalisk"/>
@@ -797,6 +802,8 @@
         <EffectArray Reference="Unit,FusionCore,LifeArmorLevel" Value="2"/>
         <EffectArray Reference="Unit,AutoTurret,LifeArmor" Value="2.000000"/>
         <EffectArray Reference="Unit,AutoTurret,LifeArmorLevel" Value="2"/>
+        <EffectArray Reference="Unit,PointDefenseDrone,LifeArmor" Value="2"/>
+        <EffectArray Reference="Unit,PointDefenseDrone,LifeArmorLevel" Value="2"/>
         <EditorCategories value="Race:Terran,UpgradeType:ArmorBonus"/>
         <ScoreResult value="BuildOrder"/>
         <AffectedUnitArray value="Armory"/>

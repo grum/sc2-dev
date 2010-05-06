@@ -1230,7 +1230,7 @@
     </CValidatorCombine>
     <CValidatorLocationPlacement id="InfestedTerransPlacementCheck">
         <Unit value="InfestedTerransEggPlacement"/>
-        <Range value="0"/>
+        <Range value="3"/>
     </CValidatorLocationPlacement>
     <CValidatorLocationCompareRange id="VortexHideRange">
         <Compare value="LT"/>

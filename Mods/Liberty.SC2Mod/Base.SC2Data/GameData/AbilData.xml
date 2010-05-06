@@ -196,6 +196,34 @@
             <Unit value="Mothership"/>
         </InfoArray>
     </CAbilTrain>
+    <CAbilEffectTarget id="Feedback">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="FeedbackSet"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Charge Link=""/>
+            <Cooldown Link=""/>
+        </Cost>
+        <TargetFilters value="Visible,HasEnergy;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="9"/>
+        <AINotifyEffect value=""/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Feedback"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="MassRecall">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="MassRecallSearch"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <AINotifyEffect value=""/>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Charge Link=""/>
+            <Cooldown Link=""/>
+        </Cost>
+        <CursorEffect value="MassRecallSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MassRecall"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="PlacePointDefenseDrone">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="PointDefenseDroneReleaseCreateUnit"/>
@@ -551,13 +579,11 @@
         <Range value="9"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="InfestedTerrans"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="25"/>
         </Cost>
         <Effect index="0" value="InfestedTerransLaunchPersistent"/>
-        <CastIntroTime value="0.5"/>
         <ProducedUnitArray value="InfestedTerran"/>
         <CursorEffect value="InfestedTerransLaunchPersistent"/>
-        <CastOutroTime value="1.5"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
@@ -569,15 +595,17 @@
         <Cost>
             <Vital index="Energy" value="50"/>
         </Cost>
-        <TargetFilters value="Biological,Visible;Self,Player,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
+        <TargetFilters value="Visible;Self,Player,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
         <Range value="9"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="NeuralParasite"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
         <Effect index="0" value="NeuralParasiteLaunchMissile"/>
-        <CastOutroTime value="0.9"/>
         <RangeSlop value="5"/>
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
         <UninterruptibleArray index="Finish" value="1"/>
+        <Flags index="AbortOnAllianceChange" value="0"/>
+        <CancelableArray index="Channel" value="1"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="SpawnMutantLarva">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -662,7 +690,7 @@
         <Cost>
             <Vital index="Energy" value="25"/>
         </Cost>
-        <TargetFilters value="-;Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Player;Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="500"/>
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="TimeWarp"/>
@@ -1562,7 +1590,7 @@
             <Button DefaultButtonFace="Assimilator"/>
             <ValidatorArray value="HasVespene"/>
         </InfoArray>
-        <InfoArray index="Build4" Unit="Gateway" Time="50">
+        <InfoArray index="Build4" Unit="Gateway" Time="65">
             <Resource index="Minerals" value="150"/>
             <Button DefaultButtonFace="Gateway" State="Suppressed" Requirements="HaveNexus"/>
         </InfoArray>
@@ -1833,9 +1861,9 @@
     <CAbilResearch id="RoboticsBayResearch">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Structures"/>
         <InfoArray index="Research1" Time="70"/>
-        <InfoArray index="Research2" Time="110" Upgrade="ObserverGraviticBooster">
-            <Resource index="Minerals" value="150"/>
-            <Resource index="Vespene" value="150"/>
+        <InfoArray index="Research2" Time="80" Upgrade="ObserverGraviticBooster">
+            <Resource index="Minerals" value="100"/>
+            <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="ResearchGraviticBooster" State="Restricted" Requirements="LearnGraviticBooster"/>
         </InfoArray>
         <InfoArray index="Research3" Time="80" Upgrade="GraviticDrive">
@@ -2964,13 +2992,13 @@
         </Cost>
         <InfoArray Score="1" Unit="OrbitalCommand">
             <SectionArray index="Abils">
-                <DurationArray index="Delay" value="50"/>
+                <DurationArray index="Delay" value="35"/>
             </SectionArray>
             <SectionArray index="Actor">
-                <DurationArray index="Duration" value="50"/>
+                <DurationArray index="Duration" value="35"/>
             </SectionArray>
             <SectionArray index="Stats">
-                <DurationArray index="Delay" value="50"/>
+                <DurationArray index="Delay" value="35"/>
             </SectionArray>
         </InfoArray>
         <ValidatorArray value="HasNoCargo"/>
@@ -3176,7 +3204,7 @@
         <Range value="9"/>
         <Arc value="360"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="100"/>
             <Cooldown Link="Vortex"/>
         </Cost>
         <CursorEffect value="VortexSearchArea"/>

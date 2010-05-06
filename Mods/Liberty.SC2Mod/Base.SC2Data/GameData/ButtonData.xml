@@ -47,8 +47,18 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-muscularaugments.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="Feedback">
+        <Icon value="Assets\Textures\btn-ability-protoss-wrathofadun.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-wrathofadun.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="GuardianShield">
         <Icon value="Assets\Textures\btn-ability-protoss-shieldbattery.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="MassRecall">
+        <Icon value="Assets\Textures\btn-ability-protoss-wormholetransit.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <TintRacially value="1"/>
     </CButton>

@@ -28,6 +28,7 @@
         <LeaderAlias value="Broodling"/>
         <SelectAlias value="Broodling"/>
         <AIEvaluateAlias value="Broodling"/>
+        <LifeArmor value="2"/>
     </CUnit>
     <CUnit id="FungalGrowthMissile" parent="MISSILE_INVULNERABLE">
         <ReviveType value=""/>
@@ -866,6 +867,7 @@
         <EditorCategories value="ObjectType:Destructible,ObjectFamily:Melee"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="Destructible" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
@@ -890,6 +892,7 @@
         <EditorCategories value="ObjectType:Destructible,ObjectFamily:Melee"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="Destructible" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
@@ -914,6 +917,7 @@
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="Destructible" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
@@ -939,6 +943,7 @@
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="Destructible" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
@@ -963,6 +968,7 @@
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="Destructible" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
@@ -988,6 +994,7 @@
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="Destructible" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
@@ -1012,6 +1019,7 @@
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
         <FlagArray index="Destructible" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
         <Attributes index="Armored" value="1"/>
@@ -1036,6 +1044,7 @@
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
         <FlagArray index="Destructible" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
         <Attributes index="Armored" value="1"/>
@@ -1060,6 +1069,7 @@
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="Destructible" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
@@ -1084,6 +1094,7 @@
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="Destructible" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
@@ -1445,8 +1456,8 @@
         <AbilArray Link="PsiStorm"/>
         <AbilArray Link="ArchonWarp"/>
         <AbilArray Link="Warpable"/>
-        <AbilArray Link="PhaseShift"/>
         <AbilArray Link="Rally"/>
+        <AbilArray Link="Feedback"/>
         <AbilArray Link="BuildInProgress"/>
         <TacticalAIRange value="AIRangeHighTemplar"/>
         <TacticalAIThink value="AIThinkHighTemplar"/>
@@ -1460,7 +1471,7 @@
             <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
             <LayoutButtons Face="AWrp" Type="AbilCmd" AbilCmd="ArchonWarp,SelectedUnits" Row="2" Column="4"/>
             <LayoutButtons Face="PsiStorm" Type="AbilCmd" AbilCmd="PsiStorm,Execute" Row="2" Column="1"/>
-            <LayoutButtons Face="PhaseShift" Type="AbilCmd" AbilCmd="PhaseShift,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="Feedback" Type="AbilCmd" AbilCmd="Feedback,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
@@ -2145,7 +2156,7 @@
         <CargoSize value="8"/>
         <Radius value="1"/>
         <SeparationRadius value="0.75"/>
-        <InnerRadius value="0.75"/>
+        <InnerRadius value="0.5625"/>
         <ScoreMake value="800"/>
         <ScoreKill value="1600"/>
         <ScoreResult value="BuildOrder"/>
@@ -2357,9 +2368,8 @@
         <AbilArray Link="move"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="stop"/>
-        <AbilArray Link="WormholeTransit"/>
-        <AbilArray Link="TemporalRift"/>
         <AbilArray Link="Vortex"/>
+        <AbilArray Link="MassRecall"/>
         <BehaviorArray Link="CloakField"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
@@ -2367,10 +2377,9 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="CloakingField" Type="Passive" Row="1" Column="0"/>
-            <LayoutButtons Face="Vortex" Type="AbilCmd" AbilCmd="Vortex,Execute" Row="2" Column="2"/>
-            <LayoutButtons Face="WormholeTransit" Type="AbilCmd" AbilCmd="WormholeTransit,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="TemporalRift" Type="AbilCmd" AbilCmd="TemporalRift,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="CloakingField" Type="Passive" Row="2" Column="2"/>
+            <LayoutButtons Face="MassRecall" Type="AbilCmd" AbilCmd="MassRecall,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="Vortex" Type="AbilCmd" AbilCmd="Vortex,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <Attributes index="Mechanical" value="1"/>
         <Attributes index="Psionic" value="1"/>
@@ -4623,7 +4632,6 @@
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="FighterMode" Type="AbilCmd" AbilCmd="FighterMode,Execute" Row="2" Column="0"/>
         </CardLayouts>
-        <LifeArmor value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
@@ -4680,7 +4688,6 @@
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
         <AbilArray Link="AssaultMode"/>
-        <LifeArmor value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
@@ -5243,6 +5250,7 @@
         <Facing value="45"/>
         <Speed value="1.875"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergAirArmor"/>
+        <LifeArmor value="2"/>
     </CUnit>
     <CUnit id="Overseer">
         <TechAliasArray value="Alias_Overlord"/>
@@ -5698,6 +5706,7 @@
         <Speed value="1.4062"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergAirArmor"/>
         <EnergyMax value="200"/>
+        <LifeArmor value="2"/>
     </CUnit>
     <CUnit id="Ultralisk">
         <DeathRevealRadius value="3"/>
@@ -7114,6 +7123,7 @@
         <CostResource index="Minerals" value="150"/>
         <CostResource index="Vespene" value="150"/>
         <TechTreeUnlockedUnitArray value="DarkTemplar"/>
+        <TechTreeUnlockedUnitArray value="Archon"/>
         <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="RoboticsFacility">
@@ -7559,6 +7569,7 @@
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="CreateVisible" value="1"/>
         <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="Untooltipable" value="0"/>
         <FlagArray index="PreventDestroy" value="1"/>
         <FlagArray index="Invulnerable" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
@@ -7615,19 +7626,20 @@
         <AbilArray Link="move"/>
         <AbilArray Link="BurrowInfestorDown"/>
         <AbilArray Link="NeuralParasite"/>
-        <AbilArray Link="Siphon"/>
         <AbilArray Link="FungalGrowth"/>
+        <AbilArray Link="InfestedTerrans"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="FungalGrowth" Type="AbilCmd" AbilCmd="FungalGrowth,Execute" Row="2" Column="2"/>
-            <LayoutButtons Face="Siphon" Type="AbilCmd" AbilCmd="Siphon,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="InfestedTerrans" Type="AbilCmd" AbilCmd="InfestedTerrans,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="NeuralParasite" Type="AbilCmd" AbilCmd="NeuralParasite,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
             <LayoutButtons Face="BurrowDown" Type="AbilCmd" AbilCmd="BurrowInfestorDown,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="NeuralParasite,Cancel" Row="2" Column="3"/>
         </CardLayouts>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
@@ -7799,7 +7811,6 @@
         <LifeMax value="50"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
-        <Food value="-0.5"/>
         <CostResource index="Minerals" value="50"/>
         <CostResource index="Vespene" value="25"/>
         <AttackTargetPriority value="20"/>
@@ -8639,6 +8650,7 @@
         <WeaponArray Link="Broodling"/>
         <GlossaryCategory value="Unit/Category/ZergUnits"/>
         <GlossaryPriority value="200"/>
+        <LifeArmor value="0"/>
     </CUnit>
     <CUnit id="BroodlingEscort" parent="BroodlingDefault">
         <PlaneArray index="Air" value="1"/>
@@ -8657,6 +8669,7 @@
         <BehaviorArray Link="StandardMissile"/>
         <BehaviorArray Link="BroodlingAttackDelay"/>
         <WeaponArray Link="BroodlingEscort"/>
+        <LifeArmor value="0"/>
     </CUnit>
     <CUnit id="Corruptor">
         <DeathRevealRadius value="3"/>

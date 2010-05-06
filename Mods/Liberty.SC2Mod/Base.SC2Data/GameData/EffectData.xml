@@ -27,10 +27,55 @@
         <WhichUnit Value="Caster"/>
         <Player Value="Caster"/>
     </CEffectIssueOrder>
+    <CEffectDamage id="Feedback">
+        <ValidatorArray value=""/>
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <Flags index="Notification" value="1"/>
+        <VitalFractionCurrent index="Energy" value="1"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="FeedbackEnergyLoss">
+        <ValidatorArray value=""/>
+        <EditorCategories value="Race:Protoss"/>
+        <VitalArray index="Energy" ChangeFraction="-1"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="FeedbackSet">
+        <ValidatorArray value=""/>
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="Feedback"/>
+        <EffectArray value="FeedbackEnergyLoss"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="MassRecallApplyBehavior">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="Recalling"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="MassRecallPostBehavior">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="Recalled"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="MassRecallSearch">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Self,Ally,Neutral,Enemy,Structure,Missile,Item,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="6.5" Effect="MassRecallApplyBehavior"/>
+    </CEffectEnumArea>
+    <CEffectSet id="MassRecallSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="MassRecallTeleport"/>
+        <EffectArray value="MassRecallPostBehavior"/>
+    </CEffectSet>
+    <CEffectTeleport id="MassRecallTeleport">
+        <EditorCategories value="Race:Protoss"/>
+        <TargetLocation Effect="MassRecallSearch" Value="SourcePoint"/>
+        <SourceLocation Value="TargetUnit"/>
+    </CEffectTeleport>
     <CEffectDamage id="FungalGrowthDamage">
         <EditorCategories value="Race:Zerg"/>
         <ImpactLocation Value="TargetUnit"/>
-        <Amount value="1.25"/>
+        <Amount value="2.25"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="AcidSporesLaunch">
         <AmmoUnit value="AcidSporesWeapon"/>
@@ -285,7 +330,7 @@
     </CEffectIssueOrder>
     <CEffectCreatePersistent id="InfestedTerransLaunchPersistent">
         <EditorCategories value="Race:Zerg"/>
-        <PeriodCount value="4"/>
+        <PeriodCount value="1"/>
         <PeriodicEffectArray value="InfestedTerransCreateEgg"/>
         <ValidatorArray value="InfestedTerransPlacementCheck"/>
         <PeriodicPeriodArray value="0"/>
@@ -408,11 +453,14 @@
         <Death value="Fire"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="NeuralParasitePersistent">
-        <ValidatorArray value="NeuralParasitePersistentTargetFilters"/>
         <EditorCategories value="Race:Zerg"/>
-        <WhichLocation Value="TargetUnit"/>
-        <ExpireDelay value="1"/>
-        <ExpireEffect value="NeuralParasiteSet"/>
+        <WhichLocation Value="CasterUnit"/>
+        <Flags index="Channeled" value="1"/>
+        <InitialEffect value="NeuralParasite"/>
+        <PeriodCount value="20"/>
+        <PeriodicEffectArray value=""/>
+        <PeriodicPeriodArray value="0.5"/>
+        <PeriodicValidator value="CasterHasEnergyAndNotDead"/>
     </CEffectCreatePersistent>
     <CEffectSet id="NeuralParasiteRecheck">
         <ValidatorArray value="IsNotWarpingIn"/>
@@ -435,18 +483,25 @@
         <EditorCategories value="Race:Zerg"/>
         <ImpactEffect value="NeuralParasitePersistent"/>
         <AmmoUnit value="NeuralParasiteWeapon"/>
-        <Movers Link="InfestorNeuralParasite"/>
+        <Movers Link="InfestorNeuralParasite" IfRangeLTE="500"/>
+        <ValidatorArray index="0" removed="1"/>
+        <Flags index="Channeled" value="1"/>
     </CEffectLaunchMissile>
     <CEffectApplyBehavior id="NeuralParasite">
         <EditorCategories value="Race:Zerg"/>
         <ValidatorArray index="0" value="IsNotWarpingIn"/>
         <ValidatorArray value="IsNotPhaseShifted"/>
+        <WhichUnit Effect="NeuralParasiteLaunchMissile"/>
     </CEffectApplyBehavior>
     <CEffectSet id="NeuralParasiteSet">
         <EditorCategories value="Race:Zerg"/>
         <EffectArray value="NeuralParasite"/>
         <EffectArray value="NeuralParasiteWarpIn"/>
     </CEffectSet>
+    <CEffectRemoveBehavior id="NeuralParasiteRemoveBehavior">
+        <EditorCategories value="Race:Zerg"/>
+        <BehaviorLink value="NeuralParasite"/>
+    </CEffectRemoveBehavior>
     <CEffectSet id="PhaseShiftSet">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="PhaseShift"/>
@@ -943,7 +998,7 @@
     <CEffectEnumArea id="VortexEventHorizonSearchArea">
         <EditorCategories value="Race:Protoss"/>
         <SearchFilters value="-;Self,Structure,Missile,Item,Dead,Hidden"/>
-        <AreaArray Radius="3.5" Effect="VortexEventHorizon"/>
+        <AreaArray Radius="2.5" Effect="VortexEventHorizon"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="VortexEventHorizon">
         <EditorCategories value="Race:Protoss"/>
@@ -972,17 +1027,17 @@
     <CEffectEnumArea id="VortexSearchArea">
         <EditorCategories value="Race:Protoss"/>
         <SearchFilters value="-;Self,Structure,Missile,Item,Dead,Hidden"/>
-        <AreaArray Radius="3" Effect="VortexEffect"/>
+        <AreaArray Radius="2.5" Effect="VortexEffect"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="VortexApplyDisable">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="VortexBehavior"/>
-        <ValidatorArray index="0" value="IsNotWarpBubble"/>
+        <ValidatorArray index="0" value="IsNotWarpingIn"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="VortexApplyHide">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="VortexHide"/>
-        <ValidatorArray index="0" value="IsNotWarpBubble"/>
+        <ValidatorArray index="0" value="IsNotWarpingIn"/>
         <ValidatorArray value="VortexApplyHide"/>
     </CEffectApplyBehavior>
     <CEffectIssueOrder id="VortexUnburrow">
@@ -1008,7 +1063,7 @@
     <CEffectEnumArea id="VortexFinalSearchArea">
         <EditorCategories value="Race:Protoss"/>
         <SearchFilters value="-;Self,Structure,Missile,Item,Dead,Hidden"/>
-        <AreaArray Radius="3" Effect="VortexFinalEffect"/>
+        <AreaArray Radius="2.5" Effect="VortexFinalEffect"/>
     </CEffectEnumArea>
     <CEffectSet id="VortexFinalEffect">
         <EditorCategories value="Race:Protoss"/>
@@ -1160,8 +1215,8 @@
         <EditorCategories value="Race:Terran"/>
         <Visibility value="Visible"/>
         <Kind value="Ranged"/>
-        <Amount value="6"/>
-        <AttributeBonus index="Armored" value="8"/>
+        <Amount value="10"/>
+        <AttributeBonus index="Armored" value="4"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="BattlecruiserA">
         <EditorCategories value="Race:Terran"/>
@@ -1290,7 +1345,7 @@
     <CEffectDamage id="ReaperD8Damage">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="40"/>
+        <Amount value="30"/>
         <ResponseFlags index="Acquire" value="1"/>
         <ResponseFlags index="Flee" value="1"/>
         <ImpactLocation Value="TargetUnit"/>

@@ -1,0 +1,69 @@
+StarCraft II Beta - Patch 1 (version 0.3.14048)
+
+Balance Changes
+
+
+    * TERRAN
+
+          o Viking
+
+                + The armor value for this unit in Fighter Mode has decreased from 1 to 0.
+                + The damage done by this unit in Fighter Mode has changed from 6 (+8 armored) to 10 (+4 armored).
+
+          o Reaper
+
+                + The damage done from D-8 Charges has decreased from 40 to 30.
+                + The delay between attacks for D-8 Charges has decreased from 2.5 to 1.8.
+
+          o Orbital Command
+
+                + The build time for this upgrade has decreased from 50 to 35. 
+
+    * PROTOSS
+
+          o Observer
+
+                + Gravitic Boosters: The cost of this research has decreased from 150 Minerals and 150 Vespene Gas to 100 Minerals and 100 Vespene Gas.
+
+          o High Templar
+
+                + Phase Shift: This ability has been removed from the game.
+                + Feedback: New Ability. Drains all energy from the target unit and causes damage equal to the amount of energy drained.
+
+          o Colossus
+
+                + The building pathing radius for this unit has decreased from .75 to .5625.
+
+          o Mothership
+
+                + Vortex: The energy cost of this ability has increased from 75 to 100.
+                + Vortex: The target radius of this ability has decreased from 3.0 to 2.5.
+                + Temporal Rift: This ability has been removed from the game.
+                + Wormhole Transit: This ability has been removed from the game.
+                + Mass Recall: New Ability. Teleports all of the player's units in the target area to the Mothership.
+
+          o Gateway
+
+                + The build time of this building has increased from 50 to 65.
+
+    * ZERG
+
+          o Infestor
+
+                + Fungal Growth: The damage done by this ability has decreased from 48 to 36.
+                + Fungal Growth: This ability now prevents affected units from burrowing.
+                + Neural Parasite: Functionality changed. The Infestor now channels this spell, which lasts 10 seconds or until the Infestor is destroyed. You can now target all units with this ability.
+                + Terran Infestation: The ability's energy cost has reduced from 50 to 25 and Infested Terrans now spawn 1 at a time.
+
+
+Bug Fixes
+
+
+    * Addressed an issue causing people to receive an "Internal Battle.net Error" message with their game client.
+    * Muting your microphone will no longer cause your microphone to be turned off in the operating system once the program has exited.
+
+          o Please note that the voice chat functionality has only partially been implemented. There are many known issues with voice chat that we expect to address in a future patch.
+
+    * The "Medium" graphical settings were reconfigured to work better on appropriate machines. The video settings "auto-detect" functionality has been reset as a result.
+    * Added a frame rate limiter to the game menus to prevent some graphics cards from running at higher frame rates than necessary.
+    * Added GRB rating tags to the login menu for the Korean version of the Beta client.

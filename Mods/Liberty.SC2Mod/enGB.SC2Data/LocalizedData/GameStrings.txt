@@ -1,4 +1,4 @@
-﻿AI/Name/Computer=Computer
+AI/Name/Computer=Computer
 Abil/Name/250mmStrikeCannons=250mm Strike Cannons
 Abil/Name/AcidSpores=Acid Spores
 Abil/Name/ArchonWarp=Archon Warp
@@ -489,13 +489,21 @@ Actor/Name/DestructibleBullhornLights=Destructible Bullhorn Lights
 Actor/Name/DestructibleGarage=Destructible Garage
 Actor/Name/DestructibleGarageLarge=Destructible Garage Large
 Actor/Name/DestructibleRampDiagonalHugeBLUR=Destructible Ramp Diagonal Huge BLUR
+Actor/Name/DestructibleRampDiagonalHugeBLURHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRampDiagonalHugeULBR=Destructible Ramp Diagonal Huge ULBR
+Actor/Name/DestructibleRampDiagonalHugeULBRHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock2x4Horizontal=Destructible Rock 2x4 Horizontal
+Actor/Name/DestructibleRock2x4HorizontalHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock2x4Vertical=Destructible Rock 2x4 Vertical
+Actor/Name/DestructibleRock2x4VerticalHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock2x6Horizontal=Destructible Rock 2x6 Horizontal
+Actor/Name/DestructibleRock2x6HorizontalHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock2x6Vertical=Destructible Rock 2x6 Vertical
+Actor/Name/DestructibleRock2x6VerticalHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock4x4=Destructible Rock 4x4
+Actor/Name/DestructibleRock4x4HighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock6x6=Destructible Rock 6x6
+Actor/Name/DestructibleRock6x6HighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleSearchlight=Destructible Searchlight
 Actor/Name/DestructibleShadowFloodLight=Destructible Shadow Flood Light
 Actor/Name/DestructibleStreetlight=Destructible Streetlight
@@ -1707,6 +1715,7 @@ Button/Hotkey/EvolveVentralSacks=V
 Button/Hotkey/Explode=X
 Button/Hotkey/Extractor=E
 Button/Hotkey/Factory=F
+Button/Hotkey/Feedback=F
 Button/Hotkey/FighterMode=E
 Button/Hotkey/FleetBeacon=F
 Button/Hotkey/ForceField=F
@@ -1752,11 +1761,12 @@ Button/Hotkey/Load=L
 Button/Hotkey/Lower=R
 Button/Hotkey/Marauder=D
 Button/Hotkey/Marine=A
+Button/Hotkey/MassRecall=R
 Button/Hotkey/Medivac=D
 Button/Hotkey/MedivacLoad=L
 Button/Hotkey/MedivacUnloadAll=D
 Button/Hotkey/MissileTurret=T
-Button/Hotkey/MorphBackToGateway=G
+Button/Hotkey/MorphBackToGateway=M
 Button/Hotkey/MorphMorphalisk=R
 Button/Hotkey/Mothership=M
 Button/Hotkey/Move=M
@@ -2031,6 +2041,7 @@ Button/Name/EvolveVentralSacks=Evolve Ventral Sacs
 Button/Name/Explode=Explode
 Button/Name/Extractor=Mutate into Extractor
 Button/Name/Factory=Build Factory
+Button/Name/Feedback=Feedback
 Button/Name/FighterMode=Fighter Mode
 Button/Name/FleetBeacon=Warp in Fleet Beacon
 Button/Name/ForceField=Force Field
@@ -2076,6 +2087,7 @@ Button/Name/Load=Load
 Button/Name/Lower=Lower
 Button/Name/Marauder=Train Marauder
 Button/Name/Marine=Train Marine
+Button/Name/MassRecall=Mass Recall
 Button/Name/Medivac=Build Medivac
 Button/Name/MedivacLoad=Load
 Button/Name/MedivacUnloadAll=Unload All
@@ -2314,7 +2326,7 @@ Button/Tooltip/Blink=Teleports the Stalker to a nearby target location.  Ability
 Button/Tooltip/BraxisAlphaDestructible1x1=A barrier that can be destroyed to allow access to new areas.
 Button/Tooltip/BroodLord=Flying heavy assault unit. Shoots Broodlings at its target. A Broodling is a small creature that can attack ground units.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/Broodling=Fast melee creature that will last for a short duration.<n/><n/><c val="ffff8a">Can attack ground units.</c>
-Button/Tooltip/BuildCreepTumor=Creates a burrowed creep generator. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
+Button/Tooltip/BuildCreepTumor=Creates a burrowed creep generator. Creep feeds nearby Zerg structures. A Creep Tumor can create one additional Creep Turmor.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/BuildTechLabBarracks=Infantry research structure. Tech Lab can fit onto any production building.<n/><n/><c val="ffff8a">Enables:</c><n/>- Marauders<n/>- Reapers<n/>- Ghosts with Ghost Academy
 Button/Tooltip/BuildTechLabFactory=Vehicle research structure. Tech Lab can fit onto any production building.<n/><n/><c val="ffff8a">Enables:</c><n/>- Siege Tanks<n/>- Thors with Armory
 Button/Tooltip/BuildTechLabStarport=Aircraft research structure. Tech Lab can fit onto any production building.<n/><n/><c val="ffff8a">Enables:</c><n/>- Banshees<n/>- Ravens<n/>- Battlecruisers with Fusion Core
@@ -2345,7 +2357,7 @@ Button/Tooltip/ConcussiveGrenade=Targets hit by the Marauder are temporarily slo
 Button/Tooltip/Corruption=The Corruptor corrupts units it attacks, causing them to turn into destructive stationary turrets upon death.
 Button/Tooltip/CorruptionAbility=Covers the target structure in zerg slime, preventing it from functioning in any capacity for 30 seconds.  
 Button/Tooltip/Corruptor=Anti-air flyer. Can corrupt enemy buildings, making them unable to function. Can morph into Brood Lord.<n/><n/><c val="ffff8a">Can attack air units.</c>
-Button/Tooltip/CreepTumor=A burrowed creep generator. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
+Button/Tooltip/CreepTumor=A burrowed creep generator. Creep feeds nearby Zerg structures. A Creep Tumor can create one additional Creep Turmor.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/CreepTumorBurrowed=A burrowed creep generator. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/CyberneticsCore=Contains weapon and armor upgrades for Protoss air units, upgrades for Sentries, and the Warp Gate upgrade.<n/><n/><c val="ffff8a">Enables:</c><n/>- Stalkers at the Gateway.<n/>- Sentries at the Gateway.
 Button/Tooltip/D8Charge=D-8 Charges are thrown into the target area and explode after a short delay.  Ability can only be used once every <d ref="Abil,D8Charge,Cost[0].Cooldown.TimeUse"/> seconds.
@@ -2384,11 +2396,12 @@ Button/Tooltip/Explode=The Baneling detonates where it is standing, damaging nea
 Button/Tooltip/Extractor=Built over a Vespene Geyser to allow harvesting of Vespene Gas.
 Button/Tooltip/Factory=Vehicle production facility. Can use the Lift Off ability.<n/><n/><c val="ffff8a">Enables:</c><n/>- Hellions
 Button/Tooltip/FactoryFlying=Factory must land to start unit production.
+Button/Tooltip/Feedback=Purges all energy from the target. Deals 1 damage per point of energy.
 Button/Tooltip/FighterMode=Transforms the Viking into Fighter Mode. In this mode Vikings fly, but they can only attack air targets.
 Button/Tooltip/FleetBeacon=Upgrades for Void Rays and Carriers.<n/><n/><c val="ffff8a">Enables:</c><n/>- Carriers at the Stargate<n/>- Mothership at the Nexus
 Button/Tooltip/ForceField=Creates a force field that lasts 15 seconds and impedes movement of ground units.
 Button/Tooltip/Forge=Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<n/><n/><c val="ffff8a">Enables:</c><n/>- Photon Cannons from Probes.
-Button/Tooltip/FungalGrowth=Snares units in the target area, immobilizing them and causing a total of 20 damage over 8 seconds.  Cloaked and burrowed units hit by Fungal Growth are revealed for a short time.
+Button/Tooltip/FungalGrowth=Snares units in the target area, immobilizing them and causing a total of 36 damage over 8 seconds.  Cloaked and burrowed units hit by Fungal Growth are revealed for a short time.
 Button/Tooltip/FusionCore=Contains Battlecruiser upgrades. <n/><n/><c val="ffff8a">Enables:</c><n/>- Battlecruisers at the Starport
 Button/Tooltip/Gateway=Warps-in Protoss ground units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Zealots
 Button/Tooltip/Gather=Orders unit to gather resources from a selected Mineral Field or Vespene Geyser.
@@ -2407,7 +2420,7 @@ Button/Tooltip/HardenedShield=The Immortal's Hardened Shields reduce the damage 
 Button/Tooltip/Hatchery=Primary structure, used to spawn all Zerg units and to receive gathered resources. Grows creep, used to feed nearby Zerg structures. Can mutate into a Lair.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/Heal=Heals a friendly biological target.<n/><n/><c val="f078ff"> Heals 3 life per 1 energy.</c>
 Button/Tooltip/Hellion=Fast scout. Has a flame attack that damages all enemy units in its line of fire.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/HighTemplar=Potent psionic master. Can use Phase Shift and Psionic Storm. Can transform into an Archon.
+Button/Tooltip/HighTemplar=Potent psionic master. Can use Feedback and Psionic Storm. Can transform into an Archon.
 Button/Tooltip/HighTemplarHallucination=These hallucinated copies function like the original unit, but cannot deal damage and die more easily. Hallucinations last 60 seconds before they disappear.
 Button/Tooltip/HighYieldMineralField=Workers can harvest resources from this mineral field at a faster rate than normal.
 Button/Tooltip/Hive=Further evolved version of the Hatchery which allows for additional upgrades and buildings to be produced. Also spawns all Zerg units and receives gathered resources. 
@@ -2418,9 +2431,9 @@ Button/Tooltip/HydraliskDen=Contains upgrades for Hydralisks.<n/><n/><c val="fff
 Button/Tooltip/Immortal=Assault strider. Has shields that deflect high damage attacks.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
 Button/Tooltip/ImmortalHallucination=This hallucinated copy functions like the original unit, but cannot deal damage and dies more easily. Hallucinations last 60 seconds before they disappear.
 Button/Tooltip/InfestationPit=Contains upgrades for Infestors.<n/><n/><c val="ffff8a">Enables:</c><n/>- Infestors from Larva
-Button/Tooltip/InfestedTerrans=Spawn 4 Infested Terrans at the target area. Infested Terrans last <d ref="Behavior,SwarmlingFate,Duration"/> seconds.
+Button/Tooltip/InfestedTerrans=Spawn an Infested Terran at the target area. Infested Terrans last <d ref="Behavior,SwarmlingFate,Duration"/> seconds.
 Button/Tooltip/InfestedTerransEgg=Hatches into an Infested Terran after a short period.
-Button/Tooltip/Infestor=Infestation specialist. Can move while burrowed. Can use the Siphon Life, Fungal Growth, and Neural Parasite abilities.
+Button/Tooltip/Infestor=Infestation specialist. Can move while burrowed. Can use the Infested Terrans, Fungal Growth, and Neural Parasite abilities.
 Button/Tooltip/InfestorTerran=Infested Terran does moderate damage and lasts for <d ref="Behavior,SwarmlingFate,Duration"/> seconds.<n/><n/><c val="FFFF8A">Can attack ground and air units.</c>
 Button/Tooltip/Interceptor=Builds Interceptors that automatically attack the Carrier's target. Carriers may not attack without Interceptors.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InterceptorUnit=Combat drones that automatically strafe their Carrier's target. Carriers may not attack without Interceptors.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
@@ -2434,6 +2447,7 @@ Button/Tooltip/Lower=Lowers the building, allowing ground units to walk across i
 Button/Tooltip/MULE=Prototype harvesting unit. Gathers minerals more quickly than regular SCVs. MULEs last 90 seconds before their systems fail.
 Button/Tooltip/Marauder=Heavy assault infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/Marine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/MassRecall=Teleports all friendly units in the targeted area to the Mothership.
 Button/Tooltip/Medivac=Air transport. Heals nearby biological units.
 Button/Tooltip/MedivacLoad=Loads units into the Medivac's hold.
 Button/Tooltip/MedivacUnloadAll=Unloads all units.
@@ -2441,13 +2455,13 @@ Button/Tooltip/MineralField=Workers can harvest resources from this mineral fiel
 Button/Tooltip/MissileTurret=Primary anti-air defensive structure.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c><n/><c val="FFE303">Detector</c>
 Button/Tooltip/MorphBackToGateway=Morph this Warp Gate back to a Gateway.
 Button/Tooltip/MorphMorphalisk=Target Hatchery, Lair, or Hive spawns 4 Larva in <d ref="Behavior,SpawnMutantLarvaTimer,Duration"/> seconds.  If Hatchery, Lair or Hive has more than 3 Larva at one time, regular larva production will stop until there is less than 3 larva.
-Button/Tooltip/Mothership=Ultimate Protoss vessel.  Can use Vortex, Temporal Rift, and Wormhole Transit.  Cloaks nearby units and structures.  <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
+Button/Tooltip/Mothership=Ultimate Protoss vessel.  Can use Vortex and Mass Recall.  Cloaks nearby units and structures.  <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/Move=Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.
 Button/Tooltip/MoveHoldPosition=Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.
 Button/Tooltip/MovePatrol=Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.
 Button/Tooltip/Mutalisk=Air unit that bounces its shot to strike multiple targets.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/MutaliskCocoon=This egg contains a Corruptor as it is morphing into a powerful Brood Lord.
-Button/Tooltip/NeuralParasite=Target unit is controlled by the Zerg for <d ref="Behavior,NeuralParasite,Duration"/> seconds.<n/><n/><c val="#ColorAttackInfo">Can only target Biological units.</c>
+Button/Tooltip/NeuralParasite=Target unit is controlled by the Infestor for <d ref="Behavior,NeuralParasite,Duration"/> seconds. The Infestor cannot take any other action while controlling an enemy unit.<n/><n/><c val="ffff8a">Channeled ability.</c>
 Button/Tooltip/Nexus=Primary structure. Can receive gathered resources. Can use the Chrono Boost ability.<n/><n/><c val="ffff8a">Enables:</c><n/>- Probes
 Button/Tooltip/NuclearReactor=Allows two units to be built simultaneously.
 Button/Tooltip/NukeArm=Arms the Silo with a tactical nuke.<n/><n/>Nukes take 20 seconds to land, but deal up to 300 damage (+200 vs Structures) in a large radius.<n/><n/>Use a Ghost to designate the target.
@@ -7693,6 +7707,7 @@ Unit/Name/BraxisAlphaDestructible2x2=Destructible Debris
 Unit/Name/BroodLord=Brood Lord
 Unit/Name/BroodLordWeapon=Brood Lord Weapon
 Unit/Name/Broodling=Broodling
+Unit/Name/BroodlingDefault=Broodling
 Unit/Name/Bunker=Bunker
 Unit/Name/Carrier=Carrier
 Unit/Name/CarrionBird=Carrion Bird
@@ -7718,7 +7733,15 @@ Unit/Name/DarkShrine=Dark Shrine
 Unit/Name/DarkTemplar=Dark Templar
 Unit/Name/DestructibleBullhornLights=Bullhorn Lights
 Unit/Name/DestructibleDebris4x4=Destructible Debris
+Unit/Name/DestructibleDebris4x4HighlightTooltip=Attack this to destroy it
 Unit/Name/DestructibleDebris6x6=Destructible Debris
+Unit/Name/DestructibleDebris6x6HighlightTooltip=Attack this to destroy it
+Unit/Name/DestructibleRock2x4HorizontalHighlightTooltip=Attack this to destroy it
+Unit/Name/DestructibleRock2x4VerticalHighlightTooltip=Attack this to destroy it
+Unit/Name/DestructibleRock2x6HorizontalHighlightTooltip=Attack this to destroy it
+Unit/Name/DestructibleRock2x6VerticalHighlightTooltip=Attack this to destroy it
+Unit/Name/DestructibleRock4x4HighlightTooltip=Attack this to destroy it
+Unit/Name/DestructibleRock6x6HighlightTooltip=Attack this to destroy it
 Unit/Name/DestructibleGarage=Garage
 Unit/Name/DestructibleGarageLarge=Garage (Large)
 Unit/Name/DestructibleRampDiagonalHugeBLUR=Destructible Rocks
@@ -7805,6 +7828,7 @@ Unit/Name/Nuke=Nuclear Missile
 Unit/Name/NydusCanal=Nydus Worm
 Unit/Name/NydusNetwork=Nydus Network
 Unit/Name/Observatory=Xel'Naga Tower
+Unit/Name/ObservatoryHighlightTooltip=Provides vision to nearby units
 Unit/Name/Observer=Observer
 Unit/Name/OrbitalCommand=Orbital Command
 Unit/Name/OrbitalCommandFlying=Orbital Command

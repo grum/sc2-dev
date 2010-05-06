@@ -19,6 +19,31 @@
             <BehaviorLinkDisableArray value="SensorTowerRadar"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="Recalled">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Recalling">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <ExpireEffect value="MassRecallSet"/>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="AcidSpores">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -127,6 +152,24 @@
             <ModifyFlags index="SuppressMoving" value="1"/>
             <StateFlags index="SuppressCloak" value="1"/>
             <AbilClassDisableArray index="CAbilMove" value="1"/>
+            <AbilLinkDisableArray value="BurrowInfestorUp"/>
+            <AbilLinkDisableArray value="BurrowInfestorDown"/>
+            <AbilLinkDisableArray value="BurrowRoachUp"/>
+            <AbilLinkDisableArray value="BurrowRoachDown"/>
+            <AbilLinkDisableArray value="BurrowZerglingUp"/>
+            <AbilLinkDisableArray value="BurrowZerglingDown"/>
+            <AbilLinkDisableArray value="BurrowDroneUp"/>
+            <AbilLinkDisableArray value="BurrowDroneDown"/>
+            <AbilLinkDisableArray value="BurrowUltraliskUp"/>
+            <AbilLinkDisableArray value="BurrowUltraliskDown"/>
+            <AbilLinkDisableArray value="BurrowQueenUp"/>
+            <AbilLinkDisableArray value="BurrowQueenDown"/>
+            <AbilLinkDisableArray value="BurrowBanelingUp"/>
+            <AbilLinkDisableArray value="BurrowBanelingDown"/>
+            <AbilLinkDisableArray value="BurrowHydraliskUp"/>
+            <AbilLinkDisableArray value="BurrowHydraliskDown"/>
+            <AbilLinkDisableArray value="BurrowInfestorTerranUp"/>
+            <AbilLinkDisableArray value="BurrowInfestorTerranDown"/>
             <DeathResponse>
                 <Cost>
                     <Charge Link="Behavior/FungalGrowth"/>
@@ -261,7 +304,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="Ethereal">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="8"/>
+        <Duration value="2"/>
         <Modification>
             <ModifyFlags index="DisableAbils" value="1"/>
             <ModifyFlags index="EnableMove" value="1"/>
@@ -293,6 +336,7 @@
         </Modification>
         <DisplayCountdown index="Ally" value="1"/>
         <DisplayCountdown index="Enemy" value="1"/>
+        <BuffFlags index="Channeled" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="NeuralParasiteWait">
         <Alignment value="Negative"/>
@@ -885,6 +929,7 @@
         </Modification>
         <Alignment value="Negative"/>
         <Duration value="0.125"/>
+        <ExpireEffect value="PhaseShiftSet"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="VortexEventHorizon">
         <InfoFlags index="Hidden" value="1"/>

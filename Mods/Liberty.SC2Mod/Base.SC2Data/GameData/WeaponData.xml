@@ -321,7 +321,7 @@
         <Icon value="Assets\Textures\BTN-Ability-Terran-D8Charge.dds"/>
         <DisplayEffect value="ReaperD8Damage"/>
         <TargetFilters value="Ground,Structure,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="2.5"/>
+        <Period value="1.8"/>
         <Effect value="ReaperD8LaunchMissile"/>
         <RandomDelayMin value="0.1"/>
         <RandomDelayMax value="0.5"/>

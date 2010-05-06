@@ -635,6 +635,7 @@
         <WireframeLayer value="Assets\Textures\Wireframe-General-XelNagaTower.dds"/>
         <SoundArray index="What" value="XelNagaTower_WhatActivated"/>
         <GroupSoundArray index="What" value="XelNagaTower_WhatActivated"/>
+        <HighlightTooltip value="Unit/Name/ObservatoryHighlightTooltip"/>
     </CActorUnit>
     <CActorSound id="XelNagaTower_PowerUp" parent="SoundOneShot"/>
     <CActorSound id="XelNagaTower_PowerDown" parent="SoundOneShot"/>
@@ -3964,6 +3965,7 @@
         <DeathArray index="Normal" ModelLink="HighTemplarDeath" SoundLink="HighTemplar_DeathFX"/>
         <AnimBlendTime value="0.450000"/>
         <On Terms="Abil.PsiStorm.SourceCastStart" Send="AnimPlay A A"/>
+        <On Terms="Abil.Feedback.SourceCastStart" Send="AnimPlay B B"/>
         <On Terms="Abil.PhaseShift.SourceCastStart" Send="AnimPlay B B"/>
         <On Terms="Abil.PlasmaSurge.SourceCastStart" Send="AnimPlay B B"/>
         <On Terms="Abil.Vortex.SourceCastStart" Send="AnimPlay A A"/>
@@ -4025,16 +4027,6 @@
         <On Terms="Behavior.Ethereal.Off" Target="_Unit" Send="SetTintColor 255,255,255 0.250000"/>
         <On Terms="Behavior.Ethereal.Off" Send="Destroy"/>
     </CActorSimple>
-    <CActorModel id="PhaseShiftImpact" parent="ModelAnimationStyleOneShot">
-        <On Terms="Effect.PhaseShift.Start; At Target" Send="Create"/>
-        <Host Subject="_Selectable"/>
-        <HostSiteOps Ops="SOpAttachCenter"/>
-    </CActorModel>
-    <CActorSound id="PhaseShiftFinishsound" parent="SoundOneShot">
-        <Sound value="HighTemplar_PhaseShiftDeath"/>
-        <On Terms="Behavior.Ethereal.Off" Send="Create"/>
-    </CActorSound>
-    <CActorRange id="PhaseShiftRange" parent="RangeAbil" abil="PhaseShift"/>
     <!-- Psi Storm                                                                               -->
     <CActorSplat id="PsiStormCursorSplat" parent="ProtossCursorSplat" abil="PsiStorm"/>
     <CActorRange id="PsiStormRange" parent="RangeAbil" abil="PsiStorm"/>
@@ -4079,6 +4071,27 @@
     <CActorSound id="HighTemplarPhaseShiftSound" parent="SoundContinuous">
         <On Terms="Abil.PhaseShift.SourcePrepStart" Send="Create"/>
         <Sound value="HighTemplar_PhaseShiftLaunch"/>
+    </CActorSound>
+    <!-- Feedback                                                               -->
+    <CActorModel id="FeedbackImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.Feedback.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorModel id="FeedbackLaunch" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.Feedback.Start; At Caster" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorSound id="FeedbackLaunchSound" parent="SoundOneShot">
+        <Sound value="Obelisk_ArgusLinkLaunch"/>
+        <On Terms="Effect.Feedback.Start; At Caster" Send="Create"/>
+        <Host Subject="_Selectable"/>
+    </CActorSound>
+    <CActorSound id="FeedbackImpactSound" parent="SoundOneShot">
+        <Sound value="Obelisk_ArgusLinkImpact"/>
+        <On Terms="Effect.Feedback.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
     </CActorSound>
     <!--                                                                                         -->
     <!-- Immortal .............................................................................. -->
@@ -4321,6 +4334,38 @@
     <CActorSound id="Worker_CloakFieldOff" parent="SoundOneShot">
         <Sound value="Mothership_CloakFieldOff"/>
     </CActorSound>
+    <!-- Mass Recall                                                                                  -->
+    <CActorSplat id="MassRecallCursorSplat" parent="ProtossCursorSplat" abil="MassRecall"/>
+    <CActorModel id="RecallingImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Behavior.Recalling.On" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <AutoScaleFactor value="0.450000"/>
+    </CActorModel>
+    <CActorModel id="RecalledImpact" parent="ModelAnimationStyleOneShot">
+        <On Terms="Behavior.Recalled.On" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <AutoScaleFactor value="0.450000"/>
+    </CActorModel>
+    <CActorSound id="RecallingImpactSound" parent="SoundOneShot">
+        <On Terms="Behavior.Recalling.On" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <Sound value="Mothership_RecallStart"/>
+    </CActorSound>
+    <CActorSound id="RecalledImpactSound" parent="SoundOneShot">
+        <On Terms="Behavior.Recalled.On" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <Sound value="Mothership_RecallEnd"/>
+    </CActorSound>
+    <CActorSimple id="RecallOpacity">
+        <On Terms="Behavior.Recalling.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetOpacity 0.400000 0.250000"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetTintColor 100,100,255 0.250000"/>
+        <On Terms="Behavior.Recalled.Off" Target="_Unit" Send="SetOpacity 1.000000 0.250000"/>
+        <On Terms="Behavior.Recalled.Off" Target="_Unit" Send="SetTintColor 255,255,255 0.250000"/>
+        <On Terms="Behavior.Recalled.Off" Send="Destroy"/>
+    </CActorSimple>
     <!--                                                                                         -->
     <!-- Nexus ................................................................................. -->
     <!--                                                                                         -->
@@ -5350,6 +5395,7 @@
     <CActorSound id="Zerg_BuildingMorphStart" parent="SoundOneShot">
         <On Terms="Abil.ZergBuild.BuiltStart" Send="Create"/>
         <On Terms="Abil.QueenBuild.BuiltStart" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphTo GreaterSpire" Send="Create"/>
         <On Terms="ProgressLevel.LurkerDenMorph.Start; Level 0" Send="Create"/>
         <On Terms="ProgressLevel.ZergHatcheryToLair.Start; Level 0" Send="Create"/>
         <On Terms="ProgressLevel.ZergLairToHive.Start; Level 0" Send="Create"/>
@@ -6341,43 +6387,90 @@ Terran_AttackLaunch"/>
     </CActorModel>
     <!-- Neural Parasite                                                                         -->
     <CActorRange id="NeuralParasiteRange" parent="RangeAbil" abil="NeuralParasite"/>
-    <CActorMissile id="NeuralParasiteMissile" parent="GenericAttackMissile" unitName="NeuralParasiteWeapon">
-        <Model value="NeuralParasiteMissileModel"/>
-    </CActorMissile>
-    <CActorAction id="NeuralParasite" parent="GenericAttack" effectLaunch="NeuralParasiteLaunchMissile">
-        <ImpactSiteOps Ops="SOpAttachHead"/>
-        <ImpactAttachQuery Methods="Head"/>
-    </CActorAction>
-    <CActorModel id="NeuralParasiteEgg" parent="ModelAddition">
+    <!-- <CActorModel id="NeuralParasiteEgg" parent="ModelAddition">
         <HostSiteOps Ops="SOpAttachHead"/>
         <On Terms="Effect.NeuralParasitePersistent.Start; At Target" Send="Create"/>
         <On Terms="Effect.NeuralParasitePersistent.Stop" Send="AnimBracketStop BSD"/>
-    </CActorModel>
-    <CActorModel id="NeuralParasiteModel" parent="ModelAddition">
-        <HostSiteOps Ops="SOpAttachHead"/>
-        <On Terms="Behavior.NeuralParasite.On" Send="Create"/>
-        <On Terms="Behavior.NeuralParasite.Off" Send="AnimBracketStop BSD"/>
     </CActorModel>
     <CActorSound id="NeuralParasiteSound" parent="SoundOneShot">
         <Sound value="Infestor_NeuralParasiteAttackLaunch"/>
         <Host Subject="NeuralParasiteModel"/>
         <On Terms="Abil.NeuralParasite.SourceCastStart" Send="Create"/>
     </CActorSound>
-    <CActorSound id="NeuralParasiteBirthSound" parent="SoundOneShot">
-        <Sound value="Infestor_NeuralParasiteBirth"/>
-        <On Terms="Behavior.NeuralParasite.On" Send="Create"/>
-    </CActorSound>
     <CActorSound id="NeuralParasiteImpactSound" parent="SoundOneShot">
         <Sound value="Infestor_NeuralParasiteAttackImpact"/>
         <On Terms="Effect.NeuralParasitePersistent.Start" Send="Create"/>
     </CActorSound>
-    <!-- Siphon                                                                                  -->
-    <CActorRange id="SiphonRange" parent="RangeAbil" abil="Siphon"/>
+    <CActorMissile id="NeuralParasiteMissile" parent="GenericAttackMissile" unitName="NeuralParasiteWeapon">
+        <Model value="NeuralParasiteMissileModel"/>
+    </CActorMissile>
+    <CActorAction id="NeuralParasite" parent="GenericAttack" effectLaunch="NeuralParasiteLaunchMissile">
+        <ImpactSiteOps Ops="SOpAttachHead"/>
+        <ImpactAttachQuery Methods="Head"/>
+    </CActorAction> -->
+    <CActorModel id="NeuralParasiteModel" parent="ModelAddition">
+        <HostSiteOps Ops="SOpAttachHead"/>
+        <On Terms="Behavior.NeuralParasite.On" Send="Create"/>
+        <On Terms="Behavior.NeuralParasite.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorSound id="NeuralParasiteBirthSound" parent="SoundOneShot">
+        <Sound value="Infestor_NeuralParasiteBirth"/>
+        <On Terms="Behavior.NeuralParasite.On" Send="Create"/>
+    </CActorSound>
     <CActorSite id="SiphonTentacleImpactHoldingSite">
         <Host Subject="_ImpactGuide" Scope="Target"/>
         <!-- Without this, the tentacle end will point back to the Infestor. -->
         <HostSiteOps Ops="SOp180"/>
     </CActorSite>
+    <CActorModel id="NeuralParasiteTentacle">
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachWeapon01Soft"/>
+        <HostedAttaches Name="TentacleAttack">
+            <AttachQuery Methods="Weapon"/>
+        </HostedAttaches>
+        <On Terms="Effect.NeuralParasiteLaunchMissile.Start; At Caster" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD Attack Stand Death"/>
+        <On Terms="ActorCreation" Send="RefSet ::scope.Tentacle ::Self"/>
+        <!-- this is a temporary hack until the tentacle missile bug is fixed -->
+        <On Terms="ActorCreation" Send="SetOpacity"/>
+        <On Terms="ActorCreation" Send="SetOpacity 1.000000 0.500000"/>
+        <On Terms="Effect.NeuralParasitePersistent.Start" Send="Create SiphonTentacleImpactHoldingSite"/>
+        <On Terms="Effect.NeuralParasitePersistent.Start" Send="RefSetFromRequest TentacleAttack SiphonTentacleImpactHoldingSite"/>
+        <On Terms="Abil.NeuralParasite.SourceChannelStop" Send="AnimBracketStop BSD"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+    </CActorModel>
+    <CActorSite id="NeuralParasiteTentacleLaunchSite">
+        <Host Subject="::scope.Tentacle"/>
+    </CActorSite>
+    <CActorMissile id="NeuralParasiteMissile" parent="GenericAttackMissile" unitName="NeuralParasiteWeapon">
+        <Model value="Invisible"/>
+        <Supporter>
+            <Subject value="NeuralParasiteTentacle"/>
+            <Scope value="Caster"/>
+            <Actor value="Find"/>
+            <Effect value="NeuralParasiteLaunchMissile"/>
+        </Supporter>
+        <On Terms="MotionPhaseStart; MotionPhase" Target="::Supporter" Send="RefSet TentacleAttack ::Self"/>
+    </CActorMissile>
+    <CActorAction id="NeuralParasite" parent="GenericAttack" effectImpact="NeuralParasitePersistent" effectLaunch="NeuralParasiteLaunchMissile">
+        <LaunchSite value="NeuralParasiteTentacleLaunchSite"/>
+        <!-- using weapon01 instead of weapon until the bug that's causing the missile to originate from the Infestor rather than the tentale is fixed -->
+        <LaunchAttachQuery Methods="Weapon01"/>
+        <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>
+        <ImpactAttachQuery Methods="Target 0"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpForwardLaunchGuide"/>
+        <!-- Sticky tentacle
+             This is for if we want the tentacle to hold and respect target attach volumes.  Which
+             doesn't look super good, b/c it slides around thae target in a non-impaled kind of
+             way.  If we don't slide it around it won't look good either, b/c it folds back on
+             itself in a kinking, clipping kind of way.
+            ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance SOpForwardLaunchGuide"/-->
+        <ImpactSiteOpsReaction Ops="SOp2DRotation SOp180" HoldPosition="1" HoldRotation="1"/>
+        <ImpactMap index="None" Sound="Infestor_NeuralParasiteAttackImpact"/>
+        <LaunchAssets Sound="Infestor_NeuralParasiteAttackLaunch"/>
+    </CActorAction>
+    <!-- Siphon                                                                                  -->
+    <CActorRange id="SiphonRange" parent="RangeAbil" abil="Siphon"/>
     <CActorModel id="SiphonTentacle">
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachWeapon01Soft"/>
@@ -7815,6 +7908,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-Destructible-Debris.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-Destructible-Debris.dds"/>
+        <HighlightTooltip value="Unit/Name/DestructibleDebris4x4HighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleDebris6x6 .......................................................... -->
@@ -7826,6 +7920,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-Destructible-Debris.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-Destructible-Debris.dds"/>
+        <HighlightTooltip value="Unit/Name/DestructibleDebris6x6HighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleRock2x4Vertical ........................................................... -->
@@ -7837,6 +7932,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Small01.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Large01.dds"/>
+        <HighlightTooltip value="Unit/Name/DestructibleRock2x4VerticalHighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleRock2x4Horiztontal ........................................................ -->
@@ -7848,6 +7944,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Small01.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Large01.dds"/>
+        <HighlightTooltip value="Unit/Name/DestructibleRock2x4HorizontalHighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleRock2x6Vertical ........................................................... -->
@@ -7859,6 +7956,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Small01.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Large01.dds"/>
+        <HighlightTooltip value="Unit/Name/DestructibleRock2x6VerticalHighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleRock2x6Horiztontal ........................................................ -->
@@ -7870,6 +7968,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Small01.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Large01.dds"/>
+        <HighlightTooltip value="Unit/Name/DestructibleRock2x6HorizontalHighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleRock4x4 ................................................................... -->
@@ -7881,6 +7980,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Small01.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Large01.dds"/>
+        <HighlightTooltip value="Unit/Name/DestructibleRock4x4HighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleRock6x6 .......................................................... -->
@@ -7892,6 +7992,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Small01.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Large01.dds"/>
+        <HighlightTooltip value="Unit/Name/DestructibleRock6x6HighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleRampDiagonalHugeBLUR ...................................................... -->
@@ -7903,6 +8004,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Small01.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Large01.dds"/>
+        <HighlightTooltip value="Actor/Name/DestructibleRampDiagonalHugeBLURHighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- DestructibleRampDiagonalHugeULBR....................................................... -->
@@ -7914,6 +8016,7 @@ Terran_AttackLaunch"/>
         <BarOffset value="22"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Small01.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-General-BelShirDestructible-Large01.dds"/>
+        <HighlightTooltip value="Actor/Name/DestructibleRampDiagonalHugeULBRHighlightTooltip"/>
     </CActorUnit>
     <!--                                                                                         -->
     <!-- ShakurasDestructible1x1 ............................................................... -->

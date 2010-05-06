@@ -133,6 +133,7 @@ e_gfxErrorWeRequireAdditionalPShaders=Starcraft II requires a videocard with pix
 e_gfxErrorWeRequireAdditionalVShaders=Starcraft II requires a videocard with vertex shader 2.0 support.
 e_gfxGraphicsAPIError=Starcraft II has encountered an unexpected D3D/OpenGL error. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
 e_gfxErrorNoHardwareAcceleration=Starcraft II requires a videocard with 3D acceleration support.
+e_gfxErrorDeviceUnavailable=Graphics device is not available at this time.
 
 // Galaxy
 e_badLValue=Cannot assign to the left side of assignment expression
