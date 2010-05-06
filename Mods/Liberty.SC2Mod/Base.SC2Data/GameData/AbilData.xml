@@ -138,7 +138,6 @@
             </SectionArray>
         </InfoArray>
         <Flags index="DisableAbils" value="1"/>
-        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>
@@ -273,7 +272,6 @@
         <Flags index="FastBuild" value="1"/>
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
-        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>
@@ -1186,8 +1184,7 @@
     <CAbilBuild id="BarracksAddOns" parent="TerranAddOns">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
         <BuildMorphAbil value="BarracksLiftOff"/>
-        <InfoArray index="Build1" Unit="BarracksTechLab" Time="25">
-            <Resource index="Vespene" value="25"/>
+        <InfoArray index="Build1" Unit="BarracksTechLab">
             <Button DefaultButtonFace="BuildTechLabBarracks"/>
         </InfoArray>
         <InfoArray index="Build2" Unit="BarracksNuclearReactor" Time="50"/>
@@ -1195,8 +1192,7 @@
     <CAbilBuild id="FactoryAddOns" parent="TerranAddOns">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
         <BuildMorphAbil value="FactoryLiftOff"/>
-        <InfoArray index="Build1" Unit="FactoryTechLab" Time="25">
-            <Resource index="Vespene" value="25"/>
+        <InfoArray index="Build1" Unit="FactoryTechLab">
             <Button DefaultButtonFace="BuildTechLabFactory"/>
         </InfoArray>
         <InfoArray index="Build2" Unit="FactoryNuclearReactor" Time="50"/>
@@ -1207,8 +1203,7 @@
     <CAbilBuild id="StarportAddOns" parent="TerranAddOns">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
         <BuildMorphAbil value="StarportLiftOff"/>
-        <InfoArray index="Build1" Unit="StarportTechLab" Time="25">
-            <Resource index="Vespene" value="25"/>
+        <InfoArray index="Build1" Unit="StarportTechLab">
             <Button DefaultButtonFace="BuildTechLabStarport"/>
         </InfoArray>
         <InfoArray index="Build2" Unit="StarportNuclearReactor" Time="50"/>
@@ -2208,6 +2203,7 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
         <MorphUnit value="Egg"/>
         <Flags index="DisableCollision" value="1"/>
+        <Flags index="KillOnCancel" value="1"/>
         <Flags index="KillOnFinish" value="1"/>
         <Flags index="Select" value="1"/>
         <InfoArray index="Train1" Category="Economy" Time="17" Alert="TrainWorkerComplete">
@@ -2285,7 +2281,6 @@
         <Flags index="FastBuild" value="1"/>
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
-        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>
@@ -2701,7 +2696,6 @@
         <Flags index="FastBuild" value="1"/>
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
-        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>
@@ -2818,7 +2812,6 @@
         <Flags index="FastBuild" value="1"/>
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
-        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>

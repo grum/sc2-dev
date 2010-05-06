@@ -204,7 +204,7 @@
         <LifeMax value="100"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="0.2734"/>
-        <AbilArray Link="Rally"/>
+        <AbilArray Link="move"/>
         <AbilArray Link="MorphtoInfestedTerran"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <CardLayouts>
@@ -213,7 +213,6 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="InfestedTerransEggPlacement">
@@ -4922,8 +4921,7 @@
         <!--        <AbilArray Link="stop"/> -->
         <AbilArray Link="BanelingAspect"/>
         <AbilArray Link="BanelingAspectFromZerglingBurrowed"/>
-        <!--        <AbilArray Link="move"/> -->
-        <AbilArray Link="Rally"/>
+        <AbilArray Link="move"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -4932,7 +4930,6 @@
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="BanelingAspect,Cancel" Row="2" Column="4"/>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="BanelingAspectFromZerglingBurrowed,Cancel" Row="2" Column="4"/>
-            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
         </CardLayouts>
         <Attributes index="Biological" value="1"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
@@ -5030,14 +5027,13 @@
         <VisionHeight value="4"/>
         <Sight value="5"/>
         <AbilArray Link="OverseerMut"/>
-        <AbilArray Link="Rally"/>
+        <AbilArray Link="move"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
-            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="OverseerMut,Cancel" Row="2" Column="4"/>
         </CardLayouts>
         <Attributes index="Biological" value="1"/>
@@ -5490,14 +5486,13 @@
         <VisionHeight value="4"/>
         <Sight value="5"/>
         <AbilArray Link="GuardianAspect"/>
-        <AbilArray Link="Rally"/>
+        <AbilArray Link="move"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="GuardianAspect,Cancel" Row="2" Column="4"/>
         </CardLayouts>
         <Attributes index="Biological" value="1"/>

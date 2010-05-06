@@ -1,0 +1,9 @@
+StarCraft II Beta – Patch 10 (version 0.12.0.15133)
+
+The latest patch notes can always be found on the StarCraft II Beta General Discussion forum.
+
+Bug Fixes
+
+    * Fixed an issue where Larva were not dying after being cancelled.
+    * Fixed an issue with Banelings, Brood Lords, and Overseers obeying their original Hatchery's rally point.
+

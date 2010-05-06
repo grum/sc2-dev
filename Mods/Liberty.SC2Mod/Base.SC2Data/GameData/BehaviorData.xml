@@ -746,7 +746,6 @@
         <Offset value="-1,-3"/>
         <Range value="1"/>
         <Limit value="19"/>
-        <Flags index="IgnoreMorph" value="1"/>
     </CBehaviorSpawn>
     <CBehaviorCreepSource id="makeCreep4x4">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
