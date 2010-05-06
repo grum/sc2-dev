@@ -1,9 +1,31 @@
 //==================================================================================================
-//  Zerg Melee Very Easy
+//  Zerg VeryEasy Skirmish AI
+//  This is a generated file. Do not edit directly.
 //==================================================================================================
 
-static void RandomInfantry (int player);
-static void LateGround (int player);
+//--------------------------------------------------------------------------------------------------
+//  Upgrades
+//--------------------------------------------------------------------------------------------------
+static void Upgrades (int player, int phase) {
+    if (phase >= 2) {
+        if (phase >= 3) {
+            if (phase >= 4) {
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+//  AirUpgrades
+//--------------------------------------------------------------------------------------------------
+static void AirUpgrades (int player, int phase) {
+    if (phase >= 2) {
+        if (phase >= 3) {
+            if (phase >= 4) {
+            }
+        }
+    }
+}
 
 //--------------------------------------------------------------------------------------------------
 //  ZergOpenGnd0
@@ -12,24 +34,26 @@ void ZergOpenGnd0 (int player) {
     AIClearStock(player);
 
     AISetStock( player, 1, c_ZB_Hatchery_Alias );
-	AISetStock( player, 2, c_ZU_Drone );
-    AISetStock( player, 1, c_ZU_Overlord );
-	AISetStock( player, 8, c_ZU_Drone );
+    AISetStock( player, 8, c_ZU_Drone );
+    AISetStockFarms( player, c_ZU_Overlord_Alias, c_stockNormalFarms);
+    AISetStock( player, 1, c_ZU_Queen );
     AISetStock( player, 1, c_ZB_Extractor );
 
-    AISetStock( player, 1, c_ZU_Queen );
-    AISetStock( player, 2, c_ZU_Overlord_Alias );    
+    // next attack should be around 1 units of about 100 resources after 480 seconds
+    AISetStock( player, 1, c_ZU_Roach );
+    // validation: 1 units above costing 100 average resources
 
-    // around 100 resources in about 2 units
-    AISetStock( player, 1, c_ZU_Hydralisk );
     ZergTechUp(player, 1);
+    Upgrades(player, 1);
 
-	if (AIEnableVeryEasyStockOpen(player, c_ZU_Drone)) {
-		return;
-	}
+    if (AIEnableStockOpen(player, c_ZU_Drone, 480, true, e_mainState_Mid0, e_mainSubState_GndA)) {
+	    return;
+    }
 
-    // around 300 resources in about 3 unit
-    RandomInfantry(player);
+    // next attack should be around 2 units of about 200 resources after 420 seconds
+    AIAddStringInt(player, c_ZU_Roach, 1);
+    AIAddStringInt(player, c_ZU_Hydralisk, 1);
+    // validation: 2 units above costing 250 average resources
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -38,23 +62,25 @@ void ZergOpenGnd0 (int player) {
 static void ZergMidGndA (int player) {
     AIClearStock(player);
 
-    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockIdle);
-
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockAlways);
     if (AISawCloakedUnit(player)) {
         AISetStock( player, 1, c_ZU_Overseer );
+        AISetStock( player, 1, c_ZB_SporeCrawler );
+    }
+    AISetStockUserData(player);
+
+    ZergTechUp(player, 2);
+    Upgrades(player, 2);
+
+    if (AIEnableStockMidA(player, c_ZU_Drone, 4, true, 900, e_mainState_Mid0, e_mainSubState_GndB)) {
+        return;
     }
 
-	AISetStockUserData(player);
-    AISetStock( player, 1, c_ZU_Queen );
-    ZergTechUp(player, 2);
-
-	if (AIEnableVeryEasyStockMidA(player, c_ZU_Drone, 3)) {
-		return;
-	}
-
-    // around 600 resources in about 4 unit
-    RandomInfantry(player);
-	AIAddStringInt(player, c_ZU_Infestor, 1);
+    // next attack should be around 3 units of about 300 resources after 360 seconds
+    AIAddStringInt(player, c_ZU_Zergling, 1);
+    AIAddStringInt(player, AIPickFrom2(c_ZU_Roach, c_ZU_Hydralisk), 1);
+    AIAddStringInt(player, AIPickFrom2(c_ZU_Roach, c_ZU_Hydralisk), 1);
+    // validation: 3 units above costing 275 average resources
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -63,110 +89,91 @@ static void ZergMidGndA (int player) {
 static void ZergMidGndB (int player) {
     AIClearStock(player);
 
-    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockIdle);
-
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockAlways);
     if (AISawCloakedUnit(player)) {
         AISetStock( player, 1, c_ZU_Overseer );
-        AISetStock( player, 2, c_ZB_SporeCrawler );
+        AISetStock( player, 1, c_ZB_SporeCrawler );
     }
+    AISetStockUserData(player);
 
-	AISetStockUserData(player);
-    AISetStock( player, 1, c_ZU_Queen );
-	ZergTechUp(player, 3);
+    ZergTechUp(player, 3);
+    Upgrades(player, 3);
 
-    if (AIEnableVeryEasyStockMidB(player, c_ZU_Drone, 4)) {
+    if (AIEnableStockMidB(player, c_ZU_Drone, 4, true, 1260, e_mainState_Late0, e_mainSubState_GndA)) {
         return;
     }
 
-    // around 900 resources in about 5 unit
-    LateGround(player);
-}
-
-//--------------------------------------------------------------------------------------------------
-//  LateGround
-//--------------------------------------------------------------------------------------------------
-static void LateGround (int player) {
-    int roll = RandomInt(0,2); // infestors
-    if (roll == 0) {
-        AIAddStringInt(player, c_ZU_Zergling, 1);
-        roll = RandomInt(2,6);
-        AIAddStringInt(player, c_ZU_Hydralisk, roll);
-        AIAddStringInt(player, c_ZU_Roach, 8 - roll);
-    }
-    else if (roll == 1) {
-        AIAddStringInt(player, c_ZU_Zergling, 1);
-        roll = RandomInt(2,3);
-        AIAddStringInt(player, c_ZU_Hydralisk, roll);
-        AIAddStringInt(player, c_ZU_Roach, 5 - roll);
-    	AIAddStringInt(player, c_ZU_Infestor, 1);
-    }
-    else { // infestors == 2
-	    AIAddStringInt(player, AIPickFrom2(c_ZU_Zergling, c_ZU_Roach), 1);
-        AIAddStringInt(player, c_ZU_Hydralisk, 2);
-    	AIAddStringInt(player, c_ZU_Infestor, 2);
-    }
+    // next attack should be around 5 units of about 450 resources after 300 seconds
+    AIAddStringInt(player, c_ZU_Zergling, 1);
+    AIAddStringInt(player, AIPickFrom2(c_ZU_Roach, c_ZU_Hydralisk), 1);
+    AIAddStringInt(player, AIPickFrom2(c_ZU_Roach, c_ZU_Hydralisk), 1);
+    AIAddStringInt(player, c_ZU_Mutalisk, 1);
+    // validation: 4 units above costing 475 average resources
 }
 
 //--------------------------------------------------------------------------------------------------
 //  LateGnd
 //--------------------------------------------------------------------------------------------------
 static void LateGnd (int player) {
+    int roll;
     AIClearStock(player);
 
-    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord, c_ZU_Drone, 8, c_stockIdle);
-    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 6000, 0, c_expandDefault);
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockAlways);
+    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 6000, 500, c_expandDefault);
 
-	AISetStockUserData(player);
+    AISetStockUserData(player);
+    AISetStock( player, 1, c_ZU_Overseer );
     AISetStock( player, 1, c_ZR_OverlordTransport );
-    AISetStock( player, 3, c_ZU_Overseer );
-    ZergTechUp(player, 4);
+    AISetStock( player, 1, c_ZU_Overseer );
 
-    if (AIEnableVeryEasyStockLate(player, c_TU_SCV, 4)) {
+    ZergTechUp(player, 4);
+    Upgrades(player, 4);
+
+    if (AIEnableStockLate(player, c_ZU_Drone, 4, 1260, 300)) {
         return;
     }
-    LateGround(player);
+
+    // next attack should be around 5 units of about 450 resources after 300 seconds
+    AIAddStringInt(player, c_ZU_Zergling, 1);
+    AIAddStringInt(player, AIPickFrom2(c_ZU_Roach, c_ZU_Hydralisk), 1);
+    AIAddStringInt(player, AIPickFrom2(c_ZU_Roach, c_ZU_Hydralisk), 1);
+    AIAddStringInt(player, c_ZU_Mutalisk, 1);
+    // validation: 4 units above costing 475 average resources
+
+    AISetFlag(player, e_flagsScouting, true);
 }
 
 //--------------------------------------------------------------------------------------------------
 //  ZergOpenAir0
 //--------------------------------------------------------------------------------------------------
 void ZergOpenAir0 (int player) {
-    fixed time = AIGetTime();
-
     AIClearStock(player);
-    AISetGasPeons(player, 3, c_ZU_Drone, c_ZB_Extractor );
 
     AISetStock( player, 1, c_ZB_Hatchery_Alias );
-    AISetStock( player, 1, c_ZU_Overlord );
-    AISetStock( player, 10, c_ZU_Drone );
-    AISetStock( player, 1, c_ZB_Extractor );
+    AISetStockFarms( player, c_ZU_Overlord_Alias, c_stockNormalFarms );
+    AISetStock( player, 8, c_ZU_Drone );
     AISetStock( player, 1, c_ZB_SpawningPool );
+    AISetStock( player, 1, c_ZB_Extractor );
+    AISetStock( player, 1, c_ZU_Queen );
+    AISetStock( player, 1, c_ZB_Lair );
+    AISetStock( player, 1, c_ZB_EvolutionChamber );
+    AISetStock( player, 1, c_ZB_Spire );
+    AISetStock( player, 1, c_ZR_OverseerSpeed );
 
-    if (time >= 150) {
-        AISetStock( player, 2, c_ZB_Extractor );
-        AISetStock( player, 1, c_ZB_Lair );
+    // next attack should be around 1 units of about 200 resources after 640 seconds
+    AISetStock( player, 1, c_ZU_Mutalisk );
+    // validation: 1 units above costing 200 average resources
 
-        if (time >= 200) {
-            AISetStock( player, 2, c_ZU_Overlord );
-            AISetStock( player, 1, c_ZB_Spire );
-            AISetStock( player, 1, c_ZU_Queen );
-            AISetStock( player, 1, c_ZB_HydraliskDen );
-            AISetStock( player, 1, c_ZU_Mutalisk );
-            AISetStock( player, 2, c_ZU_Hydralisk );
+    ZergTechUp(player, 1);
+    AirUpgrades(player, 1);
 
-            AISetGasPeons(player, 4, c_ZU_Drone, c_ZB_Extractor );
-        }
+    if (AIEnableStockOpen(player, c_ZU_Drone, 640, true, e_mainState_Mid0, e_mainSubState_AirA)) {
+	    return;
     }
-    AIEnableStock(player);
 
-    //---------------------------------------------------------
-
-    if (AITechCount(player, c_ZU_Mutalisk, c_techCountCompleteOnly) < 1) {
-        return;
-    }
-    AIWaveMerge(player, c_waveMain, c_waveAttack);
-    AISetAttackState(player, e_attackState_Attack);
-    AISetMainState(player, e_mainState_Mid1, e_mainSubState_AirA);
+    // next attack should be around 2 units of about 300 resources after 420 seconds
+    AIAddStringInt(player, c_ZU_Mutalisk, 2);
+    // validation: 2 units above costing 400 average resources
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -175,33 +182,27 @@ void ZergOpenAir0 (int player) {
 static void ZergMidAirA (int player) {
     AIClearStock(player);
 
-    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord, c_ZU_Drone, 8, c_stockIdle);
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockAlways);
+    AISetStock( player, 1, c_ZU_Overseer );
+    AISetStock( player, 1, c_ZR_OverlordTransport );
+    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 5000, 1500, c_expandDefault);
 
-    AISetStock( player, 1, c_ZU_Queen );
-    AISetStock( player, 1, c_ZB_Lair );
-    AISetStock( player, 1, c_ZU_Mutalisk );
-    AISetStock( player, 2, c_ZU_Hydralisk );
+    AISetStockUserData(player);
 
     AISetStock( player, 1, c_ZR_OverlordTransport );
-    AISetStock( player, 1, c_ZU_Overseer );
 
-    AISetStock( player, 1, c_ZB_EvolutionChamber );
-    AISetStock( player, 2, c_ZU_Mutalisk );
-    AISetStock( player, 3, c_ZB_SporeCrawler );
-    AISetStock( player, 1, c_ZU_Corruptor );
+    ZergTechUp(player, 2);
+    AirUpgrades(player, 2);
 
-    AIEnableStock(player);
-
-    AISetGasPeons(player, 4, c_ZU_Drone, c_ZB_Extractor );
-
-    //---------------------------------------------------------
-
-    if (AITechCount(player, c_ZU_Corruptor, c_techCountCompleteOnly) < 1) {
+    if (AIEnableStockMidA(player, c_ZU_Drone, 4, true, 1060, e_mainState_Mid0, e_mainSubState_AirB)) {
         return;
     }
-    AIWaveMerge(player, c_waveMain, c_waveAttack);
-    AISetAttackState(player, e_attackState_Attack);
-    AISetMainState(player, e_mainState_Mid1, e_mainSubState_AirB);
+
+    // next attack should be around 3 units of about 450 resources after 360 seconds
+    AIAddStringInt(player, c_ZU_Mutalisk, 3);
+    // validation: 3 units above costing 600 average resources
+
+    AISetFlag(player, e_flagsScouting, true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -210,38 +211,26 @@ static void ZergMidAirA (int player) {
 static void ZergMidAirB (int player) {
     AIClearStock(player);
 
-    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord, c_ZU_Drone, 8, c_stockIdle);
-    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 6000, 1000, c_expandDefault);
-
-    AISetStock( player, 1, c_ZU_Queen );
-    AISetStock( player, 2, c_ZU_Mutalisk );
-    AISetStock( player, 2, c_ZU_Hydralisk );
-
-    AISetStock( player, 1, c_ZR_OverlordTransport );
-    AISetStock( player, 1, c_ZR_OverseerSpeed );
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockAlways);
     AISetStock( player, 1, c_ZU_Overseer );
+    AISetStock( player, 1, c_ZR_OverlordTransport );
+    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 5000, 1500, c_expandDefault);
+    AISetStock( player, 1, c_ZR_OverlordTransport );
 
-    AISetStock( player, 3, c_ZB_SporeCrawler );
-    AISetStock( player, 1, c_ZU_Corruptor );
+    AISetStockUserData(player);
 
-    AISetStock( player, 3, c_ZU_Mutalisk );
-    AISetStock( player, 2, c_ZU_Corruptor );
 
-    AIEnableStock(player);
+    ZergTechUp(player, 3);
+    AirUpgrades(player, 3);
 
-    AISetGasPeons(player, 4, c_ZU_Drone, c_ZB_Extractor );
-
-    //---------------------------------------------------------
-
-    if (AIGetTime() < 1200) {
+    if (AIEnableStockMidB(player, c_ZU_Drone, 4, true, 1420, e_mainState_Late0, e_mainSubState_AirA)) {
         return;
     }
-    AIWaveMerge(player, c_waveMain, c_waveAttack);
-    AISetAttackState(player, e_attackState_Attack);
-    AISetMainState(player, e_mainState_Late1, e_mainSubState_AirA);
 
-    AISetFlag(player, e_flagsScouting, true);
-    AISetFlag(player, e_flagsClearObs, true);
+    // next attack should be around 5 units of about 675 resources after 300 seconds
+    AIAddStringInt(player, c_ZU_Zergling, 3);
+    AIAddStringInt(player, c_ZU_Mutalisk, 3);
+    // validation: 6 units above costing 675 average resources
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -249,51 +238,28 @@ static void ZergMidAirB (int player) {
 //--------------------------------------------------------------------------------------------------
 static void LateAir (int player) {
     AIClearStock(player);
+    AIClearStock(player);
 
-    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord, c_ZU_Drone, 8, c_stockIdle);
-    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 6000, 1000, c_expandDefault);
-
-    AISetStock( player, 1, c_ZU_Queen );
-    AISetStock( player, 2, c_ZU_Mutalisk );
-    AISetStock( player, 2, c_ZU_Hydralisk );
-
+    AIDefaultEconomy(player, c_ZB_Hatchery_Alias, c_ZB_Extractor, c_ZU_Overlord_Alias, c_ZU_Drone, 8, c_stockAlways);
+    AISetStock( player, 1, c_ZU_Overseer );
     AISetStock( player, 1, c_ZR_OverlordTransport );
-    AISetStock( player, 1, c_ZR_OverseerSpeed );
-    AISetStock( player, 2, c_ZU_Overseer );
+    AIDefaultExpansion(player, c_ZB_Hatchery_Alias, 5000, 1500, c_expandDefault);
+    AISetStock( player, 1, c_ZR_OverlordTransport );
 
-    AISetStock( player, 3, c_ZB_SporeCrawler );
-    AISetStock( player, 1, c_ZU_Corruptor );
+    AISetStockUserData(player);
+    AISetStock( player, 1, c_ZU_Overseer );
 
-    AISetStock( player, 4, c_ZU_Mutalisk );
-    AISetStock( player, 3, c_ZU_Corruptor );
-    AISetStock( player, 1, c_ZU_BroodLord );
-    AISetStock( player, 4, c_ZU_Overseer );
+    ZergTechUp(player, 4);
+    AirUpgrades(player, 4);
 
-    AISetStock( player, 1, c_ZR_CorruptorAttack );
-
-    AIEnableStock(player);
-
-    AISetGasPeons(player, 4, c_ZU_Drone, c_ZB_Extractor );
-
-    //---------------------------------------------------------
-
-    if (AIGetTime() % 300 > 5) {
+    if (AIEnableStockLate(player, c_ZU_Drone, 4, 1420, 300)) {
         return;
     }
-    AIWaveMerge(player, c_waveMain, c_waveAttack);
-    AISetAttackState(player, e_attackState_Attack);
 
-    AISetFlag(player, e_flagsScouting, true);
-    AISetFlag(player, e_flagsClearObs, true);
-}
-
-//--------------------------------------------------------------------------------------------------
-//	RandomInfantry
-//--------------------------------------------------------------------------------------------------
-static void RandomInfantry (int player) {
-	AIAddStringInt(player, c_ZU_Hydralisk, 1);
-	AIAddStringInt(player, AIPickFrom2(c_ZU_Hydralisk, c_ZU_Roach), 1);
-	AIAddStringInt(player, AIPickFrom2(c_ZU_Zergling, c_ZU_Roach), 1);
+    // next attack should be around 5 units of about 675 resources after 300 seconds
+    AIAddStringInt(player, c_ZU_Hydralisk, 1);
+    AIAddStringInt(player, c_ZU_Mutalisk, 3);
+    // validation: 4 units above costing 750 average resources
 }
 
 //--------------------------------------------------------------------------------------------------

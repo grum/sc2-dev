@@ -17,7 +17,7 @@ float4 ApplyWarps( float4 vVertexWS );
 
 #if ( b_enableVertexWarps ==1 || CPP_SHADER )
 
-#define MAX_WARPS 2
+#define MAX_WARPS 1
 
 struct VertexWarp {
     half3x4 vTransform;

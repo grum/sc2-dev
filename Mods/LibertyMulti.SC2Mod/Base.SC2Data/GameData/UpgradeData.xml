@@ -1,2 +1,58 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<Catalog/>
+<Catalog>
+    <CUpgrade default="1" id="ProtossAirWeapons">
+        <EffectArray index="5" Reference="Effect,VoidRayMUx3,Amount" Value="1"/>
+        <EffectArray index="6" Reference="Effect,VoidRayMUx3,AttributeBonus[e_unitAttributeArmored]" Value="2.000000"/>
+        <EffectArray index="7" Reference="Weapon,CarrierInterceptor,Level" Value="1"/>
+        <EffectArray index="8" Reference="Weapon,InterceptorBeam,Level"/>
+        <EffectArray index="9" Reference="Effect,InterceptorU,Amount"/>
+        <EffectArray index="10" Reference="Weapon,MothershipBeam,Level"/>
+        <EffectArray index="11" Reference="Effect,MothershipBeamDamage,Amount" Value="1.000000"/>
+        <EffectArray index="12" removed="1"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossAirWeaponsLevel1">
+        <EffectArray index="5" Reference="Effect,VoidRayMUx3,Amount" Value="1"/>
+        <EffectArray index="6" Reference="Effect,VoidRayMUx3,AttributeBonus[e_unitAttributeArmored]" Value="2.000000"/>
+        <EffectArray index="7" Reference="Weapon,CarrierInterceptor,Level" Value="1"/>
+        <EffectArray index="8" Reference="Weapon,InterceptorBeam,Level"/>
+        <EffectArray index="9" Reference="Effect,InterceptorU,Amount"/>
+        <EffectArray index="10" Reference="Weapon,MothershipBeam,Level"/>
+        <EffectArray index="11" Reference="Effect,MothershipBeamDamage,Amount" Value="1.000000"/>
+        <EffectArray index="12" removed="1"/>
+        <EffectArray index="13" removed="1"/>
+        <EffectArray index="14" removed="1"/>
+        <EffectArray index="15" removed="1"/>
+        <EffectArray index="16" removed="1"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossAirWeaponsLevel2">
+        <EffectArray index="5" Reference="Effect,VoidRayMUx3,Amount" Value="1"/>
+        <EffectArray index="6" Reference="Effect,VoidRayMUx3,AttributeBonus[e_unitAttributeArmored]" Value="2.000000"/>
+        <EffectArray index="7" Reference="Weapon,CarrierInterceptor,Level" Value="1"/>
+        <EffectArray index="8" Reference="Weapon,InterceptorBeam,Level"/>
+        <EffectArray index="9" Reference="Effect,InterceptorU,Amount"/>
+        <EffectArray index="10" Reference="Weapon,MothershipBeam,Level"/>
+        <EffectArray index="11" Reference="Effect,MothershipBeamDamage,Amount" Value="1.000000"/>
+        <EffectArray index="12" removed="1"/>
+        <EffectArray index="13" removed="1"/>
+        <EffectArray index="14" removed="1"/>
+        <EffectArray index="15" removed="1"/>
+        <EffectArray index="16" removed="1"/>
+    </CUpgrade>
+    <CUpgrade id="ProtossAirWeaponsLevel3">
+        <EffectArray index="5" Reference="Effect,VoidRayMUx3,Amount" Value="1"/>
+        <EffectArray index="6" Reference="Effect,VoidRayMUx3,AttributeBonus[e_unitAttributeArmored]" Value="2.000000"/>
+        <EffectArray index="7" Reference="Weapon,CarrierInterceptor,Level" Value="1"/>
+        <EffectArray index="8" Reference="Weapon,InterceptorBeam,Level"/>
+        <EffectArray index="9" Reference="Effect,InterceptorU,Amount"/>
+        <EffectArray index="10" Reference="Weapon,MothershipBeam,Level"/>
+        <EffectArray index="11" Reference="Effect,MothershipBeamDamage,Amount" Value="1.000000"/>
+        <EffectArray index="12" removed="1"/>
+        <EffectArray index="13" removed="1"/>
+        <EffectArray index="14" removed="1"/>
+        <EffectArray index="15" removed="1"/>
+        <EffectArray index="16" removed="1"/>
+    </CUpgrade>
+    <CUpgrade id="TunnelingClaws">
+        <EffectArray index="0" Value="1.406200"/>
+    </CUpgrade>
+</Catalog>

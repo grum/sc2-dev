@@ -1,0 +1,4 @@
+Effect/Name/PsiBlaster=Psi Blaster (Damage)
+Effect/Name/VoidRayMUx1=Void Ray (Damage Level 1)
+Effect/Name/VoidRayMUx2=Void Ray (Damage Level 2)
+Effect/Name/VoidRayMUx3=Void Ray (Damage Level 3)

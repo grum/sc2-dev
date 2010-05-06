@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+    <Constant name="MenuButtonColor" val="287d4b"/>
+    <Constant name="MenuButtonColor_Prot" val="2e63bb"/>
+    <Constant name="MenuButtonColor_Terr" val="287d4b"/>
+    <Constant name="MenuButtonColor_Zerg" val="794d25"/>
+    
     <Frame type="ThumbButton" name="MenuBarButtonTemplate">
         <NormalImage val="ButtonNormalImage"/>
         <HoverImage val="ButtonHoverImage"/>
         <Label val="ButtonLabel"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
         <ClickSound val="@UI_WindowPopUp"/>        
         <Width val="270"/>
-        <Color val="##StandardButtonBorder"/>
+        <Height val="29"/>
+        <Color val="##MenuButtonColor"/>
         
         <Frame type="Image" name="ButtonNormalImage">
-            <Texture val="@UI/MenuBarButtonBorder" layer="0"/>
-            <StateCount val="1" layer="0"/>
-            <TextureType val="Border" layer="0"/>
+            <Texture val="@UI/MenuBarButtonNormal" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <TextureType val="EndCap" layer="0"/>
             <DescFlags val="Internal"/>
         </Frame>
 
         <Frame type="Image" name="ButtonHoverImage">
-            <Texture val="@UI/MenuBarButtonBorder" layer="0"/>
-            <StateCount val="1" layer="0"/>
-            <TextureType val="Border" layer="0"/>
+            <Texture val="@UI/MenuBarButtonHover" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <TextureType val="EndCap" layer="0"/>
             <DescFlags val="Internal"/>
         </Frame>
 
@@ -35,30 +39,22 @@
 
         <Frame type="ThumbButton" name="AchievementButton" template="MenuBar/MenuBarButtonTemplate">           
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Shortcut val="@UI/MenuBarAchievement_Hotkey"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>            
         </Frame>
 
         <Frame type="ThumbButton" name="MenuButton" template="MenuBar/MenuBarButtonTemplate">           
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/AchievementButton" pos="Max" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Shortcut val="@UI/MenuBarGameMenu_Hotkey"/>           
+            <Anchor side="Left" relative="$parent/AchievementButton" pos="Max" offset="1"/>            
         </Frame>
 
         <Frame type="ThumbButton" name="MessagesButton" template="MenuBar/MenuBarButtonTemplate">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/MenuButton" pos="Max" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Shortcut val="@UI/MenuBarMessageLog_Hotkey"/>
+            <Anchor side="Left" relative="$parent/MenuButton" pos="Max" offset="1"/>            
         </Frame>
 
         <Frame type="ThumbButton" name="HelpButton" template="MenuBar/MenuBarButtonTemplate">            
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/MessagesButton" pos="Max" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Shortcut val="@UI/MenuBarHelp_Hotkey"/>
+            <Anchor side="Left" relative="$parent/MessagesButton" pos="Max" offset="1"/>            
         </Frame>      
         
     </Frame>

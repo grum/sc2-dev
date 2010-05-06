@@ -73,12 +73,12 @@ half4 EmitModelNormal( Input vertIn ) {
 
 //--------------------------------------------------------------------------------------------------
 // Tangent.
-half3 EmitModelTangent( Input vertIn ) {
+half4 EmitModelTangent( Input vertIn ) {
     if ( b_iShadingMode == SHADINGMODE_TERRAIN )
-        return ComputeGridTangent(vertIn.vNormal.xyz);
+        return half4(ComputeGridTangent(vertIn.vNormal.xyz), 1);
     else
         // :TODO: This will break parallax mapping - shouldn't normalize.
-        return normalize( vertIn.vTangent );
+        return half4(normalize( vertIn.vTangent.xyz ),1);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -188,7 +188,7 @@ void ModelVertexMain( in VertDecl streamIn, out VertexTransport vertOut ) {
     GenInterpolant( ViewPos,    EmitModelViewPos( vertIn ) );
     GenInterpolant( Normal,     EmitModelNormal( vertIn ) );
     GenInterpolant( Tangent,    EmitModelTangent( vertIn ) );
-    GenInterpolant( Binormal,   EmitModelBinormal( vertIn, INTERPOLANT_Tangent ) );
+    GenInterpolant( Binormal,   EmitModelBinormal( vertIn, INTERPOLANT_Tangent.xyz ) );
 
         // if we're doing creep, we need to adjust the tangent and binormal if the creep texture is rotated
     if (b_creepEnabled) {
@@ -226,7 +226,7 @@ void ModelVertexMain( in VertDecl streamIn, out VertexTransport vertOut ) {
     }
 
     GenInterpolant( ParallaxVector, EmitParallaxVector(     vertIn.vPosition.xyz, p_vEyePos, 
-                                                            INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent, INTERPOLANT_Binormal ) );
+                                                            INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal.xyz ) );
 
     // ryantodo: add splat attenuation plane?
     if (b_iShadingMode == SHADINGMODE_VECTORUI) {

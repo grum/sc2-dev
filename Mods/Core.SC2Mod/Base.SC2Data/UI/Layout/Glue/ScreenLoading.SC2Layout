@@ -20,16 +20,22 @@
         </Frame>       
         
         <Frame type="Image" name="AvatarImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-60"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-50"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="45"/>
         </Frame>
 
-        <Frame type="Image" name="ColorImage">
-            <Anchor side="Top" relative="$parent/AvatarImage" pos="Min" offset="0"/>
+        <Frame type="Image" name="TopColorImage">
+            <Anchor side="Top" relative="$parent/AvatarImage" pos="Min" offset="0"/>            
+            <Anchor side="Right" relative="$parent/AvatarImage" pos="Min" offset="0"/>
+            <Texture val="@UI/MultiplayerLoadingPanelPlayerFramePlayerColorTop" layer="0"/>            
+        </Frame>
+        
+        <Frame type="Image" name="BottomColorImage">
+            <Anchor side="Top" relative="$parent/TopColorImage" pos="Max" offset="0"/>
             <Anchor side="Bottom" relative="$parent/AvatarImage" pos="Max" offset="0"/>            
-            <Anchor side="Right" relative="$parent/AvatarImage" pos="Min" offset="0"/>            
-            <Width val="10"/>
+            <Anchor side="Right" relative="$parent/AvatarImage" pos="Min" offset="0"/>
+            <Texture val="@UI/MultiplayerLoadingPanelPlayerFramePlayerColorBottom" layer="0"/>            
         </Frame>
 
         <Frame type="Label" name="TeamLabel">
@@ -93,18 +99,25 @@
         </Frame>
 
         <Frame type="Image" name="AvatarImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-60"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-50"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-45"/>
         </Frame>
 
-        <Frame type="Image" name="ColorImage">
+        <Frame type="Image" name="TopColorImage">
             <Anchor side="Top" relative="$parent/AvatarImage" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/AvatarImage" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent/AvatarImage" pos="Max" offset="0"/>
-            <Width val="10"/>
+            <Anchor side="Left" relative="$parent/AvatarImage" pos="Max" offset="0"/>
+            <Texture val="@UI/MultiplayerLoadingPanelPlayerFramePlayerColorTop" layer="0"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
         </Frame>
 
+        <Frame type="Image" name="BottomColorImage">
+            <Anchor side="Top" relative="$parent/TopColorImage" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AvatarImage" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/AvatarImage" pos="Max" offset="0"/>
+            <Texture val="@UI/MultiplayerLoadingPanelPlayerFramePlayerColorBottom" layer="0"/>
+        </Frame>
+        
         <Frame type="Label" name="TeamLabel">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
@@ -428,131 +441,37 @@
             </Frame>            
         </Frame>
     </Frame>
-    
+
     <Frame type="LoadingBar" name="LoadingBarTemplate">
-        <Frame type="Image" name="LoadingBarBackdrop">
-            <Texture val="@@UI/LoadingBarBackdrop" layer="0"/>
+        <Frame type="Image" name="LoadingBarBackground">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarLeft">
-            <Texture val="@@UI/LoadingBarLeft" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarBackdrop" pos="Max" offset="-3"/>
-            <Anchor side="Left" relative="$parent/LoadingBarBackdrop" pos="Min" offset="-15"/>
+            <Texture val="@@UI/LoadingBarBackdrop"/>
         </Frame>
         
-        <Frame type="Image" name="LoadingBarCenter0">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarLeft" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarLeft" pos="Min" offset="16"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter1">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter0" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter2">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter1" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter3">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter2" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter4">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter3" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter5">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter4" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter6">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter5" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter7">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter6" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter8">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter7" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter9">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter8" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter10">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter9" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter11">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter10" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter12">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter11" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter13">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter12" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarCenter14">
-            <Texture val="@@UI/LoadingBarCenter" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter13" pos="Max" offset="-21"/>
-        </Frame>
-
-        <Frame type="Image" name="LoadingBarRight">
-            <Texture val="@@UI/LoadingBarRight" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/LoadingBarCenter0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/LoadingBarCenter14" pos="Max" offset="-21"/>
+        <Frame type="Image" name="LoadingBar">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@@UI/LoadingBarHighlight"/>
         </Frame>
 
         <Frame type="Image" name="LoadingBarMask">
-            <Texture val="@@UI/LoadingBarBackdrop" layer="0"/>
-            <Anchor side="Top" relative="$parent/LoadingBarBackdrop" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/LoadingBarBackdrop" pos="Max" offset="0"/>
-        </Frame>
-        
+            <Anchor side="Top" relative="$parent/LoadingBar" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/LoadingBar" pos="Max" offset="0"/>
+            <Texture val="@@UI/LoadingBarBackdrop"/>          
+        </Frame>       
+
         <Frame type="Image" name="LoadingBarFrame">
-            <Texture val="@@UI/LoadingBarFrame" layer="0"/>            
-            <Anchor side="Bottom" relative="$parent/LoadingBarBackdrop" pos="Max" offset="50"/>
+            <Anchor side="Bottom" relative="$parent/LoadingBar" pos="Max" offset="34"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
-        </Frame>        
-    </Frame>    
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@@UI/LoadingBarFrame"/>
+        </Frame>
+    </Frame>   
     
     <Frame type="ScreenLoading" name="ScreenLoading">
         <Anchor relative="$parent"/>
@@ -600,19 +519,25 @@
             </Frame>
         </Frame>        
         
+        <Frame type="Label" name="LoadingHelpLabel">
+            <Style val="LoadingHelpLabel"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-110"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Width val="880"/>
+        </Frame>        
+        
         <Frame type="LoadingBar" name="LoadingBar" template="ScreenLoading/LoadingBarTemplate">            
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="12"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="20"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
             <Height val="160"/>
             <Width val="1400"/>
         </Frame>
         
-        <Frame type="Label" name="LoadingLabel">
-		    <Style val="LoadingLabel"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-110"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Frame type="Label" name="LoadingBarLabel">
+            <Style val="LoadingBarLabel"/>
+            <Anchor relative="$parent/LoadingBar"/>
             <Height val="64"/>
         </Frame>        
     </Frame>

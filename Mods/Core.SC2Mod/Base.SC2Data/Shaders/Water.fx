@@ -192,7 +192,7 @@ void WaterVertexMain( in VertDecl streamIn, out VertexTransport vertOut ) {
 
     if ( !b_iCheapWater )
         INTERPOLANT_Normal   = float4(GerstnerWaveNormal(vertIn.vPosition.xyz),1);
-    INTERPOLANT_Tangent  = ComputeGridTangent(INTERPOLANT_Normal.xyz);
+    INTERPOLANT_Tangent  = float4(ComputeGridTangent(INTERPOLANT_Normal.xyz),1);
 
 
     #ifdef COMPILING_SHADER_FOR_OPENGL
@@ -303,9 +303,9 @@ float3 WaterNormal (in VertexTransport vertOut) {
     vNormal = normalize(vNormal);
     vNormal = TangentToWorld(
                 vNormal, 
-                INTERPOLANT_Normal, 
-                INTERPOLANT_Tangent, 
-                cross(INTERPOLANT_Tangent, INTERPOLANT_Normal),
+                INTERPOLANT_Normal.xyz, 
+                INTERPOLANT_Tangent.xyz, 
+                cross(INTERPOLANT_Tangent.xyz, INTERPOLANT_Normal.xyz),
                 true 
               );
 
@@ -320,9 +320,13 @@ float4 WaterPixelMain( VertexTransport vertOut ) : COLOR {
         //------------------------------------------------------------------------------------------
         InitShader( vertOut );
         float3 vNormal = WaterNormal(vertOut);
-        float3 eyeDir = normalize(INTERPOLANT_WorldPos - p_vEyePos);
+        float3 eyeDir = normalize(INTERPOLANT_WorldPos.xyz - p_vEyePos);
         float3 uv = GenCubicEnvio(eyeDir, vNormal, true);
-        return texCUBE(p_sEnvMap, uv.xyz);
+#if COMPILING_SHADER_FOR_OPENGL
+        return texCUBEbias(p_sEnvMap, float4(uv.xyz,-16));
+#else
+        return texCUBElod(p_sEnvMap, float4(uv.xyz,0));
+#endif
     } 
     else if ( b_iCheapWater || PIXEL_SHADER_VERSION < SHADER_VERSION_PS_30 ) {
         //------------------------------------------------------------------------------------------
@@ -352,6 +356,9 @@ float4 WaterPixelMain( VertexTransport vertOut ) : COLOR {
         // add fog
         vFinal.xyz = ApplyFog(vertOut, vFinal, 1);
         
+        if ( b_iUse8BitHDR )
+            vFinal.xyz *= 0.5f;
+        
         // add fog of war
         {
             float2 fowUv = Ndc2Tex(INTERPOLANT_FOWUV.xy, true );
@@ -372,7 +379,7 @@ float4 WaterPixelMain( VertexTransport vertOut ) : COLOR {
         float3 rnd = vNormal;
         
         // compute Frensel
-        float3 worldPos = INTERPOLANT_WorldPos;
+        float3 worldPos = INTERPOLANT_WorldPos.xyz;
         float3 eyeDir = normalize(p_vEyePos - worldPos);
         float frensel = ComputeFresnel(eyeDir, vNormal);
         
@@ -426,7 +433,7 @@ float4 WaterPixelMain( VertexTransport vertOut ) : COLOR {
         half4 cShadowColor = 1;
         {
             // distort shadow in world space
-            float3 vNewPos = INTERPOLANT_WorldPos + p_fShadowDistortion*rnd;
+            float3 vNewPos = INTERPOLANT_WorldPos.xyz + p_fShadowDistortion*rnd;
             vShadowUv = mul(float4(vNewPos, 1.f), p_mShadowTransform);
 
             MainLighting(   vertOut, vNormal, 

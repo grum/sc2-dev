@@ -1,0 +1,77 @@
+StarCraft II Beta – Patch 9 (0.11.0.15097)
+
+The latest patch notes can always be found on the StarCraft II Beta General Discussion forum.
+
+General
+
+    * The StarCraft II Editor is now available!
+          o Players will now be able to begin creating trigger maps in preparation for map publishing which will be made available in an upcoming beta patch.
+    * Achievements & Decals are now live!
+          o Players will now be able to earn achievements, browse the list of available achievements, and view achievements earned by friends.
+          o Players will be able to highlight favorite achievements in their Showcase.
+          o Earning certain achievements will unlock portrait and decal rewards.
+    * The updated Homepage now includes a Recent Broadcasts panel and a News & Community panel.
+    * A new Match History page is now available which will allow players to browse and filter their last 1,000 games played.
+    * A new Community page is now available which features an in-game version of RSS news feeds.
+    * A new Friends-of-Friends feature has been added, which allows players to easily find and connect with more real life friends on Battle.net through existing friends.
+    * Additional friends’ presence details are now available from the Friends’ list.
+    * Improvements have been made on the Voice Chat system in game.
+          o Please use the new voice chat and provide feedback via the StarCraft II beta forums. 
+    * The score screen now features a new graph tab.
+    * The art for many parts of the user interface has been updated.
+    * Hotkey templates have been added.
+          o In the gameplay options menu select from standard name based hotkeys for right and left-handed players, grid based hotkeys for right, and left-handed players, and classic StarCraft keys.
+    * Several hotkeys have been changed to avoid conflicts with the "Select All Warpgates" UI button:
+          o The Set Worker Rally Point has been changed from W to R.
+          o Build Sensor Tower has been changed from W to N.
+          o Terran Infantry Weapons have been changed from W to E.
+          o Terran Vehicle Weapons have been changed from W to E.
+          o Weapon Refit has been changed from W to R.
+          o Burrow has been changed from W to R.
+          o Spawn Larva has been changed from R to V.
+          o Neural Parasite has been changed from R to E.
+
+Balance Changes
+
+    * TERRAN
+          o Marauder
+                + Concussive Shells research cost decreased from 100/100 80 seconds to 50/50 60 seconds.
+
+    * PROTOSS
+          o Immortal
+                + Build time increased from 40 to 55.
+
+    * ZERG
+          o Infested Terran
+                + Damage increased from 5 to 8.
+                + Speed decreased from 1.5 to 0.9375.
+          o Queen
+                + Speed off creep decreased from 1.5 to 0.938. (Speed on creep unchanged.)
+          o Spine Crawler
+                + Attack period decreased from 1.6 to 1.85.
+          o Infestor
+                + Neural Parasite range increased from 7 to 9.
+                + Fungal Growth projectile removed; Units in the target area are now instantly hit.
+
+Maps
+
+    * We've made a change to the (2)ScrapStation map to make the natural expansion easier to defend.
+    * New maps have been added to the ladder rotation while others have been removed as follows:
+          o 1v1
+                + Added (2)IncinerationZone
+          o 2v2
+                + Removed (4)LostTemple
+                + Removed (4)Metalopolis
+                + Added (4)AridWastes
+                + Added (4)Coalition
+                + Added (4)Decena
+                + Added (4)ScorchedHaven
+          o 1v1(Novice)
+                + Removed (4)NoviceKulasRavine
+          o 2v2(Novice)
+                + Removed (4)NoviceKulasRavine
+                + Removed (4)NoviceShakurasPlateau
+                + Added (4)NoviceDecena
+                + Added (4)NoviceScorchedHaven
+                + Added (4)NoviceTwilightFortress
+

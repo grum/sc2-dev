@@ -55,7 +55,6 @@ HALF    p_fBloomThreshold;
 static const half3 c_vLuminanceWeights = half3(0.27f, 0.67f, 0.06f);
 static const float c_fEpsilon = 0.0001f;
 
-
 //--------------------------------------------------------------------------------------------------
 float3 ConvertRGBToYUV( float3 cRGB ) {
     float3 vYUV;
@@ -105,7 +104,7 @@ half4 HDRPixelMain( VertexOutput input ) : COLOR {
             cColor.rgb *= 2.0f;
         if ( b_useBloom ) {
             float3 bloom = tex2D( p_sBloomMap, input.vUV0.xy ).rgb;
-            if ( b_iUse8BitHDRPostProcess )
+            if ( b_iScaleBloom )
                 bloom *= 2.0f;  // Exaggerate bloom to compensate for capped HDR.
            cColor += bloom;
         }

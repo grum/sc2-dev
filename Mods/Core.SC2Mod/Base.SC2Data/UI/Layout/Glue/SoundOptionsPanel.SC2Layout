@@ -4,8 +4,9 @@
     <Constant name="CheckBoxToCheckBoxVerticalGap" val="50"/>
     <Constant name="ColumnLeftMarginGap" val="30"/>
     <Constant name="ColumnLeftMarginIndentGap" val="70"/>
-    <Constant name="ColumnRightMarginGap" val="-30"/>
-
+    <Constant name="ColumnRightMarginGap" val="-90"/>
+    <Constant name="SoundSliderValueGap" val="10"/>
+    
     <Frame type="Label" name="SoundHeaderLabelTemplate">
         <Style val="StandardPanelHeader"/>
     </Frame>
@@ -34,6 +35,7 @@
     <Frame type="SoundOptionsPanel" name="SoundOptionsPanelTemplate">
         <Frame type="Image" name="OuterBackground" template="StandardTemplates/StandardOuterBorderTemplate">
             <Anchor relative="$parent"/>
+            <RequiredDefines val="Terr|Zerg|Prot"/>
         </Frame>
 
         <Frame type="ThumbButton" name="RestoreButton" template="StandardTemplates/StandardButtonSmallTemplate">
@@ -78,8 +80,9 @@
             </Frame>
 
             <Frame type="Label" name="MasterVolumeValueLabel" template="SoundOptionsPanel/SoundSliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/MasterVolumeSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/MasterVolumeSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/MasterVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MasterVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/MasterVolumeSlider" pos="Max" offset="#SoundSliderValueGap"/>
             </Frame>
 
             <Frame type="CheckBox" name="MusicCheckBox" template="SoundOptionsPanel/SoundCheckBoxTemplate">
@@ -103,8 +106,9 @@
             </Frame>
 
             <Frame type="Label" name="MusicVolumeValueLabel" template="SoundOptionsPanel/SoundSliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/MusicVolumeSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/MusicVolumeSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/MusicVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MusicVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/MusicVolumeSlider" pos="Max" offset="#SoundSliderValueGap"/>
             </Frame>
 
             <Frame type="CheckBox" name="MusicContinuousCheckBox" template="SoundOptionsPanel/SoundCheckBoxTemplate">
@@ -154,8 +158,9 @@
             </Frame>
 
             <Frame type="Label" name="SoundAmbienceVolumeValueLabel" template="SoundOptionsPanel/SoundSliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/SoundAmbienceVolumeSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/SoundAmbienceVolumeSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/SoundAmbienceVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/SoundAmbienceVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/SoundAmbienceVolumeSlider" pos="Max" offset="#SoundSliderValueGap"/>
             </Frame>
 
             <Frame type="CheckBox" name="SoundEffectsCheckBox" template="SoundOptionsPanel/SoundCheckBoxTemplate">
@@ -179,8 +184,9 @@
             </Frame>
 
             <Frame type="Label" name="SoundEffectsVolumeValueLabel" template="SoundOptionsPanel/SoundSliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/SoundEffectsVolumeSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/SoundEffectsVolumeSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/SoundEffectsVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/SoundEffectsVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/SoundEffectsVolumeSlider" pos="Max" offset="#SoundSliderValueGap"/>
             </Frame>
 
             <Frame type="CheckBox" name="SoundUICheckBox" template="SoundOptionsPanel/SoundCheckBoxTemplate">
@@ -204,8 +210,9 @@
             </Frame>
 
             <Frame type="Label" name="SoundUIVolumeValueLabel" template="SoundOptionsPanel/SoundSliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/SoundUIVolumeSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/SoundUIVolumeSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/SoundUIVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/SoundUIVolumeSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/SoundUIVolumeSlider" pos="Max" offset="#SoundSliderValueGap"/>
             </Frame>
 
             <Frame type="CheckBox" name="SoundMovementCheckBox" template="SoundOptionsPanel/SoundCheckBoxTemplate">
@@ -355,8 +362,9 @@
             </Frame>
 
             <Frame type="Label" name="SoundChannelsValueLabel" template="SoundOptionsPanel/SoundSliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/SoundChannelsSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/SoundChannelsSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/SoundChannelsSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/SoundChannelsSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/SoundChannelsSlider" pos="Max" offset="#SoundSliderValueGap"/>
             </Frame>
         </Frame>
 

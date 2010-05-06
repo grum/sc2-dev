@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
     <CUpgrade default="1">
+        <Flags index="TechTreeCheat" value="1"/>
         <Name value="Upgrade/Name/##id##"/>
         <MaxLevel value="1"/>
         <Alert value="UpgradeComplete"/>

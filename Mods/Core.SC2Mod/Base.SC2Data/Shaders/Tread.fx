@@ -86,8 +86,8 @@ half4 EmitTreadNormal( Input vertIn ) {
 
 //--------------------------------------------------------------------------------------------------
 // Tangent.
-half3 EmitTreadTangent( Input vertIn ) {
-    return vertIn.vTangent;
+half4 EmitTreadTangent( Input vertIn ) {
+    return half4(vertIn.vTangent.xyz, 1);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -185,7 +185,7 @@ void TreadVertexMain( in Input vertIn, out VertexTransport vertOut ) {
     }
 
     INTERPOLANT_ParallaxVector  = EmitParallaxVector(   vertIn.vPosition.xyz, p_vEyePos, 
-                                                        INTERPOLANT_Normal, INTERPOLANT_Tangent, INTERPOLANT_Binormal );
+                                                        INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal.xyz );
 #ifdef COMPILING_SHADER_FOR_OPENGL
     vertOut.HPos.y *= -1.0;
     vertOut.HPos.z = 2.0 * (vertOut.HPos.z - (0.5 * vertOut.HPos.w));

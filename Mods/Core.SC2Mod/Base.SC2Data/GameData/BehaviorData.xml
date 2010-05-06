@@ -26,6 +26,7 @@
         <DurationBonusMax value="-1"/>
         <TimeScaleSource Value="Target"/>
         <Player Value="Unknown"/>
+        <BuffFlags index="Countdown" value="1"/>
         <BuffFlags index="RemoveDamageResponseExhausted" value="1"/>
         <DamageResponse Location="Defender"/>
         <KillCredit Value="Unknown"/>
@@ -66,14 +67,14 @@
     <CBehaviorBuff default="1" id="TimedLife">
         <InfoFlags index="Hidden" value="1"/>
         <DurationRandomMax value="0.5"/>
-        <DisplayCountdown index="Self" value="1"/>
-        <DisplayCountdown index="Ally" value="1"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
         <ExpireEffect value="TimedLifeFate"/>
         <KillCredit Value="Caster"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PrivateTimedLife" parent="TimedLife"/>
     <CBehaviorBuff id="PublicTimedLife" parent="TimedLife">
-        <DisplayCountdown index="Enemy" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PermanentlyCloaked">
         <Modification>

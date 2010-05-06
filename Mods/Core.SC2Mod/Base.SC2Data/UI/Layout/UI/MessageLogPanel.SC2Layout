@@ -1,40 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>    
     
-    <Frame type="MessageLogPanel" name="MessageLogPanelTemplate">
-        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+    <Frame type="MessageLogPanel" name="MessageLogPanelTemplate" template="StandardTemplates/StandardLargePanelTemplate">
         <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Width val="1600"/>
+        <Height val="1200"/>
 
-        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardBackgroundFrameTemplate">
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
-            <Width val="1180"/>
-            <Height val="1000"/>
-
-            <Frame type="Image" name="TopLeftFlavorImage">
-                <Anchor side="Left" relative="$parent" pos="Min" offset="120"/>
-            </Frame>
-
-            <Frame type="Image" name="TopRightFlavorImage">
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-120"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="Label" name="MessageLogTitleLabel">
+        <Frame type="Label" name="MessageLogTitleLabel">            
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="50"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="80"/>
             <Text val="@UI/MessageLog"/>
             <Style val="GameFrameTitle"/>
-            <Anchor side="Top" relative="$parent/BackgroundFrame" pos="Min" offset="100"/>
-            <Anchor side="Left" relative="$parent/BackgroundFrame" pos="Min" offset="100"/>            
         </Frame>
 
         <Frame type="Image" name="SubFrame">
-            <Anchor side="Top" relative="$parent\BackgroundFrame" pos="Min" offset="130"/>
-            <Anchor side="Bottom" relative="$parent\BackgroundFrame" pos="Max" offset="-150"/>
-            <Anchor side="Left" relative="$parent\BackgroundFrame" pos="Min" offset="85"/>
-            <Anchor side="Right" relative="$parent\BackgroundFrame" pos="Max" offset="-85"/>
+            <Anchor side="Top" relative="$parent\MessageLogTitleLabel" pos="Max" offset="10"/>
+            <Anchor side="Bottom" relative="$parent\BorderImage" pos="Max" offset="-70"/>
+            <Anchor side="Left" relative="$parent\BorderImage" pos="Min" offset="60"/>
+            <Anchor side="Right" relative="$parent\BorderImage" pos="Max" offset="-60"/>
             <Texture val="@@UI/InGameFrameSubFrame" layer="0"/>
             <TextureType val="Border" layer="0"/>
             <Tiled val="true" layer="0"/>
@@ -48,12 +33,12 @@
             <Anchor side="Right" relative="$parent\SubFrame" pos="Max" offset="0"/>
         </Frame>
         
-        <Frame type="HelpPanelListBox" name="HelpItemListBox" template="StandardTemplates/StandardListBoxTemplate">            
+        <Frame type="ListBox" name="HelpItemListBox" template="StandardTemplates/StandardListBoxTemplate">            
             <Anchor side="Top" relative="$parent\SubFrame" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent\SubFrame" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent\SubFrame" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent\SubFrame" pos="Max" offset="0"/>
-            <ItemDesc val="HelpPanel/HelpPanelListItem"/>
+            <ItemDesc val="HelpPanel/HelpPanelListBoxItem"/>
             <ItemHeight val="0"/>
             <ItemGap val="-4"/>
             <SelectedImage val="SelectedTipAlertImage"/>
@@ -64,33 +49,13 @@
             </Frame>
         </Frame>
 
-        <Frame type="Frame" name="InfestationFrame" template="StandardTemplates/StandardLargeInfestationFrameTemplate">
-            <Anchor side="Left" relative="$parent\BackgroundFrame" pos="Min" offset="-40"/>
-            <Anchor side="Right" relative="$parent\BackgroundFrame" pos="Max" offset="40"/>
-            <Anchor side="Top" relative="$parent\BackgroundFrame" pos="Min" offset="-60"/>
-            <Anchor side="Bottom" relative="$parent\BackgroundFrame" pos="Max" offset="0"/>
-        </Frame>
-        
-        <Frame type="Image" name="CloseButtonBackground">
-            <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame" pos="Max" offset="-25"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame" pos="Max" offset="-20"/>
-            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
-        </Frame>
-
-        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardGamePanelLargeRightButtonTemplate">
-            <Label val="CloseButtonLabel"/>
-            <Anchor side="Bottom" relative="$parent/CloseButtonBackground" pos="Max" offset="-55"/>
-            <Anchor side="Left" relative="$parent/CloseButtonBackground" pos="Min" offset="51"/>
+        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardLargePanelRightButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="10"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="0"/>
+            <RenderPriority val="530"/>
             <Shortcut val="@UI/Close_Hotkey"/>
-            
-            <Frame type="Label" name="CloseButtonLabel">
-                <Text val="@UI/Close"/>
-                <Style val="GameFrameLargeBottomButton"/>
-                <DescFlags val="Internal"/>
-            </Frame>
-        </Frame>        
-
+            <Text val="@UI/Close_Control"/>
+        </Frame>
     </Frame>
 </Desc>
 

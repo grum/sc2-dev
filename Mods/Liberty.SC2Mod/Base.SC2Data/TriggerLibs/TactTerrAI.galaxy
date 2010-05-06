@@ -1,15 +1,18 @@
 //--------------------------------------------------------------------------------------------------
+//  *** Tactical Terran AI ***
+//--------------------------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------------------------
 //  *** THOR ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeThor (int player, unit aiUnit) {
-    return AIAbilityFixed(player, c_AB_250mmStrikeCannons, c_fieldRange0) + 1;
-}
 
 order AIOrder250mmStrikeCannons(int player, unit aiUnit, unitgroup scanGroup, marker mark) {
     order ord;
     fixed damage;
     aifilter filter;
     bool airAllies;
+    unitgroup targetGroup;
 
     ord = AICreateOrder(player, c_AB_250mmStrikeCannons, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
@@ -23,7 +26,7 @@ order AIOrder250mmStrikeCannons(int player, unit aiUnit, unitgroup scanGroup, ma
     filter = AIFilter(player);
     AISetFilterAlliance(filter, c_playerGroupEnemy);
     AISetFilterBits(filter, UnitFilterStr(AIAbilityStr(player, c_AB_250mmStrikeCannons, c_fieldTargetFiltersAB)));
-    AISetFilterRange(filter, aiUnit, AIRangeThor(player, aiUnit));
+    AISetFilterRange(filter, aiUnit, AIAbilityFixed(player, c_AB_250mmStrikeCannons, c_fieldRange0));
     AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, mark);
     AISetFilterLife(filter, damage*c_minDamageFraction, c_noMax);
     AISetFilterLifeSortReference(filter, damage, damage*c_distanceFromDamage);
@@ -31,7 +34,7 @@ order AIOrder250mmStrikeCannons(int player, unit aiUnit, unitgroup scanGroup, ma
     //
     airAllies = AINearbyPlaneTest(UnitGetPosition(aiUnit), 
                                   player, 
-                                  AIRangeThor(player, aiUnit), 
+                                  AIAbilityFixed(player, c_AB_250mmStrikeCannons, c_fieldRange0), 
                                   c_planeAir, 
                                   c_unitAllianceAlly)
                                   ;
@@ -39,14 +42,24 @@ order AIOrder250mmStrikeCannons(int player, unit aiUnit, unitgroup scanGroup, ma
 
     //  Select starting from the end, which is the target that has health closest to the cannon's damage
     //
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
-    return AIUnitGroupGetValidOrder(scanGroup, ord, aiUnit, c_backwards);
+    targetGroup = AIGetFilterGroup(filter, scanGroup);
+    if (targetGroup == null) {
+        return null;
+    }
+
+    return AIUnitGroupGetValidOrder(targetGroup, ord, aiUnit, c_backwards);
 }
 
 void AIThinkThor (int player, unit aiUnit, unitgroup scanGroup) {
     order ord;
     marker mark;
     
+    if (AIIsCampaign(player)) {
+        if (PlayerDifficulty(player) < c_campAdvanced) {
+            return;
+        }
+    }
+
     //  If we already have a cannon order, ignore new orders so that we do not count
     //  our own marker again, when validating.
     //
@@ -64,16 +77,18 @@ void AIThinkThor (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** GHOST ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeGhost (int player, unit aiUnit) {
-    return MaxF(AIAbilityFixed(player, c_AB_EMP, c_fieldRange0) + 1,
-                AIAbilityFixed(player, c_AB_Snipe, c_fieldRange0) + 1);
-}
+const int c_snipeCooldown = c_tactTimerFirst;
 
 //---------------------------------------------------------------------------------------------
 order AIOrderSnipe (int player, unit aiUnit, unitgroup scanGroup, marker mark) {
     order ord;
     fixed damage;
     aifilter filter;
+    unitgroup targetGroup;
+
+    if (!AITactCooldownAllow(aiUnit, c_snipeCooldown)) {
+        return null;
+    }
 
     ord = AICreateOrder(player, c_AB_Snipe, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
@@ -92,8 +107,12 @@ order AIOrderSnipe (int player, unit aiUnit, unitgroup scanGroup, marker mark) {
     //  Select starting from the end, to obtain the target that has health closest to snipe
     //  damage.
     //
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
-    return AIUnitGroupGetValidOrder(scanGroup, ord, aiUnit, c_backwards);
+    targetGroup = AIGetFilterGroup(filter, scanGroup);
+    if (targetGroup == null) {
+        return null;
+    }
+
+    return AIUnitGroupGetValidOrder(targetGroup, ord, aiUnit, c_backwards);
 }
 
 //
@@ -108,6 +127,7 @@ void AIThinkGhost (int player, unit aiUnit, unitgroup scanGroup) {
     marker mark;
     order ord;
     int randomVal;
+    fixed cooldown = 0.0;
 
     //  Add a delay on campaign.
     //
@@ -117,14 +137,27 @@ void AIThinkGhost (int player, unit aiUnit, unitgroup scanGroup) {
         }
     }
 
-    if (AIEvalTacticalData(aiUnit, null)) {
-        return;
+    if (!AIIsCampaign(player) || PlayerDifficulty(player) >= c_campAdvanced) {
+        // cloaking will be disabled by xml on campaign
+        // cloaking & emp
+        if (AIEvalTacticalData(aiUnit, null)) {
+            return;
+        }
     }
 
     mark = AIMarker(aiUnit, c_MK_Snipe);
-    ord = AIOrderSnipe(player, aiUnit, scanGroup, mark); // this modifies scanGroup.
+    ord = AIOrderSnipe(player, aiUnit, scanGroup, mark);
     if (ord != null) {
-        AICast(aiUnit, ord, mark, c_castHold);
+        if (AIIsCampaign(player)) {
+            if (PlayerDifficulty(player) < c_campAdvanced) {
+                cooldown = 8.0;
+            }
+            else if (PlayerDifficulty(player) < c_campExpert) {
+                cooldown = 3.0;
+            }
+        }
+
+        AICastCooldown(aiUnit, ord, mark, c_castHold, c_snipeCooldown, cooldown);
         return;
     }
 }
@@ -132,9 +165,6 @@ void AIThinkGhost (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** REAPER ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeReaper (int player, unit aiUnit) {
-    return AIWeaponFixed(player, c_WE_Reaper, c_fieldRange);
-}
 
 const int c_BldgOnlyPercent = 60;
 
@@ -147,6 +177,7 @@ order AIOrderReapMine (int player, unit aiUnit, unitgroup scanGroup, marker mark
     aifilter filter;
     unitfilter f;
     int bonus;
+    unitgroup targetGroup;
 
     //  See if this spell can be cast at all.
     //
@@ -178,11 +209,11 @@ order AIOrderReapMine (int player, unit aiUnit, unitgroup scanGroup, marker mark
     
     //  Pick a building/unit with no allies nearby, starting with lowest health buildings that passed above tests.
     //
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
-    scanCount = UnitGroupCount(scanGroup, c_unitCountAll);
+    targetGroup = AIGetFilterGroup(filter, scanGroup);
+    scanCount = UnitGroupCount(targetGroup, c_unitCountAll);
 
     while (scanCount > 0) {
-        target = UnitGroupUnit(scanGroup, scanCount);
+        target = UnitGroupUnit(targetGroup, scanCount);
         scanCount = scanCount - 1;
     
         //  For now, Reapers are only used as a diversion wave, so we can't target photon cannons.
@@ -214,34 +245,44 @@ order AIOrderReapMine (int player, unit aiUnit, unitgroup scanGroup, marker mark
     return null;
 }
 
-void AIThinkReaper (int player, unit aiUnit, unitgroup scanGroup) {
-    // **Reaper AI reproduced in XML**
-    //  Melee AI does not call this AIThink routine.
-
-    //  Reaper AI is left in TactTerrAI to serve as an example of two different ways to write the same
-    //  AI.  To see the xml equivalent of the Reaper AI, look in TacticalData.xml and TargetFindData.xml.
-    //  In general, AI implemented in galaxy scripts will be slower than AI implemented in data.
-    //  If it is convenient to express AI in data, one should do so.  In this case, converting reaper AI 
-    //  to xml resulted in a 2x performance gain.
-    //
-    marker mark = AIMarker(aiUnit, c_MK_D8Charge);
-    order ord;
-
-    scanGroup = UnitGroupFilterPlane(scanGroup, c_planeGround, 0);
-    ord = AIOrderReapMine(player, aiUnit, scanGroup, mark); //  Modifies scanGroup.
-    if (ord == null) {
-        return;
-    }
-    AICast(aiUnit, ord, mark, c_castRetreat);
-}
+//void AIThinkReaper (int player, unit aiUnit, unitgroup scanGroup) {
+//    // **Reaper AI reproduced in XML**
+//    //  Melee AI does not call this AIThink routine.
+//
+//    //  Reaper AI is left in TactTerrAI to serve as an example of two different ways to write the same
+//    //  AI.  To see the xml equivalent of the Reaper AI, look in TacticalData.xml and TargetFindData.xml.
+//    //  In general, AI implemented in galaxy scripts will be slower than AI implemented in data.
+//    //  If it is convenient to express AI in data, one should do so.  In this case, converting reaper AI 
+//    //  to xml resulted in a 2x performance gain.
+//    //
+//    marker mark = AIMarker(aiUnit, c_MK_D8Charge);
+//    order ord;
+//    unitgroup targetGroup;
+//
+//    targetGroup = UnitGroupFilterPlane(scanGroup, c_planeGround, 0);
+//    ord = AIOrderReapMine(player, aiUnit, targetGroup, mark);
+//    if (ord == null) {
+//        return;
+//    }
+//    AICast(aiUnit, ord, mark, c_castRetreat);
+//}
 
 //--------------------------------------------------------------------------------------------------
 //  *** BATTLE CRUISER ***
 //--------------------------------------------------------------------------------------------------
+const int c_yamatoCooldown = c_tactTimerFirst;
+
 order AIOrderYamato (int player, unit aiUnit, unitgroup scanGroup, marker mark) {
     order ord;
     aifilter filter;
     fixed damage;
+    unitgroup targetGroup;
+
+    if (AIIsCampaign(player)) {
+        if (PlayerDifficulty(player) < c_campAdvanced) {
+            return null;
+        }
+    }
 
     //  Only cast as part of an existing offensive.
     //
@@ -262,11 +303,15 @@ order AIOrderYamato (int player, unit aiUnit, unitgroup scanGroup, marker mark) 
     //
     filter = AIFilter(player);
     AISetFilterAlliance(filter, c_playerGroupEnemy);
+    AISetFilterBits(filter, UnitFilterStr("-;Missile,Self,Stasis,Dead,Hidden,Invulnerable"));
     AISetFilterLifePerMarker(filter, damage, mark);
     AISetFilterLifeSortReference(filter, damage, damage*c_distanceFromDamage); 
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
+    targetGroup = AIGetFilterGroup(filter, scanGroup);
+    if (targetGroup == null) {
+        return null;
+    }
     
-    return AIUnitGroupGetValidOrder(scanGroup, ord, aiUnit, c_backwards);
+    return AIUnitGroupGetValidOrder(targetGroup, ord, aiUnit, c_backwards);
 }
 
 //---------------------------------------------------------------------------------------------
@@ -276,6 +321,11 @@ void AIThinkBattleCruiser (int player, unit aiUnit, unitgroup scanGroup) {
     
     marker mark;
     order ord;
+    fixed cooldown;
+
+    if (!AITactCooldownAllow(aiUnit, c_yamatoCooldown)) {
+        return;
+    }
 
     //  If we already have a yamato order, ignore new orders so that we do not count
     //  our own markers again.
@@ -283,11 +333,16 @@ void AIThinkBattleCruiser (int player, unit aiUnit, unitgroup scanGroup) {
         return;
     }
     
-    //  This modifies scanGroup, which is Ok.. so long as it is not used elsewhere.
     mark = AIMarker(aiUnit, c_MK_Yamato);
     ord = AIOrderYamato(player, aiUnit, scanGroup, mark);
     if (ord != null) {
-        AICast(aiUnit, ord, mark, c_castHold);
+        if (AIIsCampaign(player) && PlayerDifficulty(player) < c_campExpert) {
+            cooldown = 8.0;
+        }
+        else {
+            cooldown = 0.0;
+        }
+        AICastCooldown(aiUnit, ord, mark, c_castHold, c_yamatoCooldown, cooldown);
         return;
     }
 }
@@ -295,9 +350,6 @@ void AIThinkBattleCruiser (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** VIKING (ground mode) ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeViking (int player, unit aiUnit) {
-    return AIWeaponFixed(player, c_WE_VikingFighter, c_fieldRange) + 2;
-}
 
 point VikingModeChange (int player, unit aiUnit, unitgroup scanGroup, bool inAssault) {
     int scanCount;
@@ -308,18 +360,19 @@ point VikingModeChange (int player, unit aiUnit, unitgroup scanGroup, bool inAss
     string type = AIGetBullyType(aiUnit);
     point here = UnitGetPosition(aiUnit);
     point there;
-    unitgroup scanGroupThreat;
+    unitgroup targetGroupThreat;
     int onGroundThreatCount;
+    unitgroup targetGroup;
 
     //  First, find all units within viking range.
     //
-    scanGroup = UnitGroupFilterRegion(scanGroup, RegionCircle(here, AIRangeViking(player, null)), 0);
-    inAir = UnitGroupCount(scanGroup, c_unitCountAlive);
+    targetGroup = UnitGroupFilterRegion(scanGroup, RegionCircle(here, AIWeaponFixed(player, c_WE_VikingFighter, c_fieldRange)+2), 0);
+    inAir = UnitGroupCount(targetGroup, c_unitCountAll);
 
     //  Next, find the number of ground and air units within viking range.
     //
-    scanGroup = UnitGroupFilterPlane(scanGroup, c_planeGround, 0);
-    onGround = UnitGroupCount(scanGroup, c_unitCountAlive);
+    targetGroup = UnitGroupFilterPlane(targetGroup, c_planeGround, 0);
+    onGround = UnitGroupCount(targetGroup, c_unitCountAll);
     inAir = inAir - onGround; // air = all - ground
 
     //  If a bully type is set, check to see if we're in the right mode if idle.
@@ -334,8 +387,8 @@ point VikingModeChange (int player, unit aiUnit, unitgroup scanGroup, bool inAss
 
     //  Only pay attention to threats on the ground.
     //
-    scanGroupThreat = UnitGroupFilterThreat(scanGroup, aiUnit, null, 0);
-    onGroundThreatCount = UnitGroupCount(scanGroupThreat, c_unitCountAlive);
+    targetGroupThreat = UnitGroupFilterThreat(targetGroup, aiUnit, null, 0);
+    onGroundThreatCount = UnitGroupCount(targetGroupThreat, c_unitCountAlive);
 
     if (inAssault) { // viking is on ground.
         //  Go to air mode when there's nothing on the ground anymore.
@@ -363,7 +416,7 @@ point VikingModeChange (int player, unit aiUnit, unitgroup scanGroup, bool inAss
             //  we are guaranteed to be able to navigate to it.
             //
             while (onGround > 0) {
-                there = UnitGetPosition(UnitGroupUnit(scanGroup, onGround));
+                there = UnitGetPosition(UnitGroupUnit(targetGroup, onGround));
                 testCliffLevel = CliffLevel(there);
                 if (cliffLevel >= testCliffLevel) {
                     return there;
@@ -390,7 +443,7 @@ void AIThinkVikingAssault (int player, unit aiUnit, unitgroup scanGroup) {
     //  Check the number of air units to decide whether to ignore based on order count.
     //
     airGroup = UnitGroupFilterRegion(scanGroup, 
-                                     RegionCircle(UnitGetPosition(aiUnit), AIRangeViking(player, null)), 
+                                     RegionCircle(UnitGetPosition(aiUnit), AIWeaponFixed(player, c_WE_VikingFighter, c_fieldRange)+2), 
                                      0)
                                      ;
     airGroup = UnitGroupFilterPlane(airGroup, c_planeAir, 0);
@@ -445,6 +498,7 @@ unit CampaignWantsToBeInBunker (int player, unit aiUnit, unitgroup bunkerGroup, 
     int bunkerCount;
     unit unitToCheck;
     bool wantsToBeInBunker;
+    order unitOrder;
 
     //  When loading, check to see if there is space in the bunker at all.
     //
@@ -464,6 +518,9 @@ unit CampaignWantsToBeInBunker (int player, unit aiUnit, unitgroup bunkerGroup, 
         if (!UnitIsAlive(unitToCheck)) {
             continue;
         }
+        if (AIIsScriptControlled(unitToCheck)) {
+            continue;
+        }
         //  When loading, make sure the unit is not allready in a transport.
         //
         if (!unload) {
@@ -476,25 +533,27 @@ unit CampaignWantsToBeInBunker (int player, unit aiUnit, unitgroup bunkerGroup, 
         //
         wantsToBeInBunker = true;
 
-        //  The unit is forced to move, do not load.
         if (AIControlForceToMove(unitToCheck)) {
+            // If the unit is forced to move, it shouldn't be in the bunker even in combat
             wantsToBeInBunker = false;
         }
-        //  The unit wants to execute order, do not load.
-        else if (UnitOrderCount(unitToCheck) > 0) {
-            wantsToBeInBunker = false;
-        }
-        //  The unit wants to move, do not load if safe.
-        else if (AIControlWantsToMove(unitToCheck)) {
-            if (!AIUnitIsInCombat(unitToCheck) && !AIUnitIsInCombat(aiUnit)) {
+        else if (!AIUnitIsInCombat(unitToCheck) && !AIUnitIsInCombat(aiUnit)) {
+            // Otherwise the unit will only want to be out of the bunker if not combat is happening
+            
+            //  The unit wants to execute a non attack order.
+            unitOrder = UnitOrder(aiUnit, 0);
+            if (unitOrder != null && !AIIsAttackOrder(unitOrder)) {
                 wantsToBeInBunker = false;
             }
-        }
-        else {
-            // Need to check the home point
-            if (AIGetHomePosition(unitToCheck) == c_nullPoint) {
+            //  The unit wants to move.
+            else if (AIControlWantsToMove(unitToCheck)) {
                 wantsToBeInBunker = false;
             }
+            // Unit has no home point
+            else if (AIGetHomePosition(unitToCheck) == c_nullPoint) {
+                wantsToBeInBunker = false;
+            }
+            // Unit's home point is too far away
             else if (!PointsInRange(UnitGetPosition(aiUnit), AIGetHomePosition(unitToCheck), c_campaignBunkerLoadRange)) {
                 wantsToBeInBunker = false;
             }
@@ -520,11 +579,12 @@ bool CargoDefend (int player, unit aiUnit, unitgroup scanGroup, int searchRange,
     order ord = null;
     bool autoLoad = false;
     bool wantsToBeInBunker;
+    unitgroup targetGroup;
 
-    scanGroup = UnitGroupFilterThreat(scanGroup, aiUnit, null, 0);
-    scanGroup = UnitGroupFilterRegion(scanGroup, RegionCircle(UnitGetPosition(aiUnit), searchRange), 0);
+    targetGroup = UnitGroupFilterThreat(scanGroup, aiUnit, null, 0);
+    targetGroup = UnitGroupFilterRegion(targetGroup, RegionCircle(UnitGetPosition(aiUnit), searchRange), 0);
     
-    if (UnitGroupCount(scanGroup, c_unitCountAlive) == 0) { // no nearby enemies.
+    if (UnitGroupCount(targetGroup, c_unitCountAlive) == 0) { // no nearby enemies.
 
         //  Both checks are needed because auto loading bunkers is needed on campaign before the
         //  AI is active.....
@@ -582,6 +642,9 @@ bool CargoDefend (int player, unit aiUnit, unitgroup scanGroup, int searchRange,
             if (!UnitIsAlive(unitToCheck)) {
                 continue;
             }
+            if (AIIsScriptControlled(unitToCheck)) {
+                continue;
+            }
             if (UnitTestState(unitToCheck, c_unitStateInsideTransport)) {
                 continue;
             }
@@ -606,19 +669,44 @@ bool CargoDefend (int player, unit aiUnit, unitgroup scanGroup, int searchRange,
 //--------------------------------------------------------------------------------------------------
 //  *** COMMAND CENTER ***
 //--------------------------------------------------------------------------------------------------
+
+void AIThinkCommandCenter(int player, unit aiUnit, unitgroup scanGroup) {
+    // also used for planetary fortress
+    order ord;
+
+    if (CargoDefend(player, aiUnit, scanGroup, 10, 10, c_TU_SCV, c_AB_CommandCenterChange))
+    {
+        return;
+    }
+
+    // rally
+    if (AIEvalTacticalData(aiUnit, null)) {
+        return;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+//  *** ORBITAL COMMAND ***
+//--------------------------------------------------------------------------------------------------
+
 static order CallDownSupply (int player, unit aiUnit) {
     unitgroup scanGroup;
     int scanCount;
     unit depot;
     order ord;
     aifilter filter;
+    unitgroup targetGroup;
     
+    if (AIIsCampaign(player)) {
+        return null;
+    }
+
     ord = AICreateOrder(player, c_AB_SupplyDrop, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
         return null;
     }
 
-    scanGroup = AIFindUnits(player, "SupplyDepotUnderground", UnitGetPosition(aiUnit), 
+    targetGroup = AIFindUnits(player, "SupplyDepotUnderground", UnitGetPosition(aiUnit), 
                             AIUnitFixed(player, c_TB_CommandCenter, c_fieldRadius)
                             + AIAbilityFixed(player, c_AB_SupplyDrop, c_fieldRange0),
                             c_noMaxCount
@@ -630,32 +718,40 @@ static order CallDownSupply (int player, unit aiUnit) {
     AISetFilterBits(filter, UnitFilterStr(AIAbilityStr(player, c_AB_SupplyDrop, c_fieldTargetFiltersAB)));
     AISetFilterBehaviorCount(filter, c_noBehaviorMin, c_noBehaviorMax, c_BF_SupplyDrop);
     
-    scanGroup = AIGetFilterGroup (filter, scanGroup);
-    return AIUnitGroupGetValidOrder(scanGroup, ord, aiUnit, c_backwards);
+    targetGroup = AIGetFilterGroup (filter, targetGroup);
+    if (targetGroup == null) {
+        return null;
+    }
+
+    return AIUnitGroupGetValidOrder(targetGroup, ord, aiUnit, c_backwards);
 }
 
 static bool CallDownMule (int player, unit aiUnit) {
-    unitgroup scanGroup;
     int scanCount;
     unit peon;
     order ord;
+    unitgroup targetGroup;
+
+    if (AIIsCampaign(player)) {
+        return false;
+    }
 
     ord = AICreateOrder(player, c_AB_CalldownMULE, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
         return false;
     }
 
-    scanGroup = AIFindUnits(player, c_TU_SCV, UnitGetPosition(aiUnit), 
+    targetGroup = AIFindUnits(player, c_TU_SCV, UnitGetPosition(aiUnit), 
                             AIAbilityFixed(player, c_AB_CalldownMULE, c_fieldRange0),
                             c_noMaxCount
     );
 
     //  Find only scv's that are gathering minerals and are close to their mineral target.
-    scanGroup = AIFilterGathering(scanGroup, c_resourceTypeMinerals, c_maxDistanceToMinerals);
-    scanCount = UnitGroupCount(scanGroup, c_unitCountAll);
+    targetGroup = AIFilterGathering(targetGroup, c_resourceTypeMinerals, c_maxDistanceToMinerals);
+    scanCount = UnitGroupCount(targetGroup, c_unitCountAll);
     while (scanCount > 0) {
         //  Pick one to cast on / next to.
-        peon = UnitGroupUnit(scanGroup, scanCount);
+        peon = UnitGroupUnit(targetGroup, scanCount);
         scanCount = scanCount - 1;
 
         ord = AICreateOrder(player, c_AB_CalldownMULE, 0);
@@ -667,47 +763,6 @@ static bool CallDownMule (int player, unit aiUnit) {
         return true;
     }
     return false;
-}
-
-void AIThinkCommandCenter(int player, unit aiUnit, unitgroup scanGroup) {
-    order ord;
-
-    if (CargoDefend(player, aiUnit, scanGroup, 10, 10, c_TU_SCV, c_AB_CommandCenterChange))
-    {
-        return;
-    }
-
-    if (AIEvalTacticalData(aiUnit, null)) {
-        return;
-    }
-
-    if (AIIsCampaign(player)) {
-        return;
-    }
-
-    if (AISuspectDetectionDanger(player)) {
-        if (UnitGetPropertyInt(aiUnit, c_unitPropEnergy, c_unitPropCurrent) < 150) {
-            return; // save for two comsats
-        }
-    }
-    if (CallDownMule(player, aiUnit)) {
-        return;
-    }
-
-    //  For now do supply only if we can't do mule, 
-    //  tempted to comment this out entirely
-    ord = CallDownSupply(player, aiUnit);
-    if (ord != null) {
-        AICast(aiUnit, ord, c_noMarker, c_castHold);
-        return;
-    }
-}
-
-//--------------------------------------------------------------------------------------------------
-//  *** BUNKER ***
-//--------------------------------------------------------------------------------------------------
-void AIThinkBunker(int player, unit aiUnit, unitgroup scanGroup) {
-    CargoDefend(player, aiUnit, scanGroup, 8, 10, c_TU_Marine, c_AB_BunkerChange);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -750,37 +805,70 @@ bool ScannerSweep (int player, unit aiUnit) {
 //  *** SURVEILLANCE STATION ***
 //--------------------------------------------------------------------------------------------------
 void AIThinkOrbitalCommand (int player, unit aiUnit, unitgroup scanGroup) {
+    // rally
     if (AIEvalTacticalData(aiUnit, null)) {
         return;
     }
 
-    if (!ScannerSweep(player, aiUnit)) {
-        AIThinkCommandCenter(player, aiUnit, scanGroup);
+    if (ScannerSweep(player, aiUnit)) {
+        return;
     }
+
+    if (CargoDefend(player, aiUnit, scanGroup, 10, 10, c_TU_SCV, c_AB_CommandCenterChange))
+    {
+        return;
+    }
+
+    // rally
+    if (AIEvalTacticalData(aiUnit, null)) {
+        return;
+    }
+
+    if (AISuspectDetectionDanger(player)) {
+        if (UnitGetPropertyInt(aiUnit, c_unitPropEnergy, c_unitPropCurrent) < 150) {
+            return; // save for two comsats
+        }
+    }
+
+    if (CallDownMule(player, aiUnit)) {
+        return;
+    }
+
+    ////  Save energy instead
+    //ord = CallDownSupply(player, aiUnit);
+    //if (ord != null) {
+    //    AICast(aiUnit, ord, c_noMarker, c_castHold);
+    //    return;
+    //}
+}
+
+//--------------------------------------------------------------------------------------------------
+//  *** BUNKER ***
+//--------------------------------------------------------------------------------------------------
+void AIThinkBunker(int player, unit aiUnit, unitgroup scanGroup) {
+    CargoDefend(player, aiUnit, scanGroup, 8, 10, c_TU_Marine, c_AB_BunkerChange);
 }
 
 //--------------------------------------------------------------------------------------------------
 //  *** MagneticMine ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeD8Charge (int player, unit aiUnit) {
-    return AIEffectFixed(player, c_EF_D8ChargeDmg, c_fieldAreaRadius2) + 1.0;
-}
 
 void AIThinkD8Charge (int player, unit aiUnit, unitgroup scanGroup) {
     int scanCount;
     marker mark = AIMarker(aiUnit, c_MK_D8ChargeFlee);
     aifilter filter = AIFilter(player);
+    unitgroup targetGroup;
 
-    scanGroup = AIFindUnits(player, null, UnitGetPosition(aiUnit), AIRangeD8Charge(player, aiUnit), c_noMaxCount);
+    targetGroup = AIFindUnits(player, null, UnitGetPosition(aiUnit), AIEffectFixed(player, c_EF_D8ChargeDmg, c_fieldAreaRadius2), c_noMaxCount);
 
     AISetFilterAlliance(filter, c_playerGroupAlly);
     AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, mark);
     AISetFilterSelf(filter, aiUnit);
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
+    targetGroup = AIGetFilterGroup(filter, targetGroup);
 
-    scanCount = UnitGroupCount(scanGroup, c_unitCountAll);
+    scanCount = UnitGroupCount(targetGroup, c_unitCountAll);
     while (scanCount > 0) {
-        AICastFlee(UnitGroupUnit(scanGroup, scanCount), aiUnit, 6, mark);
+        AICastFlee(UnitGroupUnit(targetGroup, scanCount), aiUnit, 6, mark);
         scanCount = scanCount - 1;
     }
 }
@@ -788,9 +876,9 @@ void AIThinkD8Charge (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** Raven ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeRaven (int player, unit aiUnit) {
-    return 10;
-}
+const int c_autoTurretCooldown = c_tactTimerFirst;
+const int c_pointDefCooldown = c_tactTimerSecond;
+const int c_hsMissileCooldown = c_tactTimerThird;
 
 const int c_seekerMissileMinMarker = 0;
 const int c_seekerMissileMaxMarker = 0;
@@ -799,8 +887,19 @@ order HunterSeekerMissile (int player, unit aiUnit, unitgroup scanGroup, marker 
     fixed damage;
     unitgroup targetGroup;
     aifilter filter;
+    order ord;
 
-    order ord = AITacticalOrder(player, aiUnit, c_AB_SeekerMissile);
+    if (AIIsCampaign(player)) {
+        if (PlayerDifficulty(player) < c_campAdvanced) {
+            return null;
+        }
+    }
+
+    if (!AITactCooldownAllow(aiUnit, c_hsMissileCooldown)) {
+        return null;
+    }
+
+    ord = AITacticalOrder(player, aiUnit, c_AB_SeekerMissile);
     if (!ord) {
         return null;
     }
@@ -819,7 +918,17 @@ order HunterSeekerMissile (int player, unit aiUnit, unitgroup scanGroup, marker 
     //  damage.
     //
     targetGroup = AIGetFilterGroup(filter, scanGroup);
+    if (targetGroup == null) {
+        return null;
+    }
+
     return AIUnitGroupGetValidOrder(targetGroup, ord, aiUnit, c_backwards);
+}
+
+//---------------------------------------------------------------------------------------------
+fixed minToCastAutoTurret(int player) {
+    return AIAbilityFixed(player, c_AB_AutoTurret, c_fieldEnergyCost) + 
+           AIAbilityFixed(player, c_AB_SeekerMissile, c_fieldEnergyCost);
 }
 
 //---------------------------------------------------------------------------------------------
@@ -827,19 +936,33 @@ static bool CastAutoTurret (int player, unit aiUnit, unitgroup scanGroup, bool l
     // must not modify scanGroup in this function
     point loc;
     order ord = AITacticalOrder(player, aiUnit, c_AB_AutoTurret);
+    order missleOrd;
     fixed minScore;
+    fixed cooldown = 0.0;
+
+    if (!AITactCooldownAllow(aiUnit, c_autoTurretCooldown)) {
+        return false;
+    }
 
     if (!ord) {
         return false;
     }
-
+    
     //  Relax the constraints a little if the raven is low on health.
     //
     if (lowVitality) {
-        minScore = 1.0;
+        minScore = 0.5;
     }
     else {
         minScore = 2.0;
+        
+        //  If Raven not low vitality, save enough energy for seeker missile.
+        missleOrd = AITacticalOrder(player, aiUnit, c_AB_SeekerMissile);
+        if (missleOrd) {
+            if (UnitGetPropertyInt(aiUnit, c_unitPropEnergy, c_unitPropCurrent) < minToCastAutoTurret(player)) {
+                return false;
+            }
+        }
     }
 
     //  Finds the best point for the ai to cast an area of effect spell.  The point must put the 
@@ -854,7 +977,7 @@ static bool CastAutoTurret (int player, unit aiUnit, unitgroup scanGroup, bool l
         minScore, // min score
         AIWeaponFixed(player, c_WE_AutoTurret, c_fieldRange),
         UnitGetPosition(aiUnit),
-        AIRangeRaven(player, aiUnit), 
+        AIUnitFixed(player, c_TU_Raven, c_fieldSightRange), 
         c_unitAttributeNone
     );
     if (!loc) {
@@ -864,13 +987,18 @@ static bool CastAutoTurret (int player, unit aiUnit, unitgroup scanGroup, bool l
     if (!UnitOrderIsValid(aiUnit, ord)) {
         return false;
     }
-    AICast(aiUnit, ord, c_noMarker, c_castRetreat);
-    return true;
-}
 
-fixed minToCastAutoTurret(int player) {
-    return AIAbilityFixed(player, c_AB_AutoTurret, c_fieldEnergyCost) + 
-           AIAbilityFixed(player, c_AB_SeekerMissile, c_fieldEnergyCost);
+    if (AIIsCampaign(player)) {
+        if (PlayerDifficulty(player) < c_campAdvanced) {
+            cooldown = 10.0;
+        }
+        else if (PlayerDifficulty(player) < c_campExpert) {
+            cooldown = 5.0;
+        }
+    }
+
+    AICastCooldown(aiUnit, ord, c_noMarker, c_castRetreat, c_autoTurretCooldown, cooldown);
+    return true;
 }
 
 const int c_RavenLowVitalityPercent = 65;
@@ -880,21 +1008,26 @@ void AIThinkRaven (int player, unit aiUnit, unitgroup scanGroup) {
     order ord;
     marker mark;
     bool lowVitality;
+    fixed cooldown;
 
     //  Must not modify scanGroup because it will be used for CastAutoTurret.
     mark = AIMarker(aiUnit, c_MK_SeekerMissile);
     ord = HunterSeekerMissile(player, aiUnit, scanGroup, mark);
     if (ord != null) {
-        AICast(aiUnit, ord, mark, c_castRetreat);
-        return;
-    }
-    
-    //  If Raven not in danger, save enough energy for seeker missile.
-    lowVitality = UnitGetPropertyInt(aiUnit, c_unitPropVitalityPercent, c_unitPropCurrent) < c_RavenLowVitalityPercent;
-    if (!lowVitality && UnitGetPropertyInt(aiUnit, c_unitPropEnergy, c_unitPropCurrent) < minToCastAutoTurret(player)) {
+        if (AIIsCampaign(player) && PlayerDifficulty(player) < c_campExpert) {
+            cooldown = 5.0;
+        }
+        else {
+            cooldown = 0.0;
+        }
+        AICastCooldown(aiUnit, ord, mark, c_castRetreat, c_hsMissileCooldown, cooldown);
         return;
     }
 
+    // For now I'm going to pass on point defense, determining the exact situations it is good in
+    // is tto expensive to test for in script atm
+
+    lowVitality = UnitGetPropertyInt(aiUnit, c_unitPropVitalityPercent, c_unitPropCurrent) < c_RavenLowVitalityPercent;
     if (CastAutoTurret(player, aiUnit, scanGroup, lowVitality)) {
         return;
     }

@@ -8,46 +8,46 @@ include "TriggerLibs/Protoss0"
 //  Counter-Attack Units
 //--------------------------------------------------------------------------------------------------
 static void InitCounters (int player) {
-//xxx lots of old data -- needs to be totally redone
     // versus Protoss
-    AICounterUnit(player, c_PB_PhotonCannon,         0.40, c_PU_Immortal );
-    AICounterUnit(player, c_PU_Zealot,              1.00, c_PU_Zealot   );
-    AICounterUnit(player, c_PU_Stalker,             1.00, c_PU_Zealot   );
-    AICounterUnit(player, c_PU_Immortal,            2.00, c_PU_Zealot   );
-    AICounterUnit(player, c_PU_Disruptor,           0.75, c_PU_Zealot   );
-    AICounterUnit(player, c_PU_HighTemplar,         1.00, c_PU_Stalker  );
-    AICounterUnit(player, c_PU_DarkTemplar,         2.00, c_PU_Zealot   );
-    AICounterUnit(player, c_PU_Archon,              1.00, c_PU_Immortal );
-    AICounterUnit(player, c_PU_Colossus,            1.00, c_PU_Immortal );
-    AICounterUnit(player, c_PU_VoidRay,             1.50, c_PU_Phoenix  );
-    AICounterUnit(player, c_PU_Phoenix,             0.40, c_PU_Carrier  );
-    AICounterUnit(player, c_PU_Carrier,             1.67, c_PU_VoidRay  );
+    AICounterUnitSetup(player, c_PU_Zealot,             1.00, c_PU_Zealot,      1.00, c_PU_Zealot);
+    AICounterUnitSetup(player, c_PU_Stalker,            1.00, c_PU_Stalker,     0.80, c_PU_Immortal);
+    AICounterUnitSetup(player, c_PU_Sentry,             1.00, c_PU_Zealot,      1.00, c_PU_Zealot);
+    AICounterUnitSetup(player, c_PU_HighTemplar,        1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_PU_DarkTemplar,        1.00, c_PU_Zealot,      1.00, c_PU_Zealot);
+    AICounterUnitSetup(player, c_PU_Archon,             2.00, c_PU_Zealot,      1.00, c_PU_Carrier);
+    AICounterUnitSetup(player, c_PU_Immortal,           2.00, c_PU_Zealot,      2.00, c_PU_Zealot);
+    AICounterUnitSetup(player, c_PU_Colossus,           1.00, c_PU_Immortal,    1.00, c_PU_Immortal);
+    AICounterUnitSetup(player, c_PU_Phoenix,            1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_PU_VoidRay,            1.50, c_PU_Stalker,     1.50, c_PU_Stalker);
+    AICounterUnitSetup(player, c_PU_Carrier,            2.00, c_PU_VoidRay,     2.00, c_PU_VoidRay);
+    AICounterUnitSetup(player, c_PB_PhotonCannon,       3.00, c_PU_Zealot,      0.80, c_PU_Carrier);
 
     // versus Terran
-    AICounterUnit(player, c_TB_Bunker,              0.40, c_PU_Immortal );
-    AICounterUnit(player, c_TU_Marine,              0.50, c_PU_Zealot   );
-    AICounterUnit(player, c_TU_Reaper,              1.00, c_PU_Zealot   );
-    AICounterUnit(player, c_TU_Marauder,            1.00, c_PU_Zealot   );
-    AICounterUnit(player, c_TU_Ghost,               1.00, c_PU_Stalker  );
-    AICounterUnit(player, c_TU_Hellion,             0.25, c_PU_Immortal );
-    AICounterUnit(player, c_TU_SiegeTank_Alias,     2.00, c_PU_Zealot   );
-    AICounterUnit(player, c_TU_Thor,                3.00, c_PU_Zealot   );
-    AICounterUnit(player, c_TU_Viking_Alias,        1.00, c_PU_Zealot   );
-    AICounterUnit(player, c_TU_Viking_Alias,        0.50, c_PU_Phoenix  );
-    AICounterUnit(player, c_TU_Banshee,             0.50, c_PU_Phoenix  );
-    AICounterUnit(player, c_TU_BattlecruiserClass,  2.00, c_PU_VoidRay  );
+    AICounterUnitSetup(player, c_TU_Marine,             0.80, c_PU_Zealot,      0.20, c_PU_Colossus);
+    AICounterUnitSetup(player, c_TU_Marauder,           2.00, c_PU_Zealot,      0.70, c_PU_Immortal);
+    AICounterUnitSetup(player, c_TU_Reaper,             1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_TU_Ghost,              2.00, c_PU_Zealot,      2.00, c_PU_Zealot);
+    AICounterUnitSetup(player, c_TU_Hellion,            1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_TU_SiegeTank_Alias,    0.60, c_PU_Immortal,    0.60, c_PU_Immortal);
+    AICounterUnitSetup(player, c_TU_Thor,               5.00, c_PU_Zealot,      5.00, c_PU_Zealot);
+    AICounterUnitSetup(player, c_TU_Viking_Alias,       1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_TU_Medivac,            1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_TU_Raven,              1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_TU_Banshee,            0.70, c_PU_Phoenix,     0.70, c_PU_Phoenix);
+    AICounterUnitSetup(player, c_TU_Battlecruiser,      2.00, c_PU_VoidRay,     2.00, c_PU_VoidRay);
+    AICounterUnitSetup(player, c_TB_Bunker,             4.00, c_PU_Zealot,      0.80, c_PU_Carrier);
 
     // versus Zerg
-    AICounterUnit(player, c_ZB_SpineCrawler,        0.33, c_PU_Immortal );
-    AICounterUnit(player, c_ZU_Zergling,            0.25, c_PU_Zealot   );
-    AICounterUnit(player, c_ZU_Roach,               0.80, c_PU_Stalker  );
-    AICounterUnit(player, c_ZU_Hydralisk,           0.50, c_PU_Stalker  );
-    AICounterUnit(player, c_ZU_Lurker,              1.00, c_PU_Immortal );
-    AICounterUnit(player, c_ZU_Infestor,            0.50, c_PU_Stalker  );
-    AICounterUnit(player, c_ZU_Ultralisk,           1.00, c_PU_Stalker  );
-    AICounterUnit(player, c_ZU_Mutalisk,            0.80, c_PU_Stalker  );
-    AICounterUnit(player, c_ZU_Corruptor,           0.50, c_PU_Stalker  );
-    AICounterUnit(player, c_ZU_BroodLord,       0.50, c_PU_Phoenix  );
+    AICounterUnitSetup(player, c_ZU_Zergling,           0.50, c_PU_Zealot,      0.50, c_PU_Zealot);
+    AICounterUnitSetup(player, c_ZU_Baneling,           0.50, c_PU_Stalker,     0.25, c_PU_Immortal);
+    AICounterUnitSetup(player, c_ZU_Roach,              1.00, c_PU_Zealot,      0.40, c_PU_Immortal);
+    AICounterUnitSetup(player, c_ZU_Hydralisk,          1.00, c_PU_Zealot,      0.30, c_PU_Colossus);
+    AICounterUnitSetup(player, c_ZU_Infestor,           2.00, c_PU_Stalker,     2.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_ZU_Mutalisk,           1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_ZU_Corruptor,          1.00, c_PU_Stalker,     1.00, c_PU_Stalker);
+    AICounterUnitSetup(player, c_ZU_Ultralisk,          1.20, c_PU_Immortal,    1.20, c_PU_Immortal);
+    AICounterUnitSetup(player, c_ZU_BroodLord,          1.00, c_PU_Phoenix,     1.00, c_PU_Phoenix);
+    AICounterUnitSetup(player, c_ZB_SpineCrawler,       3.00, c_PU_Zealot,      0.80, c_PU_VoidRay);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ void AINewUnitProt (int player, unit u) {
 //--------------------------------------------------------------------------------------------------
 //  AIGetScoutProt
 //--------------------------------------------------------------------------------------------------
-unit AIGetScoutProt (int player, int index, unit prev) {
+unit AIGetScoutProt (int player, int index, unit prev, bool allowWorkers) {
     unit obs;
     
     if (!AIGetFlag(player, e_flagsScouting)) {
@@ -123,7 +123,7 @@ unit AIGetScoutProt (int player, int index, unit prev) {
     }
     if (UnitGetType(prev) == c_PU_Observer) {
         return prev;
-    }   
+    }
     obs = AIGrabUnit(player, c_PU_Observer, c_prioScout, null);
     if (obs) {
         return obs;
@@ -134,13 +134,16 @@ unit AIGetScoutProt (int player, int index, unit prev) {
     if (AIGetFlag(player, e_flagsLateScout)) {
         return c_nullUnit;
     }
+    if (!allowWorkers) {
+        return c_nullUnit;
+    }
     return AIGrabUnit(player, c_PU_Probe, c_prioScout, null);
 }
 
 //--------------------------------------------------------------------------------------------------
 //  AIEarlyDefScoutProt
 //--------------------------------------------------------------------------------------------------
-unit AIEarlyDefScoutProt (int player, unit prev) {
+unit AIEarlyDefScoutProt (int player, unit prev, bool allowWorkers) {
     unit obs;
     
     if (!AIGetFlag(player, e_flagsEarlyDefScout)) {
@@ -162,6 +165,9 @@ unit AIEarlyDefScoutProt (int player, unit prev) {
     }
     if (prev) {
         return prev;
+    }
+    if (!allowWorkers) {
+        return c_nullUnit;
     }
     return AIGrabUnit(player, c_PU_Probe, c_prioScout, null);
 }

@@ -32,15 +32,15 @@ half4 HairShading( in VertexTransport vertOut ) {
         /*
         if ( b_useNormalMapping ) {
             vTextureNormal  = DecodeTextureNormal( p_sHairNormalSampler, GetUVEmitter(vertOut, b_iHairNormalUVEmitter), fStub );
-            vNormalWS       = TangentToWorld( vTextureNormal, INTERPOLANT_Normal, INTERPOLANT_Tangent, INTERPOLANT_Binormal, false );
+            vNormalWS       = TangentToWorld( vTextureNormal, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal.xyz, false );
         } else */
         {
             vTextureNormal = INTERPOLANT_Normal;
             vNormalWS = INTERPOLANT_Normal;
         }
 
-        half3 vTangent1 = ShiftTangent( INTERPOLANT_Tangent, vNormalWS, p_fPrimaryShift + fShiftTex );
-        half3 vTangent2 = ShiftTangent( INTERPOLANT_Tangent, vNormalWS, p_fSecondaryShift + fShiftTex );
+        half3 vTangent1 = ShiftTangent( INTERPOLANT_Tangent.xyz, vNormalWS, p_fPrimaryShift + fShiftTex );
+        half3 vTangent2 = ShiftTangent( INTERPOLANT_Tangent.xyz, vNormalWS, p_fSecondaryShift + fShiftTex );
 
         half3 cDiffuse = saturate( lerp( 0.25f, 1.0f, dot( vNormalWS, vLightVec ) ) * p_cDiffuseColor;
 

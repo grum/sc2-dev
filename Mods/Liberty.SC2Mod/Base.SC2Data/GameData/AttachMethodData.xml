@@ -3,6 +3,10 @@
     <!--                                                                                         -->
     <!-- The Basics ============================================================================ -->
     <!--                                                                                         -->
+    <CAttachMethodArcTest id="AMArcTestWeapon">
+        <Tests index="Weapon" value="1"/>
+        <Tests index="ActionAcquisition" value="1"/>
+    </CAttachMethodArcTest>
     <!-- Typically used in conjunction with a NodeOccupancy attach method. -->
     <CAttachMethodFilter id="AMFilterCenter">
         <Keys Keyword="Center"/>
@@ -12,6 +16,10 @@
     </CAttachMethodFilter>
     <CAttachMethodFilter id="AMFilterTarget">
         <Keys Keyword="Target"/>
+    </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterTargetVolumes">
+        <Keys Keyword="Target"/>
+        <AttachType value="Volume"/>
     </CAttachMethodFilter>
     <CAttachMethodFilter id="AMFilterTargetOrDamage">
         <Logic value="OR"/>
@@ -81,6 +89,10 @@
         <Keys Keyword="Weapon"/>
         <Keys Keyword="Ground"/>
     </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMPreferGround">
+        <Keys Keyword="Ground"/>
+        <FilterType value="Preference"/>
+    </CAttachMethodFilter>
     <!-- Basic proximity stuff. -->
     <CAttachMethodProximity id="AMClosestToCaster"/>
     <CAttachMethodProximity id="AMClosestToOuter">
@@ -98,7 +110,12 @@
         <Keyword value="Weapon"/>
         <Driver value="RollingIndex"/>
     </CAttachMethodPattern>
-    <CAttachMethodTargetAttachVolumeAccept id="AMTAVAccept"/>
+    <CAttachMethodVolumesRequery id="AMVolumesRequery"/>
+    <CAttachMethodVolumesWeightedPick id="AMVolumesWeightedPick">
+        <VolumeFactor value="1.0f"/>
+        <ProximityFactorNear value="3.0f"/>
+        <ProximityFactorFar value="1.0f"/>
+    </CAttachMethodVolumesWeightedPick>
     <!--                                                                                         -->
     <!-- System ================================================================================ -->
     <!--                                                                                         -->
@@ -178,6 +195,9 @@
         <Keyword value="Weapon"/>
         <Driver value="Reaper"/>
     </CAttachMethodPattern>
+    <CAttachMethodPortAllocator id="AMPortAllocatorBunker">
+        <PortLimit value="3"/>
+    </CAttachMethodPortAllocator>
     <CAttachMethodFilter id="AMFilterVikingFighter">
         <Logic value="OR"/>
         <Keys Keyword="Weapon" Index="10"/>

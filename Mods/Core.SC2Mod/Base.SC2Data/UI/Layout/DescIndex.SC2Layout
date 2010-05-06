@@ -17,21 +17,23 @@
     <include path="UI/Layout/Glue/VideoOptionsPanel.SC2Layout"/>
     <include path="UI/Layout/Glue/SocialOptionsPanel.SC2Layout"/>
     <include path="UI/Layout/Glue/GraphicsOptionsPanel.SC2Layout"/>    
+    <include path="UI/Layout/Glue/HotkeyOptionsPanel.SC2Layout"/>
     <include path="UI/Layout/Glue/SoundOptionsPanel.SC2Layout"/>
     <include path="UI/Layout/Glue/VoiceOptionsPanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/DifficultySelectionDialog.SC2Layout"/>
+    <Include path="UI/Layout/Glue/LoadGameDialog.SC2Layout"/>
     <Include path="UI/Layout/Glue/ScreenBackground.SC2Layout"/>
     <Include path="UI/Layout/Glue/ScreenVersion.SC2Layout"/>
-    <Include path="UI/Layout/Glue/ScreenTradeShow.SC2Layout"/>
-    <Include path="UI/Layout/Glue/ScreenSave.SC2Layout"/>
+    <Include path="UI/Layout/Glue/ScreenTradeShow.SC2Layout"/>    
     <Include path="UI/Layout/Glue/ChallengePanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/CampaignPanel.SC2Layout"/>
     <Include path="UI/Layout/Glue/ScreenMainMenu.SC2Layout"/>
     <Include path="UI/Layout/Glue/ScreenSingle.SC2Layout"/>    
     <Include path="UI/Layout/Glue/ScreenMulti.SC2Layout"/>
     <Include path="UI/Layout/Glue/ScreenReplay.SC2Layout"/>    
     <Include path="UI/Layout/Glue/ScreenLoading.SC2Layout"/>
     <Include path="UI/Layout/Glue/ScreenMovie.SC2Layout"/>
-    <Include path="UI/Layout/Glue/LobbySlot.SC2Layout"/>
-    <Include path="UI/Layout/Glue/ScreenCampaign.SC2Layout"/>
+    <Include path="UI/Layout/Glue/LobbySlot.SC2Layout"/>    
     <Include path="UI/Layout/Glue/LobbySlotSetup.SC2Layout"/>
     <Include path="UI/Layout/Glue/ScreenLobby.SC2Layout"/>
     <Include path="UI/Layout/Glue/ThanksForPlayingDialog.SC2Layout"/>
@@ -41,7 +43,9 @@
     <Include path="UI/Layout/Glue/ProfilerOptions.SC2Layout"/>
     <Include path="UI/Layout/Glue/TalkerPanel.SC2Layout"/>
     <Include path="UI/Layout/Glue/OptionsDialog.SC2Layout"/>
-
+    <Include path="UI/Layout/Glue/CreditsPanel.SC2Layout"/>
+    <Include path="UI/Layout/Glue/ScreenCredits.SC2Layout"/>
+    
     <!-- UI Layout -->
     <Include path="UI/Layout/UI/DebugPanel.SC2Layout"/>
     <Include path="UI/Layout/UI/CampaignTemplates.SC2Layout"/>
@@ -55,8 +59,7 @@
     <Include path="UI/Layout/UI/ConversationPanel.SC2Layout"/>
     <Include path="UI/Layout/UI/PurchasePanel.SC2Layout"/>
     <Include path="UI/Layout/UI/PlanetPanel.SC2Layout"/>    
-    <Include path="UI/Layout/UI/PausePanel.SC2Layout"/>
-    <Include path="UI/Layout/UI/RoomPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/PausePanel.SC2Layout"/>    
     <Include path="UI/Layout/UI/ResearchPanel.SC2Layout"/>
     <Include path="UI/Layout/UI/TeamResourcePanel.SC2Layout"/>
     <Include path="UI/Layout/UI/AlliancePanel.SC2Layout"/>
@@ -99,8 +102,10 @@
     <Include path="UI/Layout/UI/CashPanel.SC2Layout"/>
     <Include path="UI/Layout/UI/LagIndicatorPanel.SC2Layout"/>
     <Include path="UI/Layout/UI/ResourceRequestAlertPanel.SC2Layout"/>
+    <Include path="UI/Layout/UI/HelpMenuDialog.SC2Layout"/>
+    <Include path="UI/Layout/UI/MessageLogDialog.SC2Layout"/>
+    <Include path="UI/Layout/UI/RevealPanel.SC2Layout"/>
     <Include path="UI/Layout/UI/GameUI.SC2Layout"/>
     <Include path="UI/Layout/UI/WorldTooltip.SC2Layout"/>        
-    <Include path="UI/Layout/UI/WaitingForPlayersDialog.SC2Layout"/>
-    <Include path="UI/Layout/UI/ExitDialog.SC2Layout"/>    
+    <Include path="UI/Layout/UI/WaitingForPlayersDialog.SC2Layout"/>    
 </Desc>

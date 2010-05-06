@@ -4,6 +4,11 @@
         <EditorCategories value="Race:Zerg,TechType:Unit"/>
         <NodeArray index="Show" Link="LTCountUnitLarvaCompleteOnlyAtUnit3"/>
     </CRequirement>
+    <CRequirement id="DoesNotHaveObverseIncubation">
+        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <NodeArray index="Use" Link="And3124702931CountUnitSpawningPoolCompleteOnlyNotCountUpgradeObverseIncubationCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeObverseIncubationCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="HatcherySpawnMutantLarva">
         <EditorCategories value="Race:Zerg,TechType:Unit"/>
         <NodeArray index="Show" Link="GTCountBehaviorSpawnMutantLarvaCompleteOnlyAtUnit0"/>
@@ -35,6 +40,11 @@
     <CRequirement id="LearnBattlecruiserEnergyUpgrade">
         <EditorCategories value="Race:Terran,TechType:Upgrade"/>
         <NodeArray index="Show" Link="NotCountUpgradeBattlecruiserBehemothReactorQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnObverseIncubation">
+        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <NodeArray index="Use" Link="Or1515591279CountUnitHiveCompleteOnlyCountUnitLairCompleteOnly"/>
+        <NodeArray index="Show" Link="NotCountUpgradeObverseIncubationQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="LearnTunnelingClaws">
         <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
@@ -111,9 +121,14 @@
         <EditorCategories value="Race:Terran,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUpgradeHighCapacityBarrelsCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="UseObverseIncubation">
+        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <NodeArray index="Use" Link="And3124702931CountUnitSpawningPoolCompleteOnlyCountUpgradeObverseIncubationCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeObverseIncubationCompleteOnly"/>
+    </CRequirement>
     <CRequirement id="UsePunisherGrenades">
         <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
-        <NodeArray index="Use" Link="CountUpgradePunisherGrenadesCompleteOnly627199108"/>
+        <NodeArray index="Use" Link="CountUpgradePunisherGrenadesCompleteOnly679349"/>
     </CRequirement>
     <CRequirement id="UseHunterSeekerMissiles">
         <EditorCategories value="Race:Protoss,TechType:Ability"/>

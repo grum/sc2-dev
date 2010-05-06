@@ -15,83 +15,72 @@
         </Frame>
     </Frame>
     
+    <Frame type="GameButton" name="AICommandButton" template="GameButton/GameButtonTemplate">
+        <Width val="76"/>
+        <Height val="76"/>
+    </Frame>
+    
     <Frame type="CommandPanelAI" name="CommandPanelAITemplate">
-        <Frame type="CommandTooltip" name="CommandTooltip" template="CommandButton/CommandTooltipTemplate">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-270"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-        </Frame>
-
-        <Frame type="CommandButton" name="CommandButton00" template="CommandButton/CommandButtonTemplate">
+        <Frame type="GameButton" name="CommandButtonDefend" template="AIFrames/AICommandButton">
             <Anchor side="Top" relative="$parent" pos="Min" offset="#CommandButtonGap"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton01" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton00" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton00" pos="Max" offset="#CommandButtonGap"/>
+        <Frame type="GameButton" name="CommandButtonAssault" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonDefend" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonDefend" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton02" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton01" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton01" pos="Max" offset="#CommandButtonGap"/>
+        <Frame type="GameButton" name="CommandButtonHarass" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonAssault" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonAssault" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton03" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton02" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton02" pos="Max" offset="#CommandButtonGap"/>
+        <!-- CommandButton03 is a placeholder. -->
+        <Frame type="GameButton" name="CommandButton03" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonHarass" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonHarass" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton04" template="CommandButton/CommandButtonTemplate">
+        <Frame type="GameButton" name="CommandButtonRally" template="AIFrames/AICommandButton">
             <Anchor side="Top" relative="$parent/CommandButton03" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/CommandButton03" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
 
-        <Frame type="CommandButton" name="CommandButton05" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton00" pos="Max" offset="#CommandButtonGap"/>
-            <Anchor side="Left" relative="$parent/CommandButton00" pos="Min" offset="0"/>
+        <Frame type="GameButton" name="CommandButtonDetect" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonDefend" pos="Max" offset="#CommandButtonGap"/>
+            <Anchor side="Left" relative="$parent/CommandButtonDefend" pos="Min" offset="0"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton06" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton05" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton05" pos="Max" offset="#CommandButtonGap"/>
+        <Frame type="GameButton" name="CommandButtonScout" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonDetect" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonDetect" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton07" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton06" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton06" pos="Max" offset="#CommandButtonGap"/>
+        <Frame type="GameButton" name="CommandButton07" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonScout" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonScout" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton08" template="CommandButton/CommandButtonTemplate">
+        <Frame type="GameButton" name="CommandButton08" template="AIFrames/AICommandButton">
             <Anchor side="Top" relative="$parent/CommandButton07" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/CommandButton07" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton09" template="CommandButton/CommandButtonTemplate">
+        <Frame type="GameButton" name="CommandButton09" template="AIFrames/AICommandButton">
             <Anchor side="Top" relative="$parent/CommandButton08" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/CommandButton08" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
 
-        <Frame type="CommandButton" name="CommandButton10" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton05" pos="Max" offset="#CommandButtonGap"/>
-            <Anchor side="Left" relative="$parent/CommandButton05" pos="Min" offset="0"/>
+        <Frame type="GameButton" name="CommandButtonMinerals" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonDetect" pos="Max" offset="#CommandButtonGap"/>
+            <Anchor side="Left" relative="$parent/CommandButtonDetect" pos="Min" offset="0"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton11" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton10" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton10" pos="Max" offset="#CommandButtonGap"/>
+        <Frame type="GameButton" name="CommandButtonVespene" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonMinerals" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonMinerals" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton12" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton11" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton11" pos="Max" offset="#CommandButtonGap"/>
+        <Frame type="GameButton" name="CommandButtonExpand" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonVespene" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonVespene" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton13" template="CommandButton/CommandButtonTemplate">
-            <Anchor side="Top" relative="$parent/CommandButton12" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton12" pos="Max" offset="#CommandButtonGap"/>
+        <Frame type="GameButton" name="CommandButton13" template="AIFrames/AICommandButton">
+            <Anchor side="Top" relative="$parent/CommandButtonExpand" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonExpand" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
-
-        <Frame type="CommandButton" name="CommandButton14" template="CommandButton/CommandButtonTemplate">
+        <Frame type="GameButton" name="CommandButtonCancel" template="AIFrames/AICommandButton">
             <Anchor side="Top" relative="$parent/CommandButton13" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent/CommandButton13" pos="Max" offset="#CommandButtonGap"/>
         </Frame>
@@ -107,8 +96,8 @@
         <Frame type="Image" name="CommandTargetImage">
             <Width val="76"/>
             <Height val="76"/>
-            <Anchor side="Top" relative="$parent/CommandButton05" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/CommandButton05" pos="Min" offset="0"/>
+            <Anchor side="Top" relative="$parent/CommandButtonDetect" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/CommandButtonDetect" pos="Min" offset="0"/>
             <LayerCount val="1"/>
             <TextureType val="Normal" layer="0"/>
         </Frame>

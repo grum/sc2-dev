@@ -18,7 +18,7 @@
 //--------------------------------------------------------------------------------------------------
 half3 EmitPSBinormal( VertexTransport vertOut ) {
 	// sign of INTERPOLANT_Normal.w is the handiness
-	return cross( INTERPOLANT_Tangent, INTERPOLANT_Normal.xyz ) * INTERPOLANT_Normal.w;
+	return cross( INTERPOLANT_Tangent.xyz, INTERPOLANT_Normal.xyz ) * INTERPOLANT_Normal.w;
 }
 
 //--------------------------------------------------------------------------------------------------

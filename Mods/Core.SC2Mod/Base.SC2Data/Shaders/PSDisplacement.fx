@@ -35,7 +35,7 @@ half4 Displace( in VertexTransport vertOut ) {
         half3 vTextureNormal;
         if ( b_useNormalMapping ) {
             vTextureNormal = DecodeTextureNormal( p_sDisplacementSampler, GetUVEmitter(vertOut, b_iDisplacementUVEmitter), fStub );
-            vNormal   = TangentToWorld( vTextureNormal, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent, INTERPOLANT_Binormal, false );
+            vNormal   = TangentToWorld( vTextureNormal, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal.xyz, false );
         } else {
             vTextureNormal = INTERPOLANT_Normal.xyz;
             vNormal = INTERPOLANT_Normal.xyz;

@@ -12,7 +12,7 @@
             <Resource index="Vespene" value="25"/>
             <Button DefaultButtonFace="TechLabBarracks" State="Suppressed"/>
         </InfoArray>
-        <InfoArray index="Build2" Unit="NuclearReactor" Time="50">
+        <InfoArray index="Build2" Unit="NuclearReactor" Time="40">
             <Resource index="Minerals" value="50"/>
             <Resource index="Vespene" value="50"/>
             <Button DefaultButtonFace="NuclearReactor" State="Restricted"/>
@@ -113,6 +113,7 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="CorruptionAbility"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
         <Range value="3"/>
+        <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <CancelableArray index="Channel" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
@@ -120,6 +121,29 @@
             <Vital index="Energy" value="75"/>
         </Cost>
     </CAbilEffectTarget>
+    <CAbilMorph id="MorphtoInfestedTerran">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedTerrans"/>
+        <ActorKey value="MorphToInfestedTerran"/>
+        <InfoArray Unit="InfestorTerran">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="4.875"/>
+                <EffectArray index="Finish" value="InfestedTerransTimedLife"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="4.875"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="4.875"/>
+            </SectionArray>
+        </InfoArray>
+        <Flags index="DisableAbils" value="1"/>
+        <Flags index="Rally" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <AbilClassEnableArray index="CAbilMove" value="1"/>
+        <AbilClassEnableArray index="CAbilStop" value="1"/>
+    </CAbilMorph>
     <CAbilEffectInstant id="Explode">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="Baneling"/>
@@ -140,7 +164,7 @@
     </CAbilResearch>
     <CAbilEffectTarget id="FungalGrowth">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <Effect index="0" value="FungalGrowthMissile"/>
+        <Effect index="0" value="FungalGrowthSearch"/>
         <Cost>
             <Vital index="Energy" value="75"/>
         </Cost>
@@ -249,6 +273,7 @@
         <Flags index="FastBuild" value="1"/>
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
+        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>
@@ -411,6 +436,8 @@
     <CAbilEffectTarget id="GravitonBeam">
         <AbilSetId value="Graviton"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
         <Flags index="ReExecutable" value="1"/>
         <Cost>
             <Vital index="Energy" value="50"/>
@@ -425,6 +452,7 @@
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
+        <RangeSlop value="4"/>
     </CAbilEffectTarget>
     <CAbilBuildable id="BuildinProgressNydusCanal">
         <Cancelable value="0"/>
@@ -436,15 +464,14 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="SiphonLaunchMissile"/>
         <TargetFilters value="Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="2"/>
+        <Range value="9"/>
         <CancelableArray index="Channel" value="1"/>
         <AINotifyEffect value=""/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Siphon"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
         <Flags index="AutoCast" value="1"/>
-        <Flags index="BestUnit" value="0"/>
         <AutoCastFilters value="Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AutoCastRange value="2"/>
+        <AutoCastRange value="9"/>
         <AutoCastValidatorArray value="TargetNotChangeling"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="SpawnChangeling">
@@ -456,18 +483,6 @@
         <ProducedUnitArray value="Changeling"/>
         <Flags index="BestUnit" value="1"/>
     </CAbilEffectInstant>
-    <CAbilEffectTarget id="Disguise">
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Disguise"/>
-        <Flags index="BestUnit" value="0"/>
-        <Flags index="Smart" value="1"/>
-        <Range value="12"/>
-        <TargetFilters value="Visible;Player,Ally,Neutral"/>
-        <TargetSorts RequestCount="1">
-            <SortArray value="TSMarker"/>
-            <SortArray value="TSDistance"/>
-        </TargetSorts>
-    </CAbilEffectTarget>
     <CAbilMorph id="DisguiseAsZealot" parent="DisguiseChangeling">
         <CmdButtonArray index="Execute" DefaultButtonFace="Zealot"/>
         <InfoArray Unit="ChangelingZealot">
@@ -582,8 +597,10 @@
             <Vital index="Energy" value="25"/>
         </Cost>
         <Effect index="0" value="InfestedTerransLaunchPersistent"/>
+        <CastIntroTime value="0"/>
         <ProducedUnitArray value="InfestedTerran"/>
         <CursorEffect value="InfestedTerransLaunchPersistent"/>
+        <CastOutroTime value="0"/>
         <UninterruptibleArray index="Prep" value="1"/>
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
@@ -596,7 +613,7 @@
             <Vital index="Energy" value="50"/>
         </Cost>
         <TargetFilters value="Ground,Visible;Self,Player,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
-        <Range value="7"/>
+        <Range value="9"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="NeuralParasite"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
         <Effect index="0" value="NeuralParasiteLaunchMissile"/>
@@ -690,7 +707,7 @@
         <Cost>
             <Vital index="Energy" value="25"/>
         </Cost>
-        <TargetFilters value="-;Ally,Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Structure;Ally,Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="500"/>
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="TimeWarp"/>
@@ -699,7 +716,7 @@
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
         <UninterruptibleArray index="Finish" value="1"/>
-        <Effect index="0" value="TimeWarpSet"/>
+        <Effect index="0" value="TimeWarpProduction"/>
         <AINotifyEffect value="TimeWarpProduction"/>
     </CAbilEffectTarget>
     <CAbilResearch id="UltraliskCavernResearch">
@@ -717,7 +734,7 @@
     </CAbilResearch>
     <CAbilEffectTarget id="WormholeTransit">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Effect index="0" value="WormholeTransitTeleportMove"/>
+        <Effect index="0" value="WormholeTransitSet"/>
         <Cost>
             <Vital index="Energy" value="25"/>
         </Cost>
@@ -748,7 +765,7 @@
     <CAbilAttack id="AttackWarpPrism">
         <AbilSetId value=""/>
         <TargetMessage value="Abil/TargetMessage/AttackWarpPrism"/>
-        <CmdButtonArray index="Execute">
+        <CmdButtonArray index="Execute" DefaultButtonFace="AttackWarpPrism">
             <Flags index="ToSelection" value="0"/>
         </CmdButtonArray>
         <AcquireFilters value="-;Self,Player,Ally,Neutral,Enemy"/>
@@ -962,12 +979,8 @@
         </TargetSorts>
         <SmartValidatorArray value="healSmartTargetFilters"/>
         <SmartValidatorArray value="NotWarpingIn"/>
-        <SmartValidatorArray value="NotSpineCrawlerUprooted"/>
-        <SmartValidatorArray value="NotSporeCrawlerUprooted"/>
         <AutoCastValidatorArray value="healCasterMinEnergy"/>
         <AutoCastValidatorArray value="NotWarpingIn"/>
-        <AutoCastValidatorArray value="NotSpineCrawlerUprooted"/>
-        <AutoCastValidatorArray value="NotSporeCrawlerUprooted"/>
         <UseMarkerArray index="Approach" value="0"/>
         <UseMarkerArray index="Prep" value="0"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Heal"/>
@@ -1173,18 +1186,20 @@
     <CAbilBuild id="BarracksAddOns" parent="TerranAddOns">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
         <BuildMorphAbil value="BarracksLiftOff"/>
-        <InfoArray index="Build1" Unit="BarracksTechLab">
+        <InfoArray index="Build1" Unit="BarracksTechLab" Time="25">
+            <Resource index="Vespene" value="25"/>
             <Button DefaultButtonFace="BuildTechLabBarracks"/>
         </InfoArray>
-        <InfoArray index="Build2" Unit="BarracksNuclearReactor"/>
+        <InfoArray index="Build2" Unit="BarracksNuclearReactor" Time="50"/>
     </CAbilBuild>
     <CAbilBuild id="FactoryAddOns" parent="TerranAddOns">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
         <BuildMorphAbil value="FactoryLiftOff"/>
-        <InfoArray index="Build1" Unit="FactoryTechLab">
+        <InfoArray index="Build1" Unit="FactoryTechLab" Time="25">
+            <Resource index="Vespene" value="25"/>
             <Button DefaultButtonFace="BuildTechLabFactory"/>
         </InfoArray>
-        <InfoArray index="Build2" Unit="FactoryNuclearReactor"/>
+        <InfoArray index="Build2" Unit="FactoryNuclearReactor" Time="50"/>
         <InfoArray index="Build3">
             <Button DefaultButtonFace="SiloFactory"/>
         </InfoArray>
@@ -1192,10 +1207,11 @@
     <CAbilBuild id="StarportAddOns" parent="TerranAddOns">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
         <BuildMorphAbil value="StarportLiftOff"/>
-        <InfoArray index="Build1" Unit="StarportTechLab">
+        <InfoArray index="Build1" Unit="StarportTechLab" Time="25">
+            <Resource index="Vespene" value="25"/>
             <Button DefaultButtonFace="BuildTechLabStarport"/>
         </InfoArray>
-        <InfoArray index="Build2" Unit="StarportNuclearReactor"/>
+        <InfoArray index="Build2" Unit="StarportNuclearReactor" Time="50"/>
         <InfoArray index="Build3">
             <Button DefaultButtonFace="SiloPort"/>
         </InfoArray>
@@ -1419,9 +1435,9 @@
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="ResearchShieldWall" State="Restricted" Requirements="LearnShieldWall"/>
         </InfoArray>
-        <InfoArray index="Research3" Time="80" Upgrade="PunisherGrenades">
-            <Resource index="Minerals" value="100"/>
-            <Resource index="Vespene" value="100"/>
+        <InfoArray index="Research3" Time="60" Upgrade="PunisherGrenades">
+            <Resource index="Minerals" value="50"/>
+            <Resource index="Vespene" value="50"/>
             <Button DefaultButtonFace="ResearchPunisherGrenades" State="Restricted" Requirements="LearnPunisherGrenades"/>
         </InfoArray>
         <InfoArray index="Research4" Time="200">
@@ -1707,12 +1723,6 @@
             <Button DefaultButtonFace="Disruptor" State="Restricted" Requirements="HaveCyberneticsCore"/>
             <Unit value="Disruptor"/>
         </InfoArray>
-        <InfoArray index="Train9" Time="42">
-            <Resource index="Minerals" value="50"/>
-            <Resource index="Vespene" value="75"/>
-            <Button DefaultButtonFace="Disruptor" State="Restricted" Requirements="HaveCyberneticsCore"/>
-            <Unit value="Disruptor2"/>
-        </InfoArray>
     </CAbilTrain>
     <CAbilTrain id="StargateTrain">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Structures"/>
@@ -1755,7 +1765,7 @@
             <Button DefaultButtonFace="Colossus" State="Restricted" Requirements="HaveRoboticsBay"/>
             <Unit value="Colossus"/>
         </InfoArray>
-        <InfoArray index="Train4" Time="40">
+        <InfoArray index="Train4" Time="55">
             <Resource index="Minerals" value="250"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="Immortal" State="Restricted"/>
@@ -1809,6 +1819,7 @@
             </Button>
             <Flags index="AutoBuild" value="1"/>
         </InfoArray>
+        <Alert value="TrainComplete"/>
     </CAbilArmMagazine>
     <CAbilResearch id="ForgeResearch">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Structures"/>
@@ -1901,7 +1912,7 @@
             <Resource index="Minerals" value="300"/>
             <Button DefaultButtonFace="Hatchery"/>
         </InfoArray>
-        <InfoArray index="Build2" Category="Army" Unit="CreepTumor" Time="15">
+        <InfoArray index="Build2" Category="None" Unit="CreepTumor" Time="15">
             <Resource index="Minerals" value="50"/>
             <Button DefaultButtonFace="CreepTumor"/>
         </InfoArray>
@@ -2102,6 +2113,9 @@
             <SectionArray index="Actor">
                 <DurationArray index="Duration" value="100"/>
             </SectionArray>
+            <SectionArray index="Facing">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
             <SectionArray index="Stats">
                 <DurationArray index="Delay" value="100"/>
             </SectionArray>
@@ -2143,7 +2157,11 @@
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="zerglingmovementspeed" State="Restricted" Requirements="LearnMetabolicBoost"/>
         </InfoArray>
-        <InfoArray index="Research3" Time="80"/>
+        <InfoArray index="Research3" Time="120" Upgrade="ObverseIncubation">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ObverseIncubation" Requirements="LearnObverseIncubation"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilResearch id="hydraliskdenresearch">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
@@ -2190,7 +2208,6 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
         <MorphUnit value="Egg"/>
         <Flags index="DisableCollision" value="1"/>
-        <Flags index="KillOnCancel" value="1"/>
         <Flags index="KillOnFinish" value="1"/>
         <Flags index="Select" value="1"/>
         <InfoArray index="Train1" Category="Economy" Time="17" Alert="TrainWorkerComplete">
@@ -2221,11 +2238,6 @@
             <Button DefaultButtonFace="Mutalisk" Requirements="HaveSpire"/>
             <Unit value="Mutalisk"/>
         </InfoArray>
-        <InfoArray index="Train6" Time="25">
-            <Resource index="Minerals" value="50"/>
-            <Resource index="Vespene" value="100"/>
-            <Button DefaultButtonFace="Scourge" Requirements="HaveGreaterSpire"/>
-        </InfoArray>
         <InfoArray index="Train7" Time="70">
             <Resource index="Minerals" value="300"/>
             <Resource index="Vespene" value="200"/>
@@ -2241,7 +2253,7 @@
         <InfoArray index="Train10" Time="27">
             <Resource index="Minerals" value="75"/>
             <Resource index="Vespene" value="25"/>
-            <Button DefaultButtonFace="Move" Requirements="HaveBanelingNest2"/>
+            <Button DefaultButtonFace="Roach" Requirements="HaveBanelingNest2"/>
             <Unit value="Roach"/>
         </InfoArray>
         <InfoArray index="Train11" Time="50">
@@ -2273,6 +2285,7 @@
         <Flags index="FastBuild" value="1"/>
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
+        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>
@@ -2281,7 +2294,7 @@
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
         </Cost>
-        <InfoArray Unit="MutaliskCocoon">
+        <InfoArray Unit="BroodLordCocoon">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="0.5"/>
             </SectionArray>
@@ -2631,12 +2644,6 @@
             <Cooldown Link="WarpGateTrain" Location="Unit" TimeUse="32"/>
             <Button DefaultButtonFace="Disruptor" State="Restricted" Requirements="HaveCyberneticsCore"/>
         </InfoArray>
-        <InfoArray index="Train9" Category="Army" Time="5" Unit="Disruptor2">
-            <Resource index="Minerals" value="50"/>
-            <Resource index="Vespene" value="75"/>
-            <Cooldown Link="WarpGateTrain" Location="Unit" TimeUse="32"/>
-            <Button DefaultButtonFace="Disruptor" State="Restricted" Requirements="HaveCyberneticsCore"/>
-        </InfoArray>
     </CAbilWarpTrain>
     <CAbilMorph id="BurrowQueenDown">
         <AbilSetId value="BrwD"/>
@@ -2694,6 +2701,7 @@
         <Flags index="FastBuild" value="1"/>
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
+        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>
@@ -2770,13 +2778,13 @@
         <Flags index="IgnorePlacement" value="0"/>
         <InfoArray Unit="InfestorBurrowed" RandomDelayMax="0.3703">
             <SectionArray index="Actor">
-                <DurationArray index="Duration" value="1"/>
+                <DurationArray index="Duration" value="0.5"/>
             </SectionArray>
             <SectionArray index="Collide">
-                <DurationArray index="Delay" value="1"/>
+                <DurationArray index="Delay" value="0.5"/>
             </SectionArray>
             <SectionArray index="Stats">
-                <DurationArray index="Delay" value="1"/>
+                <DurationArray index="Delay" value="0.5"/>
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
@@ -2793,10 +2801,10 @@
         <Flags index="IgnoreFacing" value="1"/>
         <InfoArray Unit="Infestor" RandomDelayMax="0.5">
             <SectionArray index="Actor">
-                <DurationArray index="Duration" value="1"/>
+                <DurationArray index="Duration" value="0.5"/>
             </SectionArray>
             <SectionArray index="Stats">
-                <DurationArray index="Duration" value="1"/>
+                <DurationArray index="Duration" value="0.5"/>
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
@@ -2810,6 +2818,7 @@
         <Flags index="FastBuild" value="1"/>
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
+        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <AbilClassEnableArray index="CAbilMove" value="1"/>
@@ -2818,7 +2827,7 @@
             <Resource index="Minerals" value="50"/>
             <Resource index="Vespene" value="100"/>
         </Cost>
-        <InfoArray Unit="OverlordCocoon"/>
+        <InfoArray Unit="OverlordCocoon" RandomDelayMin="0.001" RandomDelayMax="0.001"/>
         <!-- Removed for the moment as cancelling quickly will cause 
                 extra unit actors to appear per bug ID 37689
             <SectionArray index="Abils">
@@ -2856,7 +2865,7 @@
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
         <Flags index="ShowProgress" value="1"/>
-        <Cost Category="Army">
+        <Cost Category="Economy">
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
         </Cost>
@@ -2965,16 +2974,6 @@
         <AutoCastRange value="2"/>
         <AutoCastCountMin value="1"/>
     </CAbilMorph>
-    <CAbilEffectTarget id="D8Charge">
-        <Alignment value="Negative"/>
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Range value="5"/>
-        <CastOutroTime value="0.35"/>
-        <Cost>
-            <Cooldown Link="D8Charge" TimeUse="20"/>
-        </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="D8Charge"/>
-    </CAbilEffectTarget>
     <CAbilMorph id="UpgradeToOrbital">
         <EditorCategories value="Race:Terran,AbilityorEffectType:MorphsandBurrows"/>
         <Alert value="UpgradeComplete"/>
@@ -2987,7 +2986,7 @@
         <Flags index="Interruptible" value="1"/>
         <Flags index="Produce" value="1"/>
         <Flags index="ShowProgress" value="1"/>
-        <Cost Category="Army">
+        <Cost Category="Economy">
             <Resource index="Minerals" value="150"/>
         </Cost>
         <InfoArray Score="1" Unit="OrbitalCommand">
@@ -3185,6 +3184,8 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="EMP2"/>
         <Range value="10"/>
+        <!-- Have to have the minor prep time for the animation to kick in -->
+        <PrepTime value="0.01"/>
         <FinishTime value="2.5"/>
         <CursorEffect value="EMP2A"/>
         <Cost>
@@ -3214,7 +3215,7 @@
     </CAbilEffectTarget>
     <CAbilTrain id="TrainQueen">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
-        <InfoArray index="Train1" Category="Technology" Time="50" Effect="QueenBirth">
+        <InfoArray index="Train1" Category="Economy" Time="50" Effect="QueenBirth">
             <Resource index="Minerals" value="150"/>
             <Button DefaultButtonFace="Queen" Requirements="HaveSpawningPool"/>
             <Unit value="Queen"/>
@@ -3329,14 +3330,25 @@
         </CmdButtonArray>
     </CAbilRedirectTarget>
     <CAbilRedirectInstant id="stimRedirect">
+        <AbilSetId value="Stimpack"/>
         <Abil value="StimPack"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="StimRedirect" Requirements="UseStimpack">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilRedirectInstant>
+    <CAbilRedirectInstant id="stimMaraRedirect">
+        <AbilSetId value="Stimpack"/>
+        <Abil value="StimpackMara"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="StimRedirect" Requirements="UseStimpack">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
     </CAbilRedirectInstant>
     <CAbilStop id="burrowedStop">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <CmdButtonArray index="Stop" Requirements="PlayerHasTunnelingClaws"/>
+        <CmdButtonArray index="Stop" DefaultButtonFace="StopRoachBurrowed" Requirements="PlayerHasTunnelingClaws"/>
+        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFireSpecial"/>
+        <CmdButtonArray index="Cheer" DefaultButtonFace=""/>
+        <CmdButtonArray index="Dance" DefaultButtonFace=""/>
     </CAbilStop>
     <CAbilRedirectInstant id="stopRedirect">
         <Abil value="stop"/>
@@ -3490,13 +3502,13 @@
         <CmdButtonArray index="SelectedUnits" DefaultButtonFace="AWrp" State="Restricted">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
-        <CmdButtonArray index="WithTarget" DefaultButtonFace="AWrp2" State="Restricted"/>
+        <CmdButtonArray index="WithTarget" DefaultButtonFace="ArchonWarpTarget" State="Restricted"/>
         <Info Unit="Archon" Time="16.6667"/>
     </CAbilMerge>
     <CAbilBuild id="BuildNydusCanal">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
         <Range value="500"/>
-        <InfoArray index="Build1" Category="Army" Unit="NydusCanal" Time="20">
+        <InfoArray index="Build1" Unit="NydusCanal" Time="20">
             <Resource index="Minerals" value="100"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="NydusCanal" State="Restricted" Requirements="HaveNydusNetwork"/>
@@ -3538,14 +3550,20 @@
         <AutoCastRange value="2.5"/>
         <TargetFilters value="Ground;Self,Structure,Missile,Uncommandable,Buried,UnderConstruction,Dead,Hidden"/>
     </CAbilInteract>
-    <CAbilMorph id="MorphtoInfestedTerran">
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedTerrans"/>
-        <ActorKey value="MorphToInfestedTerran"/>
-        <InfoArray Unit="InfestorTerran">
-            <SectionArray index="Abils">
-                <EffectArray index="Finish" value="InfestedTerransTimedLife"/>
-            </SectionArray>
-        </InfoArray>
-    </CAbilMorph>
+    <CAbilEffectTarget id="HerdInteract">
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Effect index="0" value="HerdInteractSet"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
+        <Range value="6"/>
+        <AutoCastRange value="6"/>
+        <AutoCastFilters value="Ground;Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <Cost>
+            <Cooldown Link="HerdInteract" Location="Unit" TimeUse="10"/>
+        </Cost>
+        <TargetSorts>
+            <SortArray value="TSRandom"/>
+        </TargetSorts>
+    </CAbilEffectTarget>
 </Catalog>

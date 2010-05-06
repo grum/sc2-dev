@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-    <Frame type="SkirmishPanel" name="SkirmishPanel">            
+    <Frame type="SkirmishPanel" name="SkirmishPanel">
+        <Frame type="Image" name="Background">
+            <Anchor relative="$parent"/>
+            <Color val="0, 0, 0"/>
+            <Alpha val="230"/>
+        </Frame>
+        
         <Frame type="Label" name="SingleTitle">
             <Text val="@UI/Singleplayer"/>
             <Style val="GlueTitle"/>
@@ -52,112 +58,126 @@
             <Anchor side="Left" relative="$parent/MapListBox" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent/MapListBox" pos="Max" offset="0"/>
             <Height val="200"/>
-        </Frame>        
+        </Frame>
+
+        <Frame type="ThumbButton" name="PlayButton" template="StandardTemplates/StandardButtonAlternateTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-50"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="80"/>
+            <Text val="PLAY"/>
+            <Width val="250"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="BackButton" template="StandardTemplates/StandardButtonTemplate">
+            <Anchor side="Top" relative="$parent/PlayButton" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/PlayButton" pos="Max" offset="80"/>
+            <Text val="BACK"/>
+            <Width val="250"/>
+        </Frame>
     </Frame>
 
     <Frame type="ScreenSingle" name="ScreenSingle">
-        <Anchor side="Top" relative="$parent" pos="Min" offset="270"/>
-        <Anchor side="Bottom" relative="$parent" pos="Max" offset="-100"/>
+        <Anchor side="Top" relative="$parent" pos="Mid" offset="-325"/>
         <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
         <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-        <Width val="1600"/>
-
-        <Frame type="Image" name="Background">
-            <Anchor relative="$parent"/>
-            <Color val="0, 0, 0"/>
-            <Alpha val="230"/>
-        </Frame>
-
-        <Frame type="ThumbButton" name="SkirmishButton" template="StandardTemplates/StandardGlueThumbButton">
-            <Label val="SkirmishButtonLabel"/>
-            <Shortcut val="@UI/Skirmish_Hotkey"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="80"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
-            <Width val="200"/>
-            <Height val="50"/>
-            <Frame type="Label" name="SkirmishButtonLabel">
-                <Text val="@UI/Skirmish_Control"/>
-                <Style val="GlueButton"/>
-                <DescFlags val="Internal"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="ThumbButton" name="ChallengeButton" template="StandardTemplates/StandardGlueThumbButton">
-            <Label val="ChallengeButtonLabel"/>
-            <Shortcut val="@UI/Challenge_Hotkey"/>
-            <Anchor side="Top" relative="$parent/SkirmishButton" pos="Max" offset="5"/>
-            <Anchor side="Left" relative="$parent/SkirmishButton" pos="Min" offset="0"/>
-            <Width val="200"/>
-            <Height val="50"/>
-            <Frame type="Label" name="ChallengeButtonLabel">
-                <Text val="@UI/Challenge_Control"/>
-                <Style val="GlueButton"/>
-                <DescFlags val="Internal"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="ThumbButton" name="LoadButton" template="StandardTemplates/StandardGlueThumbButton">
-            <Label val="LoadButtonLabel"/>
-            <Shortcut val="@UI/Load_Hotkey"/>
-            <Anchor side="Top" relative="$parent/ChallengeButton" pos="Max" offset="5"/>
-            <Anchor side="Left" relative="$parent/ChallengeButton" pos="Min" offset="0"/>
-            <Width val="200"/>
-            <Height val="50"/>
-            <Frame type="Label" name="LoadButtonLabel">
-                <Text val="@UI/Load_Control"/>
-                <Style val="GlueButton"/>
-                <DescFlags val="Internal"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="ThumbButton" name="BackButton" template="StandardTemplates/StandardGlueThumbButton">
-            <Label val="BackButtonLabel"/>
-            <Shortcut val="@UI/Back_Hotkey"/>
-            <Anchor side="Top" relative="$parent/LoadButton" pos="Max" offset="5"/>
-            <Anchor side="Left" relative="$parent/LoadButton" pos="Min" offset="0"/>
-            <Width val="200"/>
-            <Height val="50"/>
-            <Frame type="Label" name="BackButtonLabel">
-                <Text val="@UI/Back_Control"/>
-                <Style val="GlueButton"/>
-                <DescFlags val="Internal"/>
-            </Frame>
-        </Frame>
-
+        <Width val="1500"/>
+        <Height val="900"/>
+       
         <Frame type="SkirmishPanel" name="SkirmishPanel" template="ScreenSingle/SkirmishPanel">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="570"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="1500"/>
+            <Height val="818"/>
         </Frame>
 
+        <Frame type="CampaignPanel" name="CampaignPanel" template="CampaignPanel/CampaignPanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="1500"/>
+            <Height val="818"/>
+        </Frame>
+        
         <Frame type="ChallengePanel" name="ChallengePanel" template="ChallengePanel/ChallengePanel">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="540"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="1500"/>
+            <Height val="818"/>
         </Frame>
 
-        <Frame type="SaveFilePanel" name="LoadPanel" template="StandardFilePanel/SavePanel">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-80"/>
-            <Width val="700"/>
-            <Height val="700"/>
-        </Frame>
+        <Frame type="Frame" name="NavigationPanel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>            
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Width val="420"/>
 
-        <Frame type="ThumbButton" name="PlayButton" template="StandardTemplates/StandardGlueThumbButton">
-            <Label val="PlayButtonLabel"/>
-            <Shortcut val="@UI/Play_Hotkey"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
-            <Width val="200"/>
-            <Height val="50"/>
-            <Frame type="Label" name="PlayButtonLabel">
-                <Text val="@UI/Play_Control"/>
-                <Style val="GlueButton"/>
-                <DescFlags val="Internal"/>
+            <Frame type="Image" name="CustomGameBucketImage">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+                <Texture val="@@UI/StandardGlueBucket"/>
             </Frame>
+
+            <Frame type="Label" name="CustomGameTitleLabel">
+                <Anchor side="Top" relative="$parent/CustomGameBucketImage" pos="Min" offset="40"/>
+                <Anchor side="Left" relative="$parent/CustomGameBucketImage" pos="Min" offset="55"/>
+                <Style val="GlueTitleSmall"/>
+                <Text val="@UI/ScreenSingleCustomGame"/>
+            </Frame>
+
+            <Frame type="Label" name="CustomGameDescriptionLabel">
+                <Anchor side="Top" relative="$parent/CustomGameTitleLabel" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent/CustomGameTitleLabel" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/CustomGameBucketImage" pos="Max" offset="-55"/>
+                <Text val="@UI/ScreenSingleCustomGameDescription"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+            
+            <Frame type="ThumbButton" name="CustomGameButton" template="StandardTemplates/StandardButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/CustomGameBucketImage" pos="Max" offset="-50"/>
+                <Anchor side="Left" relative="$parent/CustomGameBucketImage" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/CustomGameBucketImage" pos="Mid" offset="0"/>
+                <Text val="@UI/ScreenSingleCustomGame_Control"/>
+                <Shortcut val="@UI/ScreenSingleCustomGame_Hotkey"/>
+                <Width val="300"/>
+            </Frame>
+
+            <Frame type="Image" name="ChallengeBucketImage">
+                <Anchor side="Top" relative="$parent/CustomGameBucketImage" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/CustomGameBucketImage" pos="Max" offset="0"/>
+                <Texture val="@@UI/StandardGlueBucket"/>
+            </Frame>
+
+            <Frame type="Label" name="ChallengeTitleLabel">
+                <Anchor side="Top" relative="$parent/ChallengeBucketImage" pos="Min" offset="40"/>
+                <Anchor side="Left" relative="$parent/ChallengeBucketImage" pos="Min" offset="55"/>
+                <Style val="GlueTitleSmall"/>
+                <Text val="@UI/ScreenSingleChallenge"/>
+            </Frame>
+
+            <Frame type="Label" name="ChallengeDescriptionLabel">
+                <Anchor side="Top" relative="$parent/ChallengeTitleLabel" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent/ChallengeTitleLabel" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/CustomGameBucketImage" pos="Max" offset="-55"/>
+                <Text val="@UI/ScreenSingleChallengeDescription"/>
+                <Style val="GlueLabel"/>
+            </Frame>
+
+            <Frame type="ThumbButton" name="ChallengeButton" template="StandardTemplates/StandardButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/ChallengeBucketImage" pos="Max" offset="-50"/>
+                <Anchor side="Left" relative="$parent/ChallengeBucketImage" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/ChallengeBucketImage" pos="Mid" offset="0"/>
+                <Text val="@UI/ScreenSingleChallenge_Control"/>
+                <Shortcut val="@UI/ScreenSingleChallenge_Hotkey"/>
+                <Width val="300"/>
+            </Frame>           
+        </Frame>
+
+        <Frame type="ThumbButton" name="BackButton" template="StandardTemplates/StandardButtonTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Text val="Back to Main Menu"/>
+            <Width val="300"/>
         </Frame>
     </Frame>
 </Desc>

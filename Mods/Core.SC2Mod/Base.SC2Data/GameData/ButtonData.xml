@@ -44,7 +44,31 @@
         <EditorCategories value="Race:Neutral"/>
         <TintRacially value="1"/>
     </CButton>
+    <CButton id="StopSpecial">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="Cheer">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="Dance">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+    </CButton>
     <CButton id="HoldFire">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="HoldFireSpecial">
         <Icon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
         <EditorCategories value="Race:Neutral"/>
@@ -53,6 +77,18 @@
     <CButton id="Cancel">
         <Icon value="Assets\Textures\btn-command-cancel.dds"/>
         <AlertIcon value="Assets\Textures\btn-command-cancel.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="CancelBuilding">
+        <Icon value="Assets\Textures\btn-command-cancel.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-cancel.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="Halt">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
         <EditorCategories value="Race:Neutral"/>
         <TintRacially value="1"/>
     </CButton>

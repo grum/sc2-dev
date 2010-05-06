@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    
+
+    <Frame type="ScreenCredits" name="ScreenCredits">
+        <Anchor relative="$parent"/>
+
+        <Frame type="CreditsPanel" name="CreditsPanel" template="CreditsPanel/CreditsPanelTemplate">
+            <Anchor relative="$parent"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardButtonTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-40"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
+            <Width val="300"/>
+            <Shortcut val="@UI/GameMenuClose_Hotkey"/>
+            <Text val="@UI/GameMenuClose_Control"/>
+        </Frame>
+    </Frame>
+</Desc>

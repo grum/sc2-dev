@@ -127,6 +127,12 @@ half4 MainShading( VertexTransport vertOut ) {
                                         cLightDiffuse, cLightSpecular, cShadowColor, 
 										g_cDeferredDiffuse, g_cDeferredSpecular, g_cDeferredSpecularPower );  // <-- output
 
+        if ( b_useLighting == 0 ) {
+            g_cDeferredDiffuse = 0;
+            g_cDeferredSpecular = 0;
+            g_cDeferredSpecularPower = 1;
+        }
+
         // Special debug render modes.
         cResult = ApplyDebugRenderMode( vertOut, cResult );
 

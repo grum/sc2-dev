@@ -194,14 +194,12 @@
                 <Style val="ReplayPanelTime"/>
                 <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
-                <Height val="20"/>
             </Frame>
             
             <Frame type="Label" name="SpeedValue">
                 <Style val="ReplayPanelSpeed"/>
                 <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
-                <Height val="20"/>
             </Frame>
         
             <Frame type="Slider" name="ProgressSlider">

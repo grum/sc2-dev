@@ -27,7 +27,7 @@ float4      p_vVectorUIInterpolant0[MAX_SPLATS];
 float4      p_vVectorUIInterpolant1[MAX_SPLATS];        // x == inner radius, y == outer radius, z == falloff, w == 1/falloff
 float4      p_vVectorUIInterpolant2[MAX_SPLATS];        // x == segment count, y == percent solid, (z,w) == rotation axis
 float4      p_vSplatAttenuationPlane[MAX_SPLATS];       // attenuation plane for splat
-float       p_fSplatAttenuationScalar[MAX_SPLATS];      // attenuation scalar for splats
+float2      p_fSplatAttenuationScalar_MinHeight[MAX_SPLATS];      // attenuation scalar for splats
 
 float       p_fBatchIndexRemappingTable[MAX_BATCH_INDEX_REMAPPING_TABLE_SIZE];
 
@@ -70,8 +70,8 @@ half4 EmitSplatNormal( Input vertIn ) {
 
 //--------------------------------------------------------------------------------------------------
 // Tangent.
-half3 EmitSplatTangent( Input vertIn ) {
-    return vertIn.vTangent;
+half4 EmitSplatTangent( Input vertIn ) {
+    return half4(vertIn.vTangent.xyz, 1);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -134,6 +134,7 @@ void SplatVertexMain( in VertDecl streamIn, out VertexTransport vertOut ) {
     }
 
     g_iBatchIndex = vertIn.vBlendIndices[0];
+    float clipoffset = vertIn.vBlendIndices[1] / 255.f;
 
     if (b_stencilFillPass == 1) {
         int iCornerIndex = g_iBatchIndex;
@@ -183,18 +184,24 @@ void SplatVertexMain( in VertDecl streamIn, out VertexTransport vertOut ) {
         INTERPOLANT_VectorUI0 = p_vVectorUIInterpolant0[g_iBatchIndex];
         INTERPOLANT_VectorUI1 = p_vVectorUIInterpolant1[g_iBatchIndex];
         INTERPOLANT_VectorUI2 = p_vVectorUIInterpolant2[g_iBatchIndex];
-
-        // store the attenuation distance in the w component, use this for a per-pixel attenuation
-        float fDist = dot(float4(INTERPOLANT_WorldPos.xyz, 1.0f), p_vSplatAttenuationPlane[g_iBatchIndex]);
-        fDist = (1.0f - abs(fDist)) * p_fSplatAttenuationScalar[g_iBatchIndex];
-        INTERPOLANT_VectorUI0.w = saturate(fDist);
+        
+        // attenuation params
+        INTERPOLANT_Vector4     = p_vSplatAttenuationPlane[g_iBatchIndex];
+        INTERPOLANT_VectorUI0.w = p_fSplatAttenuationScalar_MinHeight[g_iBatchIndex].x;
+        INTERPOLANT_WorldPos.w  = p_fSplatAttenuationScalar_MinHeight[g_iBatchIndex].y - clipoffset; 
     }
     else {
-        INTERPOLANT_VectorUI0 = p_vSplatAttenuationPlane[g_iBatchIndex];
-        INTERPOLANT_VectorUI1 = float4(EmitSplatWorldPos(vertIn).xyz, p_fSplatAttenuationScalar[g_iBatchIndex]);
+        // attenuation params
+        INTERPOLANT_VectorUI0     = p_vSplatAttenuationPlane[g_iBatchIndex];
+        INTERPOLANT_VectorUI1.xyz = INTERPOLANT_WorldPos.xyz;
+        INTERPOLANT_VectorUI1.w   = p_fSplatAttenuationScalar_MinHeight[g_iBatchIndex].x;
+        INTERPOLANT_Tangent.w     = p_fSplatAttenuationScalar_MinHeight[g_iBatchIndex].y - clipoffset;
     }
+    
+    
+    // parallax vector
     INTERPOLANT_ParallaxVector  = EmitParallaxVector(   vertIn.vPosition.xyz, p_vEyePos, 
-                                                        INTERPOLANT_Normal, INTERPOLANT_Tangent, INTERPOLANT_Binormal );
+                                                        INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal.xyz );
 #ifdef COMPILING_SHADER_FOR_OPENGL
     vertOut.HPos.y *= -1.0;
     vertOut.HPos.z = 2.0 * (vertOut.HPos.z - (0.5 * vertOut.HPos.w));

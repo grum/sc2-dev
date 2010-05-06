@@ -16,10 +16,8 @@
         
         <Frame type="ThumbButton" name="SpeakerButton">
             <Anchor relative="$parent/BorderImage"/>
-            <Height val="20"/>
-            <Width val="20"/>
-            <TextureType val="Normal"/>
-            <Tiled val="false"/>
+            <Height val="28"/>
+            <Width val="28"/>           
             <Tooltip val="@UI/Mute"/>
         </Frame>
 

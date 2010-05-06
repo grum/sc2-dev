@@ -1,0 +1,12 @@
+Abil/Name/FactoryTrain=Train (Factory)
+Abil/Name/ForceField=Force Field
+Abil/Name/RoboticsFacilityTrain=Train (Robotics Facility)
+Abil/Name/StargateTrain=Train (Stargate)
+Unit/Name/Hydralisk=Hydralisk
+Unit/Name/Immortal=Immortal
+Unit/Name/RoachWarren=Roach Warren
+Unit/Name/VoidRay=Void Ray
+Upgrade/Name/ProtossAirWeaponsLevel1=Protoss Air Weapons Level 1
+Upgrade/Name/ProtossAirWeaponsLevel2=Protoss Air Weapons Level 2
+Upgrade/Name/ProtossAirWeaponsLevel3=Protoss Air Weapons Level 3
+Upgrade/Name/TunnelingClaws=Tunneling Claws

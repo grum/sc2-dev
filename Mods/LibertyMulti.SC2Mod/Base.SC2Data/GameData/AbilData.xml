@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<Catalog/>
+<Catalog>
+    <CAbilTrain id="FactoryTrain">
+        <InfoArray index="Train2" Time="45"/>
+        <InfoArray index="Train5" Time="60"/>
+    </CAbilTrain>
+    <CAbilTrain id="RoboticsFacilityTrain"/>
+    <CAbilTrain id="StargateTrain">
+        <InfoArray index="Train5">
+            <Resource index="Minerals" value="250"/>
+        </InfoArray>
+    </CAbilTrain>
+</Catalog>

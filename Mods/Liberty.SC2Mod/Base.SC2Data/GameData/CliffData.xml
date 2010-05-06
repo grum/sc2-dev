@@ -16,6 +16,14 @@
         <CliffMesh value="CliffMade6"/>
         <EditorIcon value="Assets\Textures\Braxis_Cliff1.dds"/>
     </CCliff>
+    <CCliff id="CharCliff0">
+        <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\char_cliff0.dds"/>
+    </CCliff>
+    <CCliff id="CharCliff1">
+        <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\char_cliff1_diffuse.dds"/>
+    </CCliff>
     <CCliff id="KorhalCliff0">
         <CliffMesh value="CliffMade7"/>
         <EditorIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
@@ -55,6 +63,14 @@
     <CCliff id="ShakurasCliff1">
         <CliffMesh value="CliffMade4"/>
         <EditorIcon value="Assets\Textures\Shakuras_Cliff1.dds"/>
+    </CCliff>
+    <CCliff id="TarsonisCliff0">
+        <CliffMesh value="CliffNatural0"/>
+        <EditorIcon value="Assets\Textures\Tarsonis_Cliff0_Diffuse.dds"/>
+    </CCliff>
+    <CCliff id="TarsonisCliff1">
+        <CliffMesh value="CliffMade2"/>
+        <EditorIcon value="Assets\Textures\Tarsonis_Cliff1_Diff.dds"/>
     </CCliff>
     <CCliff id="XilCliff0">
       <CliffMesh value="CliffNatural0"/>

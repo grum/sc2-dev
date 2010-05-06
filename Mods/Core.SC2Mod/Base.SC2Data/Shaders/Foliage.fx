@@ -11,7 +11,7 @@
 
 struct Input
 {
-    float4  vPosition		: POSITION_;
+    float4  vPosition       : POSITION_;
     float2  vCompressedPos  : ALTPOSITION0_;
     half4   vBlendWeights   : BLENDWEIGHT_;
     half4   vBlendIndices   : BLENDINDICES_;
@@ -47,6 +47,8 @@ float4      p_vOffsetVectors[FOLIAGE_GRID_SIZE * FOLIAGE_GRID_SIZE];
 
 float3      p_vCompressedPositionScale;
 float3      p_vCompressedPositionOffset;
+
+float g_fAO;
 
 //==================================================================================================
 // VERTEX SHADER EMITTERS
@@ -86,8 +88,8 @@ half4 EmitFoliageNormal( Input vertIn ) {
 
 //--------------------------------------------------------------------------------------------------
 // Tangent.
-half3 EmitFoliageTangent( Input vertIn ) {
-    return vertIn.vTangent.xyz;
+half4 EmitFoliageTangent( Input vertIn ) {
+    return half4(vertIn.vTangent.xyz, 1);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -116,7 +118,7 @@ half4 EmitFoliageUV( Input vertIn, int index ) {
 //--------------------------------------------------------------------------------------------------
 // Vertex color.
 half4 EmitFoliageVertexColor( Input vertIn ) {
-    return vertIn.cColor;
+    return half4(g_fAO, g_fAO, g_fAO, vertIn.cColor.a);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -150,6 +152,7 @@ void FoliageVertexMain( in Input vertIn, out VertexTransport vertOut ) {
     vertIn.vPosition.xy = (vertIn.vPosition.xy * p_vCompressedPositionScale.xy) + p_vCompressedPositionOffset.xy;
     vertIn.vPosition.z = (vertIn.vCompressedPos.x * p_vCompressedPositionScale.z) + p_vCompressedPositionOffset.z;
     vertIn.vPosition.w = 1.0f;
+    g_fAO = vertIn.vCompressedPos.y;
 
     // decompress uvs
     vertIn.vUV0 *= FOLIAGE_UV_RANGE;
@@ -197,7 +200,7 @@ void FoliageVertexMain( in Input vertIn, out VertexTransport vertOut ) {
     }
 
     INTERPOLANT_ParallaxVector  = EmitParallaxVector(   vertIn.vPosition.xyz, p_vEyePos, 
-                                                        INTERPOLANT_Normal, INTERPOLANT_Tangent, INTERPOLANT_Binormal );
+                                                        INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal.xyz );
 #ifdef COMPILING_SHADER_FOR_OPENGL
     vertOut.HPos.y *= -1.0;
     vertOut.HPos.z = 2.0 * (vertOut.HPos.z - (0.5 * vertOut.HPos.w));

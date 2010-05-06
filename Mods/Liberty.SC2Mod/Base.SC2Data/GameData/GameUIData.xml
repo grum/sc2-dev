@@ -8,62 +8,147 @@
         <CampaignIntroMovie value="2"/>
         <MusicArray value="Music_LibertyStartup"/>
         <IntroMusic value="Music_LibertyIntro"/>
-        <LoopMusic value="Music_LibertyLoop"/>
         <LoopAmbience value="Ambience_Liberty"/>
-        <CampaignArray>
+        <Campaign>
+            <Id value="WingsOfLiberty"/>
             <Name value="UI/WingsOfLiberty"/>
             <Description value="UI/WingsOfLibertyDescription"/>
-            <ImagePath value="Assets/Textures/ui_icon_wingsoflibertyicon.dds"/>
+            <ImagePath value="Assets/Textures/loading-kerriganphoto.dds"/>
             <LaunchMap value="Campaign/TStory01.SC2Map"/>
+            <TutorialMap value="Campaign/TTutorial01.SC2Map"/>
             <SaveName value="LastCampaignSave.SC2Save"/>
-        </CampaignArray>
-        <ChallengeArray Name="Economy" Difficulty="Challenge/Normal" Path="Challenges/Economy.SC2Map"/>
-        <ChallengeArray>
-            <Name value="TerranCombat"/>
-            <Difficulty value="Challenge/Normal"/>
-            <Path value="Challenges/TerranCombat.SC2Map"/>
-            <ScoreType value="RemainingUnits"/>
-        </ChallengeArray>
-        <ChallengeArray>
-            <Name value="TerranCovertOps"/>
-            <Difficulty value="Challenge/Normal"/>
-            <Path value="Challenges/TerranCovertOps.SC2Map"/>
-            <ScoreType value="Kills"/>
-        </ChallengeArray>
-        <ChallengeArray>
-            <Name value="AdvancedCommand"/>
-            <Difficulty value="Challenge/Insane"/>
-            <Path value="Challenges/AdvancedCommand.SC2Map"/>
-            <ScoreType value="Kills"/>
-        </ChallengeArray>
-        <ChallengeArray>
-            <Name value="ProtossCombat"/>
-            <Difficulty value="Challenge/Normal"/>
-            <Path value="Challenges/ProtossCombat.SC2Map"/>
-            <ScoreType value="RemainingUnits"/>
-        </ChallengeArray>
-        <ChallengeArray>
-            <Name value="ProtossPsionics"/>
-            <Difficulty value="Challenge/Hard"/>
-            <Path value="Challenges/ProtossPsionics.SC2Map"/>
-            <ScoreType value="Kills"/>
-        </ChallengeArray>
-        <ChallengeArray>
-            <Name value="ZergCombat"/>
-            <Difficulty value="Challenge/Normal"/>
-            <Path value="Challenges/ZergCombat.SC2Map"/>
-            <ScoreType value="RemainingUnits"/>
-        </ChallengeArray>
-        <ChallengeArray>
-            <Name value="ZergInfestation"/>
-            <Difficulty value="Challenge/Normal"/>
-            <Path value="Challenges/ZergInfestation.SC2Map"/>
-            <ScoreType value="Kills"/>
-        </ChallengeArray>
+        </Campaign>
+        <ChallengeMasterAchievement value="Challenge_MasterAchievement_Dominance"/>
+        <ChallengeMasterAchievement value="Challenge_MasterAchievement_Mastery"/>
+        <ChallengeMasterAchievement value="Challenge_MasterAchievement_Basic"/>
+        <ChallengeCategory Name="@ChallengeCategory/Basic">
+            <Challenge>
+                <Id value="TerranCombat"/>
+                <Name value="@Challenge/TerranCombat/Name"/>
+                <Description value="@Challenge/TerranCombat/Description"/>
+                <Score value="@Challenge/TerranCombat/Score"/>
+                <MapPath value="Challenges/TerranCombat.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_tacticalcommand.dds"/>
+                <Achievement value="Challenge_TerranCombat_Basic"/>
+                <Achievement value="Challenge_TerranCombat_Mastery"/>
+                <Achievement value="Challenge_TerranCombat_Dominance"/>
+            </Challenge>
+            <Challenge>
+                <Id value="ProtossCombat"/>
+                <Name value="@Challenge/ProtossCombat/Name"/>
+                <Description value="@Challenge/ProtossCombat/Description"/>
+                <Score value="@Challenge/ProtossCombat/Score"/>
+                <MapPath value="Challenges/ProtossCombat.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_pathofascension.dds"/>
+                <Achievement value="Challenge_ProtossCombat_Basic"/>
+                <Achievement value="Challenge_ProtossCombat_Mastery"/>
+                <Achievement value="Challenge_ProtossCombat_Dominance"/>
+            </Challenge>
+            <Challenge>
+                <Id value="ZergCombat"/>
+                <Name value="@Challenge/ZergCombat/Name"/>
+                <Description value="@Challenge/ZergCombat/Description"/>
+                <Score value="@Challenge/ZergCombat/Score"/>
+                <MapPath value="Challenges/ZergCombat.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_fortheswarm.dds"/>
+                <Achievement value="Challenge_ZergCombat_Basic"/>
+                <Achievement value="Challenge_ZergCombat_Mastery"/>
+                <Achievement value="Challenge_ZergCombat_Dominance"/>
+            </Challenge>
+        </ChallengeCategory>
+        <ChallengeCategory Name="@ChallengeCategory/Advanced">
+            <Challenge>
+                <Id value="TerranCovertOps"/>
+                <Name value="@Challenge/TerranCovertOps/Name"/>
+                <Description value="@Challenge/TerranCovertOps/Description"/>
+                <Score value="@Challenge/TerranCovertOps/Score"/>
+                <MapPath value="Challenges/TerranCovertOps.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_covertops.dds"/>
+                <Achievement value="Challenge_TerranCovertOps_Basic"/>
+                <Achievement value="Challenge_TerranCovertOps_Mastery"/>
+                <Achievement value="Challenge_TerranCovertOps_Dominance"/>
+            </Challenge>
+            <Challenge>
+                <Id value="ProtossPsionics"/>
+                <Name value="@Challenge/ProtossPsionics/Name"/>
+                <Description value="@Challenge/ProtossPsionics/Description"/>
+                <Score value="@Challenge/ProtossPsionics/Score"/>
+                <MapPath value="Challenges/ProtossPsionics.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_psionicassault.dds"/>
+                <Achievement value="Challenge_ProtossPsionics_Basic"/>
+                <Achievement value="Challenge_ProtossPsionics_Mastery"/>
+                <Achievement value="Challenge_ProtossPsionics_Dominance"/>
+            </Challenge>
+            <Challenge>
+                <Id value="ZergInfestation"/>
+                <Name value="@Challenge/ZergInfestation/Name"/>
+                <Description value="@Challenge/ZergInfestation/Description"/>
+                <Score value="@Challenge/ZergInfestation/Score"/>
+                <MapPath value="Challenges/ZergInfestation.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_infestation.dds"/>
+                <Achievement value="Challenge_ZergInfestation_Basic"/>
+                <Achievement value="Challenge_ZergInfestation_Mastery"/>
+                <Achievement value="Challenge_ZergInfestation_Dominance"/>
+            </Challenge>
+        </ChallengeCategory>
+        <ChallengeCategory Name="@ChallengeCategory/Expert">
+            <Challenge>
+                <Id value="AdvancedCommand"/>
+                <Name value="@Challenge/AdvancedCommand/Name"/>
+                <Description value="@Challenge/AdvancedCommand/Description"/>
+                <Score value="@Challenge/AdvancedCommand/Score"/>
+                <MapPath value="Challenges/AdvancedCommand.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_harbingerofdeath.dds"/>
+                <Achievement value="Challenge_AdvancedCommand_Basic"/>
+                <Achievement value="Challenge_AdvancedCommand_Mastery"/>
+                <Achievement value="Challenge_AdvancedCommand_Dominance"/>
+            </Challenge>
+            <Challenge>
+                <Id value="Economy"/>
+                <Name value="@Challenge/Economy/Name"/>
+                <Description value="@Challenge/Economy/Description"/>
+                <Score value="@Challenge/Economy/Score"/>
+                <MapPath value="Challenges/Economy.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_openinggambit.dds"/>
+                <Achievement value="Challenge_Economy_Basic"/>
+                <Achievement value="Challenge_Economy_Mastery"/>
+                <Achievement value="Challenge_Economy_Dominance"/>
+            </Challenge>
+            <Challenge>
+                <Id value="RushDefense"/>
+                <Name value="@Challenge/RushDefense/Name"/>
+                <Description value="@Challenge/RushDefense/Description"/>
+                <Score value="@Challenge/Economy/Score"/>
+                <MapPath value="Challenges/RushDefense.SC2Map"/>
+                <ThumbnailImagePath value="Assets/Textures/ui_challenges_rushdefense.dds"/>
+                <Achievement value="Challenge_RushDefense_Basic"/>
+                <Achievement value="Challenge_RushDefense_Mastery"/>
+                <Achievement value="Challenge_RushDefense_Dominance"/>
+            </Challenge>
+        </ChallengeCategory>
         <ObjectGroupData MinimapIcon="Assets\Textures\ui_minimap_icon_destructablerocks.dds"/>
         <ObjectGroupData MinLevel="10" MinimapIcon="Assets\Textures\ui_minimap_icon_xelnagawatchtower.dds"/>
         <ListenerDistanceRolloff index="0" ListenerFactor="0.500000"/>
         <ListenerDistanceRolloff index="1" ListenerFactor="0.300000"/>
         <ListenerDistanceRolloff index="2" ListenerFactor="0.600000"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help00"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help01"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help02"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help03"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help04"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help05"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help07" Race="Terr"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help08" Race="Prot"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help09" Race="Zerg"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help10" Race="Zerg"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help11"/>
+        <LoadingScreenHelp Text="LoadingScreen/Help12"/>
+        <UnitKillRank Text="UnitKillRank/Rank1"/>
+        <UnitKillRank MinKills="5" Text="UnitKillRank/Rank2"/>
+        <UnitKillRank MinKills="10" Text="UnitKillRank/Rank3"/>
+        <UnitKillRank MinKills="15" Text="UnitKillRank/Rank4"/>
+        <UnitKillRank MinKills="20" Text="UnitKillRank/Rank5"/>
+        <MinimapData InnerBorderColor="255,0,198,0" OuterBorderColor="255,0,0,0"/>
+        <DefaultUIRace value="Terr" />
     </CGameUI>
 </Catalog>

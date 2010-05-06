@@ -42,6 +42,7 @@
     <Frame type="SocialOptionsPanel" name="SocialOptionsPanelTemplate">
         <Frame type="Image" name="OuterBackground" template="StandardTemplates/StandardOuterBorderTemplate">
             <Anchor relative="$parent"/>
+            <RequiredDefines val="Terr|Zerg|Prot"/>
         </Frame>
 
         <Frame type="ThumbButton" name="RestoreButton" template="StandardTemplates/StandardButtonSmallTemplate">
@@ -97,7 +98,6 @@
                 <Anchor side="Top" relative="$parent/ToastNotificationsCheckBox" pos="Min" offset="0"/>
                 <Anchor side="Bottom" relative="$parent/ToastNotificationsCheckBox" pos="Max" offset="0"/>
                 <Anchor side="Left" relative="$parent/ToastNotificationsCheckBox" pos="Max" offset="10"/>
-                <Enabled val="false"/>
             </Frame>
 
             <Frame type="CheckBox" name="ToastFriendOnlineCheckBox" template="SocialOptionsPanel/SocialCheckBoxTemplate">
@@ -267,7 +267,6 @@
                 <Anchor side="Top" relative="$parent/MatureLanguageCheckBox" pos="Min" offset="0"/>
                 <Anchor side="Bottom" relative="$parent/MatureLanguageCheckBox" pos="Max" offset="0"/>
                 <Anchor side="Left" relative="$parent/MatureLanguageCheckBox" pos="Max" offset="10"/>
-                <Enabled val="false"/>
             </Frame>
 
         </Frame>

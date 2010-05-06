@@ -30,6 +30,16 @@
         <YawRate value="7.207"/>
         <YawIdleRate value="-7.207"/>
     </CTurret>
+    <CTurret id="PylonCrystalRotate" parent="FreeRotate">
+        <Idle value="Spin"/>
+        <YawRate value="27.9492"/>
+        <YawIdleRate value="27.9492"/>
+    </CTurret>
+    <CTurret id="PylonRingRotate" parent="FreeRotate">
+        <Idle value="Spin"/>
+        <YawRate value="54.8437"/>
+        <YawIdleRate value="54.8437"/>
+    </CTurret>
     <CTurret id="WarpPrismPhasingRotate" parent="FreeRotate">
         <Idle value="Spin"/>
         <YawRate value="71.8945"/>

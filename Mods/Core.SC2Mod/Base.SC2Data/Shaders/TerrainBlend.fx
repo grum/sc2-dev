@@ -32,7 +32,7 @@ struct Input {
     float4  vPosition   : POSITION_;
 };
 
-float2 p_vTiling;
+float4 p_vTiling;
 float2 p_vMaskTiling;
 float3 p_vCenter;
 float3 p_vSize;
@@ -43,7 +43,7 @@ void TerrainBlendVertexMain( in Input vertIn, out VertexTransport vertOut ) {
     VertexTransport output;
     float3 vPos = vertIn.vPosition*p_vSize + p_vCenter;
     vertOut.vPos = mul(float4(vPos, 1), p_mWorldViewProj);
-    vertOut.vUV0.xy = vPos.xy*p_vTiling.xy;
+    vertOut.vUV0.xy = vPos.xy*p_vTiling.xy + p_vTiling.zw;
     vertOut.vUV0.y = 1 - vertOut.vUV0.y;
     vertOut.vUV1.xy = vPos.xy*p_vMaskTiling.xy;
     vertOut.vUV1.y = 1 - vertOut.vUV1.y;

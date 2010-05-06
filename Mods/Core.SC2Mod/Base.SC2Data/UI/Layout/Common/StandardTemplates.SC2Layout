@@ -12,14 +12,8 @@
         <Tiled val="true" layer="0"/>
     </Frame>
 
-    <Frame type="Image" name="StandardTechBorderTooltip">
-        <Texture val="@@UI/StandardTechBorderTooltip" layer="0"/>
-        <TextureType val="Border" layer="0"/>
-        <Tiled val="true" layer="0"/>
-    </Frame>
-
     <Frame type="Image" name="StandardBorderTooltipGame">
-        <Texture val="@@UI/GameTooltip" layer="0"/>
+        <Texture val="@@UI/StandardGameTooltip" layer="0"/>
         <TextureType val="Border" layer="0"/>
         <Tiled val="false" layer="0"/>
     </Frame>
@@ -47,11 +41,30 @@
     </Frame>
 
     <Frame type="ThumbButton" name="StandardGlueThumbButton">
-        <NormalImage val="$root/StandardTemplates/StandardTechBorderButton"/>
-        <HoverImage val="$root/StandardTemplates/StandardTechBorderButton"/>
+        <Style val="StandardButton"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>        
         <HighlightOnHover val="true"/>
         <HighlightOnFocus val="true"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <HoverSound val="@UI_ActionButtonHover"/>        
         <Height val="65"/>
+
+        <Frame type="Image" name="NormalImage">             
+            <Texture val="@@UI/StandardGlueButtonNormal" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="false" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">            
+            <Texture val="@@UI/StandardGlueButtonHover" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="false" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>      
     </Frame>
     
     <Frame type="EditBox" name="StandardGlueEditBox">
@@ -108,9 +121,9 @@
     </Frame>
 
     <Frame type="Image" name="StandardOuterBorderTemplate">
-        <Texture val="@@UI/StandardOuterBorder" layer="0"/>
-        <TextureType val="Border" layer="0"/>
-        <Tiled val="true" layer="0"/>
+        <Texture val="@@UI/StandardOuterBorder"/>
+        <TextureType val="HorizontalBorder"/>
+        <LayerColor val="##StandardBorder"/>
     </Frame>
 
     <Frame type="Image" name="StandardInnerBorderTemplate">
@@ -120,90 +133,115 @@
     </Frame>
 
     <!-- Button -->
-    <Frame type="ThumbButton" name="StandardButtonTemplate">
-        <Style val="StandardButton"/>
+    <Frame type="ThumbButton" name="StandardButtonTemplate">        
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
-        <Label val="ButtonLabel"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
+        <Label val="Label"/>
+        <HitTestFrame val="HitTestFrame"/>
         <ClickSound val="@UI_ActionButtonSelect"/>
         <HoverSound val="@UI_ActionButtonHover"/>
-        <Width val="148"/>
-        <Height val="64"/>
+        <Style val="StandardButton"/>
+        <Width val="300"/>
+        <Height val="101"/>
 
         <Frame type="Image" name="NormalImage">
-            <RenderPriority val="512"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-12"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="-10"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="12"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="10"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Texture val="@@UI/StandardButtonNormal" layer="0"/>
             <TextureType val="EndCap" layer="0"/>
             <Tiled val="false" layer="0"/>
             <StateCount val="2" layer="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
             <DescFlags val="Internal"/>
         </Frame>
 
         <Frame type="Image" name="HoverImage">
-            <RenderPriority val="512"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-12"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="-10"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="12"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="10"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Texture val="@@UI/StandardButtonHover" layer="0"/>
             <TextureType val="EndCap" layer="0"/>
             <Tiled val="false" layer="0"/>
             <StateCount val="2" layer="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
             <DescFlags val="Internal"/>
         </Frame>
 
-        <Frame type="Label" name="ButtonLabel">
-            <RenderPriority val="514"/>
+        <Frame type="Label" name="Label">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <DescFlags val="Internal"/>
         </Frame>
     </Frame>
 
-    <Frame type="ThumbButton" name="StandardButtonAlternateTemplate">
-        <Style val="StandardButton"/>
+    <Frame type="ThumbButton" name="StandardButtonAlternateTemplate">        
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
-        <Label val="ButtonLabel"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
+        <Label val="Label"/>
+        <HitTestFrame val="HitTestFrame"/>
         <ClickSound val="@UI_ActionButtonSelect"/>
         <HoverSound val="@UI_ActionButtonHover"/>
-        <Width val="148"/>
-        <Height val="64"/>
-
+        <Style val="StandardButtonAlternate"/>
+        <Width val="300"/>
+        <Height val="101"/>
+                
         <Frame type="Image" name="NormalImage">
-            <RenderPriority val="512"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-12"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="-10"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="12"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="10"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Texture val="@@UI/StandardButtonAlternateNormal" layer="0"/>
             <TextureType val="EndCap" layer="0"/>
             <Tiled val="false" layer="0"/>
             <StateCount val="2" layer="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
             <DescFlags val="Internal"/>
         </Frame>
 
         <Frame type="Image" name="HoverImage">
-            <RenderPriority val="512"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-12"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="-10"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="12"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="10"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Texture val="@@UI/StandardButtonAlternateHover" layer="0"/>
             <TextureType val="EndCap" layer="0"/>
             <Tiled val="false" layer="0"/>
             <StateCount val="2" layer="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="128"/>
             <DescFlags val="Internal"/>
         </Frame>
 
-        <Frame type="Label" name="ButtonLabel">
-            <RenderPriority val="514"/>
+        <Frame type="Label" name="Label">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@@UI/StandardButtonAlternateHover" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <DescFlags val="Internal"/>
         </Frame>
     </Frame>
@@ -239,47 +277,54 @@
     </Frame>
 
     <!-- Vertical Tab Button -->
-    <Frame type="ThumbButton" name="StandardVerticalTabButtonTemplate">
-        <Style val="@@StandardVerticalTabButton"/>
+    <Frame type="ThumbButton" name="StandardVerticalTabButtonTemplate">        
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
-        <Label val="TabLabel"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
+        <Label val="Label"/>
+        <HitTestFrame val="HitTestFrame"/>
         <ClickSound val="@UI_ActionButtonSelect"/>
         <HoverSound val="@UI_ActionButtonHover"/>
-        <Width val="260"/>
-        <Height val="48"/>
+        <Style val="@@StandardVerticalTabButton"/>
+        <Width val="372"/>
+        <Height val="90"/>
 
-        <Frame type="Label" name="TabLabel">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-15"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="45"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-45"/>            
+            <DescFlags val="Internal"/>
+        </Frame>
+        
+        <Frame type="Label" name="Label">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-60"/>
             <DescFlags val="Internal"/>
         </Frame>
 
         <Frame type="Image" name="NormalImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-9"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="-16"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="9"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="16"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Texture val="@@UI/StandardVerticalTabButtonNormal" layer="0"/>
             <TextureType val="EndCap" layer="0"/>
             <Tiled val="false" layer="0"/>
-            <StateCount val="2" layer="0"/>
+            <StateCount val="3" layer="0"/>
             <DescFlags val="Internal"/>
         </Frame>
 
-        <Frame type="Image" name="HoverImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-9"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="-16"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="9"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="16"/>
+        <Frame type="Image" name="HoverImage">            
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>            
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
             <Texture val="@@UI/StandardVerticalTabButtonHover" layer="0"/>
             <TextureType val="EndCap" layer="0"/>
             <Tiled val="false" layer="0"/>
-            <StateCount val="2" layer="0"/>
+            <StateCount val="3" layer="0"/>
             <DescFlags val="Internal"/>
         </Frame>
     </Frame>
@@ -292,6 +337,8 @@
         <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
         <Texture val="@@UI/StandardCheckBox" layer="0"/>
         <StateCount val="2" layer="0"/>
+        <DesaturateOnDisable val="false"/>
+        <DisabledAlpha val="64"/>
         <DescFlags val="Internal"/>
     </Frame>
 
@@ -302,6 +349,8 @@
         <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
         <Texture val="@@UI/StandardCheckBoxHover" layer="0"/>
         <StateCount val="2" layer="0"/>
+        <DesaturateOnDisable val="false"/>
+        <DisabledAlpha val="64"/>
         <DescFlags val="Internal"/>
     </Frame>
 
@@ -328,6 +377,8 @@
 
         <Frame type="Image" name="CheckMarkImage">
             <Texture val="@@UI/StandardCheckBoxMark" layer="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
             <DescFlags val="Internal"/>
         </Frame>
     </Frame>
@@ -366,7 +417,8 @@
         <Orientation val="Horizontal"/>
         <ValueChangeSound val="@UI_SliderMovement"/>
         <Height val="48"/>
-
+        <Width val="250"/>
+        
         <Frame type="Image" name="Background">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
@@ -376,6 +428,8 @@
             <Texture val="@@UI/StandardSlider" layer="0"/>
             <TextureType val="Border" layer="0"/>
             <Tiled val="true" layer="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
             <DescFlags val="Internal"/>
         </Frame>
 
@@ -392,6 +446,8 @@
             <Texture val="@@UI/StandardSliderFill" layer="0"/>
             <TextureType val="Border" layer="0"/>
             <Tiled val="true" layer="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
             <DescFlags val="Internal"/>
         </Frame>
 
@@ -411,6 +467,8 @@
                 <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                 <Texture val="@@UI/StandardSliderThumbButton" layer="0"/>
                 <StateCount val="2" layer="0"/>
+                <DesaturateOnDisable val="false"/>
+                <DisabledAlpha val="64"/>
                 <DescFlags val="Internal"/>
             </Frame>
 
@@ -421,6 +479,8 @@
                 <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
                 <Texture val="@@UI/StandardSliderThumbButtonHover" layer="0"/>
                 <StateCount val="2" layer="0"/>
+                <DesaturateOnDisable val="false"/>
+                <DisabledAlpha val="64"/>
                 <DescFlags val="Internal"/>
             </Frame>
         </Frame>
@@ -503,7 +563,7 @@
 
     <Frame type="Image" name="StandardPulldownMenuBackground">
         <Texture val="@@UI/StandardPulldownMenu" layer="0"/>
-        <TextureType val="Border" layer="0"/>
+        <TextureType val="HorizontalBorder" layer="0"/>
         <Tiled val="true" layer="0"/>
         <DescFlags val="Internal"/>
     </Frame>
@@ -526,7 +586,7 @@
         <ItemHeight val="30"/>
         <Insets top="16" left="16" bottom="16" right="16"/>
         <HighlightInsets top="-6" left="-10" bottom="-6" right="-10"/>
-        <Style val="StandardPulldownMenu"/>
+        <Style val="@@StandardPulldownMenu"/>
         <BackgroundImage val="$root/StandardTemplates/StandardPulldownMenuBackground"/>
         <SelectedImage val="$root/StandardTemplates/StandardPulldownMenuSelected"/>
         <HoverImage val="$root/StandardTemplates/StandardPulldownMenuHover"/>
@@ -543,39 +603,53 @@
         <ArrowHoverImage val="PulldownArrowHover"/>
         <ItemContainer val="ItemContainer"/>
         <Menu val="$root/StandardTemplates/StandardPulldownMenuTemplate"/>
-        <Style val="StandardPulldown"/>
+        <Style val="@@StandardPulldown"/>
         <HighlightOnHover val="true"/>
-        <Height val="48"/>
-        <Width val="350"/>
+        <Height val="50"/>
+        <Width val="254"/>
         <MenuShownSound val="@UI_DropdownSelect"/>
 
         <Frame type="Image" name="PulldownBackground" template="StandardTemplates/StandardPulldownBackground">
-            <Anchor relative="$parent" offset="6"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
         </Frame>
 
         <Frame type="Image" name="PulldownBackgroundHover" template="StandardTemplates/StandardPulldownBackgroundHover">
-            <Anchor relative="$parent" offset="6"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
         </Frame>
 
         <Frame type="Image" name="PulldownArrow" template="StandardTemplates/StandardPulldownArrow">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-8"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-25"/>
             <Height val="20"/>
             <Width val="20"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
         </Frame>
 
         <Frame type="Image" name="PulldownArrowHover" template="StandardTemplates/StandardPulldownArrowHover">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-8"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-25"/>
             <Height val="20"/>
             <Width val="20"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
         </Frame>
 
         <Frame type="Frame" name="ItemContainer">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="8"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="8"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-8"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
             <DescFlags val="Internal"/>
@@ -634,504 +708,13 @@
     </Frame>
 
     <!-- Misc -->
-    <Frame type="Frame" name="StandardSmallBackgroundFrameTemplate">        
-        <Frame type="Image" name="Glass">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-65"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
-            <Texture val="@@UI/InGameFrameGlass" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="GlassLines">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-70"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
-            <Texture val="@@UI/InGameFrameGlassLines" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-        
-        <Frame type="Image" name="GlassBorder">
-            <Anchor side="Top" relative="$parent/Glass" pos="Min" offset="6"/>
-            <Anchor side="Left" relative="$parent/Glass" pos="Min" offset="5"/>
-            <Anchor side="Bottom" relative="$parent/Glass" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent/Glass" pos="Max" offset="-5"/>
-            <Texture val="@@UI/InGameFrameGlassBorder" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopPattern">
-            <RequiredDefines val="Terr|Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="18"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
-            <Texture val="@@UI/InGameFrameTopPattern" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopLeftFlavorImage">
-            <RequiredDefines val="Terr|Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="34"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="70"/>
-            <Texture val="@@UI/InGameFrameSmallTopFlavorImage" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopRightFlavorImage">
-            <RequiredDefines val="Terr|Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="34"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-70"/>
-            <Texture val="@@UI/InGameFrameSmallTopFlavorImage" layer="0"/>
-            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
-        </Frame>
-        
-        <Frame type="Image" name="Border">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/InGameFrameSmallBorder" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-    </Frame>
-    
-    <Frame type="Frame" name="StandardBackgroundFrameTemplate">        
-        <Frame type="Image" name="Glass">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-100"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-60"/>
-            <Texture val="@@UI/InGameFrameGlass" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="GlassLines">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-100"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-60"/>
-            <Texture val="@@UI/InGameFrameGlassLines" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-        
-        <Frame type="Image" name="GlassBorder">
-            <Anchor side="Top" relative="$parent/Glass" pos="Min" offset="16"/>
-            <Anchor side="Left" relative="$parent/Glass" pos="Min" offset="10"/>
-            <Anchor side="Bottom" relative="$parent/Glass" pos="Max" offset="-15"/>
-            <Anchor side="Right" relative="$parent/Glass" pos="Max" offset="-10"/>
-            <Texture val="@@UI/InGameFrameGlassBorder" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopPattern">
-            <RequiredDefines val="Terr|Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
-            <Texture val="@@UI/InGameFrameTopPattern" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopLeftFlavorImage">
-            <RequiredDefines val="Terr|Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="34"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="80"/>
-            <Texture val="@@UI/InGameFrameTopFlavorImage" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopRightFlavorImage">
-            <RequiredDefines val="Terr|Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="34"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-80"/>
-            <Texture val="@@UI/InGameFrameTopFlavorImage" layer="0"/>
-            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="LeftFlavorImage">
-            <RequiredDefines val="Terr|Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="110"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="22"/>
-            <Texture val="@@UI/InGameFrameSideFlavorImage" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="RightFlavorImage">
-            <RequiredDefines val="Terr|Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="110"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-22"/>
-            <Texture val="@@UI/InGameFrameSideFlavorImage" layer="0"/>
-            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="Border">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-50"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="-10"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="82"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="10"/>
-            <Texture val="@@UI/InGameFrameBorder" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>        
-    </Frame>
-
-    <Frame type="Frame" name="StandardSmallInfestationFrameTemplate">
-        <Frame type="Image" name="TopInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@@UI/InGameSmallMenuTopInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BottomInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@@UI/InGameSmallMenuBottomInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopLeftInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Texture val="@@UI/InGameSmallMenuTopLeftInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopRightInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/InGameSmallMenuTopRightInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BottomLeftInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Texture val="@@UI/InGameSmallMenuBottomLeftInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BottomRightInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/InGameSmallMenuBottomRightInfestation" layer="0"/>
-        </Frame>
-    </Frame>
-    
-    <Frame type="Frame" name="StandardInfestationFrameTemplate">  
-        <Frame type="Image" name="LeftInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="6"/>
-            <Texture val="@@UI/InGameMenuLeftInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="RightInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="6"/>
-            <Texture val="@@UI/InGameMenuRightInfestation" layer="0"/>
-        </Frame>        
-
-        <Frame type="Image" name="TopLeftInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="4"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="6"/>
-            <Texture val="@@UI/InGameMenuTopLeftInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopRightInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="4"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-6"/>
-            <Texture val="@@UI/InGameMenuTopRightInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BottomLeftInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-60"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="6"/>
-            <Texture val="@@UI/InGameMenuBottomLeftInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BottomRightInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-60"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-6"/>
-            <Texture val="@@UI/InGameMenuBottomRightInfestation" layer="0"/>
-        </Frame>
-    </Frame>
-
-    <Frame type="Frame" name="StandardLargeInfestationFrameTemplate">
-        <Frame type="Image" name="LeftInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
-            <Texture val="@@UI/InGameHelpMenuLeftInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="RightInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
-            <Texture val="@@UI/InGameHelpMenuRightInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="60"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@@UI/InGameHelpMenuTopInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BottomInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-40"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@@UI/InGameHelpMenuBottomInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopLeftInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Texture val="@@UI/InGameHelpMenuTopLeftInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="TopRightInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/InGameHelpMenuTopRightInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BottomLeftInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Texture val="@@UI/InGameHelpMenuBottomLeftInfestation" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BottomRightInfestationImage">
-            <RequiredDefines val="Zerg"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/InGameHelpMenuBottomRightInfestation" layer="0"/>
-        </Frame>
-    </Frame>
-
-    <Frame type="ThumbButton" name="StandardFileListHeaderButtonTemplate">
-        <NormalImage val="NormalImage"/>
-        <HoverImage val="HoverImage"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-
-        <Frame type="Image" name="NormalImage">
-            <Texture val="@UI/InGameFrameHeaderButtonNormal" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-
-        <Frame type="Image" name="HoverImage">
-            <Texture val="@UI/InGameFrameHeaderButtonHover" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-    </Frame>
-
-    <Frame type="ThumbButton" name="StandardGamePanelSmallLeftButtonTemplate">
-        <NormalImage val="NormalImage"/>
-        <HoverImage val="HoverImage"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <ClickSound val="@UI_ActionButtonSelect"/>
-        <HoverSound val="@UI_ActionButtonHover"/>
-        <Width val="135"/>
-        <Height val="32"/>
-
-        <Frame type="Image" name="NormalImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@UI/InGameFrameSmallLeftButtonNormal" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-
-        <Frame type="Image" name="HoverImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@UI/InGameFrameSmallLeftButtonHover" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-    </Frame>
-
-    <Frame type="ThumbButton" name="StandardGamePanelSmallRightButtonTemplate">
-        <NormalImage val="NormalImage"/>
-        <HoverImage val="HoverImage"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <ClickSound val="@UI_ActionButtonSelect"/>
-        <HoverSound val="@UI_ActionButtonHover"/>
-        <Width val="135"/>
-        <Height val="32"/>
-
-        <Frame type="Image" name="NormalImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
-            <Texture val="@UI/InGameFrameSmallRightButtonNormal" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-
-        <Frame type="Image" name="HoverImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
-            <Texture val="@UI/InGameFrameSmallRightButtonHover" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-    </Frame>
-
-    <Frame type="ThumbButton" name="StandardGamePanelLargeLeftButtonTemplate">
-        <NormalImage val="NormalImage"/>
-        <HoverImage val="HoverImage"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <ClickSound val="@UI_ActionButtonSelect"/>
-        <HoverSound val="@UI_ActionButtonHover"/>
-        <Width val="205"/>
-        <Height val="40"/>
-        <Label val="ButtonLabel"/>
-        
-        <Frame type="Label" name="ButtonLabel">
-            <Style val="GameFrameLargeBottomButton"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-        
-        <Frame type="Image" name="NormalImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@UI/InGameFrameLargeLeftButtonNormal" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-
-        <Frame type="Image" name="HoverImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@UI/InGameFrameLargeLeftButtonHover" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-    </Frame>
-
-    <Frame type="ThumbButton" name="StandardGamePanelLargeMiddleButtonTemplate">
-        <NormalImage val="NormalImage"/>
-        <HoverImage val="HoverImage"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <ClickSound val="@UI_ActionButtonSelect"/>
-        <HoverSound val="@UI_ActionButtonHover"/>
-        <Width val="205"/>
-        <Height val="40"/>
-        <Label val="ButtonLabel"/>
-
-        <Frame type="Label" name="ButtonLabel">
-            <Style val="GameFrameLargeBottomButton"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-        
-        <Frame type="Image" name="NormalImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@UI/InGameFrameLargeMiddleButtonNormal" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-
-        <Frame type="Image" name="HoverImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@UI/InGameFrameLargeMiddleButtonHover" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-    </Frame>
-
-    <Frame type="ThumbButton" name="StandardGamePanelLargeRightButtonTemplate">
-        <NormalImage val="NormalImage"/>
-        <HoverImage val="HoverImage"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <ClickSound val="@UI_ActionButtonSelect"/>
-        <HoverSound val="@UI_ActionButtonHover"/>
-        <Width val="205"/>
-        <Height val="40"/>
-        <Label val="ButtonLabel"/>
-
-        <Frame type="Label" name="ButtonLabel">
-            <Style val="GameFrameLargeBottomButton"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-        
-        <Frame type="Image" name="NormalImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@UI/InGameFrameLargeRightButtonNormal" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-
-        <Frame type="Image" name="HoverImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@UI/InGameFrameLargeRightButtonHover" layer="0"/>
-            <StateCount val="2" layer="0"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-    </Frame>
-
     <Frame type="ThumbButton" name="StandardDynamicToggleButtonTemplate">
         <NormalImage val="ButtonNormalImage"/>
-        <HoverImage val="ButtonHoverImage"/>
-        <Label val="ButtonLabel"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
+        <HoverImage val="ButtonHoverImage"/>       
         <ClickSound val="@UI_NavButtonSelect"/>
         <HoverSound val="@UI_NavButtonHover"/>
-
+        <Label val="ButtonLabel"/>
+        
         <Frame type="Image" name="ButtonNormalImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="-30"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="30"/>
@@ -1155,7 +738,10 @@
         </Frame>
 
         <Frame type="Label" name="ButtonLabel">
-            <Style val="HelpPanelToggleButton"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>           
             <DescFlags val="Internal"/>
         </Frame>
     </Frame>
@@ -1169,7 +755,7 @@
     <Frame type="Frame" name="StandardMenuButtonTemplate">
         <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
         <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-        <Height val="81"/>
+        <Height val="70"/>
         <Width val="430"/>
 
         <Frame type="ThumbButton" name="Button" template="StandardTemplates/StandardDynamicToggleButtonTemplate">            
@@ -1177,10 +763,7 @@
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-8"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
-                       
-            <Frame type="Label" name="ButtonLabel">
-                <Style val="GameFrameMenuButton"/>                
-            </Frame>
+            <Style val="GameFrameMenuButton"/>            
         </Frame>
 
         <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardDynamicToggleButtonBackgroundTemplate">
@@ -1208,69 +791,731 @@
         </Frame>
     </Frame>
 
-    <Frame type="Frame" name="StandardLargeBottomLeftButtonTemplate">
-        <Width val="300"/>
-        <Height val="150"/>
-        
-        <Frame type="Image" name="BackgroundImage">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>            
-            <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
-        </Frame>        
-
-        <Frame type="ThumbButton" name="Button" template="StandardTemplates/StandardGamePanelLargeLeftButtonTemplate">
-            <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Max" offset="-55"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="65"/>
-        </Frame>       
-    </Frame>
-
-    <Frame type="Frame" name="StandardLargeBottomMiddleButtonTemplate">
-        <Width val="300"/>
-        <Height val="150"/>
+    <Frame type="ThumbButton" name="StandardLargePanelLeftButtonTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <Label val="ButtonLabel"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <Width val="400"/>
+        <Height val="140"/>
 
         <Frame type="Image" name="BackgroundImage">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@@UI/InGameFrameLargeMiddleButtonBackground" layer="0"/>
-        </Frame>
-
-        <Frame type="ThumbButton" name="Button" template="StandardTemplates/StandardGamePanelLargeMiddleButtonTemplate">
-            <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Max" offset="-39"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="52"/>
-        </Frame>
-    </Frame>
-
-    <Frame type="Frame" name="StandardLargeBottomRightButtonTemplate">
-        <Width val="300"/>
-        <Height val="150"/>
-
-        <Frame type="Image" name="BackgroundImage">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>            
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
-            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+            <Height val="140"/>
+            <Texture val="@@UI/LargePanelLeftButtonBackground"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="true"/>
+            <RenderPriority val="510"/>
+            <DesaturateOnDisable val="false"/>
         </Frame>
 
-        <Frame type="ThumbButton" name="Button" template="StandardTemplates/StandardGamePanelLargeRightButtonTemplate">
-            <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Max" offset="-55"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="51"/>
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="39"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="53"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-112"/>
+            <Height val="72"/>
+            <Texture val="@@UI/LargePanelLeftButtonNormal"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="39"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="53"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-112"/>
+            <Height val="72"/>
+            <Texture val="@@UI/LargePanelLeftButtonHover"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="52"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="78"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-147"/>
+            <Height val="48"/>
+            <Style val="@@StandardLargePanelButton"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="54"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="68"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-127"/>
+            <Height val="42"/>
+            <DescFlags val="Internal"/>
         </Frame>
     </Frame>
 
-    <Frame type="Frame" name="StandardLargeBottomButtonTemplate">
-        <Width val="300"/>
-        <Height val="150"/>
+    <Frame type="ThumbButton" name="StandardLargePanelRightButtonTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <Label val="ButtonLabel"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <Width val="400"/>
+        <Height val="140"/>
 
         <Frame type="Image" name="BackgroundImage">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/InGameFrameLargeBottomButtonBackground" layer="0"/>           
+            <Height val="140"/>
+            <Texture val="@@UI/LargePanelRightButtonBackground"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="true"/>
+            <RenderPriority val="510"/>
+            <DesaturateOnDisable val="false"/>
         </Frame>
 
-        <Frame type="ThumbButton" name="Button" template="StandardTemplates/StandardGamePanelLargeRightButtonTemplate">
-            <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Max" offset="-46"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="75"/>
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="39"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="112"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-53"/>
+            <Height val="72"/>
+            <Texture val="@@UI/LargePanelRightButtonNormal"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="39"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="112"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-53"/>
+            <Height val="72"/>
+            <Texture val="@@UI/LargePanelRightButtonHover"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="52"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="147"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-78"/>
+            <Height val="48"/>
+            <Style val="@@StandardLargePanelButton"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="54"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="127"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-68"/>
+            <Height val="42"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="ThumbButton" name="StandardLargePanelMiddleButtonTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <Label val="ButtonLabel"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <Width val="400"/>
+        <Height val="140"/>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="140"/>
+            <Texture val="@@UI/LargePanelMiddleButtonBackground"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="true"/>
+            <RenderPriority val="510"/>
+            <DesaturateOnDisable val="false"/>
+        </Frame>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="39"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="54"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-121"/>
+            <Height val="72"/>
+            <Texture val="@@UI/LargePanelMiddleButtonNormal"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="39"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="54"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-121"/>
+            <Height val="72"/>
+            <Texture val="@@UI/LargePanelMiddleButtonHover"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="52"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="74"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-141"/>
+            <Height val="48"/>
+            <Style val="@@StandardLargePanelButton"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="49"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="69"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-138"/>
+            <Height val="47"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="ThumbButton" name="StandardSmallPanelLeftButtonTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <Label val="ButtonLabel"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <Width val="270"/>
+        <Height val="106"/>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="106"/>
+            <Texture val="@@UI/SmallPanelLeftButtonBackground"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="true"/>
+            <RenderPriority val="510"/>
+            <DesaturateOnDisable val="false"/>
+        </Frame>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="34"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-73"/>
+            <Height val="53"/>
+            <Texture val="@@UI/SmallPanelLeftButtonNormal"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="34"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-73"/>
+            <Height val="53"/>
+            <Texture val="@@UI/SmallPanelLeftButtonHover"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="42"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="54"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-93"/>
+            <Height val="30"/>
+            <Style val="@@StandardSmallPanelButton"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="44"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-83"/>
+            <Height val="30"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="ThumbButton" name="StandardSmallPanelRightButtonTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <Label val="ButtonLabel"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <Width val="270"/>
+        <Height val="106"/>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="106"/>
+            <Texture val="@@UI/SmallPanelRightButtonBackground"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="true"/>
+            <RenderPriority val="510"/>
+            <DesaturateOnDisable val="false"/>
+        </Frame>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="73"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-34"/>
+            <Height val="53"/>
+            <Texture val="@@UI/SmallPanelRightButtonNormal"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="73"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-34"/>
+            <Height val="53"/>
+            <Texture val="@@UI/SmallPanelRightButtonHover"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="42"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="93"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-54"/>
+            <Height val="30"/>
+            <Style val="@@StandardSmallPanelButton"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="83"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-44"/>
+            <Height val="30"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="ThumbButton" name="StandardSmallPanelMiddleButtonTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <HitTestFrame val="HitTestFrame"/>
+        <Label val="ButtonLabel"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <Width val="270"/>
+        <Height val="106"/>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="106"/>
+            <Texture val="@@UI/SmallPanelMiddleButtonBackground"/>
+            <TextureType val="EndCap"/>
+            <Tiled val="true"/>
+            <RenderPriority val="510"/>
+            <DesaturateOnDisable val="false"/>
+        </Frame>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="34"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-82"/>
+            <Height val="53"/>
+            <Texture val="@@UI/SmallPanelMiddleButtonNormal"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="34"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-82"/>
+            <Height val="53"/>
+            <Texture val="@@UI/SmallPanelMiddleButtonHover"/>
+            <TextureType val="EndCap"/>
+            <StateCount val="2"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="42"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="54"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-102"/>
+            <Height val="30"/>
+            <Style val="@@StandardSmallPanelButton"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Frame" name="HitTestFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="40"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="44"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-92"/>
+            <Height val="30"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+
+    <!-- StandardLargePanelTemplate -->
+    <!-- Border and Background for any large panel -->
+    <Frame type="Frame" name="StandardLargePanelTemplate">
+        <Frame type="Image" name="BlackMaskImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="80"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-55"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="70"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-70"/>
+            <Texture val="@@UI/LargePanelBlackMask" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="GradientImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="80"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-55"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="70"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-70"/>
+            <Texture val="@@UI/LargePanelGradient" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="66"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="28"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-27"/>
+            <Texture val="@@UI/LargePanelBorder" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="InnerLineImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="83"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-75"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="76"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-76"/>
+            <Texture val="@@UI/LargePanelInnerLine" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="TopLeftCornerImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-7"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-20"/>
+            <Texture val="@@UI/LargePanelTopLeftCorner" layer="0"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="TopRightCornerImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-7"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="20"/>
+            <Texture val="@@UI/LargePanelTopRightCorner" layer="0"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomLeftCornerImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-20"/>
+            <Texture val="@@UI/LargePanelBottomLeftCorner" layer="0"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomRightCornerImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="20"/>
+            <Texture val="@@UI/LargePanelBottomRightCorner" layer="0"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="TopMiddleImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+            <Anchor side="Left" relative="$parent/TopLeftCornerImage" pos="Max" offset="-100"/>
+            <Anchor side="Right" relative="$parent/TopRightCornerImage" pos="Min" offset="100"/>
+            <Texture val="@@UI/LargePanelTopMiddle" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomMiddleImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="15"/>
+            <Anchor side="Left" relative="$parent/BottomLeftCornerImage" pos="Max" offset="-100"/>
+            <Anchor side="Right" relative="$parent/BottomRightCornerImage" pos="Min" offset="140"/>
+            <Texture val="@@UI/LargePanelBottomMiddle" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="SideLeftImage">
+            <Anchor side="Top" relative="$parent/TopLeftCornerImage" pos="Max" offset="-144"/>
+            <Anchor side="Bottom" relative="$parent/BottomLeftCornerImage" pos="Min" offset="130"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="6"/>
+            <Texture val="@@UI/LargePanelSideLeft" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="SideRightImage">
+            <Anchor side="Top" relative="$parent/TopRightCornerImage" pos="Max" offset="-90"/>
+            <Anchor side="Bottom" relative="$parent/BottomRightCornerImage" pos="Min" offset="100"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="6"/>
+            <Texture val="@@UI/LargePanelSideRight" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+    </Frame>
+
+    <!-- StandardMediumPanelTemplate -->
+    <!-- Border and Background for any small panel -->
+    <Frame type="Frame" name="StandardMediumPanelTemplate">
+        <Frame type="Image" name="BlackMaskImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="80"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-55"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="70"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-70"/>
+            <Texture val="@@UI/MediumPanelBlackMask" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="GradientImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="80"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-55"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="70"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-70"/>
+            <Texture val="@@UI/MediumPanelGradient" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="66"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="28"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-27"/>
+            <Texture val="@@UI/MediumPanelBorder" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="InnerLineImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="83"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-75"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="76"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-76"/>
+            <Texture val="@@UI/MediumPanelInnerLine" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="TopLeftCornerImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-7"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-20"/>
+            <Texture val="@@UI/MediumPanelTopLeftCorner" layer="0"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="TopRightCornerImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-7"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="20"/>
+            <Texture val="@@UI/MediumPanelTopRightCorner" layer="0"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomLeftCornerImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-20"/>
+            <Texture val="@@UI/MediumPanelBottomLeftCorner" layer="0"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomRightCornerImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="20"/>
+            <Texture val="@@UI/MediumPanelBottomRightCorner" layer="0"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="TopMiddleImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="26"/>
+            <Anchor side="Left" relative="$parent/TopLeftCornerImage" pos="Max" offset="-100"/>
+            <Anchor side="Right" relative="$parent/TopRightCornerImage" pos="Min" offset="100"/>
+            <Texture val="@@UI/MediumPanelTopMiddle" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomMiddleImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="15"/>
+            <Anchor side="Left" relative="$parent/BottomLeftCornerImage" pos="Max" offset="-100"/>
+            <Anchor side="Right" relative="$parent/BottomRightCornerImage" pos="Min" offset="140"/>
+            <Texture val="@@UI/MediumPanelBottomMiddle" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="SideLeftImage">
+            <Anchor side="Top" relative="$parent/TopLeftCornerImage" pos="Max" offset="-144"/>
+            <Anchor side="Bottom" relative="$parent/BottomLeftCornerImage" pos="Min" offset="130"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="6"/>
+            <Texture val="@@UI/MediumPanelSideLeft" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="SideRightImage">
+            <Anchor side="Top" relative="$parent/TopRightCornerImage" pos="Max" offset="-90"/>
+            <Anchor side="Bottom" relative="$parent/BottomRightCornerImage" pos="Min" offset="100"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="6"/>
+            <Texture val="@@UI/MediumPanelSideRight" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+    </Frame>    
+
+    <!-- SmallPanelTemplate -->
+    <!-- Border and Background for dialogs or very small panels -->
+    <Frame type="Frame" name="StandardSmallPanelTemplate">
+        <Frame type="Image" name="BlackMaskImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="38"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-33"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+            <Texture val="@@UI/SmallPanelBlackMask" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+            <RequiredDefines val="Prot|Terr|Zerg"/>
+        </Frame>
+
+        <Frame type="Image" name="GradientImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="38"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-33"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+            <Texture val="@@UI/SmallPanelGradient" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+            <RequiredDefines val="Prot|Terr|Zerg"/>
+        </Frame>
+
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="44"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-12"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="29"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-27"/>
+            <Texture val="@@UI/SmallPanelBorder" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="Image" name="InnerLineImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="54"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-45"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="58"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-57"/>
+            <Texture val="@@UI/SmallPanelInnerLine" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+            <Tiled val="true" layer="0"/>
+            <RequiredDefines val="Prot|Terr|Zerg"/>
+        </Frame>
+
+        <Frame type="Image" name="TopLeftCornerImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-0"/>
+            <Texture val="@@UI/SmallPanelTopLeftCorner" layer="0"/>
+            <RequiredDefines val="Prot|Terr|Zerg"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="TopRightCornerImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@@UI/SmallPanelTopRightCorner" layer="0"/>
+            <RequiredDefines val="Prot|Terr|Zerg"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomLeftCornerImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="@@UI/SmallPanelBottomLeftCorner" layer="0"/>
+            <RequiredDefines val="Prot|Terr|Zerg"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomRightCornerImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@@UI/SmallPanelBottomRightCorner" layer="0"/>
+            <RequiredDefines val="Prot|Terr|Zerg"/>
+            <RenderPriority val="520"/>
+        </Frame>
+
+        <Frame type="Image" name="TopMiddleImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent/TopLeftCornerImage" pos="Max" offset=" -50"/>
+            <Anchor side="Right" relative="$parent/TopRightCornerImage" pos="Min" offset="50"/>
+            <Texture val="@@UI/SmallPanelTopMiddle" layer="0"/>            
+            <Tiled val="true" layer="0"/>
+            <RequiredDefines val="Prot|Terr|Zerg"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomMiddleImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="15"/>
+            <Anchor side="Left" relative="$parent/BottomLeftCornerImage" pos="Max" offset=" -100"/>
+            <Anchor side="Right" relative="$parent/BottomRightCornerImage" pos="Min" offset="100"/>
+            <Texture val="@@UI/SmallPanelBottomMiddle" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+        </Frame>
+
+        <Frame type="Image" name="SideLeftImage">
+            <Anchor side="Top" relative="$parent/TopLeftCornerImage" pos="Max" offset="-90"/>
+            <Anchor side="Bottom" relative="$parent/BottomLeftCornerImage" pos="Min" offset="100"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+            <Texture val="@@UI/SmallPanelSideLeft" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+        </Frame>
+
+        <Frame type="Image" name="SideRightImage">
+            <Anchor side="Top" relative="$parent/TopRightCornerImage" pos="Max" offset="-90"/>
+            <Anchor side="Bottom" relative="$parent/BottomRightCornerImage" pos="Min" offset="100"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Texture val="@@UI/SmallPanelSideRight" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <RequiredDefines val="Zerg"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Frame" name="GlueDialogTemplate">
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="8"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-8"/>
+            <Texture val="@@UI/GlueDialogBorder" layer="0"/>
+            <TextureType val="HorizontalBorder"/>
+        </Frame>
+
+        <Frame type="Image" name="HeaderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="8"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-8"/>
+            <Height val="200"/>
+            <Texture val="@@UI/GlueDialogHeader"/>
+            <TextureType val="EndCap"/>
+        </Frame>
+
+        <Frame type="Image" name="TopLeftCornerImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Texture val="@@UI/GlueDialogCorner"/>
+        </Frame>
+
+        <Frame type="Image" name="BottomRightCornerImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <TextureCoords top="1.0" left="1.0" bottom="0.0" right="0.0"/>
+            <Texture val="@@UI/GlueDialogCorner"/>
         </Frame>
     </Frame>
     

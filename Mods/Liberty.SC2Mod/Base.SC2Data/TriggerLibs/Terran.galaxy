@@ -8,45 +8,46 @@ include "TriggerLibs/Terran0"
 //  Counter-Attack Units
 //--------------------------------------------------------------------------------------------------
 static void InitCounters (int player) {
-//xxx lots of old data -- needs to be totally redone
     // versus Protoss
-    AICounterUnit(player, c_PB_PhotonCannon,         0.50, c_TU_SiegeTank);
-    AICounterUnit(player, c_PU_Zealot,              1.00, c_TU_Hellion);
-    AICounterUnit(player, c_PU_Stalker,             1.00, c_TU_Marauder);
-    AICounterUnit(player, c_PU_Immortal,            2.00, c_TU_Marauder);
-    AICounterUnit(player, c_PU_Disruptor,           1.00, c_TU_Ghost);
-    AICounterUnit(player, c_PU_HighTemplar,         1.00, c_TU_Ghost);
-    AICounterUnit(player, c_PU_DarkTemplar,         1.00, c_TU_Hellion);
-    AICounterUnit(player, c_PU_Archon,              0.33, c_TU_Hellion);
-    AICounterUnit(player, c_PU_Colossus,            1.00, c_TU_Thor);
-    AICounterUnit(player, c_PU_VoidRay,             0.50, c_TU_Battlecruiser);
-    AICounterUnit(player, c_PU_Phoenix,             0.50, c_TU_BattlecruiserMissile);
-    AICounterUnit(player, c_PU_Carrier,             0.75, c_TU_BattlecruiserYamato);
+    AICounterUnitSetup(player, c_PU_Zealot,             1.00, c_TU_Marauder,    1.00, c_TU_Marauder);
+    AICounterUnitSetup(player, c_PU_Stalker,            1.00, c_TU_Marauder,    1.00, c_TU_Marauder);
+    AICounterUnitSetup(player, c_PU_Sentry,             1.00, c_TU_Marauder,    1.00, c_TU_Marauder);
+    AICounterUnitSetup(player, c_PU_HighTemplar,        1.50, c_TU_Marauder,    1.50, c_TU_Marauder);
+    AICounterUnitSetup(player, c_PU_DarkTemplar,        1.50, c_TU_Marauder,    1.50, c_TU_Marauder);
+    AICounterUnitSetup(player, c_PU_Archon,             1.00, c_TU_Banshee,     1.00, c_TU_Battlecruiser);
+    AICounterUnitSetup(player, c_PU_Immortal,           5.00, c_TU_Marine,      2.00, c_TU_Ghost);
+    AICounterUnitSetup(player, c_PU_Colossus,           2.00, c_TU_SiegeTank,   3.00, c_TU_Viking);
+    AICounterUnitSetup(player, c_PU_Phoenix,            2.00, c_TU_Marine,      2.00, c_TU_Marine);
+    AICounterUnitSetup(player, c_PU_VoidRay,            3.00, c_TU_Marine,      3.00, c_TU_Marine);
+    AICounterUnitSetup(player, c_PU_Carrier,            3.00, c_TU_Viking,      3.00, c_TU_Viking);
+    AICounterUnitSetup(player, c_PB_PhotonCannon,       3.00, c_TU_Marauder,    0.80, c_TU_Battlecruiser);
 
     // versus Terran
-    AICounterUnit(player, c_TB_Bunker,              0.33, c_TU_SiegeTank);
-    AICounterUnit(player, c_TU_Marine,              0.50, c_TU_Hellion);
-    AICounterUnit(player, c_TU_Reaper,              0.70, c_TU_Hellion);
-    AICounterUnit(player, c_TU_Marauder,            0.50, c_TU_SiegeTank);
-    AICounterUnit(player, c_TU_Ghost,               2.00, c_TU_Hellion);
-    AICounterUnit(player, c_TU_Hellion,             0.25, c_TU_Thor);
-    AICounterUnit(player, c_TU_SiegeTank_Alias,     0.50, c_TU_Thor);
-    AICounterUnit(player, c_TU_Thor,                3.00, c_TU_Marauder);
-    AICounterUnit(player, c_TU_Viking_Alias,        1.00, c_TU_Viking);
-    AICounterUnit(player, c_TU_Banshee,             1.00, c_TU_Viking);
-    AICounterUnit(player, c_TU_BattlecruiserClass,  1.00, c_TU_BattlecruiserYamato);
+    AICounterUnitSetup(player, c_TU_Marine,             1.00, c_TU_Marine,      0.50, c_TU_SiegeTank);
+    AICounterUnitSetup(player, c_TU_Marauder,           1.00, c_TU_Marauder,    1.00, c_TU_Marauder);
+    AICounterUnitSetup(player, c_TU_Reaper,             0.60, c_TU_Marauder,    0.60, c_TU_Marauder);
+    AICounterUnitSetup(player, c_TU_Ghost,              2.00, c_TU_Marine,      0.50, c_TU_Thor);
+    AICounterUnitSetup(player, c_TU_Hellion,            1.00, c_TU_Marauder,    1.00, c_TU_Marauder);
+    AICounterUnitSetup(player, c_TU_SiegeTank_Alias,    1.00, c_TU_Banshee,     1.00, c_TU_Banshee);
+    AICounterUnitSetup(player, c_TU_Thor,               4.00, c_TU_Marauder,    1.00, c_TU_Battlecruiser);
+    AICounterUnitSetup(player, c_TU_Viking_Alias,       2.00, c_TU_Marine,      2.00, c_TU_Marine);
+    AICounterUnitSetup(player, c_TU_Medivac,            1.00, c_TU_Viking,      1.00, c_TU_Viking);
+    AICounterUnitSetup(player, c_TU_Raven,              1.00, c_TU_Viking,      1.00, c_TU_Viking);
+    AICounterUnitSetup(player, c_TU_Banshee,            2.00, c_TU_Viking,      2.00, c_TU_Viking);
+    AICounterUnitSetup(player, c_TU_Battlecruiser,      3.00, c_TU_Viking,      3.00, c_TU_Viking);
+    AICounterUnitSetup(player, c_TB_Bunker,             3.00, c_TU_Marauder,    0.60, c_TU_Battlecruiser);
 
     // versus Zerg
-    AICounterUnit(player, c_ZB_SpineCrawler,        0.33, c_TU_SiegeTank);
-    AICounterUnit(player, c_ZU_Zergling,            0.25, c_TU_Hellion);
-    AICounterUnit(player, c_ZU_Roach,               0.80, c_TU_Marauder);
-    AICounterUnit(player, c_ZU_Hydralisk,           0.50, c_TU_Ghost);
-    AICounterUnit(player, c_ZU_Lurker,              1.00, c_TU_Marauder);
-    AICounterUnit(player, c_ZU_Infestor,            0.50, c_TU_Ghost);
-    AICounterUnit(player, c_ZU_Ultralisk,           1.00, c_TU_Thor);
-    AICounterUnit(player, c_ZU_Mutalisk,            0.80, c_TU_Viking);
-    AICounterUnit(player, c_ZU_Corruptor,           0.50, c_TU_Battlecruiser);
-    AICounterUnit(player, c_ZU_BroodLord,           0.50, c_TU_Viking);
+    AICounterUnitSetup(player, c_ZU_Zergling,           1.0, c_TU_Marine,       0.50, c_TU_Hellion);
+    AICounterUnitSetup(player, c_ZU_Baneling,           0.50, c_TU_Marauder,    0.50, c_TU_Marauder);
+    AICounterUnitSetup(player, c_ZU_Roach,              1.20, c_TU_Marauder,    1.20, c_TU_Marauder);
+    AICounterUnitSetup(player, c_ZU_Hydralisk,          2.00, c_TU_Marine,      0.50, c_TU_SiegeTank);
+    AICounterUnitSetup(player, c_ZU_Infestor,           2.00, c_TU_Marauder,    2.00, c_TU_Marauder);
+    AICounterUnitSetup(player, c_ZU_Mutalisk,           2.50, c_TU_Marine,      0.50, c_TU_Thor);
+    AICounterUnitSetup(player, c_ZU_Corruptor,          1.00, c_TU_Marine,      1.00, c_TU_Marine);
+    AICounterUnitSetup(player, c_ZU_Ultralisk,          1.00, c_TU_Thor,        1.00, c_TU_Battlecruiser);
+    AICounterUnitSetup(player, c_ZU_BroodLord,          1.00, c_TU_Viking,      1.00, c_TU_Viking);
+    AICounterUnitSetup(player, c_ZB_SpineCrawler,       2.50, c_TU_Marauder,    0.50, c_TU_Battlecruiser);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -128,7 +129,7 @@ void AINewUnitTerr (int player, unit u) {
 //--------------------------------------------------------------------------------------------------
 //  AIGetScoutTerr
 //--------------------------------------------------------------------------------------------------
-unit AIGetScoutTerr (int player, int index, unit prev) {
+unit AIGetScoutTerr (int player, int index, unit prev, bool allowWorkers) {
     unit medivac;
     
     if (!AIGetFlag(player, e_flagsScouting)) {
@@ -147,13 +148,16 @@ unit AIGetScoutTerr (int player, int index, unit prev) {
     if (AIGetFlag(player, e_flagsLateScout)) {
         return c_nullUnit;
     }
+    if (!allowWorkers) {
+        return c_nullUnit;
+    }
     return AIGrabUnit(player, c_TU_SCV, c_prioScout, null);
 }
 
 //--------------------------------------------------------------------------------------------------
 //  AIEarlyDefScoutTerr
 //--------------------------------------------------------------------------------------------------
-unit AIEarlyDefScoutTerr (int player, unit prev) {
+unit AIEarlyDefScoutTerr (int player, unit prev, bool allowWorkers) {
     unit obs;
     
     if (!AIGetFlag(player, e_flagsEarlyDefScout)) {
@@ -175,6 +179,9 @@ unit AIEarlyDefScoutTerr (int player, unit prev) {
     }
     if (prev) {
         return prev;
+    }
+    if (!allowWorkers) {
+        return c_nullUnit;
     }
     return AIGrabUnit(player, c_TU_SCV, c_prioScout, null);
 }

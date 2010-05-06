@@ -11,15 +11,15 @@
     <CWater id="BelShir">
         <State index="0">
             <Color value="0.000000,0.235294,0.239216,0.337000"/>
-            <Specularity value="73.599998"/>
-            <UvRate value="-0.000031,-0.001000,0.000000,0.000000"/>
             <ColorFallOff value="0.058000"/>
+            <Specularity value="73.599998"/>
             <SpecularScaler value="0.050000"/>
-            <MinReflection value="0.193000"/>
-            <TextureRoughness value="1.000000"/>
+            <UvRate value="-0.000031,-0.001000,0.000000,0.000000"/>
             <MeshRoughness value="1.000000"/>
-            <RefractionDistortion value="0.020000"/>
+            <TextureRoughness value="1.000000"/>
             <ReflectionDistortion value="0.184000"/>
+            <RefractionDistortion value="0.020000"/>
+            <MinReflection value="0.193000"/>
         </State>
         <Doodads>
             <Model value="BelShirWaterDoodadLilyPad"/>
@@ -38,20 +38,21 @@
     </CWater>
     <CWater id="Char">
         <State index="0">
-            <RefractionDistortion value="0.002000"/>
-            <ReflectionDistortion value="0.020000"/>
-            <MeshRoughness value="1.000000"/>
-            <TextureRoughness value="1.000000"/>
-            <MinReflection value="0.280000"/>
+            <Color value="0.819608,0.294118,0.090196,0.300000"/>
+            <Specularity value="60.000000"/>
             <SpecularScaler value="4.000000"/>
             <UvRate value="-0.000000,-0.030000,0.000000,0.000000"/>
-            <Specularity value="60.000000"/>
-            <Color value="0.819608,0.294118,0.090196,0.300000"/>
+            <MeshRoughness value="1.000000"/>
+            <TextureRoughness value="1.000000"/>
+            <ReflectionDistortion value="0.020000"/>
+            <RefractionDistortion value="0.002000"/>
+            <MinReflection value="0.280000"/>
         </State>
         <IsLava value="1"/>
         <ReceiveShadows value="1"/>
         <BeachShoreline value="CharBeachShoreline"/>
         <CliffShoreline value="CharCliffShoreline"/>
+        <Sound value="Emitter_Lava"/>
     </CWater>
     <CWater id="Haven">
         <BeachShoreline value="HavenBeachShoreline"/>
@@ -74,16 +75,16 @@
     </CWater>
     <CWater id="MarSara">
         <State index="0">
-            <RefractionDistortion value="0.002500"/>
-            <ReflectionDistortion value="0.069000"/>
+            <Color value="0.000000,0.000000,0.000000,0.382000"/>
+            <ColorFallOff value="1.000000"/>
+            <Specularity value="10.500000"/>
+            <SpecularScaler value="0.050000"/>
+            <UvRate value="0.000292,0.000956,0.000000,0.000000"/>
             <MeshRoughness value="0.459000"/>
             <TextureRoughness value="1.000000"/>
+            <ReflectionDistortion value="0.069000"/>
+            <RefractionDistortion value="0.002500"/>
             <MinReflection value="0.333000"/>
-            <SpecularScaler value="0.050000"/>
-            <ColorFallOff value="1.000000"/>
-            <UvRate value="0.000292,0.000956,0.000000,0.000000"/>
-            <Specularity value="10.500000"/>
-            <Color value="0.000000,0.000000,0.000000,0.382000"/>
         </State>
         <BeachShoreline value="BelShirBeachShoreline"/>
         <CliffShoreline value="BelShirCliffShoreline"/>
@@ -94,38 +95,37 @@
     </CWater>
     <CWater id="PortZion">
         <State index="0">
-            <Color value="0.670588,0.992157,0.000000,0.027000" />
-            <Specularity value="1000.000000" />
-            <UvRate value="-0.000000,-0.001000,0.000000,0.000000" />
-            <ColorFallOff value="0.027000" />
-            <SpecularScaler value="0.300000" />
-            <MinReflection value="0.000000" />
-            <TextureRoughness value="0.536000" />
-            <ReflectionDistortion value="0.290000" />
-            <RefractionDistortion value="0.001300" />
+            <Color value="0.670588,0.992157,0.000000,0.027000"/>
+            <ColorFallOff value="0.027000"/>
+            <Specularity value="1000.000000"/>
+            <SpecularScaler value="0.300000"/>
+            <UvRate value="-0.000000,-0.001000,0.000000,0.000000"/>
+            <TextureRoughness value="0.536000"/>
+            <ReflectionDistortion value="0.290000"/>
+            <RefractionDistortion value="0.001300"/>
+            <MinReflection value="0.000000"/>
         </State>
         <BeachShoreline value="BelShirBeachShoreline"/>
         <CliffShoreline value="BelShirCliffShoreline"/>
     </CWater>
     <CWater id="Redstone">
         <IsLava value="1"/>
-        <State index="0">
-            <Color value="0.819608,0.294118,0.090196,0.300000"/>
-        </State>
+        <State index="0" Color="0.819608,0.294118,0.090196,0.300000"/>
         <BeachShoreline value="RedstoneBeachShoreline"/>
         <CliffShoreline value="RedstoneCliffShoreline"/>
+        <Sound value="Emitter_Lava"/>
     </CWater>
     <CWater id="Shakuras">
         <State index="0">
             <Color value="0.000000,0.400000,0.349020,0.160000"/>
-            <Specularity value="200.000000"/>
-            <UvRate value="0.000000,-0.001000,0.000000,0.000000"/>
             <ColorFallOff value="0.050000"/>
+            <Specularity value="200.000000"/>
             <SpecularScaler value="1.200000"/>
-            <RefractionDistortion value="0.001000"/>
-            <ReflectionDistortion value="0.020000"/>
+            <UvRate value="0.000000,-0.001000,0.000000,0.000000"/>
             <MeshRoughness value="1.000000"/>
             <TextureRoughness value="1.000000"/>
+            <ReflectionDistortion value="0.020000"/>
+            <RefractionDistortion value="0.001000"/>
             <MinReflection value="0.280000"/>
         </State>
         <ReceiveShadows value="1"/>
@@ -141,19 +141,19 @@
         <CliffShoreline value="BelShirCliffShoreline"/>
     </CWater>
     <CWater id="ZhakulDas">
-<!--        <IsLava value="1"/>
+        <!--        <IsLava value="1"/>
         <LavaModel value="LavaSilver"/> -->
         <State index="0">
-            <RefractionDistortion value="0.002500"/>
-            <ReflectionDistortion value="0.069000"/>
+            <Color value="0.000000,0.000000,0.000000,0.382000"/>
+            <ColorFallOff value="1.000000"/>
+            <Specularity value="10.500000"/>
+            <SpecularScaler value="0.050000"/>
+            <UvRate value="0.000292,0.000956,0.000000,0.000000"/>
             <MeshRoughness value="0.459000"/>
             <TextureRoughness value="1.000000"/>
+            <ReflectionDistortion value="0.069000"/>
+            <RefractionDistortion value="0.002500"/>
             <MinReflection value="0.333000"/>
-            <SpecularScaler value="0.050000"/>
-            <ColorFallOff value="1.000000"/>
-            <UvRate value="0.000292,0.000956,0.000000,0.000000"/>
-            <Specularity value="10.500000"/>
-            <Color value="0.000000,0.000000,0.000000,0.382000"/>
         </State>
         <BeachShoreline value="BelShirBeachShoreline"/>
         <CliffShoreline value="BelShirCliffShoreline"/>

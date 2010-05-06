@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-    <Frame type="WaitingPlayerListBoxItem" name="WaitingPlayerListBoxItem">
-        <Frame type="Label" name="NameLabel">
-            <Style val="WaitingForPlayersDialogList"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="6"/>
-        </Frame>
-
-        <Frame type="Label" name="TimeLabel">
-            <Style val="WaitingForPlayersDialogList"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
-            <Anchor side="Right" relative="$parent\NameLabel" pos="Max" offset="400"/>
-        </Frame>
-
-        <Frame type="Image" name="ColorImage">
-            <Texture val="@@UI/ResourceIconPlayer" layer="0"/>
+    <Frame type="ThumbButton" name="DropTemplate">
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <Label val="ButtonLabel"/>
+        <Style val="@@TeamResourceButton"/>
+        <ClickSound val="ButtonLabel"/>
+        <HoverSound val="ButtonLabel"/>
+        <HighlightOnHover val="true"/>
+        <HighlightOnFocus val="true"/>
+        <Color val="##StandardButtonBorder"/>
+        <Width val="150"/>
+        <Height val="40"/>
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@@UI/TeamResourceButtonNormal" layer="0"/>
             <TextureType val="Border" layer="0"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
-            <Anchor side="Left" relative="$parent\TimeLabel" pos="Max" offset="15"/>
+            <StateCount val="2" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@@UI/TeamResourceButtonHover" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <DescFlags val="Internal"/>
         </Frame>
     </Frame>
 
@@ -29,14 +39,47 @@
         <Tiled val="true" layer="0"/>
     </Frame>
 
+    <Frame type="WaitingPlayerListBoxItem" name="WaitingPlayerListBoxItem">
+        <Frame type="Image" name="ColorImage">
+            <Texture val="@@UI/TeamResourceRequestPlayerIcon" layer="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="6"/>
+        </Frame>
+
+        <Frame type="Label" name="NameLabel">
+            <Style val="WaitingForPlayersDialogList"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent\ColorImage" pos="Max" offset="10"/>
+        </Frame>
+
+        <Frame type="Label" name="VoteLabel">
+            <Style val="WaitingForPlayersDialogList"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="DropButton" template="WaitingForPlayersDialog/DropTemplate">
+            <Color val="##StandardButtonBorder"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent\VoteLabel" pos="Min" offset="-30"/>
+        </Frame>
+
+        <Frame type="Label" name="TimeLabel">
+            <Style val="WaitingForPlayersDialogList"/>
+            <Anchor side="Top" relative="$parent\NameLabel" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent\DropButton" pos="Min" offset="-20"/>
+        </Frame>
+        
+    </Frame>
+
     <Frame type="WaitingForPlayersDialog" name="WaitingForPlayersDialog">
         <Anchor side="Top" relative="$parent" pos="Mid" offset="-200"/>
         <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
         <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
         <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-        <Width val="700"/>
-        <Height val="850"/>
-        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardSmallBackgroundFrameTemplate">
+        <Width val="750"/>
+        <Height val="800"/>
+        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardSmallPanelTemplate">
             <Anchor relative="$parent"/>
         </Frame>
 
@@ -44,37 +87,56 @@
             <Text val="@UI/WaitingForPlayers"/>
             <Style val="WaitingForPlayersDialogTitle"/>
             <Anchor side="Top" relative="$parent" pos="Min" offset="65"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="45"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-45"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-60"/>
         </Frame>
 
-        <Frame type="Frame" name="InfestationFrame" template="StandardTemplates/StandardSmallInfestationFrameTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-15"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-30"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-        </Frame>
+        <Frame type="Image" name="HeadingBackground" template="WaitingForPlayersDialog/ChatBorder">
+            <Anchor side="Top" relative="$parent/TitleLabel" pos="Min" offset="30"/>
+            <Anchor side="Left" relative="$parent/TitleLabel" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/TitleLabel" pos="Max" offset="0"/>
+            <Height val="244"/>
+            <Frame type="ListBox" name="PlayerListBox" template="StandardTemplates/StandardListBoxTemplate">
+                <UseScrollBar val="true"/>
+                <ItemHeight val="40"/>
+                <ItemGap val="5"/>
+                <Insets top="30" left="10" bottom="0" right="0"/>
+                <ItemDesc val="WaitingForPlayersDialog/WaitingPlayerListBoxItem"/>
+                <HighlightOnHover val="false"/>
+                <Visible val="true"/>
+                <Enabled val="true"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="15"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="9"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-7"/>
+                <Height val="215"/>
+                <Frame type="Label" name="PlayerLabel">
+                    <Text val="@UI/DropPlayersLabelPlayer"/>
+                    <Style val="@@StandardPanelHeader"/>
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="-5"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="150"/>
+                </Frame>
+             
+                <Frame type="Label" name="VoteLabel">
+                    <Text val="@UI/DropPlayersLabelVotes"/>
+                    <Style val="@@StandardPanelHeader"/>
+                    <Anchor side="Top" relative="$parent/PlayerLabel" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                </Frame>
 
-        <Frame type="ListBox" name="PlayerListBox" template="StandardTemplates/StandardListBoxTemplate">
-            <UseScrollBar val="true"/>
-            <ItemHeight val="35"/>
-            <ItemGap val="0"/>
-            <Insets top="1" left="3" bottom="0" right="0"/>
-            <ItemDesc val="WaitingForPlayersDialog/WaitingPlayerListBoxItem"/>
-            <HighlightOnHover val="false"/>
-            <Visible val="true"/>
-            <Enabled val="true"/>
-            <Anchor side="Top" relative="$parent/TitleLabel" pos="Min" offset="40"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="49"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-48"/>
-            <Height val="148"/>
+                <Frame type="Label" name="TimeLabel">
+                    <Text val="@UI/DropPlayersLabelTime"/>
+                    <Style val="@@StandardPanelHeader"/>
+                    <Anchor side="Top" relative="$parent/PlayerLabel" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/VoteLabel" pos="Min" offset="-150"/>
+                </Frame>
+            </Frame>
         </Frame>
 
         <Frame type="EditBox" name="ChatEditBox" template="StandardTemplates/StandardGlueEditBox">
-            <Anchor side="Left" relative="$parent" pos="Min" offset="45"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-176"/>
             <Style val="WaitingForPlayersDialogChat"/>
-            <Width val="609"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-50"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-60"/>
             <Height val="58"/>
         </Frame>
 
@@ -82,25 +144,13 @@
             <Anchor side="Left" relative="$parent/ChatEditBox" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent/ChatEditBox" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent/ChatEditBox" pos="Max" offset="0"/>
-            <Height val="358"/>
+            <Height val="350"/>
             <Frame type="MessageDisplay" name="MessageDisplay">
                 <Style val="WaitingForPlayersDialogChat"/>
                 <Anchor side="Top" relative="$parent" pos="Min" offset="32"/>
                 <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
                 <Anchor side="Bottom" relative="$parent" pos="Max" offset="-32"/>
                 <Anchor side="Right" relative="$parent" pos="Max" offset="-32"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="Frame" name="DropButton" template="StandardTemplates/StandardMenuButtonTemplate">
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/ChatEditBox" pos="Max" offset="88"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-             <Frame type="ThumbButton" name="Button">
-               <Shortcut val="@UI/DropPlayers_Hotkey"/>
-               <Frame type="Label" name="ButtonLabel">
-                <Text val="@UI/DropPlayers_Control"/>
-               </Frame>
             </Frame>
         </Frame>
     </Frame>

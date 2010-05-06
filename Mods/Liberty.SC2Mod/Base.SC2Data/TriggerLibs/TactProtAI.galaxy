@@ -1,12 +1,12 @@
 //--------------------------------------------------------------------------------------------------
+//  *** Tactical Protoss AI ***
+//--------------------------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------------------------
 //  *** Disruptor ***
 //--------------------------------------------------------------------------------------------------
 const fixed c_forceFieldRadius = 3;
-const fixed c_disruptorRange = 11;
-
-fixed AIRangeDisruptor (int player, unit aiUnit) {
-    return c_disruptorRange;
-}
 
 order AIForceField (int player, unit aiUnit, unitgroup scanGroup, fixed scanRange, marker m) {
     order ord;
@@ -41,14 +41,14 @@ order AIForceField (int player, unit aiUnit, unitgroup scanGroup, fixed scanRang
     // Do not proceed if the order is invalid for some reason
     ord = AICreateOrder(player, c_AB_ForceField, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
-        return ord;
+        return null;
     }
 
     // Is there a threat in the area
     enemyGroup = UnitGroupFilterThreat(scanGroup, aiUnit, null, 0);
-    enemyCount = UnitGroupCount(enemyGroup, c_unitCountAlive);
+    enemyCount = UnitGroupCount(enemyGroup, c_unitCountAll);
     if (enemyCount <= 0) {
-        return ord;
+        return null;
     }
 
     // Assess life and energy
@@ -159,7 +159,9 @@ order AIForceField (int player, unit aiUnit, unitgroup scanGroup, fixed scanRang
         return null;
     }
     OrderSetTargetPoint(ord, forceFieldTarget);
-
+    if (!UnitOrderIsValid(aiUnit, ord)) {
+        return null;
+    }
     return ord;
 }
 
@@ -168,35 +170,84 @@ static bool Hallucinate (int player, unit aiUnit, unitgroup scanGroup) {
     point here;
     order ord;
 
-    // wait until fighting 5+ enemy units
+    if (AIIsCampaign(player)) {
+        if (PlayerDifficulty(player) < c_campAdvanced) {
+            return false;
+        }
+    }
+
+    if (AITechCount(player, c_PR_DisruptorHallucination, c_techCountCompleteOnly) < 1) {
+        return false;
+    }
+
+    // wait until fighting 4+ enemy units
     //
     if (!AIIsAttackOrder(UnitOrder(aiUnit, 0))) {
         return false;
     }
-    if (UnitGroupCount(scanGroup, c_unitCountAlive) < 5) {
+    if (UnitGroupCount(scanGroup, c_unitCountAlive) < 4) {
         return false;
     }
 
-    ord = AICreateOrder(player, c_AB_Hallucinate, e_AB_Hallucinate_Zealot);
+    ord = AICreateOrder(player, c_AB_Hallucinate_VoidRay, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
         return false;
     }
 
     here = UnitGetPosition(aiUnit);
-    if (AINearbyUnits(player, c_PU_Zealot, here, 5, 2)) {
+    if (AINearbyUnits(player, c_PU_VoidRay, here, 10, 1)) {
         AICast(aiUnit, ord, c_noMarker, c_castHold);
         return true;
     }
-    if (AINearbyUnits(player, c_PU_Stalker, here, 5, 2)) {
-        ord = AICreateOrder(player, c_AB_Hallucinate, e_AB_Hallucinate_Stalker);
+    if (AINearbyUnits(player, c_PU_Colossus, here, 10, 1)) {
+        ord = AICreateOrder(player, c_AB_Hallucinate_Colossus, 0);
+        if (UnitOrderIsValid(aiUnit, ord)) {
+            AICast(aiUnit, ord, c_noMarker, c_castHold);
+            return true;
+        }
+    }
+    if (AINearbyUnits(player, c_PU_Archon, here, 10, 1)) {
+        ord = AICreateOrder(player, c_AB_Hallucinate_Archon, 0);
+        if (UnitOrderIsValid(aiUnit, ord)) {
+            AICast(aiUnit, ord, c_noMarker, c_castHold);
+            return true;
+        }
+    }
+    if (AINearbyUnits(player, c_PU_HighTemplar, here, 10, 1)) {
+        ord = AICreateOrder(player, c_AB_Hallucinate_HighTemplar, 0);
+        if (UnitOrderIsValid(aiUnit, ord)) {
+            AICast(aiUnit, ord, c_noMarker, c_castHold);
+            return true;
+        }
+    }
+    if (AINearbyUnits(player, c_PU_Immortal, here, 10, 1)) {
+        ord = AICreateOrder(player, c_AB_Hallucinate_Immortal, 0);
+        if (UnitOrderIsValid(aiUnit, ord)) {
+            AICast(aiUnit, ord, c_noMarker, c_castHold);
+            return true;
+        }
+    }
+    if (AINearbyUnits(player, c_PU_Stalker, here, 10, 2)) {
+        ord = AICreateOrder(player, c_AB_Hallucinate_Stalker, 0);
+        if (UnitOrderIsValid(aiUnit, ord)) {
+            AICast(aiUnit, ord, c_noMarker, c_castHold);
+            return true;
+        }
+    }
+    if (AINearbyUnits(player, c_PU_Phoenix, here, 10, 2)) {
+        ord = AICreateOrder(player, c_AB_Hallucinate_Phoenix, 0);
+        if (UnitOrderIsValid(aiUnit, ord)) {
+            AICast(aiUnit, ord, c_noMarker, c_castHold);
+            return true;
+        }
+    }
+
+    ord = AICreateOrder(player, c_AB_Hallucinate_Zealot, 0);
+    if (UnitOrderIsValid(aiUnit, ord)) {
         AICast(aiUnit, ord, c_noMarker, c_castHold);
         return true;
     }
-    if (AINearbyUnits(player, c_PU_Immortal, here, 5, 2)) {
-        ord = AICreateOrder(player, c_AB_Hallucinate, e_AB_Hallucinate_Immortal);
-        AICast(aiUnit, ord, c_noMarker, c_castHold);
-        return true;
-    }
+
     return false;
 }
 
@@ -218,31 +269,44 @@ static bool ForceField (int player, unit aiUnit, unitgroup scanGroup) {
 }
 
 //--------------------------------------------------------------------------------------------------
-static bool MolDisplacer (int player, unit aiUnit, unitgroup scanGroup) {
-    return false;
+static bool GuardianShield (int player, unit aiUnit, unitgroup scanGroup) {
+    order ord;
+    unitgroup enemyGroup;
+
+    if (UnitBehaviorCount(aiUnit, c_BF_GuadrianShield) > 0) {
+        return false;
+    }
+
+    ord = AICreateOrder(player, c_AB_GuardianShield, 0);
+    if (!UnitOrderIsValid(aiUnit, ord)) {
+        return false;
+    }
+
+    enemyGroup = UnitGroupFilterThreat(scanGroup, aiUnit, null, 0);
+    if (UnitGroupCount(enemyGroup, c_unitCountAlive) <= 0) {
+        return false;
+    }
+
+    AICast(aiUnit, ord, c_noMarker, c_castHold);
+    return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void AIThinkDisruptor (int player, unit aiUnit, unitgroup scanGroup) {
+    if (GuardianShield(player, aiUnit, scanGroup)) {
+        return;
+    }
     if (Hallucinate(player, aiUnit, scanGroup)) {
         return;
     }
     if (ForceField(player, aiUnit, scanGroup)) {
         return;
     }
-    MolDisplacer(player, aiUnit, scanGroup);
 }
 
 //--------------------------------------------------------------------------------------------------
-//  *** DARK PYLON ***
+//  *** OBELISK ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeObelisk (int player, unit aiUnit) {
-    return AIAbilityFixed(player, c_AB_ShieldBattery, c_fieldRange0) + 1;
-
-    //return MaxF(AIAbilityFixed(player, c_AB_ArgusLink, c_fieldRange0),
-    //            AIAbilityFixed(player, c_AB_ShieldBattery, c_fieldRange0)) + 1
-    //            ;
-}
 
 ////--------------------------------------------------------------------------------------------------
 //order ProtonCharge (int player, unit aiUnit, unitgroup scanGroup) {
@@ -326,7 +390,7 @@ fixed AIRangeObelisk (int player, unit aiUnit) {
 //
 //    //  For now, just recharge high templars.
 //    //
-//    group = AIFindUnits(player, c_PU_HighTemplar, UnitGetPosition(aiUnit), AIRangeObelisk(player, aiUnit), c_noMaxCount);
+//    group = AIFindUnits(player, c_PU_HighTemplar, UnitGetPosition(aiUnit), AIAbilityFixed(player, c_AB_ArgusLink, c_fieldRange0), c_noMaxCount);
 //    filter = AIFilter(player);
 //    AISetFilterBits(filter, UnitFilterStr(AIAbilityStr(player, c_AB_ArgusLink, c_fieldTargetFiltersAB)));
 //    AISetFilterAlliance(filter, c_playerGroupAlly);
@@ -334,6 +398,10 @@ fixed AIRangeObelisk (int player, unit aiUnit) {
 //    AISetFilterLife(filter, c_noMin, c_noMax);  //  Give the energy to the highest life high templar first.
 //    
 //    group = AIGetFilterGroup(filter, group);
+//    if (group == null) {
+//        return null;
+//    }
+//
 //    return AIUnitGroupGetValidOrder(group, ord, aiUnit, c_forwards);
 //}
 
@@ -362,55 +430,56 @@ fixed AIRangeObelisk (int player, unit aiUnit) {
 //   
 //    //  If there are no enemy units, and energy is too low, don't heal.
 //    //
-//    r = RegionCircle(UnitGetPosition(aiUnit), AIRangeObelisk(player, aiUnit));
+//    r = RegionCircle(UnitGetPosition(aiUnit), AIAbilityFixed(player, c_AB_ShieldBattery, c_fieldRange0));
 //    if (UnitGroupCount(UnitGroupAlliance(player, c_unitAllianceEnemy, r, null, c_noMaxCount), c_unitCountAll) == 0 && energy > c_batteryMinEnergyNoHostiles) {
 //        return null;
 //    }
 //
 //    //  Otherwise, look for allies with low shields to heal.
 //    //
-//    group = AIFindUnits(player, null, UnitGetPosition(aiUnit), AIRangeObelisk(player, aiUnit), c_noMaxCount);
+//    group = AIFindUnits(player, null, UnitGetPosition(aiUnit), AIAbilityFixed(player, c_AB_ShieldBattery, c_fieldRange0), c_noMaxCount);
 //    allyFilter = AIFilter(player);
 //    AISetFilterBits(allyFilter, UnitFilterStr(AIAbilityStr(player, c_AB_ShieldBattery, c_fieldTargetFiltersAB)));
 //    AISetFilterAlliance(allyFilter, c_playerGroupAlly);
 //    AISetFilterShields(allyFilter, c_noMin, c_shieldBatteryMaxShields);
 //    
 //    group = AIGetFilterGroup(allyFilter, group);
+//    if (group == null) {
+//        return null;
+//    }
+//
 //    return AIUnitGroupGetValidOrder(group, ord, aiUnit, c_forwards);
 //}
 
-//--------------------------------------------------------------------------------------------------
-void AIThinkObelisk (int player, unit aiUnit, unitgroup scanGroup) {
-    ////  1. Buff harvesting probes
-    ////  2. If unit shields low & enemies nearby, heal it.
-    ////  3. If high templar nearby, charge mana.
-    //order ord;
-
-    ////ord = ProtonCharge(player, aiUnit, scanGroup);
-    ////if (ord != null) {
-    ////    AICast(aiUnit, ord, c_noMarker, c_castHold);
-    ////    return;
-    ////}
-
-    ////ord = ArgusLink(player, aiUnit, scanGroup);
-    ////if (ord != null) {
-    ////    AICast(aiUnit, ord, c_noMarker, c_castHold);
-    ////}
-
-    ////ord = ShieldBattery(player, aiUnit, scanGroup);
-    ////if (ord != null) {
-    ////    AICast(aiUnit, ord, c_noMarker, c_castHold);
-    ////}
-}
+////--------------------------------------------------------------------------------------------------
+//void AIThinkObelisk (int player, unit aiUnit, unitgroup scanGroup) {
+//    ////  1. Buff harvesting probes
+//    ////  2. If unit shields low & enemies nearby, heal it.
+//    ////  3. If high templar nearby, charge mana.
+//    order ord;
+//
+//    ord = ProtonCharge(player, aiUnit, scanGroup);
+//    if (ord != null) {
+//        AICast(aiUnit, ord, c_noMarker, c_castHold);
+//        return;
+//    }
+//
+//    ord = ArgusLink(player, aiUnit, scanGroup);
+//    if (ord != null) {
+//        AICast(aiUnit, ord, c_noMarker, c_castHold);
+//        return;
+//    }
+//
+//    ord = ShieldBattery(player, aiUnit, scanGroup);
+//    if (ord != null) {
+//        AICast(aiUnit, ord, c_noMarker, c_castHold);
+//        return;
+//    }
+//}
 
 //--------------------------------------------------------------------------------------------------
 //  *** MOTHERSHIP ***
 //--------------------------------------------------------------------------------------------------
-
-fixed AIRangeMothership (int player, unit aiUnit) {
-    return MaxF(AIAbilityFixed(player, c_AB_Vortex, c_fieldRange0) + 1,
-                AIAbilityFixed(player, c_AB_TemporalRift, c_fieldRange0) + 1);
-}
 
 fixed MinToCastMotherShip (int player) {
     //return AIAbilityFixed(player, c_AB_Vortex, c_fieldEnergyCost) + //  To Save enough mana for wormhole transit, swap out the commented lines.
@@ -439,7 +508,7 @@ order Vortex (int player, unit aiUnit, unitgroup scanGroup) {
         4.0, // score
         AIEffectFixed(player, c_EF_VortexArea, c_fieldAreaRadius0),
         UnitGetPosition(aiUnit),
-        AIRangeMothership(player, aiUnit),
+        AIAbilityFixed(player, c_AB_Vortex, c_fieldRange0),
         c_unitAttributeNone
     );
 
@@ -470,7 +539,7 @@ order TemporalRift (int player, unit aiUnit, unitgroup scanGroup) {
         3.85, // min score
         AIEffectFixed(player, c_EF_TemporalRiftSearchArea, c_fieldAreaRadius0),
         UnitGetPosition(aiUnit),
-        AIRangeMothership(player, aiUnit), 
+        AIAbilityFixed(player, c_AB_TemporalRift, c_fieldRange0), 
         c_unitAttributeNone
     );
 
@@ -491,6 +560,7 @@ void AIThinkMothership (int player, unit aiUnit, unitgroup scanGroup) {
     unitfilter f;
     fixed allyEnemyRatio;
     aifilter filter;
+    unitgroup targetGroup;
     
     //  Make sure to save mana so we use both abilities.
     //
@@ -502,22 +572,22 @@ void AIThinkMothership (int player, unit aiUnit, unitgroup scanGroup) {
     //
     filter = AIFilter(player);
     AISetFilterBehaviorCount(filter, c_noBehaviorMin, c_noBehaviorMax, c_BF_TemporalBuff);
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
+    targetGroup = AIGetFilterGroup(filter, scanGroup);
 
     //  Get the ratio of allies to enemies to see if we should cast vortex or temporal rift
     //
     f = UnitFilterStr("-;Missile,Dead,Stasis,Worker");
-    allyEnemyRatio = AIAllyEnemyRatio(player, UnitGetPosition(aiUnit), f, AIRangeMothership(player, aiUnit), c_noThreshold);
+    allyEnemyRatio = AIAllyEnemyRatio(player, UnitGetPosition(aiUnit), f, AIAbilityFixed(player, c_AB_Vortex, c_fieldRange0) + 3, c_noThreshold);
 
     if (allyEnemyRatio < c_enemyMultiplierVortex) {
-        ord = Vortex(player, aiUnit, scanGroup);
+        ord = Vortex(player, aiUnit, targetGroup);
         if (ord != null) {
             AICast(aiUnit, ord, c_noMarker, c_castRetreat);
             return;
         }
     }
 
-    ord = TemporalRift(player, aiUnit, scanGroup);
+    ord = TemporalRift(player, aiUnit, targetGroup);
     if (ord != null) {
         AICast(aiUnit, ord, c_noMarker, c_castRetreat);
         return;
@@ -527,9 +597,6 @@ void AIThinkMothership (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** HIGH TEMPLAR ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeHighTemplar (int player, unit aiUnit) {
-    return AIAbilityFixed(player, c_AB_PhaseShift, c_fieldRange0) + 1;
-}
 
 const int c_phaseShiftMinHealth = 425; //  carriers and above.
 const int c_phaseShiftLowVitMinHealth = 300;
@@ -539,6 +606,7 @@ order PhaseShift (int player, unit aiUnit, unitgroup scanGroup, marker mark, boo
     aifilter filter;
     bool airAllies;
     int minVitality;
+    unitgroup targetGroup;
 
     ord = AITacticalOrder(player, aiUnit, c_AB_PhaseShift);
     if (ord == null) {
@@ -554,7 +622,7 @@ order PhaseShift (int player, unit aiUnit, unitgroup scanGroup, marker mark, boo
 
     //  Test to see if we have airborne allies, to determine whether to PhaseShift
     //  an enemy that only attacks air.
-    airAllies = AINearbyPlaneTest(UnitGetPosition(aiUnit), player, AIRangeHighTemplar(player, aiUnit), c_planeAir, c_unitAllianceAlly);
+    airAllies = AINearbyPlaneTest(UnitGetPosition(aiUnit), player, AIAbilityFixed(player, c_AB_PhaseShift, c_fieldRange0), c_planeAir, c_unitAllianceAlly);
     
     filter = AIFilter(player);
     AISetFilterBits(filter, UnitFilterStr(AIAbilityStr(player, c_AB_PhaseShift, c_fieldTargetFiltersAB)));
@@ -562,14 +630,19 @@ order PhaseShift (int player, unit aiUnit, unitgroup scanGroup, marker mark, boo
     AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, mark);
     AISetFilterCanAttackAlly(filter, c_groundAlliesNearby, airAllies);
     
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
-    return AIUnitGroupGetValidOrder(scanGroup, ord, aiUnit, c_forwards);
+    targetGroup = AIGetFilterGroup(filter, scanGroup);
+    if (targetGroup == null) {
+        return null;
+    }
+
+    return AIUnitGroupGetValidOrder(targetGroup, ord, aiUnit, c_forwards);
 }
 
 //--------------------------------------------------------------------------------------------------
 const fixed c_EnemyMultiplierHighTemplar = 1.25;
 const fixed c_MinThreshold = 100.0;
 const int c_HighTemplarLowVitPerc = 50;
+const int c_psiStormCooldown = c_tactTimerFirst;
 
 void UnitGroupTest (unitgroup scanGroup) {
     DebugVarInt("group strength", FixedToInt(AIUnitGroupStrength(scanGroup)));
@@ -583,8 +656,16 @@ void AIThinkHighTemplar (int player, unit aiUnit, unitgroup scanGroup) {
     region r;
     unitgroup enemyGroup;
 
-    if (AIEvalTacticalData(aiUnit, null)) {
-        return;
+    if (!AIIsCampaign(player) || PlayerDifficulty(player) >= c_campAdvanced) {
+        if (AITactCooldownAllow(aiUnit, c_psiStormCooldown)) {
+            // psi storm
+            if (AIEvalTacticalData(aiUnit, null)) {        
+                if (AIIsCampaign(player) && PlayerDifficulty(player) < c_campExpert) {
+                    AISetCooldown(aiUnit, c_psiStormCooldown, 5.0);
+                }
+                return;
+            }
+        }
     }
 
     //  If we already have a psi storm order, ignore any new orders since psi storm is more important.
@@ -600,9 +681,9 @@ void AIThinkHighTemplar (int player, unit aiUnit, unitgroup scanGroup) {
         //  Don't cast if the enemy only has 1 unit when we are at full health.
         //  If we have less than 1.25 * the enemies forces.
         f = UnitFilterStr("-;Missile,Dead,Stasis,Worker");
-        r = RegionCircle(UnitGetPosition(aiUnit), AIRangeHighTemplar(player, aiUnit));
+        r = RegionCircle(UnitGetPosition(aiUnit), AIAbilityFixed(player, c_AB_PhaseShift, c_fieldRange0));
         if ((UnitGroupCount(UnitGroupAlliance(player, c_unitAllianceEnemy, r, null, c_noMaxCount), c_unitCountAll) < 2) ||
-            AIAllyEnemyRatio(player, UnitGetPosition(aiUnit), f, AIRangeHighTemplar(player, aiUnit), c_MinThreshold) > c_EnemyMultiplierHighTemplar) {
+            AIAllyEnemyRatio(player, UnitGetPosition(aiUnit), f, AIAbilityFixed(player, c_AB_PhaseShift, c_fieldRange0), c_MinThreshold) > c_EnemyMultiplierHighTemplar) {
             return;
         }
     }
@@ -620,8 +701,15 @@ void AIThinkHighTemplar (int player, unit aiUnit, unitgroup scanGroup) {
 void AIThinkGateway (int player, unit aiUnit, unitgroup scanGroup) {
     order ord;
     
+    // rally
     if (AIEvalTacticalData(aiUnit, null)) {
         return;
+    }
+
+    if (AIIsCampaign(player)) {
+        if (PlayerDifficulty(player) < c_campExpert) {
+            return;
+        }
     }
 
     if (AITechCount(player, c_PR_WarpGateResearch, c_techCountCompleteOnly) == 0) {
@@ -642,9 +730,6 @@ void AIThinkGateway (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** WarpPrism ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeWarpPrism (int player, unit aiUnit) {
-    return 1;
-}
 
 //--------------------------------------------------------------------------------------------------
 //  *** WarpPrism (transport mode) ***
@@ -703,4 +788,41 @@ void AIThinkWarpPrismPhasing (int player, unit aiUnit, unitgroup scanGroup) {
     }
 
     AICast(aiUnit, ord, c_noMarker, c_castHold);
+}
+
+
+//--------------------------------------------------------------------------------------------------
+//  *** NEXUS ***
+//--------------------------------------------------------------------------------------------------
+const fixed c_ChronoBoostRange = 100.0;
+
+void AIThinkNexus (int player, unit aiUnit, unitgroup scanGroup) {    
+    order ord;
+    unitgroup prodGroup;
+    aifilter filter;
+
+    if (AIIsCampaign(player)) {
+        return;
+    }
+
+    ord = AICreateOrder(player, c_AB_ChronoBoost, 0);
+    if (!UnitOrderIsValid(aiUnit, ord)) {
+        return;
+    }
+
+    prodGroup = AIGetBuildingGroup(player, c_buildingTypeProduction | c_buildingTypeActive);
+
+    filter = AIFilter(player);
+    AISetFilterBits(filter, UnitFilterStr(AIAbilityStr(player, c_AB_ChronoBoost, c_fieldTargetFiltersAB)));
+    AISetFilterBehaviorCount(filter, c_noBehaviorMin, c_noBehaviorMax, c_BF_TimeWarp);
+    prodGroup = AIGetFilterGroup (filter, prodGroup);
+    if (prodGroup == null) {
+        return;
+    }
+
+    ord = AIUnitGroupGetValidOrder(prodGroup, ord, aiUnit, c_forwards);    
+    if (ord != null) {
+        AICast(aiUnit, ord, c_noMarker, c_castHold);
+        return;
+    }
 }

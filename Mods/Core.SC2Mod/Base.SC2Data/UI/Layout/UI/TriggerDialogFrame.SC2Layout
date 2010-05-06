@@ -16,6 +16,42 @@
         </Frame>
     </Frame>
 
+    <Frame type="ThumbButton" name="TriggerControlLeftChallengeButton" template="StandardTemplates/StandardSmallPanelLeftButtonTemplate">
+        <Frame type="Image" name="BackgroundImage">           
+            <Texture val="@UI/SmallPanelLeftButtonBackground"/>            
+        </Frame>
+
+        <Frame type="Image" name="NormalImage">            
+            <Texture val="@UI/SmallPanelLeftButtonNormal"/>            
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">           
+            <Texture val="@UI/SmallPanelLeftButtonHover"/>          
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">           
+            <Style val="@StandardSmallPanelButton"/>            
+        </Frame>
+    </Frame>
+
+    <Frame type="ThumbButton" name="TriggerControlRightChallengeButton" template="StandardTemplates/StandardSmallPanelRightButtonTemplate">
+        <Frame type="Image" name="BackgroundImage">
+            <Texture val="@UI/SmallPanelRightButtonBackground"/>
+        </Frame>
+
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@UI/SmallPanelRightButtonNormal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@UI/SmallPanelRightButtonHover"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Style val="@StandardSmallPanelButton"/>
+        </Frame>
+    </Frame>
+    
     <Frame type="CheckBox" name="TriggerControlCheckBoxTemplate" template="StandardTemplates/StandardCheckBoxTemplate">
     </Frame>
 
@@ -25,6 +61,106 @@
     <Frame type="Pulldown" name="TriggerControlPulldownTemplate" template="StandardTemplates/StandardPulldownTemplate">
     </Frame>
 
+    <Frame type="Pulldown" name="DifficultyPulldownTemplate">        
+        <Style val="@@DifficultyPulldown_Story"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <ArrowImage val="PulldownArrow"/>
+        <ArrowHoverImage val="PulldownArrowHover"/>
+        <ItemContainer val="ItemContainer"/>
+        <Menu val="MenuListBox"/>
+        <HighlightOnHover val="true"/>
+        <MenuShownSound val="@UI_DropdownSelect"/>        
+
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@@UI/DifficultyPulldownNormal" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <LayerColor val="38b33f" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@@UI/DifficultyPulldownHover" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <LayerColor val="38b33f" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="PulldownArrow">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+            <Texture val="@@UI/DifficultyPulldownArrow" layer="0"/>
+            <TextureType val="Normal" layer="0"/>
+            <Tiled val="false" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <LayerColor val="38b33f" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="PulldownArrowHover">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+            <Texture val="@@UI/DifficultyPulldownArrowHover" layer="0"/>
+            <TextureType val="Normal" layer="0"/>
+            <Tiled val="false" layer="0"/>
+            <StateCount val="2" layer="0"/>
+            <LayerColor val="38b33f" layer="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="ListBox" name="MenuListBox">
+            <ItemHeight val="30"/>
+            <Insets top="16" left="16" bottom="16" right="16"/>
+            <HighlightInsets top="-4" left="-10" bottom="-4" right="-10"/>
+            <BackgroundImage val="BackgroundImage"/>
+            <SelectedImage val="SelectedImage"/>
+            <HoverImage val="HoverImage"/>
+            <HighlightOnHover val="true"/>
+            <ItemClickSound val="@UI_DropdownListSelect"/>
+            <ItemHoverSound val="@UI_DropdownListHover"/>
+            <Style val="@@DifficultyPulldown_Story"/>
+            <DescFlags val="Internal"/>
+
+            <Frame type="Image" name="BackgroundImage">
+                <Texture val="@@UI/DifficultyPulldownMenuBackground" layer="0"/>
+                <TextureType val="HorizontalBorder" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <LayerColor val="38b33f" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="SelectedImage">
+                <Texture val="@@UI/DifficultyPulldownMenuSelected" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <LayerColor val="38b33f" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Texture val="@@UI/DifficultyPulldownMenuHover" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
+                <LayerColor val="38b33f" layer="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Frame" name="ItemContainer">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="8"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="8"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-8"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-8"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+    </Frame>
+    
     <Frame type="ProgressBar" name="TriggerControlProgressBarTemplate">
         <Texture val="@@UI/ProgressQueue"/>
         <Color val="##StandardProgressBorder"/>
@@ -39,10 +175,16 @@
 
     <Frame type="FlashFrame" name="TriggerControlFlashFrameTemplate">
     </Frame>
+    
+    <Frame type="AchievementFrame" name="TriggerControlAchievementTemplate" template="AchievementPanel/AchievementFrameTemplate">
+    </Frame>
 
     <Frame type="TriggerDialogFrame" name="TriggerDialogFrameTemplate">
-        <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardDialogBorderTemplate">
+        <Frame type="Image" name="BackgroundImage">
             <Anchor relative="$parent"/>
+            <Texture val="@@UI/TriggerDialogFrameBackground" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
         </Frame>
 
         <Frame type="Label" name="TitleLabel">

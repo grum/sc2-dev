@@ -39,24 +39,24 @@
         <ParamInitial index="FalloffStart" value="0.0"/>
         <ParamInitial index="FalloffEnd" value="8.0"/>
         <ZoomTable>
-            <Param index="Distance" Value="34.07" Modify="1"/>
+            <Param index="Distance" Value="34" Modify="1"/>
             <Param index="Pitch" Value="56" Modify="1"/>
         </ZoomTable>
         <ZoomTable>
-            <Param index="Distance" Value="32" Modify="1"/>
-            <Param index="Pitch" Value="48.5" Modify="1"/>
+            <Param index="Distance" Value="30" Modify="1"/>
+            <Param index="Pitch" Value="52" Modify="1"/>
         </ZoomTable>
         <ZoomTable>
             <Param index="Distance" Value="26" Modify="1"/>
-            <Param index="Pitch" Value="41" Modify="1"/>
+            <Param index="Pitch" Value="48" Modify="1"/>
         </ZoomTable>
         <ZoomTable>
-            <Param index="Distance" Value="21" Modify="1"/>
-            <Param index="Pitch" Value="33.5" Modify="1"/>
+            <Param index="Distance" Value="22" Modify="1"/>
+            <Param index="Pitch" Value="44" Modify="1"/>
         </ZoomTable>
         <ZoomTable>
-            <Param index="Distance" Value="16" Modify="1"/>
-            <Param index="Pitch" Value="26" Modify="1"/>
+            <Param index="Distance" Value="18" Modify="1"/>
+            <Param index="Pitch" Value="40" Modify="1"/>
         </ZoomTable>
         <ParamSmooth index="FieldOfView" SmoothTimeMax="2" VelocityMax="55"/>
         <ParamSmooth index="NearClip" SmoothTimeMax="2" VelocityMax="55"/>
@@ -89,9 +89,12 @@
         <RotateScale value="0.2"/>
     </CCamera>
     <CCamera id="Dflt"/>
-    <CCamera id="Installation"/>
+    <CCamera id="Installation">
+        <ParamInitial index="FarClip" value="20000.000000"/>
+    </CCamera>
     <CCamera id="SpacePlatform">
         <ParamInitial index="FarClip" value="20000"/>
+        <ParamInitial index="ShadowClip" value="300"/>
     </CCamera>
     <CCamera id="Floaty">
         <ParamSmooth index="Distance" SmoothTimeMin="1.5"/>

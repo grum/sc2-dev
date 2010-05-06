@@ -8,16 +8,6 @@
 //  * Marker Bug With Abilities that are missiles (Assigned to Andy / Dave)
 //      - i.e. infestor, hunter seeker missile
 //      - marker dissapears after cast, but before effect, so multiple casters may cast on the same unit
-//  * Some Infestor / Overseer spells need AI (Assigned to Dave, Bob, or Andy & David Kim)
-//      - An untested version of the old fungal growth and acid spores were started and then abandoned
-//        when abilities changed fundamentally (see TactZergAI)
-//      - An untested version of the old unstable mutation was started and then abandoned when the ability
-//        changed fundamentally (see TactZergAI)
-//      - Check with David Kim, who said that these are 90% sure going to change again.
-//  * Infested Marine / Civilian Burrow (Task assigned to Andy Bond)
-//      - AI Commented out for Burrow
-//      - Needs to be placed back in after Andy fixes support to turn off abilities on Campaign
-//      - Maps with infested units need to be tested
 //
 //  Wish List
 //  * Need equivalent of AITime from synapses for tactical ai thinks
@@ -54,7 +44,7 @@ const string c_fieldRadius          = "Radius";
 const string c_fieldRadiusBonus0    = "AreaArray[0].RadiusBonus";
 const string c_fieldRange0          = "Range[0]";
 const string c_fieldRange           = "Range";
-const string c_fieldSightDawn       = "Sight";
+const string c_fieldSightRange       = "Sight";
 const string c_fieldTargetFilters   = "TargetFilters";
 const string c_fieldTargetFiltersAB = "TargetFilters[0]";
 const string c_fieldTargetFilters0  = "ValidatorArray[0].value.value";
@@ -107,9 +97,20 @@ native unitgroup AIGetFilterGroup (aifilter filter, unitgroup group);
 
 const fixed c_maxDistanceToMinerals = 10;
 
+const bool c_activeOnly = true;
+const bool c_anyProduction = false;
+
+native unitgroup AIFilterProduction (unitgroup group, bool activeOnly);
 native unitgroup AIFilterCasters (unitgroup group);
 native unitgroup AIFilterPathable (unitgroup group, point inStart);
 native unitgroup AIFilterGathering (unitgroup group, int inResource, fixed distance);
+
+const int c_buildingTypeAll         = 0x0;
+const int c_buildingTypeProduction  = 0x1;
+const int c_buildingTypeTownHall    = 0x2;
+const int c_buildingTypeActive      = 0x4;
+native unitgroup AIGetBuildingGroup (int player, int flags);
+native unit AIGetClosestUnit (unit u, unitgroup group, bool needsPath);
 
 native fixed AIUnitGroupStrength (unitgroup inGroup);
 native fixed AIAllyEnemyRatio (int player, point p, unitfilter filter, fixed range, fixed minThreshold);
@@ -351,43 +352,50 @@ void AISetNukeConstants (int player) {
 }
 
 //--------------------------------------------------------------------------------------------------
+//  AISpecifiedHealers
+//--------------------------------------------------------------------------------------------------
+void AISpecifiedHealers (int player) {
+    AIAddHealer(player, c_TU_SCV, "Repair", 0);
+    AIAddHealer(player, "MULE", "MULERepair", 0);
+    AIAddHealer(player, c_TU_Medivac, "MedivacHeal", 0);
+    AIAddHealer(player, "Medic", "heal", 0);
+    AIAddHealer(player, "ScienceVessel", "NanoRepair", 0);
+}
+
+//--------------------------------------------------------------------------------------------------
 //  AISetDefaultCombatFlags
 //--------------------------------------------------------------------------------------------------
 void AISetDefaultCombatFlags (int player, bool isMelee) {
     int group1;
     int group2;
 
+    // I could condense these flags but speed doesn't matter and this way makes it easier to see & to change the settings
     if (isMelee) {
-        group1 = c_skirVeryEasy;
-        group2 = c_skirHard;
+        AICombatDiffFlagCatSpecialHighPrio     (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirMedium,   c_combatFlagEnable));
+        AICombatDiffFlagCatSplashHighPrio      (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirMedium,   c_combatFlagEnable));
+        AICombatDiffFlagCatTimedLowPrio        (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirMedium,   c_combatFlagEnable));
+        AICombatDiffFlagCatWorkersNormalPrio   (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirEasy  ,   c_combatFlagEnable));
+        AICombatDiffFlagCatSortBuildingsPrio   (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirEasy  ,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakHealers        (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirEasy  ,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakBonusDamage    (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirMedium,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakLowHP          (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirMedium,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakInjured        (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirMedium,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakDetector       (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirMedium,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakRange          (player, AIDiffThreshold(player, c_combatFlagDisable, c_skirMedium,   c_combatFlagEnable));
     }
     else {
-        group1 = c_campBeginner;
-        group2 = c_campExpert;
+        AICombatDiffFlagCatSpecialHighPrio     (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
+        AICombatDiffFlagCatSplashHighPrio      (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
+        AICombatDiffFlagCatTimedLowPrio        (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
+        AICombatDiffFlagCatWorkersNormalPrio   (player, AIDiffThreshold(player, c_combatFlagDisable, c_campAdvanced, c_combatFlagEnable));
+        AICombatDiffFlagCatSortBuildingsPrio   (player, AIDiffThreshold(player, c_combatFlagDisable, c_campAdvanced, c_combatFlagEnable));
+        AICombatDiffFlagTieBreakHealers        (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakLowHP          (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakBonusDamage    (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakInjured        (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakDetector       (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
+        AICombatDiffFlagTieBreakRange          (player, AIDiffThreshold(player, c_combatFlagDisable, c_campExpert,   c_combatFlagEnable));
     }
-
-    AICombatTargetProduction       (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetDropOffs         (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetFood             (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetActiveProduction (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetSelfThreats      (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetCurrent          (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetAir              (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetMovers           (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetInAttackRange    (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetThreats          (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetAttackers        (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatTargetSpecial          (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatAvoidNonThreats        (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatAvoidTimedUnits        (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatAvoidWeakUnits         (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-    AICombatAvoidDisabledUnits     (player, AIDiffThreshold(player, c_combatDisable, group1, c_combatEnable));
-
-    AICombatTargetWorkers          (player, AIDiffThreshold(player, c_combatDisable, group2, c_combatEnable));
-    AICombatTargetAllyThreats      (player, AIDiffThreshold(player, c_combatDisable, group2, c_combatEnable));
-    AICombatTargetInjuries         (player, AIDiffThreshold(player, c_combatDisable, group2, c_combatEnable));
-    AICombatTargetHealers          (player, AIDiffThreshold(player, c_combatDisable, group2, c_combatEnable));
-    AICombatTargetSiege            (player, AIDiffThreshold(player, c_combatDisable, group2, c_combatEnable));
 }
 
 //--------------------------------------------------------------------------------------------------

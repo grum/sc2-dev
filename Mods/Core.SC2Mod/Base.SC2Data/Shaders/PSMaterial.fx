@@ -1,3 +1,4 @@
+
 //==================================================================================================
 //
 // Copyright Blizzard Entertainment 2003-2005
@@ -39,11 +40,9 @@ DECLARE_LAYER(Lightmap);
 DECLARE_LAYER(AmbientOcclusion);
 
 sampler2D   p_sFOWSampler;
+sampler2D   p_sDefferedDiffuse;
 
-half CalcSplatAlphaAttenuation( VertexTransport vertOut );
-
-sampler2D p_sDefferedDiffuse;
-half3 p_cLightmapShadowColor;
+half3       p_cLightmapShadowColor;
 
 //--------------------------------------------------------------------------------------------------
 // Main material hook.
@@ -154,8 +153,7 @@ half4 MaterialColor(    in VertexTransport vertOut,
 		cLightDiffuse = cColor.rgb;
 		cLightSpecular = 0;
         if ( b_iLightmapShadow ) {
-            if ( cShadowColor.a < 1.0f )
-                cLightDiffuse *= p_cLightmapShadowColor;
+            cLightDiffuse *= lerp( p_cLightmapShadowColor, 1.0f, cShadowColor.a );
         }
 	}
 	
@@ -205,8 +203,9 @@ half4 MaterialColor(    in VertexTransport vertOut,
         cFinal.a *= saturate(INTERPOLANT_VertexColor.a);
     //if ( b_alphaEnable )
     cFinal.a *= p_vSpecularMultiplier_DepthBlendThreshold_HeightMapScale_AlphaFactor.w;
-    if ( b_splatAttenuationEnabled && PIXEL_SHADER_VERSION >= SHADER_VERSION_PS_30 )
-        cFinal.a *= CalcSplatAlphaAttenuation( vertOut );
+    if ( b_splatAttenuationEnabled && PIXEL_SHADER_VERSION >= SHADER_VERSION_PS_30 ) {
+        cFinal.a *= SplatAttenuation( INTERPOLANT_VectorUI1.xyz, INTERPOLANT_VectorUI0, INTERPOLANT_VectorUI1.w, INTERPOLANT_Tangent.w);
+    }
 
     //----------------------------------------------------------------------------------------------
     // First alpha mask layer.
@@ -264,24 +263,6 @@ half4 MaterialColor(    in VertexTransport vertOut,
 }
 
 //--------------------------------------------------------------------------------------------------
-half CalcSplatAlphaAttenuation( VertexTransport vertOut ) {
-    float4 vSplatAttenuationPlane = INTERPOLANT_VectorUI0;
-    float fSplatAttenuationScalar;
-    float fDist;
-    if ( PIXEL_SHADER_VERSION <= SHADER_VERSION_PS_14 ) {
-        // :TODO: :FIXME:
-        fSplatAttenuationScalar = 1;
-        fDist = 0;
-    } else {
-        fSplatAttenuationScalar = INTERPOLANT_VectorUI1.w;
-        fDist = dot(float4(INTERPOLANT_VectorUI1.xyz, 1.0f), vSplatAttenuationPlane);
-    }
-    fDist = 1.0f - saturate(abs(fDist));
-    fDist = saturate(fDist * fSplatAttenuationScalar);
-    return fDist;
-}
-
-//--------------------------------------------------------------------------------------------------
 half3 DecodeNormal( VertexTransport vertOut ) {
 	// Decode normal.
     half3 vNormalWS;
@@ -289,7 +270,7 @@ half3 DecodeNormal( VertexTransport vertOut ) {
     if ( b_useNormalMapping && b_iNormalLayerEnable  ) {
 		// Pixel-based.
         half3   vNormalTS = DecodeTextureNormal( p_sNormalSampler, GetUVEmitter(vertOut, b_iNormalUVEmitter), fExtraValue );
-				vNormalWS = TangentToWorld( vNormalTS, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent, INTERPOLANT_Binormal, true );
+				vNormalWS = TangentToWorld( vNormalTS, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal, true );
     } else 
 		// Vertex-based.
 		vNormalWS = normalize( INTERPOLANT_Normal.xyz );		
@@ -346,15 +327,15 @@ half4 ApplyFogOfWar( VertexTransport vertOut, half4 cResult, inout half3 cDeferr
 
             half4 cDiffuseFOWFactor = cFOWFactor;
 
-            // :TODO: This needs to be optimized. Most models are not in the fog of war, and these can
-            // just skip this lerp.
+            //float fowAlpha = 1.0f - cFOWFactor.a;
+            //fowAlpha = saturate( pow( fowAlpha, 8.0f ) );
             if (b_FOWAdditiveScale) {
                 cDeferredDiffuse = lerp(cDeferredDiffuse.rgb, cDeferredDiffuse.rgb * cDiffuseFOWFactor.rgb, cDiffuseFOWFactor.a);
-                return half4( lerp(cResult.rgb, cResult.rgb * cFOWFactor.rgb, cFOWFactor.a), cResult.a);
+                return half4( lerp(cResult.rgb, cResult.rgb * cFOWFactor.rgb, cFOWFactor.a), /* fowAlpha * */ cResult.a);
             }
             else {
                 cDeferredDiffuse = lerp(cDeferredDiffuse.rgb, cDiffuseFOWFactor.rgb, cDiffuseFOWFactor.a);
-                return half4( lerp(cResult.rgb, cFOWFactor.rgb, cFOWFactor.a), cResult.a);
+                return half4( lerp(cResult.rgb, cFOWFactor.rgb, cFOWFactor.a), /* fowAlpha * */ cResult.a);
             }
         } else {
             return cResult;

@@ -9,6 +9,7 @@
         <HeaderTable value="ScoreSummary"/>
         <HeaderTable value="EconomyBreakdown"/>
         <HeaderTable value="BuildOrder"/>
+        <HeaderTable value="Graphs"/>
     </CScoreResultRoot>
     <CScoreResultScore id="ScoreSummary">
         <ValueTable value="TotalResources"/>
@@ -17,10 +18,14 @@
         <ValueTable value="TotalOverview"/>
     </CScoreResultScore>
     <CScoreResultScore id="EconomyBreakdown">
-      <ValueTable value="ResourceFloatAverage"/>
-      <ValueTable value="ResourceCollectionRate"/>
-      <ValueTable value="WorkersTotalCount"/>
-      <ValueTable value="TotalResources"/>
+        <ValueTable value="ResourceFloatAverage"/>
+        <ValueTable value="ResourceCollectionRate"/>
+        <ValueTable value="WorkersTotalCount"/>
+        <ValueTable value="TotalResources"/>
     </CScoreResultScore>
     <CScoreResultBuildOrder id="BuildOrder"/>
+    <CScoreResultGraph id="Graphs">
+        <ValueTable value="ResourceCollectionRateSampled"/>
+        <ValueTable value="ResourceValueArmySampled"/>
+    </CScoreResultGraph>
 </Catalog>

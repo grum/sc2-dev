@@ -2,9 +2,6 @@
 <Catalog>
     <CRace id="Terr">
         <AttributeId value="Terr"/>
-        <LoadingImage value="Assets\Textures\TerranLoad.dds"/>
-        <DefeatImage value="Assets\Textures\TerranDefeat.dds"/>
-        <VictoryImage value="Assets\Textures\TerranVictory.dds"/>
         <StartingResource index="Minerals" value="50"/>
         <Flags index="Selectable" value="1"/>
         <StartingUnitArray Unit="CommandCenter"/>
@@ -38,9 +35,6 @@
     </CRace>
     <CRace id="Prot">
         <AttributeId value="Prot"/>
-        <LoadingImage value="Assets\Textures\ProtossLoad.dds"/>
-        <DefeatImage value="Assets\Textures\ProtossDefeat.dds"/>
-        <VictoryImage value="Assets\Textures\ProtossVictory.dds"/>
         <StartingResource index="Minerals" value="50"/>
         <Flags index="Selectable" value="1"/>
         <StartingUnitArray Unit="Nexus"/>
@@ -74,9 +68,6 @@
     </CRace>
     <CRace id="Zerg">
         <AttributeId value="Zerg"/>
-        <LoadingImage value="Assets\Textures\TerranLoad.dds"/>
-        <DefeatImage value="Assets\Textures\ZergDefeat.dds"/>
-        <VictoryImage value="Assets\Textures\ZergVictory.dds"/>
         <StartingResource index="Minerals" value="50"/>
         <Flags index="Selectable" value="1"/>
         <StartingUnitArray Unit="Hatchery"/>

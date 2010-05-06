@@ -1,210 +1,102 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CTexture id="Decal_0000_01">
-        <File value="Assets\Textures\decal_terran01.dds"/>
+    <CTexture id="Decal_Protoss_0001_01">
+        <File value="Assets\Textures\decal_protoss_0001_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_RaynorsRaiders">
+    <CTexture id="Decal_Protoss_0004_01">
+        <File value="Assets\Textures\decal_protoss_0004_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0005_01">
+        <File value="Assets\Textures\decal_protoss_0005_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0006_01">
+        <File value="Assets\Textures\decal_protoss_0006_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0008_01">
+        <File value="Assets\Textures\decal_protoss_0008_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0009_01">
+        <File value="Assets\Textures\decal_protoss_0009_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0011_01">
+        <File value="Assets\Textures\decal_protoss_0011_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0015_01">
+        <File value="Assets\Textures\decal_protoss_0015_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0017_01">
+        <File value="Assets\Textures\decal_protoss_0017_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0019_01">
+        <File value="Assets\Textures\decal_protoss_0019_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Protoss_0021_01">
+        <File value="Assets\Textures\decal_protoss_0021_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Terran_0001_01">
         <File value="Assets\Textures\decal_terran_0001_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_RaynorsRaiders_Black">
-        <File value="Assets\Textures\decal_terran_0001_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_RaynorsRaiders_Gold">
-        <File value="Assets\Textures\decal_terran_0001_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Tychus_01">
-        <File value="Assets\Textures\decal_campaign_tychus_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_RaynorSkull_01">
-        <File value="Assets\Textures\decal_terran_0003_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_RaynorSkull_01_Black">
-        <File value="Assets\Textures\decal_terran_0003_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_RaynorSkull_01_Gold">
-        <File value="Assets\Textures\decal_terran_0003_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_ZergKillers_01">
+    <CTexture id="Decal_Terran_0004_01">
         <File value="Assets\Textures\decal_terran_0004_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_ZergKillers_01_Black">
-        <File value="Assets\Textures\decal_terran_0004_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_ZergKillers_01_Gold">
-        <File value="Assets\Textures\decal_terran_0004_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_TerranFightingFist_01">
-        <File value="Assets\Textures\decal_terran_0006_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_TerranFightingFist_02">
-        <File value="Assets\Textures\decal_terran_0006_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_TerranFightingFist_03">
-        <File value="Assets\Textures\decal_terran_0006_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Graffiti_AliveInside_01">
-        <File value="Assets\Textures\decal_graffiti_alive_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_StarCraftIILogo_01">
-        <File value="Assets\Textures\decal_starcraftlogo_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Dominion_01">
+    <CTexture id="Decal_Terran_0005_01">
         <File value="Assets\Textures\decal_terran_0005_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_Dominion_02">
-        <File value="Assets\Textures\decal_terran_0005_02.dds"/>
+    <CTexture id="Decal_Terran_0006_01">
+        <File value="Assets\Textures\decal_terran_0006_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_Dominion_04">
-        <File value="Assets\Textures\decal_terran_0005_04.dds"/>
+    <CTexture id="Decal_Terran_0008_01">
+        <File value="Assets\Textures\decal_terran_0008_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_Dominion_03">
-        <File value="Assets\Textures\decal_terran_0005_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_TerranRebels_01">
+    <CTexture id="Decal_Terran_0009_01">
         <File value="Assets\Textures\decal_terran_0009_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_TerranRebels_02">
-        <File value="Assets\Textures\decal_terran_0009_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_TerranRebels_03">
-        <File value="Assets\Textures\decal_terran_0009_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_Merc_01">
-        <File value="Assets\Textures\decal_merc_terran_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_Merc_01_Gold">
-        <File value="Assets\Textures\decal_merc_terran_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_Merc_01_Black">
-        <File value="Assets\Textures\decal_merc_terran_02.dds"/>
-    </CTexture>
-    <CTexture id="Campaign_Decal_0001_01">
-        <File value="Assets\Textures\campaign_decal_0001_01.dds"/>
-    </CTexture>
-    <CTexture id="Campaign_Decal_0001_02">
-        <File value="Assets\Textures\campaign_decal_0001_02.dds"/>
-    </CTexture>
-    <CTexture id="Campaign_Decal_0001_03">
-        <File value="Assets\Textures\campaign_decal_0001_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_01">
-        <File value="Assets\Textures\decal_colonistship_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_02">
-        <File value="Assets\Textures\decal_colonistship_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_03">
-        <File value="Assets\Textures\decal_colonistship_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_04">
-        <File value="Assets\Textures\decal_colonistship_04.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_05">
-        <File value="Assets\Textures\decal_colonistship_05.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_06">
-        <File value="Assets\Textures\decal_colonistship_06.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_07">
-        <File value="Assets\Textures\decal_colonistship_07.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_08">
-        <File value="Assets\Textures\decal_colonistship_08.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Number_09">
-        <File value="Assets\Textures\decal_colonistship_09.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0010_01">
-        <File value="Assets\Textures\decal_terran_0010_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0010_Black">
-        <File value="Assets\Textures\decal_terran_0010_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0010_Gold">
-        <File value="Assets\Textures\decal_terran_0010_03.dds"/>
     </CTexture>
     <CTexture id="Decal_Terran_0011_01">
         <File value="Assets\Textures\decal_terran_0011_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_Terran_0011_Black">
-        <File value="Assets\Textures\decal_terran_0011_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0011_Gold">
-        <File value="Assets\Textures\decal_terran_0011_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0012_01">
-        <File value="Assets\Textures\decal_terran_0012_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0012_Black">
-        <File value="Assets\Textures\decal_terran_0012_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0012_Gold">
-        <File value="Assets\Textures\decal_terran_0012_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0013_01">
-        <File value="Assets\Textures\decal_terran_0013_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0013_Black">
-        <File value="Assets\Textures\decal_terran_0013_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0013_Gold">
-        <File value="Assets\Textures\decal_terran_0013_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0014_01">
-        <File value="Assets\Textures\decal_terran_0014_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0014_Black">
-        <File value="Assets\Textures\decal_terran_0014_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0014_Gold">
-        <File value="Assets\Textures\decal_terran_0014_03.dds"/>
-    </CTexture>
     <CTexture id="Decal_Terran_0015_01">
         <File value="Assets\Textures\decal_terran_0015_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0015_Black">
-        <File value="Assets\Textures\decal_terran_0015_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0015_Red">
-        <File value="Assets\Textures\decal_terran_0015_03.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0016_01">
-        <File value="Assets\Textures\decal_terran_0016_01.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0016_Black">
-        <File value="Assets\Textures\decal_terran_0016_02.dds"/>
-    </CTexture>
-    <CTexture id="Decal_Terran_0016_Gold">
-        <File value="Assets\Textures\decal_terran_0016_03.dds"/>
     </CTexture>
     <CTexture id="Decal_Terran_0017_01">
         <File value="Assets\Textures\decal_terran_0017_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_Terran_0017_Black">
-        <File value="Assets\Textures\decal_terran_0017_02.dds"/>
+    <CTexture id="Decal_Terran_0019_01">
+        <File value="Assets\Textures\decal_terran_0019_01.dds"/>
     </CTexture>
-    <CTexture id="Decal_Terran_0017_Gold">
-        <File value="Assets\Textures\decal_terran_0017_03.dds"/>
+    <CTexture id="Decal_Terran_0021_01">
+        <File value="Assets\Textures\decal_terran_0021_01.dds"/>
     </CTexture>
-    <!--========================================================================================-->
-    <!--======== Tutorials =========================================================================-->
-    <!--========================================================================================-->
-    <CTexture id="Video_Tutorial_Movement">
-        <File value="Assets\Textures\video_tutorial_movement.ogv"/>
+    <CTexture id="Decal_Zerg_0001_01">
+        <File value="Assets\Textures\decal_zerg_0001_01.dds"/>
     </CTexture>
-    <CTexture id="Video_Tutorial_Camera_Control">
-        <File value="Assets\Textures\video_tutorial_camera_control.ogv"/>
+    <CTexture id="Decal_Zerg_0004_01">
+        <File value="Assets\Textures\decal_zerg_0004_01.dds"/>
     </CTexture>
-    <CTexture id="Video_Tutorial_Combat">
-        <File value="Assets\Textures\video_tutorial_combat.ogv"/>
+    <CTexture id="Decal_Zerg_0005_01">
+        <File value="Assets\Textures\decal_zerg_0005_01.dds"/>
     </CTexture>
-    <CTexture id="Video_Tutorial_Terran_Base_Construction">
-        <File value="Assets\Textures\video_tutorial_terran_base_construction.ogv"/>
+    <CTexture id="Decal_Zerg_0006_01">
+        <File value="Assets\Textures\decal_zerg_0006_01.dds"/>
     </CTexture>
-    <CTexture id="Video_Tutorial_Resource_Collection">
-        <File value="Assets\Textures\video_tutorial_resource_collection.ogv"/>
+    <CTexture id="Decal_Zerg_0008_01">
+        <File value="Assets\Textures\decal_zerg_0008_01.dds"/>
     </CTexture>
-    <CTexture id="Video_Tutorial_Terran_Unit_Production">
-        <File value="Assets\Textures\video_tutorial_terran_unit_production.ogv"/>
+    <CTexture id="Decal_Zerg_0009_01">
+        <File value="Assets\Textures\decal_zerg_0009_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Zerg_0011_01">
+        <File value="Assets\Textures\decal_zerg_0011_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Zerg_0015_01">
+        <File value="Assets\Textures\decal_zerg_0015_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Zerg_0017_01">
+        <File value="Assets\Textures\decal_zerg_0017_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Zerg_0019_01">
+        <File value="Assets\Textures\decal_zerg_0019_01.dds"/>
+    </CTexture>
+    <CTexture id="Decal_Zerg_0021_01">
+        <File value="Assets\Textures\decal_zerg_0021_01.dds"/>
     </CTexture>
 </Catalog>

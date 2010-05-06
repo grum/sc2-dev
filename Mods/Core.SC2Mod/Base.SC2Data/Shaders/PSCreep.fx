@@ -37,12 +37,18 @@ float2   g_CreepEdgeNormalMapTiling;            //3, 3
 float2   g_EdgeNormalMapRampConstants;          //0.74, 4
 float3   g_TransparentTintColor;
 float3   g_TransparentEmissiveColor;
+float4   g_CreepAdditiveColor;
 
 // should match ECreepOutputMode
 #define CREEP_OUTPUT_DIFFUSE_ONLY   0
 #define CREEP_OUTPUT_NORMALS_ONLY   1
 #define CREEP_OUTPUT_COMPLETE       2
 #define CREEP_OUTPUT_STENCIL_ONLY   3   // output just 1 or 0 for writing to the stencil buffer
+
+// should match ECreepPass
+#define CREEP_OPAQUE                0
+#define CREEP_TRANSLUCENT           1
+#define CREEP_ADDITIVE_COLOR        2
 
 // single component specular power
 float   g_SpecularPower;
@@ -89,7 +95,7 @@ float4 PixelCreepGeneric( VertexTransport vertOut, bool useSpecular, bool useRef
             worldNormal = (pixelNormalSample * 0.5f) + 0.5f;
         }
         else {
-            worldNormal = TangentToWorld( pixelNormalSample, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent, INTERPOLANT_Binormal, true );
+            worldNormal = TangentToWorld( pixelNormalSample, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal, true );
         }
     } else {
         pixelNormalSample.xyz = INTERPOLANT_Normal.xyz;
@@ -199,6 +205,7 @@ float4 PixelCreepOpaque ( VertexTransport vertOut ) {
         output.a = step(g_CreepOpaqueAlphaThreshold, output.a);
     }
 
+    output *= p_vTerrainTint;
     return output;
 }
 
@@ -210,6 +217,23 @@ float4 PixelCreepTranslucent ( VertexTransport vertOut ) {
     output = PixelCreepGeneric(vertOut, true, false);
     output.rgb = (output.rgb * g_TransparentTintColor) + g_TransparentEmissiveColor;
     output.a = saturate((output.a - g_CreepTransparentRampConstants.x) * g_CreepTransparentRampConstants.y);
+    output *= p_vTerrainTint;
+
+    g_cDeferredDiffuse = g_cDeferredDiffuse * g_TransparentTintColor;
+    g_cDeferredSpecular = g_cDeferredSpecular * g_TransparentTintColor;
+	g_cDeferredSpecularPower = g_SpecularPower;
+    return output;
+}
+
+//--------------------------------------------------------------------------------------------------
+float4 PixelCreepAdditiveColor ( VertexTransport vertOut ) {
+    InitShader( vertOut );
+    float4 output;
+
+    output = PixelCreepGeneric(vertOut, false, false);
+    output.rgb = g_CreepAdditiveColor.rgb;
+    output.a = saturate((output.a - g_CreepTransparentRampConstants.x) * g_CreepTransparentRampConstants.y) * g_CreepAdditiveColor.a ;
+    output *= p_vTerrainTint;
 
     g_cDeferredDiffuse = g_cDeferredDiffuse * g_TransparentTintColor;
     g_cDeferredSpecular = g_cDeferredSpecular * g_TransparentTintColor;

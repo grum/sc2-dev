@@ -84,11 +84,13 @@
     <CValidatorCombine default="1" id="TacticalCloakSharedOn">
         <Type value="And"/>
         <CombineArray value="CasterInCombat"/>
+        <CombineArray value="CasterNotCampaign"/>
         <CombineArray value="Tactical##unitLink##CloakOnVitalsCheck"/>
         <CombineArray value="Tactical##unitLink##CloakThreatSearch"/>
         <CombineArray value="Tactical##unitLink##CloakNotDetected"/>
     </CValidatorCombine>
     <CValidatorCombine default="1" id="TacticalCloakSharedOff">
+        <CombineArray value="CasterNotCampaign"/>
         <CombineArray value="Tactical##unitLink##CloakThreatSearchEmpty"/>
         <CombineArray value="Tactical##unitLink##CloakDetected"/>
         <CombineArray value="Tactical##unitLink##CloakOffVitalsCheck"/>
@@ -111,6 +113,14 @@
         <CombineArray value="CasterIsFiringWeapon"/>
         <Negate value="1"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareOrderTargetRange id="ChargeMinTriggerDistance">
+        <ResultFailed value="TargetIsTooClose"/>
+        <WhichUnit Value="Caster"/>
+        <OtherUnit Value="Target"/>
+        <Compare value="GT"/>
+        <AbilLink value="attack"/>
+        <Value value="0.5"/>
+    </CValidatorUnitCompareOrderTargetRange>
     <CValidatorUnitCompareBehaviorCount id="DoubleDamage">
         <WhichUnit Value="Caster"/>
         <Value value="1"/>
@@ -120,6 +130,15 @@
         <WhichUnit Value="Caster"/>
         <Value value="CommandCenter"/>
     </CValidatorUnitType>
+    <CValidatorUnitType id="CasterIsColossus">
+        <WhichUnit Value="Caster"/>
+        <Value value="Colossus"/>
+    </CValidatorUnitType>
+    <CValidatorCombine id="NeuralParasitePeriodicValidator">
+        <Type value="And"/>
+        <CombineArray value="NotHidden"/>
+        <CombineArray value="CasterHasEnergyAndNotDead"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="NotDoubleDamage">
         <WhichUnit Value="Caster"/>
         <Compare value="NE"/>
@@ -134,6 +153,9 @@
         <Value value="SporeCrawlerUprooted"/>
         <Find value="0"/>
     </CValidatorUnitType>
+    <CValidatorPlayerRequirement id="HasObverseIncubation">
+        <Find value="1"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitType id="NotWorkerDrone">
         <Value value="Drone"/>
         <Find value="0"/>
@@ -143,6 +165,9 @@
         <CombineArray value="NotDoubleDamage"/>
         <CombineArray value="NotQuadDamage"/>
     </CValidatorCombine>
+    <CValidatorUnitType id="IsSCV">
+        <Value value="SCV"/>
+    </CValidatorUnitType>
     <CValidatorUnitType id="NotWorkerSCV">
         <Value value="SCV"/>
         <Find value="0"/>
@@ -214,7 +239,7 @@
     <CValidatorUnitCompareResourceContents id="NoVespene"/>
     <CValidatorUnitCompareResourceContents id="HasVespene">
         <Compare value="GT"/>
-        <ResultFailed value="e_cmdCantBuildOnThat"/>
+        <ResultFailed value="CantBuildOnThat"/>
         <ResultNoUnit value="OKPlaceholder"/>
     </CValidatorUnitCompareResourceContents>
     <CValidatorCombine id="ProtossBurnDownFire">
@@ -546,9 +571,19 @@
         <Value value="Ground"/>
         <Find value="1"/>
     </CValidatorUnitMover>
+    <CValidatorUnitCompareBehaviorCount id="TargetIsNeuralParasited">
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="NeuralParasite"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitFilters id="TargetIsVisible">
         <Filters value="Visible;-"/>
     </CValidatorUnitFilters>
+    <CValidatorUnitType id="TargetNotChangeling">
+        <Value value="Changeling"/>
+        <Find value="0"/>
+        <Type value="SelectAlias"/>
+    </CValidatorUnitType>
     <CValidatorCombine id="SiphonChannelValidators">
         <Type value="And"/>
         <CombineArray value="TargetIsVisible"/>
@@ -758,7 +793,7 @@
         <Behavior value="Ethereal"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="IsHatcheryLairOrHive">
-        <ResultFailed value="CantTargetThatUnit"/>
+        <ResultFailed value="MustTargetStructures,Error/MustTargetHatchery"/>
         <CombineArray value="IsHatchery"/>
         <CombineArray value="IsLair"/>
         <CombineArray value="IsHive"/>
@@ -1097,6 +1132,31 @@
         <CombineArray value="LifeLTOneThird"/>
         <CombineArray value="BurnDownValid"/>
     </CValidatorCombine>
+    <CValidatorCombine id="ZergBleedNormal">
+        <Type value="And"/>
+        <CombineArray value="LifeGETwoThird"/>
+        <CombineArray value="ZergBleedingValid"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="ZergBleedLight">
+        <Type value="And"/>
+        <CombineArray value="LifeLTTwoThird"/>
+        <CombineArray value="LifeGEHalf"/>
+        <CombineArray value="ZergBleedingValid"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="ZergBleedHeavy">
+        <Type value="And"/>
+        <CombineArray value="LifeLTHalf"/>
+        <CombineArray value="LifeGEOneThird"/>
+        <CombineArray value="ZergBleedingValid"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="ZergBleedProfusely">
+        <Type value="And"/>
+        <CombineArray value="LifeLTOneThird"/>
+        <CombineArray value="ZergBleedingValid"/>
+    </CValidatorCombine>
+    <CValidatorUnitFilters id="ZergBleedingValid">
+        <Filters value="-;UnderConstruction,Dead"/>
+    </CValidatorUnitFilters>
     <CValidatorUnitType id="NotRoachMissile">
         <Find value="0"/>
         <Value value="RoachWeapon"/>
@@ -1136,6 +1196,7 @@
     <CValidatorUnitType id="NotLarvaEgg">
         <Find value="0"/>
         <Value value="Egg"/>
+        <ResultFailed value="CantTargetThatUnit,Error/CantTargetZergCocoons"/>
     </CValidatorUnitType>
     <CValidatorUnitType id="NotRoachEgg">
         <Find value="0"/>
@@ -1267,6 +1328,19 @@
         <Find value="1"/>
         <Value value="HaveWeaponRefit"/>
     </CValidatorPlayerRequirement>
+    <CValidatorCombine id="IsTownHall">
+        <CombineArray value="IsNexus"/>
+        <CombineArray value="IsCommandCenter"/>
+        <CombineArray value="IsOrbitalCommand"/>
+        <CombineArray value="IsPlanetaryFortress"/>
+        <CombineArray value="IsHatchery"/>
+        <CombineArray value="IsLair"/>
+        <CombineArray value="IsHive"/>
+    </CValidatorCombine>
+    <CValidatorLocationComparePower id="IsPoweredByWarpPrism">
+        <PowerSource value="WarpPrismPowerSource"/>
+        <Compare value="GT"/>
+    </CValidatorLocationComparePower>
     <!-- 
     StimPack 
     
@@ -1287,8 +1361,14 @@
             
         return true;
     -->
+    <CValidatorCombine id="DomTacticalStimPack">
+        <Type value="And"/>
+        <CombineArray value="ExpertOrNotCampaign"/>
+        <CombineArray value="TacticalStimPack"/>
+    </CValidatorCombine>
     <CValidatorCombine id="TacticalStimPack">
         <Type value="And"/>
+        <CombineArray value="AdvancedOrNotCampaign"/>
         <CombineArray value="TacticalStimPackTestBuff"/>
         <CombineArray value="CasterIsAttacking"/>
         <CombineArray value="CasterNotInCombat"/>
@@ -1576,15 +1656,15 @@
             
         if (no threatening units)
             return false;
-            
-        if (!campaign)
-            return life < 90%;
 
         if (suggest unburrow)
             return false;
             
         if (detected)
             return false;
+            
+        if (!campaign)
+            return life < 90%;
             
         if (!suggest burrow)
             return false;
@@ -1600,9 +1680,9 @@
     <CValidatorFunction id="TacticalBurrowDroneDown">
         <Line Failure="CasterForceUnburrow"/>
         <Line Failure="TacticalBurrowDroneHostileSearchEmpty"/>
-        <Line Test="CasterNotCampaign" Return="CasterLifeLT90Percent"/>
         <Line Failure="CasterSuggestUnburrow"/>
         <Line Failure="TacticalBurrowCasterDetected"/>
+        <Line Test="CasterNotCampaign" Return="CasterLifeLT90Percent"/>
         <Line Failure="CasterNotSuggestBurrow"/>
     </CValidatorFunction>
     <!--
@@ -1615,14 +1695,14 @@
         if (no threatening units)
             return true;
             
-        if (!campaign)
-            return life == 100%
-            
         if (suggest unburrow)
             return true;
             
         if (detected)
             return true;
+            
+        if (!campaign)
+            return life == 100%            
             
         if (suggest burrow)
             return false;
@@ -1632,39 +1712,11 @@
     <CValidatorFunction id="TacticalBurrowDroneUp">
         <Line Success="CasterForceUnburrow"/>
         <Line Success="TacticalBurrowDroneHostileSearchEmpty"/>
-        <Line Test="CasterNotCampaign" Return="CasterLifeFull"/>
         <Line Success="CasterSuggestUnburrow"/>
         <Line Success="TacticalBurrowCasterDetected"/>
+        <Line Test="CasterNotCampaign" Return="CasterLifeFull"/>
         <Line Failure="CasterSuggestBurrow"/>
     </CValidatorFunction>
-    <!--
-    
-    Infestor Burrow
-        
-        if (threatening units)
-            return true;
-            
-        return false;
-    -->
-    <CValidatorUnitCompareAttackPriority id="ThreatensInfestor" parent="Threatens">
-        <AttackerAlternateType value="Infestor"/>
-    </CValidatorUnitCompareAttackPriority>
-    <CValidatorLocationEnumArea id="TacticalBurrowInfestorHostileSearch" parent="HostileSearch">
-        <AreaArray Radius="8" Validator="ThreatensInfestor"/>
-    </CValidatorLocationEnumArea>
-    <CValidatorCombine id="TacticalBurrowInfestorDown">
-        <CombineArray value="TacticalBurrowInfestorHostileSearch"/>
-    </CValidatorCombine>
-    <!--
-    
-    Infestor Unburrow
-    
-        return !Infestor Burrow
-    -->
-    <CValidatorCombine id="TacticalBurrowInfestorUp">
-        <Negate value="1"/>
-        <CombineArray value="TacticalBurrowInfestorDown"/>
-    </CValidatorCombine>
     <!--
     
     Shared Burrow
@@ -1820,6 +1872,32 @@
     </CValidatorCombine>
     <!--
     
+    Queen Burrow & Unburrow
+
+        Queen Burrow is very similar to drone burrow, default is up, only burrow to live
+    -->
+    <CValidatorUnitCompareAttackPriority id="ThreatensQueen" parent="ThreatensUnit" unitLink="Queen"/>
+    <CValidatorCombine id="TacticalBurrowQueenThreatTest" parent="TacticalBurrowThreatTest" unitLink="Queen"/>
+    <CValidatorLocationEnumArea id="TacticalBurrowQueenThreatSearchEmpty" parent="TacticalBurrowThreatSearchEmpty" unitLink="Queen"/>
+    <CValidatorUnitType id="TacticalBurrowQueenBullyTest" parent="TacticalBurrowBullyTest" unitLink="Queen"/>
+    <CValidatorFunction id="TacticalBurrowQueenDown">
+        <Line Failure="CasterForceUnburrow"/>
+        <Line Failure="TacticalBurrowDroneHostileSearchEmpty"/>
+        <Line Failure="CasterSuggestUnburrow"/>
+        <Line Failure="TacticalBurrowCasterDetected"/>
+        <Line Test="CasterNotCampaign" Return="CasterLifeLT50Percent"/>
+        <Line Failure="CasterNotSuggestBurrow"/>
+    </CValidatorFunction>
+    <CValidatorFunction id="TacticalBurrowQueenUp">
+        <Line Success="CasterForceUnburrow"/>
+        <Line Success="TacticalBurrowDroneHostileSearchEmpty"/>
+        <Line Success="CasterSuggestUnburrow"/>
+        <Line Success="TacticalBurrowCasterDetected"/>
+        <Line Test="CasterNotCampaign" Return="CasterLifeGT75Percent"/>
+        <Line Failure="CasterSuggestBurrow"/>
+    </CValidatorFunction>
+    <!--
+    
     Zergling Burrow
         
         Zerglings do all of the shared burrow stuff except for burrowing when damaged.
@@ -1888,6 +1966,17 @@
     <CValidatorUnitType id="TacticalBurrowRoachBullyTest" parent="TacticalBurrowBullyTest" unitLink="Roach"/>
     <CValidatorFunction id="TacticalBurrowRoachDown" parent="TacticalBurrowSharedDown" maxVitals="50" minVitals="30" unitLink="Roach"/>
     <CValidatorFunction id="TacticalBurrowRoachUp" parent="TacticalBurrowSharedUp" maxVitals="60" unitLink="Roach"/>
+    <!--
+    
+    Infestor Burrow & Unburrow
+
+    -->
+    <CValidatorUnitCompareAttackPriority id="ThreatensInfestor" parent="ThreatensUnit" unitLink="Infestor"/>
+    <CValidatorCombine id="TacticalBurrowInfestorThreatTest" parent="TacticalBurrowThreatTest" unitLink="Infestor"/>
+    <CValidatorLocationEnumArea id="TacticalBurrowInfestorThreatSearchEmpty" parent="TacticalBurrowThreatSearchEmpty" unitLink="Infestor"/>
+    <CValidatorUnitType id="TacticalBurrowInfestorBullyTest" parent="TacticalBurrowBullyTest" unitLink="Infestor"/>
+    <CValidatorFunction id="TacticalBurrowInfestorDown" parent="TacticalBurrowSharedDown" maxVitals="50" minVitals="30" unitLink="Infestor"/>
+    <CValidatorFunction id="TacticalBurrowInfestorUp" parent="TacticalBurrowSharedUp" maxVitals="60" unitLink="Infestor"/>
     <!--
     
     Ultralisk Burrow
@@ -2147,11 +2236,15 @@
     -->
     <CValidatorCombine id="D8ChargeAllUnitValidator">
         <Type value="And"/>
-        <CombineArray value="InsaneOrNotCampaign"/>
+        <CombineArray value="ExpertOrNotCampaign"/>
         <CombineArray value="CasterLifeGT60Percent"/>
     </CValidatorCombine>
-    <CValidatorCombine id="InsaneOrNotCampaign">
+    <CValidatorCombine id="ExpertOrNotCampaign">
         <CombineArray value="CasterDifficultyGE4"/>
+        <CombineArray value="CasterNotCampaign"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="AdvancedOrNotCampaign">
+        <CombineArray value="CasterDifficultyGE3"/>
         <CombineArray value="CasterNotCampaign"/>
     </CValidatorCombine>
     <!--
@@ -2170,9 +2263,4 @@
     <CValidatorUnitCompareBehaviorCount id="PsiStormTestBuff">
         <Behavior value="PsiStorm"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorUnitType id="TargetNotChangeling">
-        <Value value="Changeling"/>
-        <Find value="0"/>
-        <Type value="SelectAlias"/>
-    </CValidatorUnitType>
 </Catalog>

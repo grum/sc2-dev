@@ -1024,6 +1024,22 @@
             <Borders value="3,0,2;0,1,2;1,2,2;2,3,2"/>
         </Shape>
     </CFootprint>
+    <CFootprint id="CreepTumor" parent="Footprint1x1">
+        <Layers index="Check">
+            <Sets index="0">
+                <Positive index="Creep" value="1"/>
+                <Negative index="Creep" value="0"/>
+                <Negative index="Fogged" value="1"/>
+            </Sets>
+        </Layers>
+        <Layers index="Pathing" Area="-1,-1,1,1">
+            <Rows value="."/>
+        </Layers>
+        <Shape>
+            <Offsets value="-0.5,-0.5;0.5,-0.5;-0.5,0.5;0.5,0.5"/>
+            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
+        </Shape>
+    </CFootprint>
     <CFootprint id="FootprintNoBuild1x1">
         <Layers index="Check" Area="0,0,1,1">
             <Sets index="0">
@@ -2056,21 +2072,5 @@
             <Borders value="0,4,0;1,0,0;2,6,0;3,2,0;4,5,0;5,1,0;6,7,0;7,3,0;1,5,1;2,1,1;5,6,1;6,2,1"/>
         </Shape>
         <EditorCategories value="FootprintGroup:SpecificDoodads"/>
-    </CFootprint>
-    <CFootprint id="CreepTumor" parent="Footprint1x1">
-        <Layers index="Check">
-            <Sets index="0">
-                <Positive index="Creep" value="1"/>
-                <Negative index="Creep" value="0"/>
-                <Negative index="Fogged" value="1"/>
-            </Sets>
-        </Layers>
-        <Layers index="Pathing" Area="-1,-1,1,1">
-            <Rows value="."/>
-        </Layers>
-        <Shape>
-            <Offsets value="-0.5,-0.5;0.5,-0.5;-0.5,0.5;0.5,0.5"/>
-            <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
-        </Shape>
     </CFootprint>
 </Catalog>

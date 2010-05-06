@@ -101,7 +101,7 @@
             <Anchor side="Right" relative="$parent" pos="Max" offset="-2"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
             <Frame type="Image" name="Icon">
-                <Texture val="@UI/MinimapPing"/>
+                <Texture val="@UI/ClearSelection"/>
             </Frame>
         </Frame>
     </Frame>

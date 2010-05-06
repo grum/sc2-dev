@@ -16,7 +16,7 @@
         
         <Frame type="ProgressBar" name="BoardItemProgress">
             <Anchor relative="$parent"/>
-            <Texture val="@@UI/ProgressQueue"/>
+            <Texture val="@@UI/LeaderboardProgress"/>
             <Color val="##StandardProgressBorder"/>
             <ColorStep val="##StandardProgressFill"/>
         </Frame>
@@ -31,7 +31,7 @@
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Width val="20"/>
+            <Width val="28"/>
         </Frame>
     </Frame>
     
@@ -40,8 +40,8 @@
         <BatchText val="True"/>
         <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
         <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-        <Anchor side="Right" relative="$parent" pos="Max" offset="-25"/>
-        <Height val="20"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Height val="28"/>
     </Frame>
     
     <Frame type="Board" name="BoardTemplate">
@@ -54,27 +54,34 @@
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="-32"/>
-            <Height val="58"/>
-            <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardTechBorder">                               
+            <Height val="64"/>
+            <Frame type="Image" name="BackgroundImage">
+                <Texture val="@@UI/LeaderboardBackground" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
                 <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                <Height val="58"/>
+                <Height val="68"/>
             </Frame>
         </Frame>
         
         <Frame type="ThumbButton" name="BoardButton" template="TriggerWindowPanel/BoardButtonTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="4"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Width val="32"/>
-            <Height val="32"/>
+            <Width val="48"/>
+            <Height val="48"/>
         </Frame>
         
-        <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardTechBorder">           
-            <Anchor side="Top" relative="$parent" pos="Min" offset="54"/>
+        <Frame type="Image" name="BackgroundImage">
+            <Texture val="@@UI/LeaderboardBackground" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <RenderPriority val="400"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="-10"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="10"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="20"/>
         </Frame>
     </Frame>
     
@@ -84,7 +91,10 @@
         <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
         <Height val="72"/>
         
-        <Frame type="Image" name="BackgroundImage"  template="StandardTemplates/StandardTechBorder">
+        <Frame type="Image" name="BackgroundImage">
+            <Texture val="@@UI/TimerWindowBackground" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="-6"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="6"/>

@@ -17,16 +17,17 @@
     </Frame>
 
     <Frame type="Pulldown" name="GraphicsPulldownTemplate" template="StandardTemplates/StandardPulldownTemplate">
-        <Width val="250"/>
+       
     </Frame>
 
     <Frame type="Slider" name="GraphicsSliderTemplate" template="StandardTemplates/StandardSliderTemplate">
-        <Width val="250"/>
+       
     </Frame>
 
     <Frame type="GraphicsOptionsPanel" name="GraphicsOptionsPanelTemplate">
         <Frame type="Image" name="OuterBackground" template="StandardTemplates/StandardOuterBorderTemplate">
             <Anchor relative="$parent"/>
+            <RequiredDefines val="Terr|Zerg|Prot"/>
         </Frame>
 
         <Frame type="ThumbButton" name="RestoreButton" template="StandardTemplates/StandardButtonSmallTemplate">

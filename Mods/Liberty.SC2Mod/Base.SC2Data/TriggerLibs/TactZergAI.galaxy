@@ -1,16 +1,23 @@
 //--------------------------------------------------------------------------------------------------
+//  *** Tactical Zerg AI ***
+//--------------------------------------------------------------------------------------------------
+
+
+//--------------------------------------------------------------------------------------------------
 //  *** QUEEN ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeQueen (int player, unit aiUnit) {
-    return MaxF(AIAbilityFixed(player, c_AB_Transfusion, c_fieldRange0),
-                AIAbilityFixed(player, c_AB_SpawnMutantLarva, c_fieldRange0)) + 1;
-}
 
 //--------------------------------------------------------------------------------------------------
 order Transfusion (int player, unit aiUnit) {
     order ord;
     unitgroup group;
     aifilter filter;
+
+    if (AIIsCampaign(player)) {
+        if (PlayerDifficulty(player) < c_campAdvanced) {
+            return null;
+        }
+    }
 
     ord = AICreateOrder(player, c_AB_Transfusion, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
@@ -26,6 +33,10 @@ order Transfusion (int player, unit aiUnit) {
     AISetFilterAlliance(filter, c_playerGroupAlly);
     AISetFilterLifeLost(filter, AIEffectFixed(player, c_EF_Transfusion, c_fieldEffectChange0), c_noMax);
     group = AIGetFilterGroup(filter, group);
+    if (group == null) {
+        return null;
+    }
+
 
     return AIUnitGroupGetValidOrder(group, ord, aiUnit, c_forwards);
 }
@@ -72,13 +83,22 @@ order CreepTumor (int player, unit aiUnit) {
     order ord;
     point p;
 
+    if (AIIsCampaign(player)) {
+        return null;
+    }
+
     //  Only cast if idle.
     //
     if (UnitOrder(aiUnit, 0) != null) {
         return null;
     }
+    
+    // Save at least 25 energy for spawn larva
+    if (UnitGetPropertyInt(aiUnit, c_unitPropEnergy, c_unitPropCurrent) <= 50) {
+        return null;
+    }
 
-    ord = AICreateOrder(player, c_AB_QueenBuild, 1);
+    ord = AICreateOrder(player, c_AB_QueenBuild, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
         return null;
     }
@@ -102,15 +122,16 @@ void AIThinkQueen (int player, unit aiUnit, unitgroup scanGroup) {
     order ord;
     unit heal;
 
+    // burrow
     if (AIEvalTacticalData(aiUnit, null)) {
         return;
     }
-    ord = Transfusion(player, aiUnit);
+    ord = SpawnLarva(player, aiUnit);
     if (ord != null) {
         AICast(aiUnit, ord, c_noMarker, c_castHold);
         return;
     }
-    ord = SpawnLarva(player, aiUnit);
+    ord = Transfusion(player, aiUnit);
     if (ord != null) {
         AICast(aiUnit, ord, c_noMarker, c_castHold);
         return;
@@ -125,29 +146,27 @@ void AIThinkQueen (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** INFESTOR ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeInfestor (int player, unit aiUnit) {
-    return MaxF(AIAbilityFixed(player, c_AB_InfestedTerrans, c_fieldRange0),
-                AIAbilityFixed(player, c_AB_NeuralParasite, c_fieldRange0)) + 1;
 
-    // AIAbilityFixed(player, c_AB_UnstableMutation, c_fieldRange0)
-}
-
-//  Minimum vitality of a unit in order to mind control it,
-//  infestors will mind control units > carrier.
-const fixed c_neuralParasiteMinVitality = 425;
+//  Minimum vitality of a unit in order to mind control it.
+const fixed c_neuralParasiteMinVitality = 175;
+const int c_infestedTerransCooldown = c_tactTimerFirst;
+const int c_fungalGrowthCooldown = c_tactTimerSecond;
 
 //---------------------------------------------------------------------------------------------
 order NeuralParasite (int player, unit aiUnit, unitgroup scanGroup, marker mark, marker gameMark, bool lowVitality) {
     order ord;
     aifilter filter;
     unit target;
-
+    unitgroup targetGroup;
     //  vars related to nearby enemies.
-    //
     aifilter groundAirFilter;
     unitgroup threatGroup;
     int enemyGroundCount;
     int enemyAirCount;
+
+    if (AIIsCampaign(player)) {
+        return null;
+    }
     
     //  Create order and check validity
     //
@@ -178,55 +197,67 @@ order NeuralParasite (int player, unit aiUnit, unitgroup scanGroup, marker mark,
     AISetFilterLife(filter, c_neuralParasiteMinVitality, c_noMax);
     AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, mark);
     AISetFilterCanAttackEnemy(filter, enemyGroundCount, enemyAirCount);
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
+    targetGroup = AIGetFilterGroup(filter, scanGroup);
+    if (targetGroup == null) {
+        return null;
+    }
 
     //  Since it's a missile, we also have to check the game-side marker
     //
     filter = AIFilter(player);
     AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, gameMark);
-    scanGroup = AIGetFilterGroup(filter, scanGroup);
+    targetGroup = AIGetFilterGroup(filter, targetGroup);
+    if (targetGroup == null) {
+        return null;
+    }
 
     //  Return valid target
     //
-    return AIUnitGroupGetValidOrder(scanGroup, ord, aiUnit, c_forwards);
+    return AIUnitGroupGetValidOrder(targetGroup, ord, aiUnit, c_forwards);
 }
 
-//--------------------------------------------------------------------------------------------------
-//fixed MinToCastUnstableMutation (int player) {
-//    return AIAbilityFixed(player, c_AB_NeuralParasite, c_fieldEnergyCost) + 
-//           AIAbilityFixed(player, c_AB_UnstableMutation, c_fieldEnergyCost);
-//}
-//
-//order UnstableMutation (int player, unit aiUnit, unitgroup scanGroup, marker mark, bool lowVitality) {
-//    order ord;
-//    int energy;
-//    aifilter filter;
-//    unitgroup enemyCasters;
-//    
-//    ord = AICreateOrder(player, c_AB_UnstableMutation, 0);
-//    if (!UnitOrderIsValid(aiUnit, ord)) {
-//        return null;
-//    }
-//
-//    //  Save energy for neural parasite
-//    energy = UnitGetPropertyInt(aiUnit, c_unitPropEnergy, c_unitPropCurrent);
-//    if (energy < MinToCastUnstableMutation(player)) {
-//        return null;
-//    }
-//
-//    //  For now, only use on enemy casters, since we want them dead and they can't attack our units.
-//    filter = AIFilter(player);
-//    AISetFilterBits(filter, UnitFilterStr(AIAbilityStr(player, c_AB_UnstableMutation, c_fieldTargetFiltersAB)));
-//    AISetFilterAlliance(filter, c_playerGroupEnemy);
-//    AISetFilterLife(filter, c_noMin, c_noMax);
-//    AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, mark);
-//    AISetFilterBehaviorCount(filter, c_noBehaviorMin, c_noBehaviorMax, c_BF_UnstableMutation);
-//    enemyCasters = AIGetFilterGroup(filter, scanGroup);
-//
-//    enemyCasters = AIFilterCasters(enemyCasters);
-//
-//    return AIUnitGroupGetValidOrder(enemyCasters, ord, aiUnit, c_forwards);
-//}
+order FungalGrowth (int player, unit aiUnit, marker mark, marker gameMark, unitgroup scanGroup) {
+    order ord;
+    fixed energy;
+    aifilter filter;
+    bool groundAllies;
+    unitgroup enemyGroup;
+    point loc;
+    
+    if (!AITactCooldownAllow(aiUnit, c_fungalGrowthCooldown)) {
+        return null;
+    }
+
+    ord = AICreateOrder(player, c_AB_FungalGrowth, 0);
+    if (!UnitOrderIsValid(aiUnit, ord)) {
+        return null;
+    }
+
+    //  Cast on strongest enemy that can attack our allies
+    filter = AIFilter(player);
+    AISetFilterBehaviorCount(filter, c_noBehaviorMin, c_noBehaviorMax, c_BF_FungalGrowth);
+    AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, gameMark);
+    enemyGroup = AIGetFilterGroup(filter, scanGroup);
+
+    loc = AIBestTargetPoint(
+        AIEffectGroup(player, c_EF_FungalGrowthSearch, enemyGroup),
+        5, // min hits
+        30, // damage base
+        3.5, // min score
+        AIEffectFixed(player, c_EF_FungalGrowthSearch, c_fieldAreaRadius0),
+        UnitGetPosition(aiUnit),
+        AIUnitFixed(player, c_ZU_Infestor, c_fieldSightRange), 
+        c_unitAttributeNone
+    );
+    if (!loc) {
+        return null;
+    }
+    OrderSetTargetPoint(ord, loc);
+    if (!UnitOrderIsValid(aiUnit, ord)) {
+        return null;
+    }
+    return ord;
+}
 
 //---------------------------------------------------------------------------------------------
 fixed MinToCastInfestedTerrans (int player) {
@@ -240,17 +271,23 @@ order InfestedTerrans (int player, unit aiUnit, unitgroup scanGroup, bool lowVit
     aifilter filter;
     point castPoint;
     unit target;
-    unitgroup targetGroup;  //  Don't want to modify the scanGroup... still need it for neural parasite.
+    unitgroup targetGroup;
     
+    if (!AITactCooldownAllow(aiUnit, c_infestedTerransCooldown)) {
+        return null;
+    }
+
     ord = AICreateOrder(player, c_AB_InfestedTerrans, 0);
     if (!UnitOrderIsValid(aiUnit, ord)) {
         return null;
     }
 
-    //  Reserve 125 mana for neural parasite
-    energy = UnitGetPropertyInt(aiUnit, c_unitPropEnergy, c_unitPropCurrent);
-    if (energy < MinToCastInfestedTerrans(player) && !lowVitality) {
-        return null;
+    if (!lowVitality) {
+        //  Reserve 50 leftover mana for neural parasite
+        energy = UnitGetPropertyInt(aiUnit, c_unitPropEnergy, c_unitPropCurrent);
+        if (energy < MinToCastInfestedTerrans(player) && !lowVitality) {
+            return null;
+        }
     }
 
     //  Cast on top of the weakest unit.
@@ -283,52 +320,60 @@ order InfestedTerrans (int player, unit aiUnit, unitgroup scanGroup, bool lowVit
 }
 
 //---------------------------------------------------------------------------------------------
-const fixed enemyMultiplierInfestor = 1.25;
-const fixed minThreshold = 100.0;
-const int lowVitalityPercent = 75;
+const int infestorLowVitalityPercent = 60;
 
 void AIThinkInfestor (int player, unit aiUnit, unitgroup scanGroup) {
     //  **Infestor disease in TargetFindData.xml** Currently not in the game.
     marker mark;
     marker gameMark;
     order ord;
+    abilcmd siphoncmd;
     unitfilter f;
     bool lowVitality;
+    fixed cooldown;
 
+    // burrow
     if (AIEvalTacticalData(aiUnit, null)) {
         return;
     }
-
-    //  Low Vitality = less than 75%, since it takes a WHILE for the infested marines to hatch
-    lowVitality = (UnitGetPropertyInt(aiUnit, c_unitPropVitalityPercent, c_unitPropCurrent) < lowVitalityPercent);
     
-    //  If we outnumber the enemy, don't even bother casting any spell, unless we are less than 75%
-    if (!lowVitality) {
-        //  If we have greater than 1.25 * the enemies forces, we outnumber, so don't cast.
-        f = UnitFilterStr("-;Missile,Dead,Stasis,Worker");
-        if (AIAllyEnemyRatio(player, UnitGetPosition(aiUnit), f, AIRangeInfestor(player, aiUnit), minThreshold) > enemyMultiplierInfestor) {
-            return;
+    // fungal growth
+    gameMark = AIMarker(aiUnit, c_MK_GameFungalGrowth);
+    mark = AIMarker(aiUnit, c_MK_FungalGrowth);
+    ord = FungalGrowth(player, aiUnit, mark, gameMark, scanGroup);
+    if (ord != null) {
+        if (AIIsCampaign(player) && PlayerDifficulty(player) < c_campAdvanced) {
+            cooldown = 15.0;
         }
+        else {
+            cooldown = 0.0;
+        }
+        AICastCooldown(aiUnit, ord, mark, c_castHold, c_fungalGrowthCooldown, cooldown);
+        return;
     }
 
-    //  This must preserve scanGroup for Neural Parasite check.
+    lowVitality = (UnitGetPropertyInt(aiUnit, c_unitPropVitalityPercent, c_unitPropCurrent) < infestorLowVitalityPercent);
+    
+    // infested terrans
     ord = InfestedTerrans(player, aiUnit, scanGroup, lowVitality);
     if (ord != null) {
-        AICast(aiUnit, ord, c_noMarker, c_castRetreat);
+        if (AIIsCampaign(player) && PlayerDifficulty(player) < c_campAdvanced) {
+            cooldown = 3.0;
+        }
+        else {
+            cooldown = 0.0;
+        }
+
+        AICastCooldown(aiUnit, ord, c_noMarker, c_castRetreat, c_infestedTerransCooldown, cooldown);
+        return;
     }
 
-    //mark = AIMarker(aiUnit, c_MK_UnstableMutation);
-    //ord = UnstableMutation(player, aiUnit, scanGroup, mark, lowVitality);
-    //if (ord != null) {
-    //    AICast(aiUnit, ord, mark, c_castRetreat);
-    //    return;
-    //}
-    
+    // neural parasite
     mark = AIMarker(aiUnit, c_MK_NeuralParasite);
     gameMark = AIMarker(aiUnit, c_MK_GameNeuralParasite);
     ord = NeuralParasite(player, aiUnit, scanGroup, mark, gameMark, lowVitality);
     if (ord != null) {
-        AICast(aiUnit, ord, mark, c_castRetreat);
+        AICast(aiUnit, ord, mark, c_castHold);
         return;
     }
 }
@@ -336,10 +381,6 @@ void AIThinkInfestor (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** BANELING ***
 //--------------------------------------------------------------------------------------------------
-const fixed c_banelingRange = 8;
-fixed AIRangeBaneling (int player, unit aiUnit) {
-    return c_banelingRange;
-}
 
 //---------------------------------------------------------------------------------------------
 order SapStructure (int player, unit aiUnit, unitgroup scanGroup, marker mark) {
@@ -369,7 +410,7 @@ order SapStructure (int player, unit aiUnit, unitgroup scanGroup, marker mark) {
     unitFilter = AIFilter(player);
     AISetFilterAlliance(unitFilter, c_playerGroupEnemy);
     AISetFilterBits(unitFilter, UnitFilterStr(AIEffectStr(player, c_EF_BaneUnit, c_fieldFilters)));
-    AISetFilterRange(unitFilter, aiUnit, AIRangeBaneling(player, aiUnit));
+    AISetFilterRange(unitFilter, aiUnit, AIUnitFixed(player, c_ZU_Baneling, c_fieldSightRange));
     enemyUnitGroup = AIGetFilterGroup(unitFilter, scanGroup);
     
     banelingPosition = UnitGetPosition(aiUnit);
@@ -378,7 +419,7 @@ order SapStructure (int player, unit aiUnit, unitgroup scanGroup, marker mark) {
         distanceToEnemy = DistanceBetweenPoints(banelingPosition, UnitGetPosition(closestEnemy));
     }
     else {
-        distanceToEnemy = AIRangeBaneling(player, aiUnit);  //  Default distance.
+        distanceToEnemy = AIUnitFixed(player, c_ZU_Baneling, c_fieldSightRange);  //  Default distance.
     }
 
     //  Create building filter.
@@ -389,7 +430,7 @@ order SapStructure (int player, unit aiUnit, unitgroup scanGroup, marker mark) {
     AISetFilterRange(buildingFilter, aiUnit, distanceToEnemy);
     damage = AIEffectInt(player, c_EF_BaneBuilding, c_fieldAmount);
     AISetFilterLifePerMarker(buildingFilter, damage, mark);
-    airAllies = AINearbyPlaneTest(UnitGetPosition(aiUnit), player, AIRangeBaneling(player, aiUnit), c_planeAir, c_unitAllianceAlly);
+    airAllies = AINearbyPlaneTest(UnitGetPosition(aiUnit), player, AIUnitFixed(player, c_ZU_Baneling, c_fieldSightRange), c_planeAir, c_unitAllianceAlly);
     AISetFilterCanAttackAlly(buildingFilter, c_groundAlliesNearby, airAllies); //  Ground allies always true, since banelings are ground units.
     enemyBuildingGroup = AIGetFilterGroup(buildingFilter, scanGroup);
 
@@ -411,6 +452,7 @@ void AIThinkBaneling (int player, unit aiUnit, unitgroup scanGroup) {
     marker mark;
     order ord;
     
+    // burrow
     if (AIEvalTacticalData(aiUnit, null)) {
         return;
     }
@@ -425,54 +467,6 @@ void AIThinkBaneling (int player, unit aiUnit, unitgroup scanGroup) {
 //--------------------------------------------------------------------------------------------------
 //  *** OVERSEER ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeOverseer (int player, unit aiUnit) {   
-    return AIUnitFixed(player, c_ZU_Overseer, c_fieldSightDawn) + 1;
-
-    //return MaxF(MaxF(AIAbilityFixed(player, c_AB_FungalGrowth, c_fieldRange0),
-    //    AIAbilityFixed(player, c_AB_AcidSpores, c_fieldRange0)),
-    //    AIAbilityFixed(player, c_AB_Changeling, c_fieldRange0)) + 1;
-}
-
-//fixed MinToCastFungalGrowth (int player) {
-//    return AIAbilityFixed(player, c_AB_FungalGrowth, c_fieldEnergyCost) + 
-//           AIAbilityFixed(player, c_AB_AcidSpores, c_fieldEnergyCost);
-//}
-
-//order FungalGrowth (int player, unit aiUnit, marker mark, marker gameMark, unitgroup scanGroup) {
-//    order ord;
-//    fixed energy;
-//    aifilter filter;
-//    bool groundAllies;
-//    unitgroup enemyGroup;
-    
-//    ord = AICreateOrder(player, c_AB_FungalGrowth, 0);
-//    if (!UnitOrderIsValid(aiUnit, ord)) {
-//        return null;
-//    }
-
-//    //  Save energy for acid spores
-//    energy = UnitGetPropertyFixed(aiUnit, c_unitPropEnergy, c_unitPropCurrent);
-//    if (energy < MinToCastFungalGrowth(player)) {
-//        return null;
-//    }
-
-//    
-//    groundAllies = AINearbyPlaneTest(UnitGetPosition(aiUnit), player, AIRangeOverseer(player, aiUnit), c_planeGround, c_unitAllianceAlly);
-
-//    //  Cast on strongest enemy that can attack our allies
-//    filter = AIFilter(player);
-//    AISetFilterBits(filter, UnitFilterStr(AIAbilityStr(player, c_AB_FungalGrowth, c_fieldTargetFiltersAB)));
-//    AISetFilterCanAttackAlly(filter, groundAllies, c_airAlliesNearby);
-//    AISetFilterLife(filter, c_noMin, c_noMax);
-//    AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, mark);
-//    AISetFilterBehaviorCount(filter, c_noBehaviorMin, c_noBehaviorMax, c_BF_FungalGrowth);
-//    enemyGroup = AIGetFilterGroup(filter, scanGroup);
-//
-//    AISetFilterMarker(filter, c_noMarkersMin, c_noMarkersMax, gameMark);
-//    enemyGroup = AIGetFilterGroup(filter, scanGroup);
-//
-//    return AIUnitGroupGetValidOrder(enemyGroup, ord, aiUnit, c_forwards);
-//}
 
 //--------------------------------------------------------------------------------------------------
 //const int c_minAlliesCanAttack = 3;
@@ -496,15 +490,15 @@ fixed AIRangeOverseer (int player, unit aiUnit) {
 //
 //    position = UnitGetPosition(aiUnit);
 //    //  Only use it if we have some units that will be able to attack the enemy.
-//    groundEnemies = AINearbyPlaneTest(position, player, AIRangeOverseer(player, aiUnit), c_planeGround, c_unitAllianceEnemy);
-//    airEnemies = AINearbyPlaneTest(position, player, AIRangeOverseer(player, aiUnit), c_planeAir, c_unitAllianceEnemy);
+//    groundEnemies = AINearbyPlaneTest(position, player, AIUnitFixed(player, c_ZU_Overseer, c_fieldSightRange), c_planeGround, c_unitAllianceEnemy);
+//    airEnemies = AINearbyPlaneTest(position, player, AIUnitFixed(player, c_ZU_Overseer, c_fieldSightRange), c_planeAir, c_unitAllianceEnemy);
 //
 //    //AIEffectFixed(player, c_EF_AcidSporesArea, c_fieldAreaRadius0)
 //    //UnitFilterStr(AIAbilityStr(player, c_AB_AcidSpores, c_fieldTargetFiltersAB)
 //    DebugVarBool("grnd", groundEnemies);
 //    DebugVarBool("air", airEnemies);
 //
-//    r = RegionCircle(UnitGetPosition(aiUnit), AIRangeOverseer(player, aiUnit));
+//    r = RegionCircle(UnitGetPosition(aiUnit), AIUnitFixed(player, c_ZU_Overseer, c_fieldSightRange));
 //    allyGroup = UnitGroupAlliance(player,
 //                                  c_unitAllianceAlly,
 //                                  r,
@@ -603,11 +597,11 @@ bool MakeChangeling (int player, unit aiUnit, unitgroup scanGroup) {
 
     //  Test to see whether the overseer is scouting or fighting.
     //  For now, just test to see if there are nearby allied units that can fight the enemy.
-    r = RegionCircle(UnitGetPosition(aiUnit), AIRangeOverseer(player, aiUnit));
+    r = RegionCircle(UnitGetPosition(aiUnit), AIUnitFixed(player, c_ZU_Overseer, c_fieldSightRange));
     allyGroup = UnitGroupAlliance(player, c_unitAllianceAlly, r, null, c_noMaxCount);
     
     position = UnitGetPosition(aiUnit);
-    range = AIRangeOverseer(player, aiUnit);
+    range = AIUnitFixed(player, c_ZU_Overseer, c_fieldSightRange);
     groundEnemies = AINearbyPlaneTest(position, player, range, c_planeGround, c_unitAllianceEnemy);
     airEnemies = AINearbyPlaneTest(position, player, range, c_planeAir, c_unitAllianceEnemy);
 
@@ -636,14 +630,6 @@ void AIThinkOverseer (int player, unit aiUnit, unitgroup scanGroup) {
         return;
     }
 
-    //gameMark = AIMarker(aiUnit, c_MK_GameFungalGrowth);
-    //mark = AIMarker(aiUnit, c_MK_FungalGrowth);
-    //ord = FungalGrowth(player, aiUnit, mark, gameMark, scanGroup);
-    //if (ord != null) {
-    //    AICast(aiUnit, ord, mark, c_castHold);
-    //    return;
-    //}
-
     //ord = AcidSpores(player, aiUnit, scanGroup);
     //if (ord != null) {
     //    AICast(aiUnit, ord, c_noMarker, c_castHold);
@@ -653,11 +639,125 @@ void AIThinkOverseer (int player, unit aiUnit, unitgroup scanGroup) {
 }
 
 //--------------------------------------------------------------------------------------------------
+//  *** CORRUPTOR ***
+//--------------------------------------------------------------------------------------------------
+
+void AIThinkCorruptor (int player, unit aiUnit, unitgroup scanGroup) {    
+    order ord;
+    unitgroup enemyGroup;
+    aifilter filter;
+
+    if (AIIsCampaign(player)) {
+        if (PlayerDifficulty(player) < c_campAdvanced) {
+            return;
+        }
+    }
+
+    ord = AICreateOrder(player, c_AB_Corruption, 0);
+    if (!UnitOrderIsValid(aiUnit, ord)) {
+        return;
+    }
+
+    filter = AIFilter(player);
+    AISetFilterAlliance(filter, c_playerGroupEnemy);
+    AISetFilterBits(filter, UnitFilterStr(AIAbilityStr(player, c_AB_Corruption, c_fieldTargetFiltersAB)));
+    enemyGroup = AIGetFilterGroup (filter, scanGroup);
+    if (enemyGroup == null) {
+        return;
+    }
+
+    enemyGroup = AIFilterProduction (enemyGroup, c_activeOnly);
+    if (enemyGroup == null) {
+        return;
+    }
+
+    ord = AIUnitGroupGetValidOrder(enemyGroup, ord, aiUnit, c_forwards);    
+    if (ord != null) {
+        AICast(aiUnit, ord, c_noMarker, c_castHold);
+        return;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+//  *** Crawler ***
+//--------------------------------------------------------------------------------------------------
+
+void AIThinkCrawler (int player, unit aiUnit, unitgroup scanGroup) {
+    unitgroup dropOffs;
+    order ord;
+
+    if (AIIsCampaign(player)) {
+        return;
+    }
+
+    if (UnitGroupCount(scanGroup, c_unitCountAlive) > 0) {
+        return; // don't uproot if enemies are nearby, maybe filter this to enemies we can attack?
+    }
+
+    if (CreepIsPresent(UnitGetPosition(aiUnit))) {
+        return; // we're already on creep, no need to uproot
+    }
+
+    ord = AICreateOrder(player, c_AB_SpineCrawlerUproot, 0);
+    if (!UnitOrderIsValid(aiUnit, ord)) {
+        ord = AICreateOrder(player, c_AB_SporeCrawlerUproot, 0);
+        if (!UnitOrderIsValid(aiUnit, ord)) {
+            return;
+        }
+    }
+
+    dropOffs = AIGetBuildingGroup(player, c_buildingTypeTownHall);   
+    if (UnitGroupCount(dropOffs, c_unitCountAlive) > 0) {
+        AICast(aiUnit, ord, c_noMarker, c_castHold);
+    }
+}
+
+void AIThinkCrawlerUprooted (int player, unit aiUnit, unitgroup scanGroup) {
+    unitgroup dropOffs;
+    unit bestDropOff;
+    order ord;
+
+    if (AIIsCampaign(player)) {
+        return;
+    }
+
+    if (CreepIsPresent(UnitGetPosition(aiUnit))) {
+        // made it to creep, try to root               
+        ord = AICreateOrder(player, c_AB_SpineCrawlerRoot, 0);
+        if (!UnitOrderIsValid(aiUnit, ord)) {
+            ord = AICreateOrder(player, c_AB_SporeCrawlerRoot, 0);
+        }
+
+        OrderSetTargetPoint(ord, UnitGetPosition(aiUnit));
+        if (UnitOrderIsValid(aiUnit, ord)) {
+            // TODO find nearby valid to root position
+            AICast(aiUnit, ord, c_noMarker, c_castHold);
+            return;
+        }
+    }
+
+    if (UnitOrder(aiUnit, 0) != null) {
+        return;
+    }
+
+    // if we're idle, head toward closest town center
+    dropOffs = AIGetBuildingGroup(player, c_buildingTypeTownHall);
+    bestDropOff = AIGetClosestUnit(aiUnit, dropOffs, true);
+    if (bestDropOff != c_nullUnit) {
+        // move to it's position
+        ord = AICreateOrder(player, c_AB_Move, 0);
+        OrderSetTargetPoint(ord, UnitGetPosition(bestDropOff));
+        if (UnitOrderIsValid(aiUnit, ord)) {
+            AICast(aiUnit, ord, c_noMarker, c_castHold);
+            return;
+        }
+    }
+
+}
+
+//--------------------------------------------------------------------------------------------------
 //  *** CHANGELING ***
 //--------------------------------------------------------------------------------------------------
-fixed AIRangeChangeling (int player, unit aiUnit) {
-    return AIUnitFixed(player, c_ZU_Overlord, c_fieldSightDawn);
-}
 
 void AIThinkChangelingUnit (int player, unit aiUnit, unitgroup scanGroup, string followUnit) {
     unitgroup followGroup;
@@ -677,7 +777,7 @@ void AIThinkChangelingUnit (int player, unit aiUnit, unitgroup scanGroup, string
         return;
     }
 
-    r = RegionCircle(UnitGetPosition(aiUnit), AIRangeOverseer(player, aiUnit));
+    r = RegionCircle(UnitGetPosition(aiUnit), AIUnitFixed(player, c_ZU_Overseer, c_fieldSightRange));
     enemyGroup = UnitGroupAlliance(player, c_unitAllianceEnemy, r, null, c_noMaxCount);
 
     enemyPlayer = AIGetPlayerGroup(enemyGroup);
@@ -686,7 +786,7 @@ void AIThinkChangelingUnit (int player, unit aiUnit, unitgroup scanGroup, string
     }
 
     //  By default, follow the provided unit type.
-    followGroup = AIFindUnits(enemyPlayer, followUnit, UnitGetPosition(aiUnit), AIRangeChangeling(player, aiUnit), c_noMaxCount);
+    followGroup = AIFindUnits(enemyPlayer, followUnit, UnitGetPosition(aiUnit), AIUnitFixed(player, c_ZU_Overseer, c_fieldSightRange), c_noMaxCount);
     ord = AIUnitGroupGetValidOrder(followGroup, ord, aiUnit, c_forwards);
 
     if (ord != null) {

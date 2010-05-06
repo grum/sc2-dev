@@ -135,7 +135,7 @@ half4 PostProcessGaussianBlur( VertexTransport vertOut ) {
         if ( b_iWeightedBlur )
             fWeight *= tex2D( p_sWeightMap, INTERPOLANT_GaussianBlurSample[i].xy ).a;
         if ( b_iLayeredBlur ) {
-            float vDepth = tex2D( p_sNormalDepthMap, INTERPOLANT_GaussianBlurSample[i].xy ).a;
+            float vDepth = SampleNormalDepth( p_sNormalDepthMap, INTERPOLANT_GaussianBlurSample[i].xy );
             if ( PIXEL_DEPTH < vDepth )
                 fWeight = 0.0f;
         }

@@ -44,4 +44,13 @@
         <CustomColors value="255,128,128,255"/>
         <CustomColors value="255,0,128,64"/>
     </CConversationState>
+    <CConversationState id="TutorialLoadScreenText">
+        <Indices Id="Tutorial Load Screen Text" Name="ConversationState/TutorialLoadScreenText/Tutorial Load Screen Text">
+            <InfoText Text="ConversationState/TutorialLoadScreenText/Tutorial Load Screen Text/Info/"/>
+            <InfoText Id="Tutorial Load Screen Text" Text="ConversationState/TutorialLoadScreenText/Tutorial Load Screen Text/Info/Tutorial Load Screen Text"/>
+        </Indices>
+        <InfoIds index="Text">
+            <Id value="Tutorial Load Screen Text"/>
+        </InfoIds>
+    </CConversationState>
 </Catalog>

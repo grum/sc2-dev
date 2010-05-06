@@ -82,8 +82,8 @@
         <HeightMap value="Air"/>
         <MotionPhases>
             <Driver value="Guidance"/>
-            <Acceleration value="5"/>
-            <MaxSpeed value="5"/>
+            <Acceleration value="20"/>
+            <MaxSpeed value="12"/>
             <Outro value="4,5"/>
             <YawPitchRoll value="MAX"/>
         </MotionPhases>
@@ -467,9 +467,6 @@
     </CMoverMissile>
     <CMoverMissile id="YamatoWeapon" parent="MissileDefault">
         <MotionPhases index="0" MaxSpeed="20"/>
-    </CMoverMissile>
-    <CMoverMissile id="D8ChargeWeapon" parent="MissileDefault">
-        <MotionPhases index="0" Speed="12" MaxSpeed="12"/>
     </CMoverMissile>
     <CMoverMissile id="AutoTurretReleaseWeapon" parent="MissileDefault">
         <MotionPhases index="0" Speed="12" MaxSpeed="12"/>

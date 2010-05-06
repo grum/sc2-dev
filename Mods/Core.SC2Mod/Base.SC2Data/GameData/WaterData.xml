@@ -12,7 +12,7 @@
         <BeachShoreline value=""/>
         <CliffShoreline value=""/>
         <LavaModel value="DefaultLava"/>
-        <!--<Sound value="Emitter_WaterfallMedium"/>-->
+        <Sound value="Emitter_WaterCalm"/>
         <ReceiveShadows value="0"/>
         <IsLava value="0"/>
         <State>

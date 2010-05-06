@@ -1,2 +1,164 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<Catalog/>
+<Catalog>
+    <!--=========================================================================================-->
+    <!-- Meta -->
+    <CAchievement id="Combat_Exploration" parent="COMBAT">
+        <Points value="20"/>
+    </CAchievement>
+    <CAchievement id="Combat_Miscellaneous" parent="COMBAT">
+        <Points value="20"/>
+    </CAchievement>
+    <!--=========================================================================================-->
+    <!-- Basic Training -->
+    <CAchievement id="Combat_BasicTraining_Marines" parent="COMBAT">
+        <Race value="Terr"/>
+        <TermTable index="0" value="Combat_BasicTraining_MarinesTime"/>
+        <TermTable value="Combat_BasicTraining_MarinesCount"/>
+    </CAchievement>
+    <CAchievement id="Combat_BasicTraining_Zerglings" parent="COMBAT">
+        <Race value="Zerg"/>
+        <TermTable index="0" value="Combat_BasicTraining_ZerglingsTime"/>
+        <TermTable value="Combat_BasicTraining_ZerglingsCount"/>
+    </CAchievement>
+    <CAchievement id="Combat_BasicTraining_Zealots" parent="COMBAT">
+        <Race value="Prot"/>
+        <TermTable index="0" value="Combat_BasicTraining_ZealotsTime"/>
+        <TermTable value="Combat_BasicTraining_ZealotsCount"/>
+    </CAchievement>
+    <!--=========================================================================================-->
+    <!-- Fast Tier 2 -->
+    <CAchievement id="Combat_FastTier2_Factory" parent="COMBAT">
+        <Race value="Terr"/>
+        <TermTable index="0" value="Combat_FastTier2_FactoryTime"/>
+        <TermTable value="Combat_FastTier2_FactoryCount"/>
+    </CAchievement>
+    <CAchievement id="Combat_FastTier2_Lair" parent="COMBAT">
+        <Race value="Zerg"/>
+        <TermTable index="0" value="Combat_FastTier2_LairTime"/>
+        <TermTable value="Combat_FastTier2_LairCount"/>
+    </CAchievement>
+    <CAchievement id="Combat_FastTier2_TwilightCouncil" parent="COMBAT">
+        <Race value="Prot"/>
+        <TermTable index="0" value="Combat_FastTier2_TwilightCouncilTime"/>
+        <TermTable value="Combat_FastTier2_TwilightCouncilCount"/>
+    </CAchievement>
+    <!--=========================================================================================-->
+    <!-- Low Float -->
+    <CAchievement id="Combat_LowFloat" parent="COMBAT">
+        <TermTable index="0" value="Combat_LowFloat_Minerals"/>
+        <TermTable value="Combat_LowFloat_Vespene"/>
+        <Flags index="Victory" value="1"/>
+    </CAchievement>
+    <!--=========================================================================================-->
+    <!-- Low Idle -->
+    <CAchievement id="Combat_LowIdle" parent="COMBAT">
+        <Flags index="Victory" value="1"/>
+    </CAchievement>
+    <!--=========================================================================================-->
+    <!-- Infrastructure -->
+    <CAchievement id="Combat_Infrastructure_Terran" parent="COMBAT">
+        <Race value="Terr"/>
+        <TermTable index="0" value="Combat_Infrastructure_TerranCount"/>
+    </CAchievement>
+    <CAchievement id="Combat_Infrastructure_Protoss" parent="COMBAT">
+        <Race value="Prot"/>
+        <TermTable index="0" value="Combat_Infrastructure_ProtossCount"/>
+    </CAchievement>
+    <CAchievement id="Combat_Infrastructure_Zerg" parent="COMBAT">
+        <Race value="Zerg"/>
+        <TermTable index="0" value="Combat_Infrastructure_ZergCount"/>
+    </CAchievement>
+    <!--=========================================================================================-->
+    <!-- Map Control -->
+    <CAchievement id="Combat_MapControl_DestroyConstructingTownHall" parent="COMBAT"/>
+    <!--=========================================================================================-->
+    <!-- Economy -->
+    <CAchievement id="Combat_Economy_CancelConstructionUnderFire" parent="COMBAT"/>
+    <!--=========================================================================================-->
+    <!-- Fast expand -->
+    <CAchievement id="Combat_FastExpand" parent="COMBAT">
+        <TermTable index="0" value="Combat_FastExpand_Time"/>
+        <TermTable value="Combat_FastExpand_BuildingCount"/>
+    </CAchievement>
+    <!--=========================================================================================-->
+    <!-- Mechanics -->
+    <CAchievement id="Combat_Mechanic_WatchTower" parent="COMBAT"/>
+    <CAchievement id="Combat_Mechanic_HighYield" parent="COMBAT"/>
+    <CAchievement id="Combat_Mechanic_WarpIn" parent="COMBAT"/>
+    <CAchievement id="Combat_Mechanic_Detection" parent="COMBAT"/>
+    <CAchievement id="Combat_Mechanic_Shields" parent="COMBAT"/>
+    <CAchievement id="Combat_Mechanic_Repair" parent="COMBAT"/>
+    <CAchievement id="Combat_Mechanic_Transport" parent="COMBAT"/>
+    <CAchievement id="Combat_Mechanic_RoachRegen" parent="COMBAT"/>
+    <!--=========================================================================================-->
+    <!-- Micro -->
+    <CAchievement id="Combat_Micro_HotPickup" parent="COMBAT"/>
+    <CAchievement id="Combat_Micro_Unit20Kills" parent="COMBAT"/>
+    <!--=========================================================================================-->
+    <!-- Spells -->
+    <CAchievement id="Combat_Spells_MULE" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_D8Charge" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_Nuke" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_Snipe" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_Heal" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_AutoTurretSCVKills" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_Seeker" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_Yamato" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_MissilePods" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_DefensiveMatrix" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_SpawnLarva" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_Changeling" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_InfestedTerrans" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_NeuralParasite" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_ZealotWhileZerg" parent="COMBAT">
+        <Race value="Zerg"/>
+    </CAchievement>
+    <CAchievement id="Combat_Spells_Blink" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_HallucinationAbsorb" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_HallucinationCount" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_HighTemplarKills" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_PhasePrism" parent="COMBAT"/>
+    <CAchievement id="Combat_Spells_Vortex" parent="COMBAT"/>
+    <!--=========================================================================================-->
+    <!-- Teammatery -->
+    <CAchievement id="Combat_Teammatery_Repair" parent="COMBAT"/>
+    <CAchievement id="Combat_Teammatery_Heal" parent="COMBAT"/>
+    <!--=========================================================================================-->
+    <!-- Uncategorized -->
+    <CAchievement id="Combat_DodgeSeeker" parent="COMBAT"/>
+    <CAchievement id="Combat_Meatgrinder" parent="COMBAT"/>
+    <CAchievement id="Combat_NoCounterAttacks" parent="COMBAT"/>
+    <CAchievement id="Combat_TownHallDestroyer" parent="COMBAT"/>
+    <!--=========================================================================================-->
+    <!-- Challenges -->
+    <CAchievement id="Challenge_MasterAchievement_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_MasterAchievement_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_MasterAchievement_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_TerranCombat_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_TerranCombat_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_TerranCombat_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ProtossCombat_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ProtossCombat_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ProtossCombat_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ZergCombat_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ZergCombat_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ZergCombat_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_TerranCovertOps_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_TerranCovertOps_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_TerranCovertOps_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ProtossPsionics_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ProtossPsionics_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ProtossPsionics_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ZergInfestation_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ZergInfestation_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_ZergInfestation_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_AdvancedCommand_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_AdvancedCommand_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_AdvancedCommand_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_Economy_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_Economy_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_Economy_Dominance" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_RushDefense_Basic" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_RushDefense_Mastery" parent="CHALLENGE"/>
+    <CAchievement id="Challenge_RushDefense_Dominance" parent="CHALLENGE"/>
+</Catalog>

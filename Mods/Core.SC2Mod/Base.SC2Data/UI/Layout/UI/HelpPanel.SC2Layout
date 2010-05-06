@@ -1,375 +1,275 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<Desc>   
-    <Frame type="HelpPanelListItem" name="HelpPanelListItem">
-        <Frame type="Image" name="Border">
-            <Anchor relative="$parent"/>
-            <Texture val="@@UI/ChallengeListBoxItemBackground" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-            <StateCount val="2" layer="0"/>
-        </Frame>
+<Desc>
+    <!-- Racial Colors -->
+    <Constant name="HelpPanelColorTheme" val="ffffff"/>
+    <Constant name="HelpPanelColorTheme_Prot" val="35a1fc"/>
+    <Constant name="HelpPanelColorTheme_Terr" val="3dcca3"/>
+    <Constant name="HelpPanelColorTheme_Zerg" val="ed8f1f"/>
 
-        <Frame type="Image" name="IconBorder">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="18"/>            
-            <Anchor side="Left" relative="$parent" pos="Min" offset="30"/>
-            <Texture val="@@UI/TechGlossaryThumbButtonNormal" layer="0"/>
-            <StateCount val="3" layer="0"/>
-        </Frame>
+    <Constant name="ViewedHelpItemAlpha" val="128"/>
+    <Constant name="NewHelpItemAlpha" val="255"/>
 
-        <Frame type="Image" name="Icon">            
-            <Anchor side="Top" relative="$parent/IconBorder" pos="Min" offset="16"/>
-            <Anchor side="Bottom" relative="$parent/IconBorder" pos="Max" offset="-16"/>
-            <Anchor side="Left" relative="$parent/IconBorder" pos="Min" offset="16"/>
-            <Anchor side="Right" relative="$parent/IconBorder" pos="Max" offset="-16"/>
-        </Frame>       
-       
-        <Frame type="Label" name="TitleLabel">
-            <Style val="HelpPanelListItemTitle"/>
-            <Anchor side="Top" relative="$parent\Border" pos="Min" offset="25"/>
-            <Anchor side="Left" relative="$parent\IconBorder" pos="Max" offset="20"/>
-        </Frame>
-
-        <Frame type="Image" name="HorizontalDivider">
-            <Anchor side="Top" relative="$parent\TitleLabel" pos="Max" offset="-22"/>
-            <Anchor side="Left" relative="$parent\IconBorder" pos="Max" offset="10"/>          
-            <Anchor side="Right" relative="$parent\Border" pos="Max" offset="-20"/>
-            <Texture val="@@UI/ChallengeListBoxItemHorizontalDivider" layer="0"/>          
-        </Frame>
-       
-        <Frame type="Label" name="DescriptionLabel">
-            <Style val="HelpPanelListItemDescription"/>
-            <Anchor side="Left" relative="$parent\TitleLabel" pos="Min" offset="0"/>
-            <Anchor side="Top" relative="$parent\Border" pos="Min" offset="64"/>            
-            <Anchor side="Right" relative="$parent\Border" pos="Max" offset="-32"/>
-        </Frame>
-
-        <Frame type="ThumbButton" name="ViewHintButton" template="StandardTemplates/StandardDynamicToggleButtonTemplate">
-            <Anchor side="Top" relative="$parent\Border" pos="Min" offset="18"/>
-            <Anchor side="Right" relative="$parent\Border" pos="Max" offset="-20"/>
-            <Width val="206"/>
-            <Height val="36"/>
-                        
-            <Frame type="Label" name="ButtonLabel">
-                <Text val="@UI/ViewHint"/>
-                <Style val="HelpPanelGenericButton"/>                
-            </Frame>
-        </Frame>        
+    <Frame type="ThumbButton" name="HelpPanelButtonTemplate">        
+        <Height val="70"/>
+        <Width val="260"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <Label val="ButtonLabel"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
         
-        <Frame type="ThumbButton" name="WatchMovieButton" template="StandardTemplates/StandardDynamicToggleButtonTemplate">
-            <Anchor side="Top" relative="$parent\Border" pos="Min" offset="18"/>
-            <Anchor side="Right" relative="$parent\Border" pos="Max" offset="-20"/>            
-            <ClickSound val="@UI_TutorialSelect"/>
-            <HoverSound val="@UI_TutorialHover"/>
-            <Width val="206"/>
-            <Height val="36"/>
-            
-            <Frame type="Label" name="ButtonLabel">
-                <Text val="@UI/WatchMovie"/>
-                <Style val="HelpPanelGenericButton"/>                
-            </Frame>
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@@UI/PlanetPanelLaunchButtonNormal"/>
+            <TextureType val="Border"/>
+            <Tiled val="true"/>
+            <StateCount val="2"/>
+            <LayerColor val="##HelpPanelColorTheme"/>            
+            <DescFlags val="Internal"/>
         </Frame>
 
-        <Frame type="FlashFrame" name="FlashAnimation">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="-115"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="-202"/>
-            <File val="UI/Flash/GameUI/TipAnimation.swf"/>
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@@UI/PlanetPanelLaunchButtonHover"/>
+            <TextureType val="Border"/>
+            <Tiled val="true"/>
+            <StateCount val="2"/>
+            <LayerColor val="##HelpPanelColorTheme"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">            
+            <Style val="@@HelpPanelButton"/>
+            <DescFlags val="Internal"/>
         </Frame>
     </Frame>
     
-    <Frame type="HelpPanel" name="HelpPanelTemplate">
-        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>        
-        
-        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardBackgroundFrameTemplate">
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
-            <Height val="1245"/>
-            <Width val="1540"/>           
-
-            <Frame type="Image" name="TopLeftFlavorImage">
-                <Anchor side="Left" relative="$parent" pos="Min" offset="120"/>
-            </Frame>
-
-            <Frame type="Image" name="TopRightFlavorImage">
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-120"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="Image" name="ButtonBackgroundFrame">
-            <Anchor side="Top" relative="$parent\BackgroundFrame" pos="Min" offset="85"/>
-            <Anchor side="Left" relative="$parent\BackgroundFrame" pos="Min" offset="80"/>
-            <Anchor side="Right" relative="$parent\BackgroundFrame" pos="Max" offset="-80"/>
-            <Height val="80"/>
-
-            <Texture val="@@UI/InGameFrameSubFrame" layer="0"/>
-            <TextureType val="Border" layer="0"/>
+    <Frame type="HelpPanelListBoxItem" name="HelpPanelListBoxItem">
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-5"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-5"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <LayerCount val="2"/>
+            <Texture val="@@UI/HelpPanelListBoxItemBorder" layer="0"/>
+            <TextureType val="HorizontalBorder" layer="0"/>
             <Tiled val="true" layer="0"/>
+            <LayerColor val="##HelpPanelColorTheme" layer="0"/>
+            <Texture val="@@UI/HelpPanelListBoxItemBorderNew" layer="1"/>
+            <TextureType val="HorizontalBorder" layer="1"/>
+            <Tiled val="true" layer="1"/>
+            <LayerColor val="##HelpPanelColorTheme" layer="1"/>
         </Frame>
 
-        <Frame type="Frame" name="ButtonBackgroundFrameLeftHalf">
-            <Anchor side="Top" relative="$parent\ButtonBackgroundFrame" pos="Min" offset="15"/>
-            <Anchor side="Bottom" relative="$parent\ButtonBackgroundFrame" pos="Max" offset="-15"/>
-            <Anchor side="Left" relative="$parent\ButtonBackgroundFrame" pos="Min" offset="10"/>
-            <Anchor side="Right" relative="$parent\ButtonBackgroundFrame" pos="Mid" offset="0"/>
-        </Frame>
-
-        <Frame type="Frame" name="ButtonBackgroundFrameRightHalf">
-            <Anchor side="Top" relative="$parent\ButtonBackgroundFrame" pos="Min" offset="15"/>
-            <Anchor side="Bottom" relative="$parent\ButtonBackgroundFrame" pos="Max" offset="-15"/>
-            <Anchor side="Left" relative="$parent\ButtonBackgroundFrame" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent\ButtonBackgroundFrame" pos="Max" offset="-10"/>
-        </Frame>
-
-        <Frame type="ThumbButton" name="TipsButton" template="StandardTemplates/StandardDynamicToggleButtonTemplate">
-            <Anchor side="Top" relative="$parent/ButtonBackgroundFrameLeftHalf" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/ButtonBackgroundFrameLeftHalf" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/ButtonBackgroundFrameLeftHalf" pos="Min" offset="15"/>
-            <Anchor side="Right" relative="$parent/ButtonBackgroundFrameLeftHalf" pos="Mid" offset="-15"/>
-            <Shortcut val="@UI/Tips_Hotkey"/>
-
-            <Frame type="Label" name="ButtonLabel">
-                <Text val="@UI/Tips"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="Image" name="TipsButtonBackground" template="StandardTemplates/StandardDynamicToggleButtonBackgroundTemplate">
-            <Anchor side="Top" relative="$parent/TipsButton" pos="Min" offset="-8"/>
-            <Anchor side="Bottom" relative="$parent/TipsButton" pos="Max" offset="8"/>
-            <Anchor side="Left" relative="$parent/TipsButton" pos="Min" offset="-15"/>
-            <Anchor side="Right" relative="$parent/TipsButton" pos="Max" offset="15"/>
-        </Frame>
-
-        <Frame type="ThumbButton" name="HintsButton" template="StandardTemplates/StandardDynamicToggleButtonTemplate">
-            <Anchor side="Top" relative="$parent/ButtonBackgroundFrameLeftHalf" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/ButtonBackgroundFrameLeftHalf" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/ButtonBackgroundFrameLeftHalf" pos="Mid" offset="15"/>
-            <Anchor side="Right" relative="$parent/ButtonBackgroundFrameLeftHalf" pos="Max" offset="-15"/>
-            <Shortcut val="@UI/Hints_Hotkey"/>
-
-            <Frame type="Label" name="ButtonLabel">
-                <Text val="@UI/Hints"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="Image" name="HintsButtonBackground" template="StandardTemplates/StandardDynamicToggleButtonBackgroundTemplate">
-            <Anchor side="Top" relative="$parent/HintsButton" pos="Min" offset="-8"/>
-            <Anchor side="Bottom" relative="$parent/HintsButton" pos="Max" offset="8"/>
-            <Anchor side="Left" relative="$parent/HintsButton" pos="Min" offset="-15"/>
-            <Anchor side="Right" relative="$parent/HintsButton" pos="Max" offset="15"/>
-        </Frame>
-
-        <Frame type="ThumbButton" name="TechTreeButton" template="StandardTemplates/StandardDynamicToggleButtonTemplate">
-            <Anchor side="Top" relative="$parent/ButtonBackgroundFrameRightHalf" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/ButtonBackgroundFrameRightHalf" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/ButtonBackgroundFrameRightHalf" pos="Min" offset="15"/>
-            <Anchor side="Right" relative="$parent/ButtonBackgroundFrameRightHalf" pos="Mid" offset="-15"/>
-            <Shortcut val="@UI/TechTree_Hotkey"/>
-
-            <Frame type="Label" name="ButtonLabel">
-                <Text val="@UI/TechTree"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="Image" name="TechTreeButtonBackground" template="StandardTemplates/StandardDynamicToggleButtonBackgroundTemplate">
-            <Anchor side="Top" relative="$parent/TechTreeButton" pos="Min" offset="-8"/>
-            <Anchor side="Bottom" relative="$parent/TechTreeButton" pos="Max" offset="8"/>
-            <Anchor side="Left" relative="$parent/TechTreeButton" pos="Min" offset="-15"/>
-            <Anchor side="Right" relative="$parent/TechTreeButton" pos="Max" offset="15"/>
-        </Frame>
-
-        <Frame type="ThumbButton" name="TechGlossaryButton" template="StandardTemplates/StandardDynamicToggleButtonTemplate">
-            <Anchor side="Top" relative="$parent/ButtonBackgroundFrameRightHalf" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/ButtonBackgroundFrameRightHalf" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/ButtonBackgroundFrameRightHalf" pos="Mid" offset="15"/>
-            <Anchor side="Right" relative="$parent/ButtonBackgroundFrameRightHalf" pos="Max" offset="-15"/>
-            <Shortcut val="@UI/TechGlossary_Hotkey"/>
-
-            <Frame type="Label" name="ButtonLabel">
-                <Text val="@UI/TechGlossary"/>
-            </Frame>
-        </Frame>
-
-        <Frame type="Image" name="TechGlossaryButtonBackground" template="StandardTemplates/StandardDynamicToggleButtonBackgroundTemplate">
-            <Anchor side="Top" relative="$parent/TechGlossaryButton" pos="Min" offset="-8"/>
-            <Anchor side="Bottom" relative="$parent/TechGlossaryButton" pos="Max" offset="8"/>
-            <Anchor side="Left" relative="$parent/TechGlossaryButton" pos="Min" offset="-15"/>
-            <Anchor side="Right" relative="$parent/TechGlossaryButton" pos="Max" offset="15"/>
-        </Frame>
-
-        <Frame type="Image" name="TipsHintsGlow">
-            <Texture val="@@UI/InGameFrameToggleButtonGlow" layer="0"/>
-            <Anchor side="Top" relative="$parent/TipsButton" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/TipsButton" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent/TipsButtonBackground" pos="Max" offset="-17"/>
-        </Frame>
-
-        <Frame type="Image" name="HintsTechTreeGlow">
-            <Texture val="@@UI/InGameFrameToggleButtonGlow" layer="0"/>
-            <Anchor side="Top" relative="$parent/HintsButton" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/HintsButton" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent/HintsButtonBackground" pos="Max" offset="-17"/>
-        </Frame>
-
-        <Frame type="Image" name="TechTreeTechGlossaryGlow">
-            <Texture val="@@UI/InGameFrameToggleButtonGlow" layer="0"/>
-            <Anchor side="Top" relative="$parent/TechTreeButton" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent/TechTreeButton" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent/TechTreeButtonBackground" pos="Max" offset="-17"/>
-        </Frame>
-
-        <Frame type="Frame" name="TipPanel">
-            <Anchor side="Top" relative="$parent\ButtonBackgroundFrame" pos="Max" offset="10"/>
-            <Anchor side="Bottom" relative="$parent\BackgroundFrame" pos="Max" offset="-110"/>
-            <Anchor side="Left" relative="$parent\BackgroundFrame" pos="Min" offset="80"/>
-            <Anchor side="Right" relative="$parent\BackgroundFrame" pos="Max" offset="-80"/>
-
-            <Frame type="Image" name="TipPanelBackground">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-60"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                <Texture val="@@UI/InGameFrameSubFrame" layer="0"/>
-                <TextureType val="Border" layer="0"/>
-                <Tiled val="true" layer="0"/>
-            </Frame>
-
-            <Frame type="Label" name="NoHelpItemsLabel">
-                <Text val="@UI/NoMessages"/>
-                <Style val="MessageLogPanelNoMessagesLabel"/>
-                <Anchor side="Top" relative="$parent\TipPanelBackground" pos="Min" offset="20"/>
-                <Anchor side="Left" relative="$parent\TipPanelBackground" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent\TipPanelBackground" pos="Max" offset="0"/>
-            </Frame>
-
-            <Frame type="Portrait" name="MoviePortrait">
-                <Anchor side="Top" relative="$parent\TipPanelBackground" pos="Mid" offset="0"/>
-                <Anchor side="Bottom" relative="$parent\TipPanelBackground" pos="Mid" offset="0"/>
-                <Anchor side="Left" relative="$parent\TipPanelBackground" pos="Min" offset="12"/>
-                <Anchor side="Right" relative="$parent\TipPanelBackground" pos="Max" offset="-12"/>
-            </Frame>
-
-            <Frame type="HelpPanelListBox" name="HelpItemListBox" template="StandardTemplates/StandardListBoxTemplate">
-                <Anchor side="Top" relative="$parent\TipPanelBackground" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent\TipPanelBackground" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent\TipPanelBackground" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent\TipPanelBackground" pos="Max" offset="0"/>
-                <ItemDesc val="HelpPanel/HelpPanelListItem"/>
-                <ItemHeight val="0"/>
-                <ItemGap val="-8"/>
-                <SelectedImage val="SelectedTipAlertImage"/>
-
-                <Frame type="Image" name="SelectedTipAlertImage">
-                    <Alpha val="0"/>
-                    <DescFlags val="Internal"/>
-                </Frame>
-            </Frame>
-
-            <Frame type="ThumbButton" name="StopMovieButton" template="StandardTemplates/StandardDynamicToggleButtonTemplate">
-                <Anchor side="Top" relative="$parent/TipPanelBackground" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/TipPanelBackground" pos="Min" offset="15"/>
-                <Width val="206"/>
-                <Height val="36"/>               
-
-                <Frame type="Label" name="ButtonLabel">
-                    <Text val="@UI/StopMovie"/>
-                    <Style val="HelpPanelGenericButton"/>                    
-                </Frame>
-            </Frame>
-
-            <Frame type="Image" name="MovieProgressBarBackground">
-                <Anchor side="Bottom" relative="$parent/StopMovieButton" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/StopMovieButton" pos="Max" offset="10"/>
-                <Height val="24"/>
-                <Width val="300"/>
-                <Texture val="@@UI/LoadingScreenPlayerLoadingBarBackground" layer="0"/>
-                <TextureType val="Border" layer="0"/>
-                <Tiled val="true" layer="0"/>
-            </Frame>
-
-            <Frame type="Image" name="MovieProgressBar">
-                <Anchor side="Top" relative="$parent/MovieProgressBarBackground" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/MovieProgressBarBackground" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/MovieProgressBarBackground" pos="Min" offset="0"/>
-                <Texture val="@@UI/LoadingScreenPlayerLoadingBar" layer="0"/>
-                <TextureType val="Border" layer="0"/>
-                <Tiled val="true" layer="0"/>
-            </Frame>
-
-            <Frame type="CheckBox" name="TipCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
-                <Anchor side="Top" relative="$parent/TipPanelBackground" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/TipPanelBackground" pos="Min" offset="15"/>
-            </Frame>
-
-            <Frame type="Label" name="TipCheckBoxLabel">
-                <Style val="HelpPanelHideTipsLabel"/>
-                <Anchor side="Top" relative="$parent/TipCheckBox" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/TipCheckBox" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/TipCheckBox" pos="Max" offset="6"/>
-                <Text val="@UI/HideTipNotifications"/>
-            </Frame>
-
-            <Frame type="CheckBox" name="TutorialCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
-                <Anchor side="Top" relative="$parent/TipPanelBackground" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/TipPanelBackground" pos="Min" offset="15"/>
-            </Frame>
-
-            <Frame type="Label" name="TutorialCheckBoxLabel">
-                <Style val="HelpPanelHideTipsLabel"/>
-                <Anchor side="Top" relative="$parent/TutorialCheckBox" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/TutorialCheckBox" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/TutorialCheckBox" pos="Max" offset="6"/>
-                <Text val="@UI/HideTutorialNotifications"/>
-            </Frame>            
-        </Frame>        
-
-        <Frame type="TechTreePanel" name="TechTree" template="TechTreePanel/TechTreeTemplate">
-            <Anchor side="Top" relative="$parent\ButtonBackgroundFrame" pos="Max" offset="10"/>
-            <Anchor side="Bottom" relative="$parent\BackgroundFrame" pos="Max" offset="-110"/>
-            <Anchor side="Left" relative="$parent\BackgroundFrame" pos="Min" offset="70"/>
-            <Anchor side="Right" relative="$parent\BackgroundFrame" pos="Max" offset="-70"/>
-        </Frame>        
-        
-        <Frame type="TechGlossary" name="TechGlossary" template="TechGlossaryPanel/TechGlossaryTemplate">
-            <Anchor side="Top" relative="$parent\ButtonBackgroundFrame" pos="Max" offset="5"/>
-            <Anchor side="Bottom" relative="$parent\BackgroundFrame" pos="Max" offset="-110"/>
-            <Anchor side="Left" relative="$parent\BackgroundFrame" pos="Min" offset="70"/>
-            <Anchor side="Right" relative="$parent\BackgroundFrame" pos="Max" offset="-70"/>                       
-        </Frame>
-
-        <Frame type="Frame" name="InfestationFrame" template="StandardTemplates/StandardLargeInfestationFrameTemplate">
-            <Anchor side="Left" relative="$parent\BackgroundFrame" pos="Min" offset="-40"/>
-            <Anchor side="Right" relative="$parent\BackgroundFrame" pos="Max" offset="40"/>
-            <Anchor side="Top" relative="$parent\BackgroundFrame" pos="Min" offset="-60"/>
-            <Anchor side="Bottom" relative="$parent\BackgroundFrame" pos="Max" offset="0"/>
+        <Frame type="Image" name="NewIndicatorImage">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="6"/>            
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="35"/>            
+            <Texture val="@@UI/HelpPanelListBoxItemNewIndicator"/>
         </Frame>
         
-        <Frame type="Image" name="CloseButtonBackground">
-            <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame" pos="Max" offset="-25"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame" pos="Max" offset="-20"/>
-            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
-        </Frame>        
+        <Frame type="Image" name="IconImage">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="35"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="30"/>
+            <Width val="64"/>
+        </Frame>
+
+        <Frame type="Image" name="IconBorderImage">
+            <Anchor side="Top" relative="$parent/IconImage" pos="Min" offset="-4"/>
+            <Anchor side="Bottom" relative="$parent/IconImage" pos="Max" offset="4"/>
+            <Anchor side="Left" relative="$parent/IconImage" pos="Min" offset="-4"/>
+            <Anchor side="Right" relative="$parent/IconImage" pos="Max" offset="4"/>
+            <Texture val="@@UI/HelpPanelListBoxItemIconBorder"/>
+            <TextureType val="HorizontalBorder"/>
+        </Frame>
+
+        <Frame type="Frame" name="IconHeightFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/IconImage" pos="Max" offset="30"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="ViewHintButton" template="HelpPanel/HelpPanelButtonTemplate">
+            <Anchor side="Top" relative="$parent\BorderImage" pos="Min" offset="30"/>
+            <Anchor side="Right" relative="$parent\BorderImage" pos="Max" offset="-20"/>
+            <CollapseLayout val="true"/>
+            <Text val="@UI/ViewHint"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="WatchMovieButton" template="HelpPanel/HelpPanelButtonTemplate">
+            <Anchor side="Top" relative="$parent\BorderImage" pos="Min" offset="30"/>
+            <Anchor side="Right" relative="$parent\BorderImage" pos="Max" offset="-20"/>
+            <CollapseLayout val="true"/>
+            <Text val="@UI/WatchMovie"/>
+        </Frame>
+
+        <Frame type="Frame" name="ButtonHeightFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="120"/>
+        </Frame>
         
-        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardGamePanelLargeRightButtonTemplate">
-            <Label val="CloseButtonLabel"/>
-            <Anchor side="Bottom" relative="$parent/CloseButtonBackground" pos="Max" offset="-55"/>
-            <Anchor side="Left" relative="$parent/CloseButtonBackground" pos="Min" offset="51"/>
-            <Shortcut val="@UI/Close_Hotkey"/>
-            
-            <Frame type="Label" name="CloseButtonLabel">
-                <Text val="@UI/Close"/>
-                <Style val="GameFrameLargeBottomButton"/>
+        <Frame type="Image" name="TitleBackgroundImage">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="24"/>
+            <Anchor side="Left" relative="$parent/IconBorderImage" pos="Max" offset="10"/>
+            <Width val="732"/>
+            <Height val="32"/>
+            <LayerCount val="2"/>
+            <Texture val="@@UI/HelpPanelListBoxItemTitleBackground" layer="0"/>           
+            <LayerColor val="##HelpPanelColorTheme" layer="0"/>
+            <Texture val="@@UI/HelpPanelListBoxItemTitleBackgroundNew" layer="1"/>
+            <LayerColor val="##HelpPanelColorTheme" layer="1"/>            
+        </Frame>
+
+        <Frame type="Label" name="TitleLabel">
+            <Anchor side="Top" relative="$parent\TitleBackgroundImage" pos="Min" offset="5"/>
+            <Anchor side="Left" relative="$parent\TitleBackgroundImage" pos="Min" offset="10"/>
+            <Anchor side="Right" relative="$parent\WatchMovieButton" pos="Min" offset="-10"/>
+            <Style val="@@HelpPanelListBoxItemTitle"/>          
+        </Frame>
+
+        <Frame type="Label" name="DescriptionLabel">
+            <Anchor side="Top" relative="$parent\TitleBackgroundImage" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent\TitleBackgroundImage" pos="Min" offset="10"/>            
+            <Anchor side="Right" relative="$parent\WatchMovieButton" pos="Min" offset="-10"/>
+            <Style val="@@HelpPanelListBoxItemDescription"/>            
+        </Frame>
+
+        <Frame type="Frame" name="TextHeightFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/DescriptionLabel" pos="Max" offset="30"/>
+        </Frame>
+
+        <Frame type="Label" name="ShortenedTitleLabel">
+            <Anchor side="Top" relative="$parent\BorderImage" pos="Min" offset="25"/>
+            <Anchor side="Left" relative="$parent\BorderImage" pos="Min" offset="20"/>            
+            <Style val="@@HelpPanelListBoxItemTitle"/>
+        </Frame>
+
+        <Frame type="Label" name="ShortenedDescriptionLabel">
+            <Anchor side="Top" relative="$parent\ShortenedTitleLabel" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent\ShortenedTitleLabel" pos="Max" offset="10"/>
+            <Anchor side="Right" relative="$parent\WatchMovieButton" pos="Min" offset="-10"/>
+            <Style val="@@HelpPanelListBoxItemDescription"/>
+        </Frame>
+
+        <Frame type="Frame" name="ShortenedTextHeightFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ShortenedDescriptionLabel" pos="Max" offset="20"/>
+        </Frame>
+        
+        <Frame type="FlashFrame" name="FlashAnimation">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="-122"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-228"/>
+            <File val="UI/Flash/GameUI/TipAnimation.swf"/>
+        </Frame>
+
+        <Frame type="Frame" name="MinimumHeightFrame">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="50"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="HelpPanel" name="HelpPanelTemplate">
+        <Frame type="Image" name="BorderImage" template="StandardTemplates/StandardOuterBorderTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-80"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        </Frame>
+        
+        <Frame type="Label" name="NoHelpItemsLabel">
+            <Anchor side="Top" relative="$parent\BorderImage" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent\BorderImage" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent\BorderImage" pos="Max" offset="0"/>
+            <Style val="HelpPanelNoHelpItemsLabel"/>
+        </Frame>
+
+        <Frame type="Portrait" name="MoviePortrait">
+            <Anchor side="Top" relative="$parent\BorderImage" pos="Min" offset="12"/>
+            <Anchor side="Bottom" relative="$parent\BorderImage" pos="Max" offset="-12"/>
+            <Anchor side="Left" relative="$parent\BorderImage" pos="Min" offset="12"/>
+            <Anchor side="Right" relative="$parent\BorderImage" pos="Max" offset="-12"/>
+        </Frame>
+
+        <Frame type="ListBox" name="HelpItemListBox" template="StandardTemplates/StandardListBoxTemplate">
+            <Anchor side="Top" relative="$parent\BorderImage" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent\BorderImage" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent\BorderImage" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent\BorderImage" pos="Max" offset="0"/>
+            <ItemDesc val="HelpPanel/HelpPanelListBoxItem"/>
+            <ItemHeight val="0"/>
+            <ItemGap val="-5"/>
+            <SelectedImage val="SelectedImage"/>
+            <HoverImage val="HoverImage"/>
+            <BackgroundImage val="BackgroundImage"/>
+
+            <Frame type="Image" name="SelectedImage">
+                <Alpha val="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="HoverImage">
+                <Alpha val="0"/>
+                <DescFlags val="Internal"/>
+            </Frame>
+
+            <Frame type="Image" name="BackgroundImage">
+                <Alpha val="0"/>
                 <DescFlags val="Internal"/>
             </Frame>
         </Frame>
 
-        <Frame type="TipAlertMovingFrame" name="TipAlertMovingFrame" template="TipAlertPanel/TipAlertMovingFrameTemplate">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-430"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Frame type="ThumbButton" name="StopMovieButton" template="HelpPanel/HelpPanelButtonTemplate">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>           
+            <Text val="@UI/StopMovie"/>
+        </Frame>        
+
+        <Frame type="Image" name="MovieProgressBarBackground">
+            <Anchor side="Top" relative="$parent/StopMovieButton" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/StopMovieButton" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/StopMovieButton" pos="Max" offset="10"/>
+            <Height val="24"/>
+            <Width val="300"/>
+            <Texture val="@@UI/ReplayPanelProgressSliderBackground" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
         </Frame>
+
+        <Frame type="Image" name="MovieProgressBar">
+            <Anchor side="Top" relative="$parent/MovieProgressBarBackground" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/MovieProgressBarBackground" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/MovieProgressBarBackground" pos="Min" offset="0"/>
+            <Texture val="@@UI/ReplayPanelProgressSlider" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+
+        <Frame type="CheckBox" name="NotificationCheckBox" template="StandardTemplates/StandardCheckBoxTemplate">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
+        </Frame>
+
+        <Frame type="Image" name="NotificationBackgroundImage">
+            <Anchor side="Top" relative="$parent/NotificationCheckBox" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/NotificationCheckBox" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/NotificationCheckBox" pos="Max" offset="-5"/>
+            <Texture val="@@UI/HelpPanelDisableNotificationBackground"/>
+            <LayerColor val="##HelpPanelColorTheme"/>
+        </Frame>
+        
+        <Frame type="Label" name="NotificationCheckBoxLabel">            
+            <Anchor side="Top" relative="$parent/NotificationCheckBox" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/NotificationCheckBox" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/NotificationCheckBox" pos="Max" offset="10"/>
+            <Text val="@UI/HideTipNotifications"/>
+            <Style val="@@OptionsLabel"/>
+        </Frame>               
     </Frame>
 </Desc>
 

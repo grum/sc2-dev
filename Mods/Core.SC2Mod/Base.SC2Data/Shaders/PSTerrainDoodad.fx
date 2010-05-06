@@ -11,6 +11,9 @@
 #if (b_iShadingMode == SHADINGMODE_TERRAIN || CPP_SHADER)
 #ifdef PIXEL_SHADER
 
+// tint terrain and creep
+float4      p_vTerrainTint;
+
 #include "PSCreep.fx"
 #include "PSMaterialDefines.fx"
 
@@ -18,7 +21,6 @@ half4 ApplyDebugRenderMode(VertexTransport vertOut, half4 cResult);
 
 sampler2D   p_sTerrainDiffuse;      // diffuse texture sampler
 sampler2D   p_sTerrainNormal;       // normal map sampler
-float4      p_vTerrainTint;         // for debug visualization 
 
 
 #define c_terrainMinHeight       (-100.f)
@@ -37,8 +39,8 @@ void TerrainTextures ( VertexTransport vertOut, out float2 vUV,  out float4 cDif
     if (b_useParallaxMapping) 
     {
         float3x3 mTangent2World;
-        mTangent2World[0] = INTERPOLANT_Tangent;
-        mTangent2World[1] = INTERPOLANT_Binormal;
+        mTangent2World[0] = INTERPOLANT_Tangent.xyz;
+        mTangent2World[1] = INTERPOLANT_Binormal.xyz;
         mTangent2World[2] = INTERPOLANT_Normal.xyz;
         if ( b_iUsePOMNew ) {
             float2 vParallaxOffset;
@@ -75,10 +77,12 @@ float4 ShadeTerrain (VertexTransport vertOut) {
         g_cDeferredSpecular = 1;
 	    g_cDeferredSpecularPower = 1;
         
-        if (b_creepOpaquePass)
+        if (b_iCreepPass == CREEP_OPAQUE)
             return PixelCreepOpaque(vertOut);
-        else
+        else if (b_iCreepPass == CREEP_TRANSLUCENT)
             return PixelCreepTranslucent(vertOut);
+        else
+            return PixelCreepAdditiveColor(vertOut);
     } 
     else {
         //--------------------------------------------------------------------------------------------------
@@ -108,7 +112,7 @@ float4 ShadeTerrain (VertexTransport vertOut) {
         TerrainTextures(vertOut, vUV, cDiffuse, vNormal);
         float3 vWorldNormal;
         if ( b_useNormalMapping )
-            vWorldNormal = TangentToWorld( vNormal.xyz, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent, INTERPOLANT_Binormal, true );
+            vWorldNormal = TangentToWorld( vNormal.xyz, INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal.xyz, true );
         else vWorldNormal = vNormal;
 
         // lighting
@@ -151,8 +155,7 @@ float4 ShadeTerrain (VertexTransport vertOut) {
                                 cResult );
         }
 
-        if ( b_iUseTint )
-            cResult.xyz *= p_vTerrainTint.xyz;
+        cResult *= p_vTerrainTint;
 
         return cResult;
     }

@@ -63,13 +63,13 @@
 
         <Frame type="Label" name="InfoLabel">
             <Style val="@@InfoPaneUnitInfo"/>
-            <Anchor side="Top" relative="$parent/ProgressBar" pos="Max" offset="6"/>
+            <Anchor side="Top" relative="$parent/ProgressBar" pos="Max" offset="4"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
         </Frame>
 
         <Frame type="Frame" name="EquipmentPanel">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="100"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="108"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
             <Height val="64"/>
@@ -78,7 +78,7 @@
         <Frame type="Label" name="TypeLabel">
             <Style val="@@InfoPaneUnitType"/>
             <Options val="NoWrapping"/>
-            <Anchor side="Top" relative="$parent/EquipmentPanel" pos="Max" offset="7"/>
+            <Anchor side="Top" relative="$parent/EquipmentPanel" pos="Max" offset="4"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
         </Frame>        

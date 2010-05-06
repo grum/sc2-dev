@@ -63,4 +63,5 @@
 "^SeriousEyes" 11
 "^SurpriseEyes" 11
 "^FearEyes" 11
+"^Stand Listen.*" 4
 ".*" 5

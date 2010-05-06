@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
     <CGame default="1">
-        <DifficultyDefault value="0"/>
+        <DifficultyDefault value="2"/>
         <AirFormationDiameter value="8"/>
         <MixedFormationDiameter value="6"/>
         <UnpathableMargin value="10,8,10,20"/>
@@ -10,6 +10,10 @@
         <CallForHelpPeriod value="2"/>
         <CallForHelpRadius value="4"/>
         <CameraMargin value="7,4,7,4"/>
+        <CameraMarginAspectAdjust AspectWidth="4" AspectHeight="3" Margin="0,0,0,0"/>
+        <CameraMarginAspectAdjust AspectWidth="16" AspectHeight="10" Margin="1,0,1,0"/>
+        <CameraMarginAspectAdjust AspectWidth="16" AspectHeight="9" Margin="1,0,1,0"/>
+        <CameraMarginAspectAdjust AspectWidth="5" AspectHeight="4" Margin="0,0,0,0"/>
         <SplashDamageEffect value="SplashDamage"/>
         <UnitSightRangeUnderConstruction value="4"/>
         <DifficultyLevels index="0">
@@ -51,7 +55,7 @@
             <Enabled value="0"/>
             <ActionsPerMinute value="9999"/>
         </DifficultyLevels>
-      <HandicapValues Percent="50"/>
+        <HandicapValues Percent="50"/>
         <HandicapValues Percent="60"/>
         <HandicapValues Percent="70"/>
         <HandicapValues Percent="80"/>
@@ -132,40 +136,10 @@
         <CreepDecayTime value="1.05"/>
         <DamageMinimum value="0.5"/>
         <AttackRevealTime value="3"/>
-        <DefeatRevealTime value="25"/>
+        <PenaltyRevealTime value="25"/>
         <AttackRevealBehavior value="AttackReveal"/>
         <AI Id="Comp" Name="AI/Name/Computer" File="TriggerLibs/Computer"/>
         <CampaignBanks value="TCampaign"/>
-        <CampaignBanks value="TRaynor01"/>
-        <CampaignBanks value="TRaynor02"/>
-        <CampaignBanks value="TRaynor03"/>
-        <CampaignBanks value="THanson01"/>
-        <CampaignBanks value="THanson02"/>
-        <CampaignBanks value="THanson03A"/>
-        <CampaignBanks value="THanson03B"/>        
-        <CampaignBanks value="TTosh01"/>        
-        <CampaignBanks value="TTosh02"/>
-        <CampaignBanks value="TTosh03A"/>
-        <CampaignBanks value="TTosh03B"/>
-        <CampaignBanks value="THorner01"/>
-        <CampaignBanks value="THorner02"/>
-        <CampaignBanks value="THorner03"/>
-        <CampaignBanks value="THorner04"/>
-        <CampaignBanks value="THorner05"/>
-        <CampaignBanks value="THorner05S"/>
-        <CampaignBanks value="TTychus01"/>
-        <CampaignBanks value="TTychus02"/>
-        <CampaignBanks value="TTychus03"/>
-        <CampaignBanks value="TTychus04"/>
-        <CampaignBanks value="TTychus05"/>
-        <CampaignBanks value="TZeratul01"/>
-        <CampaignBanks value="TZeratul02"/>
-        <CampaignBanks value="TZeratul03"/>
-        <CampaignBanks value="TZeratul04"/>
-        <CampaignBanks value="TValerian01"/>
-        <CampaignBanks value="TValerian02A"/>
-        <CampaignBanks value="TValerian02B"/>
-        <CampaignBanks value="TValerian03"/>
         <CampaignSaveName value="LastCampaignSave.SC2Save"/>
         <FilterResults Filter="Ground,Structure;-" Result="MustTargetGroundUnits,e_cmdMustTargetGroundStructures"/>
         <FilterResults Filter="Biological,Structure;-" Result="MustTargetBiologicalUnits,e_cmdMustTargetBiologicalStructures"/>
@@ -243,12 +217,16 @@
             <Clear index="Attack" value="1"/>
             <Clear index="Harass" value="1"/>
         </BeaconInfoArray>
+        <BeaconInfoArray index="Detect" Unit="BeaconDetect" Tooltip="UI/BeaconDetect"/>
         <BeaconInfoArray index="Expand" Unit="BeaconExpand" Tooltip="UI/BeaconExpand"/>
         <BeaconInfoArray index="Harass" Unit="BeaconHarass" Tooltip="UI/BeaconHarass">
             <Clear index="Attack" value="1"/>
             <Clear index="Defend" value="1"/>
         </BeaconInfoArray>
         <BeaconInfoArray index="Scout" Unit="BeaconScout" Tooltip="UI/BeaconScout"/>
+        <UncontestedCombatPeriod value="3"/>
+        <AIResourceRequest index="Minerals" value="100"/>
+        <AIResourceRequest index="Vespene" value="100"/>
     </CGame>
     <CGame id="Dflt">
         <TeamColors index="1">

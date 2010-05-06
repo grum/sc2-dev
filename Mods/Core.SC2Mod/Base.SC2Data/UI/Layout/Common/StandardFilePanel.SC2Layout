@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-    <!-- Racial Colors -->
-    <Constant name="FilePanelBorderColorTheme" val="ffffff"/>
-    <Constant name="FilePanelBorderColorTheme_Prot" val="21c1bc"/>
-    <Constant name="FilePanelBorderColorTheme_Terr" val="21c1bc"/>
-    <Constant name="FilePanelBorderColorTheme_Zerg" val="21c1bc"/>
-
-    <Constant name="FilePanelColorTheme" val="217bc1"/>
-    <Constant name="FilePanelColorTheme_Prot" val="21c1bc"/>
-    <Constant name="FilePanelColorTheme_Terr" val="21c1bc"/>
-    <Constant name="FilePanelColorTheme_Zerg" val="21c1bc"/>
     
     <Frame type="SaveFilePanelListBoxItem" name="SaveListItem">
         <Frame type="Label" name="DateTimeLabel">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>            
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Width val="350"/>
-            <Style val="FilePanelFileListItemDateTimeLabel"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Width val="320"/>
+            <Style val="@@FilePanelFileListItemDateTime"/>
         </Frame>
         
         <Frame type="Label" name="NameLabel">
@@ -25,7 +15,7 @@
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
             <Anchor side="Right" relative="$parent/DateTimeLabel" pos="Min" offset="0"/>
-            <Style val="FilePanelFileListItemNameLabel"/>
+            <Style val="@@FilePanelFileListItemName"/>
         </Frame>
     </Frame>
 
@@ -33,9 +23,9 @@
         <Frame type="Label" name="DateTimeLabel">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Width val="350"/>
-            <Style val="FilePanelFileListItemDateTimeLabel"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Width val="320"/>
+            <Style val="@@FilePanelFileListItemDateTime"/>
         </Frame>
 
         <Frame type="Label" name="NameLabel">
@@ -43,25 +33,23 @@
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
             <Anchor side="Right" relative="$parent/DateTimeLabel" pos="Min" offset="0"/>
-            <Style val="FilePanelFileListItemNameLabel"/>
+            <Style val="@@FilePanelFileListItemName"/>
         </Frame>
     </Frame>
     
     <Frame type="ThumbButton" name="FileManagementButtonTemplate">
         <NormalImage val="NormalImage"/>
-        <HoverImage val="HoverImage"/>
-        <Label val="ButtonLabel"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <Height val="72"/>
-        <Width val="90"/>
+        <HoverImage val="HoverImage"/>        
+        <Height val="60"/>
+        <Width val="74"/>       
         
         <Frame type="Image" name="NormalImage">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>            
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
             <StateCount val="2" layer="0"/>
-            <DesaturationColor val="65, 65, 65"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
             <DescFlags val="Internal"/>
         </Frame>
 
@@ -70,54 +58,44 @@
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
             <StateCount val="2" layer="0"/>
-            <DesaturationColor val="65, 65, 65"/>
+            <DesaturateOnDisable val="false"/>
+            <DisabledAlpha val="64"/>
             <DescFlags val="Internal"/>
-        </Frame>
-
-        <Frame type="Label" name="ButtonLabel">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Style val="FilePanelFileManagementButtonLabel"/>
-            <DescFlags val="Internal"/>
-        </Frame>
+        </Frame>        
     </Frame>
 
     <Frame type="ThumbButton" name="FileListButtonTemplate">
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
         <Label val="ButtonLabel"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <Height val="64"/>        
+        <Height val="48"/>        
 
         <Frame type="Image" name="NormalImage">
             <Texture val="@@UI/FilePanelFileListButtonNormal" layer="0"/>
             <TextureType val="EndCap"/>
-            <StateCount val="2" layer="0"/>
-            <LayerColor val="##FilePanelBorderColorTheme"/>
+            <StateCount val="2" layer="0"/>           
             <DescFlags val="Internal"/>
         </Frame>
 
         <Frame type="Image" name="HoverImage">
             <Texture val="@@UI/FilePanelFileListButtonHover" layer="0"/>
             <TextureType val="EndCap"/>
-            <StateCount val="2" layer="0"/>
-            <LayerColor val="##FilePanelBorderColorTheme"/>
+            <StateCount val="2" layer="0"/>           
             <DescFlags val="Internal"/>
         </Frame>
 
         <Frame type="Label" name="ButtonLabel">
-            <Style val="@@FilePanelFileListHeadingButtonLabel"/>
-            <Alpha val="125"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="@@FilePanelFileListHeadingButton"/>           
             <DescFlags val="Internal"/>
         </Frame>
     </Frame>
 
-    <Frame type="Frame" name="PlayerDataTemplate">
-        <Width val="240"/>
-        <Height val="30"/>
+    <Frame type="Frame" name="PlayerDataTemplate">        
+        <Height val="28"/>
 
         <Frame type="Label" name="HyphenLabel">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -145,91 +123,197 @@
             <Style val="FilePanelDetailsPlayerRace"/>
         </Frame>
     </Frame>
+
+    <Frame type="FileListBox" name="FilePanelListBoxTemplate" template="StandardTemplates/StandardFileListBoxTemplate">       
+        <Insets top="10" left="5" bottom="10" right="0"/>
+        <ItemGap val="5"/>
+        <BackgroundImage val="BackgroundImage"/>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@@UI/FilePanelFileListBorder" layer="0"/>
+            <TextureType val="Border"/>
+            <DescFlags val="Internal"/>
+        </Frame>        
+    </Frame>
     
     <Frame type="Frame" name="FilePanelBaseTemplate">
-        <Frame type="Image" name="BackgroundImage">
+        <Frame type="Image" name="BorderImage" template="StandardTemplates/StandardOuterBorderTemplate">
+            <Anchor relative="$parent"/>
             <RequiredDefines val="Terr|Zerg|Prot"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/FilePanelBackground" layer="0"/>
         </Frame>
 
-        <Frame type="Image" name="BorderImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Frame type="Image" name="TopImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>           
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <Texture val="@@UI/FilePanelBorder" layer="0"/>
-            <TextureType val="Border"/>
-            <LayerColor val="##FilePanelBorderColorTheme"/>
+            <Texture val="@@UI/FilePanelTop" layer="0"/>
+            <RequiredDefines val="Terr|Zerg|Prot"/>
+        </Frame>
+        
+        <Frame type="Frame" name="DetailsContainer">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="32"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="800"/>
+            <Width val="350"/>
+
+            <Frame type="Image" name="BorderImage">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>                                
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Texture val="@@UI/FilePanelDetailsBorder" layer="0"/>
+            </Frame>
+
+            <Frame type="Label" name="TitleLabel">
+                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="35"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-40"/>
+                <Text val="@UI/FilePanelDetailsContainerTitle"/>
+                <Style val="@@FilePanelDetailsTitle"/>
+            </Frame>
+            
+            <Frame type="Label" name="NameLabel">
+                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="75"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-25"/>
+                <Height val="60"/>
+                <Style val="@@FilePanelDetailsName"/>
+            </Frame>
+
+            <Frame type="Label" name="DurationHeadingLabel">
+                <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
+                <Style val="@@FilePanelDetailsHeading"/>
+                <Text val="@UI/FilePanelDetailsContainerDuration"/>
+            </Frame>
+
+            <Frame type="Label" name="DurationLabel">
+                <Anchor side="Top" relative="$parent/DurationHeadingLabel" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/DurationHeadingLabel" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-25"/>
+                <Style val="@@FilePanelDetailsValue"/>
+            </Frame>
+
+            <Frame type="Label" name="VersionHeadingLabel">
+                <Anchor side="Top" relative="$parent/DurationHeadingLabel" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/DurationHeadingLabel" pos="Min" offset="0"/>
+                <Style val="@@FilePanelDetailsHeading"/>
+                <Text val="@UI/FilePanelDetailsContainerVersion"/>
+            </Frame>
+
+            <Frame type="Label" name="VersionLabel">
+                <Anchor side="Top" relative="$parent/VersionHeadingLabel" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/VersionHeadingLabel" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-25"/>
+                <Style val="@@FilePanelDetailsValue"/>
+            </Frame>
+
+            <Frame type="Image" name="ThumbnailBorderImage">
+                <Anchor side="Top" relative="$parent/VersionLabel" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <Texture val="@@UI/FilePanelDetailsThumbnailBorder"/>
+            </Frame>
+            
+            <Frame type="Frame" name="ThumbnailContainerFrame">
+                <Anchor side="Top" relative="$parent/ThumbnailBorderImage" pos="Min" offset="10"/>
+                <Anchor side="Bottom" relative="$parent/ThumbnailBorderImage" pos="Max" offset="-15"/>
+                <Anchor side="Left" relative="$parent/ThumbnailBorderImage" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent/ThumbnailBorderImage" pos="Max" offset="-10"/>
+
+                <Frame type="Minimap" name="ThumbnailImage">
+                    <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                    <TextureType val="Normal"/>
+                    <Visible val="false"/>
+                </Frame>
+            </Frame>            
+
+            <Frame type="Label" name="DifficultyHeadingLabel">
+                <Anchor side="Top" relative="$parent/ThumbnailBorderImage" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent/DurationHeadingLabel" pos="Min" offset="0"/>
+                <Style val="@@FilePanelDetailsHeading"/>
+                <Text val="@UI/Difficulty_Colon"/>
+                <CollapseLayout val="true"/>
+            </Frame>
+
+            <Frame type="Label" name="DifficultyLabel">
+                <Anchor side="Top" relative="$parent/DifficultyHeadingLabel" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/DifficultyHeadingLabel" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+                <Style val="@@FilePanelDetailsValue"/>
+                <CollapseLayout val="true"/>
+            </Frame>
+
+            <Frame type="Frame" name="PlayerListContainer">
+                <Anchor side="Top" relative="$parent/DifficultyLabel" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="20"/>
+                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-20"/>
+
+                <Frame type="Frame" name="PlayerFrame0" template="StandardFilePanel/PlayerDataTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                </Frame>
+
+                <Frame type="Frame" name="PlayerFrame1" template="StandardFilePanel/PlayerDataTemplate">
+                    <Anchor side="Top" relative="$parent/PlayerFrame0" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/PlayerFrame0" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/PlayerFrame0" pos="Max" offset="0"/>
+                </Frame>
+
+                <Frame type="Frame" name="PlayerFrame2" template="StandardFilePanel/PlayerDataTemplate">
+                    <Anchor side="Top" relative="$parent/PlayerFrame1" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/PlayerFrame1" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/PlayerFrame1" pos="Max" offset="0"/>
+                </Frame>
+
+                <Frame type="Frame" name="PlayerFrame3" template="StandardFilePanel/PlayerDataTemplate">
+                    <Anchor side="Top" relative="$parent/PlayerFrame2" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/PlayerFrame2" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/PlayerFrame2" pos="Max" offset="0"/>
+                </Frame>
+
+                <Frame type="Frame" name="PlayerFrame4" template="StandardFilePanel/PlayerDataTemplate">
+                    <Anchor side="Top" relative="$parent/PlayerFrame3" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/PlayerFrame3" pos="Min" offset="-5"/>
+                    <Anchor side="Right" relative="$parent/PlayerFrame3" pos="Max" offset="0"/>
+                </Frame>
+
+                <Frame type="Frame" name="PlayerFrame5" template="StandardFilePanel/PlayerDataTemplate">
+                    <Anchor side="Top" relative="$parent/PlayerFrame4" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/PlayerFrame4" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/PlayerFrame4" pos="Max" offset="0"/>
+                </Frame>
+
+                <Frame type="Frame" name="PlayerFrame6" template="StandardFilePanel/PlayerDataTemplate">
+                    <Anchor side="Top" relative="$parent/PlayerFrame5" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/PlayerFrame5" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/PlayerFrame5" pos="Max" offset="0"/>
+                </Frame>
+
+                <Frame type="Frame" name="PlayerFrame7" template="StandardFilePanel/PlayerDataTemplate">
+                    <Anchor side="Top" relative="$parent/PlayerFrame6" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/PlayerFrame6" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent/PlayerFrame6" pos="Max" offset="0"/>
+                </Frame>                
+            </Frame>
         </Frame>
 
         <Frame type="Frame" name="FileManagementContainer">
-            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="10"/>
-            <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-10"/>
-            <Width val ="90"/>
-
-            <Frame type="ThumbButton" name="DeleteFileButton" template="StandardFilePanel/FileManagementButtonTemplate">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-
-                <Frame type="Image" name="NormalImage">
-                    <Texture val="@@UI/FilePanelDeleteFileButtonNormal" layer="0"/>                   
-                </Frame>
-
-                <Frame type="Image" name="HoverImage">
-                    <Texture val="@@UI/FilePanelDeleteFileButtonHover" layer="0"/>
-                </Frame>
-
-                <Frame type="Label" name="ButtonLabel">
-                    <Text val="@UI/FilePanelDeleteFile_Control"/>
-                </Frame>
-            </Frame>
-
-            <Frame type="ThumbButton" name="SaveFileButton" template="StandardFilePanel/FileManagementButtonTemplate">
-                <Anchor side="Top" relative="$parent/DeleteFileButton" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-
-                <Frame type="Image" name="NormalImage">
-                    <Texture val="@@UI/FilePanelSaveFileButtonNormal" layer="0"/>
-                </Frame>
-
-                <Frame type="Image" name="HoverImage">
-                    <Texture val="@@UI/FilePanelSaveFileButtonHover" layer="0"/>
-                </Frame>
-
-                <Frame type="Label" name="ButtonLabel">
-                    <Text val="@UI/FilePanelSaveFile_Control"/>
-                </Frame>
-            </Frame>
-            
-            <Frame type="ThumbButton" name="FolderUpButton" template="StandardFilePanel/FileManagementButtonTemplate">
-                <Anchor side="Top" relative="$parent/SaveFileButton" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-
-                <Frame type="Image" name="NormalImage">
-                    <Texture val="@@UI/FilePanelFolderUpButtonNormal" layer="0"/>
-                </Frame>
-
-                <Frame type="Image" name="HoverImage">
-                    <Texture val="@@UI/FilePanelFolderUpButtonHover" layer="0"/>
-                </Frame>
-
-                <Frame type="Label" name="ButtonLabel">
-                    <Text val="@UI/FilePanelFolderUp_Control"/>
-                </Frame>
-            </Frame>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="20"/>            
+            <Anchor side="Right" relative="$parent/DetailsContainer" pos="Min" offset="0"/>
+            <Height val ="60"/>
+            <Width val ="500"/>
 
             <Frame type="ThumbButton" name="NewFolderButton" template="StandardFilePanel/FileManagementButtonTemplate">
-                <Anchor side="Top" relative="$parent/FolderUpButton" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>                
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Tooltip val="@UI/FilePanelNewFolder_Control"/>
 
                 <Frame type="Image" name="NormalImage">
                     <Texture val="@@UI/FilePanelNewFolderButtonNormal" layer="0"/>
@@ -238,163 +322,55 @@
                 <Frame type="Image" name="HoverImage">
                     <Texture val="@@UI/FilePanelNewFolderButtonHover" layer="0"/>
                 </Frame>
+            </Frame>
 
-                <Frame type="Label" name="ButtonLabel">
-                    <Text val="@UI/FilePanelNewFolder_Control"/>
+            <Frame type="ThumbButton" name="FolderUpButton" template="StandardFilePanel/FileManagementButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/NewFolderButton" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/NewFolderButton" pos="Min" offset="0"/>
+                <Tooltip val="@UI/FilePanelFolderUp_Control"/>
+
+                <Frame type="Image" name="NormalImage">
+                    <Texture val="@@UI/FilePanelFolderUpButtonNormal" layer="0"/>
                 </Frame>
-            </Frame>
-        </Frame>
 
-        <Frame type="Frame" name="DetailsContainer">
-            <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-10"/>
-            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="10"/>
-            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-10"/>
-            <Height val ="240"/>
-
-            <Frame type="Image" name="BorderImage">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="5"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                <Texture val="@@UI/FilePanelDetailsBorder" layer="0"/>
-                <TextureType val="Border"/>
-                <LayerColor val="##FilePanelColorTheme"/>
-            </Frame>
-
-            <Frame type="Image" name="BorderTopRightFlavorImage">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>
-                <Width val ="150"/>
-                <Texture val="@@UI/FilePanelDetailsBorderTopRightFlavor" layer="0"/>
-                <TextureType val="EndCap" layer="0"/>
-                <LayerColor val="##FilePanelColorTheme"/>
-            </Frame>
-
-            <Frame type="Image" name="HeadingImage">
-                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="5"/>
-                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
-                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>
-                <Height val="70"/>
-                <Texture val="@@UI/FilePanelDetailsHeading" layer="0"/>
-                <LayerColor val="##FilePanelColorTheme"/>
-            </Frame>
-
-            <Frame type="Image" name="ThumbnailImage">
-                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="15"/>
-                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-15"/>
-                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="15"/>
-            </Frame>
-
-            <Frame type="Image" name="ThumbnailBorderImage">
-                <Anchor side="Top" relative="$parent/ThumbnailImage" pos="Min" offset="-8"/>
-                <Anchor side="Bottom" relative="$parent/ThumbnailImage" pos="Max" offset="8"/>
-                <Anchor side="Left" relative="$parent/ThumbnailImage" pos="Min" offset="-8"/>
-                <Anchor side="Right" relative="$parent/ThumbnailImage" pos="Max" offset="8"/>    
-                <Texture val="@@UI/FilePanelThumbnailBorder" layer="0"/>
-                <TextureType val="HorizontalBorder" layer="0"/>
+                <Frame type="Image" name="HoverImage">
+                    <Texture val="@@UI/FilePanelFolderUpButtonHover" layer="0"/>
+                </Frame>
             </Frame>
             
-            <Frame type="Label" name="TitleLabel">
-                <Anchor side="Top" relative="$parent/HeadingImage" pos="Min" offset="5"/>
-                <Anchor side="Left" relative="$parent/ThumbnailImage" pos="Max" offset="0"/>
-                <Anchor side="Right" relative="$parent/HeadingImage" pos="Max" offset="-10"/>
-                <Style val="@@FilePanelDetailsTitleLabel"/>
+            <Frame type="ThumbButton" name="DeleteFileButton" template="StandardFilePanel/FileManagementButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/FolderUpButton" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/FolderUpButton" pos="Min" offset="0"/>
+                <Tooltip val="@UI/FilePanelDeleteFile_Control"/>
+
+                <Frame type="Image" name="NormalImage">
+                    <Texture val="@@UI/FilePanelDeleteFileButtonNormal" layer="0"/>
+                </Frame>
+
+                <Frame type="Image" name="HoverImage">
+                    <Texture val="@@UI/FilePanelDeleteFileButtonHover" layer="0"/>
+                </Frame>
             </Frame>
 
-            <Frame type="Label" name="DurationLabel">
-                <Anchor side="Bottom" relative="$parent/HeadingImage" pos="Max" offset="-5"/>                
-                <Anchor side="Right" relative="$parent/HeadingImage" pos="Max" offset="-10"/>
-                <Style val="FilePanelDetailsDurationLabel"/>
-            </Frame>
+            <Frame type="ThumbButton" name="SaveFileButton" template="StandardFilePanel/FileManagementButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/DeleteFileButton" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/DeleteFileButton" pos="Min" offset="0"/>
+                <Tooltip val="@UI/FilePanelSaveFile_Control"/>
 
-            <Frame type="Label" name="DurationHeadingLabel">
-                <Anchor side="Top" relative="$parent/DurationLabel" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent/ThumbnailImage" pos="Max" offset="0"/>
-                <Anchor side="Right" relative="$parent/DurationLabel" pos="Min" offset="-5"/>
-                <Style val="@@FilePanelDetailsDurationHeadingLabel"/>
-                <Text val="@UI/Duration_Colon"/>
-            </Frame>
-            
-            <Frame type="Label" name="DifficultyLabel">
-                <Anchor side="Top" relative="$parent/HeadingImage" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/ThumbnailImage" pos="Max" offset="0"/>
-                <Anchor side="Right" relative="$parent/HeadingImage" pos="Max" offset="0"/>
-                <Style val="SaveName"/>
-            </Frame>
-
-            <Frame type="Frame" name="PlayerListContainer">
-                <Anchor side="Top" relative="$parent/HeadingImage" pos="Max" offset="5"/>
-                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-5"/>
-                <Anchor side="Left" relative="$parent/ThumbnailImage" pos="Max" offset="10"/>
-                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-10"/>
-
-                <Frame type="Frame" name="PlayerFrame0" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>                    
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Frame type="Image" name="NormalImage">
+                    <Texture val="@@UI/FilePanelSaveFileButtonNormal" layer="0"/>
                 </Frame>
 
-                <Frame type="Frame" name="PlayerFrame1" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame0" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame0" pos="Min" offset="0"/>
+                <Frame type="Image" name="HoverImage">
+                    <Texture val="@@UI/FilePanelSaveFileButtonHover" layer="0"/>
                 </Frame>
-
-                <Frame type="Frame" name="PlayerFrame2" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame1" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame1" pos="Min" offset="0"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame3" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame2" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame2" pos="Min" offset="0"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame4" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame0" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/PlayerFrame0" pos="Min" offset="-5"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame5" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame4" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame4" pos="Min" offset="0"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame6" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame5" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame5" pos="Min" offset="0"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame7" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame6" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame6" pos="Min" offset="0"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame8" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame4" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent/PlayerFrame4" pos="Min" offset="-5"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame9" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame8" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame8" pos="Min" offset="0"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame10" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame9" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame9" pos="Min" offset="0"/>
-                </Frame>
-
-                <Frame type="Frame" name="PlayerFrame11" template="StandardFilePanel/PlayerDataTemplate">
-                    <Anchor side="Top" relative="$parent/PlayerFrame10" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/PlayerFrame10" pos="Min" offset="0"/>
-                </Frame>                
-            </Frame>
+            </Frame>            
         </Frame>
-
+        
         <Frame type="Frame" name="EditBoxContainer">
-            <Anchor side="Bottom" relative="$parent/DetailsContainer" pos="Min" offset="-5"/>
-            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="10"/>
-            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/DetailsContainer" pos="Min" offset="0"/>
             <Height val ="100"/>
             <CollapseLayout val="true"/>
             <Visible val="false"/>
@@ -424,35 +400,15 @@
         </Frame>
 
         <Frame type="Frame" name="FileListContainer">
-            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="10"/>
+            <Anchor side="Top" relative="$parent/FileManagementContainer" pos="Max" offset="10"/>
             <Anchor side="Bottom" relative="$parent/EditBoxContainer" pos="Min" offset="-5"/>
-            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="10"/>
-            <Anchor side="Right" relative="$parent/FileManagementContainer" pos="Min" offset="-10"/>
-
-            <Frame type="Image" name="BorderImage">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                <Texture val="@@UI/FilePanelDetailsBorder" layer="0"/>
-                <TextureType val="Border"/>
-                <LayerColor val="##FilePanelColorTheme"/>
-            </Frame>
-
-            <Frame type="Image" name="BorderBottomLeftFlavorImage">
-                <Anchor side="Top" relative="$parent/BorderImage" pos="Max" offset="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
-                <Width val ="150"/>
-                <Texture val="@@UI/FilePanelFileListBorderBottomLeftFlavor" layer="0"/>
-                <TextureType val="EndCap" layer="0"/>
-                <LayerColor val="##FilePanelColorTheme"/>
-            </Frame>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/DetailsContainer" pos="Min" offset="0"/>
 
             <Frame type="ThumbButton" name="DateButton" template="StandardFilePanel/FileListButtonTemplate">
-                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="0"/>                
-                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="0"/>
-                <Width val="350"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>                
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Width val="320"/>
                 
                 <Frame type="Label" name="ButtonLabel">
                     <Text val="@UI/FilePanelFileListDate_Control"/>
@@ -460,49 +416,37 @@
             </Frame>
             
             <Frame type="ThumbButton" name="NameButton" template="StandardFilePanel/FileListButtonTemplate">
-                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="0"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Right" relative="$parent/DateButton" pos="Min" offset="0"/>
 
                 <Frame type="Label" name="ButtonLabel">
                     <Text val="@UI/FilePanelFileListName_Control"/>
                 </Frame>
-            </Frame>
-
-            <Frame type="Image" name="FileListBorderImage">
-                <Anchor side="Top" relative="$parent/NameButton" pos="Max" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-5"/>
-                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="10"/>
-                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-10"/>
-                <Texture val="@@UI/FilePanelFileListBorder" layer="0"/>
-                <TextureType val="Border"/>
-                <LayerColor val="##FilePanelColorTheme"/>
-            </Frame>           
+            </Frame>                
         </Frame>
     </Frame>
 
     <Frame type="SaveFilePanel" name="SavePanel" template="StandardFilePanel/FilePanelBaseTemplate">
         <Frame type="Frame" name="FileListContainer">            
-            <Frame type="FileListBox" name="SaveListBox" template="StandardTemplates/StandardFileListBoxTemplate">
-                <Anchor side="Top" relative="$parent/FileListBorderImage" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent/FileListBorderImage" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/FileListBorderImage" pos="Max" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/FileListBorderImage" pos="Max" offset="0"/>
-                <ItemDesc val="StandardFilePanel/SaveListItem"/>
-                <Insets top="10" left="5" bottom="10" right="0"/>
+            <Frame type="FileListBox" name="SaveListBox" template="StandardFilePanel/FilePanelListBoxTemplate">
+                <Anchor side="Top" relative="$parent/NameButton" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <ItemDesc val="StandardFilePanel/SaveListItem"/>                
             </Frame>
         </Frame>        
     </Frame>    
 
     <Frame type="ReplayFilePanel" name="ReplayPanel" template="StandardFilePanel/FilePanelBaseTemplate">       
         <Frame type="Frame" name="FileListContainer">
-            <Frame type="FileListBox" name="SaveListBox" template="StandardTemplates/StandardFileListBoxTemplate">                
-                <Anchor side="Top" relative="$parent/FileListBorderImage" pos="Min" offset="0"/>
-                <Anchor side="Left" relative="$parent/FileListBorderImage" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/FileListBorderImage" pos="Max" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/FileListBorderImage" pos="Max" offset="0"/>
-                <ItemDesc val="StandardFilePanel/ReplayListItem"/>
-                <Insets top="10" left="5" bottom="10" right="0"/>
+            <Frame type="FileListBox" name="SaveListBox" template="StandardFilePanel/FilePanelListBoxTemplate">
+                <Anchor side="Top" relative="$parent/NameButton" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <ItemDesc val="StandardFilePanel/ReplayListItem"/>                
             </Frame>
         </Frame>
     </Frame>

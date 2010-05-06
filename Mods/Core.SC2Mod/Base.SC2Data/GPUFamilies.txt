@@ -207,6 +207,8 @@
 0x0643|GeForce9Common|NVIDIA GeForce 9500 GT
 0x0644|GeForce9Common|NVIDIA GeForce 9500 GS
 0x0645|GeForce9Common|NVIDIA GeForce 9500 GS
+0x0647|GeForce9Mobile|NVIDIA GeForce 9600M
+0x062B|GeForce9Mobile|NVIDIA GeForce 9800M
 0x0610|GeForce9Rare|NVIDIA GeForce 9600 GSO
 0x0622|GeForce9Epic|NVIDIA GeForce 9600 GT
 0x0623|GeForce9Rare|NVIDIA GeForce 9600 GS
@@ -223,6 +225,7 @@
 0x05E0|GeForceX200Epic|NVIDIA GeForce GTX 295
 0x0A60|GeForceX200Common|Nvidia GeForce G210
 0x0A20|GeForceX200Common|Nvidia GeForce GT 220
+0x0607|GeForceX200Common|Nvidia GeForce GTS 240
 0x0A2A|GeForceX200Mobile|Nvidia GeForce GT 230M
 0x0A34|GeForceX200Mobile|Nvidia GeForce GT 240M
 0x0CA8|GeForceX200Mobile|Nvidia GeForce GT 260M
@@ -614,7 +617,16 @@
 0x9460|RadeonX4x00Epic|ATI Radeon 4800 Series
 0x9443|RadeonX4x00Epic|ATI Radeon 4850 X2
 0x9441|RadeonX4x00Epic|ATI Radeon 4870 X2
-0x9498|RadeonX4x00Common|ATI Radeon HD4650
+0x9498|RadeonX4x00Common|ATI Radeon HD 4650
+0x68F9|RadeonX5x00Poor|ATI Radeon HD 5450
+0x68D9|RadeonX5x00Common|ATI Radeon HD 5570
+0x68D8|RadeonX5x00Common|ATI Radeon HD 5670
+0x68B8|RadeonX5x00Epic|ATI Radeon HD 5770
+0x68BE|RadeonX5x00Rare|ATI Radeon HD 5750
+0x6898|RadeonX5x00Epic|ATI Radeon HD 5870
+0x6899|RadeonX5x00Epic|ATI Radeon HD 5830
+0x689E|RadeonX5x00Epic|ATI Radeon HD 5850
+0x689C|RadeonX5x00Epic|ATI Radeon HD 5970
 0x8108|IntelGMA|GMA 500
 0x8109|IntelGMA|GMA 500
 0x2582|IntelGMA|GMA 900

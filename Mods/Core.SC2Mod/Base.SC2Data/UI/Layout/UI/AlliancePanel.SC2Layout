@@ -62,12 +62,8 @@
         </Frame>
     </Frame>        
    
-    <Frame type="AlliancePanel" name="AlliancePanelTemplate">
-        <Visible val="false"/>
-
-        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardSmallBackgroundFrameTemplate">
-            <Anchor relative="$parent"/>
-        </Frame>        
+    <Frame type="AlliancePanel" name="AlliancePanelTemplate" template="StandardTemplates/StandardSmallPanelTemplate">
+        <Visible val="false"/>           
        
         <Frame type="Frame" name="BatchPanel">
             <Anchor relative="$parent"/>            
@@ -95,50 +91,22 @@
                 <Anchor side="Right" relative="$parent/ControlHeader" pos="Min" offset="-10"/>
                 <Width val="170"/>
             </Frame>
+        </Frame>        
 
-            <Frame type="Frame" name="InfestationFrame" template="StandardTemplates/StandardSmallInfestationFrameTemplate">
-                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-30"/>
-            </Frame>
-            
-            <Frame type="Image" name="OkButtonBackground">
-                <Texture val="@@UI/InGameFrameSmallButtonBackground" layer="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-23"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="4"/>
-            </Frame>
+        <Frame type="ThumbButton" name="OkButton" template="StandardTemplates/StandardSmallPanelLeftButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="30"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="0"/>
+            <RenderPriority val="530"/>
+            <Shortcut val="@UI/Ok_Hotkey"/>
+            <Text val="@UI/Ok_Control"/>
+        </Frame>
 
-            <Frame type="ThumbButton" name="OkButton" template="StandardTemplates/StandardGamePanelSmallLeftButtonTemplate">
-                <Label val="OkButtonLabel"/>
-                <Anchor side="Bottom" relative="$parent/OkButtonBackground" pos="Max" offset="-34"/>
-                <Anchor side="Left" relative="$parent/OkButtonBackground" pos="Min" offset="42"/>
-                
-                <Frame type="Label" name="OkButtonLabel">
-                    <Text val="@UI/Ok"/>
-                    <Style val="GameFrameSmallBottomButton"/>
-                    <DescFlags val="Internal"/>
-                </Frame>
-            </Frame>
-
-            <Frame type="Image" name="CancelButtonBackground">
-                <Texture val="@@UI/InGameFrameSmallButtonBackground" layer="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-23"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-4"/>
-                <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
-            </Frame>
-            
-            <Frame type="ThumbButton" name="CancelButton" template="StandardTemplates/StandardGamePanelSmallRightButtonTemplate">
-                <Label val="CancelButtonLabel"/>
-                <Anchor side="Bottom" relative="$parent/CancelButtonBackground" pos="Max" offset="-34"/>
-                <Anchor side="Left" relative="$parent/CancelButtonBackground" pos="Min" offset="35"/>
-                
-                <Frame type="Label" name="CancelButtonLabel">
-                    <Text val="@UI/Cancel"/>
-                    <Style val="GameFrameSmallBottomButton"/>
-                    <DescFlags val="Internal"/>
-                </Frame>
-            </Frame>
+        <Frame type="ThumbButton" name="CancelButton" template="StandardTemplates/StandardSmallPanelRightButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="30"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="0"/>
+            <RenderPriority val="530"/>
+            <Shortcut val="@UI/Cancel_Hotkey"/>
+            <Text val="@UI/Cancel_Control"/>
         </Frame>
     </Frame>
 </Desc>

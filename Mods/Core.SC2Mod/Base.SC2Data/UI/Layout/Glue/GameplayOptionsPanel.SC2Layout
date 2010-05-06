@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-    <Constant name="VoiceColumnLeftMarginGap" val="30"/>
-    <Constant name="VoiceColumnLeftMarginIndentGap" val="70"/>
-    <Constant name="VoiceColumnRightMarginGap" val="-30"/>
+    <Constant name="GameplayColumnLeftMarginGap" val="30"/>
+    <Constant name="GameplayColumnLeftMarginIndentGap" val="70"/>
+    <Constant name="GameplayColumnRightMarginGap" val="-90"/>
+    <Constant name="GameplaySliderValueGap" val="10"/>
+    <Constant name="GameplayCheckBoxVerticalGap" val="1"/>
 
     <Frame type="Label" name="GameplayHeaderLabelTemplate">
         <Style val="StandardPanelHeader"/>
@@ -30,6 +32,7 @@
     <Frame type="GameplayOptionsPanel" name="GameplayOptionsPanelTemplate">
         <Frame type="Image" name="OuterBackground" template="StandardTemplates/StandardOuterBorderTemplate">
             <Anchor relative="$parent"/>
+            <RequiredDefines val="Terr|Zerg|Prot"/>
         </Frame>
 
         <Frame type="ThumbButton" name="RestoreButton" template="StandardTemplates/StandardButtonSmallTemplate">
@@ -49,7 +52,7 @@
             <Frame type="Label" name="MouseHeader" template="GameplayOptionsPanel/GameplayHeaderLabelTemplate">
                 <Text val="@UI/Mouse"/>
                 <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Image" name="MouseHeaderBackground">
@@ -63,26 +66,27 @@
             <Frame type="Label" name="MouseSensitivityLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
                 <Text val="@UI/MouseSensitivity_Colon"/>
                 <Anchor side="Top" relative="$parent/MouseHeader" pos="Max" offset="20"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Slider" name="MouseSensitivitySlider" template="GameplayOptionsPanel/GameplaySliderTemplate">
                 <MinValue val="0.000000"/>
                 <MaxValue val="100.000000"/>
                 <Anchor side="Top" relative="$parent/MouseSensitivityLabel" pos="Max" offset="3"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="#VoiceColumnRightMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#GameplayColumnRightMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/MouseSensitivity"/>
             </Frame>
 
             <Frame type="Label" name="MouseSensitivityValueLabel" template="GameplayOptionsPanel/GameplaySliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/MouseSensitivitySlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/MouseSensitivitySlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/MouseSensitivitySlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MouseSensitivitySlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/MouseSensitivitySlider" pos="Max" offset="#GameplaySliderValueGap"/>
             </Frame>
 
             <Frame type="CheckBox" name="MouseWheelZoomCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
                 <Anchor side="Top" relative="$parent/MouseSensitivitySlider" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/MouseWheelZoom"/>
             </Frame>
 
@@ -95,7 +99,7 @@
 
             <Frame type="CheckBox" name="ReduceMouseLagCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
                 <Anchor side="Top" relative="$parent/MouseWheelZoomCheckBox" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/ReduceMouseLag"/>
             </Frame>
 
@@ -116,7 +120,7 @@
             <Frame type="Label" name="ScrollingHeader" template="GameplayOptionsPanel/GameplayHeaderLabelTemplate">
                 <Text val="@UI/Scrolling"/>
                 <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Image" name="ScrollingHeaderBackground">
@@ -129,7 +133,7 @@
 
             <Frame type="CheckBox" name="MouseScrollEnabledCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
                 <Anchor side="Top" relative="$parent/ScrollingHeader" pos="Max" offset="20"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/MouseScrollEnabled"/>
             </Frame>
 
@@ -143,66 +147,69 @@
             <Frame type="Label" name="MouseScrollSpeedLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
                 <Text val="@UI/MouseScrollSpeed_Colon"/>
                 <Anchor side="Top" relative="$parent/MouseScrollEnabledLabel" pos="Max" offset="20"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Slider" name="MouseScrollSpeedSlider" template="GameplayOptionsPanel/GameplaySliderTemplate">
                 <MinValue val="1.000000"/>
                 <MaxValue val="100.000000"/>
                 <Anchor side="Top" relative="$parent/MouseScrollSpeedLabel" pos="Max" offset="3"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="#VoiceColumnRightMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#GameplayColumnRightMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/MouseScrollSpeed"/>
             </Frame>
 
             <Frame type="Label" name="MouseScrollSpeedValueLabel" template="GameplayOptionsPanel/GameplaySliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/MouseScrollSpeedSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/MouseScrollSpeedSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/MouseScrollSpeedSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MouseScrollSpeedSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/MouseScrollSpeedSlider" pos="Max" offset="#GameplaySliderValueGap"/>
             </Frame>
 
             <Frame type="Label" name="KeyboardScrollSpeedLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
                 <Text val="@UI/KeyboardScrollSpeed_Colon"/>
                 <Anchor side="Top" relative="$parent/MouseScrollSpeedLabel" pos="Max" offset="65"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Slider" name="KeyboardScrollSpeedSlider" template="GameplayOptionsPanel/GameplaySliderTemplate">
                 <MinValue val="1.000000"/>
                 <MaxValue val="100.000000"/>
                 <Anchor side="Top" relative="$parent/KeyboardScrollSpeedLabel" pos="Max" offset="3"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="#VoiceColumnRightMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#GameplayColumnRightMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/KeyboardScrollSpeed"/>
             </Frame>
 
             <Frame type="Label" name="KeyboardScrollSpeedValueLabel" template="GameplayOptionsPanel/GameplaySliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/KeyboardScrollSpeedSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/KeyboardScrollSpeedSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/KeyboardScrollSpeedSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/KeyboardScrollSpeedSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/KeyboardScrollSpeedSlider" pos="Max" offset="#GameplaySliderValueGap"/>
             </Frame>
 
             <Frame type="Label" name="DragScrollSpeedLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
                 <Text val="@UI/DragScrollSpeed_Colon"/>
                 <Anchor side="Top" relative="$parent/KeyboardScrollSpeedLabel" pos="Max" offset="65"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Slider" name="DragScrollSpeedSlider" template="GameplayOptionsPanel/GameplaySliderTemplate">
                 <MinValue val="1.000000"/>
                 <MaxValue val="100.000000"/>
                 <Anchor side="Top" relative="$parent/DragScrollSpeedLabel" pos="Max" offset="3"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="#VoiceColumnRightMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="#GameplayColumnRightMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/DragScrollSpeed"/>
             </Frame>
 
             <Frame type="Label" name="DragScrollSpeedValueLabel" template="GameplayOptionsPanel/GameplaySliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/DragScrollSpeedSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/DragScrollSpeedSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/DragScrollSpeedSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/DragScrollSpeedSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/DragScrollSpeedSlider" pos="Max" offset="#GameplaySliderValueGap"/>
             </Frame>
 
             <Frame type="CheckBox" name="DragScrollInvertedCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
                 <Anchor side="Top" relative="$parent/DragScrollSpeedSlider" pos="Max" offset="20"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/DragScrollInverted"/>
             </Frame>
 
@@ -223,7 +230,7 @@
             <Frame type="Label" name="GameplayHeader" template="GameplayOptionsPanel/GameplayHeaderLabelTemplate">
                 <Text val="@UI/Gameplay"/>
                 <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Image" name="GameplayHeaderBackground">
@@ -237,7 +244,7 @@
             <Frame type="Label" name="UnitStatusLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
                 <Text val="@UI/UnitStatus_Colon"/>
                 <Anchor side="Top" relative="$parent/GameplayHeader" pos="Max" offset="20"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Pulldown" name="UnitStatusPulldown" template="GameplayOptionsPanel/GameplayPulldownTemplate">
@@ -247,8 +254,8 @@
             </Frame>
 
             <Frame type="CheckBox" name="MenuBarClickableCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
-                <Anchor side="Top" relative="$parent/UnitStatusPulldown" pos="Max" offset="20"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Top" relative="$parent/UnitStatusPulldown" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/MenuBarClickable"/>
             </Frame>
 
@@ -260,8 +267,8 @@
             </Frame>
 
             <Frame type="CheckBox" name="CameraSmartPanCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
-                <Anchor side="Top" relative="$parent/MenuBarClickableCheckBox" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Top" relative="$parent/MenuBarClickableCheckBox" pos="Max" offset="#GameplayCheckBoxVerticalGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/SmartPan"/>
             </Frame>
 
@@ -273,8 +280,8 @@
             </Frame>
 
             <Frame type="CheckBox" name="BuildGridHintCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
-                <Anchor side="Top" relative="$parent/CameraSmartPanCheckBox" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Top" relative="$parent/CameraSmartPanCheckBox" pos="Max" offset="#GameplayCheckBoxVerticalGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/GridHint"/>
             </Frame>
 
@@ -285,9 +292,48 @@
                 <Anchor side="Left" relative="$parent/BuildGridHintCheckBox" pos="Max" offset="10"/>
             </Frame>
 
+            <Frame type="CheckBox" name="ShowAlertsCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/BuildGridHintCheckBox" pos="Max" offset="#GameplayCheckBoxVerticalGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
+                <Tooltip val="@UI/GameplayOptionsTooltips/ShowAlerts"/>
+            </Frame>
+
+            <Frame type="Label" name="ShowAlertsLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
+                <Text val="@UI/ShowAlerts_Colon"/>
+                <Anchor side="Top" relative="$parent/ShowAlertsCheckBox" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/ShowAlertsCheckBox" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/ShowAlertsCheckBox" pos="Max" offset="10"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="WorldObjectTooltipsCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/ShowAlertsCheckBox" pos="Max" offset="#GameplayCheckBoxVerticalGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
+                <Tooltip val="@UI/GameplayOptionsTooltips/WorldObjectTooltips"/>
+            </Frame>
+
+            <Frame type="Label" name="WorldObjectTooltipsLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
+                <Text val="@UI/WorldObjectTooltips_Colon"/>
+                <Anchor side="Top" relative="$parent/WorldObjectTooltipsCheckBox" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/WorldObjectTooltipsCheckBox" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/WorldObjectTooltipsCheckBox" pos="Max" offset="10"/>
+            </Frame>
+
+            <Frame type="CheckBox" name="FlyerHelperEnabledCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
+                <Anchor side="Top" relative="$parent/WorldObjectTooltipsCheckBox" pos="Max" offset="#GameplayCheckBoxVerticalGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
+                <Tooltip val="@UI/GameplayOptionsTooltips/FlyerHelperEnabled"/>
+            </Frame>
+
+            <Frame type="Label" name="FlyerHelperEnabledLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
+                <Text val="@UI/ShowFlyerHelper"/>
+                <Anchor side="Top" relative="$parent/FlyerHelperEnabledCheckBox" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/FlyerHelperEnabledCheckBox" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/FlyerHelperEnabledCheckBox" pos="Max" offset="10"/>
+            </Frame>
+
             <Frame type="CheckBox" name="SubtitlesCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
-                <Anchor side="Top" relative="$parent/BuildGridHintCheckBox" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Top" relative="$parent/FlyerHelperEnabledCheckBox" pos="Max" offset="#GameplayCheckBoxVerticalGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/Subtitles"/>
             </Frame>
 
@@ -299,8 +345,8 @@
             </Frame>
 
             <Frame type="CheckBox" name="AltTabDisableCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
-                <Anchor side="Top" relative="$parent/SubtitlesLabel" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Top" relative="$parent/SubtitlesLabel" pos="Max" offset="#GameplayCheckBoxVerticalGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/AltTabDisable"/>
             </Frame>
 
@@ -312,8 +358,8 @@
             </Frame>
 
             <Frame type="CheckBox" name="WinKeyDisableCheckBox" template="GameplayOptionsPanel/GameplayCheckBoxTemplate">
-                <Anchor side="Top" relative="$parent/AltTabDisableLabel" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Top" relative="$parent/AltTabDisableLabel" pos="Max" offset="#GameplayCheckBoxVerticalGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/WinKeyDisable"/>
             </Frame>
 
@@ -328,7 +374,7 @@
                 <CollapseLayout val="true"/>
                 <Text val="@UI/GameSpeed_Colon"/>
                 <Anchor side="Top" relative="$parent/WinKeyDisableLabel" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Slider" name="GameSpeedSlider" template="GameplayOptionsPanel/GameplaySliderTemplate">
@@ -353,12 +399,12 @@
 
             <Frame type="Label" name="SpeechLocaleLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
                 <Text val="@UI/SpeechLocale_Colon"/>
-                <Anchor side="Top" relative="$parent/GameSpeedSlider" pos="Max" offset="10"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Top" relative="$parent/GameSpeedSlider" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Pulldown" name="SpeechLocalePulldown" template="GameplayOptionsPanel/GameplayPulldownTemplate">
-                <Anchor side="Top" relative="$parent/SpeechLocaleLabel" pos="Max" offset="5"/>
+                <Anchor side="Top" relative="$parent/SpeechLocaleLabel" pos="Max" offset="2"/>
                 <Anchor side="Left" relative="$parent/SpeechLocaleLabel" pos="Min" offset="0"/>
                 <MenuMaxHeight val="200"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/SpeechLocale"/>
@@ -368,11 +414,11 @@
             <Frame type="Label" name="TextLocaleLabel" template="GameplayOptionsPanel/GameplayLabelTemplate">
                 <Text val="@UI/TextLocale_Colon"/>
                 <Anchor side="Top" relative="$parent/SpeechLocalePulldown" pos="Max" offset="5"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="#VoiceColumnLeftMarginGap"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="#GameplayColumnLeftMarginGap"/>
             </Frame>
 
             <Frame type="Pulldown" name="TextLocalePulldown" template="GameplayOptionsPanel/GameplayPulldownTemplate">
-                <Anchor side="Top" relative="$parent/TextLocaleLabel" pos="Max" offset="5"/>
+                <Anchor side="Top" relative="$parent/TextLocaleLabel" pos="Max" offset="2"/>
                 <Anchor side="Left" relative="$parent/TextLocaleLabel" pos="Min" offset="0"/>
                 <MenuMaxHeight val="200"/>
                 <Tooltip val="@UI/GameplayOptionsTooltips/TextLocale"/>

@@ -1,197 +1,310 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-    <Frame type="ChallengeListBoxItem" name="ChallengeListBoxItem">
-        <Frame type="Image" name="Background">
-            <Anchor relative="$parent"/>
-            <Texture val="@@UI/ChallengeListBoxItemBackground" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-            <StateCount val="2" layer="0"/>
+    <Frame type="ThumbButton" name="ChallengeButtonTemplate">        
+        <Height val="86"/>
+        <Width val="275"/>
+        <NormalImage val="NormalImage"/>
+        <HoverImage val="HoverImage"/>
+        <Label val="ButtonLabel"/>
+        <HighlightOnHover val="true"/>
+        <HighlightOnFocus val="true"/>
+        <ClickSound val="@UI_ActionButtonSelect"/>
+        <HoverSound val="@UI_ActionButtonHover"/>
+        
+        <Frame type="Image" name="NormalImage">
+            <Texture val="@@UI/ChallengeButtonNormal"/>            
+            <StateCount val="3"/>            
+            <DescFlags val="Internal"/>
         </Frame>
 
-        <Frame type="Image" name="MiniMapBackground">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+        <Frame type="Image" name="HoverImage">
+            <Texture val="@@UI/ChallengeButtonHover"/>
+            <StateCount val="3"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Label" name="ButtonLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
-            <Height val="142"/>
-            <Width val="142"/>
-            
-            <Texture val="@@UI/ChallengeListBoxItemMapImageBackground" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Style val="ChallengePanelButton"/>
+            <DescFlags val="Internal"/>
         </Frame>
-
-        <Frame type="Minimap" name="MinimapImage">
-            <Anchor side="Top" relative="$parent/MiniMapBackground" pos="Min" offset="8"/>
-            <Anchor side="Bottom" relative="$parent/MiniMapBackground" pos="Max" offset="-8"/>
-            <Anchor side="Left" relative="$parent/MiniMapBackground" pos="Min" offset="8"/>
-            <Anchor side="Right" relative="$parent/MiniMapBackground" pos="Max" offset="-8"/>
-        </Frame>
-        
-        <Frame type="Image" name="VerticalDivider">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="25"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-25"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-240"/>
-            <Texture val="@@UI/ChallengeListBoxItemVerticalDivider" layer="0"/>            
-        </Frame>
-        
-        <Frame type="Label" name="MapName">
-            <Style val="ChallengePanelListItemTitle"/>
-            <Anchor side="Top" relative="$parent/MiniMapBackground" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent/MiniMapBackground" pos="Max" offset="10"/>
-            <Anchor side="Right" relative="$parent/VerticalDivider" pos="Min" offset="-10"/>
-        </Frame>
-
-        <Frame type="Image" name="HorizontalDivider">
-            <Anchor side="Bottom" relative="$parent/MapName" pos="Max" offset="10"/>
-            <Anchor side="Left" relative="$parent/MapName" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/VerticalDivider" pos="Min" offset="-5"/>
-            <Texture val="@@UI/ChallengeListBoxItemHorizontalDivider" layer="0"/>
-        </Frame>
-        
-        <Frame type="Label" name="MapDescription">
-            <Style val="ChallengePanelListItemDescription"/>
-            <Anchor side="Top" relative="$parent/MapName" pos="Max" offset="15"/>
-            <Anchor side="Left" relative="$parent/MapName" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/VerticalDivider" pos="Min" offset="-10"/>
-        </Frame>
-
-        <Frame type="Label" name="BestScoreLabel">
-            <Style val="ChallengePanelListItemBestScoreLabel"/>
-            <Anchor side="Top" relative="$parent" pos="Min" offset="30"/>
-            <Anchor side="Left" relative="$parent/VerticalDivider" pos="Max" offset="5"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
-        </Frame>
-        
-        <Frame type="Label" name="BestScoreValue">
-            <Style val="ChallengePanelListItemBestScoreValue"/>
-            <Anchor side="Top" relative="$parent/BestScoreLabel" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/BestScoreLabel" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/BestScoreLabel" pos="Max" offset="0"/>
-        </Frame>
-
-        <Frame type="Label" name="FriendRankLabel">
-            <Style val="ChallengePanelListItemFriendRankLabel"/>
-            <Anchor side="Top" relative="$parent/BestScoreValue" pos="Max" offset="10"/>
-            <Anchor side="Left" relative="$parent/BestScoreLabel" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/BestScoreLabel" pos="Max" offset="0"/>
-            <Text val="@UI/FriendRank_Colon"/>
-        </Frame>
-        
-        <Frame type="Label" name="FriendRankValue">
-            <Style val="ChallengePanelListItemFriendRankValue"/>
-            <Anchor side="Top" relative="$parent/FriendRankLabel" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/BestScoreLabel" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/BestScoreLabel" pos="Max" offset="0"/>
-        </Frame>
-
-        <Frame type="Label" name="CompletedLabel">
-            <Style val="ChallengePanelListItemCompletedLabel"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>            
-            <Anchor side="Left" relative="$parent/BestScoreLabel" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/BestScoreLabel" pos="Max" offset="0"/>
-            <Text val="@UI/ChallengeCompleted"/>
-        </Frame>
-        
-        <Frame type="Label" name="DifficultyValue">
-            <Style val="ChallengePanelListItemDifficultyValue"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
-            <Anchor side="Right" relative="$parent/VerticalDivider" pos="Max" offset="-30"/>            
-        </Frame>
-        
-        <Frame type="Label" name="DifficultyLabel">
-            <Style val="ChallengePanelListItemDifficultyLabel"/>
-            <Anchor side="Bottom" relative="$parent/DifficultyValue" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent/DifficultyValue" pos="Min" offset="-10"/>
-            <Text val="@UI/ChallengeDifficulty_Colon"/>
-        </Frame>
-
-    </Frame>
-
-    <Frame type="Image" name="ScrollBarBackgroundImage">
-        <Texture val="@@UI/ScrollBarBackground" layer="0"/>
-        <TextureType val="Border" layer="0"/>
-        <Tiled val="true" layer="0"/>
-        <DescFlags val="Internal"/>
-    </Frame>
-
-    <Frame type="Image" name="ScrollBarThumbImage">
-        <Texture val="@@UI/ScrollBarThumb" layer="0"/>
-        <TextureType val="Border" layer="0"/>
-        <Tiled val="true" layer="0"/>
-        <DescFlags val="Internal"/>
-    </Frame>
-
-    <Frame type="ThumbButton" name="ScrollBarThumbButton">
-        <NormalImage val="$root/ChallengePanel/ScrollBarThumbImage"/>
-        <HoverImage val="$root/ChallengePanel/ScrollBarThumbImage"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <Width val="32"/>
-        <Height val="32"/>
-        <DescFlags val="Internal"/>
-    </Frame>
-
-    <Frame type="Image" name="ScrollBarIncrementImageNormal">
-        <Texture val="@@UI/ScrollBarIncrementButtonNormal" layer="0"/>        
-        <StateCount val="2" layer="0"/>        
-        <DescFlags val="Internal"/>
-    </Frame>
-
-    <Frame type="Image" name="ScrollBarIncrementImageHover">
-        <Texture val="@@UI/ScrollBarIncrementButtonHover" layer="0"/>
-        <StateCount val="2" layer="0"/>
-        <DescFlags val="Internal"/>
     </Frame>
     
-    <Frame type="Image" name="ScrollBarDecrementImageNormal">
-        <Texture val="@@UI/ScrollBarIncrementButtonNormal" layer="0"/>
-        <TextureCoords top="1.0" left="0.0" bottom="0.0" right="1.0" layer="0"/>
-        <StateCount val="2" layer="0"/>        
-        <DescFlags val="Internal"/>
+    <Frame type="ChallengeFrame" name="ChallengeFrameTemplate">
+        <Height val="80"/>
+        <Width val="270"/>
+        <Visible val="false"/>
+        
+        <Frame type="ThumbButton" name="Button" template="ChallengePanel/ChallengeButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
+        </Frame>
+
+        <Frame type="Image" name="CheckmarkImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>            
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@@UI/ChallengeFrameCheckmark"/>
+        </Frame>
     </Frame>
 
-    <Frame type="Image" name="ScrollBarDecrementImageHover">
-        <Texture val="@@UI/ScrollBarIncrementButtonHover" layer="0"/>
-        <TextureCoords top="1.0" left="0.0" bottom="0.0" right="1.0" layer="0"/>
-        <StateCount val="2" layer="0"/>
-        <DescFlags val="Internal"/>
-    </Frame>
-    
-    <Frame type="ThumbButton" name="ScrollBarIncrementButton">
-        <NormalImage val="$root/ChallengePanel/ScrollBarIncrementImageNormal"/>
-        <HoverImage val="$root/ChallengePanel/ScrollBarIncrementImageHover"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <Width val="32"/>
-        <Height val="32"/>
-        <DescFlags val="Internal"/>
+    <Frame type="ChallengeCategoryFrame" name="ChallengeCategoryFrameTemplate">
+        <Height val="280"/>
+        <Width val="280"/>
+        <Visible val="false"/>
+        
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@@UI/ChallengeCategoryFrameBorder"/>
+            <TextureType val="HorizontalBorder"/>
+            <LayerColor val="01548e"/>
+        </Frame>
+
+        <Frame type="Image" name="NameBackgroundImage">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="-20"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Mid" offset="0"/>
+            <Texture val="@@UI/ChallengeTextBackground"/>
+            <LayerColor val="48c8f8"/>
+            <StateCount val="2"/>
+        </Frame>
+        
+        <Frame type="Label" name="NameLabel">
+            <Anchor side="Top" relative="$parent/NameBackgroundImage" pos="Min" offset="17"/>
+            <Anchor side="Left" relative="$parent/NameBackgroundImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/NameBackgroundImage" pos="Mid" offset="0"/>
+            <Style val="ChallengePanelCategoryName"/>            
+        </Frame>
+
+        <Frame type="ChallengeFrame" name="ChallengeFrame0" template="ChallengePanel/ChallengeFrameTemplate">            
+            <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
+        </Frame>
+
+        <Frame type="ChallengeFrame" name="ChallengeFrame1" template="ChallengePanel/ChallengeFrameTemplate">
+            <Anchor side="Top" relative="$parent/ChallengeFrame0" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        </Frame>
+
+        <Frame type="ChallengeFrame" name="ChallengeFrame2" template="ChallengePanel/ChallengeFrameTemplate">
+            <Anchor side="Top" relative="$parent/ChallengeFrame1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        </Frame>
     </Frame>
 
-    <Frame type="ThumbButton" name="ScrollBarDecrementButton">
-        <NormalImage val="$root/ChallengePanel/ScrollBarDecrementImageNormal"/>
-        <HoverImage val="$root/ChallengePanel/ScrollBarDecrementImageHover"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <Width val="32"/>
-        <Height val="32"/>
-        <DescFlags val="Internal"/>
+    <Frame type="ChallengeInfoFrame" name="ChallengeInfoFrameTemplate">
+        <Height val="600"/>
+        <Width val="350"/>
+        <Visible val="false"/>
+        
+        <Frame type="Label" name="NameLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Style val="ChallengePanelInfoFrameName"/>
+        </Frame>
+
+        <Frame type="Frame" name="ThumbnailContainerFrame">
+            <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="40"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="200"/>
+            <Width val="300"/>           
+
+            <Frame type="Image" name="ThumbnailImage">
+                <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <TextureType val="Normal"/>
+                <Visible val="false"/>
+            </Frame>
+        </Frame>
+
+        <Frame type="Image" name="ThumbnailBorderImage">
+            <Anchor side="Top" relative="$parent/ThumbnailContainerFrame" pos="Min" offset="-5"/>
+            <Anchor side="Bottom" relative="$parent/ThumbnailContainerFrame" pos="Max" offset="5"/>
+            <Anchor side="Left" relative="$parent/ThumbnailContainerFrame" pos="Min" offset="-5"/>
+            <Anchor side="Right" relative="$parent/ThumbnailContainerFrame" pos="Max" offset="5"/>            
+            <Texture val="@@UI/ChallengeInfoFrameThumbnailBackground"/>
+            <TextureType val="HorizontalBorder"/>
+            <LayerColor val="0885bd"/>
+        </Frame>
+        
+        <Frame type="Label" name="DescriptionLabel">
+            <Anchor side="Top" relative="$parent/ThumbnailBorderImage" pos="Max" offset="20"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="120"/>
+            <Width val="300"/>
+            <Style val="ChallengePanelInfoFrameDescription"/>
+        </Frame>
+
+        <Frame type="Label" name="ScoreLabel">
+            <Anchor side="Top" relative="$parent/DescriptionLabel" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="55"/>
+            <Width val="300"/>
+            <Style val="ChallengePanelInfoFrameScore"/>
+        </Frame>
+        
+        <Frame type="Image" name="AchievementBorderImage">
+            <Anchor side="Top" relative="$parent/ScoreLabel" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-30"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
+            <Width val="300"/>
+            <Texture val="@@UI/ChallengeCategoryFrameBorder"/>
+            <TextureType val="HorizontalBorder"/>
+            <LayerColor val="01548e"/>
+        </Frame>
+
+        <Frame type="Image" name="AchievementImage0">
+            <Anchor side="Top" relative="$parent/AchievementBorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AchievementBorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/AchievementBorderImage" pos="Min" offset="20"/>                                    
+            <TextureType val="Normal"/>
+            <Visible val="false"/>
+        </Frame>
+
+        <Frame type="Image" name="AchievementImage1">
+            <Anchor side="Top" relative="$parent/AchievementImage0" pos="Min" offset="0"/>            
+            <Anchor side="Left" relative="$parent/AchievementImage0" pos="Max" offset="30"/>
+            <TextureType val="Normal"/>
+            <Visible val="false"/>
+        </Frame>
+
+        <Frame type="Image" name="AchievementImage2">
+            <Anchor side="Top" relative="$parent/AchievementImage1" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/AchievementImage1" pos="Max" offset="30"/>
+            <TextureType val="Normal"/>
+            <Visible val="false"/>
+        </Frame>
     </Frame>
     
     <Frame type="ChallengePanel" name="ChallengePanel">
-        <Frame type="ListBox" name="MapListBox" template="StandardTemplates/StandardListBoxTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-170"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-            <ItemDesc val="ChallengePanel/ChallengeListBoxItem"/>
-            <ItemHeight val="200"/>
-            <SelectedImage val="SelectedChallengeImage"/>
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@@UI/GlueCampaignPanelBackground"/>
+        </Frame>
 
-            <Frame type="Image" name="SelectedChallengeImage">
-                <Alpha val="0"/>
-                <DescFlags val="Internal"/>
+        <Frame type="Label" name="TitleLabel">
+            <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="40"/>
+            <Style val="GlueTitle"/>
+            <Text val="@UI/ChallengePanelTitle"/>
+        </Frame>
+
+        <Frame type="Image" name="InfoBucketRightImage">
+            <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="75"/>
+            <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="-75"/>
+            <Texture val="@@UI/StandardLargeGlueBucketRight"/>
+        </Frame>
+
+        <Frame type="Image" name="InfoBucketMiddleImage">
+            <Anchor side="Top" relative="$parent/InfoBucketRightImage" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/InfoBucketRightImage" pos="Min" offset="0"/>
+            <Width val="90"/>
+            <Texture val="@@UI/StandardLargeGlueBucketMiddle"/>
+        </Frame>
+        
+        <Frame type="Image" name="InfoBucketLeftImage">
+            <Anchor side="Top" relative="$parent/InfoBucketMiddleImage" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/InfoBucketMiddleImage" pos="Min" offset="0"/>
+            <Texture val="@@UI/StandardLargeGlueBucketLeft"/>
+        </Frame>
+
+        <Frame type="Image" name="MasterAchievementImage">
+            <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="120"/>            
+            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="525"/>            
+            <TextureType val="Normal"/>
+            <Visible val="false"/>
+        </Frame>
+        
+        <Frame type="Image" name="AchievementProgressBackgroundImage">
+            <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="272"/>
+            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="80"/>
+            <Texture val="@@UI/ChallengeProgressBarBackground" layer="0"/>
+        </Frame>
+        
+        <Frame type="Image" name="AchievementProgressBarBackgroundImage">
+            <Anchor side="Top" relative="$parent/AchievementProgressBackgroundImage" pos="Min" offset="29"/>            
+            <Anchor side="Left" relative="$parent/AchievementProgressBackgroundImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/AchievementProgressBackgroundImage" pos="Mid" offset="0"/>
+            <Width val="500"/>
+            <Height val="40"/>
+            <Texture val="@@UI/StandardSlider" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>            
+        </Frame>
+
+        <Frame type="Frame" name="AchievementProgressBarContainer">
+            <Anchor side="Top" relative="$parent/AchievementProgressBarBackgroundImage" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/AchievementProgressBarBackgroundImage" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/AchievementProgressBarBackgroundImage" pos="Min" offset="3"/>
+            <Anchor side="Right" relative="$parent/AchievementProgressBarBackgroundImage" pos="Max" offset="-7"/>
+
+            <Frame type="Image" name="AchievementProgressBarImage">
+                <Anchor relative="$parent"/>               
+                <Texture val="@@UI/StandardSliderFill" layer="0"/>
+                <TextureType val="Border" layer="0"/>
+                <Tiled val="true" layer="0"/>
             </Frame>
+        </Frame>        
+
+        <Frame type="Label" name="AchievementProgressLabel">
+            <Anchor side="Bottom" relative="$parent/AchievementProgressBarBackgroundImage" pos="Min" offset="0"/>          
+            <Anchor side="Right" relative="$parent/AchievementProgressBarBackgroundImage" pos="Max" offset="0"/>            
+            <Style val="ChallengePanelAchievementProgress"/>
+        </Frame>
+        
+        <Frame type="ChallengeCategoryFrame" name="ChallengeCategoryFrame0" template="ChallengePanel/ChallengeCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="366"/>
+            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="130"/>
+        </Frame>
+
+        <Frame type="ChallengeCategoryFrame" name="ChallengeCategoryFrame1" template="ChallengePanel/ChallengeCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/ChallengeCategoryFrame0" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ChallengeCategoryFrame0" pos="Max" offset="10"/>
+        </Frame>
+
+        <Frame type="ChallengeCategoryFrame" name="ChallengeCategoryFrame2" template="ChallengePanel/ChallengeCategoryFrameTemplate">
+            <Anchor side="Top" relative="$parent/ChallengeCategoryFrame1" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/ChallengeCategoryFrame1" pos="Max" offset="10"/>
+        </Frame>
+        
+        <Frame type="ChallengeInfoFrame" name="ChallengeInfoFrame" template="ChallengePanel/ChallengeInfoFrameTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="95"/>            
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-90"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="PlayButton" template="StandardTemplates/StandardButtonAlternateTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-30"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="80"/>
+            <Text val="@UI/ChallengePanelPlay_Control"/>
+            <Shortcut val="@UI/ChallengePanelPlay_Hotkey"/>
+            <Width val="300"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="BackButton" template="StandardTemplates/StandardButtonTemplate">
+            <Anchor side="Top" relative="$parent/PlayButton" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent/PlayButton" pos="Max" offset="80"/>
+            <Text val="@UI/ChallengePanelBack_Control"/>
+            <Shortcut val="@UI/ChallengePanelBack_Hotkey"/>
+            <Width val="300"/>
         </Frame>
     </Frame>
 </Desc>

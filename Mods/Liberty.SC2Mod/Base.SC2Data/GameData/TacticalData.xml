@@ -63,9 +63,21 @@
         <Abil value="MissilePods"/>
         <TargetFind value="MissilePods"/>
     </CTacticalOrder>
+    <CTacticalOrder id="Loki">
+        <Abil value="LokiMissilePods"/>
+        <TargetFind value="LokiMissilePods"/>
+    </CTacticalOrder>
     <CTacticalOrder id="Marine">
         <Abil value="StimPack"/>
         <Validator value="TacticalStimPack"/>
+    </CTacticalOrder>
+    <CTacticalOrder id="Marauder">
+        <Abil value="StimPack"/>
+        <Validator value="TacticalStimPack"/>
+    </CTacticalOrder>
+    <CTacticalOrder id="DominionKillTeam">
+        <Abil value="StimPack"/>
+        <Validator value="DomTacticalStimPack"/>
     </CTacticalOrder>
     <CTacticalOrder id="Carrier">
         <Abil value="CarrierHangar"/>
@@ -208,6 +220,14 @@
     <CTacticalOrder id="LurkerBurrowed">
         <Abil value="BurrowLurkerUp"/>
         <Validator value="TacticalBurrowLurkerUp"/>
+    </CTacticalOrder>
+    <CTacticalOrder id="Queen">
+        <Abil value="BurrowQueenDown"/>
+        <Validator value="TacticalBurrowQueenDown"/>
+    </CTacticalOrder>
+    <CTacticalOrder id="QueenBurrowed">
+        <Abil value="BurrowQueenUp"/>
+        <Validator value="TacticalBurrowQueenUp"/>
     </CTacticalOrder>
     <CTacticalOrder id="Zergling">
         <Abil value="BurrowZerglingDown"/>

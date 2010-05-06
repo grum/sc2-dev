@@ -50,6 +50,28 @@
         <FogStartingHeight value="-5.000000"/>
         <ReverbAmbient value="BetaVerb"/>
     </CTerrain>
+    <CTerrain id="Char">
+        <EditorCategories value="Climate:Volcanic"/>
+        <FixedSkyboxModel value="CharSkyBox"/>
+        <BlendTextures value="CharDirtLight"/>
+        <BlendTextures value="CharDirt"/>
+        <BlendTextures value="CharDirtCracked"/>
+        <BlendTextures value="CharSponge"/>
+        <BlendTextures value="CharMud"/>
+        <BlendTextures value="CharRock"/>
+        <BlendTextures value="CharRedCracks"/>
+        <BlendTextures value="CharLavaCracks"/>
+        <CliffSets value="CharCliff0"/>
+        <CliffSets value="CharCliff1"/>
+        <HardTiles value="MarSaraTile"/>
+        <Ambience value="Ambience_Char"/>
+        <FogEnabled value="1"/>
+        <FogColor value="255,255,54,54"/>
+        <FogDensity value="0.160000"/>
+        <FogFalloff value="0.350000"/>
+        <FogStartingHeight value="-0.900000"/>
+        <ReverbAmbient value="BetaVerb"/>
+    </CTerrain>
     <CTerrain id="Korhal">
         <EditorCategories value="Climate:Urban"/>
         <BlendTextures value="Korhal1"/>
@@ -155,6 +177,27 @@
         <FogColor value="255,45,68,86"/>
         <FogDensity value="0.060000"/>
         <FogFalloff value="0.200000"/>
+        <FogStartingHeight value="-0.900000"/>
+        <ReverbAmbient value="BetaVerb"/>
+    </CTerrain>
+    <CTerrain id="Tarsonis">
+        <EditorCategories value="Climate:Urban"/>
+        <BlendTextures value="TarsonisDirt"/>
+        <BlendTextures value="TarsonisDirtRough"/>
+        <BlendTextures value="TarsonisGrass"/>
+        <BlendTextures value="TarsonisCracks"/>
+        <BlendTextures value="TarsonisRubble"/>
+        <BlendTextures value="TarsonisConcrete"/>
+        <BlendTextures value="TarsonisDetail"/>
+        <BlendTextures value="TarsonisPlating"/>
+        <CliffSets value="TarsonisCliff0"/>
+        <CliffSets value="TarsonisCliff1"/>
+        <HardTiles value="TarsonisRail"/>
+        <Ambience value="Ambience_Tarsonis"/>
+        <FogEnabled value="1"/>
+        <FogColor value="255,3,65,114"/>
+        <FogDensity value="0.050000"/>
+        <FogFalloff value="0.150000"/>
         <FogStartingHeight value="-0.900000"/>
         <ReverbAmbient value="BetaVerb"/>
     </CTerrain>

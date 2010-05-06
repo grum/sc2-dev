@@ -4,6 +4,14 @@
         <OperandArray value="CountUnitFleetBeaconCompleteOnly"/>
         <OperandArray value="Eq1228785331CountUnitMothershipQueuedOrBetter0"/>
     </CRequirementAnd>
+    <CRequirementAnd id="And3124702931CountUnitSpawningPoolCompleteOnlyCountUpgradeObverseIncubationCompleteOnly">
+        <OperandArray value="CountUnitSpawningPoolCompleteOnly"/>
+        <OperandArray value="CountUpgradeObverseIncubationCompleteOnly"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="And3124702931CountUnitSpawningPoolCompleteOnlyNotCountUpgradeObverseIncubationCompleteOnly">
+        <OperandArray value="CountUnitSpawningPoolCompleteOnly"/>
+        <OperandArray value="NotCountUpgradeObverseIncubationCompleteOnly"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndEq1004646809CountUpgradeTerranShipWeaponsLevel2CompleteOnly1">
         <OperandArray value="Eq1004646809CountUpgradeTerranShipWeaponsLevel2CompleteOnly1"/>
     </CRequirementAnd>
@@ -99,6 +107,9 @@
     <CRequirementCountUnit id="CountUnitNukeCompleteOnly2567665972">
         <Count Link="Nuke" State="CompleteOnly"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitSpawningPoolCompleteOnly">
+        <Count Link="SpawningPool" State="CompleteOnly"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitTwilightCouncilCompleteOnly">
         <Count Link="TwilightCouncil" State="CompleteOnly"/>
     </CRequirementCountUnit>
@@ -177,6 +188,12 @@
     <CRequirementCountUpgrade id="CountUpgradeMedivacCaduceusReactorQueuedOrBetter">
         <Count Link="MedivacCaduceusReactor" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeObverseIncubationCompleteOnly">
+        <Count Link="ObverseIncubation" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeObverseIncubationQueuedOrBetter">
+        <Count Link="ObverseIncubation" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeOrganicCarapaceCompleteOnly">
         <Count Link="OrganicCarapace" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
@@ -186,8 +203,8 @@
     <CRequirementCountUpgrade id="CountUpgradeProtossShieldsLevel2QueuedOrBetter">
         <Count Link="ProtossShieldsLevel2" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradePunisherGrenadesCompleteOnly627199108">
-        <Tooltip value="RequirementNode/Tooltip/CountUpgradePunisherGrenadesCompleteOnly627199108"/>
+    <CRequirementCountUpgrade id="CountUpgradePunisherGrenadesCompleteOnly679349">
+        <Tooltip value="RequirementNode/Tooltip/CountUpgradePunisherGrenadesCompleteOnly679349"/>
         <Count Link="PunisherGrenades" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradePunisherGrenadesQueuedOrBetter">
@@ -309,6 +326,12 @@
     <CRequirementNot id="NotCountUpgradeMedivacCaduceusReactorQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeMedivacCaduceusReactorQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeObverseIncubationCompleteOnly">
+        <OperandArray index="0" value="CountUpgradeObverseIncubationCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeObverseIncubationQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeObverseIncubationQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradePunisherGrenadesQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradePunisherGrenadesQueuedOrBetter"/>
     </CRequirementNot>
@@ -336,6 +359,10 @@
     <CRequirementNot id="NotCountUpgradeoverlordtransportQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeoverlordtransportQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementOr id="Or1515591279CountUnitHiveCompleteOnlyCountUnitLairCompleteOnly">
+        <OperandArray value="CountUnitHiveCompleteOnly"/>
+        <OperandArray value="CountUnitLairCompleteOnly"/>
+    </CRequirementOr>
     <CRequirementCountUpgrade id="UpgradeRazorPlagueTechQueuedOrBetter">
         <Count Link="RazorTech" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>

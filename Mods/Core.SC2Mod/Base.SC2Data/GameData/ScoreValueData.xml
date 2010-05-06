@@ -9,11 +9,17 @@
     <CScoreValueStandard id="APM">
         <Value value="APM"/>
     </CScoreValueStandard>
+    <CScoreValueStandard id="UncontestedCombatTime">
+        <Value value="UncontestedCombatTime"/>
+    </CScoreValueStandard>
     <CScoreValueStandard id="IdleProductionTime">
         <Value value="IdleProductionTime"/>
     </CScoreValueStandard>
     <CScoreValueStandard id="IdleWorkerTime">
         <Value value="IdleWorkerTime"/>
+    </CScoreValueStandard>
+    <CScoreValueStandard id="UnitKillsPeakCount">
+        <Value value="UnitKillsPeakCount"/>
     </CScoreValueStandard>
     <CScoreValueStandard id="UnitsTotalCount">
         <Icon value="Assets\Textures\ui_scorescreen_categoryicon_unit.dds"/>
@@ -36,6 +42,9 @@
     <CScoreValueStandard id="UnitsPeakCount">
         <Value value="UnitsPeakCount"/>
     </CScoreValueStandard>
+    <CScoreValueStandard id="UnitsInProgressCount">
+        <Value value="UnitsInProgressCount"/>
+    </CScoreValueStandard>
     <CScoreValueStandard id="UnitsActiveCount">
         <Value value="UnitsActiveCount"/>
     </CScoreValueStandard>
@@ -53,9 +62,6 @@
     </CScoreValueStandard>
     <CScoreValueStandard id="UnitsPeakValue">
         <Value value="UnitsPeakValue"/>
-    </CScoreValueStandard>
-    <CScoreValueStandard id="UnitsActiveValue">
-        <Value value="UnitsActiveValue"/>
     </CScoreValueStandard>
     <CScoreValueStandard id="StructuresTotalCount">
         <Icon value="Assets\Textures\ui_scorescreen_categoryicon_building.dds"/>
@@ -96,9 +102,6 @@
     <CScoreValueStandard id="StructuresPeakValue">
         <Value value="StructuresPeakValue"/>
     </CScoreValueStandard>
-    <CScoreValueStandard id="StructuresActiveValue">
-        <Value value="StructuresActiveValue"/>
-    </CScoreValueStandard>
     <CScoreValueStandard id="WorkersTotalCount">
         <Value value="WorkersTotalCount"/>
         <Sort value="Descending"/>
@@ -135,6 +138,12 @@
     </CScoreValueStandard>
     <CScoreValueStandard id="FoodUsed">
         <Value value="FoodUsed"/>
+    </CScoreValueStandard>
+    <CScoreValueStandard id="MineralsCurrent">
+        <Value value="MineralsCurrent"/>
+    </CScoreValueStandard>
+    <CScoreValueStandard id="VespeneCurrent">
+        <Value value="VespeneCurrent"/>
     </CScoreValueStandard>
     <CScoreValueStandard id="MineralsCollected">
         <Value value="MineralsCollected"/>
@@ -186,11 +195,29 @@
     <CScoreValueStandard id="VespeneKilledArmy">
         <Value value="VespeneKilledArmy"/>
     </CScoreValueStandard>
+    <CScoreValueStandard id="MineralsLostNone">
+        <Value value="MineralsLostNone"/>
+    </CScoreValueStandard>
+    <CScoreValueStandard id="VespeneLostNone">
+        <Value value="VespeneLostNone"/>
+    </CScoreValueStandard>
     <CScoreValueStandard id="MineralsLostArmy">
         <Value value="MineralsLostArmy"/>
     </CScoreValueStandard>
     <CScoreValueStandard id="VespeneLostArmy">
         <Value value="VespeneLostArmy"/>
+    </CScoreValueStandard>
+    <CScoreValueStandard id="MineralsLostEconomy">
+        <Value value="MineralsLostEconomy"/>
+    </CScoreValueStandard>
+    <CScoreValueStandard id="VespeneLostEconomy">
+        <Value value="VespeneLostEconomy"/>
+    </CScoreValueStandard>
+    <CScoreValueStandard id="MineralsLostTechnology">
+        <Value value="MineralsLostTechnology"/>
+    </CScoreValueStandard>
+    <CScoreValueStandard id="VespeneLostTechnology">
+        <Value value="VespeneLostTechnology"/>
     </CScoreValueStandard>
     <CScoreValueStandard id="LifeDamageDealtTotal">
         <Value value="LifeDamageDealtTotal"/>
@@ -230,6 +257,11 @@
         <ValueTable value="VespeneCollectionRate"/>
         <Report value="Average"/>
     </CScoreValueCombine>
+    <CScoreValueCombine id="ResourceCollectionRateSampled">
+        <ValueTable value="MineralsCollectionRate"/>
+        <ValueTable value="VespeneCollectionRate"/>
+        <Report value="Samples"/>
+    </CScoreValueCombine>
     <CScoreValueCombine id="ResourceFloatAverage">
         <ValueTable value="MineralsFloatAverage"/>
         <ValueTable value="VespeneFloatAverage"/>
@@ -246,6 +278,21 @@
     <CScoreValueCombine id="ResourceLostArmy">
         <ValueTable value="MineralsLostArmy"/>
         <ValueTable value="VespeneLostArmy"/>
+    </CScoreValueCombine>
+    <CScoreValueCombine id="ResourceLostAll">
+        <ValueTable value="MineralsLostNone"/>
+        <ValueTable value="VespeneLostNone"/>
+        <ValueTable value="MineralsLostArmy"/>
+        <ValueTable value="VespeneLostArmy"/>
+        <ValueTable value="MineralsLostEconomy"/>
+        <ValueTable value="VespeneLostEconomy"/>
+        <ValueTable value="MineralsLostTechnology"/>
+        <ValueTable value="VespeneLostTechnology"/>
+    </CScoreValueCombine>
+    <CScoreValueCombine id="ResourceValueArmySampled">
+        <ValueTable value="MineralsUsedCurrentArmy"/>
+        <ValueTable value="VespeneUsedCurrentArmy"/>
+        <Report value="Samples"/>
     </CScoreValueCombine>
     <CScoreValueCombine id="CombatEfficiency">
         <Operation value="Subtract"/>

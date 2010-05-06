@@ -2,11 +2,9 @@
 <Desc>
     <Frame type="SubtitlePanel" name="SubtitlePanelTemplate">
         <Frame type="Image" name="SubtitleBorder">
-            <Texture val="@@UI/BorderRoundedWhite" layer="0"/>
-            <LayerColor val="0, 0, 0" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-            <Alpha val="170"/>
+            <Texture val="@@UI/SubtitleBorder" layer="0"/>            
+            <TextureType val="HorizontalBorder" layer="0"/>
+            <Tiled val="true" layer="0"/>            
         </Frame>
         
         <Frame type="Label" name="SubtitleLabel">

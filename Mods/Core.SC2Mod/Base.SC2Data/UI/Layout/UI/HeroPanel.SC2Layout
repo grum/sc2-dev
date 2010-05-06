@@ -9,7 +9,7 @@
 
     <Frame type="HeroFrame" name="HeroFrameTemplate">
         <Width val="64"/>
-        <Height val="80"/>
+        <Height val="95"/>
 
         <Frame type="HeroButton" name="Button" template="HeroPanel/HeroButtonTemplate">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -17,13 +17,34 @@
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>            
         </Frame>
 
+        <Frame type="Image" name="ShieldBarBackground">
+            <Anchor side="Top" relative="$parent/Button" pos="Max" offset="2"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="58"/>
+            <Height val="12"/>
+            <Texture val="@@UI/HeroPanelShieldBarBackground" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="Image" name="ShieldBar">
+            <Anchor side="Top" relative="$parent/ShieldBarBackground" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/ShieldBarBackground" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ShieldBarBackground" pos="Min" offset="0"/>
+            <Texture val="@@UI/HeroPanelShieldBar" layer="0"/>
+            <TextureType val="Border" layer="0"/>
+            <Tiled val="true" layer="0"/>
+        </Frame>
+        
         <Frame type="Image" name="HealthBarBackground">
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Top" relative="$parent/ShieldBarBackground" pos="Max" offset="2"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
             <Width val="58"/>
             <Height val="12"/>            
-            <Texture val="@@UI/LoadingScreenPlayerLoadingBarBackground" layer="0"/>
+            <Texture val="@@UI/HeroPanelHealthBarBackground" layer="0"/>
             <TextureType val="Border" layer="0"/>
             <Tiled val="true" layer="0"/>
         </Frame>
@@ -32,7 +53,7 @@
             <Anchor side="Top" relative="$parent/HealthBarBackground" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent/HealthBarBackground" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent/HealthBarBackground" pos="Min" offset="0"/>
-            <Texture val="@@UI/LoadingScreenPlayerLoadingBar" layer="0"/>
+            <Texture val="@@UI/HeroPanelHealthBar" layer="0"/>
             <TextureType val="Border" layer="0"/>
             <Tiled val="true" layer="0"/>
         </Frame>        

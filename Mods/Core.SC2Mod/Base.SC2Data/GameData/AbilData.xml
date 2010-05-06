@@ -29,6 +29,7 @@
     </SAbilBuildInfo>
     <CAbil default="1">
         <Name value="Abil/Name/##id##"/>
+        <TechPlayer value="Upkeep"/>
         <EditorCategories value="Race:Neutral,AbilityorEffectType:Units"/>
         <TargetMessage value="Abil/TargetMessage/DefaultTargetMessage"/>
         <OrderArray>
@@ -118,9 +119,11 @@
     <CAbilBeacon default="1"/>
     <CAbilBehavior default="1"/>
     <CAbilBuild default="1">
+        <TechPlayer value="Owner"/>
         <HaltCmdButton DefaultButtonFace="Cancel"/>
         <Alert value="BuildComplete"/>
         <ErrorAlert value="Error"/>
+        <FlagArray index="BestUnit" value="1"/>
         <FlagArray index="Cancelable" value="1"/>
         <FlagArray index="PeonMaintained" value="1"/>
         <FlagArray index="RangeIncludesBuilding" value="1"/>
@@ -139,6 +142,7 @@
         <VitalStartFactor index="Shields" value="0.1"/>
         <VitalStartFactor index="Energy" value="1"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <CmdButtonArray index="Halt" DefaultButtonFace="Cancel"/>
     </CAbilBuildable>
     <CAbilEffectInstant default="1"/>
     <CAbilEffectTarget default="1">
@@ -251,10 +255,10 @@
         <CmdButtonArray index="Rally1" DefaultButtonFace="Rally">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
-        <CmdButtonArray index="Rally2" DefaultButtonFace="Rally">
+        <CmdButtonArray index="Rally2" DefaultButtonFace="RallyExtra">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
-        <CmdButtonArray index="Rally3" DefaultButtonFace="Rally">
+        <CmdButtonArray index="Rally3" DefaultButtonFace="RallyExtra">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
         <InfoArray/>
@@ -279,11 +283,13 @@
         <CmdButtonArray index="Stop" DefaultButtonFace="Stop">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
-        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFire"/>
-        <CmdButtonArray index="Cheer" DefaultButtonFace="Stop">
+        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFire">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
-        <CmdButtonArray index="Dance" DefaultButtonFace="Stop">
+        <CmdButtonArray index="Cheer" DefaultButtonFace="Cheer">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="Dance" DefaultButtonFace="Dance">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
     </CAbilStop>
@@ -330,9 +336,14 @@
         <Range value="10"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Taunt"/>
     </CAbilEffectTarget>
-    <CAbilStop id="stop"/>
+    <CAbilStop id="stop">
+        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFireSpecial"/>
+    </CAbilStop>
     <CAbilStop id="HoldFire">
         <Flags index="HoldFire" value="1"/>
+        <CmdButtonArray index="Stop" DefaultButtonFace="StopSpecial"/>
+        <CmdButtonArray index="Cheer" DefaultButtonFace=""/>
+        <CmdButtonArray index="Dance" DefaultButtonFace=""/>
     </CAbilStop>
     <CAbilMove id="move">
         <FleeRange value="5"/>

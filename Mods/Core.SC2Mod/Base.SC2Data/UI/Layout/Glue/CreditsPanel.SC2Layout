@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="MovingFrame" name="CreditsEntryDefaultTemplate">
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Height val="128"/>
+        <Width val="1600"/>
+
+        <Frame type="Label" name="TextLabel0">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Style val="CreditsLabel"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="MovingFrame" name="CreditsEntryHeadingTemplate">
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Height val="128"/>
+        <Width val="1600"/>
+
+        <Frame type="Label" name="TextLabel0">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Style val="CreditsHeading"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="MovingFrame" name="CreditsEntryTextureTemplate">
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Height val="128"/>
+        <Width val="1600"/>
+
+        <Frame type="Image" name="TextureImage">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <TextureType val="Normal"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="MovingFrame" name="CreditsEntryMovieColumnTemplate">
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Height val="128"/>
+        <Width val="1600"/>
+
+        <Frame type="Label" name="TextLabel0">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>            
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="-100"/>
+            <Style val="CreditsMovieLeftColumn"/>
+        </Frame>
+
+        <Frame type="Label" name="TextLabel1">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="100"/>            
+            <Style val="CreditsMovieRightColumn"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="MovingFrame" name="CreditsEntryThreeColumnTemplate">
+        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Height val="128"/>
+        <Width val="1600"/>
+
+        <Frame type="Label" name="TextLabel1">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="500"/>
+            <Style val="CreditsColumn"/>
+        </Frame>
+        
+        <Frame type="Label" name="TextLabel0">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="25"/>
+            <Anchor side="Right" relative="$parent/TextLabel1" pos="Min" offset="-25"/>
+            <Style val="CreditsColumn"/>
+        </Frame>
+
+        <Frame type="Label" name="TextLabel2">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent/TextLabel1" pos="Max" offset="25"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-25"/>
+            <Style val="CreditsColumn"/>
+        </Frame>
+    </Frame>
+    
+    <Frame type="CreditsPanel" name="CreditsPanelTemplate">
+        
+    </Frame>   
+
+</Desc>

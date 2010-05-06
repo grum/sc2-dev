@@ -136,15 +136,16 @@ const int c_waveHome        = 6;
 //--------------------------------------------------------------------------------------------------
 //  Defense Threat Query Flags
 //--------------------------------------------------------------------------------------------------
-const int c_dtAnyThreat             = 1;
-const int c_dtClosestThreat         = 2;
-const int c_dtRealThreat            = 4;
-const int c_dtAnyRealThreat         = 5;
-const int c_closestRealThreat       = 6;
-const int c_dtAllowCantAttack       = 8;
-
-const int c_dtEvalAllThreats        = 2;
-const int c_dtEvalRealThreats       = 6;
+// base flags
+const int c_dtIncludeSelfThreat     = 1;
+const int c_dtIncludeAllyThreat     = 2;
+const int c_dtIncludeMinorThreat    = 4;
+const int c_dtIncludeCantAttack     = 8;
+// shortcut combinations
+const int c_dtRealSelfThreat        = 1;
+const int c_dtRealThreat            = 3;
+const int c_dtAnySelfThreat         = 13;
+const int c_dtAnyThreat             = 15;
 
 //--------------------------------------------------------------------------------------------------
 //  Best Target Flags
@@ -157,6 +158,7 @@ const int c_btAllowJumping          = 8;
 const int c_btSortByDistance        = 16;
 const int c_btSortByFullType        = 32;
 const int c_btSortByLeastRecent     = 64;
+const int c_btSortByMeleeRules      = 128;
 const int c_btDefaultNeedsPath      = 49;
 const int c_btDefaultPrefersPath    = 52;
 
@@ -172,7 +174,7 @@ native void DebugPoint (point value);
 //--------------------------------------------------------------------------------------------------
 //  Difficulty
 //--------------------------------------------------------------------------------------------------
-const int c_diffAdvanceWave         = 0;
+const int c_diffPressForward        = 0;
 const int c_diffRepairDamage        = 1;
 const int c_diffFleeDamage          = 2;
 const int c_diffOptimizeGas         = 3;
@@ -185,6 +187,12 @@ const int c_diffEnableDangerMap     = 9;
 const int c_diffWaveAvoidDanger     = 10;
 const int c_diffNormalTargetPrio    = 11;
 const int c_diffEarlyDefenseScout   = 12;
+const int c_diffSpotChangelings     = 13;
+const int c_diffUseExtraScouts      = 14;
+const int c_diffFleeWorkers         = 15;
+const int c_diffFleeDanger          = 16;
+const int c_diffHoldAtIdleChokes    = 17;
+const int c_diffAllowResourceReq    = 18;
 
 native void AISetDifficulty (int player, int index, bool state);
 native bool AIGetDifficulty (int player, int index);
@@ -194,10 +202,13 @@ native bool AIGetDifficulty (int player, int index);
 //--------------------------------------------------------------------------------------------------
 native void AIStart (int player, bool isCampaign, int apm);
 
+native void AIDisableAllScouting ();
+
 native bool AIGivingUp (int player);
 native void AIGoodGame (int player);
 
 native bool AIIsCampaign (int player);
+native bool AIHasHumanAlly (int player);
 native void AISetAPM (int player, int apm);
 
 native unit AIGrabUnit (int player, string aliasUnitType, int prio, point location);
@@ -218,6 +229,11 @@ native int AIGetUserInt (int player, int index);
 native void AIAddStringInt (int player, string data, int change);
 
 native fixed AIGetTime ();
+
+const bool c_ignoreEnemyBuildings = true;
+const bool c_includeAllBuildings = false;
+native int AIPathingCostMap (point from, point to);
+native int AIPathingCostUnit (unit u, point to, bool ignoreEnemyBuildings); 
 
 native int AIGetTotalStartLocs ();
 native int AIGetGroundStartLocs (point loc);
@@ -250,6 +266,8 @@ native point AIPlacementNearbyFindTest (int player, point loc, fixed range, stri
 native void AIAddToExtraScoutGroup (int player, unit u);
 native bool AIOfferNewScout (int player, unit u);
 
+native void AIAddHealer (int player, string healer, string healAbil, int healAbilIdx);
+
 //--------------------------------------------------------------------------------------------------
 // Misc Melee
 //--------------------------------------------------------------------------------------------------
@@ -263,17 +281,17 @@ const int c_skirCheater     = 5;
 
 native bool AIAnyAllyAttacking (int player);
 native point AIBestAllyAttackPoint (int player, wave w);
-native bool AIAnyAllyNeedsDefending (int player);
+native bool AIAnyAllyNeedsDefending (int player, wave w);
 native point AIBestAllyDefendPoint (int player, wave w);
 
 //--------------------------------------------------------------------------------------------------
 // Misc Campaign
 //--------------------------------------------------------------------------------------------------
 
-const int c_campBeginner    = 0; // difficulty settings
-const int c_campNormal      = 1;
-const int c_campAdvanced    = 2;
-const int c_campExpert      = 3;
+const int c_campBeginner    = 1; // difficulty settings
+const int c_campNormal      = 2;
+const int c_campAdvanced    = 3;
+const int c_campExpert      = 4;
 
 native void AIGlobalSuicide (int player);
 
@@ -285,6 +303,9 @@ native unitgroup AIGetAllEscortsGroup (unitgroup ug);
 
 native void AIRemoveUnitFromAnyWaves (unit u);
 native void AIRemoveGroupFromAnyWaves (unitgroup ug);
+
+native void AIRemoveUnitFromAnyWavesAndSetHome (unit u, point home);
+native void AIRemoveGroupFromAnyWavesAndSetHome (unitgroup ug, point home);
 
 native unitgroup AIGetUnitsInWavesWithTarget (int player, wavetarget target);
 
@@ -314,6 +335,7 @@ native int AIGetMainTown (int player);
 native void AISetMainTown (int player, int maintown);
 native void AIUpdateMainTown (int player);
 
+native bool AIIsTownFull (int player, int town);
 native int AIGetTownState (int player, int town);
 native fixed AIGetTownEstablishedTime (int player, int town);
 native point AIGetTownLocation (int player, int town);
@@ -374,8 +396,9 @@ native void AITechCountFixupInOrder (int player, string baseUnit, string upgrade
 native int  AIKnownUnitCount (int player, int testPlayerId, string aliasUnitType);
 
 native void AIResetCounterUnits (int player);
-native void AICounterUnit (int player, string seeWhat, fixed factor, string makeWhat);
-native int AICounterUnits (int player, int testPlayerId, string makeWhat);
+native void AICounterUnitSetup (int player, string seeWhat, fixed factorSameTech, string makeWhatSameTech, fixed factorAnyTech, string makeWhatAnyTech);
+native int AICounterUnitsSameTech (int player, int testPlayerId, string makeWhat);
+native int AICounterUnitsAnyTech (int player, int testPlayerId, string makeWhat);
 
 native point AIGetRallyPoint (unit u);
 
@@ -454,6 +477,14 @@ const bool c_castHold    = false;
 native int AICast (unit u, order o, marker m, bool retreat);
 native int AICastFlee (unit who, unit from, int distance, marker mark);
 
+const int c_tactTimerFirst  = 0;
+const int c_tactTimerSecond = 1;
+const int c_tactTimerThird  = 2;
+const int c_tactTimerFourth = 3;
+native int AICastCooldown (unit u, order o, marker m, bool retreat, int timerIdx, fixed cooldown);
+native int AISetCooldown (unit u, int timerIdx, fixed cooldown);
+native bool AITactCooldownAllow (unit u, int timerIdx);
+
 native bool AINearbyUnits (int player, string unitType, point p, fixed range, int requiredCount);
 native unitgroup AIFindUnits (int player, string unitType, point p, fixed range, int inMaxCount);
 native bool AISameCommand (unit u1, unit u2);
@@ -496,40 +527,34 @@ native point AIBestTargetPoint (
     int bonusAttri
 );
 
-native unit AIDefaultCombatPriority (unit target, unitgroup attackers, unitgroup enemies);
+native unit AIDefaultCombatPriority (unitgroup attackers, unitgroup enemies, int maxAttackerLimit);
 
 const int c_cloakMaxRange = 10;
 native bool AICloakEvaluate (unit u, fixed minEnergy, fixed maxLife, fixed range);
 
+void AISpecifiedHealers (int player);
+
 //--------------------------------------------------------------------------------------------------
 //  Combat
 //--------------------------------------------------------------------------------------------------
-const int c_combatEnable     = 1;
-const int c_combatDisable    = 2;
-const int c_combatRead       = 3;
+const int c_combatFlagDisable    = 0;
+const int c_combatFlagEnable     = 1;
+const int c_combatFlagRead       = 2;
 
 void AISetDefaultCombatFlags (int player, bool isMelee);
-native bool AICombatTargetProduction        (int player, int action);
-native bool AICombatTargetDropOffs          (int player, int action);
-native bool AICombatTargetFood              (int player, int action);
-native bool AICombatTargetActiveProduction  (int player, int action);
-native bool AICombatTargetWorkers           (int player, int action);
-native bool AICombatTargetAllyThreats       (int player, int action);
-native bool AICombatTargetSelfThreats       (int player, int action);
-native bool AICombatTargetCurrent           (int player, int action);
-native bool AICombatTargetAir               (int player, int action);
-native bool AICombatTargetMovers            (int player, int action);
-native bool AICombatTargetInjuries          (int player, int action);
-native bool AICombatTargetInAttackRange     (int player, int action);
-native bool AICombatTargetThreats           (int player, int action);
-native bool AICombatTargetHealers           (int player, int action);
-native bool AICombatTargetSiege             (int player, int action);
-native bool AICombatTargetAttackers         (int player, int action);
-native bool AICombatTargetSpecial           (int player, int action);
-native bool AICombatAvoidTimedUnits         (int player, int action);
-native bool AICombatAvoidNonThreats         (int player, int action);
-native bool AICombatAvoidWeakUnits          (int player, int action);
-native bool AICombatAvoidDisabledUnits      (int player, int action);
+native void AISetMaxBestAttackersLimit (int player, int limit);
+
+native bool AICombatDiffFlagCatSpecialHighPrio    (int player, int action);
+native bool AICombatDiffFlagCatSplashHighPrio     (int player, int action);
+native bool AICombatDiffFlagCatTimedLowPrio       (int player, int action);
+native bool AICombatDiffFlagCatWorkersNormalPrio  (int player, int action);
+native bool AICombatDiffFlagCatSortBuildingsPrio  (int player, int action);
+native bool AICombatDiffFlagTieBreakHealers       (int player, int action);
+native bool AICombatDiffFlagTieBreakBonusDamage   (int player, int action);
+native bool AICombatDiffFlagTieBreakLowHP         (int player, int action);
+native bool AICombatDiffFlagTieBreakInjured       (int player, int action);
+native bool AICombatDiffFlagTieBreakDetector      (int player, int action);
+native bool AICombatDiffFlagTieBreakRange         (int player, int action);
 
 //--------------------------------------------------------------------------------------------------
 //  Transports
@@ -562,6 +587,7 @@ native int  AIWaveDetectorCount (wave w);
 native void AIWaveSetType (wave w, int type, wavetarget target);
 
 native int AIWaveState (wave w);
+native point AIWaveGoal (wave w);
 
 native void AIWaveDelete (wave w);
 
@@ -599,8 +625,11 @@ native int AIWaveGetTimeSinceOrdered (wave w);
 
 native int AIWaveGetTimeSinceRetreat (wave w);
 
+native bool AIShouldHelpUserAlly (int player, wave w);
+native point AIGetBestUserAllyHelpLocation (int player, wave w);
 native bool AIDefenseThreat (int type, int player, wave w);
-native int AIDefenseThreatEval (int type, int player);
+native int AISelfDefenseThreatEval (int type, int player);
+
 native int AIWaveEval (wave w);
 native int AIWaveEvalRatio (wave w, fixed range);
 native int AIUnitAreaEvalRatio (unit u, fixed range);

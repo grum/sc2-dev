@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+    <!-- Racial Colors -->
+    <Constant name="TechGlossaryColorTheme" val="ffffff"/>
+    <Constant name="TechGlossaryColorTheme_Prot" val="0092d2"/>
+    <Constant name="TechGlossaryColorTheme_Terr" val="36d2b3"/>
+    <Constant name="TechGlossaryColorTheme_Zerg" val="9e6325"/>
+    
     <Constant name="GlossaryThumbButtonVerticalGap" val="12"/>
-    <Constant name="GlossaryThumbButtonHorizontalGap" val="12"/>
-    <Constant name="UnitIconHorizontalGap" val="2"/>
+    <Constant name="GlossaryThumbButtonHorizontalGap" val="14"/>
+    <Constant name="UnitIconHorizontalGap" val="4"/>    
 
-    <Frame type="Label" name="UnitNameTemplate">
-        <Style val="HelpPanelUnitSummaryRequirement"/>
-    </Frame>
-
-    <Frame type="TechGlossaryThumbButton" name="TechGlossarySmallThumbButtonTemplate">
+    <Frame type="TechGlossaryUnitThumbButton" name="TechGlossarySmallThumbButtonTemplate">
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
         <HighlightOnHover val="true"/>
@@ -45,7 +47,7 @@
         </Frame>
     </Frame>
 
-    <Frame type="TechGlossaryThumbButton" name="TechGlossaryThumbButtonTemplate">
+    <Frame type="TechGlossaryUnitThumbButton" name="TechGlossaryUnitThumbButtonTemplate">
         <NormalImage val="NormalImage"/>
         <HoverImage val="HoverImage"/>
         <HighlightOnHover val="true"/>
@@ -80,256 +82,245 @@
             <StateCount val="3" layer="0"/>
             <DescFlags val="Internal"/>
         </Frame>
-    </Frame>
-
-    <Frame type="Image" name="TechGlossaryCategoryThumbButtonNormalImage">
-        <Texture val="@@UI/TechGlossaryCategoryButtonNormal" layer="0"/>
-        <StateCount val="3" layer="0"/>
-        <TextureType val="Normal" layer="0"/>             
-        <DescFlags val="Internal"/>
-    </Frame>
-
-    <Frame type="Image" name="TechGlossaryCategoryThumbButtonHoverImage">
-        <Texture val="@@UI/TechGlossaryCategoryButtonHover" layer="0"/>
-        <StateCount val="3" layer="0"/>
-        <TextureType val="Normal" layer="0"/>       
-        <DescFlags val="Internal"/>
-    </Frame>
-
-    <Frame type="TechGlossaryCategoryThumbButton" name="TechGlossaryCategoryThumbButtonTemplate">
-        <NormalImage val="$root/TechGlossaryPanel/TechGlossaryCategoryThumbButtonNormalImage"/>
-        <HoverImage val="$root/TechGlossaryPanel/TechGlossaryCategoryThumbButtonHoverImage"/>
-        <HighlightOnHover val="true"/>
-        <HighlightOnFocus val="true"/>
-        <Width val="108"/>
-        <Height val="36"/>
-        <Label val="CategoryButtonLabel"/>
-        <ClickSound val="@UI_UnitRaceTab"/>
-        
-        <Frame type="Label" name="CategoryButtonLabel">
-            <Style val="HelpPanelCategoryButton"/>
-            <DescFlags val="Internal"/>
-        </Frame>
-    </Frame>
+    </Frame>    
     
-    <Frame type="TechGlossary" name="TechGlossaryTemplate">
-        <Frame type="TechGlossaryCategoryThumbButton" name="CategoryButton0" template="TechGlossaryPanel/TechGlossaryCategoryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="55"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="175"/>
-        </Frame>
-        <Frame type="TechGlossaryCategoryThumbButton" name="CategoryButton1" template="TechGlossaryPanel/TechGlossaryCategoryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\CategoryButton0" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent\CategoryButton0" pos="Max" offset="0"/>
-        </Frame>
-        <Frame type="TechGlossaryCategoryThumbButton" name="CategoryButton2" template="TechGlossaryPanel/TechGlossaryCategoryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\CategoryButton1" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent\CategoryButton1" pos="Max" offset="0"/>
-        </Frame>
-        <Frame type="TechGlossaryCategoryThumbButton" name="CategoryButton3" template="TechGlossaryPanel/TechGlossaryCategoryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\CategoryButton0" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent\CategoryButton0" pos="Min" offset="0"/>
-        </Frame>
-        <Frame type="TechGlossaryCategoryThumbButton" name="CategoryButton4" template="TechGlossaryPanel/TechGlossaryCategoryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\CategoryButton3" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent\CategoryButton3" pos="Max" offset="0"/>
-        </Frame>
-        <Frame type="TechGlossaryCategoryThumbButton" name="CategoryButton5" template="TechGlossaryPanel/TechGlossaryCategoryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\CategoryButton4" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent\CategoryButton4" pos="Max" offset="0"/>
+    <Frame type="TechGlossaryPanel" name="TechGlossaryPanelTemplate">
+        <Frame type="Image" name="BorderImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@@UI/TechGlossaryPanelBorder"/>
+            <TextureType val="HorizontalBorder"/>
+            <LayerColor val="##TechGlossaryColorTheme"/>
         </Frame>
 
+        <Frame type="Image" name="ButtonListBorderImage">
+            <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="5"/>            
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>
+            <Height val="275"/>
+            <Texture val="@@UI/TechGlossaryPanelButtonListBorder"/>
+            <TextureType val="Border"/>
+            <LayerColor val="##TechGlossaryColorTheme"/>
+        </Frame>
+
+        <Frame type="Image" name="ButtonListBorderBottomImage">
+            <Anchor side="Top" relative="$parent/ButtonListBorderImage" pos="Max" offset="-4"/>
+            <Anchor side="Left" relative="$parent/ButtonListBorderImage" pos="Min" offset="145"/>
+            <Anchor side="Right" relative="$parent/ButtonListBorderImage" pos="Max" offset="-145"/>
+            <Height val="6"/>
+            <Texture val="@@UI/TechGlossaryPanelButtonListBorderBottom"/>
+            <TextureType val="EndCap"/>
+            <LayerColor val="##TechGlossaryColorTheme"/>
+        </Frame>
+        
         <!-- Row 1 ==================================================================================================== -->
-        <Frame type="TechGlossaryThumbButton" name="Button0" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\CategoryButton3" pos="Max" offset="20"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="160"/>
+        <Frame type="TechGlossaryUnitThumbButton" name="Button0" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
+            <Anchor side="Top" relative="$parent/ButtonListBorderImage" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent/ButtonListBorderImage" pos="Min" offset="10"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button1" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button1" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button0" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button0" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button2" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button2" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button1" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button1" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button3" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button3" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button2" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button2" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
-        </Frame>
-        
-        <!-- Row 2 ==================================================================================================== -->
-        <Frame type="TechGlossaryThumbButton" name="Button4" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\Button0" pos="Max" offset="#GlossaryThumbButtonVerticalGap"/>
-            <Anchor side="Left" relative="$parent\Button0" pos="Min" offset="0"/>
+        </Frame>        
+      
+        <Frame type="TechGlossaryUnitThumbButton" name="Button4" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
+            <Anchor side="Top" relative="$parent\Button3" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent\Button3" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button5" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button5" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button4" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button4" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button6" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button6" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button5" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button5" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button7" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button7" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button6" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button6" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
-
-        <!-- Row 3 ==================================================================================================== -->
-        <Frame type="TechGlossaryThumbButton" name="Button8" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\Button4" pos="Max" offset="#GlossaryThumbButtonVerticalGap"/>
-            <Anchor side="Left" relative="$parent\Button4" pos="Min" offset="0"/>
+        
+        <Frame type="TechGlossaryUnitThumbButton" name="Button8" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
+            <Anchor side="Top" relative="$parent\Button7" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent\Button7" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button9" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button9" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button8" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button8" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button10" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\Button9" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent\Button9" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
+        <!-- Row 2 ==================================================================================================== -->        
+        <Frame type="TechGlossaryUnitThumbButton" name="Button10" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
+            <Anchor side="Top" relative="$parent\Button0" pos="Max" offset="#GlossaryThumbButtonVerticalGap"/>
+            <Anchor side="Left" relative="$parent\Button0" pos="Min" offset="0"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button11" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button11" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button10" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button10" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
-        </Frame>
+        </Frame>        
         
-        <!-- Row 4 ==================================================================================================== -->
-        <Frame type="TechGlossaryThumbButton" name="Button12" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\Button8" pos="Max" offset="#GlossaryThumbButtonVerticalGap"/>
-            <Anchor side="Left" relative="$parent\Button8" pos="Min" offset="0"/>
+        <Frame type="TechGlossaryUnitThumbButton" name="Button12" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
+            <Anchor side="Top" relative="$parent\Button11" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent\Button11" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button13" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button13" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button12" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button12" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button14" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button14" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button13" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button13" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button15" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button15" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button14" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button14" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
-
-        <!-- Row 5 ==================================================================================================== -->
-        <Frame type="TechGlossaryThumbButton" name="Button16" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\Button12" pos="Max" offset="#GlossaryThumbButtonVerticalGap"/>
-            <Anchor side="Left" relative="$parent\Button12" pos="Min" offset="0"/>
+        
+        <Frame type="TechGlossaryUnitThumbButton" name="Button16" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
+            <Anchor side="Top" relative="$parent\Button15" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent\Button15" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button17" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button17" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button16" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button16" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button18" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button18" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button17" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button17" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button19" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button19" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button18" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button18" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <!-- Row 6 ==================================================================================================== -->
-        <Frame type="TechGlossaryThumbButton" name="Button20" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\Button16" pos="Max" offset="#GlossaryThumbButtonVerticalGap"/>
-            <Anchor side="Left" relative="$parent\Button16" pos="Min" offset="0"/>
+        <!-- Row 3 ==================================================================================================== -->
+        <Frame type="TechGlossaryUnitThumbButton" name="Button20" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
+            <Anchor side="Top" relative="$parent\Button10" pos="Max" offset="#GlossaryThumbButtonVerticalGap"/>
+            <Anchor side="Left" relative="$parent\Button10" pos="Min" offset="0"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button21" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button21" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button20" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button20" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button22" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button22" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button21" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button21" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button23" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button23" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button22" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button22" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
-
-        <!-- Row 7 ==================================================================================================== -->
-        <Frame type="TechGlossaryThumbButton" name="Button24" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
-            <Anchor side="Top" relative="$parent\Button20" pos="Max" offset="#GlossaryThumbButtonVerticalGap"/>
-            <Anchor side="Left" relative="$parent\Button20" pos="Min" offset="0"/>
+        
+        <Frame type="TechGlossaryUnitThumbButton" name="Button24" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
+            <Anchor side="Top" relative="$parent\Button23" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent\Button23" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button25" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button25" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button24" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button24" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button26" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button26" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button25" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button25" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
 
-        <Frame type="TechGlossaryThumbButton" name="Button27" template="TechGlossaryPanel/TechGlossaryThumbButtonTemplate">
+        <Frame type="TechGlossaryUnitThumbButton" name="Button27" template="TechGlossaryPanel/TechGlossaryUnitThumbButtonTemplate">
             <Anchor side="Top" relative="$parent\Button26" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent\Button26" pos="Max" offset="#GlossaryThumbButtonHorizontalGap"/>
         </Frame>
         
         <Frame type="UnitSummary" name="UnitSummary">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
-            <Width val="600"/>
-
-            <Frame type="Image" name="UnitBackground">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="25"/>
+            <Anchor side="Top" relative="$parent/ButtonListBorderBottomImage" pos="Max" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-5"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>            
+            
+            <Frame type="Image" name="BorderImage">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                <Texture val="@@UI/TechGlossaryUnitBackground" layer="0"/>
+                <Texture val="@@UI/TechGlossaryPanelUnitSummaryBorder"/>
+                <TextureType val="HorizontalBorder"/>
+                <LayerColor val="##TechGlossaryColorTheme"/>
             </Frame>
 
-            <Frame type="Frame" name="UnitModelContainer">
-                <Anchor side="Top" relative="$parent/UnitBackground" pos="Min" offset="25"/>
-                <Anchor side="Bottom" relative="$parent/UnitBackground" pos="Max" offset="-25"/>
-                <Anchor side="Left" relative="$parent/UnitBackground" pos="Min" offset="20"/>
-                <Anchor side="Right" relative="$parent/UnitBackground" pos="Max" offset="-20"/>
-
-                <Frame type="Model" name="UnitModel">
-                    <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="-200"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>                    
-                    <Height val="355"/>
-                </Frame>
+            <Frame type="Image" name="NameBackgroundImage">
+                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="5"/>
+                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
+                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>
+                <Height val="70"/>
+                <Texture val="@@UI/TechGlossaryPanelUnitSummaryNameBackground"/>
+                <TextureType val="HorizontalBorder"/>
+                <LayerColor val="##TechGlossaryColorTheme"/>
             </Frame>
 
-            <Frame type="Label" name="UnitName">
-                <Style val="HelpPanelUnitSummaryTitle"/>
-                <Anchor side="Top" relative="$parent" pos="Min" offset="100"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
-                <Width val="250"/>
+            <Frame type="Label" name="UnitName">                
+                <Anchor side="Top" relative="$parent/NameBackgroundImage" pos="Min" offset="5"/>
+                <Anchor side="Left" relative="$parent/NameBackgroundImage" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent/NameBackgroundImage" pos="Max" offset="-10"/>
+                <Style val="TechGlossaryPanelUnitSummaryName"/>
             </Frame>
 
             <Frame type="Label" name="AttributesLabel">
-                <Style val="HelpPanelUnitSummaryAttributes"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
-                <Anchor side="top" relative="$parent/UnitName" pos="Max" offset="0"/>
-                <Width val="250"/>
+                <Anchor side="Top" relative="$parent/UnitName" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/UnitName" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent/UnitName" pos="Max" offset="0"/>
+                <Style val="TechGlossaryPanelUnitSummaryAttributes"/>
             </Frame>
 
+            <Frame type="UnitModelFrame" name="UnitModelFrame">
+                <Anchor side="Top" relative="$parent/NameBackgroundImage" pos="Max" offset="5"/>
+                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-5"/>
+                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="-100"/>
+                <Width val="600"/>
+
+                <Frame type="Model" name="Model">
+                    <Anchor relative="$parent"/>
+                </Frame>
+            </Frame>
+
+            <Frame type="Label" name="VitalsLabel">                
+                <Anchor side="Top" relative="$parent/NameBackgroundImage" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-150"/>
+                <Height val="80"/>
+                <Width val="250"/>
+                <Style val="TechGlossaryPanelUnitSummaryVitals"/>
+            </Frame>
+            
             <Frame type="Frame" name="EquipmentPanel">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="300"/>
-                <Anchor side="Left" relative="$parent/UnitName" pos="Mid" offset="-128"/>
-                <Anchor side="Right" relative="$parent/UnitName" pos="Mid" offset="128"/>
+                <Anchor side="Top" relative="$parent/VitalsLabel" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent/VitalsLabel" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/VitalsLabel" pos="Mid" offset="0"/>
                 <Height val="64"/>
             </Frame>
 
@@ -354,175 +345,88 @@
                 <Width val="64"/>
             </Frame>
 
-            <Frame type="Label" name="VitalsLabel">
-                <Style val="HelpPanelUnitSummaryVitals"/>
-                <Anchor side="Bottom" relative="$parent/EquipmentIcon0" pos="Min" offset="-10"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-30"/>
-                <Height val="120"/>
-                <Width val="250"/>
+            <Frame type="Label" name="DescriptionLabel">
+                <Anchor side="Top" relative="$parent/EquipmentPanel" pos="Max" offset="20"/>
+                <Anchor side="Left" relative="$parent/VitalsLabel" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent/VitalsLabel" pos="Mid" offset="0"/>
+                <Width val="450"/>
+                <Style val="TechGlossaryPanelUnitSummaryDescription"/>
             </Frame>
 
-            <Frame type="Frame" name="DoorPanel">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>                
-                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                <Height val="432"/>
-                <Width val="620"/>
-
-                <Frame type="MovingFrame" name="TopDoorMovingFrame">
-                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                                       
-                    <Frame type="Image" name="TopDoor">
-                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>                        
-                        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                        <Texture val="@@UI/TechGlossaryTopDoor" layer="0"/>
-                    </Frame>                   
-                </Frame>
-
-                <Frame type="MovingFrame" name="BottomDoorMovingFrame">
-                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-
-                    <Frame type="Image" name="BottomDoor">
-                        <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>                       
-                        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                        <Texture val="@@UI/TechGlossaryBottomDoor" layer="0"/>
-                    </Frame>
-                </Frame>                
+            <Frame type="Image" name="DescriptionImage">
+                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="5"/>
+                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
+                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>
+                <Height val="70"/>
+                <Texture val="@@UI/TechGlossaryPanelUnitSummaryNameBackground"/>
+                <TextureType val="HorizontalBorder"/>
+                <LayerColor val="##TechGlossaryColorTheme"/>
             </Frame>
-
-            <Frame type="Frame" name="Strong">
-                <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-40"/>
-                <Height val="85"/>
-                <Width val="290"/>
-
-                <Frame type="TechGlossaryThumbButton" name="Button0" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                </Frame>
-                <Frame type="TechGlossaryThumbButton" name="Button1" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/Button0" pos="Max" offset="#UnitIconHorizontalGap"/>
-                </Frame>
-                <Frame type="TechGlossaryThumbButton" name="Button2" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/Button1" pos="Max" offset="#UnitIconHorizontalGap"/>
-                </Frame>
-                <Frame type="TechGlossaryThumbButton" name="Button3" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                    <Anchor side="Left" relative="$parent/Button2" pos="Max" offset="#UnitIconHorizontalGap"/>
-                </Frame>                
-
-                <Frame type="Label" name="Header">
-                    <Style val="HelpPanelTechGlossaryStrong"/>
-                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                    <Text val="@UI/StrongAgainst_Colon"/>
-                </Frame>
-            </Frame>
-
+            
             <Frame type="Frame" name="Weak">
-                <Anchor side="Left" relative="$parent/Strong" pos="Max" offset="10"/>
-                <Anchor side="Bottom" relative="$parent/Strong" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>
+                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-30"/>
                 <Height val="85"/>
-                <Width val="290"/>
+                <Width val="250"/>
 
-                <Frame type="TechGlossaryThumbButton" name="Button0" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
+                <Frame type="TechGlossaryUnitThumbButton" name="Button0" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
                     <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
                 </Frame>
-                <Frame type="TechGlossaryThumbButton" name="Button1" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
+                <Frame type="TechGlossaryUnitThumbButton" name="Button1" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
                     <Anchor side="Left" relative="$parent/Button0" pos="Max" offset="#UnitIconHorizontalGap"/>
                 </Frame>
-                <Frame type="TechGlossaryThumbButton" name="Button2" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
+                <Frame type="TechGlossaryUnitThumbButton" name="Button2" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
                     <Anchor side="Left" relative="$parent/Button1" pos="Max" offset="#UnitIconHorizontalGap"/>
                 </Frame>
-                <Frame type="TechGlossaryThumbButton" name="Button3" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
+                <Frame type="TechGlossaryUnitThumbButton" name="Button3" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
                     <Anchor side="Left" relative="$parent/Button2" pos="Max" offset="#UnitIconHorizontalGap"/>
                 </Frame>
 
-                <Frame type="Label" name="Header">
-                    <Style val="HelpPanelTechGlossaryWeak"/>
+                <Frame type="Label" name="Header">                    
                     <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
                     <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Style val="TechGlossaryPanelUnitSummaryWeak"/>
                     <Text val="@UI/WeakAgainst_Colon"/>
                 </Frame>
             </Frame>
 
-            <Frame type="Label" name="DescriptionLabel">
-                <Style val="HelpPanelUnitSummaryDescription"/>
-                <Anchor side="Top" relative="$parent" pos="Min" offset="478"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
-                <Anchor side="Bottom" relative="$parent/Strong" pos="Min" offset="-10"/>
+            <Frame type="Frame" name="Strong">
+                <Anchor side="Right" relative="$parent/Weak" pos="Min" offset="-10"/>
+                <Anchor side="Bottom" relative="$parent/Weak" pos="Max" offset="0"/>
+                <Height val="85"/>
+                <Width val="250"/>
+
+                <Frame type="TechGlossaryUnitThumbButton" name="Button0" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                </Frame>
+                <Frame type="TechGlossaryUnitThumbButton" name="Button1" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/Button0" pos="Max" offset="#UnitIconHorizontalGap"/>
+                </Frame>
+                <Frame type="TechGlossaryUnitThumbButton" name="Button2" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/Button1" pos="Max" offset="#UnitIconHorizontalGap"/>
+                </Frame>
+                <Frame type="TechGlossaryUnitThumbButton" name="Button3" template="TechGlossaryPanel/TechGlossarySmallThumbButtonTemplate">
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent/Button2" pos="Max" offset="#UnitIconHorizontalGap"/>
+                </Frame>
+
+                <Frame type="Label" name="Header">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Style val="TechGlossaryPanelUnitSummaryStrong"/>
+                    <Text val="@UI/StrongAgainst_Colon"/>
+                </Frame>
             </Frame>
-        </Frame>
-
-        <Frame type="Image" name="RightSubFrameImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="7"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-2"/>
-            <Width val="630"/>
-            
-            <Texture val="@@UI/TechGlossaryRightSubFrame" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-        
-        <Frame type="Image" name="LeftSubFrameBackgroundImage">
-            <Anchor side="Top" relative="$parent\RightSubFrameImage" pos="Min" offset="0"/>
-            <Anchor side="Bottom" relative="$parent\RightSubFrameImage" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="2"/>
-            <Anchor side="Right" relative="$parent\RightSubFrameImage" pos="Min" offset="0"/>
-
-            <Texture val="@@UI/TechGlossaryRightSubFrame" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="LeftSubFrameImage">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="7"/>
-            <Anchor side="Bottom" relative="$parent" pos="Max" offset="-5"/>
-            <Anchor side="Left" relative="$parent/LeftSubFrameBackgroundImage" pos="Min" offset="5"/>
-            <Anchor side="Right" relative="$parent/LeftSubFrameBackgroundImage" pos="Max" offset="-5"/>
-
-            <Texture val="@@UI/TechGlossaryLeftSubFrame" layer="0"/>
-            <TextureType val="Border" layer="0"/>
-            <Tiled val="true" layer="0"/>
         </Frame>        
-
-        <Frame type="Image" name="Divider_Left">
-            <Anchor side="Top" relative="$parent\RightSubFrameImage" pos="Min" offset="418"/>            
-            <Anchor side="Left" relative="$parent\RightSubFrameImage" pos="Min" offset="4"/>            
-
-            <Texture val="@@UI/TechGlossaryDividerLeft" layer="0"/>            
-        </Frame>
-
-        <Frame type="Image" name="Divider_Right">
-            <Anchor side="Top" relative="$parent\Divider_Left" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent\RightSubFrameImage" pos="Max" offset="-12"/>
-
-            <Texture val="@@UI/TechGlossaryDividerRight" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="Divider_Middle">
-            <Anchor side="Top" relative="$parent\Divider_Left" pos="Min" offset="0"/>
-            <Anchor side="Left" relative="$parent\Divider_Left" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent\Divider_Right" pos="Min" offset="0"/>
-
-            <Texture val="@@UI/TechGlossaryDividerMiddle" layer="0"/>
-        </Frame>
-    </Frame>
-    
+    </Frame>    
 </Desc>
 

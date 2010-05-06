@@ -8,7 +8,7 @@
             <Anchor relative="$parent"/>
             <Frame type="UnitWireframe" name="UnitWireframe" template="UnitWireframe/UnitWireframeTemplate">
                 <Anchor side="Top" relative="$parent" pos="Min" offset="6"/>
-                <Anchor side="Left" relative="$parent" pos="Min" offset="44"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="40"/>
                 <Width val="140"/>
                 <Height val="140"/>
             </Frame>

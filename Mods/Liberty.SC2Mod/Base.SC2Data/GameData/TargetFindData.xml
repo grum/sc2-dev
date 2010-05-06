@@ -116,7 +116,7 @@
         <Flags index="EvaluateCmd" value="1"/>
         <DamageBase value="40"/>
         <MinCount value="2"/>
-        <MinScore value="2.0"/>
+        <MinScore value="1.5"/>
         <Effect value="AutoTurret"/>
     </CTargetFindBestPoint>
     <!--
@@ -140,7 +140,7 @@
         <Flags index="EvaluateCmd" value="1"/>
         <DamageBase value="50"/>
         <MinCount value="4"/>
-        <MinScore value="4"/>
+        <MinScore value="3.5"/>
         <Effect value="InfestorDiseaseSearch"/>
     </CTargetFindBestPoint>
     <!--
@@ -158,9 +158,28 @@
         <Flags index="EvaluateCmd" value="1"/>
         <DamageBase value="40"/>
         <MinCount value="3"/>
-        <MinScore value="5"/>
+        <MinScore value="2.5"/>
         <BonusAttri value="Light"/>
         <Effect value="HurricaneMissileDamage"/>
+    </CTargetFindBestPoint>
+    <!--
+    
+    Loki MissilePods
+    
+    -->
+    <CTargetFindSet id="LokiMissilePods">
+        <Type value="Sequential"/>
+        <Array value="LokiHurricaneMissileDamage"/>
+        <Array value="LokiMissilePodsBestPoint"/>
+    </CTargetFindSet>
+    <CTargetFindEffect id="LokiHurricaneMissileDamage"/>
+    <CTargetFindBestPoint id="LokiMissilePodsBestPoint">
+        <Flags index="EvaluateCmd" value="1"/>
+        <DamageBase value="40"/>
+        <MinCount value="3"/>
+        <MinScore value="2.0"/>
+        <BonusAttri value="Light"/>
+        <Effect value="LokiHurricaneMissileDamage"/>
     </CTargetFindBestPoint>
     <!--
     
@@ -168,18 +187,37 @@
     
     -->
     <CTargetFindSet id="PsiStorm">
+        <Type value="Successful"/>
+        <Array value="PsiStormNormal"/>
+        <Array value="PsiStormLow"/>
+    </CTargetFindSet>
+    <CTargetFindSet id="PsiStormNormal">
         <Type value="Sequential"/>
         <Array value="PsiStormSearch"/>
-        <Array value="PsiStormBestPoint"/>
+        <Array value="PsiStormBestPointNormal"/>
+    </CTargetFindSet>
+    <CTargetFindSet id="PsiStormLow">
+        <CasterValidator value="CasterShieldsLT10"/>
+        <CasterValidator value="CasterLifeLT60Percent"/>
+        <Type value="Sequential"/>
+        <Array value="PsiStormSearch"/>
+        <Array value="PsiStormBestPointLow"/>
     </CTargetFindSet>
     <CTargetFindEffect id="PsiStormSearch">
         <TargetValidator value="PsiStormTestBuff"/>
     </CTargetFindEffect>
-    <CTargetFindBestPoint id="PsiStormBestPoint">
+    <CTargetFindBestPoint id="PsiStormBestPointNormal">
         <Flags index="EvaluateCmd" value="1"/>
         <DamageBase value="40"/>
         <MinCount value="3"/>
-        <MinScore value="3"/>
+        <MinScore value="2.5"/>
+        <Effect value="PsiStormSearch"/>
+    </CTargetFindBestPoint>
+    <CTargetFindBestPoint id="PsiStormBestPointLow">
+        <Flags index="EvaluateCmd" value="1"/>
+        <DamageBase value="30"/>
+        <MinCount value="1"/>
+        <MinScore value="0.5"/>
         <Effect value="PsiStormSearch"/>
     </CTargetFindBestPoint>
     <!--
@@ -188,6 +226,7 @@
     
     -->
     <CTargetFindSet id="Blink">
+        <CasterValidator value="CasterNotCampaign"/>
         <Type value="Successful"/>
         <Array value="BlinkRetreat"/>
         <Array value="BlinkAttack"/>

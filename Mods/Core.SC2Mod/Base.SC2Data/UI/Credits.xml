@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CreditEntryList>
+    <CreditEntry text="STARCRAFT II" style="CreditsHeading"/>
+    <CreditEntry text="WINGS OF LIBERTY" style="CreditsHeading"/>
+    <CreditEntry text="WIP CREDITS" style="CreditsHeading"/>
+    <CreditEntry text=""/>
+    <CreditEntry text=""/>
+    <CreditEntry text="GAME DESIGN" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Blizzard Entertainment"/>
+    <CreditEntry text="EXECUTIVE PRODUCER" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Frank Pearce"/>
+    <CreditEntry text="DESIGN DIRECTOR" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Rob Pardo"/>
+    <CreditEntry text="STORY DIRECTOR" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Chris Metzen"/>
+    <CreditEntry text="ART DIRECTOR" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Samwise Didier"/>
+    <CreditEntry text="LEAD DESIGNER" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Dustin Browder"/>
+    <CreditEntry text="LEAD PRODUCER" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Chris Sigaty"/>
+    <CreditEntry text="LEAD PROGRAMMERS" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Carl Chimes"/>
+    <CreditEntry text="Bob Fitch"/>
+    <CreditEntry text="LEAD TECHNICAL ARTIST" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Rob McNaughton"/>
+    <CreditEntry text="LEAD WRITERS" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Andrew Chambers"/>
+    <CreditEntry text="Brian Kindregan"/>
+    <CreditEntry text="STORY MODE ART DIRECTOR" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Nick Carpenter"/>
+    <CreditEntry text="ART LEADS" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Dave Berggren"/>
+    <CreditEntry text="Allen Dilling"/>
+    <CreditEntry text="Trevor Jacobs"/>
+    <CreditEntry text="ARTISTS" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Jesse Brophy"/>
+    <CreditEntry text="Sam Fung"/>
+    <CreditEntry text="Phill Gonzales"/>
+    <CreditEntry text="Jay Hathaway"/>
+    <CreditEntry text="Chaz Head"/>
+    <CreditEntry text="Insun Kang"/>
+    <CreditEntry text="Luke Mancini"/>
+    <CreditEntry text="Ted Park"/>
+    <CreditEntry text="Steven Provost"/>
+    <CreditEntry text="Robb Shoberg"/>
+    <CreditEntry text="Brian Sousa"/>
+    <CreditEntry text="Sam Yang"/>
+    <CreditEntry text="GAME DESIGN LEADS" style="CreditsHeading" delay="2000"/>        
+    <CreditEntry text="Michael Heiberg"/>
+    <CreditEntry text="Matthew Morris"/>
+    <CreditEntry text="GAME DESIGNERS" style="CreditsHeading" delay="2000"/>  
+    <CreditEntry text="Matthew Cooper"/>
+    <CreditEntry text="Jonny Ebbert"/>
+    <CreditEntry text="Matt Gotcher"/>
+    <CreditEntry text="Dave Hale"/>
+    <CreditEntry text="Adam Hayes"/>
+    <CreditEntry text="Jason Huck"/>
+    <CreditEntry text="Richard Khoo"/>
+    <CreditEntry text="Tae Yeon David Kim"/>
+    <CreditEntry text="Dean Shipley"/>
+    <CreditEntry text="Meng Song"/>    
+    <CreditEntry text="PRODUCERS" style="CreditsHeading" delay="2000"/>  
+    <CreditEntry text="Claudio Gentilini"/>
+    <CreditEntry text="Tony Hsu"/>
+    <CreditEntry text="Kaeo Milker"/>
+    <CreditEntry text="Tengying Yu"/>
+    <CreditEntry text="PROGRAMMERS" style="CreditsHeading" delay="2000"/>  
+    <CreditEntry text="James Anhalt"/>
+    <CreditEntry text="Andy Bond"/>
+    <CreditEntry text="Jason Boyle"/>
+    <CreditEntry text="Alan Dabiri"/>
+    <CreditEntry text="Patrick Elia"/>
+    <CreditEntry text="Dominic Filion"/>
+    <CreditEntry text="Peter Green"/>
+    <CreditEntry text="Ryan Greene"/>
+    <CreditEntry text="Dave Lawrence"/>
+    <CreditEntry text="Paulo Pinto"/>
+    <CreditEntry text="Daniel Rivin"/>
+    <CreditEntry text="Matt Schembari"/>
+    <CreditEntry text="Andrew Spiering"/>
+    <CreditEntry text="David Venturini"/>
+    <CreditEntry text="Brett Wood"/>
+    <CreditEntry text="Zhongshan Zhang"/>
+    <CreditEntry text="SPECIALISTS" style="CreditsHeading" delay="2000"/>
+    <CreditEntry text="Justin Klinchuch"/>
+    <CreditEntry text="Peter Nott"/>
+    <CreditEntry text="Joseph Ryan"/> 
+    <CreditEntry text="MACINTOSH PROGRAMMING" style="CreditsHeading" delay="2000"/>  
+    <CreditEntry text="Chris Crowe"/>
+    <CreditEntry text="John Mikros"/>
+    <CreditEntry text="Daniel Pageau"/>
+    <CreditEntry text="ADDITIONAL ART" style="CreditsHeading" delay="2000"/>  
+    <CreditEntry text="Rene Koiter"/>
+    <CreditEntry text="ADDITIONAL PRODUCTION" style="CreditsHeading" delay="2000"/>  
+    <CreditEntry text="Kristoffer Barcarse"/>
+    <CreditEntry text="Jon Dvorak"/>
+    <CreditEntry text="Steve McClory"/>
+    <CreditEntry text="ADDITIONAL PROGRAMMING" style="CreditsHeading" delay="2000"/>  
+    <CreditEntry text="Mike Aversa"/>
+    <CreditEntry text="Rob Barris"/>
+    <CreditEntry text="Steve Bartel"/>
+    <CreditEntry text="Francis Fandino"/>
+    <CreditEntry text="Daniel Favela"/>
+    <CreditEntry text="Alex Quach"/>
+    <CreditEntry text="John Stiles"/>
+    <CreditEntry text="ADDITIONAL DATA WRANGLING" style="CreditsHeading" delay="2000"/>  
+    <CreditEntry text="Tim Feldman"/>
+</CreditEntryList>

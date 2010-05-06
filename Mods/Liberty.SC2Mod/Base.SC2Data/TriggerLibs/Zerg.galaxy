@@ -8,45 +8,46 @@ include "TriggerLibs/Zerg0"
 //  Counter-Attack Units
 //--------------------------------------------------------------------------------------------------
 static void InitCounters (int player) {
-//xxx lots of old data -- needs to be totally redone
     // versus Protoss
-    AICounterUnit(player, c_PU_Zealot,              1.00, c_ZU_Baneling);
-    AICounterUnit(player, c_PU_Stalker,             1.00, c_ZU_Roach);
-    AICounterUnit(player, c_PU_Immortal,            8.00, c_ZU_Zergling);
-    AICounterUnit(player, c_PU_HighTemplar,         2.00, c_ZU_Roach);
-    AICounterUnit(player, c_PU_Disruptor,           4.00, c_ZU_Zergling);
-    AICounterUnit(player, c_PU_Archon,              4.00, c_ZU_Zergling);
-    AICounterUnit(player, c_PU_Archon,              2.00, c_ZU_Hydralisk);
-    AICounterUnit(player, c_PU_Archon,              2.00, c_ZU_Roach);
-    AICounterUnit(player, c_PU_Colossus,            1.00, c_ZU_Mutalisk);
-    AICounterUnit(player, c_PU_VoidRay,             2.00, c_ZU_Corruptor);
-    AICounterUnit(player, c_PU_VoidRay,             1.00, c_ZU_Mutalisk);
-    AICounterUnit(player, c_PU_Phoenix,             2.00, c_ZU_Hydralisk);
-    AICounterUnit(player, c_PU_Carrier,             2.00, c_ZU_Hydralisk);
-    AICounterUnit(player, c_PU_Carrier,             2.00, c_ZU_Corruptor);
+    AICounterUnitSetup(player, c_PU_Zealot,             1.20, c_ZU_Roach,       1.40, c_ZU_Roach);
+    AICounterUnitSetup(player, c_PU_Stalker,            3.00, c_ZU_Zergling,    1.00, c_ZU_Ultralisk);
+    AICounterUnitSetup(player, c_PU_Sentry,             1.00, c_ZU_Roach,       1.00, c_ZU_Hydralisk);
+    AICounterUnitSetup(player, c_PU_HighTemplar,        1.00, c_ZU_Roach,       1.00, c_ZU_Roach);
+    AICounterUnitSetup(player, c_PU_DarkTemplar,        1.00, c_ZU_Roach,       1.00, c_ZU_Hydralisk);
+    AICounterUnitSetup(player, c_PU_Archon,             2.00, c_ZU_Hydralisk,   1.00, c_ZU_Hydralisk);
+    AICounterUnitSetup(player, c_PU_Immortal,           6.00, c_ZU_Zergling,    8.00, c_ZU_Zergling);
+    AICounterUnitSetup(player, c_PU_Colossus,           4.00, c_ZU_Roach,       1.00, c_ZU_Ultralisk);
+    AICounterUnitSetup(player, c_PU_Phoenix,            1.00, c_ZU_Hydralisk,   1.00, c_ZU_Corruptor);
+    AICounterUnitSetup(player, c_PU_VoidRay,            1.80, c_ZU_Mutalisk,    1.80, c_ZU_Mutalisk);
+    AICounterUnitSetup(player, c_PU_Carrier,            2.00, c_ZU_Corruptor,   2.00, c_ZU_Corruptor);
+    AICounterUnitSetup(player, c_PB_PhotonCannon,       3.00, c_ZU_Roach,       1.00, c_ZU_BroodLord);
 
     // versus Terran
-    AICounterUnit(player, c_TU_Marine,              0.60, c_ZU_Baneling);
-    AICounterUnit(player, c_TU_Marauder,            3.00, c_ZU_Zergling);
-    AICounterUnit(player, c_TU_Hellion,             0.60, c_ZU_Roach);
-    AICounterUnit(player, c_TU_Ghost,               6.00, c_ZU_Zergling);
-    AICounterUnit(player, c_TU_SiegeTank_Alias,     6.00, c_ZU_Zergling);
-    AICounterUnit(player, c_TU_Reaper,              0.30, c_ZU_Mutalisk);
-    AICounterUnit(player, c_TU_Thor,               12.00, c_ZU_Zergling);
-    AICounterUnit(player, c_TU_Banshee,             0.50, c_ZU_Mutalisk);
-    AICounterUnit(player, c_TU_BattlecruiserClass,  2.00, c_ZU_Corruptor);
-    AICounterUnit(player, c_TU_BattlecruiserClass,  2.00, c_ZU_Hydralisk);
+    AICounterUnitSetup(player, c_TU_Marine,             0.80, c_ZU_Baneling,    1.00, c_ZU_Baneling);
+    AICounterUnitSetup(player, c_TU_Marauder,           4.00, c_ZU_Zergling,    4.00, c_ZU_Zergling);
+    AICounterUnitSetup(player, c_TU_Reaper,             1.00, c_ZU_Roach,       1.00, c_ZU_Roach);
+    AICounterUnitSetup(player, c_TU_Ghost,              3.00, c_ZU_Zergling,    0.50, c_ZU_Ultralisk);
+    AICounterUnitSetup(player, c_TU_Hellion,            1.00, c_ZU_Roach,       0.50, c_ZU_Ultralisk);
+    AICounterUnitSetup(player, c_TU_SiegeTank_Alias,    6.00, c_ZU_Zergling,    6.00, c_ZU_Zergling);
+    AICounterUnitSetup(player, c_TU_Thor,               12.00, c_ZU_Zergling,   12.00, c_ZU_Zergling);
+    AICounterUnitSetup(player, c_TU_Viking_Alias,       1.20, c_ZU_Mutalisk,    1.20, c_ZU_Mutalisk);
+    AICounterUnitSetup(player, c_TU_Medivac,            1.00, c_ZU_Mutalisk,    1.00, c_ZU_Mutalisk);
+    AICounterUnitSetup(player, c_TU_Raven,              1.00, c_ZU_Mutalisk,    1.00, c_ZU_Mutalisk);
+    AICounterUnitSetup(player, c_TU_Banshee,            0.50, c_ZU_Mutalisk,    0.50, c_ZU_Mutalisk);
+    AICounterUnitSetup(player, c_TU_Battlecruiser,      2.50, c_ZU_Corruptor,   2.50, c_ZU_Corruptor);
+    AICounterUnitSetup(player, c_TB_Bunker,             2.00, c_ZU_Baneling,    1.00, c_ZU_BroodLord);
 
     // versus Zerg
-    AICounterUnit(player, c_ZU_Zergling,            0.25, c_ZU_Baneling);
-    AICounterUnit(player, c_ZU_Baneling,            0.25, c_ZU_Lurker);
-    AICounterUnit(player, c_ZU_Roach,               3.00, c_ZU_Zergling);
-    AICounterUnit(player, c_ZU_Hydralisk,           1.00, c_ZU_Hydralisk);
-    AICounterUnit(player, c_ZU_Lurker,              1.50, c_ZU_Hydralisk);
-    AICounterUnit(player, c_ZU_Mutalisk,            0.50, c_ZU_Mutalisk);
-    AICounterUnit(player, c_ZU_Mutalisk,            0.50, c_ZU_Corruptor);
-    AICounterUnit(player, c_ZU_Corruptor,           1.00, c_ZU_Corruptor);
-    AICounterUnit(player, c_ZU_BroodLord,       0.50, c_ZU_Corruptor);
+    AICounterUnitSetup(player, c_ZU_Zergling,           0.25, c_ZU_Baneling,    0.25, c_ZU_Baneling);
+    AICounterUnitSetup(player, c_ZU_Baneling,           0.50, c_ZU_Roach,       0.50, c_ZU_Roach);
+    AICounterUnitSetup(player, c_ZU_Roach,              1.00, c_ZU_Roach,       1.00, c_ZU_Roach);
+    AICounterUnitSetup(player, c_ZU_Hydralisk,          1.00, c_ZU_Hydralisk,   1.00, c_ZU_Hydralisk);
+    AICounterUnitSetup(player, c_ZU_Infestor,           2.00, c_ZU_Zergling,    2.00, c_ZU_Zergling);
+    AICounterUnitSetup(player, c_ZU_Mutalisk,           1.00, c_ZU_Mutalisk,    0.80, c_ZU_Corruptor);
+    AICounterUnitSetup(player, c_ZU_Corruptor,          0.50, c_ZU_Hydralisk,   0.50, c_ZU_Hydralisk);
+    AICounterUnitSetup(player, c_ZU_Ultralisk,          1.00, c_ZU_Mutalisk,    1.00, c_ZU_Mutalisk);
+    AICounterUnitSetup(player, c_ZU_BroodLord,          1.00, c_ZU_Mutalisk,    1.00, c_ZU_Mutalisk);
+    AICounterUnitSetup(player, c_ZB_SpineCrawler,       6.00, c_ZU_Zergling,    1.00, c_ZU_Mutalisk);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -132,8 +133,8 @@ void AINewUnitZerg (int player, unit u) {
 //--------------------------------------------------------------------------------------------------
 //  AIGetScoutZerg
 //--------------------------------------------------------------------------------------------------
-unit AIGetScoutZerg (int player, int index, unit prev) {    
-    unit seer;
+unit AIGetScoutZerg (int player, int index, unit prev, bool allowWorkers) {    
+    unit scout;
 
     if (!AIGetFlag(player, e_flagsScouting)) {
         return c_nullUnit;
@@ -141,9 +142,16 @@ unit AIGetScoutZerg (int player, int index, unit prev) {
     if (UnitGetType(prev) == c_ZU_Overseer) {
         return prev;
     }   
-    seer = AIGrabUnit(player, c_ZU_Overseer, c_prioScout, null);
-    if (seer) {
-        return seer;
+    scout = AIGrabUnit(player, c_ZU_Overseer, c_prioScout, null);
+    if (scout) {
+        return scout;
+    }
+    if (UnitGetType(prev) == c_ZU_Zergling) {
+        return prev;
+    }  
+    scout = AIGrabUnit(player, c_ZU_Zergling, c_prioScout, null);
+    if (scout) {
+        return scout;
     }
     if (prev) {
         return prev;
@@ -151,13 +159,20 @@ unit AIGetScoutZerg (int player, int index, unit prev) {
     if (AIGetFlag(player, e_flagsLateScout)) {
         return c_nullUnit;
     }
-    return AIGrabUnit(player, c_ZU_Overlord, c_prioScout, null);
+    scout =  AIGrabUnit(player, c_ZU_Overlord, c_prioScout, null);
+    if (scout) {
+        return scout;
+    }    
+    if (!allowWorkers) {
+        return c_nullUnit;
+    }
+    return AIGrabUnit(player, c_ZU_Drone, c_prioScout, null);
 }
 
 //--------------------------------------------------------------------------------------------------
 //  AIEarlyDefScoutZerg
 //--------------------------------------------------------------------------------------------------
-unit AIEarlyDefScoutZerg (int player, unit prev) {
+unit AIEarlyDefScoutZerg (int player, unit prev, bool allowWorkers) {
     unit obs;
     
     if (!AIGetFlag(player, e_flagsEarlyDefScout)) {
@@ -179,6 +194,9 @@ unit AIEarlyDefScoutZerg (int player, unit prev) {
     }
     if (prev) {
         return prev;
+    }
+    if (!allowWorkers) {
+        return c_nullUnit;
     }
     return AIGrabUnit(player, c_ZU_Drone, c_prioScout, null);
 }
@@ -202,7 +220,6 @@ static void ZergInit (int player) {
     AISetFlag(player, e_flagsScouting, true);
     AISetFlag(player, e_flagsEarlyDefScout, false);
     AIReqCountAsBuiltObject(player, c_ZU_Larva);
-    AITechCountFixupSingle(player, c_ZB_HydraliskDen, c_ZB_LurkerDen);
     AITechCountFixupSingle(player, c_ZB_Spire, c_ZB_GreaterSpire);
     AITechCountFixupInOrder(player, c_ZB_Hatchery, c_ZB_Lair, c_ZB_Hive);
     AISetCreepBuilding(player, c_ZB_CreepTumor, "ZergBuildingNotOnCreep");

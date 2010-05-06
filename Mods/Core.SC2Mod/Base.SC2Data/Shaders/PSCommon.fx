@@ -121,6 +121,31 @@ float4 EncodeDepthNormal( float3 vNormal, float fDepth ) {
     return vNormalDepth;
 }
 
+//--------------------------------------------------------------------------------------------------
+float SplatAttenuation (float3 worldPos, float4 vPlane, float scalar, float minHeight) {
+    clip(worldPos.z - minHeight);
+    
+#if b_splatAttenuationEnabled
+    float fDist;
+
+    if ( PIXEL_SHADER_VERSION <= SHADER_VERSION_PS_14 ) {
+        // :TODO: :FIXME:
+        scalar = 1;
+        fDist = 0;
+    } 
+    else {
+        fDist = dot(float4(worldPos, 1.0f), vPlane);
+    }
+    
+    float a = 1.0f - saturate(abs(fDist));
+    a = saturate(a * scalar);
+    
+    return a;
+#else
+    return 1;
+#endif
+}
+
 #if !CPP_SHADER
 
 //--------------------------------------------------------------------------------------------------

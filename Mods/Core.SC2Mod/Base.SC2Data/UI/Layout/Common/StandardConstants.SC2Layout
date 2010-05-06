@@ -63,5 +63,9 @@
     <Constant name="ColorResource1" val="0,255,128"/>
     <Constant name="ColorResource2" val="255,255,0"/>
     <Constant name="ColorResource3" val="255,128,64"/>
-    
+
+    <Constant name="StandardBorder" val="ffffff"/>
+    <Constant name="StandardBorder_Prot" val="35a1fc"/>
+    <Constant name="StandardBorder_Terr" val="3dcca3"/>
+    <Constant name="StandardBorder_Zerg" val="ed8f1f"/>
 </Desc>

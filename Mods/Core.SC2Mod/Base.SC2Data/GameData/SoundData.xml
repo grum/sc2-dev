@@ -36,15 +36,23 @@
         <VolumeRolloffBlend value="Unknown"/>
         <VolumeRolloffFadeBlend value="Unknown"/>
     </CSound>
+    <CSound default="1" id="Foley">
+        <Category value="Foley"/>
+        <Volume value="-15.000000,-15.000000"/>
+        <AssetArray File="Assets\Sounds\Uni\Foley\##id##.wav"/>
+        <Mode value="3DWorld"/>
+        <ReverbBalance Room="0"/>
+    </CSound>
     <CSound default="1" id="IGNORE"/>
     <CSound default="1" id="WORLD">
-        <Flags index="World" value="1"/>
+        <Mode value="3DWorld"/>
         <ReverbBalance Room="0"/>
         <SpeakerMix index="LFE" value="0.000000"/>
     </CSound>
     <CSound default="1" id="MUSIC">
         <Flags index="Stream" value="1"/>
         <Category value="Music"/>
+        <SustainFade index="1" Time="2000"/>
         <Volume value="-6.000000,-6.000000"/>
     </CSound>
     <CSound default="1" id="SM">
@@ -139,19 +147,26 @@
         <Category value="Other"/>
     </CSound>
     <CSound default="1" id="Interactive" parent="WORLD">
-        <?token id="Race"?>
+        <?token id="Race" value="Terran"?>
         <Category value="Dialogue"/>
         <AssetArray File="LocalizedData\Sounds\##Race##VO\CampaignVO\##id##.ogg" FacialAnim="##id##"/>
         <Flags index="AutoUnload" value="1"/>
         <Flags index="Stream" value="1"/>
+        <PanLevel value="0.750000"/>
+    </CSound>
+    <CSound default="1" id="Interactive2D" parent="Interactive">
+        <Mode value="2D"/>
+        <Volume value="-3.000000,-3.000000"/>
+        <PanLevel value="1.000000"/>
     </CSound>
     <CSound default="1" id="CutScene" parent="WORLD">
-        <AssetArray File="LocalizedData\Sounds\TerranVO\StoryModeVO\##id##.wav" FacialAnim="##id##"/>
+        <?token id="Race" value="Terran"?>
+        <AssetArray File="LocalizedData\Sounds\##Race##VO\StoryModeVO\##id##.ogg" FacialAnim="##id##"/>
         <Category value="Dialogue"/>
         <Flags index="AutoUnload" value="1"/>
         <Flags index="Stream" value="1"/>
         <Flags index="Wait" value="1"/>
-        <Flags index="World" value="0"/>
+        <Mode value="2D"/>
     </CSound>
     <CSound default="1" id="Briefings" parent="Interactive"/>
     <CSound default="1" id="Mission" parent="WORLD">
@@ -159,22 +174,37 @@
         <Flags index="AutoUnload" value="1"/>
         <Flags index="Stream" value="1"/>
         <Flags index="Wait" value="1"/>
+        <Mode value="3DHead"/>
     </CSound>
     <CSound default="1" id="Campaign" parent="Mission">
-        <?token id="Race"?>
+        <?token id="Race" value="Terran"?>
         <AssetArray File="LocalizedData\Sounds\##Race##VO\CampaignVO\##id##.ogg" FacialAnim="##id##"/>
+        <Mode value="3DWorld"/>
+    </CSound>
+    <CSound default="1" id="Campaign2D" parent="Campaign">
+        <Mode value="2D"/>
+        <Volume value="-3.000000,-3.000000"/>
     </CSound>
     <CSound default="1" id="TutorialTerran" parent="Mission">
         <AssetArray File="LocalizedData\Sounds\Tutorial\##id##.wav" FacialAnim="##id##"/>
+        <ReverbBalance Room="-10000"/>
     </CSound>
     <CSound default="1" id="Challenges" parent="Mission">
         <AssetArray File="LocalizedData\Sounds\Challenges\##id##.wav" FacialAnim="##id##"/>
     </CSound>
     <CSound default="1" id="TV" parent="Interactive">
         <Category value="TV"/>
+        <PanLevel value="1.000000"/>
     </CSound>
     <CSound default="1" id="Movie">
         <Category value="Movie"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Stream" value="1"/>
+        <Flags index="Wait" value="1"/>
+    </CSound>
+    <CSound default="1" id="ME" parent="Movie">
+        <Category value="ME"/>
+        <AssetArray File="Assets\Sounds\CinematicsSFX\##id##.ogg"/>
     </CSound>
     <CSound default="1" id="Movie3D" parent="WORLD">
         <Category value="Movie"/>

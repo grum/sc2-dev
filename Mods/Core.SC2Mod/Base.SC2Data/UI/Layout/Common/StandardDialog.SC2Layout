@@ -9,45 +9,43 @@
             <Alpha val="180"/>
         </Frame>
 
-        <Frame type="Image" name="BackgroundImage" template="StandardTemplates/StandardDialogBorderTemplate">
+        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardSmallPanelTemplate">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Width val="800"/>
-            <Height val="500"/>
+            <Width val="900"/>
+            <Height val="600"/>
         </Frame>
 
         <Frame type="Label" name="TitleLabel">
-            <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="35"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="45"/>
-            <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="-45"/>
+            <Anchor side="Top" relative="$parent/BackgroundFrame/BorderImage" pos="Min" offset="35"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BorderImage" pos="Min" offset="60"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BorderImage" pos="Max" offset="-60"/>
             <Style val="StandardDialogTitle"/>
         </Frame>
 
         <Frame type="Label" name="MessageLabel">
             <Anchor side="Top" relative="$parent/TitleLabel" pos="Max" offset="10"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="45"/>
-            <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="-45"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BorderImage" pos="Min" offset="60"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BorderImage" pos="Max" offset="-60"/>
             <Style val="StandardDialogMessage"/>
         </Frame>
 
         <Frame type="ThumbButton" name="LeftButton" template="StandardTemplates/StandardButtonAlternateTemplate">
             <Anchor side="Top" relative="$parent/MessageLabel" pos="Max" offset="30"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="40"/>
-            <Width val="250"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BorderImage" pos="Min" offset="60"/>
         </Frame>
 
         <Frame type="ThumbButton" name="RightButton" template="StandardTemplates/StandardButtonTemplate">
             <Anchor side="Top" relative="$parent/LeftButton" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="-40"/>
-            <Width val="250"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BorderImage" pos="Max" offset="-60"/>
         </Frame>
 
         <Frame type="Frame" name="BottomAnchorFrame">
-            <Anchor side="Top" relative="$parent/LeftButton" pos="Max" offset="30"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
+            <Anchor side="Top" relative="$parent/LeftButton" pos="Max" offset="60"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BorderImage" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BorderImage" pos="Mid" offset="0"/>
         </Frame>
     </Frame>    
  
@@ -62,8 +60,8 @@
     <Frame type="EditBoxDialog" name="EditBoxDialog" template="StandardDialog/StandardDialog">        
         <Frame type="EditBox" name="EditBox">
             <Anchor side="Top" relative="$parent/MessageLabel" pos="Max" offset="30"/>
-            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="20"/>
-            <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="-20"/>
+            <Anchor side="Left" relative="$parent/BackgroundFrame/BorderImage" pos="Min" offset="60"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BorderImage" pos="Max" offset="-60"/>
             <Height val="80"/>
             <Image val="BorderImage"/>
             <Style val="StandardEditBox"/>

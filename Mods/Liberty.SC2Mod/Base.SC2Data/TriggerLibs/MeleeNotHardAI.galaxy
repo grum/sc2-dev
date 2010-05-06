@@ -1,41 +1,5 @@
 //==================================================================================================
 //  Melee AI Functions only used by beginner/easy/medium.
-//--------------------------------------------------------------------------------------------------
-// Very Easy
-//  APM: 100
-//  scouts: starts late game
-//  detect: late game or after being attacked by cloakers
-//  wave 1: 100 resources, ~2 units, 480 seconds
-//  wave 2: 300 resources, ~3 units, +360 seconds (840)
-//  wave 3: 600 resources, ~4 units, +360 seconds (1200)
-//  wave X: 900 resources, ~5 units, +300 seconds
-//--------------------------------------------------------------------------------------------------
-// Easy
-//  APM: 200
-//  scouts: starts late game
-//  detect: late game or after being attacked by cloakers
-//  wave 1: 300 resources, ~4 units, 450 seconds
-//  wave 2: 800 resources, ~6 units, +340 seconds (790)
-//  wave 3: 1500 resources, ~8 units, +340 seconds (1130)
-//  wave X: xxx resources, ~10 units, +280 seconds
-//--------------------------------------------------------------------------------------------------
-// Medium
-//  APM: 300
-//  scouts: starts middle game
-//  detect: middle game or after being attacked by cloakers
-//  wave 1: 500 resources, ~6 units, 420 seconds
-//  wave 2: 1000 resources, ~9 units, +320 seconds (740)
-//  wave 3: 1800 resources, ~12 units, +320 seconds (1060)
-//  wave X: xxx resources, ~15 units, +260 seconds
-//--------------------------------------------------------------------------------------------------
-// Hard
-//  APM: 400
-//  scouts: starts early game
-//  detect: middle game or after being attacked by cloakers
-//  wave 1: 700 resources, ~8 units, 390 seconds
-//  wave 2: 1200 resources, ~12 units, +300 seconds (690)
-//  wave 3: 2100 resources, ~16 units, +300 seconds (990)
-//  wave X: xxx resources, ~20 units, +240 seconds
 //==================================================================================================
 
 //==================================================================================================
@@ -55,34 +19,21 @@ static void AIGenericStock (int player, int state1, int state2) {
 //--------------------------------------------------------------------------------------------------
 //  AIEnableStockOpen
 //--------------------------------------------------------------------------------------------------
-static bool AIEnableStockOpen (int player, string peonType, int time, bool veryEasy, int nextState) {
+bool AIEnableStockOpen (int player, string peonType, int time, bool veryEasy, int nextState1, int nextState2) {
     AIEnableStock(player);
     if (veryEasy) {
         if (AITechCount(player, peonType, c_techCountCompleteOnly) >= 8) {
             AISetGasPeonCountOverride(player, c_townMain, 2);
         }
         else {
-            AISetGasPeonCountOverride(player, c_townMain, 0);
+            AISetGasPeonCountOverride(player, c_townMain, c_defaultGasPeonCount);
         }
     }
     if (AIGetTime() < time) {
         return true;
     }
-    AIGenericStock(player, nextState, e_mainSubState_GndA);
+    AIGenericStock(player, nextState1, nextState2);
     return false;
-}
-
-bool AIEnableVeryEasyStockOpen (int player, string peonType) {
-    return AIEnableStockOpen(player, peonType, 480, true, e_mainState_Mid0);
-}
-bool AIEnableEasyStockOpen (int player, string peonType) {
-    return AIEnableStockOpen(player, peonType, 450, false, e_mainState_Mid1);
-}
-bool AIEnableMediumStockOpen (int player, string peonType) {
-    return AIEnableStockOpen(player, peonType, 420, false, e_mainState_Mid2);
-}
-bool AIEnableHardStockOpen (int player, string peonType) {
-    return AIEnableStockOpen(player, peonType, 390, false, e_mainState_Mid3);
 }
 
 //==================================================================================================
@@ -90,43 +41,41 @@ bool AIEnableHardStockOpen (int player, string peonType) {
 //==================================================================================================
 
 //--------------------------------------------------------------------------------------------------
-//  AIVeryEasyHarvest
+//  AIGasHarvest
 //--------------------------------------------------------------------------------------------------
-void AIVeryEasyHarvest (int player, string peonType, int count) {
-    if (AIHasRes(player, 0, 200) || AITechCount(player, peonType, c_techCountCompleteOnly) < 8) {
+void AIGasHarvest (int player, string peonType) {
+    int onGas = PlayerGetPropertyInt(player, c_playerPropMinerals) / 100
+              - PlayerGetPropertyInt(player, c_playerPropVespene) / 100;
+    if (onGas <= 0) {
         AISetGasPeonCountOverride(player, c_townMain, c_defaultGasPeonCount);
+        AISetGasPeonCountOverride(player, c_townTwo, c_defaultGasPeonCount);
+        return;
+    }
+    if (onGas <= 6) {
+        AISetGasPeonCountOverride(player, c_townMain, onGas);
+        AISetGasPeonCountOverride(player, c_townTwo, c_defaultGasPeonCount);
+        return;
+    }
+    AISetGasPeonCountOverride(player, c_townMain, 6);
+    if (onGas >= 12) {
+        AISetGasPeonCountOverride(player, c_townTwo, 6);
     }
     else {
-        AISetGasPeonCountOverride(player, c_townMain, count);
+        AISetGasPeonCountOverride(player, c_townTwo, onGas - 6);
     }
 }
 
 //--------------------------------------------------------------------------------------------------
 //	AIEnableStockMidA
 //--------------------------------------------------------------------------------------------------
-static bool AIEnableStockMidA (int player, string peonType, int count, bool veryEasy, int time, int nextState) {
+bool AIEnableStockMidA (int player, string peonType, int count, bool veryEasy, int time, int nextState1, int nextState2) {
     AIEnableStock(player);
-    if (veryEasy) {
-        AIVeryEasyHarvest(player, peonType, count);
-    }
+    AIGasHarvest(player, peonType);
     if (AIGetTime() < time) {
         return true;
     }
-    AIGenericStock(player, nextState, e_mainSubState_GndB);
+    AIGenericStock(player, nextState1, nextState2);
     return false;
-}
-
-bool AIEnableVeryEasyStockMidA (int player, string peonType, int count) {
-    return AIEnableStockMidA(player, peonType, count, true, 840, e_mainState_Mid0);
-}
-bool AIEnableEasyStockMidA (int player) {
-    return AIEnableStockMidA(player, "", 0, false, 790, e_mainState_Mid1);
-}
-bool AIEnableMediumStockMidA (int player) {
-    return AIEnableStockMidA(player, "", 0, false, 740, e_mainState_Mid2);
-}
-bool AIEnableHardStockMidA (int player) {
-    return AIEnableStockMidA(player, "", 0, false, 690, e_mainState_Mid3);
 }
 
 //==================================================================================================
@@ -136,30 +85,16 @@ bool AIEnableHardStockMidA (int player) {
 //--------------------------------------------------------------------------------------------------
 //	AIEnableStockMidB
 //--------------------------------------------------------------------------------------------------
-bool AIEnableStockMidB (int player, string peonType, int count, bool veryEasy, int time, int nextState) {
+bool AIEnableStockMidB (int player, string peonType, int count, bool veryEasy, int time, int nextState1, int nextState2) {
     AIEnableStock(player);
-    if (veryEasy) {
-        AIVeryEasyHarvest(player, peonType, count);
-    }
+    AIGasHarvest(player, peonType);
     if (AIGetTime() < time) {
         return true;
     }
-    AIGenericStock(player, nextState, e_mainSubState_GndA);
+    AIGenericStock(player, nextState1, nextState2);
     AISetFlag(player, e_flagsScouting, true);
     AISetFlag(player, e_flagsClearObs, true);
     return false;
-}
-bool AIEnableVeryEasyStockMidB (int player, string peonType, int count) {
-    return AIEnableStockMidB(player, peonType, count, true, 1200, e_mainState_Late0);
-}
-bool AIEnableEasyStockMidB (int player, string peonType, int count) {
-    return AIEnableStockMidB(player, peonType, count, false, 1130, e_mainState_Late1);
-}
-bool AIEnableMediumStockMidB (int player, string peonType, int count) {
-    return AIEnableStockMidB(player, peonType, count, false, 1060, e_mainState_Late2);
-}
-bool AIEnableHardStockMidB (int player, string peonType, int count) {
-    return AIEnableStockMidB(player, peonType, count, false, 990, e_mainState_Late3);
 }
 
 //==================================================================================================
@@ -169,29 +104,20 @@ bool AIEnableHardStockMidB (int player, string peonType, int count) {
 //--------------------------------------------------------------------------------------------------
 //	AIEnableStockLate
 //--------------------------------------------------------------------------------------------------
-static bool AIEnableStockLate (int player, string peonType, int count, int time) {
+bool AIEnableStockLate (int player, string peonType, int count, int offset, int time) {
+    fixed tm = AIGetTime() - offset;
+    if (tm < 0) {
+        return true;
+    }
     AIEnableStock(player);
-    AIVeryEasyHarvest(player, peonType, count);
-    if (AIGetTime() % time < 5) {
+    AIGasHarvest(player, peonType);
+    if (tm % time > 5) {
         return true;
     }
     AIWaveMerge(player, c_waveMain, c_waveAttack);
     AISetAttackState(player, e_attackState_Attack);
 	AIResetUserData(player);
     return false;
-}
-
-bool AIEnableVeryEasyStockLate (int player, string peonType, int count) {
-    return AIEnableStockLate(player, peonType, count, 300);
-}
-bool AIEnableEasyStockLate (int player, string peonType, int count) {
-    return AIEnableStockLate(player, peonType, count, 280);
-}
-bool AIEnableMediumStockLate (int player, string peonType, int count) {
-    return AIEnableStockLate(player, peonType, count, 260);
-}
-bool AIEnableHardStockLate (int player, string peonType, int count) {
-    return AIEnableStockLate(player, peonType, count, 240);
 }
 
 //==================================================================================================
@@ -244,7 +170,6 @@ void AISetStockUserData (int player) {
 void TerranTechUp (int player, int tier) {
 
 	AISetStock( player, 1, c_TB_Barracks );
-    AISetStock( player, 1, c_TB_Refinery );
 	AISetStock( player, 1, c_TB_BarracksTechLab );
 	
 	if (tier >= 2) {
@@ -262,7 +187,6 @@ void TerranTechUp (int player, int tier) {
 	if (tier >= 2) {
     	AISetStock( player, 1, c_TB_SensorTower );
 		AISetStock( player, 1, c_TB_GhostAcademy );
-		AISetStock( player, 1, c_TB_MercCompound );
 		
 		if (tier >= 3) {
 			AISetStock( player, 1, c_TB_Armory );
@@ -280,25 +204,19 @@ void TerranTechUp (int player, int tier) {
 void ZergTechUp (int player, int tier) {
 
     AISetStock( player, 1, c_ZB_SpawningPool );
-    AISetStock( player, 1, c_ZB_Extractor );
     AISetStock( player, 1, c_ZB_EvolutionChamber );
-    AISetStock( player, 1, c_ZB_HydraliskDen );
-
-    AISetStock( player, 1, c_ZR_HydraliskSpeed );
+    AISetStock( player, 1, c_ZB_RoachWarren );
+    AISetStock( player, 1, c_ZB_BanelingNest );
 
     if (tier >= 2) {
-        AISetStock( player, 1, c_ZR_OverseerSpeed );
-        AISetStock( player, 1, c_ZB_BanelingNest );
+        AISetStock( player, 1, c_ZB_HydraliskDen );
+        AISetStock( player, 1, c_ZB_InfestationPit );
 
         if (tier >= 3) {
-            AISetStock( player, 1, c_ZB_RoachWarren );
             AISetStock( player, 1, c_ZB_Spire );
-            AISetStock( player, 1, c_ZB_InfestationPit );
 
             if (tier >= 4) {
-                AISetStock( player, 1, c_ZR_OverlordTransport );
                 AISetStock( player, 1, c_ZB_UltraliskCavern );
-                AISetStock( player, 1, c_ZB_LurkerDen );
                 AISetStock( player, 1, c_ZB_GreaterSpire );
             }
         }
@@ -312,7 +230,6 @@ void ProtossTechUp (int player, int tier) {
 
     AISetStock( player, 1, c_PB_Gateway );
     AISetStock( player, 1, c_PB_Forge );
-    AISetStock( player, 1, c_PB_Assimilator );
 
     if (tier >= 3) {
         AISetStock( player, 1, c_PB_RoboticsFacility );

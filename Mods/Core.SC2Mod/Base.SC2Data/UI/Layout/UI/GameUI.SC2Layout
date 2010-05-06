@@ -25,6 +25,7 @@
             <Visible val="false"/>
             <Color val="0,0,0"/>
             <Alpha val="0"/>
+            <RenderType val="HDR"/>
             <Anchor relative="$parent/WorldPanel"/>
         </Frame>
 
@@ -61,49 +62,7 @@
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
                     <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
                     <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
-                </Frame>                
-
-                <Frame type="MessageDisplay" name="DebugDisplay">
-                    <AlternateTime val="true"/>
-                    <MaxMessages val="128"/>
-                    <MessageDuration val="15000"/>
-                    <FadeDuration val="5000"/>
-                    <Style val="DebugDisplay"/>
-                    <AcceptsMouse val="false"/>
-                    <BatchText val="true"/>
-                    <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-460"/>
-                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
-                </Frame>
-
-                <Frame type="MessageDisplay" name="ChatDisplay">
-                    <AlternateTime val="true"/>
-                    <MaxMessages val="64"/>
-                    <MessageDuration val="15000"/>
-                    <FadeDuration val="5000"/>
-                    <Style val="ChatDisplay"/>
-                    <AcceptsMouse val="false"/>
-                    <BatchText val="true"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="-390"/>
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-380"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="340"/>
-                    <Height val="200"/>
-                </Frame>
-
-                <Frame type="MessageDisplay" name="WarningDisplay">
-                    <AlternateTime val="true"/>
-                    <MaxMessages val="4"/>
-                    <MessageDuration val="15000"/>
-                    <FadeDuration val="5000"/>
-                    <Style val="WarningDisplay"/>
-                    <AcceptsMouse val="false"/>
-                    <BatchText val="true"/>
-                    <Anchor side="Left" relative="$parent" pos="Mid" offset="-500"/>
-                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="-50"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="500"/>
-                    <Height val="216"/>
-                </Frame>                
+                </Frame>                         
 
                 <Frame type="ConversationPanel" name="ConversationPanel" template="ConversationPanel/ConversationPanelTemplate">
                     <BatchImages val="true"/>
@@ -153,7 +112,7 @@
                     <BatchText val="true"/>
                     <Anchor side="Left" relative="$parent" pos="Mid" offset="-395"/>
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="-20"/>
-                    <Anchor side="Right" relative="$parent" pos="Mid" offset="179"/>
+                    <Anchor side="Right" relative="$parent" pos="Mid" offset="185"/>
                     <Height val="199"/>
                 </Frame>
 
@@ -206,7 +165,6 @@
                     <Anchor side="Right" relative="$parent/CommandPanel" pos="Max" offset="4"/>
                     <Width val="62"/>
                     <Height val="64"/>
-                    <Tooltip val="@e_gameUIStringAIAllies"/>
 
                     <Frame type="Image" name="NormalImage">
                         <Texture val="@@UI/AIButton" layer="0"/>
@@ -375,13 +333,6 @@
                     <Width val="375"/>
                 </Frame>
 
-                <Frame type="ObjectivePanel" name="ObjectivePanel" template="ObjectivePanel/ObjectivePanelTemplate">
-                    <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Width val="550"/>
-                    <Height val="220"/>
-                </Frame>
-
                 <Frame type="MessageDisplay" name="ObjectiveDisplay">
                     <AlternateTime val="true"/>
                     <MaxMessages val="1"/>
@@ -395,27 +346,37 @@
                     <Width val="550"/>
                     <Height val="200"/>
                 </Frame>
+                
+                <Frame type="MessageDisplay" name="DirectiveDisplay">
+                    <AlternateTime val="true"/>
+                    <MaxMessages val="1"/>
+                    <MessageDuration val="0"/>
+                    <FadeDuration val="0"/>
+                    <TopToBottom val="true"/>
+                    <Style val="DirectiveDisplay"/>
+                    <AcceptsMouse val="false"/>
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="150"/>
+                    <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                    <Width val="550"/>
+                    <Height val="200"/>
+                </Frame>
 
                 <Frame type="AlertPanel" name="AlertPanel" template="AlertPanel/AlertPanelTemplate">
                     <Style val="AlertItem"/>
                     <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
-                    <Anchor side="Top" relative="$parent/ObjectivePanel" pos="Max" offset="0"/>
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="270"/>
                     <Width val="550"/>
                     <Height val="312"/>
+                    <RenderType val="HDR"/>
                 </Frame>
 
-                <Frame type="MessageDisplay" name="ErrorDisplay">
-                    <AlternateTime val="true"/>
-                    <MaxMessages val="4"/>
-                    <MessageDuration val="7000"/>
-                    <FadeDuration val="4000"/>
-                    <Style val="ErrorDisplay"/>
-                    <AcceptsMouse val="false"/>
-                    <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
-                    <Anchor side="Top" relative="$parent/AlertPanel" pos="Max" offset="0"/>
+                <Frame type="ObjectivePanel" name="ObjectivePanel" template="ObjectivePanel/ObjectivePanelTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
                     <Width val="550"/>
-                    <Height val="128"/>
-                </Frame>
+                    <Height val="500"/>
+                </Frame>                
 
                 <Frame type="Label" name="CinematicLabel">
                     <Style val="@@CinematicLabel"/>
@@ -453,7 +414,7 @@
                     <Anchor side="Bottom" relative="$parent/$parent/ConsoleUIContainer/CommandPanel" pos="Min" offset="-105"/>
                     <Anchor side="Right" relative="$parent/$parent/ConsoleUIContainer/PylonButton" pos="Min" offset="-10"/>
                     <Width val="570"/>
-                    <Height val="80"/>
+                    <Height val="95"/>
                 </Frame>
 
                 <Frame type="InventoryPanel" name="InventoryPanel" template="InventoryPanel/InventoryPanelTemplate">
@@ -465,10 +426,6 @@
                 </Frame>                
 
                 <Frame type="Frame" name="PlanetPanelContainer">
-                    <Anchor relative="$parent"/>
-                </Frame>
-
-                <Frame type="Frame" name="RoomPanelContainer">
                     <Anchor relative="$parent"/>
                 </Frame>
 
@@ -494,7 +451,62 @@
 
                 <Frame type="Frame" name="CharacterSheetPanelContainer">
                     <Anchor relative="$parent"/>
-                </Frame>                
+                </Frame>
+
+                <Frame type="MessageDisplay" name="ErrorDisplay">
+                    <AlternateTime val="true"/>
+                    <MaxMessages val="4"/>
+                    <MessageDuration val="7000"/>
+                    <FadeDuration val="4000"/>
+                    <Style val="ErrorDisplay"/>
+                    <AcceptsMouse val="false"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+                    <Anchor side="Top" relative="$parent/AlertPanel" pos="Max" offset="0"/>
+                    <Width val="550"/>
+                    <Height val="128"/>
+                </Frame>
+                
+                <Frame type="MessageDisplay" name="DebugDisplay">
+                    <AlternateTime val="true"/>
+                    <MaxMessages val="128"/>
+                    <MessageDuration val="15000"/>
+                    <FadeDuration val="5000"/>
+                    <Style val="DebugDisplay"/>
+                    <AcceptsMouse val="false"/>
+                    <BatchText val="true"/>
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-460"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+                </Frame>
+
+                <Frame type="MessageDisplay" name="ChatDisplay">
+                    <AlternateTime val="true"/>
+                    <MaxMessages val="64"/>
+                    <MessageDuration val="15000"/>
+                    <FadeDuration val="5000"/>
+                    <Style val="ChatDisplayInternational"/>
+                    <AcceptsMouse val="false"/>
+                    <BatchText val="true"/>
+                    <Anchor side="Left" relative="$parent" pos="Mid" offset="-390"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-380"/>
+                    <Anchor side="Right" relative="$parent" pos="Mid" offset="340"/>
+                    <Height val="232"/>
+                </Frame>
+
+                <Frame type="MessageDisplay" name="WarningDisplay">
+                    <AlternateTime val="true"/>
+                    <MaxMessages val="4"/>
+                    <MessageDuration val="15000"/>
+                    <FadeDuration val="5000"/>
+                    <Style val="WarningDisplay"/>
+                    <AcceptsMouse val="false"/>
+                    <BatchText val="true"/>
+                    <Anchor side="Left" relative="$parent" pos="Mid" offset="-500"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Mid" offset="-50"/>
+                    <Anchor side="Right" relative="$parent" pos="Mid" offset="500"/>
+                    <Height val="216"/>
+                </Frame>
                 
                 <!-- Container for UI elements created by the triggers: Portraits, Trigger Dialogs, etc -->
                 <Frame type="Frame" name="TriggerContainer">
@@ -507,7 +519,7 @@
                 </Frame>
                 
                 <Frame type="Frame" name="TipAlertPanelNormalAnchor">
-                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-450"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-460"/>
                     <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
                     <Width val="400"/>
                     <Height val="540"/>
@@ -529,11 +541,41 @@
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="-180"/>
                     <Width val="800"/>
                     <Height val="90"/>
-
+                    <Visible val="false"/>
+                    
                     <Frame type="Label" name="TextLabel">
                         <Anchor relative="$parent"/>
                         <Style val="@@CinematicLabel"/>
                     </Frame>
+                </Frame>
+
+                <Frame type="TextCrawlPanel" name="TextCrawlPanel">
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="20"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="-180"/>
+                    <Width val="800"/>
+                    <Height val="200"/>
+                    <Visible val="false"/>
+                    
+                    <Frame type="FlashFrame" name="FlashFrame">
+                        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                        <File val="UI/Flash/GameUI/TextCrawl_Green.swf"/>
+                    </Frame>
+                </Frame>
+
+                
+                <Frame type="CreditsPanel" name="CreditsPanel" template="CreditsPanel/CreditsPanelTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                </Frame>
+                
+                <Frame type="RevealPanel" name="RevealPanel" template="RevealPanel/RevealPanelTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+                    <Width val="300"/>
+                    <Height val="90"/>
                 </Frame>
 
                 <Frame type="AlliancePanel" name="AlliancePanel" template="AlliancePanel/AlliancePanelTemplate">
@@ -590,7 +632,7 @@
                     <Anchor side="Left" relative="$parent" pos="Mid" offset="-386"/>
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="-300"/>
                     <Anchor side="Right" relative="$parent" pos="Mid" offset="334"/>
-                    <Height val="68"/>
+                    <Height val="84"/>
                 </Frame>
                 
                 <Frame type="MenuBar" name="MenuBar" template="MenuBar/MenuBarTemplate">
@@ -609,8 +651,7 @@
                     <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
                     <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
                     <Height val="1000"/>
-                </Frame>               
-
+                </Frame>
             </Frame>
         </Frame>
     </Frame>

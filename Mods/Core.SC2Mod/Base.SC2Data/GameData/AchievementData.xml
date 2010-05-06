@@ -6,18 +6,26 @@
         <Filters index="MapSignature" value="1"/>
         <Icon value="Assets\Textures\ui_achievement.dds"/>
         <Points value="10"/>
+        <TermTable value="##id##"/>
     </CAchievement>
     <CAchievement default="1" id="CAMPAIGN">
+        <Category value="Achievement/Category/Campaign"/>
         <Filters index="MatchSingle" value="1"/>
     </CAchievement>
     <CAchievement default="1" id="SKIRMISH">
+        <Category value="Achievement/Category/Skirmish"/>
         <Filters index="MapMelee" value="1"/>
         <Filters index="MatchSingle" value="1"/>
     </CAchievement>
     <CAchievement default="1" id="COMBAT">
+        <Category value="Achievement/Category/Combat"/>
         <Filters index="MapMelee" value="1"/>
         <Filters index="MatchAnonymous" value="1"/>
         <Filters index="MatchMulti" value="1"/>
         <Filters index="MatchRanked" value="1"/>
+    </CAchievement>
+    <CAchievement default="1" id="CHALLENGE">
+        <Category value="Achievement/Category/Challenge"/>
+        <Filters index="MatchSingle" value="1"/>
     </CAchievement>
 </Catalog>

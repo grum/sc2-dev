@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
     <CTile id="MarSaraTile">
-        <Material value="Assets/Cliffs/MarSaraRoad/MarSaraRoad.m3"/>
+        <Material value="Assets/HardTiles/MarSaraRoad/MarSaraRoad.m3"/>
         <EditorIcon value="Assets\Textures\MarSaraRoad_diffuse.dds"/>
     </CTile>
     <CTile id="KorhalTile">
-        <Material value="Assets/Cliffs/KorhalRoad/KorhalRoad.m3"/>
+        <Material value="Assets/HardTiles/KorhalRoad/KorhalRoad.m3"/>
         <EditorIcon value="Assets\Textures\KorhalRoad_diffuse.dds"/>
+    </CTile>
+    <CTile id="TarsonisRail">
+        <Material value="Assets/HardTiles/TarsonisRail/TarsonisRail.m3"/>
+        <EditorIcon value="Assets\Textures\TarsonisRail_diffuse.dds"/>
     </CTile>
 </Catalog>

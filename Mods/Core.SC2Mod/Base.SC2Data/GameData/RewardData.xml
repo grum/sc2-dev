@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CReward default="1">
+        <Name value="Reward/Name/##id##"/>
+    </CReward>
+    <CRewardDecal default="1">
+        <?token id="iconfile" type="CImagePath"?>
+        <Texture value="##id##"/>
+        <IconFile value="##file##"/>
+        <IconCols value="8"/>
+        <IconRows value="8"/>
+    </CRewardDecal>
+    <CRewardPortrait default="1">
+        <?token id="iconfile" type="CImagePath"?>
+        <Model value="##id##"/>
+        <IconFile value="##file##"/>
+        <IconCols value="6"/>
+        <IconRows value="6"/>
+    </CRewardPortrait>
+</Catalog>

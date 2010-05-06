@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <const id="$Decals1" value="ui_bnet_beta_decals0.dds"/>
+    <const id="$Portraits1" value="ui_bnet_beta_portraits0.dds"/>
+    <const id="$Portraits2" value="ui_bnet_beta_portraits1.dds"/>
+    <CRewardDecal default="1" id="DECALPROTOSS">
+        <Category File="S2ProtossDecal" Tag="PCAL"/>
+        <Race value="Prot"/>
+    </CRewardDecal>
+    <CRewardDecal default="1" id="DECALTERRAN">
+        <Category File="S2TerranDecal" Tag="TCAL"/>
+        <Race value="Terr"/>
+    </CRewardDecal>
+    <CRewardDecal default="1" id="DECALZERG">
+        <Category File="S2ZergDecal" Tag="ZCAL"/>
+        <Race value="Zerg"/>
+    </CRewardDecal>
+    <CRewardModel default="1" id="MODELDEFAULT">
+        <Category File="S2Model" Tag="MODL"/>
+    </CRewardModel>
+    <CRewardPortrait default="1" id="PORTRAITDEFAULT">
+        <Category File="S2Avatar" Tag="PORT"/>
+    </CRewardPortrait>
+    <CRewardPortrait default="1" id="PORTRAITUNLOCKABLE" parent="PORTRAITDEFAULT"/>
+    <CRewardPortrait default="1" id="PORTRAITPROTOSS" parent="PORTRAITUNLOCKABLE">
+        <Race value="Prot"/>
+    </CRewardPortrait>
+    <CRewardPortrait default="1" id="PORTRAITTERRAN" parent="PORTRAITUNLOCKABLE">
+        <Race value="Terr"/>
+    </CRewardPortrait>
+    <CRewardPortrait default="1" id="PORTRAITZERG" parent="PORTRAITUNLOCKABLE">
+        <Race value="Zerg"/>
+    </CRewardPortrait>
+    <!-- Decal Defaults -->
+    <CRewardDecal id="Decal_Protoss_0009_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="25"/>
+        <Flags index="Allowed" value="1"/>
+        <Flags index="Default" value="1"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0001_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="1"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0017_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="49"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0011_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="31"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0015_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="43"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0005_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="13"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0008_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="22"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0019_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="55"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0021_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="61"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0004_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="10"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Protoss_0006_01" parent="DECALPROTOSS">
+        <IconFile value="$Decals1"/>
+        <IconId value="16"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0009_01" parent="DECALTERRAN">
+        <Flags index="Allowed" value="1"/>
+        <IconFile value="$Decals1"/>
+        <IconId value="24"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0001_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <Flags index="Allowed" value="1"/>
+        <Flags index="Default" value="1"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0017_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="48"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0011_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="30"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0015_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="42"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0005_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="12"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0008_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="21"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0019_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="54"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0021_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="60"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0004_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="9"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Terran_0006_01" parent="DECALTERRAN">
+        <IconFile value="$Decals1"/>
+        <IconId value="15"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0009_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="26"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0001_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="2"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0017_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="50"/>
+        <Flags index="Allowed" value="1"/>
+        <Flags index="Default" value="1"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0011_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="32"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0015_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="44"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0005_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="14"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0008_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="23"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0019_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="56"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0021_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="62"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0004_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="11"/>
+    </CRewardDecal>
+    <CRewardDecal id="Decal_Zerg_0006_01" parent="DECALZERG">
+        <IconFile value="$Decals1"/>
+        <IconId value="17"/>
+    </CRewardDecal>
+    <!-- Model Unlockables -->
+    <CRewardModel id="ThorCE" parent="MODELDEFAULT" iconfile=""/>
+    <!-- Portrait Defaults -->
+    <CRewardPortrait id="MaleCivilian01Portrait" parent="PORTRAITDEFAULT">
+        <IconFile value="$Portraits1"/>
+        <Flags index="Allowed" value="1"/>
+        <Flags index="Default" value="1"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="MaleCivilian02Portrait" parent="PORTRAITDEFAULT">
+        <IconFile value="$Portraits1"/>
+        <IconId value="1"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="MaleCivilian03Portrait" parent="PORTRAITDEFAULT">
+        <IconFile value="$Portraits1"/>
+        <IconId value="2"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="MaleCivilian04Portrait" parent="PORTRAITDEFAULT">
+        <IconFile value="$Portraits1"/>
+        <IconId value="3"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="FemaleCivilian01Portrait" parent="PORTRAITDEFAULT">
+        <IconFile value="$Portraits1"/>
+        <IconId value="4"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="FemaleCivilian02Portrait" parent="PORTRAITDEFAULT">
+        <IconFile value="$Portraits1"/>
+        <IconId value="5"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="FemaleCivilian03Portrait" parent="PORTRAITDEFAULT">
+        <IconFile value="$Portraits1"/>
+        <IconId value="6"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="FemaleCivilian04Portrait" parent="PORTRAITDEFAULT">
+        <IconFile value="$Portraits1"/>
+        <IconId value="7"/>
+        <Flags index="Allowed" value="1"/>
+    </CRewardPortrait>
+    <!-- Portrait Unlockables (Terran) -->
+    <CRewardPortrait id="MarinePortrait" parent="PORTRAITTERRAN">
+        <IconFile value="$Portraits1"/>
+        <IconId value="8"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="ReaperPortrait" parent="PORTRAITTERRAN">
+        <IconFile value="$Portraits1"/>
+        <IconId value="9"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="SiegeTankPortrait" parent="PORTRAITTERRAN">
+        <IconFile value="$Portraits1"/>
+        <IconId value="10"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="BattlecruiserPortrait" parent="PORTRAITTERRAN">
+        <IconFile value="$Portraits1"/>
+        <IconId value="11"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="Marine02Portrait" parent="PORTRAITTERRAN">
+        <IconFile value="$Portraits1"/>
+        <IconId value="12"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="VulturePortrait" parent="PORTRAITTERRAN">
+        <IconFile value="$Portraits1"/>
+        <IconId value="13"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="GoliathPortrait" parent="PORTRAITTERRAN">
+        <IconFile value="$Portraits1"/>
+        <IconId value="14"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="ThorPortrait" parent="PORTRAITTERRAN">
+        <IconFile value="$Portraits1"/>
+        <IconId value="15"/>
+    </CRewardPortrait>
+    <!-- Potrait Unlockables (Zerg) -->
+    <CRewardPortrait id="ZerglingPortrait" parent="PORTRAITZERG">
+        <IconFile value="$Portraits1"/>
+        <IconId value="16"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="BanelingPortrait" parent="PORTRAITZERG">
+        <IconFile value="$Portraits1"/>
+        <IconId value="17"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="HydraliskPortrait" parent="PORTRAITZERG">
+        <IconFile value="$Portraits1"/>
+        <IconId value="18"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="QueenPortrait" parent="PORTRAITZERG">
+        <IconFile value="$Portraits1"/>
+        <IconId value="19"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="OverlordPortrait" parent="PORTRAITZERG">
+        <IconFile value="$Portraits1"/>
+        <IconId value="20"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="RoachPortrait" parent="PORTRAITZERG">
+        <IconFile value="$Portraits1"/>
+        <IconId value="21"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="MutaliskPortrait" parent="PORTRAITZERG">
+        <IconFile value="$Portraits1"/>
+        <IconId value="22"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="UltraliskPortrait" parent="PORTRAITZERG">
+        <IconFile value="$Portraits1"/>
+        <IconId value="23"/>
+    </CRewardPortrait>
+    <!-- Potrait Unlockables (Protoss) -->
+    <CRewardPortrait id="ZealotPortrait" parent="PORTRAITPROTOSS">
+        <IconFile value="$Portraits1"/>
+        <IconId value="24"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="PhoenixPortrait" parent="PORTRAITPROTOSS">
+        <IconFile value="$Portraits1"/>
+        <IconId value="25"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="ImmortalPortrait" parent="PORTRAITPROTOSS">
+        <IconFile value="$Portraits1"/>
+        <IconId value="26"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="CarrierPortrait" parent="PORTRAITPROTOSS">
+        <IconFile value="$Portraits1"/>
+        <IconId value="27"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="StalkerPortrait" parent="PORTRAITPROTOSS">
+        <IconFile value="$Portraits1"/>
+        <IconId value="28"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="HighTemplarPortrait" parent="PORTRAITPROTOSS">
+        <IconFile value="$Portraits1"/>
+        <IconId value="29"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="ArchonPortrait" parent="PORTRAITPROTOSS">
+        <IconFile value="$Portraits1"/>
+        <IconId value="30"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="ColossusPortrait" parent="PORTRAITPROTOSS">
+        <IconFile value="$Portraits1"/>
+        <IconId value="31"/>
+    </CRewardPortrait>
+    <!-- Portrait Unlockables (Random) -->
+    <CRewardPortrait id="ObserverPortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits1"/>
+        <IconId value="32"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="InfestorPortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits1"/>
+        <IconId value="33"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="GhostPortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits1"/>
+        <IconId value="34"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="DarkTemplarPortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits1"/>
+        <IconId value="35"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="HellionPortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits2"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="OverseerPortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits2"/>
+        <IconId value="1"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="VoidRayPortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits2"/>
+        <IconId value="2"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="BansheePortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits2"/>
+        <IconId value="3"/>
+    </CRewardPortrait>
+    <!-- Portrait Unlockables (Meta) -->
+    <CRewardPortrait id="SpectrePortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits2"/>
+        <IconId value="4"/>
+    </CRewardPortrait>
+    <CRewardPortrait id="MercenaryMarinePortrait" parent="PORTRAITUNLOCKABLE">
+        <IconFile value="$Portraits2"/>
+        <IconId value="5"/>
+    </CRewardPortrait>
+</Catalog>

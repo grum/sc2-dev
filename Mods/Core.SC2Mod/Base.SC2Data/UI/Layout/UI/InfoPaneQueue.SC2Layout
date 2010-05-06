@@ -5,6 +5,8 @@
         <HoverImage val="HoverImage"/>
         <Width val="64"/>
         <Height val="64"/>
+        <ClickSound val="@UI_GenericButton"/>
+              
         <Frame type="Image" name="NormalImage">
             <LayerCount val="2"/>
             <TextureType val="Normal" layer="0"/>

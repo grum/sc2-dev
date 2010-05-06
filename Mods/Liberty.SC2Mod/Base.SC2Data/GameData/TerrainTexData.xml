@@ -110,6 +110,57 @@
         <Normalmap value="Assets\Textures\Braxis_RockNormal.dds"/>
         <DoodadEntry Model="RockMixBraxisAlpha" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
     </CTerrainTex>
+    <CTerrainTex id="CharDirtLight">
+        <Texture value="Assets\Textures\Char_Dirt_Light.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Char_Dirt_Light.dds"/>
+        <Normalmap value="Assets\Textures\Char_Dirt_LightNormal.dds"/>
+        <DoodadEntry Model="PlantMixChar" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixChar" Probability="0.500000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="CharDirt">
+        <Texture value="Assets\Textures\Char_Dirt.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Char_Dirt.dds"/>
+        <Normalmap value="Assets\Textures\Char_DirtNormal.dds"/>
+        <DoodadEntry Model="PlantMixChar" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixChar" Probability="0.750000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="CharDirtCracked">
+        <Texture value="Assets\Textures\Char_Dirt_Cracked.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Char_Dirt_Cracked.dds"/>
+        <Normalmap value="Assets\Textures\Char_Dirt_CrackedNormal.dds"/>
+        <DoodadEntry Model="PlantMixChar" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixChar" Probability="0.200000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="CharMud">
+        <Texture value="Assets\Textures\Char_Mud.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Char_Mud.dds"/>
+        <Normalmap value="Assets\Textures\Char_MudNormal.dds"/>
+        <DoodadEntry Model="PlantMixChar" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixChar" Probability="0.200000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="CharRock">
+        <Texture value="Assets\Textures\Char_Rock.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Char_Rock.dds"/>
+        <Normalmap value="Assets\Textures\Char_RockNormal.dds"/>
+        <DoodadEntry Model="PlantMixChar" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixChar" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="CharSponge">
+        <Texture value="Assets\Textures\Char_Sponge.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Char_Sponge.dds"/>
+        <Normalmap value="Assets\Textures\Char_SpongeNormal.dds"/>
+        <DoodadEntry Model="RockMixChar" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="CharRedCracks">
+        <Texture value="Assets\Textures\Char_RedCracks.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Char_RedCracks.dds"/>
+        <Normalmap value="Assets\Textures\Char_RedCracksNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="CharLavaCracks">
+        <Texture value="Assets\Textures\Char_Lava_Cracks.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Char_Lava_Cracks.dds"/>
+        <Normalmap value="Assets\Textures\Char_Lava_CracksNormal.dds"/>
+    </CTerrainTex>
     <CTerrainTex id="Korhal1">
         <Texture value="Assets\Textures\Korhal1.dds"/>
         <EditorIcon value="Assets\Textures\ui-editoricon-Korhal1.dds"/>
@@ -370,6 +421,77 @@
         <Texture value="Assets\Textures\Shakuras_Hextiles.dds"/>
         <EditorIcon value="Assets\Textures\ui-editoricon-Shakuras_Hextiles.dds"/>
         <Normalmap value="Assets\Textures\Shakuras_HextilesNormal.dds"/>
+    </CTerrainTex>
+    <CTerrainTex id="TarsonisDirt">
+        <Texture value="Assets\Textures\Tarsonis_Dirt.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Tarsonis_Dirt.dds"/>
+        <Normalmap value="Assets\Textures\Tarsonis_DirtNormal.dds"/>
+        <DoodadEntry Model="PlantMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="RockMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassTarsonis"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="TarsonisDirtRough">
+        <Texture value="Assets\Textures\Tarsonis_Dirt_Rough.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Tarsonis_Dirt_Rough.dds"/>
+        <Normalmap value="Assets\Textures\Tarsonis_Dirt_RoughNormal.dds"/>
+        <DoodadEntry Model="RockMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="PlantMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassTarsonis"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.200000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="TarsonisGrass">
+        <Texture value="Assets\Textures\Tarsonis_Grass.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Tarsonis_Grass.dds"/>
+        <Normalmap value="Assets\Textures\Tarsonis_GrassNormal.dds"/>
+        <DoodadEntry Model="RockMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="PlantMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry>
+            <Model value="DynamicGrassTarsonis"/>
+            <RandomRotation value="1"/>
+            <Probability value="0.500000"/>
+            <PlacementRadius value="1.000000"/>
+        </DoodadEntry>
+    </CTerrainTex>
+    <CTerrainTex id="TarsonisCracks">
+        <Texture value="Assets\Textures\Tarsonis_Cracks.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Tarsonis_Cracks.dds"/>
+        <Normalmap value="Assets\Textures\Tarsonis_CracksNormal.dds"/>
+        <DoodadEntry Model="RockMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="PlantMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="TarsonisRubble">
+        <Texture value="Assets\Textures\Tarsonis_Rubble.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Tarsonis_Rubble.dds"/>
+        <Normalmap value="Assets\Textures\Tarsonis_RubbleNormal.dds"/>
+        <DoodadEntry Model="RockMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+        <DoodadEntry Model="PlantMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="TarsonisConcrete">
+        <Texture value="Assets\Textures\Tarsonis_Concrete.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Tarsonis_Concrete.dds"/>
+        <Normalmap value="Assets\Textures\Tarsonis_ConcreteNormal.dds"/>
+        <DoodadEntry Model="RockMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="TarsonisDetail">
+        <Texture value="Assets\Textures\Tarsonis_Detail.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Tarsonis_Detail.dds"/>
+        <Normalmap value="Assets\Textures\Tarsonis_DetailNormal.dds"/>
+        <DoodadEntry Model="RockMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
+    </CTerrainTex>
+    <CTerrainTex id="TarsonisPlating">
+        <Texture value="Assets\Textures\Tarsonis_Plating.dds"/>
+        <EditorIcon value="Assets\Textures\ui-editoricon-Tarsonis_Plating.dds"/>
+        <Normalmap value="Assets\Textures\Tarsonis_PlatingNormal.dds"/>
+        <DoodadEntry Model="RockMixTarsonis" Probability="0.100000" RandomRotation="1" PlacementRadius="1.000000"/>
     </CTerrainTex>
     <CTerrainTex id="XilDirt">
         <Texture value="Assets\Textures\Xil_Dirt.dds"/>

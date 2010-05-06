@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+    <!-- Button -->
+    <Frame type="ThumbButton" name="CampaignButtonTemplate" template="StandardTemplates/StandardButtonTemplate">
+        <Frame type="Image" name="NormalImage">
+            <LayerCount val="2"/>
+            <Texture val="@@UI/StandardButtonAlternateNormal" layer="1"/>
+            <TextureType val="EndCap" layer="1"/>
+            <Tiled val="false" layer="1"/>
+            <StateCount val="2" layer="1"/>            
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <LayerCount val="2"/>
+            <Texture val="@@UI/StandardButtonAlternateHover" layer="1"/>
+            <TextureType val="EndCap" layer="1"/>
+            <Tiled val="false" layer="1"/>
+            <StateCount val="2" layer="1"/>            
+        </Frame>       
+    </Frame>
+    
+    <Frame type="CampaignPanel" name="CampaignPanel">
+        <Frame type="Image" name="CampaignProgressImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <TextureType val="Normal"/>
+        </Frame>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@@UI/GlueCampaignPanelBackground"/>            
+        </Frame>      
+        
+        <Frame type="Label" name="TitleLabel">
+            <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="20"/>
+            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="40"/>
+            <Style val="GlueTitle"/>
+            <Text val="@UI/CampaignPanelTitle"/>
+        </Frame>
+
+        <Frame type="Label" name="CampaignProgressLabel">
+            <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="140"/>
+            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="40"/>
+            <Style val="GameSpeedSlider"/>
+            <Width val="700"/>
+        </Frame>
+
+        <Frame type="Image" name="TutorialBackgroundImage">
+            <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Max" offset="-50"/>
+            <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="40"/>
+            <Height val="110"/>
+            <Width val="1000"/>
+            <Texture val="@@UI/GlueCampaignPanelTutorialBackground"/>
+            <TextureType val="HorizontalBorder"/>
+        </Frame>
+
+        <Frame type="Image" name="TutorialIconImage">
+            <Anchor side="Top" relative="$parent/TutorialBackgroundImage" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent/TutorialBackgroundImage" pos="Min" offset="10"/>           
+            <Texture val="@@UI/GlueCampaignPanelTutorialIcon"/>           
+        </Frame>
+        
+        <Frame type="ThumbButton" name="TutorialButton" template="CampaignPanel/CampaignButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/TutorialBackgroundImage" pos="Max" offset="-10"/>
+            <Anchor side="Right" relative="$parent/TutorialBackgroundImage" pos="Max" offset="-20"/>
+            <Text val="@UI/CampaignPanelTutorial_Control"/>
+            <Shortcut val="@UI/CampaignPanelTutorial_Hotkey"/>
+            <Width val="300"/>
+        </Frame>
+
+        <Frame type="Label" name="TutorialTitleLabel">
+            <Anchor side="Top" relative="$parent/TutorialBackgroundImage" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent/TutorialIconImage" pos="Max" offset="10"/>
+            <Text val="@UI/CampaignPanelTutorialTitle"/>
+            <Style val="GlueTitleSmall"/>
+        </Frame>
+
+        <Frame type="Label" name="TutorialDescriptionLabel">
+            <Anchor side="Top" relative="$parent/TutorialTitleLabel" pos="Max" offset="10"/>
+            <Anchor side="Left" relative="$parent/TutorialTitleLabel" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent/TutorialButton" pos="Min" offset="-20"/>
+            <Text val="@UI/CampaignPanelTutorialDescription"/>
+            <Style val="GlueLabel"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="ContinueButton" template="CampaignPanel/CampaignButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/TutorialBackgroundImage" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+            <Text val="@UI/CampaignPanelContinue_Control"/>
+            <Shortcut val="@UI/CampaignPanelContinue_Hotkey"/>            
+            <CollapseLayout val="true"/>
+        </Frame>
+
+        <Frame type="ThumbButton" name="NewButton" template="CampaignPanel/CampaignButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/ContinueButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/ContinueButton" pos="Max" offset="20"/>
+            <Text val="@UI/CampaignPanelNewCampaign_Control"/>
+            <Shortcut val="@UI/CampaignPanelNewCampaign_Hotkey"/>            
+        </Frame>
+
+        <Frame type="ThumbButton" name="LoadButton" template="CampaignPanel/CampaignButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/NewButton" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/NewButton" pos="Max" offset="20"/>
+            <Text val="@UI/CampaignPanelLoad_Control"/>
+            <Shortcut val="@UI/CampaignPanelLoad_Hotkey"/>            
+        </Frame>
+
+        <Frame type="ThumbButton" name="ProgressButton" template="CampaignPanel/CampaignButtonTemplate">
+            <Anchor side="Top" relative="$parent/TitleLabel" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent/TitleLabel" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent/TitleLabel" pos="Max" offset="100"/>
+            <Text val="Progress Debug"/>           
+        </Frame>
+    </Frame>
+</Desc>

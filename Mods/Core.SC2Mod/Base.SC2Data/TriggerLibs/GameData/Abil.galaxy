@@ -300,7 +300,9 @@ const string c_abilBuildCmdHaltName = "Halt";
 
 //  EAbilBuildableCmd
 const int c_abilBuildableCmdCancel = 0;
+const int c_abilBuildableCmdHalt = 1;
 const string c_abilBuildableCmdCancelName = "Cancel";
+const string c_abilBuildableCmdHaltName = "Halt";
 
 //  EAbilEffectInstantCmd
 const int c_abilEffectInstantCmdExecute = 0;

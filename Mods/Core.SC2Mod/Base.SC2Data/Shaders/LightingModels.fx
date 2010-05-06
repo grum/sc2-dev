@@ -91,8 +91,8 @@ half3 KajiyaKayShading( VertexTransport vertOut, half3 vNormalWS, half3 vLightDi
     // the material part. This is not good.
     // :TODO: Can this be improved?
     half fShiftTex  = tex2D( p_sSpecularShiftLayer, INTERPOLANT_UV[0] ).a - 0.5f;   // :TODO: Setup UV emitter.
-    half3 vTangent1 = ShiftTangent( INTERPOLANT_Tangent, vNormalWS, p_fPrimaryShift + fShiftTex );
-    half3 vTangent2 = ShiftTangent( INTERPOLANT_Tangent, vNormalWS, p_fSecondaryShift + fShiftTex );
+    half3 vTangent1 = ShiftTangent( INTERPOLANT_Tangent.xyz, vNormalWS, p_fPrimaryShift + fShiftTex );
+    half3 vTangent2 = ShiftTangent( INTERPOLANT_Tangent.xyz, vNormalWS, p_fSecondaryShift + fShiftTex );
     vLightDiffuseSpecular.y = StrandSpecular( vTangent1, INTERPOLANT_EyeToVertex, vLightDirWS, fSpecularPower );
     vLightDiffuseSpecular.z = StrandSpecular( vTangent2, INTERPOLANT_EyeToVertex, vLightDirWS, p_fKajiyaKaySpecularity2 );
 

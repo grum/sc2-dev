@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="us-ascii"?>
-<Catalog/>
+<Catalog>
+    <!-- VoidRay Attack Beam - Increases in intensity with each Charge -->
+    <CActorBeamSimple id="VoidRayAttackBeam">
+        <On Terms="ActorCreation; !ValidateUnit NotQuadAndNotDoubleDamage" Send="AnimPlay Attack Attack,02 PlayForever"/>
+        <On Terms="ActorCreation; ValidateUnit DoubleDamage" Send="AnimPlay Attack Attack,02 PlayForever"/>
+        <On Terms="ActorCreation; ValidateUnit QuadDamage" Send="AnimPlay Attack Attack,06 PlayForever"/>
+        <!-- Beam will persist through death anim if we don't have this. -->
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Effect.VoidRayChargeEffect01.Start; FromEffectTreeDescendant" Send="AnimPlay Attack Attack,02 PlayForever"/>
+        <On Terms="Effect.VoidRayChargeEffect02.Start; FromEffectTreeDescendant" Send="TimerSet 0.600000 DelayAnim2"/>
+        <On Terms="TimerExpired; TimerName DelayAnim2" Send="AnimPlay Attack Attack,02 PlayForever"/>
+        <On Terms="Effect.VoidRayChargeEffect03.Start; FromEffectTreeDescendant" Send="TimerSet 0.600000 DelayAnim3"/>
+        <On Terms="TimerExpired; TimerName DelayAnim3" Send="AnimPlay Attack Attack,06 PlayForever"/>
+        <On Terms="Effect.VoidRayChargeChain.Stop; FromEffectTreeDescendant" Send="Destroy"/>
+    </CActorBeamSimple>
+</Catalog>

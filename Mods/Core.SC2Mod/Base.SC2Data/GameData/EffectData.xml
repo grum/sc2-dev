@@ -24,6 +24,7 @@
         <TimeScaleSource Value="Global"/>
         <OffsetVectorStartLocation Value="SourceUnit"/>
         <OffsetVectorEndLocation Value="TargetPoint"/>
+        <OffsetFacingFallback Value="SourceUnit"/>
     </CEffectCreatePersistent>
     <CEffectCreateUnit default="1">
         <SpawnCount value="1"/>

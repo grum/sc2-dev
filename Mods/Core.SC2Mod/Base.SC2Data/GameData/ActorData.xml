@@ -16,12 +16,12 @@
     <!--                                                                                         -->
     <const id="$GenericAttackLaunchMethods" value="AMFilterWeapon00"/>
     <const id="$GenericBunkerAttackLaunchMethods" value="AMFilterWeapon AMProximityTargetAll AMPortAllocatorBunker"/>
-    <const id="$GenericAttackTargetMethods" value="AMFilterTarget AMTAVAccept AMProximityAll AMRandomExpTight"/>
+    <const id="$GenericAttackTargetMethods" value="AMFilterTargetVolumes AMArcTestWeapon AMVolumesWeightedPick"/>
     <const id="$GenericAttackImpactSiteOpsHeader" value="SOpAttachHarness SOpForwardLaunchGuide SOpAttachVolumeStandard SOp2DRotation"/>
     <const id="$Death" value="AnimPlay Death Death"/>
     <const id="$Birth" value="AnimPlay Birth Birth"/>
     <const id="$Stand" value="AnimPlay Stand Stand"/>
-    <const id="$AllowBlobShadow" value="CompareField ::Main ShowBlobShadow Eq 1"/>
+    <const id="$AllowBlobShadow" value="CompareField ::Main UnitFlags[e_actorUnitFlagShowBlobShadow] Eq 1"/>
     <const id="$Spell" value="AnimPlay Spell Spell"/>
     <!--                                                                                         -->
     <!--                                                                                         -->
@@ -43,6 +43,7 @@
         <Inherits index="PhysicsState" value="0"/>
         <Inherits index="Scale" value="0"/>
         <Inherits index="ScaleVariance" value="0"/>
+        <Inherits index="TeamColor" value="0"/>
         <Inherits index="TintColor" value="0"/>
         <Inherits index="Visibility" value="0"/>
     </CActor>
@@ -59,7 +60,7 @@
         <Model value="##id##"/>
         <AutoScaleFactor value="0"/>
         <AnimBlendTime value="-1.0"/>
-        <AllowHitTest value="0"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
     </CActorModel>
     <CActorPower default="1">
         <PowerSource value="##id##Source"/>
@@ -113,6 +114,10 @@
         <?token id="sight" type="CUnitLink"?>
         <Sight value="##sight##"/>
     </CActorRange>
+    <CActorRange default="1" id="RangeWeapon">
+        <?token id="weapon" type="CWeaponLink"?>
+        <Weapon value="##weapon##"/>
+    </CActorRange>
     <CActorSetQueried default="1">
         <!-- Makes these work a lot of the time without any extra data. -->
         <Host Subject="_Unit"/>
@@ -134,6 +139,7 @@
         <Inherits index="Opacity" value="1"/>
         <Inherits index="Scale" value="1"/>
         <Inherits index="ScaleVariance" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
         <Inherits index="TintColor" value="1"/>
         <Inherits index="Visibility" value="1"/>
     </CActorSite>
@@ -174,6 +180,7 @@
     </CActorBeamStandard>
     <CActorDoodad default="1">
         <Flags index="SuppressSaveLoad" value="1"/>
+        <DoodadFlags index="PauseAnimsWhileFogged" value="1"/>
         <FogVisibility value="Dimmed"/>
         <EditorCategories value="DoodadType:Props"/>
         <EditorIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
@@ -241,7 +248,7 @@
     <!--                                                                                         -->
     <!--                                                                                         -->
     <CActorGlobalConfig id="SYSTEM_ActorConfig">
-        <PrimaryUnitActor value="_Unit"/>
+        <MainActor value="_Main"/>
         <MissileActor value="_Missile"/>
         <MissileBoundsOptSpeedThreshold value="5.0"/>
         <CommandUIActor value="CommandUIHarness"/>
@@ -282,10 +289,47 @@
         <DeathCustomPriorityList value="AntiGravTerran"/>
         <DeathCustomPriorityList value="AntiGravZerg"/>
         <DeathCustomPriorityList value="Hallucination"/>
+        <DeathCustomPriorityList value="Variation0"/>
+        <DeathCustomPriorityList value="Variation1"/>
         <DeathCustomPriorityList value="Variation2"/>
         <DeathCustomPriorityList value="Variation3"/>
         <DeathCustomPriorityList value="Variation4"/>
         <DeathCustomPriorityList value="Variation5"/>
+        <DeathCustomPriorityList value="Variation6"/>
+        <DeathCustomPriorityList value="Variation7"/>
+        <DeathCustomPriorityList value="Variation8"/>
+        <DeathCustomPriorityList value="Variation9"/>
+        <DeathCustomPriorityList value="Variation10"/>
+        <DeathCustomPriorityList value="Variation11"/>
+        <DeathCustomPriorityList value="Variation12"/>
+        <DeathCustomPriorityList value="Variation13"/>
+        <DeathCustomPriorityList value="Variation14"/>
+        <DeathCustomPriorityList value="Variation15"/>
+        <DeathCustomPriorityList value="Variation16"/>
+        <DeathCustomPriorityList value="Variation17"/>
+        <DeathCustomPriorityList value="Variation18"/>
+        <DeathCustomPriorityList value="Variation19"/>
+        <DeathCustomPriorityList value="Variation20"/>
+        <DeathCustomPriorityList value="Variation21"/>
+        <DeathCustomPriorityList value="Variation22"/>
+        <DeathCustomPriorityList value="Variation23"/>
+        <DeathCustomPriorityList value="Variation24"/>
+        <DeathCustomPriorityList value="Variation25"/>
+        <DeathCustomPriorityList value="Variation26"/>
+        <DeathCustomPriorityList value="Variation27"/>
+        <DeathCustomPriorityList value="Variation28"/>
+        <DeathCustomPriorityList value="Variation29"/>
+        <DeathCustomPriorityList value="Variation30"/>
+        <DeathCustomPriorityList value="Variation31"/>
+        <DeathCustomPriorityList value="Variation32"/>
+        <DeathCustomPriorityList value="Variation33"/>
+        <DeathCustomPriorityList value="Variation34"/>
+        <DeathCustomPriorityList value="Variation35"/>
+        <DeathCustomPriorityList value="Variation36"/>
+        <DeathCustomPriorityList value="Variation37"/>
+        <DeathCustomPriorityList value="Variation38"/>
+        <DeathCustomPriorityList value="Variation39"/>
+        <DeathCustomPriorityList value="Variation40"/>
         <MaxSpeedForSound value="3.0"/>
         <PopulationLimitModel value="160"/>
     </CActorGlobalConfig>
@@ -425,15 +469,14 @@
     </CActorSiteOpAction>
     <CActorSiteOpAttach default="1">
         <!-- We have to default this value to ignore, b/c several common SiteHosted configurations
-                 (like just hosting off a parent model, or being created by CActorSetQueried) don't
-                 want to use attach queries.  However, this means that if a client forgets to add a
-                 query, the model will show up at 0, 0, which may not be the most intuitive
-                 location.  We could add a default for that, but if the client forgets to add a query,
-                 who says they are going to remember to parent on that default correctly?  Current
-                 thinking is to just bite the bullet and have people at 0, 0 if the attached thing
-                 isn't showing up. -->
+             (like just hosting off a parent model, or being created by CActorSetQueried) don't
+             want to use attach queries.  However, this means that if a client forgets to add a
+             query, the model will show up at 0, 0, which may not be the most intuitive
+             location.  We could add a default for that, but if the client forgets to add a query,
+             who says they are going to remember to parent on that default correctly?  Current
+             thinking is to just bite the bullet and have people look at 0, 0 if the attached thing
+             isn't showing up. -->
         <AttachQuery Methods="IGNORE"/>
-        <ReattachQuery Methods="IGNORE"/>
     </CActorSiteOpAttach>
     <CActorSiteOpAttach id="SOpAttachHarness"/>
     <CActorSiteOpAttach id="SOpAttachHarnessSoft">
@@ -538,6 +581,12 @@
     <CActorSiteOpAttach id="SOpAttachWeapon09">
         <AttachQuery Methods="Weapon 9"/>
     </CActorSiteOpAttach>
+    <CActorSiteOpAttach id="SOpAttachWeapon11">
+        <AttachQuery Methods="Weapon 11"/>
+    </CActorSiteOpAttach>
+    <CActorSiteOpAttach id="SOpAttachWeapon12">
+        <AttachQuery Methods="Weapon 12"/>
+    </CActorSiteOpAttach>
     <CActorSiteOpAttach id="SOpAttachWeapon21">
         <AttachQuery Methods="Weapon 21"/>
     </CActorSiteOpAttach>
@@ -547,6 +596,8 @@
     <CActorSiteOpAttachVolume id="SOpAttachVolumeStandard">
         <HostIncoming Subject="_LaunchGuide" Actor="Find"/>
         <UpwardVisibilityEnhancement value="1"/>
+        <UpwardVisibilityEnhancementVarianceUp value="15"/>
+        <UpwardVisibilityEnhancementVarianceDown value="5"/>
     </CActorSiteOpAttachVolume>
     <CActorSiteOpAttachVolume id="SOpAttachVolumeNoVizEnhance">
         <HostIncoming Subject="_LaunchGuide" Actor="Find"/>
@@ -724,6 +775,9 @@
     <CActorSite default="1" id="SiteCenter" parent="SiteUNIT">
         <HostSiteOps Ops="SOpAttachCenter"/>
     </CActorSite>
+    <CActorSite default="1" id="SiteWeapon" parent="SiteUNIT">
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+    </CActorSite>
     <CActorSite id="SiteOverhead" parent="SiteUNIT"/>
     <CActorSite default="1" id="SiteOrigin" parent="SiteUNIT">
         <HostSiteOps Ops="SOpAttachOrigin"/>
@@ -779,6 +833,7 @@
         <On Terms="ProgressLevel.*.Resume" Send="SoundSetPaused 0"/>
     </CActorSound>
     <CActorSound id="SoundEmitter" parent="SoundContinuous">
+        <Terms value="!HasScopeFlag DisableSoundEmitters"/>
         <Flags index="SuppressCreationErrors" value="1"/>
         <Inherits index="Visibility" value="1"/>
         <Host Subject="::Creator"/>
@@ -836,34 +891,36 @@
         <Host Subject="_Selectable"/>
     </CActorModel>
     <CActorModel default="1" id="ModelAddition" parent="ModelAnimationStyleContinuous">
-        <UseSyncSeed value="1"/>
-        <AllowHitTest value="1"/>
+        <ModelFlags index="UseSyncSeed" value="1"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
         <Aliases value="_Snapshot"/>
         <Host Subject="_Selectable"/>
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Opacity" value="1"/>
         <Inherits index="Scale" value="1"/>
         <Inherits index="ScaleVariance" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
         <Inherits index="TintColor" value="1"/>
         <Inherits index="Visibility" value="1"/>
     </CActorModel>
     <CActorModel default="1" id="ModelAdditionNoAnims">
-        <UseSyncSeed value="1"/>
-        <AllowHitTest value="1"/>
+        <ModelFlags index="UseSyncSeed" value="1"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
         <Aliases value="_Snapshot"/>
         <Host Subject="_Selectable"/>
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Opacity" value="1"/>
         <Inherits index="Scale" value="1"/>
         <Inherits index="ScaleVariance" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
         <Inherits index="TintColor" value="1"/>
         <Inherits index="Visibility" value="1"/>
         <On Terms="ActorOrphan" Send="Destroy"/>
     </CActorModel>
     <!-- Requires manual death from 3rd party. -->
     <CActorModel default="1" id="ModelAdditionStatic">
-        <UseSyncSeed value="1"/>
-        <AllowHitTest value="1"/>
+        <ModelFlags index="UseSyncSeed" value="1"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
         <Aliases value="_Snapshot"/>
         <Host Subject="_Selectable"/>
         <Inherits index="CloakEffect" value="1"/>
@@ -871,6 +928,7 @@
         <Inherits index="Opacity" value="1"/>
         <Inherits index="Scale" value="1"/>
         <Inherits index="ScaleVariance" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
         <Inherits index="TintColor" value="1"/>
         <Inherits index="Visibility" value="1"/>
         <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death ContentNonLooping"/>
@@ -879,13 +937,15 @@
     </CActorModel>
     <!-- Intentionally NOT inheriting from the other defaults because we do not want bracket anims-->
     <CActorModel default="1" id="ModelConstruction">
-        <UseSyncSeed value="1"/>
-        <AllowHitTest value="1"/>
+        <ModelFlags index="NeedsVolumeMonitoring" value="1"/>
+        <ModelFlags index="UseSyncSeed" value="1"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
         <Host Subject="_Selectable"/>
         <Aliases value="_Snapshot"/>
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Opacity" value="1"/>
         <Inherits index="Scale" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
         <Inherits index="TintColor" value="1"/>
         <Inherits index="Visibility" value="1"/>
         <On Terms="UnitConstruction.*.Finish" Send="Destroy"/>
@@ -914,23 +974,15 @@
     </CActorModel>
     <CActorModel id="PlacementModel">
         <FogVisibility value="Visible"/>
-        <Aliases value="_Unit"/>
-        <Aliases value="_Selectable"/>
-        <On Terms="ActorCreation; ModelQuality 0" Send="SetOpacity 0.3"/>
-        <On Terms="ActorCreation" Send="AnimGroupApply Placement"/>
-        <On Terms="ActorCreation" Send="AnimPlay Stand Stand PlayForever"/>
-        <On Terms="ActorOrphan" Send="Destroy"/>
-    </CActorModel>
-    <CActorModel id="PlaceholderBase">
-        <FogVisibility value="Visible"/>
         <Filter index="Neutral" value="1"/>
         <Filter index="Enemy" value="1"/>
+        <Aliases value="_Main"/>
         <Aliases value="_Unit"/>
         <Aliases value="_Selectable"/>
+        <On Terms="ActorCreation; Option Model Low" Send="SetOpacity 0.3"/>
         <On Terms="ActorCreation" Send="AnimGroupApply Placement"/>
         <On Terms="ActorCreation" Send="AnimPlay Stand Stand PlayForever"/>
         <On Terms="ActorOrphan" Send="Destroy"/>
-        <On Terms="Placeholder.*.Destroy" Send="Destroy"/>
     </CActorModel>
     <CActorModel id="ModelPlaceholder">
         <Model value="Sphere"/>
@@ -982,10 +1034,6 @@
         <On Terms="UnitDeath" Send="Destroy"/>
         <On Terms="ActorCreation" Send="AnimPlay Main Stand PlayForever"/>
     </CActorModel>
-    <CActorModel id="SceneUIHarness">
-        <FogVisibility value="Visible"/>
-        <On Terms="ActorOrphan" Send="Destroy"/>
-    </CActorModel>
     <!--                                                                                         -->
     <CActorModel default="1" id="Confirmation" parent="ModelAnimationStyleOneShotNoOrphan">
         <On Terms="Confirmation.*.Stop" Send="Destroy Immediate"/>
@@ -1019,6 +1067,17 @@
     <CActorSplat id="EventSplat"/>
     <!--                                                                                         -->
     <!--                                                                                         -->
+    <!-- Scene File Harnesses ================================================================== -->
+    <!--                                                                                         -->
+    <!--                                                                                         -->
+    <CActorSound id="SceneUISound" parent="EventSoundFromData"/>
+    <CActorModel id="SceneUIHarness">
+        <FogVisibility value="Visible"/>
+        <EventDataSound Name="SMModelEventSound" Actor="SceneUISound"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+    </CActorModel>
+    <!--                                                                                         -->
+    <!--                                                                                         -->
     <!-- Snapshots ============================================================================= -->
     <!--                                                                                         -->
     <!--                                                                                         -->
@@ -1028,17 +1087,22 @@
         <Host Subject="::Creator"/>
         <Inherits index="Scale" value="1"/>
         <Inherits index="Opacity" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
         <Inherits index="TintColor" value="1"/>
         <Inherits index="WarpGroup" value="0"/>
-        <AllowHitTest value="1"/>
-        <HasPlayerDecals value="1"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
+        <ModelFlags index="HasPlayerDecals" value="1"/>
         <AcceptedTransfers index="Model" value="1"/>
         <AcceptedTransfers index="Animator" value="1"/>
         <AcceptedTransfers index="AnimProps" value="1"/>
         <AcceptedTransfers index="Textures" value="1"/>
+        <AcceptedHostedPropTransfers index="Scale" value="1"/>
         <AcceptedHostedPropTransfers index="WarpGroup" value="0"/>
         <!-- Means we get props and bearings once, and then stop. -->
         <On Terms="ActorCreation" Send="RefClear ::Host"/>
+        <!-- Need to kill all the extra models that the snapshot may have created under
+             the covers. -->
+        <On Terms="ActorDestruction" Target="_Snapshot" Send="Destroy"/>
     </CActorSnapshot>
     <!--                                                                                         -->
     <!--                                                                                         -->
@@ -1050,6 +1114,9 @@
         <FadeIn value="-1.000000"/>
         <FadeOut value="-1.000000"/>
         <HoldTime value="-1.000000"/>
+        <!-- cant scale or when on low Q models, the splats scale to match explosion scales -->
+<!--        <Inherits index="Scale" value="1"/>
+        <Inherits index="ScaleVariance" value="1"/> -->
         <Inherits index="Visibility" value="1"/>
         <Inherits index="CloakEffect" value="1"/>
         <Host Subject="_Selectable"/>
@@ -1081,7 +1148,7 @@
         <On Terms="UnitBirth.##unitName##Burrowed" Send="Create"/>
         <On Terms="AbilMorph.*.Start; MorphTo ##unitName##Burrowed" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom ##unitName##Burrowed" Send="RefClear ::Host"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom ##unitName##Burrowed" Send="TimerSet 5 DelayDestroy"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom ##unitName##Burrowed" Send="TimerSet 4,2 DelayDestroy"/>
         <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
     </CActorSplat>
     <!--                                                                                         -->
@@ -1132,6 +1199,7 @@
         <SegmentPercentSolid value="0.800000"/>
         <Inherits index="Scale" value="1"/>
         <Inherits index="ScaleVariance" value="1"/>
+        <Flags index="SuppressSaveLoad" value="1"/>
     </CActorSelection>
     <CActorSelection default="1" id="LocalSelection">
         <Alpha value="1.000000,1.000000,1.000000"/>
@@ -1162,7 +1230,8 @@
         <On Terms="SelectionLocalUpdate.*.VisibleOn" Send="SetShowing 1"/>
         <On Terms="SelectionLocalUpdate.*.VisibleOff" Send="SetShowing 0"/>
         <On Terms="SelectionLocalUpdate.*.Stop" Send="Destroy"/>
-        <On Terms="ActorCreation; ValidateUnit IsFlying" Target="::Host" Send="StatusIncrement FlyerHelper"/>
+        <On Terms="ActorCreation; ValidateUnitType IsFlying" Target="::Host" Send="StatusSet FlyerHelper 1"/>
+        <On Terms="ActorDestruction; ValidateUnitType IsFlying" Target="::Host" Send="StatusSet FlyerHelper"/>
         <HalfHeight value="20.0"/>
         <Attenuation value="-1.0"/>
     </CActorSelection>
@@ -1236,8 +1305,8 @@
         <On Terms="AbilMorph.*.Finish; ValidateUnit UseCliffSelection" Send="Destroy"/>
         <HalfHeight value="0.1"/>
         <Attenuation value="1.0"/>
-        <On Terms="ActorCreation; ValidateUnit IsFlying" Target="::Host" Send="StatusIncrement FlyerHelper"/>
-        <On Terms="ActorDestruction; ScopeContains FlyerHelperSplat" Target="::Host" Send="StatusDecrement FlyerHelper"/>
+        <On Terms="ActorCreation; ValidateUnit IsFlying" Target="::Host" Send="StatusSet FlyerHelper 1"/>
+        <On Terms="ActorDestruction; ValidateUnit IsFlying" Target="::Host" Send="StatusSet FlyerHelper"/>
     </CActorSelection>
     <CActorSelection id="CliffLocalSelection" parent="LocalSelection">
         <On Terms="SelectionLocalUpdate.*.Start; ValidateUnit UseCliffSelection" Send="Create"/>
@@ -1327,11 +1396,13 @@
     </CActorTerrainDeformer>
     <CActorTerrainDeformer id="BuildingTerrainFlattenInstant" parent="BuildingTerrainFlatten">
         <BlendTime value="0.0"/>
+        <FoliageFXDeathSpawnTarget value=""/>
     </CActorTerrainDeformer>
     <CActorTerrainDeformer id="BuildingTerrainFlattenEditor" parent="BuildingTerrainFlatten">
         <BlendTime value="0.0"/>
         <TerrainDeformerFlags index="RestoreOnMovement" value="1"/>
         <TerrainDeformerFlags index="RestoreOnDestroy" value="1"/>
+        <FoliageFXDeathSpawnTarget value=""/>
     </CActorTerrainDeformer>
     <CActorEventMacro id="BuildingFlattenTerrainMacro">
         <On Terms="UnitConstruction.*.Start" Send="Create BuildingTerrainFlatten"/>
@@ -1355,16 +1426,17 @@
              is lingering on the game side but isn't really dead even though it looks that way. -->
         <On Terms="ActorOrphan; !AnimPlaying Death" Send="Destroy"/>
     </CActorEventMacro>
-    <!--- Everything that is a unit derives from this.  This is a named default, instead of an
-          an unnamed one so that if we need to have units that don't need to have some of the
-          stuff that is here, we can just put them on a different name.  Otherwise, we'd have to
-          re-parent all the units that were relying on the unnamed default, which is a nightmare.
-          Removes are to be used as a last resort, b/c they are more complex.  They require an
-          add and a remove and can break if the add goes away, as opposed to having another
-          default and a lack of add.  (If that makes any sense.)
-          -->
+    <CActorUnit default="1" id="GenericUnitEmpty"/>
+    <!-- Everything that is a unit derives from this.  This is a named default, instead of an
+         an unnamed one so that if we need to have units that don't need to have some of the
+         stuff that is here, we can just put them on a different name.  Otherwise, we'd have to
+         re-parent all the units that were relying on the unnamed default, which is a nightmare.
+         Removes are to be used as a last resort, b/c they are more complex.  They require an
+         add and a remove and can break if the add goes away, as opposed to having another
+         default and a lack of add.  (If that makes any sense.)
+         -->
     <CActorUnit default="1" id="GenericUnitMinimal">
-        <UseSyncSeed value="1"/>
+        <?token id="unitName" type="CUnitLink" value="Bogus"?>
         <StatusBarFlags index="Shields" value="1"/>
         <StatusBarFlags index="Life" value="1"/>
         <StatusBarFlags index="Energy" value="1"/>
@@ -1376,8 +1448,12 @@
         </StatusColors>
         <StatusColors index="Life" BackgroundColor="255,0,0,0" EmptyColor="255,80,80,80">
             <ColorArray value="255,208,34,0"/>
+            <ColorArray value="255,208,34,0"/>
+            <ColorArray value="255,229,129,0"/>
             <ColorArray value="255,229,129,0"/>
             <ColorArray value="255,229,221,0"/>
+            <ColorArray value="255,229,221,0"/>
+            <ColorArray value="255,22,229,0"/>
             <ColorArray value="255,22,229,0"/>
         </StatusColors>
         <StatusColors index="Energy" BackgroundColor="255,0,0,0" EmptyColor="255,80,80,80">
@@ -1392,15 +1468,19 @@
         <StatusColors index="Duration" BackgroundColor="255,0,0,0" EmptyColor="255,80,80,80">
             <ColorArray value="255,200,200,200"/>
         </StatusColors>
+        <UnitBorderNormalColor value="NULL"/>
+        <UnitBorderSubgroupColor value="NULL"/>
         <BarDistance value="34"/>
         <BarWidth value="60"/>
         <BarHeight value="7"/>
         <BarOffset value="100"/>
         <NameOffset value="30"/>
-        <HighlightTooltip value="Unit/Name/##id##"/>
+        <HighlightTooltip value="Unit/Name/##unitName##"/>
         <CopySource value="_Unit"/>
-        <HasPlayerDecals value="1"/>
-        <ShowBlobShadow value="1"/>
+        <ModelFlags index="NeedsVolumeMonitoring" value="1"/>
+        <ModelFlags index="UseSyncSeed" value="1"/>
+        <ModelFlags index="HasPlayerDecals" value="1"/>
+        <UnitFlags index="ShowBlobShadow" value="1"/>
         <GlossaryAnim value="Stand"/>
         <AcceptedTransfers index="AnimProps" value="1"/>
         <AcceptedTransfers index="Textures" value="1"/>
@@ -1414,8 +1494,10 @@
         <Baselines index="Walk" AnimProps="Walk" BlendIn="-1.0" BlendOut="-1.0"/>
         <RandomScaleRange value="1.000000,1.000000"/>
         <WalkAnimMoveSpeed value="3.75"/>
-        <BuildModel value="##id##"/>
-        <PlacementModel value="##id##"/>
+        <Model value="##unitName##"/>
+        <BuildModel value="##unitName##"/>
+        <PlacementModel value="##unitName##"/>
+        <PlacementActorModel value="PlacementModel"/>
         <PortraitActor value="PortraitActor"/>
         <PortraitModel value="StaticPortrait"/>
         <DeathActorModel value="UnitDeathModel"/>
@@ -1425,11 +1507,11 @@
         <Aliases value="_Unit"/>
         <Aliases value="_Selectable"/>
         <Macros value="GlobalLoopMacro"/>
-        <On Terms="UnitBirth.##id##" Send="Create SoundEmitter ##id##_Ambience"/>
-        <On Terms="UnitBirth.##id##" Send="Create"/>
-        <On Terms="UnitRevive.##id##" Send="Create"/>
-        <On Terms="UnitConstruction.##id##.Start" Send="Create"/>
-        <On Terms="UnitConstruction.##id##.Finish" Send="AnimPlay ConstructionDeath Stand,Birth,Death FullMatch"/>
+        <On Terms="UnitBirth.##unitName##" Send="Create SoundEmitter ##unitName##_Ambience"/>
+        <On Terms="UnitBirth.##unitName##" Send="Create"/>
+        <On Terms="UnitRevive.##unitName##" Send="Create"/>
+        <On Terms="UnitConstruction.##unitName##.Start" Send="Create"/>
+        <On Terms="UnitConstruction.##unitName##.Finish" Send="AnimPlay ConstructionDeath Stand,Birth,Death FullMatch"/>
         <On Terms="AnimDone.*.Missing; AnimName ConstructionDeath" Send="Destroy"/>
         <On Terms="ActorCreation; ValidateUnit IsFlying; Option Shadow Low; $AllowBlobShadow" Send="Create FlyerShadow"/>
         <On Terms="ActorCreation; ValidateUnit IsNotFlying; Option Shadow Low; $AllowBlobShadow" Send="Create GroundShadow"/>
@@ -1438,34 +1520,36 @@
     <CActorUnit default="1" id="GenericUnitSelectable" parent="GenericUnitMinimal">
         <UnitIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
         <HeroIcon value="Assets\Textures\btn-missing-kaeo.dds"/>
-        <SoundArray index="Birth" value="##id##_Birth"/>
-        <SoundArray index="Ready" value="##id##_Ready"/>
-        <SoundArray index="Help" value="##id##_Help"/>
-        <SoundArray index="What" value="##id##_What"/>
-        <SoundArray index="Yes" value="##id##_Yes"/>
-        <SoundArray index="Attack" value="##id##_Attack"/>
-        <SoundArray index="Pissed" value="##id##_Pissed"/>
-        <SoundArray index="Movement" value="##id##_Movement"/>
-        <SoundArray index="Turning" value="##id##_Turning"/>
-        <SoundArray index="Board" value="##id##_Board"/>
-        <SoundArray index="Click" value="##id##_Click"/>
-        <SoundArray index="ClickError" value="##id##_ClickError"/>
-        <SoundArray index="Highlight" value="##id##_Highlight"/>
+        <SoundArray index="Birth" value="##unitName##_Birth"/>
+        <SoundArray index="Ready" value="##unitName##_Ready"/>
+        <SoundArray index="Help" value="##unitName##_Help"/>
+        <SoundArray index="What" value="##unitName##_What"/>
+        <SoundArray index="Yes" value="##unitName##_Yes"/>
+        <SoundArray index="Attack" value="##unitName##_Attack"/>
+        <SoundArray index="Pissed" value="##unitName##_Pissed"/>
+        <SoundArray index="Movement" value="##unitName##_Movement"/>
+        <SoundArray index="Turning" value="##unitName##_Turning"/>
+        <SoundArray index="Board" value="##unitName##_Board"/>
+        <SoundArray index="Click" value="##unitName##_Click"/>
+        <SoundArray index="ClickError" value="##unitName##_ClickError"/>
+        <SoundArray index="Highlight" value="##unitName##_Highlight"/>
         <GroupSoundThreshold value="2"/>
-        <GroupSoundArray index="What" value="##id##_GroupWhat"/>
-        <GroupSoundArray index="Yes" value="##id##_GroupYes"/>
-        <GroupSoundArray index="Attack" value="##id##_GroupAttack"/>
-        <GroupSoundArray index="Board" value="##id##_GroupBoard"/>
-        <ShieldArmorIcon value="Assets\Textures\btn-cmd-upgrade-plasma-shields.dds"/>
-        <AllowHitTest value="1"/>
+        <GroupSoundArray index="What" value="##unitName##_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="##unitName##_GroupYes"/>
+        <GroupSoundArray index="Attack" value="##unitName##_GroupAttack"/>
+        <GroupSoundArray index="Board" value="##unitName##_GroupBoard"/>
+        <ShieldArmorIcon value="Assets\Textures\btn-upgrade-protoss-shieldslevel0.dds"/>
+        <ModelFlags index="AllowHitTest" value="1"/>
         <On Terms="PreTargetingUpdate.*.Start; ValidateUnit IsNotFlying" Send="Create ModelPretargetGround"/>
         <On Terms="PreTargetingUpdate.*.Stop" Target="ModelPretargetGround" Send="Destroy"/>
         <On Terms="PreTargetingUpdate.*.Start; ValidateUnit IsFlying" Send="Create GroundPreSelection"/>
         <On Terms="PreTargetingUpdate.*.Stop" Target="GroundPreSelection" Send="Destroy"/>
-        <On Terms="CursorUpdate.*.Start; ValidateUnit IsFlying" Send="StatusIncrement FlyerHelper"/>
-        <On Terms="CursorUpdate.*.Stop; ScopeContains FlyerHelperSplat" Send="StatusDecrement FlyerHelper"/>
-        <On Terms="StatusOn.*.FlyerHelper" Send="Create FlyerHelperSplat"/>
-        <On Terms="StatusOff.*.FlyerHelper" Target="FlyerHelperSplat" Send="Destroy"/>
+        <On Terms="CursorUpdate.*.Start; ValidateUnit IsFlying" Send="StatusSet FlyerHelper 1"/>
+        <On Terms="CursorUpdate.*.Stop; ValidateUnit IsFlying" Send="StatusSet FlyerHelper"/>
+        <On Terms="StatusOn.*.FlyerHelper; FlyerHelperEnabled" Send="Create FlyerHelperSplat"/>
+        <On Terms="StatusOff.*.FlyerHelper; ScopeContains FlyerHelperSplat" Target="FlyerHelperSplat" Send="Destroy"/>
+        <On Terms="FlyerHelperChange; FlyerHelperEnabled; HasStatus FlyerHelper" Send="Create FlyerHelperSplat"/>
+        <On Terms="FlyerHelperChange; !FlyerHelperEnabled; HasStatus FlyerHelper" Target="FlyerHelperSplat" Send="Destroy"/>
     </CActorUnit>
     <!-- For anything unit that one would consider a conventional unit in the game. -->
     <CActorUnit default="1" id="GenericUnitBase" parent="GenericUnitSelectable">
@@ -1475,9 +1559,9 @@
         <VarianceWindowWalkIntro value="0.33"/>
         <VarianceWindowWalk value="1.0"/>
         <VarianceWindowWalkOutro value="0.33"/>
-        <EventDataFootprint Actor="UnitFootprint" Model="##id##Footprint"/>
+        <EventDataFootprint Actor="UnitFootprint" Model="##unitName##Footprint"/>
         <EventDataSound Actor="UnitSound"/>
-        <DeathArray index="Normal" AnimProps="Death" ModelLink="##id##" SoundLink="##id##Death" VoiceLink="##id##DeathVoice"/>
+        <DeathArray index="Normal" AnimProps="Death" ModelLink="##unitName##" SoundLink="##unitName##Death" VoiceLink="##unitName##DeathVoice"/>
         <DeathArray index="UnderConstruction" AnimProps="Death"/>
         <DeathArray index="Eat" AnimProps="Death,Eat"/>
         <DeathArray index="Eviscerate" AnimProps="Death,Eviscerate"/>
@@ -1516,7 +1600,7 @@
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
     </CActorUnit>
     <CActorUnit default="1" id="DestructibleUnitStandard" parent="GenericUnitStandard">
-        <DeathArray index="Normal" SoundLink="DestructibleRockDeath"/>
+        <DeathArray index="Normal" SoundLink="Destructible_RockDeath"/>
         <RandomScaleRange value="1.000000,1.000000"/>
     </CActorUnit>
     <CActorUnit default="1" id="GenericUnitBaseMorphTransition" parent="GenericUnitBase">
@@ -1531,9 +1615,9 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <Model value="Invisible"/>
-        <EditorModel value="Ball1x1"/>
+        <EditorModel value="PathingBlockerHelper"/>
         <WalkAnimMoveSpeed value="0"/>
-        <ShowBlobShadow value="0"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
     </CActorUnit>
     <CActorUnit default="1" id="Beacon" parent="GenericUnitSelectable">
         <StatusBarFlags index="Shields" value="0"/>
@@ -1543,7 +1627,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <WalkAnimMoveSpeed value="0"/>
-        <ShowBlobShadow value="0"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
         <Filter index="Neutral" value="1"/>
         <Filter index="Enemy" value="1"/>
         <On Terms="ActorCreation" Send="SetShowing 0"/>
@@ -1551,18 +1635,19 @@
     <!-- For units that can be morphed into or out of. -->
     <CActorUnit default="1" id="GenericUnitMorph" parent="GenericUnitStandard">
         <UnitFlags index="StandAnimBirthVariation" value="0"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo ##id##" Send="Create"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom ##id##" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo ##unitName##" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom ##unitName##" Send="Destroy"/>
     </CActorUnit>
     <CActorModel id="UnitFootprint" parent="EventFootprint"/>
     <CActorSound id="UnitSound" parent="EventSoundFromData"/>
     <CActorModel id="UnitDeathModel">
-        <UseSyncSeed value="1"/>
+        <ModelFlags index="UseSyncSeed" value="1"/>
         <Host Subject="::Creator"/>
         <Inherits index="Visibility" value="1"/>
         <Inherits index="Scale" value="1"/>
         <Inherits index="ScaleVariance" value="1"/>
         <Inherits index="TintColor" value="1"/>
+        <Aliases value="_Main"/>
         <Aliases value="_Unit"/>
         <Aliases value="_DeathModel"/>
         <Macros value="DeadAnimationMacro"/>
@@ -1589,12 +1674,41 @@
         <Inherits index="Scale" value="0"/>
         <Inherits index="ScaleVariance" value="0"/>
     </CActorModel>
-    <CActorModel id="UnitDeathModelPersistent" parent="UnitDeathModel">
+    <CActorUnit id="UnitDeathModelPersistent">
         <FogVisibility value="Dimmed"/>
-    </CActorModel>
-    <CActorModel id="UnitDeathModelPersistentUnscaled" parent="UnitDeathModelUnscaled">
+        <ModelFlags index="UseSyncSeed" value="1"/>
+        <Host Subject="::Creator"/>
+        <Inherits index="Visibility" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <Inherits index="ScaleVariance" value="1"/>
+        <Inherits index="TeamColor" value="1"/>
+        <Inherits index="TintColor" value="1"/>
+        <Aliases value="_Unit"/>
+        <Aliases value="_DeathModel"/>
+        <Macros value="DeadAnimationMacro"/>
+        <On Terms="ActorCreation" Send="RefClear ::Host"/>
+        <On Terms="ActorCreation" Send="SetTintColor 255,255,255 0.6"/>
+        <EventDataSound Name="NydusCanalThud" Actor="UnitSound" Sound="NydusWorm_DeathThud"/>
+        <EventDataSound Name="ZergExplosionSlime" Actor="UnitSound" Sound="Zerg_ExplosionSlime"/>
+        <EventDataSound Name="ZergPreExplosionSmall" Actor="UnitSound" Sound="Zerg_PreExplosionSmall"/>
+        <EventDataSound Name="ZergExplosionTiny" Actor="UnitSound" Sound="Zerg_ExplosionTiny"/>
+        <EventDataSound Name="ZergExplosionSmall" Actor="UnitSound" Sound="Zerg_ExplosionSmall"/>
+        <EventDataSound Name="ZergExplosionMedium" Actor="UnitSound" Sound="Zerg_ExplosionMedium"/>
+        <EventDataSound Name="ZergExplosionLarge" Actor="UnitSound" Sound="Zerg_ExplosionLarge"/>
+        <EventDataSound Name="ProtossPreExplosionSmall" Actor="UnitSound" Sound="Protoss_PreExplosionSmall"/>
+        <EventDataSound Name="ProtossExplosionSmall" Actor="UnitSound" Sound="Protoss_ExplosionSmall"/>
+        <EventDataSound Name="ProtossExplosionMedium" Actor="UnitSound" Sound="Protoss_ExplosionMedium"/>
+        <EventDataSound Name="ProtossExplosionLarge" Actor="UnitSound" Sound="Protoss_ExplosionLarge"/>
+        <EventDataSound Name="TerranPreExplosionSmall" Actor="UnitSound" Sound="Terran_PreExplosionSmall"/>
+        <EventDataSound Name="TerranExplosionSmall" Actor="UnitSound" Sound="Terran_ExplosionSmall"/>
+        <EventDataSound Name="TerranExplosionMedium" Actor="UnitSound" Sound="Terran_ExplosionMedium"/>
+        <EventDataSound Name="TerranExplosionLarge" Actor="UnitSound" Sound="Terran_ExplosionLarge"/>
+    </CActorUnit> -->
+   <CActorUnit id="UnitDeathModelPersistentUnscaled" parent="UnitDeathModelPersistent">
         <FogVisibility value="Dimmed"/>
-    </CActorModel>
+        <Inherits index="Scale" value="0"/>
+        <Inherits index="ScaleVariance" value="0"/>
+    </CActorUnit>
     <CActorSound id="UnitDeathSound" parent="SoundOneShot">
         <Host Subject="::Creator"/>
         <!-- Means we get props and bearings once, and then stop. -->
@@ -1624,6 +1738,7 @@
     <CActorBeamSimple default="1" id="GenericAttackBeam" parent="BeamSimpleAnimationStyleOneShot"/>
     <!--                                                                                         -->
     <CActorMissile default="1" id="GenericAttackMissile">
+        <?token id="unitName" type="CUnitLink" value="Bogus"?>
         <!-- Override baseline so we play birth if we have it, and *then* play Stand perpetually,
              (rather than walk of course).  We don't play deaths right now, b/c those are
              typically separate models.  We don't do this in the default to avoid messing up the
@@ -1632,7 +1747,7 @@
         <Aliases value="_Missile"/>
         <PreHost value="_ActorAction"/>
         <Model value="##unitName##"/>
-        <ShowBlobShadow value="0"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
         <On Terms="UnitBirth.##unitName##" Send="Create"/>
         <On Terms="UnitBirth" Send="AnimBracketStart Lifetime Birth Stand"/>
         <On Terms="UnitDeath" Send="Destroy"/>
@@ -1643,12 +1758,12 @@
         <On Terms="Effect.*.Return" Send="MissileTentacleReturn"/>
     </CActorMissile>
     <!--                                                                                         -->
-    <CActorSite id="GenericAttackLaunchSite" parent="SiteUNIT"/>
+    <CActorSite id="GenericAttackLaunchSite"/>
     <CActorSite id="GenericAttackLaunchFallbackSite">
         <HostSiteOps Ops="SOpBasicCreatorStationary"/>
     </CActorSite>
     <!--                                                                                         -->
-    <CActorSite id="GenericAttackImpactSite" parent="SiteUNIT">
+    <CActorSite id="GenericAttackImpactSite">
         <HostSiteOps HoldRotation="1"/>
     </CActorSite>
     <CActorSite id="GenericAttackImpactPointSite"/>
@@ -1656,7 +1771,7 @@
         <HostSiteOps Ops="SOpTargetPointStationary"/>
     </CActorSite>
     <!--                                                                                         -->
-    <CActorSite id="GenericAttackDamageSite" parent="SiteUNIT"/>
+    <CActorSite id="GenericAttackDamageSite"/>
     <!--                                                                                         -->
     <CActorModel id="GenericAttackModel" parent="ModelAnimationStyleOneShotNoOrphan">
         <Flags index="SuppressCreationErrors" value="1"/>
@@ -1681,7 +1796,6 @@
     <!-- effects.                                                                                -->
     <!--                                                                                         -->
     <CActorAction default="1" id="GenericAttackBase">
-        <?token id="unitName" type="CUnitLink" value="Bogus"?>
         <Aliases value="_ActorAction"/>
         <LaunchGuideAlias value="_LaunchGuide"/>
         <LaunchSite value="GenericAttackLaunchSite"/>
@@ -1706,7 +1820,7 @@
         <ImpactSite value="GenericAttackImpactSite"/>
         <ImpactSiteFallback value="GenericAttackImpactFallbackSite"/>
         <ImpactAttachQuery Methods="$GenericAttackTargetMethods" Fallback="Center"/>
-        <ImpactReattachQuery Methods="IGNORE" Fallback="Center"/>
+        <ImpactReattachQuery Methods="AMVolumesRequery" Fallback="Center"/>
         <ImpactPointSite value="GenericAttackImpactPointSite"/>
         <ImpactPointSiteOps Ops="SOpTargetPointStationary"/>
         <ImpactMap index="None" Model="##id##Impact" ModelReaction="##id##ImpactReaction" Sound="##id##Impact"/>
@@ -1719,19 +1833,13 @@
         <ImpactMap index="LightArmor" ModelReaction="##id##ImpactReactionLightArmor" Sound="##id##ImpactLightArmor"/>
         <ImpactMap index="Metal" ModelReaction="##id##ImpactReactionMetal" Sound="##id##ImpactMetal"/>
         <ImpactMap index="Shield" ModelReaction="##id##ImpactReactionShield" Sound="##id##ImpactShield"/>
-        <ImpactMap index="FleshMid" ModelReaction="##id##ImpactReactionFleshMid" Sound="##id##ImpactFleshMid"/>
-        <ImpactMap index="FleshLow" ModelReaction="##id##ImpactReactionFleshLow" Sound="##id##ImpactFleshLow"/>
-        <ImpactMap index="MetalMid" ModelReaction="##id##ImpactReactionMetalMid" Sound="##id##ImpactMetalMid"/>
-        <ImpactMap index="MetalLow" ModelReaction="##id##ImpactReactionMetalLow" Sound="##id##ImpactMetalLow"/>
-        <ImpactMap index="ShieldMid" ModelReaction="##id##ImpactReactionShieldMid" Sound="##id##ImpactShieldMid"/>
-        <ImpactMap index="ShieldLow" ModelReaction="##id##ImpactReactionShieldLow" Sound="##id##ImpactShieldLow"/>
-        <ImpactMap index="ShieldOff" ModelReaction="##id##ImpactReactionShieldOff" Sound="##id##ImpactShieldOff"/>
         <ImpactModel value="GenericAttackImpactModel"/>
         <ImpactModelReaction value="GenericAttackImpactModelReaction"/>
         <ImpactSound value="GenericAttackImpactSound"/>
         <DamageSite value="GenericAttackDamageSite"/>
         <DamageSiteOps Ops="SOpAttachHarness SOpAttachVolumeStandard"/>
         <DamageAttachQuery Methods="$GenericAttackTargetMethods" Fallback="Center"/>
+        <DamageReattachQuery Methods="AMVolumesRequery" Fallback="Center"/>
         <DamageMap index="None" Model="##id##Damage" ModelReaction="##id##DamageReaction" Sound="##id##Damage"/>
         <DamageMap index="Dirt" ModelReaction="##id##DamageReactionDirt" Sound="##id##DamageDirt"/>
         <DamageMap index="Rock" ModelReaction="##id##DamageReactionRock" Sound="##id##DamageRock"/>
@@ -1742,13 +1850,6 @@
         <DamageMap index="LightArmor" ModelReaction="##id##DamageReactionLightArmor" Sound="##id##DamageLightArmor"/>
         <DamageMap index="Metal" ModelReaction="##id##DamageReactionMetal" Sound="##id##DamageMetal"/>
         <DamageMap index="Shield" ModelReaction="##id##DamageReactionShield" Sound="##id##DamageShield"/>
-        <DamageMap index="FleshMid" ModelReaction="##id##DamageReactionFleshMid" Sound="##id##DamageFleshMid"/>
-        <DamageMap index="FleshLow" ModelReaction="##id##DamageReactionFleshLow" Sound="##id##DamageFleshLow"/>
-        <DamageMap index="MetalMid" ModelReaction="##id##DamageReactionMetalMid" Sound="##id##DamageMetalMid"/>
-        <DamageMap index="MetalLow" ModelReaction="##id##DamageReactionMetalLow" Sound="##id##DamageMetalLow"/>
-        <DamageMap index="ShieldMid" ModelReaction="##id##DamageReactionReactionShieldMid" Sound="##id##DamageShieldMid"/>
-        <DamageMap index="ShieldLow" ModelReaction="##id##DamageReactionShieldLow" Sound="##id##DamageShieldLow"/>
-        <DamageMap index="ShieldOff" ModelReaction="##id##DamageReactionShieldOff" Sound="##id##DamageShieldOff"/>
         <DamageModel value="GenericAttackDamageModel"/>
         <DamageModelReaction value="GenericAttackDamageModelReaction"/>
         <DamageSound value="GenericAttackDamageSound"/>
@@ -1791,13 +1892,6 @@
         <DamageMap index="Flesh" ModelReaction="##id##DamageReactionFlesh" Sound="##id##DamageFlesh"/>
         <DamageMap index="Metal" ModelReaction="##id##DamageReactionMetal" Sound="##id##DamageMetal"/>
         <DamageMap index="Shield" ModelReaction="##id##DamageReactionShield" Sound="##id##DamageShield"/>
-        <DamageMap index="FleshMid" ModelReaction="##id##DamageReactionFleshMid" Sound="##id##DamageFleshMid"/>
-        <DamageMap index="FleshLow" ModelReaction="##id##DamageReactionFleshLow" Sound="##id##DamageFleshLow"/>
-        <DamageMap index="MetalMid" ModelReaction="##id##DamageReactionMetalMid" Sound="##id##DamageMetalMid"/>
-        <DamageMap index="MetalLow" ModelReaction="##id##DamageReactionMetalLow" Sound="##id##DamageMetalLow"/>
-        <DamageMap index="ShieldMid" ModelReaction="##id##DamageReactionShieldMid" Sound="##id##DamageShieldMid"/>
-        <DamageMap index="ShieldLow" ModelReaction="##id##DamageReactionShieldLow" Sound="##id##DamageShieldLow"/>
-        <DamageMap index="ShieldOff" ModelReaction="##id##DamageReactionShieldOff" Sound="##id##DamageShieldOff"/>
         <DamageModel value="GenericAttackModel"/>
         <DamageSound value="GenericAttackSound"/>
         <DamageModelReaction value="GenericAttackDamageModelReaction"/>
@@ -1898,7 +1992,7 @@
     </CActorEditorCamera>
     <!-- Pre-placed point actors -->
     <CActorModel id="PointNormal">
-        <HasRaycastBearings value="1"/>
+        <ModelFlags index="HasRaycastBearings" value="1"/>
         <Model value="e_pointNormal"/>
         <On Terms="ActorCreation" Send="Create PointNormalName"/>
     </CActorModel>
@@ -1913,7 +2007,7 @@
         <Aliases value="_Selectable"/>
     </CActorEditorPoint>
     <CActorModel id="PointStartLoc">
-        <HasRaycastBearings value="1"/>
+        <ModelFlags index="HasRaycastBearings" value="1"/>
         <Model value="e_pointStartLoc"/>
         <On Terms="ActorCreation" Send="Create PointStartLocName"/>
     </CActorModel>
@@ -1929,7 +2023,7 @@
     </CActorEditorPoint>
     <CActorModel id="PointStartLocUnit"/>
     <CActorModel id="PointBlockPathing">
-        <HasRaycastBearings value="1"/>
+        <ModelFlags index="HasRaycastBearings" value="1"/>
         <Model value="e_pointBlockPathing"/>
         <On Terms="ActorCreation" Send="Create PointBlockPathingName"/>
     </CActorModel>
@@ -1938,7 +2032,7 @@
         <Aliases value="_Selectable"/>
     </CActorEditorPoint>
     <CActorModel id="PointSoundEmitter">
-        <HasRaycastBearings value="1"/>
+        <ModelFlags index="HasRaycastBearings" value="1"/>
         <Model value="e_pointSoundEmitter"/>
         <On Terms="ActorCreation" Send="Create PointSoundEmitterName"/>
         <On Terms="ActorCreation" Send="Create PointSoundEmitterRange"/>
@@ -1952,7 +2046,7 @@
         <Aliases value="_Selectable"/>
     </CActorEditorPoint>
     <CActorModel id="PointThreeD">
-        <HasRaycastBearings value="1"/>
+        <ModelFlags index="HasRaycastBearings" value="1"/>
         <Model value="e_pointThreeD"/>
         <On Terms="ActorCreation" Send="Create PointThreeDName"/>
     </CActorModel>
@@ -1961,7 +2055,7 @@
         <Aliases value="_Selectable"/>
     </CActorEditorPoint>
     <CActorModel id="PointNoFlyZone">
-        <HasRaycastBearings value="1"/>
+        <ModelFlags index="HasRaycastBearings" value="1"/>
         <Model value="e_pointNoFlyZone"/>
         <On Terms="ActorCreation" Send="Create PointNoFlyZoneName"/>
     </CActorModel>
@@ -1969,12 +2063,6 @@
     <CActorEditorPoint id="PointNoFlyZoneEditor" parent="PointNoFlyZone">
         <Aliases value="_Selectable"/>
     </CActorEditorPoint>
-    <CActorModel id="PointNoFlyZoneSoftRadius">
-        <Model value="PointNoFlyZoneSoftRadius"/>
-    </CActorModel>
-    <CActorModel id="PointNoFlyZoneHardRadius">
-        <Model value="PointNoFlyZoneHardRadius"/>
-    </CActorModel>
     <!-- Unit overhead text -->
     <CActorText id="EditorUnitOverheadText">
         <FixedSize value="28"/>

@@ -1,31 +1,17 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CSoundtrack id="Ambience_Aiur" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Castanar" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Haven" parent="Ambience_Map"/>
     <!-- Ambience ============================================================================== -->
     <CSoundtrack id="Ambience_Liberty" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_Char" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_MarSara" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_Monlyth" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_PortZion" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_Redstone" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_SteppesOfWar" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_ToxicWastes" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Typhon" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Ulaan" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Valhalla" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_Wasteland" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Starmap_Jotun" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Starmap_MarSara" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Starmap_Redstone" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Agria" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Avernus" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_BelShir" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_BraxisAlpha" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_Korhal" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_Meinhoff" parent="Ambience_Map"/>
-    <CSoundtrack id="Ambience_NewFolsom" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_Shakuras" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_Tarsonis" parent="Ambience_Map"/>
     <CSoundtrack id="Ambience_Xil" parent="Ambience_Map"/>
@@ -35,22 +21,34 @@
         <CueArray>
             <MasterLayer Sound="GlueMusicLibertyStartup"/>
         </CueArray>
+        <Next value="Music_LibertyLoop"/>
+        <Flags index="Continuous" value="0"/>
     </CSoundtrack>
     <CSoundtrack id="Music_LibertyIntro" parent="Music">
         <CueArray>
             <MasterLayer Sound="GlueMusicLibertyIntro"/>
         </CueArray>
+        <Next value="Music_LibertyLoop"/>
+        <Flags index="Continuous" value="0"/>
     </CSoundtrack>
     <CSoundtrack id="Music_LibertyLoop" parent="Music">
         <CueArray>
             <MasterLayer Sound="GlueMusicLibertyLoop"/>
         </CueArray>
+        <Delay value="30,45"/>
+    </CSoundtrack>
+    <CSoundtrack id="Music_LibertyEasterEgg" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="GlueMusicLibertyStartup"/>
+        </CueArray>
+        <Next value="Music_LibertyLoop"/>
+        <Flags index="Continuous" value="0"/>
     </CSoundtrack>
     <CSoundtrack id="Music_ProtLow" parent="Music">
         <CueArray>
             <MasterLayer Sound="GameMusicProt"/>
         </CueArray>
-        <Delay value="60,120"/>
+        <Delay value="120,180"/>
     </CSoundtrack>
     <CSoundtrack id="Music_TerrLow" parent="Music">
         <!--
@@ -65,7 +63,7 @@
         <CueArray>
             <MasterLayer Sound="GameMusicTerr"/>
         </CueArray>
-        <Delay value="60,120"/>
+        <Delay value="120,180"/>
     </CSoundtrack>
     <CSoundtrack id="Music_TerrHigh" parent="Music">
         <CueArray>
@@ -82,7 +80,7 @@
         <CueArray>
             <MasterLayer Sound="GameMusicZerg"/>
         </CueArray>
-        <Delay value="60,120"/>
+        <Delay value="120,180"/>
     </CSoundtrack>
     <CSoundtrack id="Music_ProtDefeat" parent="Music">
         <CueArray>
@@ -113,5 +111,24 @@
         <CueArray>
             <MasterLayer Sound="ScoreVictoryMusicZerg"/>
         </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="ScoreCardMusicMain" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="ScoreCardMusicMain"/>
+        </CueArray>
+        <Delay value="75,140"/>
+    </CSoundtrack>
+    <CSoundtrack id="TestSyncPoints1" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="TestSyncPoints1"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
+        <Next value="TestSyncPoints2"/>
+    </CSoundtrack>
+    <CSoundtrack id="TestSyncPoints2" parent="Music">
+        <CueArray>
+            <MasterLayer Sound="TestSyncPoints2"/>
+        </CueArray>
+        <Flags index="Continuous" value="0"/>
     </CSoundtrack>
 </Catalog>

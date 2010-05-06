@@ -20,7 +20,7 @@
         <EditorCategories value="Race:Zerg"/>
         <Options index="Hidden" value="1"/>
         <Options index="Melee" value="1"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.5"/>
         <Marker Link="Weapon/Hydralisk"/>
@@ -32,7 +32,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestorTerran">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Marker Link="Weapon/Marine"/>
         <Cost>
@@ -44,7 +44,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="PointDefenseLaser">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
         <TargetFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquireFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
         <Cost>
@@ -67,7 +67,7 @@
         <EditorCategories value="Race:Zerg"/>
         <Options index="Hidden" value="1"/>
         <Options index="Melee" value="1"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
         <DisplayEffect value="RoachUMelee"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.5"/>
@@ -80,7 +80,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="AcidSpines">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
         <DisplayEffect value="Queen2"/>
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="7"/>
@@ -94,7 +94,7 @@
     <CWeaponLegacy id="Broodling">
         <EditorCategories value="Race:Zerg"/>
         <Options index="Melee" value="1"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <MinScanRange value="15"/>
         <Range value="0.1"/>
@@ -102,10 +102,10 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="VoidRay">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
         <DisplayEffect value="VoidRayMUx1"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="1"/>
+        <Period value="0"/>
         <AllowedMovement value="Moving"/>
         <Options index="OnlyFireWhileInAttackOrder" value="0"/>
         <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
@@ -113,6 +113,7 @@
         <ArcSlop value="39.9902"/>
         <Range value="7"/>
         <RangeSlop value="2"/>
+        <Backswing value="0"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="PlanetaryFortress">
         <EditorCategories value="Race:Terran"/>
@@ -125,7 +126,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Probe">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.1"/>
         <Period value="1.5"/>
@@ -133,7 +134,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Zealot">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.1"/>
         <Period value="1.2"/>
@@ -144,7 +145,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="DarkTemplar">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.1"/>
         <Period value="1.694"/>
@@ -154,7 +155,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Archon">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="ArchonDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="2"/>
@@ -166,7 +167,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="PhoenixAir">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
         <DisplayEffect value="PhoenixAirU"/>
         <DisplayAttackCount value="2"/>
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
@@ -177,7 +178,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="SCV">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.1"/>
         <Period value="1.5"/>
@@ -185,7 +186,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Marine">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="0.8608"/>
         <DamagePoint value="0.25"/>
@@ -193,7 +194,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="ThorAntiAir">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
         <DisplayEffect value="ThorAADamage"/>
         <DisplayAttackCount value="4"/>
         <TargetFilters value="Air,Visible;Ground,Missile,Stasis,Dead,Hidden,Invulnerable"/>
@@ -206,7 +207,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="ThorHandGunDuo">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
         <DisplayEffect value="ThorHandGunSplashDamageTarget"/>
         <DisplayAttackCount value="2"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
@@ -219,7 +220,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="SiegeTank">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="7"/>
         <Period value="1.04"/>
@@ -227,18 +228,17 @@
     <CWeaponLegacy id="Marauder">
         <EditorCategories value="Race:Terran"/>
         <DisplayEffect value="MarauderU"/>
-        <DisplayAttackCount value="1"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
         <Period value="1.5"/>
         <DamagePoint value="0"/>
         <Backswing value="0"/>
         <Effect value="MarauderLM"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="SiegeTankSieged">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="13"/>
         <MinimumRange value="2"/>
@@ -247,7 +247,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="VikingFighter">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
         <DisplayEffect value="VikingFighterU"/>
         <DisplayAttackCount value="2"/>
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
@@ -257,7 +257,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="BattlecruiserG">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
         <DisplayEffect value="BattlecruiserGU"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquirePrioritization value="ByAngle"/>
@@ -269,7 +269,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="BattlecruiserA">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
         <DisplayEffect value="BattlecruiserAU"/>
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquirePrioritization value="ByAngle"/>
@@ -306,7 +306,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Reaper">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <MinScanRange value="5.5"/>
         <Range value="4.5"/>
@@ -328,16 +328,17 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Roach">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
         <DisplayEffect value="RoachU"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="3"/>
         <Period value="2"/>
         <MinimumRange value="0.6"/>
+        <Effect value="RoachLM"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="Drone">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.1"/>
         <Period value="1.5"/>
@@ -346,7 +347,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Zergling">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.1"/>
         <Period value="0.696"/>
@@ -357,7 +358,7 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="7"/>
-        <Period value="1.6"/>
+        <Period value="1.85"/>
         <DamagePoint value="0.3332"/>
         <RangeSlop value="0"/>
         <Effect value="SpineCrawlerLM"/>
@@ -365,7 +366,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="SporeCrawler">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
         <DisplayEffect value="SporeCrawlerU"/>
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="7"/>
@@ -374,7 +375,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Hydralisk">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
         <DisplayEffect value="HydraliskU"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="0.83"/>
@@ -383,15 +384,15 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="HydraliskAir">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
         <DisplayEffect value="HydraliskUAir"/>
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="0.75"/>
+        <Period value="0.83"/>
         <DamagePoint value="0.208"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="Mutalisk">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
         <DisplayEffect value="MutaliskU1"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <LegacyOptions index="NoDeceleration" value="1"/>
@@ -407,17 +408,17 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="BroodLord">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
         <DisplayEffect value="BroodlingEscortDamage"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="9"/>
+        <Range value="9.5"/>
         <Period value="2.5"/>
         <AllowedMovement value="Slowing"/>
         <Effect value=""/>
     </CWeaponLegacy>
     <CWeaponLegacy id="BroodlingEscort">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="9"/>
         <Arc value="360"/>
@@ -426,18 +427,19 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Ultralisk">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
-        <DisplayEffect value="UltraliskU"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="UltraliskCleave"/>
         <TargetFilters value="Ground,Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquirePrioritization value="ByAngle"/>
         <Range value="1"/>
         <Period value="0.861"/>
         <DamagePoint value="0.3332"/>
         <Options index="Melee" value="1"/>
+        <Effect value="UltraliskSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="UltraliskHeadAttack">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
         <DisplayEffect value="UltraliskHeadAttackDamage"/>
         <TargetFilters value="Ground,Structure,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquirePrioritization value="ByAngle"/>
@@ -451,7 +453,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="VikingAssault">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Arc value="5.625"/>
         <Period value="1"/>
@@ -472,7 +474,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Queen">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="3"/>
         <Period value="1"/>
@@ -481,7 +483,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Stalker">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="StalkerU"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
@@ -489,7 +491,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Colossus">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="ColossusMU"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquirePrioritization value="ByDistanceFromTarget"/>
@@ -503,13 +505,13 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="PsiBlaster">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="1.45"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="MothershipBeam">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
         <DisplayEffect value="MothershipBeamDamage"/>
         <DisplayAttackCount value="6"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
@@ -534,7 +536,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Disruptor">
         <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="DisruptorDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="1"/>
@@ -542,7 +544,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Banshee">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
         <DisplayEffect value="BansheeU"/>
         <DisplayAttackCount value="2"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
@@ -557,7 +559,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Corruptor">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
         <DisplayEffect value="CorruptorInfestDmg"/>
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="1.9"/>
@@ -567,7 +569,7 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Ghost">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
         <Period value="1.5"/>
@@ -576,12 +578,13 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="Hellion">
         <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
         <!--        <Icon value="Assets\Textures\btn-weapon-terran-infantry.dds"/> -->
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="2.5"/>
         <DamagePoint value="0.25"/>
-        <Backswing value="0"/>
+        <Backswing value="0.75"/>
+        <LegacyOptions index="LockTurretWhileFiring" value="1"/>
         <Effect value="HellionCP"/>
         <Marker>
             <MatchFlags index="Id" value="1"/>
@@ -622,7 +625,14 @@
         <Range value="2"/>
         <Arc value="19.6875"/>
         <Period value="3"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
         <DisplayEffect value="InterceptorU"/>
     </CWeaponStrafe>
+    <CWeaponLegacy id="Sheep">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <Options index="Melee" value="1"/>
+    </CWeaponLegacy>
 </Catalog>

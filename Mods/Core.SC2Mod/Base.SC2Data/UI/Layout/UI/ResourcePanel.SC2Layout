@@ -21,7 +21,7 @@
             <Height val="32"/>
         </Frame>
 
-        <Frame type="Label" name="ResourceLabel0">
+        <Frame type="CountdownLabel" name="ResourceLabel0">
             <Style val="ResourcePanel"/>
             <Anchor side="Top" relative="$parent/ResourceIcon0" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent/ResourceIcon0" pos="Max" offset="0"/>
@@ -39,7 +39,7 @@
             <Height val="32"/>
         </Frame>
 
-        <Frame type="Label" name="ResourceLabel1">
+        <Frame type="CountdownLabel" name="ResourceLabel1">
             <Style val="ResourcePanel"/>
             <Anchor side="Top" relative="$parent/ResourceIcon1" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent/ResourceIcon1" pos="Max" offset="0"/>
@@ -57,7 +57,7 @@
             <Height val="32"/>
         </Frame>
 
-        <Frame type="Label" name="ResourceLabel2">
+        <Frame type="CountdownLabel" name="ResourceLabel2">
             <Style val="ResourcePanel"/>
             <Anchor side="Top" relative="$parent/ResourceIcon2" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent/ResourceIcon2" pos="Max" offset="0"/>
@@ -75,7 +75,7 @@
             <Height val="32"/>
         </Frame>
 
-        <Frame type="Label" name="ResourceLabel3">
+        <Frame type="CountdownLabel" name="ResourceLabel3">
             <Style val="ResourcePanel"/>
             <Anchor side="Top" relative="$parent/ResourceIcon3" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent/ResourceIcon3" pos="Max" offset="0"/>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
-    <Frame type="TipAlertItem" name="TipAlertItemTemplate">
-        <Frame type="Image" name="TipAlertBackground">
+    <Frame type="TipAlertListBoxItem" name="TipAlertListBoxItemTemplate">
+        <AcceptsMouse val="false"/>
+        
+        <Frame type="Image" name="IconBackgroundImage">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="-32"/>            
@@ -9,19 +11,30 @@
             <StateCount val="3" layer="0"/>
         </Frame>
         
-        <Frame type="Image" name="TipAlertIcon">
-            <Anchor side="Top" relative="$parent/TipAlertBackground" pos="Min" offset="16"/>
-            <Anchor side="Bottom" relative="$parent/TipAlertBackground" pos="Max" offset="-16"/>
-            <Anchor side="Left" relative="$parent/TipAlertBackground" pos="Min" offset="16"/>
-            <Anchor side="Right" relative="$parent/TipAlertBackground" pos="Max" offset="-16"/>
+        <Frame type="Image" name="IconImage">
+            <Anchor side="Top" relative="$parent/IconBackgroundImage" pos="Min" offset="16"/>
+            <Anchor side="Bottom" relative="$parent/IconBackgroundImage" pos="Max" offset="-16"/>
+            <Anchor side="Left" relative="$parent/IconBackgroundImage" pos="Min" offset="16"/>
+            <Anchor side="Right" relative="$parent/IconBackgroundImage" pos="Max" offset="-16"/>
+            <Tooltip val="@UI/TipAlertToolTip"/>
         </Frame>
 
-        <Frame type="Label" name="TipAlertLabel">
+        <Frame type="Label" name="NameLabel">
             <Style val="TipAlertPanel"/>
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent/TipAlertBackground" pos="Min" offset="-10"/>
+            <Anchor side="Right" relative="$parent/IconBackgroundImage" pos="Min" offset="-10"/>
+        </Frame>
+
+        <Frame type="FlashFrame" name="FlashFrame">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Height val="150"/>
+            <Width val="150"/>
+            <AcceptsMouse val="false"/>
+            <File val="UI/Flash/GameUI/Tips_Show_Anim.swf"/>
         </Frame>
     </Frame>
 
@@ -30,7 +43,7 @@
         <Width val="128"/>
         <Visible val="false"/>
         
-        <Frame type="Image" name="TipAlertBackground">
+        <Frame type="Image" name="IconBackgroundImage">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
@@ -39,14 +52,14 @@
             <StateCount val="3" layer="0"/>
         </Frame>
 
-        <Frame type="Image" name="TipAlertIcon">
-            <Anchor side="Top" relative="$parent/TipAlertBackground" pos="Min" offset="16"/>
-            <Anchor side="Bottom" relative="$parent/TipAlertBackground" pos="Max" offset="-16"/>
-            <Anchor side="Left" relative="$parent/TipAlertBackground" pos="Min" offset="16"/>
-            <Anchor side="Right" relative="$parent/TipAlertBackground" pos="Max" offset="-16"/>
+        <Frame type="Image" name="IconImage">
+            <Anchor side="Top" relative="$parent/IconBackgroundImage" pos="Min" offset="16"/>
+            <Anchor side="Bottom" relative="$parent/IconBackgroundImage" pos="Max" offset="-16"/>
+            <Anchor side="Left" relative="$parent/IconBackgroundImage" pos="Min" offset="16"/>
+            <Anchor side="Right" relative="$parent/IconBackgroundImage" pos="Max" offset="-16"/>
         </Frame>
 
-        <Frame type="Image" name="TipAlertGlow">
+        <Frame type="Image" name="GlowImage">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
@@ -59,12 +72,24 @@
         <UseScrollBar val="false"/>
         <Inverted val="true"/>
         <ItemHeight val="78"/>
-        <ItemDesc val="TipAlertPanel/TipAlertItemTemplate"/>
-        <SelectedImage val="SelectedTipAlertImage"/>
-        
-        <Frame type="Image" name="SelectedTipAlertImage">
+        <ItemDesc val="TipAlertPanel/TipAlertListBoxItemTemplate"/>
+        <SelectedImage val="SelectedImage"/>
+        <HoverImage val="HoverImage"/>
+        <BackgroundImage val="BackgroundImage"/>
+
+        <Frame type="Image" name="SelectedImage">
             <Alpha val="0"/>
             <DescFlags val="Internal"/>
-        </Frame>        
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Alpha val="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>
+
+        <Frame type="Image" name="BackgroundImage">
+            <Alpha val="0"/>
+            <DescFlags val="Internal"/>
+        </Frame>       
     </Frame>
 </Desc>

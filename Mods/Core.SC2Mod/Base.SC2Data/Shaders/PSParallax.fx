@@ -82,7 +82,7 @@ bool ComputeParallaxOffsetNew (
 
 float2 ComputeParallaxOffset( float2 vParallaxVector, float2 vHeightMapUV, sampler2D sHeightMap, int iChannelSelect );
 
-void OffsetUVEmitter(in VertexTransport vertOut, int index, float4 offset)
+void OffsetUVEmitter(inout VertexTransport vertOut, int index, float4 offset)
 {
 #if ( b_usePackedUVEmitter == 1 )
     if(index % 2 == 0)
@@ -102,8 +102,8 @@ void ApplyParallax( inout VertexTransport vertOut, sampler2D sHeightMap ) {
 
     if (b_iUsePOMNew) {
         float3x3 mTangent2World;
-        mTangent2World[0] = INTERPOLANT_Tangent;
-        mTangent2World[1] = INTERPOLANT_Binormal;
+        mTangent2World[0] = INTERPOLANT_Tangent.xyz;
+        mTangent2World[1] = INTERPOLANT_Binormal.xyz;
         mTangent2World[2] = INTERPOLANT_Normal.xyz;
 
 		// Height map and normal map must use the same mapping (they both share the same tangent basis). So height map uses the normal map mapping.

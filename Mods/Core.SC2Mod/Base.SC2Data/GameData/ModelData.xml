@@ -3,6 +3,7 @@
     <CModel default="1">
         <Flags index="FOW" value="1"/>
         <Flags index="Wait" value="1"/>
+        <Flags index="IgnoreAspectRatioScale" value="0"/>
         <Lighting value="##id##"/>
         <Quality value="1"/>
         <Color value="255,255,255,255"/>
@@ -15,7 +16,9 @@
         <AnimSpeed value="1.000000"/>
         <AnimBlendTime value="-1.000000"/>
         <TechPurchaseCamera value="Star2Camera01"/>
-        <TechPurchaseSpeed value="0.200000"/>
+        <UnitGlossaryCamera value="Star2Camera01"/>
+        <PlanetPanelCamera value="Star2Camera01"/>
+        <TechPurchaseSpeed value="0.100000"/>
         <WaterHitMaxLinearVelocity value="1.000000"/>
         <WaterHitFriction value="0.700000"/>
         <WaterHitRestitution value="0.100000"/>
@@ -55,36 +58,6 @@
         <?token id="Race" value="Neutral"?>
         <EditorCategories value="Race:##Race##"/>
         <Model value="Assets\Buildings\##Race##\##id##\##id##.m3"/>
-        <AttachProps Id="Ref_Target 01">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 02">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 03">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 04">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 05">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 06">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 07">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 08">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 09">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Target 10">
-            <Keys index="Target" value="-1"/>
-        </AttachProps>
     </CModel>
     <CModel default="1" id="BuildingDeath">
         <?token id="Race" value="Neutral"?>
@@ -100,11 +73,13 @@
         <EditorCategories value="Race:Neutral"/>
         <Model value="Assets\UI\Starmap\PlanetViews\##id##\##id##.m3"/>
         <AnimSpeed value="0.100000"/>
+        <Flags index="ForcePortraitModel" value="1"/>
     </CModel>
     <CModel default="1" id="PlanetIcons">
         <EditorCategories value="Race:Neutral"/>
         <Model value="Assets\UI\Starmap\PlanetIcons\##id##\##id##.m3"/>
         <Lighting value="PlanetIcons"/>
+        <Flags index="ForcePortraitModel" value="1"/>
     </CModel>
     <CModel default="1" id="UnitDeath">
         <?token id="Race" value="Neutral"?>
@@ -237,27 +212,21 @@
         <SelectionRadius value="2.5"/>
     </CModel>
     <CModel id="e_pointBlockPathing">
-        <Model value="Assets/UI/Helpers/PointHelper/PointHelper.m3"/>
+        <Model value="Assets/UI/Helpers/DynamicPathingBlockerHelper/DynamicPathingBlockerHelper.m3"/>
     </CModel>
     <CModel id="e_pointSoundEmitter">
-        <Model value="Assets/UI/Helpers/PointHelper/PointHelper.m3"/>
+        <Model value="Assets/UI/Helpers/SoundEmitterHelper/SoundEmitterHelper.m3"/>
     </CModel>
     <CModel id="e_pointThreeD">
-        <Model value="Assets/UI/Helpers/PointHelper/PointHelper.m3"/>
+        <Model value="Assets/UI/Helpers/3DPointHelper/3DPointHelper.m3"/>
     </CModel>
     <CModel id="e_pointNoFlyZone">
-        <Model value="Assets/UI/Helpers/PointHelper/PointHelper.m3"/>
+        <Model value="Assets/UI/Helpers/NoFlyHelper/NoFlyHelper.m3"/>
     </CModel>
-    <CModel id="PointNoFlyZoneSoftRadius">
-        <Model value="Assets\Units\Test\Sphere\Sphere.m3"/>
-    </CModel>
-    <CModel id="PointNoFlyZoneHardRadius">
-        <Model value="Assets\Units\Test\Sphere\Sphere.m3"/>
-    </CModel>
-  <CModel id="CloakModel">
+    <CModel id="CloakModel">
         <Model value="Assets\Effects\Protoss\ProtossCloakingEffect\ProtossCloakingEffect.m3"/>
-  </CModel>
-  <CModel id="CloakModelLow">
+    </CModel>
+    <CModel id="CloakModelLow">
     <Model value="Assets\Effects\Protoss\ProtossCloakingEffect\ProtossCloakingEffect_Low.m3"/>
-  </CModel>
+    </CModel>
 </Catalog>

@@ -9,6 +9,7 @@
         <OverlapPrevious value="400"/>
         <AnimBlendIn value="750"/>
         <AnimBlendOut value="750"/>
+        <LookAtAttach value="Head"/>
         <Objects index="Speaker" value=""/>
         <Objects index="Listener" value=""/>
         <Objects index="Camera" value=""/>
@@ -44,6 +45,12 @@
             <Text value="Conversation/FacialAnim/Sad"/>
             <SpeechTag value="SadSpeech"/>
             <AnimTag value="SadAnimation"/>
+        </FacialAnims>
+                <FacialAnims>
+	            <Id value="Serious"/>
+	            <Text value="Conversation/FacialAnim/Serious"/>
+	            <SpeechTag value="SeriousSpeech"/>
+	            <AnimTag value="SeriousAnimation"/>
         </FacialAnims>
         <FacialAnims>
             <Id value="Surprise"/>
@@ -1743,7 +1750,6 @@
             <Sound value="TutorialAdjutant00034"/>
             <AnimProps value="Talk"/>
             <Objects index="Speaker" value="CharAdjutant"/>
-            <Objects index="Camera" value="Medium"/>
         </Lines>
         <Lines>
             <Id value="Line00035"/>
@@ -1751,7 +1757,6 @@
             <Sound value="TutorialAdjutant00035"/>
             <AnimProps value="Talk"/>
             <Objects index="Speaker" value="CharAdjutant"/>
-            <Objects index="Camera" value="Medium"/>
         </Lines>
         <Lines>
             <Id value="Line00036"/>
@@ -1843,7 +1848,6 @@
             <Sound value="TutorialAdjutant00048"/>
             <AnimProps value="Talk"/>
             <Objects index="Speaker" value="CharAdjutant"/>
-            <Objects index="Camera" value="Medium"/>
         </Lines>
         <Lines>
             <Id value="Line00049"/>
@@ -1851,7 +1855,6 @@
             <Sound value="TutorialAdjutant00049"/>
             <AnimProps value="Talk"/>
             <Objects index="Speaker" value="CharAdjutant"/>
-            <Objects index="Camera" value="Medium"/>
         </Lines>
         <Lines>
             <Id value="Line00050"/>
@@ -1859,7 +1862,6 @@
             <Sound value="TutorialAdjutant00050"/>
             <AnimProps value="Talk"/>
             <Objects index="Speaker" value="CharAdjutant"/>
-            <Objects index="Camera" value="Medium"/>
         </Lines>
         <Lines>
             <Id value="Line00051"/>
@@ -3326,6 +3328,46 @@
             <AnimBlendOut value="-1"/>
             <Objects index="Speaker" value="CharQueen"/>
         </Lines>
+        <Lines>
+            <Id value="Line00207"/>
+            <Text value="Conversation/Tutorial/Line00207"/>
+            <Sound value="TutorialAdjutant00207"/>
+            <OverlapPrevious value="500"/>
+            <AnimProps value="Talk"/>
+            <AnimBlendIn value="-1"/>
+            <AnimBlendOut value="-1"/>
+            <Objects index="Speaker" value="CharAdjutant"/>
+        </Lines>
+        <Lines>
+            <Id value="Line00208"/>
+            <Text value="Conversation/Tutorial/Line00208"/>
+            <Sound value="TutorialAdjutant00208"/>
+            <OverlapPrevious value="500"/>
+            <AnimProps value="Talk"/>
+            <AnimBlendIn value="-1"/>
+            <AnimBlendOut value="-1"/>
+            <Objects index="Speaker" value="CharAdjutant"/>
+        </Lines>
+        <Lines>
+            <Id value="Line00209"/>
+            <Text value="Conversation/Tutorial/Line00209"/>
+            <Sound value="TutorialAdjutant00209"/>
+            <OverlapPrevious value="500"/>
+            <AnimProps value="Talk"/>
+            <AnimBlendIn value="-1"/>
+            <AnimBlendOut value="-1"/>
+            <Objects index="Speaker" value="CharAdjutant"/>
+        </Lines>
+        <Lines>
+            <Id value="Line00210"/>
+            <Text value="Conversation/Tutorial/Line00210"/>
+            <Sound value="TutorialAdjutant00210"/>
+            <OverlapPrevious value="500"/>
+            <AnimProps value="Talk"/>
+            <AnimBlendIn value="-1"/>
+            <AnimBlendOut value="-1"/>
+            <Objects index="Speaker" value="CharAdjutant"/>
+        </Lines>
         <Groups Id="Group00001" Name="Conversation/Tutorial/Group00001">
             <Children value="Group00024"/>
             <Children value="Group00002"/>
@@ -3455,6 +3497,7 @@
             <Children value="Line00027"/>
             <Children value="Line00179"/>
             <Children value="Line00180"/>
+            <Children value="Line00207"/>
             <Children value="Line00029"/>
             <Children value="Line00105"/>
         </Groups>
@@ -3474,6 +3517,7 @@
             <Children value="Comment00021"/>
             <Children value="Line00193"/>
             <Children value="Line00194"/>
+            <Children value="Line00210"/>
             <Children value="Line00037"/>
             <Children value="Line00033"/>
             <Children value="Line00106"/>
@@ -3505,11 +3549,13 @@
             <Children value="Line00182"/>
             <Children value="Line00183"/>
             <Children value="Line00042"/>
+            <Children value="Line00208"/>
             <Children value="Line00144"/>
             <Children value="Comment00029"/>
             <Children value="Line00043"/>
             <Children value="Line00145"/>
             <Children value="Line00187"/>
+            <Children value="Line00209"/>
             <Children value="Line00147"/>
             <Children value="Comment00030"/>
             <Children value="Line00148"/>

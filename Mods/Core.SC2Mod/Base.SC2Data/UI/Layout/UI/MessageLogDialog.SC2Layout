@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="MessageLogDialog" name="MessageLogDialogTemplate">
+        <Anchor relative="$parent"/>
+
+        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardLargePanelTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Height val="1050"/>
+            <Width val="1050"/>
+
+            <Frame type="Image" name="TitleBorderImage">
+                <Anchor side="Top" relative="$parent/BorderImage" pos="Min" offset="30"/>
+                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="60"/>
+                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-60"/>
+                <Height val="60"/>
+                <Texture val="@@UI/MercenaryPanelTopInnerBackground"/>
+                <TextureType val="Border"/>
+                <LayerColor val="##StandardBorder"/>
+                <Tiled val="true"/>
+            </Frame>
+
+            <Frame type="Label" name="TitleLabel">
+                <Anchor side="Top" relative="$parent\TitleBorderImage" pos="Min" offset="10"/>
+                <Anchor side="Left" relative="$parent\TitleBorderImage" pos="Min" offset="10"/>
+                <Anchor side="Right" relative="$parent\TitleBorderImage" pos="Max" offset="-10"/>
+                <Style val="@@HelpMenuDialogTitle"/>
+                <Text val="@UI/MessageLogDialogTitle"/>
+            </Frame>
+            
+            <Frame type="HelpPanel" name="MessageLogPanel" template="HelpPanel/HelpPanelTemplate">
+                <Anchor side="Top" relative="$parent/TitleBorderImage" pos="Max" offset="10"/>
+                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="60"/>
+                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-60"/>
+            </Frame>
+
+            <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardLargePanelRightButtonTemplate">
+                <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="0"/>
+                <RenderPriority val="530"/>
+                <Shortcut val="@UI/Close_Hotkey"/>
+                <Text val="@UI/Close_Control"/>
+            </Frame>
+        </Frame>        
+    </Frame>       
+</Desc>

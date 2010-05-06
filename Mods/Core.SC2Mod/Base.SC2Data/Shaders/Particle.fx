@@ -60,7 +60,7 @@ struct Input
 //==================================================================================================
 // Uniform parameters
 
-float4x4    p_mParticleInstanceTransform[MAX_BATCHED_RIBBONS];
+float4x4    p_mParticleInstanceTransform[MAX_BATCHED_PARTICLES];
 
 HALF3       p_vBillboardRight;
 HALF3       p_vBillboardUp;
@@ -105,8 +105,8 @@ half4 EmitParticleNormal( Input vertIn ) {
 
 //--------------------------------------------------------------------------------------------------
 // Normal.
-half3 EmitParticleTangent( Input vertIn ) {
-    return g_vParticleTangent;
+half4 EmitParticleTangent( Input vertIn ) {
+    return half4(g_vParticleTangent, 1);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -309,7 +309,6 @@ void ParticleVertexMain( in Input vertIn, out VertexTransport vertOut ) {
     g_iBatchIndex = (int)(p_fParticleBatchIndexRemappingTable[g_iBatchIndex] + 0.1);
 
 #else
-    // Nvidia 6600 on Vista crash bug fix (1 of 2)
     g_iBatchIndex = (int)(vertIn.iBatchIndex.x + 0.1);
     g_iBatchIndex = (int) (p_fParticleBatchIndexRemappingTable[g_iBatchIndex] + 0.1);
 #endif
@@ -349,11 +348,11 @@ void ParticleVertexMain( in Input vertIn, out VertexTransport vertOut ) {
     if (b_localSpace) {
         vertIn.vPosition.xyz = mul(float4(vertIn.vPosition.xyz, 1), p_mPRWorldTransform[g_iBatchIndex]).xyz;
     }
+    
+    
 
     vertIn.vPosition.xyz += vertIn.vNoiseVector.xyz;
-    if ( b_enableVertexWarps == 1 )
-        vertIn.vPosition.xyz = ApplyWarps( float4(vertIn.vPosition.xyz, 1.0) ).xyz;
-    
+
     half3 vCameraForward = p_vCameraDirection;
     
     // :TODO: :NOTE: How about some code reuse here huh?
@@ -480,28 +479,42 @@ void ParticleVertexMain( in Input vertIn, out VertexTransport vertOut ) {
     else {
 		// regular billboard		
 		half fAngle = GenerateRotation(g_vSizeAndAge.w, vertIn);
+		
+        float3 forward = vCameraForward.xyz;
+        float3 right = p_vBillboardRight.xyz;
+        float3 up = p_vBillboardUp.xyz;
+        if ( b_useModelInstancing ) {
+            #ifdef COMPILING_SHADER_FOR_OPENGL
+                float4x4 mInstanceTransfrom = p_mParticleInstanceTransform[g_iBatchIndex];
+            #else
+                float4x4 mInstanceTransfrom = p_mParticleInstanceTransform[(int) p_fParticleBatchIndexRemappingTable[vertIn.iBatchIndex.x]];
+            #endif
+            
+            vertIn.vPosition.xyz = mul(float4(vertIn.vPosition.xyz, 1), mInstanceTransfrom).xyz;
+        }
 
-        half3x3 mRotation = MakeRotation( fAngle, vCameraForward );		
-		half3 vOffset = vertIn.vOffset.x * p_vBillboardRight + vertIn.vOffset.y * p_vBillboardUp;
+        half3x3 mRotation = MakeRotation( fAngle, forward );		
+		half3 vOffset = vertIn.vOffset.x * right + vertIn.vOffset.y * up;
 		vOffset *= p_vSystemTime_ElementScale_FlipbookMidKeyTime_FlipbookColumnCount[g_iBatchIndex].y;
 		vertIn.vPosition.xyz = vertIn.vPosition.xyz + mul( g_vSizeAndAge.xyz * vOffset, mRotation );
 
-        g_vParticleNormal = normalize(cross(p_vBillboardRight, p_vBillboardUp));
-        g_vParticleTangent = p_vBillboardRight;
-        g_vParticleBinormal = p_vBillboardUp;
+        g_vParticleNormal = normalize(cross(right, up));
+        g_vParticleTangent = right;
+        g_vParticleBinormal = up;
 	}
 
-    // transform instanced particles
-    if ( b_useModelInstancing ) {
+    // transform instanced particles, bill board particles are handled already
+    if (b_useModelInstancing && b_iInstanceType!=PARTICLE_BILLBOARD) {
         #ifdef COMPILING_SHADER_FOR_OPENGL
             vertIn.vPosition.xyz = mul(float4(vertIn.vPosition.xyz, 1), p_mParticleInstanceTransform[g_iBatchIndex]).xyz;
         #else
-            // Nvidia 6600 on Vista crash bug fix (2 of 2, use vertIn.iBatchIndex.x instead of g_iBatchIndex)
-        //vertIn.vPosition.xyz = mul(float4(vertIn.vPosition.xyz, 1), p_mParticleInstanceTransform[g_iBatchIndex]).xyz;
-        vertIn.vPosition.xyz = mul(float4(vertIn.vPosition.xyz, 1), p_mParticleInstanceTransform[(int) p_fParticleBatchIndexRemappingTable[vertIn.iBatchIndex.x]]).xyz;
+            vertIn.vPosition.xyz = mul(float4(vertIn.vPosition.xyz, 1), p_mParticleInstanceTransform[(int) p_fParticleBatchIndexRemappingTable[vertIn.iBatchIndex.x]]).xyz;
         #endif
     }
 
+    if ( b_enableVertexWarps == 1 )
+        vertIn.vPosition.xyz = ApplyWarps( float4(vertIn.vPosition.xyz, 1.0) ).xyz;
+    
     vertOut.HPos = EmitParticleHPos( vertIn );
     GenInterpolant( HPosAsUV, EmitParticleHPosAsUV( vertIn ) );
     GenInterpolant( ViewPos, EmitParticleViewPos( vertIn ) );

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CButton id="ArchonWarpTarget">
+        <Icon value="Assets\Textures\btn-unit-protoss-archon.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-protoss-archon.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="AcidSpores">
         <Icon value="Assets\Textures\btn-ability-zerg-sporecloud.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zerg-sporecloud.dds"/>
@@ -12,6 +17,13 @@
         <EditorCategories value="Race:Neutral"/>
         <TintRacially value="1"/>
     </CButton>
+    <CButton id="BurrowMove">
+        <Icon value="Assets\Textures\btn-ability-zerg-burrow.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-burrow.dds"/>
+        <Hotkey value="Button/Hotkey/BurrowDown"/>
+        <EditorCategories value="Race:Zerg"/>
+        <TintRacially value="1"/>
+    </CButton>
     <CButton id="CancelSlot">
         <Icon value="Assets\Textures\btn-command-cancel.dds"/>
         <AlertIcon value="Assets\Textures\btn-command-cancel.dds"/>
@@ -19,22 +31,22 @@
         <TintRacially value="1"/>
     </CButton>
     <CButton id="ChitinousPlating">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-pneumatizedcarapace.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-chitinousplating.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="AnabolicSynthesis">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-pneumatizedcarapace.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="EvolveAnabolicSynthesis2">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-pathogenglands.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
         <EditorCategories value="Race:Zerg"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-pathogenglands.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
     </CButton>
     <CButton id="EvolveChitinousPlating">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-pneumatizedcarapace.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-chitinousplating.dds"/>
         <EditorCategories value="Race:Zerg"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-pneumatizedcarapace.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-chitinousplating.dds"/>
     </CButton>
     <CButton id="CorruptionAbility">
         <Icon value="Assets\Textures\btn-ability-zerg-corruption.dds"/>
@@ -61,6 +73,12 @@
         <Icon value="Assets\Textures\btn-ability-protoss-wormholetransit.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <TintRacially value="1"/>
+    </CButton>
+    <CButton id="ObverseIncubation">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-enduringcorruption.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-enduringcorruption.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Race value="Zerg"/>
     </CButton>
     <CButton id="ResearchPunisherGrenades">
         <Icon value="Assets\Textures\btn-ability-terran-punishergrenade.dds"/>
@@ -380,6 +398,12 @@
     <CButton id="AttackRedirect" parent="Attack">
         <Name value="Button/Name/AttackRedirect"/>
         <Tooltip value="Button/Tooltip/AttackRedirect"/>
+    </CButton>
+    <CButton id="AttackWarpPrism">
+        <Icon value="Assets\Textures\btn-command-attack.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-attack.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
     </CButton>
     <CButton id="SwarmSeeds">
         <Icon value="Assets\Textures\btn-ability-zerg-swarmseeds.dds"/>
@@ -1286,8 +1310,8 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="Ultralisk">
-        <Icon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-omegalisk.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="Baneling">
@@ -1316,8 +1340,8 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="BroodLord">
-        <Icon value="Assets\Textures\btn-unit-zerg-mantalisk.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-mantalisk.dds"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-broodlord.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-broodlord.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="zergmeleeweapons1">
@@ -1398,8 +1422,8 @@
         <TintRacially value="1"/>
     </CButton>
     <CButton id="hydraliskspeed">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-muscularaugments.dds"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-muscularaugments.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="zergflyerattack1">
@@ -1711,5 +1735,11 @@
         <Icon value="Assets\Textures\btn-unit-terran-scv.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-scv.dds"/>
         <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="StopRoachBurrowed">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
     </CButton>
 </Catalog>

@@ -21,13 +21,13 @@
         <Frame type="Label" name="CurrentCargoLabel">
             <Style val="@@InfoPaneCargoCurrentCargo"/>
             <Text val="@UI/CurrentCargo_Colon"/>
-            <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="10"/>
+            <Anchor side="Top" relative="$parent/NameLabel" pos="Max" offset="4"/>
             <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
         </Frame>
 
         <Frame type="Frame" name="CargoContainer">
-            <Anchor side="Top" relative="$parent/CurrentCargoLabel" pos="Max" offset="4"/>
+            <Anchor side="Top" relative="$parent/CurrentCargoLabel" pos="Max" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
             <Height val="128"/>

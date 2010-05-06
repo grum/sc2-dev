@@ -96,11 +96,6 @@ sampler2D p_sLayer1;
 sampler2D p_sLayer2;
 sampler2D p_sLayer3;
 
-//------------------------------------------------------------------------------------------------
-// Gray color used for desaturation
-//------------------------------------------------------------------------------------------------
-#define GRAY float4(0.65, 0.65, 0.65, 0.0)
-
 //--------------------------------------------------------------------------------------------------
 // Pixel shader
 //--------------------------------------------------------------------------------------------------
@@ -114,31 +109,28 @@ float4 ImagePixelMain (in SImageVtxFmt IN) : COLOR {
         cColor.a *= 1 - cLayer.a;
     }
 
-    // $SAD - FIXME:  We can't simply cut out layers for lower end cards.  The user interface
-    //                is unusable without those layers.  We need to implement a better solution
-    //                which displays all requested layers on lower end hardware.
-    if (PIXEL_SHADER_VERSION >= SHADER_VERSION_PS_20) {
-        if (b_iLayerCount > 2) {
-            float4 cLayer = tex2D(p_sLayer2, IN.vTC2.xy) * IN.cColor2;
-            cColor.rgb = lerp(cColor.rgb, cLayer.rgb, cLayer.a);
-            cColor.a *= 1 - cLayer.a;
-        }
+    if (b_iLayerCount > 2) {
+        float4 cLayer = tex2D(p_sLayer2, IN.vTC2.xy) * IN.cColor2;
+        cColor.rgb = lerp(cColor.rgb, cLayer.rgb, cLayer.a);
+        cColor.a *= 1 - cLayer.a;
+    }
 
-        if (b_iLayerCount > 3) {
-            float4 cLayer = tex2D(p_sLayer3, IN.vTC3.xy) * IN.cColor3;
-            cColor.rgb = lerp(cColor.rgb, cLayer.rgb, cLayer.a);
-            cColor.a *= 1 - cLayer.a;
-        }
+    if (b_iLayerCount > 3) {
+        float4 cLayer = tex2D(p_sLayer3, IN.vTC3.xy) * IN.cColor3;
+        cColor.rgb = lerp(cColor.rgb, cLayer.rgb, cLayer.a);
+        cColor.a *= 1 - cLayer.a;
     }
 
     if (b_desaturate) {
-        float fGray = dot(cColor, GRAY);
-        cColor = float4(fGray, fGray, fGray, cColor.a);
+        float fMax = max(max(cColor.r, cColor.g), cColor.b);
+        cColor = float4(fMax, fMax, fMax, cColor.a);
         cColor.rgb *= p_vDesaturationColor.rgb;
     }
 
     cColor.a = 1 - cColor.a;
 
+    if ( b_imageUse8BitHDR )
+        cColor.rgb *= 0.5f;
     return cColor;
 }
 

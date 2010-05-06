@@ -48,14 +48,14 @@ void ApplyCircleInfluence (in float2 vPosition, in float2 vCircleCenter, in floa
 
     // calcualte the dashed factor
     if (b_dashedCircleSplats) {
+        float2 vDir = normalize(vDist);
         float2 xAxis = vCircleDashParams.zw;
         float2 yAxis = float2(xAxis.y, -xAxis.x);
-        float2 vRotatedPos;
-        vRotatedPos = (xAxis * vDist.x) + (yAxis * vDist.y);
+        float2 vRotatedDir;
+        vRotatedDir = (xAxis * vDir.x) + (yAxis * vDir.y);
 
-        float fSegmentCount = vCircleDashParams.x;
-        float fDashAngle = c_f2PI / fSegmentCount;
-        float fPercentSolid = ((1.0f - vCircleDashParams.y) * 0.5f) + 0.5f;
+        float fDashAngle = vCircleDashParams.x;
+        float fPercentSolid = vCircleDashParams.y;
         float fAvgRadius = (vCircleRadiiParams.x + vCircleRadiiParams.y) * 0.5f;
         float fInvAvgRadius = 1.0f / fAvgRadius;
 
@@ -64,11 +64,12 @@ void ApplyCircleInfluence (in float2 vPosition, in float2 vCircleCenter, in floa
         float fOuterAngle = (fSegmentLength * fPercentSolid * fInvAvgRadius) - fRange;
 
         // ryantodo: don't do this in randian space to save on the acos() call
-        vRotatedPos /= fDist;
-        float fAngle = (vRotatedPos.y > 0) ? acos(vRotatedPos.x) : (c_f2PI) - acos(vRotatedPos.x);
+        float fAngle = acos(vRotatedDir.x);
+        fAngle = (vRotatedDir.y > 0) ? fAngle : (c_f2PI) - fAngle;
+        
         float fPartial = fmod(fAngle, fDashAngle);
         fPartial = max(fPartial, fDashAngle - fPartial);
-        float fDashedFactor = saturate((fPartial - fOuterAngle) * (1.0f / fRange));
+        float fDashedFactor = saturate((fPartial - fOuterAngle) / fRange);
 
         finalFactor = min(fDashedFactor, finalFactor);
     }
@@ -168,8 +169,9 @@ half4 VectorUI(in VertexTransport vertOut) {
     else
         accumulatedColor = saturate(half4(accumulatedColor.xyz, 1.0f - accumulatedColor.w));
 
-    accumulatedColor.w *= saturate(INTERPOLANT_VectorUI0.w);
-
+    // attenuation factor
+    accumulatedColor.w *= SplatAttenuation(INTERPOLANT_WorldPos.xyz, INTERPOLANT_Vector4, INTERPOLANT_VectorUI0.w, INTERPOLANT_WorldPos.w);
+    
     return accumulatedColor;
 }
 

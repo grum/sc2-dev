@@ -2,8 +2,9 @@
 <Desc>
     <Constant name="VideoColumnLeftMarginGap" val="30"/>
     <Constant name="VideoColumnLeftMarginIndentGap" val="70"/>
-    <Constant name="VideoColumnRightMarginGap" val="-30"/>
-
+    <Constant name="VideoColumnRightMarginGap" val="-90"/>
+    <Constant name="VideoSliderValueGap" val="10"/>
+    
     <Frame type="Label" name="VideoHeaderLabelTemplate">
         <Style val="StandardPanelHeader"/>
     </Frame>
@@ -29,6 +30,7 @@
     <Frame type="VideoOptionsPanel" name="VideoOptionsPanelTemplate">
         <Frame type="Image" name="OuterBackground" template="StandardTemplates/StandardOuterBorderTemplate">
             <Anchor relative="$parent"/>
+            <RequiredDefines val="Terr|Zerg|Prot"/>
         </Frame>
 
         <Frame type="ThumbButton" name="RestoreButton" template="StandardTemplates/StandardButtonSmallTemplate">
@@ -94,8 +96,9 @@
             </Frame>
           
             <Frame type="Label" name="VideoQualityValue" template="VideoOptionsPanel/VideoSliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/VideoQualitySlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/VideoQualitySlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/VideoQualitySlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/VideoQualitySlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/VideoQualitySlider" pos="Max" offset="#VideoSliderValueGap"/>
             </Frame>
           
             <Frame type="Label" name="FramerateLabel" template="VideoOptionsPanel/VideoLabelTemplate">
@@ -114,8 +117,9 @@
             </Frame>
 
             <Frame type="Label" name="FrameRateValue" template="VideoOptionsPanel/VideoSliderValueLabelTemplate">
-                <Anchor side="Bottom" relative="$parent/FrameRateSlider" pos="Min" offset="0"/>
-                <Anchor side="Right" relative="$parent/FrameRateSlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/FrameRateSlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/FrameRateSlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/FrameRateSlider" pos="Max" offset="#VideoSliderValueGap"/>
             </Frame>
         </Frame>
 
@@ -148,9 +152,9 @@
             </Frame>
 
             <Frame type="Label" name="AudioQualityValue" template="VideoOptionsPanel/VideoSliderValueLabelTemplate">
-                <Anchor side="Top" relative="$parent/AudioCheckBox" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/AudioCheckBox" pos="Max" offset="0"/>
-                <Anchor side="Right" relative="$parent/AudioQualitySlider" pos="Max" offset="0"/>
+                <Anchor side="Top" relative="$parent/AudioQualitySlider" pos="Mid" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/AudioQualitySlider" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent/AudioQualitySlider" pos="Max" offset="#VideoSliderValueGap"/>
             </Frame>
 
             <Frame type="CheckBox" name="SlowGameCheckbox" template="VideoOptionsPanel/VideoCheckBoxTemplate">

@@ -11,7 +11,7 @@
         <SoundDopplerFactor value="1.000000"/>
         <SoundRolloffFactor value="1.000000"/>
         <TilingFreq value="4.000000"/>
-        <POMScale value="0.09"/>
+        <POMScale value="0.03"/>
         <MinimapBackgroundColor value="0,0,0"/>
         <FogColor value="0,0,0"/>
         <FogDensity value="0"/>

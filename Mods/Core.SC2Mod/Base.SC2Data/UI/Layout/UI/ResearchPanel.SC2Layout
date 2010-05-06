@@ -36,11 +36,16 @@
     </Frame>
     
     <Frame type="ResearchItemFrame" name="ProtossResearchItemFrameTemplate">
-        <Width val="90"/>
-        <Height val="90"/>
+        <Width val="280"/>
+        <Height val="280"/>
 
         <Frame type="ThumbButton" name="Button">
-            <Anchor relative="$parent"/>
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="90"/>
+            <Height val="90"/>
             <NormalImage val="NormalImage"/>
             <HoverImage val="HoverImage"/>
             <HighlightOnHover val="true"/>
@@ -72,16 +77,36 @@
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>          
-        </Frame>        
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <TextureType val="Normal"/>
+        </Frame>
+
+        <Frame type="Image" name="PurchasedImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@@UI/ResearchItemPurchasedProtoss" layer="0"/>
+        </Frame>
+        
+        <Frame type="FlashFrame" name="FlashFrame">
+            <Anchor relative="$parent"/>
+            <File val="UI/Flash/GameUI/Research_Item_Protoss.swf"/>
+            <Visible val="false"/>
+        </Frame>
     </Frame>
 
     <Frame type="ResearchItemFrame" name="ZergResearchItemFrameTemplate">
-        <Width val="90"/>
-        <Height val="90"/>
+        <Width val="280"/>
+        <Height val="280"/>
 
         <Frame type="ThumbButton" name="Button">
-            <Anchor relative="$parent"/>
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="90"/>
+            <Height val="90"/>
             <NormalImage val="NormalImage"/>
             <HoverImage val="HoverImage"/>
             <HighlightOnHover val="true"/>
@@ -114,12 +139,27 @@
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <TextureType val="Normal"/>
+        </Frame>
+
+        <Frame type="Image" name="PurchasedImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@@UI/ResearchItemPurchasedZerg" layer="0"/>
+        </Frame>
+        
+        <Frame type="FlashFrame" name="FlashFrame">
+            <Anchor relative="$parent"/>
+            <File val="UI/Flash/GameUI/Research_Item_Zerg.swf"/>
+            <Visible val="false"/>
         </Frame>
     </Frame>
     
     <Frame type="ResearchTierFrame" name="ProtossResearchTierFrameTemplate">
-        <Width val="400"/>
-        <Height val="110"/>
+        <Width val="500"/>
+        <Height val="200"/>
 
         <Frame type="Label" name="RequiredLevelLabel">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -145,70 +185,39 @@
             <LayerColor val="5fa8bb" layer="0"/>
         </Frame>
 
-        <Frame type="Frame" name="AvailableFrame">
+        <Frame type="FlashFrame" name="FlashFrame">
             <Anchor relative="$parent"/>
+            <File val="UI/Flash/GameUI/Research_TierAnim_Protoss.swf"/>
+            <Visible val="false"/>
+        </Frame>
 
-            <Frame type="Image" name="BackgroundImage">
-                <Anchor relative="$parent"/>
-                <Texture val="@@UI/ResearchTierBackground" layer="0"/>
-                <TextureType val="Border" layer="0"/>
-                <Tiled val="true" layer="0"/>
-            </Frame>
-
-            <Frame type="Image" name="BorderImage">
-                <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="-10"/>
-                <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Max" offset="10"/>
-                <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="-10"/>
-                <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="10"/>
-                <Texture val="@@UI/ResearchTierBorderProtoss" layer="0"/>
-                <TextureType val="Border" layer="0"/>
-                <Tiled val="true" layer="0"/>
-            </Frame>
-
-            <Frame type="Image" name="LeftArrow">
-                <Anchor side="Top" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-                <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="90"/>
-                <Texture val="@@UI/ResearchTierLeftArrow" layer="0"/>
-                <LayerColor val="3873fe" layer="0"/>
-            </Frame>
-
-            <Frame type="Image" name="RightArrow">
-                <Anchor side="Top" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-                <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="-90"/>
-                <Texture val="@@UI/ResearchTierRightArrow" layer="0"/>
-                <LayerColor val="3873fe" layer="0"/>
-            </Frame>
-            
-            <Frame type="Label" name="SelectLabel">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Mid" offset="-100"/>
-                <Anchor side="Right" relative="$parent" pos="Mid" offset="100"/>
-                <Style val="ResearchTierSelectAvailable_Protoss"/>
-                <Text val="@UI/ResearchPanelSelectText"/>
-            </Frame>
+        <Frame type="Label" name="SelectLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="-100"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="100"/>
+            <Style val="ResearchTierSelectAvailable_Protoss"/>
+            <Text val="@UI/ResearchPanelSelectText"/>
         </Frame>
         
         <Frame type="ResearchItemFrame" name="ResearchItemFrame0" template="ResearchPanel/ProtossResearchItemFrameTemplate">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-40"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchItemFrame" name="ResearchItemFrame1" template="ResearchPanel/ProtossResearchItemFrameTemplate">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="40"/>
             <Visible val="false"/>
         </Frame>
     </Frame>
 
     <Frame type="ResearchTierFrame" name="ZergResearchTierFrameTemplate">
-        <Width val="400"/>
-        <Height val="110"/>
+        <Width val="500"/>
+        <Height val="200"/>
 
         <Frame type="Label" name="RequiredLevelLabel">
             <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
@@ -234,75 +243,39 @@
             <LayerColor val="ffd179" layer="0"/>
         </Frame>
 
-        <Frame type="Frame" name="AvailableFrame">
+        <Frame type="FlashFrame" name="FlashFrame">
             <Anchor relative="$parent"/>
-
-            <Frame type="Image" name="BackgroundImage">
-                <Anchor relative="$parent"/>
-                <Texture val="@@UI/ResearchTierBackground" layer="0"/>
-                <TextureType val="Border" layer="0"/>
-                <Tiled val="true" layer="0"/>
-            </Frame>
-
-            <Frame type="Image" name="BorderImage">
-                <Anchor side="Top" relative="$parent/BackgroundImage" pos="Min" offset="-10"/>
-                <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Max" offset="10"/>
-                <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="-10"/>
-                <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="10"/>
-                <Texture val="@@UI/ResearchTierBorderZerg" layer="0"/>
-                <TextureType val="Border" layer="0"/>
-                <Tiled val="true" layer="0"/>
-            </Frame>
-
-            <Frame type="Image" name="LeftArrow">
-                <Anchor side="Top" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-                <Anchor side="Left" relative="$parent/BackgroundImage" pos="Min" offset="90"/>
-                <Texture val="@@UI/ResearchTierLeftArrow" layer="0"/>
-                <LayerColor val="ffd179" layer="0"/>
-            </Frame>
-
-            <Frame type="Image" name="RightArrow">
-                <Anchor side="Top" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-                <Anchor side="Bottom" relative="$parent/BackgroundImage" pos="Mid" offset="0"/>
-                <Anchor side="Right" relative="$parent/BackgroundImage" pos="Max" offset="-90"/>
-                <Texture val="@@UI/ResearchTierRightArrow" layer="0"/>
-                <LayerColor val="ffd179" layer="0"/>
-            </Frame>
-            
-            <Frame type="Label" name="SelectLabel">
-                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
-                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
-                <Anchor side="Left" relative="$parent" pos="Mid" offset="-100"/>
-                <Anchor side="Right" relative="$parent" pos="Mid" offset="100"/>
-                <Style val="ResearchTierSelectAvailable_Zerg"/>
-                <Text val="@UI/ResearchPanelSelectText"/>
-            </Frame>
+            <File val="UI/Flash/GameUI/Research_TierAnim_Zerg.swf"/>
+            <Visible val="false"/>
         </Frame>
 
+        <Frame type="Label" name="SelectLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="-100"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="100"/>
+            <Style val="ResearchTierSelectAvailable_Zerg"/>
+            <Text val="@UI/ResearchPanelSelectText"/>
+        </Frame>
+        
         <Frame type="ResearchItemFrame" name="ResearchItemFrame0" template="ResearchPanel/ZergResearchItemFrameTemplate">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="-40"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchItemFrame" name="ResearchItemFrame1" template="ResearchPanel/ZergResearchItemFrameTemplate">
             <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Max" offset="-10"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="40"/>
             <Visible val="false"/>
         </Frame>
     </Frame>
     
     <Frame type="ResearchCategoryFrame" name="ProtossResearchCategoryFrameTemplate">
-        <Frame type="Image" name="BackgroundImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@@UI/ResearchCategoryProtossBackground"/>            
-        </Frame>
+        <Width val="445"/>
+        <Height val="905"/>
         
         <Frame type="Image" name="BorderImage">
             <Anchor relative="$parent"/>
@@ -339,9 +312,9 @@
         </Frame>
         
         <Frame type="Image" name="CurrentLevelBorderImage">
-            <Anchor side="Top" relative="$parent/NameBorderImage" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
-            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>
+            <Anchor side="Top" relative="$parent/NameBorderImage" pos="Max" offset="-8"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="2"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-2"/>
             <Height val="70"/>
             <Texture val="@@UI/ResearchCategoryCurrentLevelBorder" layer="0"/>
             <TextureType val="Border" layer="0"/>
@@ -358,7 +331,7 @@
         </Frame>
 
         <Frame type="Image" name="ContentBorderImage">
-            <Anchor side="Top" relative="$parent/CurrentLevelBorderImage" pos="Max" offset="-5"/>
+            <Anchor side="Top" relative="$parent/CurrentLevelBorderImage" pos="Max" offset="-10"/>
             <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="10"/>
             <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-10"/>
             <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-10"/>
@@ -409,6 +382,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage1">
@@ -417,6 +391,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage2">
@@ -425,6 +400,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage3">
@@ -433,6 +409,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage4">
@@ -441,6 +418,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage5">
@@ -449,6 +427,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage6">
@@ -457,6 +436,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage7">
@@ -465,6 +445,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage8">
@@ -473,6 +454,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage9">
@@ -481,6 +463,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage10">
@@ -489,6 +472,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage11">
@@ -497,6 +481,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage12">
@@ -505,6 +490,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage13">
@@ -513,6 +499,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage14">
@@ -521,6 +508,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage15">
@@ -529,6 +517,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage16">
@@ -537,6 +526,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage17">
@@ -545,6 +535,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage18">
@@ -553,6 +544,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage19">
@@ -561,6 +553,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage20">
@@ -569,6 +562,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage21">
@@ -577,6 +571,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage22">
@@ -585,6 +580,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage23">
@@ -593,6 +589,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage24">
@@ -601,38 +598,39 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryProtossCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
         
         <Frame type="ResearchTierFrame" name="ResearchTierFrame0" template="ResearchPanel/ProtossResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage0" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage0" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>            
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchTierFrame" name="ResearchTierFrame1" template="ResearchPanel/ProtossResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage1" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage1" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchTierFrame" name="ResearchTierFrame2" template="ResearchPanel/ProtossResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage2" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage2" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Visible val="false"/>
         </Frame>
         
         <Frame type="ResearchTierFrame" name="ResearchTierFrame3" template="ResearchPanel/ProtossResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage3" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage3" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchTierFrame" name="ResearchTierFrame4" template="ResearchPanel/ProtossResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage4" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage4" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Visible val="false"/>
@@ -640,13 +638,8 @@
     </Frame>
 
     <Frame type="ResearchCategoryFrame" name="ZergResearchCategoryFrameTemplate">
-        <Frame type="Image" name="BackgroundImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Texture val="@@UI/ResearchCategoryZergBackground"/>
-        </Frame>
+        <Width val="445"/>
+        <Height val="905"/>
         
         <Frame type="Image" name="BorderImage">
             <Anchor relative="$parent"/>
@@ -683,9 +676,9 @@
         </Frame>
 
         <Frame type="Image" name="CurrentLevelBorderImage">
-            <Anchor side="Top" relative="$parent/NameBorderImage" pos="Max" offset="0"/>
-            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="5"/>
-            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-5"/>
+            <Anchor side="Top" relative="$parent/NameBorderImage" pos="Max" offset="-8"/>
+            <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="2"/>
+            <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-2"/>
             <Height val="70"/>
             <Texture val="@@UI/ResearchCategoryCurrentLevelBorder" layer="0"/>
             <TextureType val="Border" layer="0"/>
@@ -702,7 +695,7 @@
         </Frame>
 
         <Frame type="Image" name="ContentBorderImage">
-            <Anchor side="Top" relative="$parent/CurrentLevelBorderImage" pos="Max" offset="-5"/>
+            <Anchor side="Top" relative="$parent/CurrentLevelBorderImage" pos="Max" offset="-10"/>
             <Anchor side="Left" relative="$parent/BorderImage" pos="Min" offset="10"/>
             <Anchor side="Right" relative="$parent/BorderImage" pos="Max" offset="-10"/>
             <Anchor side="Bottom" relative="$parent/BorderImage" pos="Max" offset="-10"/>
@@ -753,6 +746,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage1">
@@ -761,6 +755,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage2">
@@ -769,6 +764,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage3">
@@ -777,6 +773,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage4">
@@ -785,6 +782,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage5">
@@ -793,6 +791,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage6">
@@ -801,6 +800,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage7">
@@ -809,6 +809,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage8">
@@ -817,6 +818,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage9">
@@ -825,6 +827,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage10">
@@ -833,6 +836,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage11">
@@ -841,6 +845,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage12">
@@ -849,6 +854,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage13">
@@ -857,6 +863,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage14">
@@ -865,6 +872,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage15">
@@ -873,6 +881,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage16">
@@ -881,6 +890,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage17">
@@ -889,6 +899,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage18">
@@ -897,6 +908,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage19">
@@ -905,6 +917,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage20">
@@ -913,6 +926,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece1" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage21">
@@ -921,6 +935,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece2" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage22">
@@ -929,6 +944,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece3" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage23">
@@ -937,6 +953,7 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece4" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="Image" name="CurrentLevelActiveImage24">
@@ -945,38 +962,39 @@
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Texture val="@@UI/ResearchCategoryZergCurrentLevelActivePiece5" layer="0"/>
             <Visible val="false"/>
+            <StateCount val="2"/>
         </Frame>
 
         <Frame type="ResearchTierFrame" name="ResearchTierFrame0" template="ResearchPanel/ZergResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage0" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage0" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage0" pos="Mid" offset="0"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchTierFrame" name="ResearchTierFrame1" template="ResearchPanel/ZergResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage1" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage1" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage1" pos="Mid" offset="0"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchTierFrame" name="ResearchTierFrame2" template="ResearchPanel/ZergResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage2" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage2" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage2" pos="Mid" offset="0"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchTierFrame" name="ResearchTierFrame3" template="ResearchPanel/ZergResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage3" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage3" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage3" pos="Mid" offset="0"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchTierFrame" name="ResearchTierFrame4" template="ResearchPanel/ZergResearchTierFrameTemplate">
-            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage4" pos="Min" offset="52"/>
+            <Anchor side="Bottom" relative="$parent/CurrentLevelBackgroundImage4" pos="Min" offset="100"/>
             <Anchor side="Left" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/CurrentLevelBackgroundImage4" pos="Mid" offset="0"/>
             <Visible val="false"/>
@@ -984,73 +1002,58 @@
     </Frame>
     
     <Frame type="ResearchPanel" name="ResearchPanelTemplate">
-        <Anchor relative="$parent"/>
+        <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Width val="1600"/>
+        <Height val="1200"/>
         <Visible val="false"/>
 
         <Frame type="StandardTooltip" name="ProtossResearchTooltip" template="ResearchPanel/ProtossResearchTooltipTemplate"/>
         <Frame type="StandardTooltip" name="ZergResearchTooltip" template="ResearchPanel/ZergResearchTooltipTemplate"/>
 
-        <Frame type="Image" name="FullscreenBackgroundImage">
-            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>           
-            <Texture val="Assets/Textures/loading-belshir.dds" layer="0"/>
-            <Alpha val="125"/>
+        <Frame type="Image" name="BackgroundMaskImage">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            <Texture val="@@UI/PauseScreenDimImage"/>
+            <RenderType val="HDR"/>
         </Frame>
         
-        <Frame type="Frame" name="BackgroundFrame" template="CampaignTemplates/CampaignPanelBackgroundFrameTemplate">
-            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+        <Frame type="Label" name="TitleLabel">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="120"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="690"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-330"/>
+            <Style val="CampaignPanelTitle"/>
+            <Alpha val="120"/>
+            <Text val="@UI/ResearchPanelTitle"/>
+        </Frame>
+
+        <Frame type="Portrait" name="MoviePortrait">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="230"/>
             <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
-            <Height val="1190"/>
-            <Width val="1536"/>
-
-            <Frame type="Label" name="TitleLabel">
-                <Text val="@UI/ResearchPanelTitle"/>
-            </Frame>
+            <Width val="510"/>
+            <Height val="300"/>
         </Frame>
 
-        <Frame type="Image" name="BackgroundGradientImage">
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
-            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
-            <Texture val="@@UI/PlanetPanelGradient" layer="0"/>
-        </Frame>
-
-        <Frame type="Image" name="BackgroundInterlaceImage">
-            <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
-            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="70"/>
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-130"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-70"/>
-            <Texture val="@@UI/PlanetPanelInterlace" layer="0"/>
-            <Tiled val="true" layer="0"/>
-        </Frame>
-        
         <Frame type="Image" name="MovieBackgroundImage">
-            <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="80"/>
-            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Mid" offset="0"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Mid" offset="0"/>
-            <Width val="550"/>
-            <Height val="350"/>
+            <Anchor side="Top" relative="$parent/MoviePortrait" pos="Min" offset="-32"/>
+            <Anchor side="Bottom" relative="$parent/MoviePortrait" pos="Max" offset="23"/>
+            <Anchor side="Left" relative="$parent/MoviePortrait" pos="Min" offset="-20"/>
+            <Anchor side="Right" relative="$parent/MoviePortrait" pos="Max" offset="20"/>
             <Texture val="@@UI/ResearchPanelMovieBackground" layer="0"/>
-            <TextureType val="Border" layer="0"/>
+            <TextureType val="HorizontalBorder" layer="0"/>
             <Tiled val="true" layer="0"/>
             <LayerColor val="7dd1e9" layer="0"/>
         </Frame>
 
-        <Frame type="Portrait" name="MoviePortrait">
-            <Anchor side="Top" relative="$parent/MovieBackgroundImage" pos="Min" offset="25"/>
-            <Anchor side="Bottom" relative="$parent/MovieBackgroundImage" pos="Max" offset="-25"/>
-            <Anchor side="Left" relative="$parent/MovieBackgroundImage" pos="Min" offset="20"/>
-            <Anchor side="Right" relative="$parent/MovieBackgroundImage" pos="Max" offset="-20"/>
-        </Frame>
-        
         <Frame type="Image" name="DescriptionBackgroundImage">
             <Anchor side="Top" relative="$parent/MovieBackgroundImage" pos="Max" offset="-20"/>
-            <Anchor side="Left" relative="$parent/MovieBackgroundImage" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/MovieBackgroundImage" pos="Max" offset="0"/>           
-            <Height val="520"/>
+            <Anchor side="Left" relative="$parent/MovieBackgroundImage" pos="Min" offset="4"/>
+            <Anchor side="Right" relative="$parent/MovieBackgroundImage" pos="Max" offset="-4"/>
+            <Height val="470"/>
             <Texture val="@@UI/ResearchPanelDescriptionBackground" layer="0"/>
             <TextureType val="Border" layer="0"/>
             <Tiled val="true" layer="0"/>
@@ -1081,7 +1084,7 @@
             <Anchor side="Top" relative="$parent/NameBackgroundImage" pos="Max" offset="20"/>
             <Anchor side="Left" relative="$parent/DescriptionBackgroundImage" pos="Min" offset="30"/>
             <Anchor side="Right" relative="$parent/DescriptionBackgroundImage" pos="Max" offset="-30"/>
-            <Style val="ResearchPanelSelectedDescription"/>            
+            <Style val="ResearchPanelSelectedDescription"/>
         </Frame>
 
         <Frame type="Label" name="NoSelectionLabel">
@@ -1094,34 +1097,41 @@
         </Frame>
 
         <Frame type="ThumbButton" name="ResearchButton">
-            <Anchor side="Top" relative="$parent/DescriptionBackgroundImage" pos="Max" offset="-15"/>
+            <Anchor side="Top" relative="$parent/DescriptionBackgroundImage" pos="Max" offset="-25"/>
             <Anchor side="Left" relative="$parent/DescriptionBackgroundImage" pos="Mid" offset="0"/>
             <Anchor side="Right" relative="$parent/DescriptionBackgroundImage" pos="Mid" offset="0"/>
-            <Height val="80"/>
-            <Width val="270"/>
+            <Height val="112"/>
+            <Width val="375"/>
             <NormalImage val="NormalImage"/>
             <HoverImage val="HoverImage"/>
             <Label val="ButtonLabel"/>
             <HighlightOnHover val="true"/>
             <HighlightOnFocus val="true"/>
+            <ClickSound val="@UI_ActionButtonSelect"/>
 
             <Frame type="Image" name="NormalImage">
-                <Texture val="@@UI/ResearchPanelResearchButtonNormal" layer="0"/>
-                <TextureType val="Border" layer="0"/>
+                <LayerCount val="2"/>
+                <Texture val="@@UI/ResearchPanelResearchButtonNormalProtoss" layer="0"/>
+                <Texture val="@@UI/ResearchPanelResearchButtonNormalZerg" layer="1"/>
+                <TextureType val="Endcap" layer="0"/>
+                <TextureType val="Endcap" layer="1"/>
                 <Tiled val="true" layer="0"/>
+                <Tiled val="true" layer="1"/>
                 <StateCount val="2" layer="0"/>
-                <LayerColor val="04ff0f" layer="0"/>
-                <BlendMode val="Add"/>
+                <StateCount val="2" layer="1"/>
                 <DescFlags val="Internal"/>
             </Frame>
 
             <Frame type="Image" name="HoverImage">
-                <Texture val="@@UI/ResearchPanelResearchButtonHover" layer="0"/>
-                <TextureType val="Border" layer="0"/>
+                <LayerCount val="2"/>
+                <Texture val="@@UI/ResearchPanelResearchButtonHoverProtoss" layer="0"/>
+                <Texture val="@@UI/ResearchPanelResearchButtonHoverZerg" layer="1"/>
+                <TextureType val="Endcap" layer="0"/>
+                <TextureType val="Endcap" layer="1"/>
                 <Tiled val="true" layer="0"/>
+                <Tiled val="true" layer="1"/>
                 <StateCount val="2" layer="0"/>
-                <LayerColor val="80ff80" layer="0"/>
-                <BlendMode val="Add"/>
+                <StateCount val="2" layer="1"/>
                 <DescFlags val="Internal"/>
             </Frame>
 
@@ -1133,59 +1143,51 @@
         </Frame>
 
         <Frame type="Image" name="LeftBottomImage">
-            <Anchor side="Top" relative="$parent/ResearchButton" pos="Max" offset="-5"/>
-            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="100"/>
-            <Anchor side="Right" relative="$parent/ResearchButton" pos="Mid" offset="0"/>
-            <Height val="24"/>
-            <Texture val="@@UI/ResearchPanelLeftBottom" layer="0"/>
+            <Anchor side="Top" relative="$parent/ResearchButton" pos="Max" offset="-15"/>
+            <Anchor side="Right" relative="$parent/ResearchButton" pos="Min" offset="45"/>
+            <Texture val="@@UI/ResearchPanelRightBottom" layer="0"/>
+            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0"/>
             <LayerColor val="7ed2e9"/>
             <BlendMode val="Add"/>
-            <TextureType val="EndCap"/>
         </Frame>
-        
+
         <Frame type="Image" name="RightBottomImage">
-            <Anchor side="Top" relative="$parent/ResearchButton" pos="Max" offset="-5"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-100"/>
-            <Anchor side="Left" relative="$parent/ResearchButton" pos="Mid" offset="0"/>
-            <Height val="24"/>
+            <Anchor side="Top" relative="$parent/ResearchButton" pos="Max" offset="-15"/>
+            <Anchor side="Left" relative="$parent/ResearchButton" pos="Max" offset="-45"/>
             <Texture val="@@UI/ResearchPanelRightBottom" layer="0"/>
             <LayerColor val="7ed2e9"/>
             <BlendMode val="Add"/>
-            <TextureType val="EndCap"/>
         </Frame>
 
         <Frame type="ResearchCategoryFrame" name="ResearchCategoryFrame0" template="ResearchPanel/ProtossResearchCategoryFrameTemplate">
-            <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="90"/>
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-150"/>
-            <Anchor side="Left" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="80"/>
-            <Anchor side="Right" relative="$parent/MovieBackgroundImage" pos="Min" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="180"/>
+            <Anchor side="Right" relative="$parent/MovieBackgroundImage" pos="Min" offset="5"/>
             <Visible val="false"/>
         </Frame>
 
         <Frame type="ResearchCategoryFrame" name="ResearchCategoryFrame1" template="ResearchPanel/ZergResearchCategoryFrameTemplate">
-            <Anchor side="Top" relative="$parent/BackgroundFrame/BackgroundImage" pos="Min" offset="90"/>
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-150"/>
-            <Anchor side="Left" relative="$parent/MovieBackgroundImage" pos="Max" offset="0"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-80"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="180"/>
+            <Anchor side="Left" relative="$parent/MovieBackgroundImage" pos="Max" offset="-5"/>
             <Visible val="false"/>
         </Frame>
-        
-        <Frame type="Image" name="CloseButtonBackground">
-            <Texture val="@@UI/InGameFrameLargeButtonBackground" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-25"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame/BackgroundImage" pos="Max" offset="-20"/>
-            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
+
+        <Frame type="Image" name="FullscreenBackgroundImage">
+            <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Texture val="@UI/ResearchPanelBackground" layer="0"/>
+            <Unclipped val="true"/>
         </Frame>
 
-        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardGamePanelLargeRightButtonTemplate">
-            <Label val="CloseButtonLabel"/>
-            <Anchor side="Bottom" relative="$parent/CloseButtonBackground" pos="Max" offset="-55"/>
-            <Anchor side="Left" relative="$parent/CloseButtonBackground" pos="Min" offset="51"/>
+        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardLargePanelRightButtonTemplate">
+            <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Max" offset="-20"/>
+            <Shortcut val="@UI/Close_Hotkey"/>
+            <Text val="@UI/Close_Control"/>
 
-            <Frame type="Label" name="CloseButtonLabel">
-                <Text val="@UI/Close"/>
-                <Style val="GameFrameLargeBottomButton"/>
-                <DescFlags val="Internal"/>
+            <Frame type="Image" name="BackgroundImage">
+                <Visible val="false"/>
             </Frame>
         </Frame>
     </Frame>

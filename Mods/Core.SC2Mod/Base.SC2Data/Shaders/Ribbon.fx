@@ -143,8 +143,8 @@ half4 EmitRibbonNormal( Input vertIn ) {
 }
 
 //--------------------------------------------------------------------------------------------------
-half3 EmitRibbonTangent( Input vertIn ) {
-    return g_vVertexTangent;
+half4 EmitRibbonTangent( Input vertIn ) {
+    return half4(g_vVertexTangent,1);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -338,6 +338,7 @@ void RibbonVertexMain( in Input vertIn, out VertexTransport vertOut ) {
             if (b_precomputedTangent) {
                 vTangent = vertIn.vPositionPrev.xyz;
                 //g_fAge = vertIn.vPositionPrev.w;
+                // test
             }
             else {
 				vTangent = -vInstantaneousVelocity;
@@ -498,7 +499,7 @@ void RibbonVertexMain( in Input vertIn, out VertexTransport vertOut ) {
     }
 
     GenInterpolant( ParallaxVector, EmitParallaxVector(   vertIn.vPosition.xyz, p_vEyePos, 
-                                                        INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent, INTERPOLANT_Binormal ) );
+                                                        INTERPOLANT_Normal.xyz, INTERPOLANT_Tangent.xyz, INTERPOLANT_Binormal.xyz ) );
 #ifdef COMPILING_SHADER_FOR_OPENGL
     vertOut.HPos.y *= -1.0;
     vertOut.HPos.z = 2.0 * (vertOut.HPos.z - (0.5 * vertOut.HPos.w));

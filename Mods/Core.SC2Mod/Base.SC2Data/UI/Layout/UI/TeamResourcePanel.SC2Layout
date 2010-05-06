@@ -243,7 +243,7 @@
     <Frame type="TeamResourcePanel" name="TeamResourcePanelTemplate">
         <Visible val="false"/>
 
-        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardSmallBackgroundFrameTemplate">
+        <Frame type="Frame" name="BackgroundFrame" template="StandardTemplates/StandardSmallPanelTemplate">
             <Anchor relative="$parent"/>
         </Frame>
 
@@ -253,8 +253,8 @@
 
             <Frame type="Image" name="HeaderBorderImage">
                 <Anchor side="Top" relative="$parent/$parent/BackgroundFrame" pos="Min" offset="65"/>                
-                <Anchor side="Left" relative="$parent/$parent/BackgroundFrame" pos="Min" offset="50"/>
-                <Anchor side="Right" relative="$parent/$parent/BackgroundFrame" pos="Max" offset="-50"/>
+                <Anchor side="Left" relative="$parent/$parent/BackgroundFrame" pos="Min" offset="65"/>
+                <Anchor side="Right" relative="$parent/$parent/BackgroundFrame" pos="Max" offset="-65"/>
                 <Texture val="@@UI/TeamResourceHeaderBorder"/>
                 <LayerColor val="##TeamResourcePanelBorderColor"/>
                 <TextureType val="EndCap"/>
@@ -298,22 +298,22 @@
             
             <Frame type="Frame" name="FirstSlotAnchorFrame">
                 <Anchor side="Top" relative="$parent/PlayerIcon" pos="Max" offset="12"/>                
-                <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="60"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-65"/>
                 <Height val="0"/>
             </Frame>
 
             <Frame type="TeamResourceRequestFrame" name="TeamResourceRequestFrame" template="TeamResourcePanel/TeamResourceRequestFrameTemplate">
                 <Anchor side="Top" relative="$parent/FirstSlotAnchorFrame" pos="Max" offset="0"/>
                 <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
-                <Anchor side="Right" relative="$parent" pos="Max" offset="-50"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-65"/>
             </Frame>
 
             <Frame type="Frame" name="BackgroundAnchorFrame">
                 <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
                 <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
                 <Anchor side="Bottom" relative="$parent/TeamResourceRequestFrame" pos="Max" offset="100"/>
-                <Anchor side="Left" relative="$parent/PlayerIcon" pos="Min" offset="-120"/>
+                <Anchor side="Left" relative="$parent/PlayerIcon" pos="Min" offset="-155"/>
             </Frame>          
         </Frame>
 
@@ -342,28 +342,15 @@
                 <Anchor side="Left" relative="$parent/TradeEnabledLabel" pos="Min" offset="-50"/>
                 <Anchor side="Bottom" relative="$parent/TimeRemainingLabel" pos="Max" offset="120"/>                
             </Frame>            
-        </Frame>     
-        
-        <Frame type="Frame" name="InfestationFrame" template="StandardTemplates/StandardSmallInfestationFrameTemplate">
-            <Anchor side="Left" relative="$parent/BackgroundFrame" pos="Min" offset="0"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame" pos="Max" offset="0"/>
-            <Anchor side="Top" relative="$parent/BackgroundFrame" pos="Min" offset="-15"/>
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame" pos="Max" offset="-30"/>
-        </Frame>
-        
-        <Frame type="Image" name="CloseButtonBackground">
-            <Texture val="@@UI/InGameFrameSmallButtonBackground" layer="0"/>
-            <Anchor side="Bottom" relative="$parent/BackgroundFrame" pos="Max" offset="-10"/>
-            <Anchor side="Right" relative="$parent/BackgroundFrame" pos="Max" offset="-4"/>
-            <TextureCoords top="0.0" left="1.0" bottom="1.0" right="0.0" layer="0"/>
         </Frame>
 
-        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardGamePanelSmallRightButtonTemplate">            
-            <Anchor side="Bottom" relative="$parent/CloseButtonBackground" pos="Max" offset="-34"/>
-            <Anchor side="Left" relative="$parent/CloseButtonBackground" pos="Min" offset="35"/>
-            <Text val="@UI/Close"/>
-            <Style val="GameFrameSmallBottomButton"/>            
-        </Frame>        
+        <Frame type="ThumbButton" name="CloseButton" template="StandardTemplates/StandardSmallPanelRightButtonTemplate">
+            <Anchor side="Bottom" relative="$parent/BackgroundFrame/BorderImage" pos="Max" offset="30"/>
+            <Anchor side="Right" relative="$parent/BackgroundFrame/BorderImage" pos="Max" offset="0"/>
+            <RenderPriority val="530"/>
+            <Shortcut val="@UI/Close_Hotkey"/>
+            <Text val="@UI/Close_Control"/>
+        </Frame>
     </Frame>
-    
+
 </Desc>

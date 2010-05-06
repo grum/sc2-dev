@@ -8,11 +8,11 @@
 
 #define MAX_UV_EMITTERS             8
 
-#define c_terr3TextureTileFreq      1.5f*16.f/256.f
 
 float2x4    p_mUVTransform[MAX_UV_EMITTERS];        // UV transforms - transposed for efficiency.
 float4x4    p_mProjTextureMat;                      // Projective texture mapping matrix
 float4x4    p_mSplatTextureProjMatrix[MAX_SPLATS];  // project uvs into splat space
+float4      p_vTerrainTiling;                       // terrain texture tiling freq and offset
 
 //--------------------------------------------------------------------------------------------------
 float4 GenProjectiveTexture (float3 vWorldPos) {
@@ -55,18 +55,30 @@ half4 GenUV(
         vResult = 0;
     else if ( iMapping == UVMAP_REFLECT_SPHERICALENVIO )
         vResult = 0;
-    else if ( iMapping == UVMAP_PLANARLOCALX )
-        vResult = half4( half2( 0.0f, 1.0f ) + vLocalPos.yz * half2( c_terr3TextureTileFreq, -c_terr3TextureTileFreq), 0, 1);
-    else if ( iMapping == UVMAP_PLANARLOCALY )
-        vResult = half4( half2( 0.0f, 1.0f ) + vLocalPos.xz * half2( c_terr3TextureTileFreq, -c_terr3TextureTileFreq), 0, 1);
-    else if ( iMapping == UVMAP_PLANARLOCALZ )
-        vResult = half4( half2( 0.0f, 1.0f ) + vLocalPos.xy * half2( c_terr3TextureTileFreq, -c_terr3TextureTileFreq), 0, 1);
-    else if ( iMapping == UVMAP_PLANARWORLDX )
-        vResult = half4( half2( 0.0f, 1.0f ) + vWorldPos.yz * half2( c_terr3TextureTileFreq, -c_terr3TextureTileFreq), 0, 1);
-    else if ( iMapping == UVMAP_PLANARWORLDY )
-        vResult = half4( half2( 0.0f, 1.0f ) + vWorldPos.xz * half2( c_terr3TextureTileFreq, -c_terr3TextureTileFreq), 0, 1);
-    else if ( iMapping == UVMAP_PLANARWORLDZ )
-        vResult = half4( half2( 0.0f, 1.0f ) + vWorldPos.xy * half2( c_terr3TextureTileFreq, -c_terr3TextureTileFreq), 0, 1);
+    else if ( iMapping == UVMAP_PLANARLOCALX ) {
+        vResult.xy = vLocalPos.yz*p_vTerrainTiling.xy + p_vTerrainTiling.zw;
+        vResult.y = 1 - vResult.y;
+    }
+    else if ( iMapping == UVMAP_PLANARLOCALY ) {
+        vResult.xy = vLocalPos.xz*p_vTerrainTiling.xy + p_vTerrainTiling.zw;
+        vResult.y = 1 - vResult.y;
+    }
+    else if ( iMapping == UVMAP_PLANARLOCALZ ) {
+        vResult.xy = vLocalPos.xy*p_vTerrainTiling.xy + p_vTerrainTiling.zw;
+        vResult.y = 1 - vResult.y;
+    }
+    else if ( iMapping == UVMAP_PLANARWORLDX ) {
+        vResult.xy = vWorldPos.yz*p_vTerrainTiling.xy + p_vTerrainTiling.zw;
+        vResult.y = 1 - vResult.y;
+    }
+    else if ( iMapping == UVMAP_PLANARWORLDY ) {
+        vResult.xy = vWorldPos.xz*p_vTerrainTiling.xy + p_vTerrainTiling.zw;
+        vResult.y = 1 - vResult.y;
+    }
+    else if ( iMapping == UVMAP_PLANARWORLDZ ) {
+        vResult.xy = vWorldPos.xy*p_vTerrainTiling.xy + p_vTerrainTiling.zw;
+        vResult.y = 1 - vResult.y;
+    }
     else if ( iMapping == UVMAP_SCREENSPACE ) {
         vResult = mul( float4( vWorldPos.x, vWorldPos.y, vWorldPos.z, 1.0f ), p_mVPTransform );
         vResult = vResult / vResult.w;
