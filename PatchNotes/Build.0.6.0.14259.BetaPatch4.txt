@@ -1,0 +1,10 @@
+StarCraft II Beta - Patch 4 (version 0.6.0.B14259B)
+
+General
+
+
+    * Korea
+
+          o Added support to display the game rating information on the F10 in-game menu within the beta.
+
+

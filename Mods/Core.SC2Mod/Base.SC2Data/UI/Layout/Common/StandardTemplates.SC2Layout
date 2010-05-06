@@ -60,6 +60,44 @@
         <Style val="GlueEditBox"/>
     </Frame>
 
+    <!-- Ratings Frame -->
+    <Frame type="Frame" name="RatingsFrameTemplate">
+        <Frame type="Frame" name="koKR">
+            <RequiredDefines val="koKR"/>
+            <Anchor relative="$parent"/>
+
+            <Frame type="Label" name="RatingLabel">
+                <Style val="GlueLabel"/>
+                <Text val="@UI/RatingsText"/>
+                <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+            </Frame>
+            <Frame type="Image" name="Image03">
+                <Texture val="@UI/RatingsImage03_koKR" layer="0"/>
+                <TextureType val="Normal" layer="0"/>
+                <Tiled val="false" layer="0"/>
+                <Anchor side="Top" relative="$parent/RatingLabel" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="5"/>
+            </Frame>
+            <Frame type="Image" name="Image01">
+                <Texture val="@UI/RatingsImage01_koKR" layer="0"/>
+                <TextureType val="Normal" layer="0"/>
+                <Tiled val="false" layer="0"/>
+                <Anchor side="Top" relative="$parent/RatingLabel" pos="Max" offset="10"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-5"/>
+            </Frame>
+            <Frame type="Image" name="Image02">
+                <Texture val="@UI/RatingsImage02_koKR" layer="0"/>
+                <TextureType val="Normal" layer="0"/>
+                <Tiled val="false" layer="0"/>
+                <Anchor side="Top" relative="$parent/RatingLabel" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            </Frame>
+        </Frame>
+    </Frame>
+  
     <!-- New Standard Templates -->
 
     <!-- Images -->

@@ -110,6 +110,10 @@ UI/StandardListBoxItemSelected_Prot=Assets\Textures\UI_Battlenet_Glue_ListBoxSel
 UI/StandardListBoxItemSelected_Terr=Assets\Textures\UI_Glue_ListBoxSelection_Selected_Terran.dds
 UI/StandardListBoxItemSelected_Zerg=Assets\Textures\UI_Glue_ListBoxSelection_Selected_Zerg.dds
 
+UI/RatingsImage01_koKR=Assets\Textures\koKR_rating01.dds
+UI/RatingsImage02_koKR=Assets\Textures\koKR_rating02.dds
+UI/RatingsImage03_koKR=Assets\Textures\koKR_rating03.dds
+
 UI/OptionsTopLeft=Assets\Textures\UI_Battlenet_Glue_WindowFrame_Gear.dds
 UI/OptionsTopRight=Assets\Textures\UI_Battlenet_Glue_WindowFrame_Dots.dds
 UI/OptionsHeaderGlow=Assets\Textures\UI_Battlenet_Glue_GlowUnderText.dds

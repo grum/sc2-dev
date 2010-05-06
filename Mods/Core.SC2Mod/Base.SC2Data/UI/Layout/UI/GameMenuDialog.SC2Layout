@@ -167,6 +167,14 @@
             </Frame>
         </Frame>
 
+        <Frame type="Frame" name="RatingsPanel" template="StandardTemplates/RatingsFrameTemplate">
+            <RequiredDefines val="koKR"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Width val="390"/>
+            <Height val="190"/>
+        </Frame>
+
         <Frame type="Frame" name="InfestationFrame" template="StandardTemplates/StandardInfestationFrameTemplate">
             <Anchor relative="$parent"/>
         </Frame>
