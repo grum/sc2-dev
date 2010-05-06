@@ -1911,6 +1911,8 @@
     <CModel id="GhostEMPAttackImpact" parent="ImpactFX">
         <Model value="Assets\Effects\Terran\EMP\EMP.m3"/>
         <EditorCategories value="Race:Terran"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
     </CModel>
     <CModel id="GhostNukeIndicator" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Terran\GhostLaseTargetTactical\GhostLaseTargetTactical.m3"/>

@@ -9,10 +9,10 @@
         <FlagArray index="ShowProgress" value="1"/>
         <InfoArray index="Build1" Unit="TechLab" Time="25">
             <Resource index="Minerals" value="50"/>
-            <Resource index="Vespene" value="50"/>
+            <Resource index="Vespene" value="25"/>
             <Button DefaultButtonFace="TechLabBarracks" State="Suppressed"/>
         </InfoArray>
-        <InfoArray index="Build2" Unit="NuclearReactor" Time="25">
+        <InfoArray index="Build2" Unit="NuclearReactor" Time="50">
             <Resource index="Minerals" value="50"/>
             <Resource index="Vespene" value="50"/>
             <Button DefaultButtonFace="NuclearReactor" State="Restricted"/>
@@ -825,16 +825,16 @@
             <Resource index="Minerals" value="125"/>
             <Button DefaultButtonFace="EngineeringBay" State="Suppressed" Requirements="HaveCommandCenter"/>
         </InfoArray>
-        <InfoArray index="Build6" Category="Army" Unit="MissileTurret" Time="25">
+        <InfoArray index="Build6" Unit="MissileTurret" Time="25">
             <Resource index="Minerals" value="100"/>
             <Button DefaultButtonFace="MissileTurret" State="Restricted" Requirements="HaveEngineeringBay"/>
         </InfoArray>
-        <InfoArray index="Build7" Category="Army" Unit="Bunker" Time="40">
+        <InfoArray index="Build7" Unit="Bunker" Time="30">
             <Resource index="Minerals" value="100"/>
             <Button DefaultButtonFace="Bunker" State="Restricted" Requirements="HaveBarracks"/>
         </InfoArray>
-        <InfoArray index="Build8" Category="Army" Time="15"/>
-        <InfoArray index="Build9" Category="Army" Unit="SensorTower" Time="25">
+        <InfoArray index="Build8" Time="15"/>
+        <InfoArray index="Build9" Unit="SensorTower" Time="25">
             <Resource index="Minerals" value="125"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="SensorTower" State="Restricted" Requirements="HaveEngineeringBay"/>
@@ -845,7 +845,7 @@
             <Button DefaultButtonFace="GhostAcademy" State="Suppressed" Requirements="HaveBarracks"/>
         </InfoArray>
         <InfoArray index="Build11" Unit="Factory" Time="60">
-            <Resource index="Minerals" value="200"/>
+            <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="Factory" State="Suppressed" Requirements="HaveBarracks"/>
         </InfoArray>
@@ -1258,7 +1258,7 @@
     </CAbilMorph>
     <CAbilTrain id="BarracksTrain">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
-        <InfoArray index="Train1" Time="20">
+        <InfoArray index="Train1" Time="25">
             <Resource index="Minerals" value="50"/>
             <Button DefaultButtonFace="Marine" State="Restricted"/>
             <Unit value="Marine"/>
@@ -1270,8 +1270,8 @@
             <Unit value="Reaper"/>
         </InfoArray>
         <InfoArray index="Train3" Time="40">
-            <Resource index="Minerals" value="100"/>
-            <Resource index="Vespene" value="200"/>
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="Ghost" State="Restricted" Requirements="HaveAttachedBarrTechLabAndShadowOps"/>
             <Unit value="Ghost"/>
         </InfoArray>
@@ -1329,8 +1329,8 @@
             <Unit value="Battlecruiser"/>
         </InfoArray>
         <InfoArray index="Train5" Time="42">
-            <Resource index="Minerals" value="125"/>
-            <Resource index="Vespene" value="100"/>
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="75"/>
             <Button DefaultButtonFace="VikingFighter" State="Restricted"/>
             <Unit value="VikingFighter"/>
         </InfoArray>
@@ -1608,7 +1608,7 @@
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="TwilightCouncil" State="Suppressed" Requirements="HaveCyberneticsCore"/>
         </InfoArray>
-        <InfoArray index="Build8" Category="Army" Unit="PhotonCannon" Time="40">
+        <InfoArray index="Build8" Unit="PhotonCannon" Time="40">
             <Resource index="Minerals" value="150"/>
             <Button DefaultButtonFace="PhotonCannon" Requirements="HaveForge"/>
         </InfoArray>
@@ -1626,9 +1626,9 @@
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="TemplarArchive" State="Suppressed" Requirements="HaveTwilightCouncil"/>
         </InfoArray>
-        <InfoArray index="Build12" Unit="DarkShrine" Time="80">
+        <InfoArray index="Build12" Unit="DarkShrine" Time="100">
             <Resource index="Minerals" value="100"/>
-            <Resource index="Vespene" value="200"/>
+            <Resource index="Vespene" value="250"/>
             <Button DefaultButtonFace="DarkShrine" State="Suppressed" Requirements="HaveTwilightCouncil"/>
         </InfoArray>
         <InfoArray index="Build13" Unit="RoboticsBay" Time="65">
@@ -1743,9 +1743,9 @@
             <Button DefaultButtonFace="WarpPrism" State="Restricted"/>
             <Unit value="WarpPrism"/>
         </InfoArray>
-        <InfoArray index="Train2" Time="33" Effect="WarpInEffect15">
-            <Resource index="Minerals" value="25"/>
-            <Resource index="Vespene" value="75"/>
+        <InfoArray index="Train2" Time="40" Effect="WarpInEffect15">
+            <Resource index="Minerals" value="50"/>
+            <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="Observer" State="Restricted"/>
             <Unit value="Observer"/>
         </InfoArray>
@@ -1958,11 +1958,11 @@
             <Resource index="Minerals" value="150"/>
             <Button DefaultButtonFace="RoachWarren" Requirements="HaveSpawningPool"/>
         </InfoArray>
-        <InfoArray index="Build15" Category="Army" Unit="SpineCrawler" Time="50">
+        <InfoArray index="Build15" Unit="SpineCrawler" Time="50">
             <Resource index="Minerals" value="100"/>
             <Button DefaultButtonFace="SpineCrawler" Requirements="HaveSpawningPool"/>
         </InfoArray>
-        <InfoArray index="Build16" Category="Army" Unit="SporeCrawler" Time="30">
+        <InfoArray index="Build16" Unit="SporeCrawler" Time="30">
             <Resource index="Minerals" value="100"/>
             <Button DefaultButtonFace="SporeCrawler" Requirements="HaveEvolutionChamber"/>
         </InfoArray>
@@ -3214,7 +3214,7 @@
     </CAbilEffectTarget>
     <CAbilTrain id="TrainQueen">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
-        <InfoArray index="Train1" Time="50" Effect="QueenBirth">
+        <InfoArray index="Train1" Time="50" Category="Technology" Effect="QueenBirth">
             <Resource index="Minerals" value="150"/>
             <Button DefaultButtonFace="Queen" Requirements="HaveSpawningPool"/>
             <Unit value="Queen"/>

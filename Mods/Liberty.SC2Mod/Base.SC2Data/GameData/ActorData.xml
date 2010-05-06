@@ -1627,12 +1627,6 @@
         <HostSiteOps Ops="SOpTargetPointStationary SOpShadow"/>
         <Map index="None" Sound="Ghost_NukeExplode"/>
     </CActorSquib>
-    <CActorRegionCircle id="NukeTreeKiller">
-        <Radius value="8.000000"/>
-        <On Terms="Effect.nukeDamage.Start; At Effect" Send="Create"/>
-        <On Terms="ActorCreation" Send="QueryRegion ::Self TreeBurnQuery TestAgainstCenters"/>
-        <On Terms="Effect.nukeDamage.Start; At Effect" Send="Destroy"/>
-    </CActorRegionCircle>
     <CActorModel id="GhostNukeCollateralFire">
         <On Terms="Effect.nukeDamage.Start; At Target" Send="Create"/>
         <HostSiteOps Ops="SOpShadow"/>
@@ -1718,12 +1712,6 @@
         <On Terms="Effect.HellionCP.Start; At Caster" Send="Create"/>
         <On Terms="Effect.Hellion.Start; At Caster; FromEffectTreeDescendant" Send="ActionDamage"/>
     </CActorAction>
-    <CActorRegionCircle id="HellionTreeKiller">
-        <Radius value="0.500000"/>
-        <On Terms="Effect.HellionE.Start; At Effect" Send="Create"/>
-        <On Terms="ActorCreation" Send="QueryRegion ::Self TreeBurnQuery TestAgainstCenters"/>
-        <On Terms="Effect.HellionE.Start; At Effect" Send="Destroy"/>
-    </CActorRegionCircle>
     <!--                                                                                         -->
     <!-- D-8 Charge ......................................................................... -->
     <!--                                                                                         -->
@@ -3513,14 +3501,6 @@
     <CActorAction id="ColossusAttackShieldHitter" parent="AoEAttackShieldHitter" effectHit="ColossusMU">
         <LaunchRequest Subject="ColossusAttackLaunchSite" Scope="Caster"/>
     </CActorAction>
-    <CActorRegionCircle id="ColossusTreeKiller">
-        <Radius value="0.150000"/>
-        <On Terms="Effect.ColossusE.Start; At Effect" Send="Create"/>
-        <On Terms="Effect.ColossusEReverse.Start; At Effect" Send="Create"/>
-        <On Terms="ActorCreation" Send="QueryRegion ::Self TreeBurnQuery TestAgainstCenters"/>
-        <On Terms="Effect.ColossusE.Start; At Effect" Send="Destroy"/>
-        <On Terms="Effect.ColossusEReverse.Start; At Effect" Send="Destroy"/>
-    </CActorRegionCircle>
     <!--                                                                                         -->
     <!-- Circle(s) Of Power(s) ................................................................. -->
     <!--                                                                                         -->
@@ -5342,20 +5322,6 @@
         <On Terms="ActorCreation" Send="$Death"/>
         <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
     </CActorModel>
-    <CActorRegionCircle id="TreeCreepKill">
-        <!-- This is a circle with the corners of a tile on its circumference. -->
-        <Radius value="1.500000"/>
-        <On Terms="Creep.*.Grow" Send="Create"/>
-        <On Terms="Creep.*.Place" Send="Create"/>
-        <On Terms="Creep.*.Grow" Send="QueryRegion ::Self TreeCreepQuery TestAgainstCenters"/>
-        <On Terms="Creep.*.Place" Send="QueryRegion ::Self TreeCreepQuery TestAgainstCenters"/>
-        <On Terms="Creep.*.Grow" Send="Destroy"/>
-        <On Terms="Creep.*.Place" Send="Destroy"/>
-    </CActorRegionCircle>
-    <CActorQueryResponse id="TreeCreepQuery">
-        <Subject Filters="Doodad" Terms="ScopeContains _Burnable"/>
-        <OnResponse Target="_Burnable" Send="Signal TreeCreep"/>
-    </CActorQueryResponse>
     <!--                                                                                         -->
     <!-- Construction                                                                            -->
     <!--                                                                                         -->
@@ -8507,10 +8473,6 @@ Terran_AttackLaunch"/>
     <!-- Doodads =============================================================================== -->
     <!--                                                                                         -->
     <!--                                                                                         -->
-    <CActorQueryResponse id="TreeBurnQuery">
-        <Subject Filters="Doodad" Terms="ScopeContains _Burnable"/>
-        <OnResponse Target="_Burnable" Send="Signal TreeFire"/>
-    </CActorQueryResponse>
     <!--    Blockers and Misc                                                              -->
     <CActorDoodad id="CreepBlocker1x1Doodad">
         <Model value="Invisible"/>

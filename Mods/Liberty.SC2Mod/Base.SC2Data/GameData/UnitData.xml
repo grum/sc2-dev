@@ -1475,6 +1475,7 @@
         </CardLayouts>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
+        <Attributes index="Light" value="1"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/ProtossUnits"/>
         <GlossaryPriority value="80"/>
@@ -1542,6 +1543,7 @@
         </CardLayouts>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
+        <Attributes index="Light" value="1"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/ProtossUnits"/>
         <GlossaryPriority value="70"/>
@@ -2779,8 +2781,8 @@
         <Mob value="Multiplayer"/>
         <DefaultAcquireLevel value="Defensive"/>
         <Response value="Flee"/>
-        <LifeStart value="60"/>
-        <LifeMax value="60"/>
+        <LifeStart value="45"/>
+        <LifeMax value="45"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Speed value="2.8125"/>
         <Acceleration value="2.5"/>
@@ -5053,7 +5055,7 @@
         <Mover value="Burrowed"/>
         <LifeStart value="145"/>
         <LifeMax value="145"/>
-        <LifeRegenRate value="10"/>
+        <LifeRegenRate value="5"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <Food value="-1"/>
         <AttackTargetPriority value="20"/>

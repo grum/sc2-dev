@@ -1273,7 +1273,7 @@
     </CEffectRemoveBehavior>
     <CEffectDamage id="BanelingU" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
-        <Amount value="15"/>
+        <Amount value="20"/>
         <SearchFilters value="Ground;Player,Ally,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="2.2" Fraction="1"/>
         <ExcludeArray Value="Outer"/>
@@ -1281,7 +1281,7 @@
         <Kind value="Splash"/>
         <Death value="Disintegrate"/>
         <AINotifyFlags index="HurtEnemy" value="1"/>
-        <AttributeBonus index="Light" value="20"/>
+        <AttributeBonus index="Light" value="15"/>
     </CEffectDamage>
     <CEffectDamage id="BanelingFriendlyUnitDamage" parent="BanelingU">
         <AINotifyFlags index="HurtEnemy" value="0"/>
@@ -1941,8 +1941,8 @@
     </CEffectLaunchMissile>
     <CEffectDamage id="StalkerU" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Protoss"/>
-        <Amount value="8"/>
-        <AttributeBonus index="Armored" value="6"/>
+        <Amount value="10"/>
+        <AttributeBonus index="Armored" value="4"/>
     </CEffectDamage>
     <CEffectTeleport id="Blink">
         <EditorCategories value="Race:Protoss"/>
@@ -2018,7 +2018,7 @@
         <EditorCategories value="Race:Protoss"/>
         <Visibility value="Visible"/>
         <Kind value="Splash"/>
-        <Amount value="23"/>
+        <Amount value="20"/>
         <ValidatorArray value="ColossusCliffLevel"/>
         <ValidatorArray value="noMarkers"/>
         <Death value="Fire"/>
@@ -2066,7 +2066,7 @@
         <EditorCategories value="Race:Terran"/>
         <LaunchLocation Value="TargetPoint"/>
         <ImpactLocation Value="TargetPoint"/>
-        <AreaArray Radius="3" Effect="EMP2S"/>
+        <AreaArray Radius="2" Effect="EMP2S"/>
         <SearchFilters value="-;Hidden,Invulnerable"/>
     </CEffectEnumArea>
     <CEffectSet id="EMP2S">

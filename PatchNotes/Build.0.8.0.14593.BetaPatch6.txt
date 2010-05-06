@@ -1,0 +1,115 @@
+StarCraft II Beta – Patch 6 (version 0.8.0.14593)
+
+The latest patch notes can always be found at
+http://forums.battle.net/thread.html?topicId=23094049316&sid=5000
+
+General
+
+
+    * You can now report misconduct or block communication with a player after completion of a game by right-clicking on the offending player's name in the score screen and choosing Report Abuse or Block Communication.
+    * You can now view any player's profile after completion of a game by right-clicking on their name in the score screen and choosing View Profile.
+    * Updated unit and ability tooltips to be accurate in all regions.
+    * Improved the visibility of units on zerg creep.
+    * Improved the visibility of team colors for protoss units using warp-in to help distinguish between multiple protoss players.
+    * Improved the system that handles promotion and relegation between Leagues.
+    * Improved the Favored functionality to more accurately portray Even matches and display properly in the score screen.
+    * Improved 2v2 arranged team matchmaking so games are found more quickly.
+    * Improved replay functionality so missing maps will be downloaded from Battle.net when you view a replay.
+    * Korea: Improved the logic for the age gate functionality.
+
+
+Balance Changes
+
+
+    * GENERAL
+
+          o Pathing has been improved so units can now properly block ramps and choke points.
+          o Made a change to how zerg creep affects doodads, such as trees, to prevent players from seeing the starting location of zerg players through the fog of war.
+
+    * TERRAN
+
+          o Viking
+
+                + Cost changed from 125 Minerals and 100 Vespene Gas to 150 Minerals and 75 Vespene Gas.
+
+          o Ghost
+
+                + Cost changed from 100 Minerals and 200 Vespene Gas to 150 Minerals and 150 Vespene Gas.
+                + EMP Round radius decreased from 3 to 2.
+
+          o Factory
+
+                + Cost decreased from 200 Minerals and 100 Vespene Gas to 150 Minerals and 100 Vespene Gas.
+
+          o Tech Lab
+
+                + Cost decreased from 50 Minerals and 50 Vespene Gas to 50 Minerals and 25 Vespene Gas.
+
+          o Reactor
+
+                + Build time increased from 25 seconds to 50 seconds.
+
+          o SCV
+
+                + Life decreased from 60 to 45.
+
+          o Bunker
+
+                + Build time decreased from 40 seconds to 30 seconds.
+
+          o Marine
+
+                + Build time increased from 20 seconds to 25 seconds.
+
+    * PROTOSS
+
+          o Colossus
+
+                + Thermal Lances damage decreased from 23 to 20.
+
+          o Observer
+
+                + Cost increased from 25 Minerals and 75 Vespene Gas to 50 Minerals and 100 Vespene Gas.
+                + Build time increased from 33 seconds to 40 seconds.
+
+          o Stalker
+
+                + Particle Disruptors damage increased from 8 (+6 Armored) to 10 (+4 Armored).
+                + Weapon upgrade damage decreased from +1 (+1 Armored) to +1 (+0 Armored).
+
+          o Dark Templar
+
+                + Armor type changed from Biological-Psionic to Biological-Psionic-Light. 
+
+          o High Templar
+
+                + Armor type changed from Biological-Psionic to Biological-Psionic-Light. 
+
+          o Dark Shrine
+
+                + Build time increased from 80 seconds to 100 seconds.
+                + Cost increased from 100 Minerals and 200 Vespene Gas to 100 Minerals and 250 Vespene Gas.
+
+    * ZERG
+
+          o Baneling
+
+                + Volatile Burst damage increased from 15 (+20 Light) to 20 (+15 Light). 
+
+          o Roach
+
+                + Burrowed regeneration rate decreased from 10 to 5.
+                + Upgraded burrowed regeneration bonus decreased from +20 to +10.
+
+
+Bug Fixes
+
+
+    * Fixed an issue affecting the incorrect assignment of arranged teams to certain Leagues.
+    * Fixed an issue affecting random teams that caused no points being awarded on wins and too many points being removed on losses in certain situations.
+    * Fixed an issue involving the Bonus Pool display on the Quick Match and Leagues & Ladders pages.
+    * Korean client: Fixed an issue affecting the ability for Korean players to properly view profiles. They can now see their League ranking on their profile page.
+    * Fixed an intermittent UI crash on game shutdown.
+    * Polish client: Fixed a crash which would happen any time a "Player is no longer being revealed!" message was displayed.
+
+

@@ -223,7 +223,6 @@
         <!--  Stalker -->
         <EffectArray Reference="Weapon,Stalker,Level" Value="1"/>
         <EffectArray Reference="Effect,StalkerU,Amount" Value="1.000000"/>
-        <EffectArray Reference="Effect,StalkerU,AttributeBonus[e_unitAttributeArmored]" Value="1"/>
         <!--  Immortal -->
         <EffectArray Reference="Weapon,PsiBlaster,Level" Value="1"/>
         <EffectArray Reference="Effect,PsiBlaster,Amount" Value="2"/>
@@ -1181,7 +1180,7 @@
         <Race value="Zerg"/>
         <Icon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
         <EffectArray Reference="Unit,Roach,LifeRegenRate" Value="5.000000"/>
-        <EffectArray Reference="Unit,RoachBurrowed,LifeRegenRate" Value="20.000000"/>
+        <EffectArray Reference="Unit,RoachBurrowed,LifeRegenRate" Value="10.000000"/>
         <EditorCategories value="Race:Zerg,UpgradeType:Talents"/>
         <ScoreResult value="BuildOrder"/>
         <AffectedUnitArray value="Roach"/>

@@ -97,8 +97,8 @@
             <Value index="Emissive" value="0.086100,0.502000,0.000000,1.000000"/>
         </TeamColors>
         <TeamColors Name="UI/TeamColor08" UserChoice="1">
-            <Value index="Diffuse" value="0.898000,0.357000,0.690100,1.000000"/>
-            <Value index="Emissive" value="0.898000,0.357000,0.690100,1.000000"/>
+            <Value index="Diffuse" value="0.800000,0.650980,0.988235,1.000000"/>
+            <Value index="Emissive" value="0.800000,0.650980,0.988235,1.000000"/>
         </TeamColors>
         <TeamColors Name="UI/TeamColor09" UserChoice="1" MinPlayerCount="8">
             <Value index="Diffuse" value="0.121569,0.003922,0.788235,1.000000"/>
@@ -125,8 +125,8 @@
             <Value index="Emissive" value="0.058824,0.058824,0.058824,1.000000"/>
         </TeamColors>
         <TeamColors Name="UI/TeamColor15" UserChoice="1" MinPlayerCount="8">
-            <Value index="Diffuse" value="0.800000,0.650980,0.988235,1.000000"/>
-            <Value index="Emissive" value="0.800000,0.650980,0.988235,1.000000"/>
+            <Value index="Diffuse" value="0.898000,0.357000,0.690100,1.000000"/>
+            <Value index="Emissive" value="0.898000,0.357000,0.690100,1.000000"/>
         </TeamColors>
         <CreepBlendTime value="1"/>
         <CreepDecayTime value="1.05"/>

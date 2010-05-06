@@ -1318,7 +1318,6 @@ UI/GameLaunchMapOpenFailure=Unable to open map.
 UI/GameLaunchModDataMismatch=The mod data loaded does not match the mod data which was originally used to play this game.
 UI/GameLaunchReplayOpenFailure=Unable to open replay.
 UI/GameLaunchSaveOpenFailure=Unable to open saved game.
-UI/GameLaunchTEMPDOWNLOAD=**TEMP** One or more files which are needed to play this game are not available locally.  They must be downloaded first.
 UI/GameLaunchTooManyDependencies=This game requires too many dependencies to launch.
 UI/GameLaunchVersionLaunchError=The version of StarCraft II required to play this game was unable to be launched.
 UI/GameLaunchVersionQuery=This game must be launched with a previous version of StarCraft II.<n/><n/>Do you wish to logout of Battle.net and launch this previous version?
