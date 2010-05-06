@@ -1,0 +1,3 @@
+Button/Hotkey/ResearchIncreasedRange=Z
+Button/Hotkey/ResearchNeuralParasite=E
+Button/Hotkey/ResearchStrikeCannons=C

@@ -109,16 +109,16 @@
     </CAbilEffectTarget>
     <CAbilEffectTarget id="Corruption">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <TargetFilters value="Structure,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Invulnerable"/>
+        <TargetFilters value="Visible;Neutral,Structure,Missile,Stasis,Dead,Invulnerable"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="CorruptionAbility"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
-        <Range value="3"/>
+        <Range value="6"/>
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <CancelableArray index="Channel" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="100"/>
         </Cost>
     </CAbilEffectTarget>
     <CAbilMorph id="MorphtoInfestedTerran">
@@ -415,7 +415,7 @@
             <Vital index="Energy" value="125"/>
         </Cost>
         <TargetFilters value="Visible;Self,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="9"/>
+        <Range value="6"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="HunterSeekerMissile" Requirements="UseHunterSeekerMissiles"/>
         <ArcSlop value="0"/>
         <Arc value="29.9926"/>
@@ -608,11 +608,11 @@
     <CAbilEffectTarget id="NeuralParasite">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Cost>
-            <Vital index="Energy" value="50"/>
+            <Vital index="Energy" value="100"/>
         </Cost>
-        <TargetFilters value="Ground,Visible;Self,Player,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
+        <TargetFilters value="Visible;Self,Player,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
         <Range value="9"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="NeuralParasite"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="NeuralParasite" Requirements="UseNeuralParasite"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
         <Effect index="0" value="NeuralParasiteLaunchMissile"/>
         <RangeSlop value="5"/>
@@ -670,12 +670,12 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="250mmStrikeCannonsCreatePersistent"/>
         <Range value="7"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="250mmStrikeCannons"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="250mmStrikeCannons" Requirements="UseStrikeCannons"/>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
         <CastIntroTime value="2"/>
         <FinishTime value="2"/>
         <Cost>
-            <Vital index="Energy" value="100"/>
+            <Vital index="Energy" value="150"/>
         </Cost>
         <TargetFilters value="Ground,Visible;Self,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <CancelableArray index="Prep" value="1"/>
@@ -879,7 +879,7 @@
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="Armory" State="Suppressed" Requirements="HaveFactory"/>
         </InfoArray>
-        <InfoArray index="Build16" Unit="FusionCore" Time="80">
+        <InfoArray index="Build16" Unit="FusionCore" Time="65">
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="FusionCore" State="Suppressed" Requirements="HaveStarport"/>
@@ -1333,7 +1333,7 @@
             <Button DefaultButtonFace="Raven" State="Restricted" Requirements="HaveAttachedTechLab"/>
             <Unit value="Raven"/>
         </InfoArray>
-        <InfoArray index="Train4" Time="110">
+        <InfoArray index="Train4" Time="90">
             <Resource index="Minerals" value="400"/>
             <Resource index="Vespene" value="300"/>
             <Button DefaultButtonFace="Battlecruiser" State="Restricted" Requirements="HaveAttachedStarportTechLabAndFusionCore"/>
@@ -1472,6 +1472,11 @@
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="ResearchHighCapacityBarrels" State="Restricted" Requirements="LearnHighCapacityBarrels"/>
+        </InfoArray>
+        <InfoArray index="Research3" Time="110" Upgrade="StrikeCannons">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchStrikeCannons" Requirements="LearnStrikeCannons"/>
         </InfoArray>
     </CAbilResearch>
     <CAbilResearch id="StarportTechLabResearch">
@@ -2918,6 +2923,11 @@
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="EvolveInfestorEnergyUpgrade" State="Restricted" Requirements="LearnInfestorEnergyUpgrade"/>
         </InfoArray>
+        <InfoArray index="Research4" Time="110" Upgrade="NeuralParasite">
+            <Resource index="Minerals" value="150"/>
+            <Resource index="Vespene" value="150"/>
+            <Button DefaultButtonFace="ResearchNeuralParasite" Requirements="LearnNeuralParasite"/>
+        </InfoArray>
     </CAbilResearch>
     <CAbilResearch id="BanelingNestResearch">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
@@ -3421,13 +3431,13 @@
         <Flags index="ShowProgress" value="1"/>
         <InfoArray Unit="SpineCrawler" CollideRange="0">
             <SectionArray index="Abils">
-                <DurationArray index="Delay" value="6"/>
+                <DurationArray index="Delay" value="12"/>
             </SectionArray>
             <SectionArray index="Actor">
-                <DurationArray index="Duration" value="6"/>
+                <DurationArray index="Duration" value="12"/>
             </SectionArray>
             <SectionArray index="Stats">
-                <DurationArray index="Delay" value="6"/>
+                <DurationArray index="Delay" value="12"/>
             </SectionArray>
         </InfoArray>
     </CAbilMorphPlacement>
@@ -3443,13 +3453,13 @@
         <Flags index="ShowProgress" value="1"/>
         <InfoArray Unit="SporeCrawler" CollideRange="0">
             <SectionArray index="Abils">
-                <DurationArray index="Delay" value="6"/>
+                <DurationArray index="Delay" value="12"/>
             </SectionArray>
             <SectionArray index="Actor">
-                <DurationArray index="Duration" value="0.667"/>
+                <DurationArray index="Duration" value="12"/>
             </SectionArray>
             <SectionArray index="Stats">
-                <DurationArray index="Delay" value="6"/>
+                <DurationArray index="Delay" value="12"/>
             </SectionArray>
         </InfoArray>
     </CAbilMorphPlacement>

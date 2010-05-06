@@ -3225,6 +3225,8 @@
         <On Terms="AbilTransport.MedivacTransport.TransportUnload" Send="Destroy"/>
         <On Terms="Signal.*.Dead" Send="Create ThorTransitDeath"/>
         <On Terms="Signal.*.Dead" Send="Destroy"/>
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
     </CActorModel>
     <CActorModel id="ThorTransitDeath">
         <HostSiteOps Ops="SOpBasicCreatorStationary"/>
@@ -4864,6 +4866,9 @@
         <LaunchAssets Sound="Raven_AutoTurretReleaseLaunch"/>
         <ImpactMap index="None" Sound="Raven_AutoTurretReleaseImpact"/>
     </CActorAction>
+    <CActorTurret id="PhoenixTurret">
+        <On Terms="TurretEnable.Phoenix" Send="Create"/>
+    </CActorTurret>
     <!-- Attack                                                                                  -->
     <CActorMissile id="PhoenixAirAttackMissile" parent="GenericAttackMissile" unitName="PhoenixAirWeapon"/>
     <CActorAction id="PhoenixAirAttackLeft" parent="GenericAttackNoCreateBase" effectImpact="PhoenixAirU" effectLaunch="PhoenixAirLMLeft">
@@ -5950,7 +5955,7 @@
         <On Terms="Abil.Corruption.SourceChannelStop" Send="Destroy"/>
     </CActorSound>
     <CActorModel id="CorruptionModel" parent="ModelAddition">
-        <AutoScaleFactor value="0.350000"/>
+        <AutoScaleFactor value="1.200000"/>
         <Inherits index="TintColor" value="0"/>
         <On Terms="Behavior.Corruption.On" Send="Create"/>
         <On Terms="Behavior.Corruption.Off" Send="AnimBracketStop BSD"/>
@@ -7659,7 +7664,7 @@
         <!-- Need this for canceling becoming sunken. -->
         <On Terms="AbilMorph.*.Cancel; MorphTo SporeCrawler" Send="AnimBracketStop Morph Instant"/>
         <!-- Uprooted to Sunken.                                                                 -->
-        <On Terms="AbilMorph.*.Start; MorphTo SporeCrawler" Send="AnimBracketStart Morph Morph,Start Morph Morph,End"/>
+        <On Terms="AbilMorph.*.Start; MorphTo SporeCrawler" Send="AnimPlay Burrow Burrow"/>
         <On Terms="AbilMorph.*.Start; MorphTo SporeCrawler" Send="Create BuildingTerrainFlatten"/>
         <On Terms="AbilMorph.*.Start; MorphTo SporeCrawler" Send="Create SporeCrawlerBurrowLoop"/>
         <On Terms="AbilMorph.*.Finish; MorphTo SporeCrawler" Send="AnimBracketStop Morph"/>
@@ -11210,6 +11215,9 @@
         <On Terms="ActorDestruction" Target="SpineCrawlerProtectRange" Send="Destroy"/>
     </CActorModel>
     <CActorSplat id="CreepTumorRangeSplat" parent="ZergCursorSplat">
+        <Filter index="Enemy" value="1"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Ally" value="1"/>
         <On Terms="ActorOrphan" Send="Destroy"/>
         <On Terms="ActorCreation" Send="SetScale 10.500000"/>
         <On Terms="ActorCreation" Send="SetTintColor 0,32,0"/>

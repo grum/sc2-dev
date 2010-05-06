@@ -188,6 +188,13 @@
     <CRequirementCountUpgrade id="CountUpgradeMedivacCaduceusReactorQueuedOrBetter">
         <Count Link="MedivacCaduceusReactor" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeNeuralParasiteCompleteOnly598353696">
+        <Tooltip value="RequirementNode/Tooltip/CountUpgradeNeuralParasiteCompleteOnly598353696"/>
+        <Count Link="NeuralParasite" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeNeuralParasiteQueuedOrBetter">
+        <Count Link="NeuralParasite" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeObverseIncubationCompleteOnly">
         <Count Link="ObverseIncubation" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
@@ -204,7 +211,6 @@
         <Count Link="ProtossShieldsLevel2" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradePunisherGrenadesCompleteOnly679349">
-        <Tooltip value="RequirementNode/Tooltip/CountUpgradePunisherGrenadesCompleteOnly679349"/>
         <Count Link="PunisherGrenades" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradePunisherGrenadesQueuedOrBetter">
@@ -230,6 +236,13 @@
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeStimPackCompleteOnly80611996">
         <Count Link="StimPack" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeStrikeCannonsCompleteOnly3055499258">
+        <Tooltip value="RequirementNode/Tooltip/CountUpgradeStrikeCannonsCompleteOnly3055499258"/>
+        <Count Link="StrikeCannons" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeStrikeCannonsQueuedOrBetter">
+        <Count Link="StrikeCannons" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradeTunnelingClawsCompleteOnly">
         <Count Link="TunnelingClaws" State="CompleteOnly"/>
@@ -326,6 +339,9 @@
     <CRequirementNot id="NotCountUpgradeMedivacCaduceusReactorQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeMedivacCaduceusReactorQueuedOrBetter"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeNeuralParasiteQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeNeuralParasiteQueuedOrBetter"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeObverseIncubationCompleteOnly">
         <OperandArray index="0" value="CountUpgradeObverseIncubationCompleteOnly"/>
     </CRequirementNot>
@@ -343,6 +359,9 @@
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeShieldWallQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeShieldWallQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeStrikeCannonsQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeStrikeCannonsQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountUpgradeTunnelingClawsQueuedOrBetter">
         <OperandArray index="0" value="CountUpgradeTunnelingClawsQueuedOrBetter"/>

@@ -26,7 +26,7 @@
         <Lighting value="CorruptorAttackImpact"/>
     </CModel>
     <CModel id="CorruptionModel" parent="PersistentSpellFX">
-        <Model value="Assets\Effects\Zerg\Infestation\Infestation.m3"/>
+        <Model value="Assets\Effects\Zerg\DiseaseCloud\DiseaseCloud.m3"/>
         <EditorCategories value="Race:Zerg"/>
     </CModel>
     <!--                                                                                         -->
@@ -4584,7 +4584,7 @@
             <Keys index="SetA" value="1"/>
         </AttachProps>
         <AttachProps Id="Ref_Target" SquibType="Metal" RadiusTarget="0.8"/>
-        <Radius value="1.400000"/>
+        <Radius value="1.300000"/>
         <TechPurchaseCamera value="Star2CameraHigher20"/>
         <UnitGlossaryCamera value="Star2CameraHigher20"/>
         <PlanetPanelCamera value="Star2CameraHigher20"/>

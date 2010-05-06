@@ -68,7 +68,7 @@
         <!--  Thor -->
         <EffectArray Reference="Weapon,ThorHandGunDuo,Level" Value="1"/>
         <EffectArray Reference="Weapon,ThorAntiAir,Level" Value="1"/>
-        <EffectArray Reference="Effect,ThorHandGunSplashDamageTarget,Amount" Value="5"/>
+        <EffectArray Reference="Effect,ThorHandGunSplashDamageTarget,Amount" Value="3"/>
         <EffectArray Reference="Effect,ThorAADamage,Amount" Value="1.000000"/>
         <!--  Siege Tank -->
         <EffectArray Reference="Weapon,SiegeTank,Level" Value="1"/>
@@ -471,7 +471,7 @@
         <EffectArray Reference="Effect,Zergling,Amount" Value="1"/>
         <!--  Direlisk -->
         <EffectArray Reference="Weapon,Ultralisk,Level" Value="1"/>
-        <EffectArray Reference="Effect,UltraliskCleave,Amount" Value="2"/>
+        <EffectArray Reference="Effect,UltraliskCleave,Amount" Value="3"/>
         <EffectArray Reference="Weapon,UltraliskHeadAttack,Level" Value="1"/>
         <!--  Ultralisk -->
         <EffectArray Reference="Effect,UltraliskHeadAttackDamage,Amount" Value="5"/>
@@ -1510,7 +1510,7 @@
         <ScoreAmount value="200"/>
         <!--<EffectArray Operation="Set" Reference="Weapon,BanelingUnitDummy,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>-->
         <EffectArray Operation="Set" Reference="Weapon,Zergling,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
-        <EffectArray Operation="Set" Reference="Weapon,Roach,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,Broodling,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
         <EffectArray Operation="Set" Reference="Weapon,Ultralisk,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
         <EffectArray Operation="Set" Reference="Weapon,UltraliskHeadAttack,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
     </CUpgrade>
@@ -1519,7 +1519,8 @@
         <ScoreAmount value="300"/>
         <!--<EffectArray Operation="Set" Reference="Weapon,BanelingUnitDummy,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>-->
         <EffectArray Operation="Set" Reference="Weapon,Zergling,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
-        <EffectArray Operation="Set" Reference="Weapon,Roach,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,Broodling,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,Broodling,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
         <EffectArray Operation="Set" Reference="Weapon,Ultralisk,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
         <EffectArray Operation="Set" Reference="Weapon,UltraliskHeadAttack,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
     </CUpgrade>
@@ -1528,7 +1529,7 @@
         <ScoreAmount value="400"/>
         <!--<EffectArray Operation="Set" Reference="Weapon,BanelingUnitDummy,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>-->
         <EffectArray Operation="Set" Reference="Weapon,Zergling,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
-        <EffectArray Operation="Set" Reference="Weapon,Roach,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
+        <EffectArray Operation="Set" Reference="Weapon,Broodling,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
         <EffectArray Operation="Set" Reference="Weapon,Ultralisk,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
         <EffectArray Operation="Set" Reference="Weapon,UltraliskHeadAttack,Icon" Value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
     </CUpgrade>
@@ -1773,6 +1774,24 @@
         <EffectArray Reference="Unit,Marine,LifeStart" Value="10"/>
         <EffectArray Operation="Set" Reference="Actor,Marine,WireframeLayer[0]" Value="Assets\Textures\wireframe-terran-marine-shield.dds"/>
         <EffectArray Operation="Set" Reference="Actor,Marine,GroupIconLayer[0]" Value="Assets\Textures\wireframe-terran-marine-shield.dds"/>
+    </CUpgrade>
+    <CUpgrade id="NeuralParasite">
+        <Icon value="Assets\Textures\btn-ability-zerg-neuralparasite.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Zerg"/>
+        <ScoreAmount value="300"/>
+        <ScoreResult value="BuildOrder"/>
+        <EditorCategories value="Race:Zerg,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="Infestor"/>
+    </CUpgrade>
+    <CUpgrade id="StrikeCannons">
+        <Icon value="Assets\Textures\btn-ability-terran-bombardmentstrike.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="300"/>
+        <ScoreResult value="BuildOrder"/>
+        <EditorCategories value="Race:Terran,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="Thor"/>
     </CUpgrade>
     <CUpgrade id="WarpGateResearch">
         <Alert value="ResearchComplete"/>

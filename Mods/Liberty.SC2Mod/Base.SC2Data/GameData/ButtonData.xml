@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CButton id="ResearchStrikeCannons">
+        <Icon value="Assets\Textures\btn-ability-terran-bombardmentstrike.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-bombardmentstrike.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="ResearchNeuralParasite">
+        <Icon value="Assets\Textures\btn-ability-zerg-neuralparasite.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-bombardmentstrike.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+    </CButton>
     <CButton id="ArchonWarpTarget">
         <Icon value="Assets\Textures\btn-unit-protoss-archon.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-protoss-archon.dds"/>

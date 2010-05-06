@@ -41,10 +41,18 @@
         <EditorCategories value="Race:Terran,TechType:Upgrade"/>
         <NodeArray index="Show" Link="NotCountUpgradeBattlecruiserBehemothReactorQueuedOrBetter"/>
     </CRequirement>
+    <CRequirement id="LearnNeuralParasite">
+        <EditorCategories value="Race:Zerg,TechType:Ability"/>
+        <NodeArray index="Show" Link="NotCountUpgradeNeuralParasiteQueuedOrBetter"/>
+    </CRequirement>
     <CRequirement id="LearnObverseIncubation">
         <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
         <NodeArray index="Use" Link="Or1515591279CountUnitHiveCompleteOnlyCountUnitLairCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeObverseIncubationQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="LearnStrikeCannons">
+        <EditorCategories value="Race:Terran,TechType:Ability"/>
+        <NodeArray index="Show" Link="NotCountUpgradeStrikeCannonsQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="LearnTunnelingClaws">
         <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
@@ -81,7 +89,6 @@
     </CRequirement>
     <CRequirement id="LearnHunterSeekerMissiles">
         <EditorCategories value="Race:Terran"/>
-        <NodeArray index="Use" Link="CountUnitFusionCoreCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeHunterSeekerQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="LearnInfestorBurrow">
@@ -121,6 +128,10 @@
         <EditorCategories value="Race:Terran,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUpgradeHighCapacityBarrelsCompleteOnly"/>
     </CRequirement>
+    <CRequirement id="UseNeuralParasite">
+        <EditorCategories value="Race:Zerg,TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeNeuralParasiteCompleteOnly598353696"/>
+    </CRequirement>
     <CRequirement id="UseObverseIncubation">
         <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
         <NodeArray index="Use" Link="And3124702931CountUnitSpawningPoolCompleteOnlyCountUpgradeObverseIncubationCompleteOnly"/>
@@ -137,6 +148,10 @@
     <CRequirement id="UseReaperSpeed">
         <EditorCategories value="Race:Terran,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUpgradeReaperSpeedCompleteOnly1852580877"/>
+    </CRequirement>
+    <CRequirement id="UseStrikeCannons">
+        <EditorCategories value="Race:Terran,TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeStrikeCannonsCompleteOnly3055499258"/>
     </CRequirement>
     <CRequirement id="UseSwarmInfestation">
         <EditorCategories value="Race:Zerg,TechType:Ability"/>

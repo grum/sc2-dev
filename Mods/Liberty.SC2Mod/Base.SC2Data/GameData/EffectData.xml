@@ -130,7 +130,7 @@
         <PeriodicValidator value="NotDead"/>
         <PeriodicEffectArray value="CorruptionLaunchMissile"/>
         <PeriodicPeriodArray value="0.125"/>
-        <ValidatorArray value="NotCorruptioned"/>
+        <ValidatorArray value=""/>
     </CEffectCreatePersistent>
     <CEffectApplyBehavior id="CorruptionApplyBehavior">
         <EditorCategories value="Race:Zerg"/>
@@ -581,9 +581,9 @@
         <ResponseFlags index="Acquire" value="1"/>
         <ResponseFlags index="Flee" value="1"/>
         <Flags index="Notification" value="1"/>
-        <AreaArray Radius="0.6" Fraction="1"/>
-        <AreaArray Radius="1.2" Fraction="0.5"/>
-        <AreaArray Radius="2.4" Fraction="0.25"/>
+        <AreaArray Radius="0.5" Fraction="1"/>
+        <AreaArray Radius="1" Fraction="0.5"/>
+        <AreaArray Radius="2" Fraction="0.25"/>
         <ExcludeArray Value="Target"/>
         <SearchFilters value="-;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Visibility value="Visible"/>
@@ -641,6 +641,10 @@
         <EffectArray value="PointDefenseApplyBehavior"/>
         <ValidatorArray value="PointDefenseDroneUnitFilter"/>
     </CEffectSet>
+    <CEffectApplyBehavior id="DisableCasterWeaponsApplyBehavior">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="DisablePhoenixWeapons"/>
+    </CEffectApplyBehavior>
     <CEffectApplyBehavior id="PointDefenseApplyBehavior">
         <EditorCategories value="Race:Terran"/>
         <Behavior value="PointDefenseReady"/>
@@ -666,6 +670,7 @@
     <CEffectSet id="GravitonBeamInitialSet">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="DisableCasterEnergyRegenApplyBehavior"/>
+        <EffectArray value="DisableCasterWeaponsApplyBehavior"/>
         <EffectArray value="GravitonBeamUnburrowCancel"/>
         <EffectArray value="GravitonBeamUnburrowLurkerCancel"/>
         <EffectArray value="GravitonBeamUnburrowLurker"/>
@@ -746,12 +751,13 @@
         <Kind value="Ranged"/>
         <Amount value="25"/>
         <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="0.093" Fraction="1"/>
-        <AreaArray Radius="0.4" Fraction="0.5"/>
-        <AreaArray Radius="0.8" Fraction="0.25"/>
+        <AreaArray Radius="0.25" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
         <ExcludeArray Value="Outer"/>
         <ExcludeArray Value="Target"/>
         <AttributeBonus index="Biological" value="10"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="PhaseShift">
         <EditorCategories value="Race:Protoss"/>
@@ -1062,6 +1068,7 @@
         <AreaArray Radius="0.7812" Fraction="0.5"/>
         <AreaArray Radius="1.25" Fraction="0.25"/>
         <ExcludeArray Value="Target"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="VikingFighter">
         <EditorCategories value="Race:Terran"/>
@@ -1141,8 +1148,6 @@
         <SearchFlags index="CallForHelp" value="0"/>
         <SearchFlags index="OffsetByUnitRadius" value="0"/>
         <SearchFlags index="SameCliff" value="0"/>
-        <AttributeBonus index="Light" value="15"/>
-        <Amount value="20"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="MissileTurret">
         <EditorCategories value="Race:Terran"/>
@@ -1520,7 +1525,6 @@
     </CEffectDamage>
     <CEffectDamage id="RoachUMelee" parent="RoachU">
         <Death value="Eviscerate"/>
-        <Kind value="Ranged"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="SpineCrawlerLM">
         <EditorCategories value="Race:Zerg"/>
@@ -1557,7 +1561,6 @@
     </CEffectDamage>
     <CEffectDamage id="HydraliskMelee" parent="HydraliskU">
         <Death value="Eviscerate"/>
-        <Kind value="Ranged"/>
     </CEffectDamage>
     <CEffectDamage id="HydraliskUAir" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -1634,7 +1637,7 @@
     <CEffectDamage id="ThorHandGunSplashDamageTarget" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="45"/>
+        <Amount value="30"/>
         <Death value="Blast"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="ThorAAPersistent">
@@ -1652,12 +1655,13 @@
     <CEffectDamage id="ThorAADamage" parent="DU_WEAP_SPLASH">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="8"/>
+        <Amount value="6"/>
         <Death value="Blast"/>
         <SearchFilters value="Air;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <ExcludeArray Value="Target"/>
-        <AttributeBonus index="Light" value="4"/>
+        <AttributeBonus index="Light" value="6"/>
         <AreaArray Radius="0.5" Fraction="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
     </CEffectDamage>
     <CEffectEnumArea id="UltraliskSearch">
         <EditorCategories value="Race:Zerg"/>
@@ -1671,7 +1675,7 @@
     </CEffectEnumArea>
     <CEffectDamage id="UltraliskCleave" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
-        <Amount value="18"/>
+        <Amount value="25"/>
         <Death value="Eviscerate"/>
         <Kind value="Splash"/>
     </CEffectDamage>
@@ -1789,7 +1793,7 @@
         <EditorCategories value="Race:Protoss"/>
         <Visibility value="Visible"/>
         <Kind value="Splash"/>
-        <Amount value="20"/>
+        <Amount value="15"/>
         <ValidatorArray value="ColossusCliffLevel"/>
         <ValidatorArray value="noMarkers"/>
         <Death value="Fire"/>
@@ -1879,7 +1883,7 @@
     </CEffectCreatePersistent>
     <CEffectDamage id="DisruptorDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
-        <Amount value="8"/>
+        <Amount value="6"/>
         <Kind value="Ranged"/>
     </CEffectDamage>
     <CEffectDamage id="PlanetaryFortress" parent="DU_WEAP">
@@ -1893,6 +1897,7 @@
         <AreaArray Radius="1.25" Fraction="0.375"/>
         <ExcludeArray Value="Outer"/>
         <ExcludeArray Value="Target"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="DisableMothership">
         <EditorCategories value="Race:Protoss"/>
@@ -1933,9 +1938,9 @@
     </CEffectLaunchMissile>
     <CEffectDamage id="CorruptorInfestDmg" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Zerg"/>
-        <Amount value="12"/>
+        <Amount value="14"/>
         <Visibility value="Visible"/>
-        <AttributeBonus index="Massive" value="10"/>
+        <AttributeBonus index="Massive" value="6"/>
     </CEffectDamage>
     <CEffectModifyUnit id="Transfusion">
         <EditorCategories value="Race:Zerg"/>
@@ -1962,7 +1967,7 @@
     <CEffectCreatePersistent id="HellionCP">
         <EditorCategories value="Race:Terran"/>
         <InitialEffect value="Hellion"/>
-        <PeriodCount value="24"/>
+        <PeriodCount value="25"/>
         <WhichLocation Value="SourcePoint"/>
         <PeriodicEffectArray value="HellionE"/>
         <PeriodicOffsetArray value="0,-0.25"/>
@@ -1989,6 +1994,7 @@
         <PeriodicOffsetArray value="0,-5.5"/>
         <PeriodicOffsetArray value="0,-5.75"/>
         <PeriodicOffsetArray value="0,-6"/>
+        <PeriodicOffsetArray value="0,-6.5"/>
         <PeriodicPeriodArray value="0"/>
     </CEffectCreatePersistent>
     <CEffectSet id="HellionSet">

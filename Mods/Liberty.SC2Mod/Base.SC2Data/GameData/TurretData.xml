@@ -93,7 +93,11 @@
         <YawIdleRate value="-45"/>
     </CTurret>
     <CTurret id="Hellion" parent="FreeRotate">
-        <Idle value="ResetIfMoving"/>
+        <Idle value="Hold"/>
         <YawRate value="999.8437"/>
+    </CTurret>
+    <CTurret id="Phoenix" parent="FreeRotate">
+        <Idle value="ResetIfMoving"/>
+        <YawRate value="539.2968"/>
     </CTurret>
 </Catalog>

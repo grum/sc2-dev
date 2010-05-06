@@ -1,0 +1,115 @@
+StarCraft II Beta – Patch 11 (version 0.13.0.15250)
+
+The latest patch notes can always be found on the StarCraft II Beta General Discussion forum.
+
+Balance Changes
+
+    * TERRAN
+          o Battlecruiser
+                + The build time has been decreased from 110 to 90.
+          o Fusion Core
+                + The build time has been decreased from 80 to 65.
+          o Hellion
+                + The range has been increased from 5 to 6.
+          o Planetary Fortress
+                + The splash damage now originates from the center of the target, rather than the impact location near the unit in order to maintain more reliable splash damage.
+          o Raven
+                + Seeker Missile range has been decreased from 9 to 6.
+                + Seeker Missile splash radius has been decreased from 2.4 to 2.
+                + Seeker Missile upgrade no longer requires Fusion Core.
+          o Siege Tank
+                + Life increased from 150 to 160.
+                + Siege Mode splash damage now originates from the center of the target, rather than the impact location near the unit in order to maintain more reliable splash damage.
+          o Thor
+                + Ground damage decreased from 45 to 30.
+                + Ground rate of fire improved from 1.93 to 1.28.
+                + Air damage changed from 8 (+4 Light) to 6 (+6 Light).
+                + 250mm Strike Cannons are now an upgrade at the Factory Tech Lab.
+                + 250mm Strike Cannons research now costs 150/150 and 110 seconds.
+                + 250mm Strike Cannons energy cost increased from 100 to 150.
+                + Anti-Air splash damage now originates from the center of the target, rather than the impact location near the unit in order to maintain more reliable splash damage.
+
+    * PROTOSS
+          o Archon
+                + The splash radius has been increased from 0.8 to 1.
+                + Splash damage now originates from the center of the target, rather than the impact location near the unit in order to maintain more reliable splash damage.
+          o Colossus
+                + The damage has been decreased from 20 to 15.
+                + The rate of fire has been improved from 2.2 to 1.65.
+          o Phoenix
+                + Can now attack while moving.
+          o Sentry
+                + The damage has been decreased from 8 to 6.
+
+    * ZERG
+          o Brood Lord
+                + Life has been decreased from 275 to 225.
+                + Armor has been decreased from 2 to 1.
+          o Corruptor
+                + Corruptor damage changed from 12 (+10 Massive) to 14 (+6 Massive).
+                + Corruptor speed increased from 2.75 to 2.9531
+                + Corruption ability redesigned:
+                      # Single target.
+                      # Increases damage taken by 20%.
+                      # Lasts 30 seconds.
+                      # Costs 100 energy.
+                      # Range 6.
+                      # Cannot target structures.
+          o Infestor
+                + Neural Parasite is now an upgrade at the Infestation Pit.
+                + Neural Parasite research costs 150/150 and 110 seconds.
+                + Neural Parasite can now target Air units.
+                + Neural Parasite energy cost increased from 50 to 100.
+          o Spine Crawler
+                + The root time has been increased from 6 to 12.
+          o Spore Crawler
+                + The root time has been increased from 6 to 12. 
+          o Ultralisk
+                + Damage has been increased from 18 to 25.
+
+Hotkey Changes
+
+    * General
+          o In order to resolve a conflict with building multiple Forges with the Shift Key we have made the following changes:
+                + Changed Center Camera from Shift+F to Ctrl+F.
+    * Standard
+          o To prevent the accidental research of Ventral Sacs when trying to train an Overlord with no Larva available, the hotkey has been changed from V to E.
+          o View Own Health Bars functionality added to the Backslash key
+    * Standard for Lefties
+          o Due to a conflict with research Banshee Cloak, research Seeker Missile has been changed from L to K.
+          o To correct a conflict with the Attack command on Planetary Fortress, train SCV has been changed from K to J.
+          o In order to prevent the accidental training of Zerglings when using the Select Larva hotkey,train Zergling has been changed from L to J.
+          o To prevent the accidental training of a Queen, train Ultralisk has been changed from U to T.
+          o To prevent the accidental research of Pneumatized Carapace when trying to train a corruptor with no Larva available, research Pneumatized Carapace has been changed from P to C.
+          o View All Status Bars has been changed from Q to the Alt key.
+          o View own Status Bars functionality has been added to the Q key.
+    * Grid for Lefties
+          o Attack Move and all other buttons in the 0,4 position should now function correctly.
+          o View Own Status Bars functionality added to Q.
+          o View Enemy Status Bars moved to W.
+          o View Ally Status Bars moved to E.
+    * Classic
+          o Changed build Nydus Canal from P to N.
+          o Changed Place Nydus Canal ability from P to N.
+          o Terran Infantry Weapon researches have been changed from E to W.
+          o Terran Vehicle Weapon researches have been changed from E to W.
+          o Train Thor hotkey has been changed from O to G.
+          o Train Viking hotkey has been changed from Y to W.
+          o View Own Status Bars functionality has been added to the Backslash key.
+
+Icon Position Changes
+
+    * To put all race gas extractors in the same icon position, the positions of the Supply Depot/Refinery and Pylon/Assimilator have been swapped.
+    * In order to make transforming multiple Gateways easier for players using Grid key sets, Transform to Gateway has been moved to a separate icon position (2,1).
+
+Bug Fixes
+
+    * Corrected an issue that was causing the Polish language client to crash when receiving the "player is no longer being revealed” message.
+    * Corrected incorrect battle.net links on multiple language clients pages.
+    * Corrected an issue where the Zealot was using an US English voice over in the Korean language client.
+    * Corrected an issue where a player is unable to build any structures that require pylon power when their protoss ally leaves.
+    * Units can no longer be healed or repaired while in transports.
+    * Corrected an issue where the Creep Tumor targeting circle was visible to opponents through Fog of War.
+    * Corrected an issue in which selecting a Starport under construction and a completed Starport would display the select builder command in the Viking slot.
+    * Corrected the Broodling weapon icon.
+

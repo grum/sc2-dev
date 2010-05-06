@@ -516,7 +516,7 @@ Behavior/Tooltip/BansheeCloak=This unit is cloaked and will only be revealed by 
 Behavior/Tooltip/Charging=This Zealot is charging, allowing it to quickly close the distance with its target.
 Behavior/Tooltip/CloakField=Friendly ground units close enough to the Mothership are cloaked.
 Behavior/Tooltip/CloakingFieldEffect=This unit is cloaked unless revealed by detector units or effects.
-Behavior/Tooltip/Corruption=This Building is stunned.
+Behavior/Tooltip/Corruption=Takes 20% more damage.
 Behavior/Tooltip/EMPDecloak=Target was recently hit by an EMP Round, making it unable to cloak for a short duration.
 Behavior/Tooltip/Ethereal=Target is immune to all damage and effects but is unable to attack or use abilities.
 Behavior/Tooltip/FungalGrowthRoot=Target is affected by Fungal Growth.  Target is detected and cannot move.
@@ -759,6 +759,7 @@ Button/Name/ResearchInterceptorLaunchSpeedUpgrade=Research Graviton Catapult
 Button/Name/ResearchJotunBoosters=Research Jotun Boosters
 Button/Name/ResearchMedivacEnergyUpgrade=Research Caduceus Reactor
 Button/Name/ResearchNeosteelFrame=Research Neosteel Frame
+Button/Name/ResearchNeuralParasite=Evolve Neural Parasite
 Button/Name/ResearchPersonalCloaking=Research Personal Cloaking
 Button/Name/ResearchPsiStorm=Research Psionic Storm
 Button/Name/ResearchPunisherGrenades=Research Concussive Shells
@@ -767,6 +768,7 @@ Button/Name/ResearchSeekerMissile=Research Seeker Missile
 Button/Name/ResearchShieldWall=Research Combat Shield
 Button/Name/ResearchSiegeTech=Research Siege Tech
 Button/Name/ResearchStalkerTeleport=Research Blink
+Button/Name/ResearchStrikeCannons=Research 250mm Strike Cannons
 Button/Name/ResearchVoidRaySpeedUpgrade=Research Flux Vanes
 Button/Name/ResearchWarpGate=Research Warp Gate
 Button/Name/ReturnCargo=Return Cargo
@@ -945,8 +947,8 @@ Button/Tooltip/CommandCenterFlying=Primary structure. Must land to receive resou
 Button/Tooltip/CommandCenterLoad=Loads nearby SCVs into Command Center.
 Button/Tooltip/ConcussiveGrenade=Targets hit by the Marauder are temporarily slowed.<n/><n/><c val="#ColorAttackInfo">Massive units are immune.</c>
 Button/Tooltip/Corruption=The Corruptor corrupts units it attacks, causing them to turn into destructive stationary turrets upon death.
-Button/Tooltip/CorruptionAbility=Covers the target structure in zerg slime, preventing it from functioning in any capacity for 30 seconds.  
-Button/Tooltip/Corruptor=Anti-air flyer. Can corrupt enemy buildings, making them unable to function. Can morph into Brood Lord.<n/><n/><c val="ffff8a">Can attack air units.</c>
+Button/Tooltip/CorruptionAbility=Covers the target unit in acidic spores, increasing damage taken by 20% for 30 seconds.  
+Button/Tooltip/Corruptor=Anti-air flyer. Can corrupt enemy units, causing them to take more damage. Can morph into Brood Lord.<n/><n/><c val="ffff8a">Can attack air units.</c>
 Button/Tooltip/CreepTumor=A burrowed creep generator. Creep feeds nearby Zerg structures.  A Creep Tumor can spawn one additional Creep Tumor.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/CreepTumorBurrowed=A burrowed creep generator. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/CyberneticsCore=Contains weapon and armor upgrades for Protoss air units, upgrades for Sentries, and the Warp Gate upgrade.<n/><n/><c val="ffff8a">Enables:</c><n/>- Stalkers at the Gateway.<n/>- Sentries at the Gateway.
@@ -1050,7 +1052,7 @@ Button/Tooltip/Move=Orders selected units to move to the target area or follow t
 Button/Tooltip/MoveHoldPosition=Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.
 Button/Tooltip/MovePatrol=Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.
 Button/Tooltip/Mutalisk=Air unit that bounces its shot to strike multiple targets.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
-Button/Tooltip/NeuralParasite=Target unit is controlled by the Infestor until one of them dies, or the Infestor relinquishes control. The Infestor cannot take any other action while controlling an enemy unit.<n/><n/><c val="#ColorAttackInfo">Can target ground units.</c><n/><c val="ffff8a">Channeled ability.</c>
+Button/Tooltip/NeuralParasite=Target unit is controlled by the Infestor until one of them dies, or the Infestor relinquishes control. The Infestor cannot take any other action while controlling an enemy unit.<n/><n/><c val="ffff8a">Channeled ability.</c>
 Button/Tooltip/Nexus=Primary structure. Can receive gathered resources. Can use the Chrono Boost ability.<n/><n/><c val="ffff8a">Enables:</c><n/>- Probes
 Button/Tooltip/NuclearReactor=Allows two units to be built simultaneously.
 Button/Tooltip/NukeArm=Arms the Silo with a tactical nuke.<n/><n/>Nukes take 20 seconds to land, but deal up to 300 damage (+200 vs Structures) in a large radius.<n/><n/>Use a Ghost to designate the target.
@@ -1135,6 +1137,7 @@ Button/Tooltip/ResearchInterceptorLaunchSpeedUpgrade=Makes the Carrier launch In
 Button/Tooltip/ResearchJotunBoosters=Viking Lanzer Torpedoes gain +2 range.
 Button/Tooltip/ResearchMedivacEnergyUpgrade=Increases the starting energy of Medivacs by <d ref="Upgrade,MedivacCaduceusReactor,EffectArray[0].Value"/>.
 Button/Tooltip/ResearchNeosteelFrame=Increase the cargo space of bunkers by 2. Also provides extra cargo space for Command Centers and Planetary Fortresses.
+Button/Tooltip/ResearchNeuralParasite=Allows Infestors to implant a neural parasite in a target unit, gaining complete control of it until the Infestor dies or releases its victim.
 Button/Tooltip/ResearchPersonalCloaking=Enables Ghosts to use the Cloak ability. Cloak renders a unit invisible to enemies unless revealed by detector units or effects.
 Button/Tooltip/ResearchPsiStorm=Allows High Templar to summon a storm of psionic energy, causing heavy damage to every unit in the target area.
 Button/Tooltip/ResearchPunisherGrenades=Upgrades the Marauder weapons to slow down opponents.
@@ -1143,6 +1146,7 @@ Button/Tooltip/ResearchSeekerMissile=Enables Ravens to use the Seeker Missile ab
 Button/Tooltip/ResearchShieldWall=Marines gain +10 hitpoints.
 Button/Tooltip/ResearchSiegeTech=Enables Siege Tanks to deploy into Siege Mode. While in Siege Mode, Siege Tanks have significantly increased range and damage, but cannot move.
 Button/Tooltip/ResearchStalkerTeleport=Allows Stalkers to teleport to a nearby target location.
+Button/Tooltip/ResearchStrikeCannons=Allows Thors to deploy heavy support cannons, dealing massive damage and stunning a single target.
 Button/Tooltip/ResearchVoidRaySpeedUpgrade=Increases the speed and acceleration of the Void Ray.
 Button/Tooltip/ResearchWarpGate=Enables Gateways to upgrade to Warp Gates.
 Button/Tooltip/ReturnCargo=Returns the carried resources to the nearest drop-off point.
@@ -2048,11 +2052,13 @@ RequirementNode/Tooltip/CountUpgradeBattlecruiserEnableSpecializationsCompleteOn
 RequirementNode/Tooltip/CountUpgradeBurrowCompleteOnly983790134=Research Burrow at a Hatchery, Lair or Hive
 RequirementNode/Tooltip/CountUpgradeHardenedShield2QueuedOrBetter3126218829=Research Hardened Shield at the Twilight Council
 RequirementNode/Tooltip/CountUpgradeHunterSeekerCompleteOnly3617328450=Research Seeker Missile from the Starport Tech Lab
+RequirementNode/Tooltip/CountUpgradeNeuralParasiteCompleteOnly598353696=Research Neural Parasite at the Infestation Pit
 RequirementNode/Tooltip/CountUpgradePersonalCloakingCompleteOnly769360710=Research Personal Cloaking at the Ghost Academy
 RequirementNode/Tooltip/CountUpgradePunisherGrenadesCompleteOnly679349=Research Concussive Shells at the Barracks Tech Lab
 RequirementNode/Tooltip/CountUpgradeReaperSpeedCompleteOnly1852580877=Research Nitro Packs at the Barracks Tech Lab
 RequirementNode/Tooltip/CountUpgradeSiegeTechCompleteOnly1316718431=Research Siege Tech at the Factory Tech Lab
 RequirementNode/Tooltip/CountUpgradeStimPackCompleteOnly80611996=Research Stimpack at the Barracks Tech Lab
+RequirementNode/Tooltip/CountUpgradeStrikeCannonsCompleteOnly3055499258=Research 250mm Strike Cannons at the Factory Tech Lab
 RequirementNode/Tooltip/CountUpgradeWarpGateResearchCompleteOnly3562337817=Research Warp Gates at the Cybernetics Core.
 RequirementNode/Tooltip/CountUpgradeoverlordtransportCompleteOnly2367625043=Research Ventral Sacs at the Hatchery, Lair, or Hive
 RequirementNode/Tooltip/Eq1004646809CountUpgradeTerranShipWeaponsLevel2CompleteOnly1=Terran Ship Weapons Level 2
@@ -2482,6 +2488,7 @@ Upgrade/Name/InfestorEnergyUpgrade=Pathogen Glands
 Upgrade/Name/InfestorPeristalsis=Peristalsis
 Upgrade/Name/MedivacCaduceusReactor=Caduceus Reactor
 Upgrade/Name/NeosteelFrame=Neosteel Frame
+Upgrade/Name/NeuralParasite=Neural Parasite
 Upgrade/Name/ObserverGraviticBooster=Gravitic Booster
 Upgrade/Name/ObverseIncubation=Obverse Incubation
 Upgrade/Name/OrganicCarapace=Organic Carapace
@@ -2508,6 +2515,7 @@ Upgrade/Name/ReaperSpeed=Reaper Speed
 Upgrade/Name/ShieldWall=Combat Shield
 Upgrade/Name/SiegeTech=Siege Tech
 Upgrade/Name/StimPack=Stimpack
+Upgrade/Name/StrikeCannons=250mm Strike Cannons
 Upgrade/Name/TerranBuildingArmor=Terran Building Armor
 Upgrade/Name/TerranInfantryArmorsLevel1=Terran Infantry Armors Level 1
 Upgrade/Name/TerranInfantryArmorsLevel2=Terran Infantry Armors Level 2

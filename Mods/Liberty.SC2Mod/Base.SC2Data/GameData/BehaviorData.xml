@@ -19,6 +19,13 @@
             <BehaviorLinkDisableArray value="SensorTowerRadar"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="DisablePhoenixWeapons">
+        <InfoFlags index="Hidden" value="1"/>
+        <BuffFlags index="Channeling" value="1"/>
+        <Modification>
+            <WeaponDisableArray value="PhoenixAir"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="AcidSpores">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -51,22 +58,7 @@
         <Duration value="30"/>
         <InfoIcon value="Assets\Textures\btn-ability-zerg-corruption.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <Modification>
-            <ModifyFlags index="DisableAbils" value="1"/>
-            <ModifyFlags index="EnableAttack" value="1"/>
-            <ModifyFlags index="EnableMove" value="1"/>
-            <ModifyFlags index="SuppressMoving" value="1"/>
-            <ModifyFlags index="SuppressTurning" value="1"/>
-            <StateFlags index="SuppressAttack" value="1"/>
-            <StateFlags index="SuppressCloak" value="1"/>
-            <StateFlags index="SuppressDetection" value="1"/>
-            <StateFlags index="SuppressRadar" value="1"/>
-            <BehaviorClassDisableArray index="CBehaviorSpawn" value="1"/>
-            <BehaviorLinkDisableArray value="SpawnMutantLarvaTimer"/>
-        </Modification>
-        <DisplayDuration index="Self" value="1"/>
-        <DisplayDuration index="Ally" value="1"/>
-        <DisplayDuration index="Enemy" value="1"/>
+        <DamageResponse Chance="1" ModifyFraction="1.2"/>
     </CBehaviorBuff>
     <CBehaviorWander id="CritterWander">
         <Range value="2.5"/>
