@@ -690,7 +690,7 @@
         <Cost>
             <Vital index="Energy" value="25"/>
         </Cost>
-        <TargetFilters value="Player;Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="-;Ally,Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="500"/>
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="TimeWarp"/>
@@ -1284,13 +1284,13 @@
     </CAbilTrain>
     <CAbilTrain id="FactoryTrain">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
-        <InfoArray index="Train2" Time="50">
+        <InfoArray index="Train2" Time="45">
             <Resource index="Minerals" value="150"/>
             <Resource index="Vespene" value="125"/>
             <Button DefaultButtonFace="SiegeTank" State="Restricted" Requirements="HaveAttachedTechLab"/>
             <Unit value="SiegeTank"/>
         </InfoArray>
-        <InfoArray index="Train5" Time="75">
+        <InfoArray index="Train5" Time="60">
             <Resource index="Minerals" value="300"/>
             <Resource index="Vespene" value="200"/>
             <Button DefaultButtonFace="Thor" State="Restricted" Requirements="HaveArmoryAndAttachedTechLab"/>
@@ -1419,7 +1419,7 @@
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="ResearchShieldWall" State="Restricted" Requirements="LearnShieldWall"/>
         </InfoArray>
-        <InfoArray index="Research3" Time="110" Upgrade="PunisherGrenades">
+        <InfoArray index="Research3" Time="80" Upgrade="PunisherGrenades">
             <Resource index="Minerals" value="100"/>
             <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="ResearchPunisherGrenades" State="Restricted" Requirements="LearnPunisherGrenades"/>
@@ -1730,7 +1730,7 @@
             <Unit value="Carrier"/>
         </InfoArray>
         <InfoArray index="Train5" Time="60" Effect="WarpInEffect">
-            <Resource index="Minerals" value="200"/>
+            <Resource index="Minerals" value="250"/>
             <Resource index="Vespene" value="150"/>
             <Button DefaultButtonFace="VoidRay" State="Restricted"/>
             <Unit value="VoidRay"/>
@@ -3214,7 +3214,7 @@
     </CAbilEffectTarget>
     <CAbilTrain id="TrainQueen">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
-        <InfoArray index="Train1" Time="50" Category="Technology" Effect="QueenBirth">
+        <InfoArray index="Train1" Category="Technology" Time="50" Effect="QueenBirth">
             <Resource index="Minerals" value="150"/>
             <Button DefaultButtonFace="Queen" Requirements="HaveSpawningPool"/>
             <Unit value="Queen"/>

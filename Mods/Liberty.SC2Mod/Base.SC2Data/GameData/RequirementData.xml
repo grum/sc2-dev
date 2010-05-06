@@ -113,6 +113,7 @@
     </CRequirement>
     <CRequirement id="UsePunisherGrenades">
         <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <NodeArray index="Use" Link="CountUpgradePunisherGrenadesCompleteOnly627199108"/>
     </CRequirement>
     <CRequirement id="UseHunterSeekerMissiles">
         <EditorCategories value="Race:Protoss,TechType:Ability"/>

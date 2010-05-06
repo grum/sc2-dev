@@ -1,0 +1,56 @@
+StarCraft II Beta – Patch 8 (version 0.10.0.14803)
+
+The latest patch notes can always be found at
+http://forums.battle.net/thread.html?topicId=23094049316&sid=5000
+
+General
+
+
+    * Korea
+    * Added support to display the game rating information on the login screen.
+
+
+Balance Changes
+
+
+    * TERRAN
+
+          o Thor
+
+                + Build time decreased from 75 seconds to 60 seconds.
+
+          o Siege Tank
+
+                + Build time decreased from 50 seconds to 45 seconds.
+
+          o Marauder
+
+                + Concussive Shells now require an upgrade.
+
+          o Barracks Tech Lab
+
+                + Concussive Shells upgrade added.
+                + Concussive Shells upgrade costs 100/100 and takes 80 seconds to complete.
+
+    * PROTOSS
+
+          o Void Ray
+
+                + Changed to only have 2 damage levels instead of 3. Still takes the same amount of time to fully charge.
+                + Base damage changed from 2 (+4 armored) to 5.
+                + Powered-up damage changed from 8 (+16 armored) to 10 (+15 armored).
+                + Armor value decreased from 1 to 0.
+                + Cost increased from 200/150 to 250/150.
+
+    * ZERG
+
+          o Roach
+
+                + Burrowed move speed decreased from 2 to 1.4.
+                + Armor value decreased from 2 to 1.
+
+          o Hydralisk
+
+                + Life decreased from 90 to 80.
+
+

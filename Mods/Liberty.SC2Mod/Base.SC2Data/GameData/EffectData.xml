@@ -1609,18 +1609,16 @@
     <CEffectDamage id="VoidRayMUInitial" parent="VoidRayMUBase"/>
     <CEffectDamage id="VoidRayMUx1" parent="VoidRayMUInitial">
         <ArmorReduction value="1"/>
-        <Amount value="2"/>
-        <AttributeBonus index="Armored" value="4"/>
+        <Amount value="5"/>
     </CEffectDamage>
     <CEffectDamage id="VoidRayMUx2" parent="VoidRayMUInitial">
         <ArmorReduction value="1"/>
-        <Amount value="4"/>
-        <AttributeBonus index="Armored" value="8"/>
+        <Amount value="5"/>
     </CEffectDamage>
     <CEffectDamage id="VoidRayMUx3" parent="VoidRayMUInitial">
         <ArmorReduction value="1"/>
-        <Amount value="8"/>
-        <AttributeBonus index="Armored" value="16"/>
+        <Amount value="10"/>
+        <AttributeBonus index="Armored" value="15"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="Charge">
         <EditorCategories value="Race:Protoss"/>

@@ -489,21 +489,13 @@ Actor/Name/DestructibleBullhornLights=Destructible Bullhorn Lights
 Actor/Name/DestructibleGarage=Destructible Garage
 Actor/Name/DestructibleGarageLarge=Destructible Garage Large
 Actor/Name/DestructibleRampDiagonalHugeBLUR=Destructible Ramp Diagonal Huge BLUR
-Actor/Name/DestructibleRampDiagonalHugeBLURHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRampDiagonalHugeULBR=Destructible Ramp Diagonal Huge ULBR
-Actor/Name/DestructibleRampDiagonalHugeULBRHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock2x4Horizontal=Destructible Rock 2x4 Horizontal
-Actor/Name/DestructibleRock2x4HorizontalHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock2x4Vertical=Destructible Rock 2x4 Vertical
-Actor/Name/DestructibleRock2x4VerticalHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock2x6Horizontal=Destructible Rock 2x6 Horizontal
-Actor/Name/DestructibleRock2x6HorizontalHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock2x6Vertical=Destructible Rock 2x6 Vertical
-Actor/Name/DestructibleRock2x6VerticalHighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock4x4=Destructible Rock 4x4
-Actor/Name/DestructibleRock4x4HighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleRock6x6=Destructible Rock 6x6
-Actor/Name/DestructibleRock6x6HighlightTooltip=Attack this to destroy it
 Actor/Name/DestructibleSearchlight=Destructible Searchlight
 Actor/Name/DestructibleShadowFloodLight=Destructible Shadow Flood Light
 Actor/Name/DestructibleStreetlight=Destructible Streetlight
@@ -1646,146 +1638,81 @@ Behavior/Tooltip/TimeWarpProduction=This building is in an accelerated state.
 Behavior/Tooltip/TimeWarpResearch=This building is in an accelerated state.
 Behavior/Tooltip/VortexBehavior=Units that are caught within the Vortex are incapacitated and unable to do anything until the Vortex ends.
 Button/Hotkey/250mmStrikeCannons=C
-Button/Hotkey/250mmStrikeCannons_NRS=I
 Button/Hotkey/AWrp=C
-Button/Hotkey/AWrp_NRS=N
-Button/Hotkey/AWrp_SC1=R
 Button/Hotkey/AcidSpores=D
+Button/Hotkey/AcquireMove=A
 Button/Hotkey/AnabolicSynthesis=A
 Button/Hotkey/Archon=N
 Button/Hotkey/ArchonHallucination=N
 Button/Hotkey/Armory=A
-Button/Hotkey/Armory_NRS=M
 Button/Hotkey/AssaultMode=D
-Button/Hotkey/AssaultMode_NRS=O
 Button/Hotkey/Assimilator=A
-Button/Hotkey/Assimilator_NRS=I
 Button/Hotkey/Attack=A
-Button/Hotkey/Attack_NRS=K
 Button/Hotkey/AttackBuilding=A
-Button/Hotkey/AttackBuilding_NRS=K
-Button/Hotkey/AttackWarpPrism=A
-Button/Hotkey/AttackWarpPrism_NRS=K
 Button/Hotkey/AutoTurret=T
-Button/Hotkey/AutoTurret_NRS=U
 Button/Hotkey/Baneling=E
-Button/Hotkey/Baneling_NRS=B
-Button/Hotkey/Baneling_SC1=B
 Button/Hotkey/BanelingFromZerglingBurrowed=E
-Button/Hotkey/BanelingFromZerglingBurrowed_NRS=B
-Button/Hotkey/BanelingFromZerglingBurrowed_SC1=B
 Button/Hotkey/BanelingNest=B
 Button/Hotkey/Banshee=E
-Button/Hotkey/Banshee_NRS=H
 Button/Hotkey/Barracks=B
 Button/Hotkey/Battlecruiser=B
 Button/Hotkey/Blink=B
 Button/Hotkey/BroodLord=B
-Button/Hotkey/BroodLord_SC1=G
 Button/Hotkey/BuildCreepTumor=C
-Button/Hotkey/BuildCreepTumor_NRS=P
 Button/Hotkey/BuildTechLabBarracks=X
-Button/Hotkey/BuildTechLabBarracks_NRS=L
 Button/Hotkey/BuildTechLabFactory=X
-Button/Hotkey/BuildTechLabFactory_NRS=L
 Button/Hotkey/BuildTechLabStarport=X
-Button/Hotkey/BuildTechLabStarport_NRS=L
 Button/Hotkey/Bunker=U
 Button/Hotkey/BunkerLoad=L
-Button/Hotkey/BunkerLoad_NRS=A
 Button/Hotkey/BunkerUnloadAll=D
-Button/Hotkey/BunkerUnloadAll_SC1=U
 Button/Hotkey/BurrowDown=W
-Button/Hotkey/BurrowDown_NRS=U
-Button/Hotkey/BurrowDown_SC1=U
 Button/Hotkey/BurrowUp=W
-Button/Hotkey/BurrowUp_NRS=U
-Button/Hotkey/BurrowUp_SC1=U
 Button/Hotkey/CalldownMULE=E
-Button/Hotkey/CalldownMULE_NRS=U
-Button/Hotkey/CancelBuilding=Escape
-Button/Hotkey/CancelBuilding_NRS=F12
-Button/Hotkey/CancelBuilding_GRS=F12
+Button/Hotkey/Cancel=Escape
 Button/Hotkey/CancelSlot=Escape
-Button/Hotkey/CancelSlot_NRS=F12
-Button/Hotkey/CancelSlot_GRS=F12
 Button/Hotkey/Carrier=C
-Button/Hotkey/Carrier_NRS=I
 Button/Hotkey/Charge=C
-Button/Hotkey/Charge_NRS=G
 Button/Hotkey/ChitinousPlating=C
 Button/Hotkey/CloakOff=D
-Button/Hotkey/CloakOff_SC1=C
-Button/Hotkey/CloakOff_NRS=O
 Button/Hotkey/CloakOn=C
-Button/Hotkey/CloakOn_NRS=L
 Button/Hotkey/CloakOnBanshee=C
-Button/Hotkey/CloakOnBanshee_NRS=L
 Button/Hotkey/CloakOnGhost=C
-Button/Hotkey/CloakOnGhost_NRS=L
 Button/Hotkey/CloakingField=
 Button/Hotkey/Colossus=C
-Button/Hotkey/Colossus_NRS=L
-Button/Hotkey/Colossus_SC1=V
 Button/Hotkey/ColossusHallucination=C
-Button/Hotkey/ColossusHallucination_NRS=K
 Button/Hotkey/CommandCenter=C
 Button/Hotkey/CommandCenterLoad=O
-Button/Hotkey/CommandCenterLoad_NRS=A
 Button/Hotkey/CorruptionAbility=C
-Button/Hotkey/CorruptionAbility_NRS=P
 Button/Hotkey/Corruptor=C
-Button/Hotkey/Corruptor_NRS=P
 Button/Hotkey/CreepTumor=C
-Button/Hotkey/CreepTumor_NRS=P
 Button/Hotkey/CyberneticsCore=Y
+Button/Hotkey/D8Charge=D
 Button/Hotkey/DarkShrine=D
-Button/Hotkey/DarkShrine_NRS=K
-Button/Hotkey/DarkShrine_SC1=K
 Button/Hotkey/DarkTemplar=D
-Button/Hotkey/DarkTemplar_NRS=K
-Button/Hotkey/DarkTemplar_SC1=K
 Button/Hotkey/Disguise=None
 Button/Hotkey/Disruptor=E
-Button/Hotkey/Disruptor_NRS=N
 Button/Hotkey/Drone=D
-Button/Hotkey/Drone_NRS=N
 Button/Hotkey/EMP=E
-Button/Hotkey/EMP_NRS=P
 Button/Hotkey/EngineeringBay=E
-Button/Hotkey/EngineeringBay_NRS=N
 Button/Hotkey/EvolutionChamber=V
 Button/Hotkey/EvolveAnabolicSynthesis2=A
 Button/Hotkey/EvolveCentrificalHooks=C
 Button/Hotkey/EvolveChitinousPlating=C
 Button/Hotkey/EvolveGlialRegeneration=G
 Button/Hotkey/EvolveInfestorEnergyUpgrade=G
-Button/Hotkey/EvolveInfestorEnergyUpgrade_SC1=M
 Button/Hotkey/EvolveOrganicCarapace=O
-Button/Hotkey/EvolveOrganicCarapace_NRS=P
 Button/Hotkey/EvolvePeristalsis=P
 Button/Hotkey/EvolveTunnelingClaws=T
 Button/Hotkey/EvolveVentralSacks=V
 Button/Hotkey/Explode=X
-Button/Hotkey/Explode_NRS=P
 Button/Hotkey/Extractor=E
-Button/Hotkey/Extractor_NRS=K
 Button/Hotkey/Factory=F
-Button/Hotkey/Factory_NRS=O
-Button/Hotkey/Feedback=F
-Button/Hotkey/Feedback_NRS=L
 Button/Hotkey/FighterMode=E
-Button/Hotkey/FighterMode_NRS=I
 Button/Hotkey/FleetBeacon=F
-Button/Hotkey/FleetBeacon_NRS=L
 Button/Hotkey/ForceField=F
-Button/Hotkey/ForceField_NRS=O
 Button/Hotkey/Forge=F
-Button/Hotkey/Forge_NRS=O
 Button/Hotkey/FungalGrowth=F
-Button/Hotkey/FungalGrowth_NRS=L
 Button/Hotkey/FusionCore=C
-Button/Hotkey/FusionCore_NRS=U
 Button/Hotkey/Gateway=G
 Button/Hotkey/Gather=G
 Button/Hotkey/GatherMULE=G
@@ -1796,310 +1723,175 @@ Button/Hotkey/GenerateCreep=G
 Button/Hotkey/Ghost=G
 Button/Hotkey/GhostAcademy=G
 Button/Hotkey/GravitonBeam=G
-Button/Hotkey/GravitonBeam_NRS=O
 Button/Hotkey/GreaterSpire=G
 Button/Hotkey/GuardianShield=G
 Button/Hotkey/Hallucination=C
-Button/Hotkey/Hallucination_NRS=L
-Button/Hotkey/Hallucination_SC1=L
-Button/Hotkey/Halt=T
 Button/Hotkey/HardenedShield=None
 Button/Hotkey/Hatchery=H
 Button/Hotkey/Heal=E
-Button/Hotkey/Heal_SC1=A
 Button/Hotkey/Hellion=E
-Button/Hotkey/Hellion_NRS=H
-Button/Hotkey/Hellion_SC1=V
 Button/Hotkey/HighTemplar=T
-Button/Hotkey/HighTemplar_NRS=H
 Button/Hotkey/HighTemplarHallucination=T
-Button/Hotkey/HighTemplarHallucination_NRS=H
 Button/Hotkey/Hive=H
+Button/Hotkey/HoldFire=F
 Button/Hotkey/HunterSeekerMissile=R
-Button/Hotkey/HunterSeekerMissile_NRS=L
 Button/Hotkey/Hydralisk=H
 Button/Hotkey/HydraliskDen=H
-Button/Hotkey/HydraliskDen_SC1=D
 Button/Hotkey/Immortal=I
 Button/Hotkey/ImmortalHallucination=I
+Button/Hotkey/Infestation=T
 Button/Hotkey/InfestationPit=I
 Button/Hotkey/InfestedTerrans=T
-Button/Hotkey/InfestedTerrans_NRS=I
-Button/Hotkey/InfestedTerrans_SC1=I
 Button/Hotkey/Infestor=F
-Button/Hotkey/Infestor_NRS=I
 Button/Hotkey/Interceptor=I
 Button/Hotkey/Lair=L
-Button/Hotkey/Lair_NRS=H
 Button/Hotkey/Land=L
-Button/Hotkey/Land_NRS=F
 Button/Hotkey/Larva=S
-Button/Hotkey/Larva_NRS=L
 Button/Hotkey/Lift=L
-Button/Hotkey/Lift_NRS=F
 Button/Hotkey/Load=L
-Button/Hotkey/Load_NRS=A
 Button/Hotkey/Lower=R
-Button/Hotkey/Lower_NRS=O
 Button/Hotkey/Marauder=D
-Button/Hotkey/Marauder_NRS=U
-Button/Hotkey/Marauder_SC1=F
 Button/Hotkey/Marine=A
-Button/Hotkey/Marine_NRS=M
-Button/Hotkey/Marine_SC1=M
-Button/Hotkey/MassRecall=R
-Button/Hotkey/MassRecall_NRS=L
 Button/Hotkey/Medivac=D
-Button/Hotkey/Medivac_NRS=M
 Button/Hotkey/MedivacLoad=L
-Button/Hotkey/MedivacLoad_NRS=A
 Button/Hotkey/MedivacUnloadAll=D
-Button/Hotkey/MedivacUnloadAll_SC1=U
 Button/Hotkey/MissileTurret=T
-Button/Hotkey/MissileTurret_NRS=M
-Button/Hotkey/MorphBackToGateway=M
-Button/Hotkey/MorphBackToGateway_NRS=A
-Button/Hotkey/MorphBackToGateway_SC1=G
+Button/Hotkey/MorphBackToGateway=G
 Button/Hotkey/MorphMorphalisk=R
-Button/Hotkey/MorphMorphalisk_NRS=L
 Button/Hotkey/Mothership=M
+Button/Hotkey/Move=M
+Button/Hotkey/MoveHoldPosition=H
+Button/Hotkey/MovePatrol=P
 Button/Hotkey/Mutalisk=T
-Button/Hotkey/Mutalisk_NRS=M
-Button/Hotkey/Mutalisk_SC1=M
 Button/Hotkey/NeuralParasite=R
-Button/Hotkey/NeuralParasite_NRS=N
 Button/Hotkey/Nexus=N
 Button/Hotkey/NuclearReactor=C
-Button/Hotkey/NuclearReactor_NRS=O
 Button/Hotkey/NukeArm=N
 Button/Hotkey/NukeCalldown=N
 Button/Hotkey/NydusCanal=N
-Button/Hotkey/NydusCanal_SC1=P
 Button/Hotkey/NydusCanalLoad=L
-Button/Hotkey/NydusCanalLoad_NRS=A
 Button/Hotkey/NydusCanalUnloadAll=D
-Button/Hotkey/NydusCanalUnloadAll_SC1=U
 Button/Hotkey/NydusNetwork=N
 Button/Hotkey/Observer=B
-Button/Hotkey/Observer_NRS=O
-Button/Hotkey/Observer_SC1=O
 Button/Hotkey/OrbitalCommand=B
-Button/Hotkey/OrbitalCommand_NRS=O
-Button/Hotkey/OrbitalCommand_SC1=C
 Button/Hotkey/Overlord=V
-Button/Hotkey/Overlord_NRS=O
-Button/Hotkey/Overlord_SC1=O
 Button/Hotkey/OverlordTransportLoad=L
-Button/Hotkey/OverlordTransportLoad_NRS=A
 Button/Hotkey/OverlordTransportUnload=D
-Button/Hotkey/OverlordTransportUnload_SC1=U
 Button/Hotkey/OverseerMut=V
-Button/Hotkey/OverseerMut_NRS=O
-Button/Hotkey/OverseerMut_SC1=O
 Button/Hotkey/PhaseShift=E
 Button/Hotkey/PhasingMode=E
-Button/Hotkey/PhasingMode_NRS=I
 Button/Hotkey/Phoenix=X
-Button/Hotkey/Phoenix_NRS=P
-Button/Hotkey/Phoenix_SC1=S
 Button/Hotkey/PhoenixHallucination=X
-Button/Hotkey/PhoenixHallucination_NRS=P
 Button/Hotkey/PhotonCannon=C
-Button/Hotkey/PhotonCannon_NRS=H
 Button/Hotkey/PlanetaryFortress=P
 Button/Hotkey/PlanetaryFortressLoad=O
-Button/Hotkey/PlanetaryFortressLoad_NRS=A
 Button/Hotkey/PointDefenseDrone=D
-Button/Hotkey/PointDefenseDrone_NRS=P
 Button/Hotkey/Probe=E
-Button/Hotkey/Probe_NRS=P
-Button/Hotkey/Probe_SC1=P
 Button/Hotkey/ProbeHallucination=E
-Button/Hotkey/ProbeHallucination_NRS=E
 Button/Hotkey/ProtossAirArmorLevel1=A
 Button/Hotkey/ProtossAirArmorLevel2=A
 Button/Hotkey/ProtossAirArmorLevel3=A
 Button/Hotkey/ProtossAirWeaponsLevel1=E
-Button/Hotkey/ProtossAirWeaponsLevel1_SC1=W
 Button/Hotkey/ProtossAirWeaponsLevel2=E
-Button/Hotkey/ProtossAirWeaponsLevel2_SC1=W
 Button/Hotkey/ProtossAirWeaponsLevel3=E
-Button/Hotkey/ProtossAirWeaponsLevel3_SC1=W
 Button/Hotkey/ProtossBuild=B
 Button/Hotkey/ProtossBuildAdvanced=V
-Button/Hotkey/ProtossBuildAdvanced_NRS=N
 Button/Hotkey/ProtossGroundArmorLevel1=A
 Button/Hotkey/ProtossGroundArmorLevel2=A
 Button/Hotkey/ProtossGroundArmorLevel3=A
 Button/Hotkey/ProtossGroundWeaponsLevel1=G
-Button/Hotkey/ProtossGroundWeaponsLevel1_SC1=W
 Button/Hotkey/ProtossGroundWeaponsLevel2=G
-Button/Hotkey/ProtossGroundWeaponsLevel2_SC1=W
 Button/Hotkey/ProtossGroundWeaponsLevel3=G
-Button/Hotkey/ProtossGroundWeaponsLevel3_SC1=W
 Button/Hotkey/ProtossShieldsLevel1=S
 Button/Hotkey/ProtossShieldsLevel2=S
 Button/Hotkey/ProtossShieldsLevel3=S
 Button/Hotkey/PsiStorm=T
-Button/Hotkey/PsiStorm_NRS=P
 Button/Hotkey/Pylon=E
-Button/Hotkey/Pylon_NRS=P
-Button/Hotkey/Pylon_SC1=P
 Button/Hotkey/Queen=Q
-Button/Hotkey/Queen_NRS=U
 Button/Hotkey/QueenEgg=E
 Button/Hotkey/Raise=R
 Button/Hotkey/Rally=Y
-Button/Hotkey/Rally_SC1=R
 Button/Hotkey/RallyEgg=W
-Button/Hotkey/RallyEgg_SC1=W
 Button/Hotkey/Raven=R
-Button/Hotkey/Raven_NRS=N
-Button/Hotkey/Raven_SC1=E
 Button/Hotkey/Reaper=R
-Button/Hotkey/Reaper_NRS=P
-Button/Hotkey/Reaper_SC1=E
 Button/Hotkey/ReaperSpeed=N
-Button/Hotkey/ReaperSpeed_NRS=T
 Button/Hotkey/Refinery=R
-Button/Hotkey/Refinery_NRS=I
 Button/Hotkey/Repair=R
-Button/Hotkey/Repair_NRS=P
 Button/Hotkey/ResearchBansheeCloak=C
 Button/Hotkey/ResearchBattlecruiserEnergyUpgrade=B
-Button/Hotkey/ResearchBattlecruiserEnergyUpgrade_SC1=C
 Button/Hotkey/ResearchBattlecruiserSpecializations=W
-Button/Hotkey/ResearchBattlecruiserSpecializations_SC1=Y
 Button/Hotkey/ResearchBurrow=B
 Button/Hotkey/ResearchCharge=C
-Button/Hotkey/ResearchCharge_SC1=L
 Button/Hotkey/ResearchDurableMaterials=D
-Button/Hotkey/ResearchDurableMaterials_SC1=M
 Button/Hotkey/ResearchExtendedThermalLance=E
-Button/Hotkey/ResearchExtendedThermalLance_SC1=T
 Button/Hotkey/ResearchGhostEnergyUpgrade=M
 Button/Hotkey/ResearchGraviticBooster=B
-Button/Hotkey/ResearchGraviticBooster_SC1=G
 Button/Hotkey/ResearchGraviticDrive=G
-Button/Hotkey/ResearchGraviticDrive_SC1=D
 Button/Hotkey/ResearchHallucination=H
 Button/Hotkey/ResearchHiSecAutoTracking=H
 Button/Hotkey/ResearchHighCapacityBarrels=I
 Button/Hotkey/ResearchHighTemplarEnergyUpgrade=K
 Button/Hotkey/ResearchInterceptorLaunchSpeedUpgrade=G
-Button/Hotkey/ResearchInterceptorLaunchSpeedUpgrade_SC1=C
 Button/Hotkey/ResearchJotunBoosters=E
 Button/Hotkey/ResearchMedivacEnergyUpgrade=A
-Button/Hotkey/ResearchMedivacEnergyUpgrade_SC1=D
 Button/Hotkey/ResearchNeosteelFrame=N
 Button/Hotkey/ResearchPersonalCloaking=C
 Button/Hotkey/ResearchPsiStorm=T
-Button/Hotkey/ResearchPsiStorm_SC1=P
-Button/Hotkey/ResearchPsiStorm_NRS=P
 Button/Hotkey/ResearchPunisherGrenades=G
 Button/Hotkey/ResearchRavenEnergyUpgrade=T
 Button/Hotkey/ResearchSeekerMissile=R
-Button/Hotkey/ResearchSeekerMissile_NRS=L
 Button/Hotkey/ResearchShieldWall=C
 Button/Hotkey/ResearchSiegeTech=S
 Button/Hotkey/ResearchStalkerTeleport=B
 Button/Hotkey/ResearchVoidRaySpeedUpgrade=F
-Button/Hotkey/ResearchVoidRaySpeedUpgrade_SC1=G
 Button/Hotkey/ResearchWarpGate=G
 Button/Hotkey/ReturnCargo=C
 Button/Hotkey/Roach=R
-Button/Hotkey/Roach_NRS=K
 Button/Hotkey/RoachWarren=R
-Button/Hotkey/RoachWarren_NRS=N
 Button/Hotkey/RoboticsBay=B
 Button/Hotkey/RoboticsFacility=R
-Button/Hotkey/RoboticsFacility_NRS=O
 Button/Hotkey/SCV=S
-Button/Hotkey/SCV_NRS=K
-Button/Hotkey/Salvage=V
+Button/Hotkey/Salvage=S
 Button/Hotkey/SapStructure=C
-Button/Hotkey/SapStructure_NRS=O
 Button/Hotkey/Scan=C
 Button/Hotkey/SelectBuilder=E
 Button/Hotkey/SensorTower=W
-Button/Hotkey/SensorTower_NRS=O
 Button/Hotkey/SetBunkerRallyPoint=Y
-Button/Hotkey/SetBunkerRallyPoint_SC1=R
 Button/Hotkey/SetRallyPoint=Y
-Button/Hotkey/SetRallyPoint_SC1=R
 Button/Hotkey/SetRallyPoint2=Y
-Button/Hotkey/SetRallyPoint2_SC1=R
 Button/Hotkey/SiegeMode=E
-Button/Hotkey/SiegeMode_NRS=I
-Button/Hotkey/SiegeMode_SC1=O
 Button/Hotkey/SiegeTank=S
-Button/Hotkey/SiegeTank_NRS=I
-Button/Hotkey/SiegeTank_SC1=T
 Button/Hotkey/Siphon=E
 Button/Hotkey/Snipe=R
-Button/Hotkey/Snipe_NRS=I
 Button/Hotkey/SpawnChangeling=C
-Button/Hotkey/SpawnChangeling_NRS=N
 Button/Hotkey/SpawningPool=S
-Button/Hotkey/SpawningPool_NRS=P
 Button/Hotkey/SpineCrawler=C
-Button/Hotkey/SpineCrawler_NRS=I
 Button/Hotkey/SpineCrawlerRoot=R
-Button/Hotkey/SpineCrawlerRoot_NRS=U
-Button/Hotkey/SpineCrawlerRoot_SC1=U
 Button/Hotkey/SpineCrawlerUproot=R
-Button/Hotkey/SpineCrawlerUproot_NRS=U
-Button/Hotkey/SpineCrawlerUproot_SC1=U
 Button/Hotkey/Spire=S
-Button/Hotkey/Spire_NRS=P
 Button/Hotkey/SporeCrawler=W
-Button/Hotkey/SporeCrawler_NRS=O
-Button/Hotkey/SporeCrawler_SC1=O
 Button/Hotkey/SporeCrawlerRoot=R
-Button/Hotkey/SporeCrawlerRoot_NRS=U
-Button/Hotkey/SporeCrawlerRoot_SC1=U
 Button/Hotkey/SporeCrawlerUproot=R
-Button/Hotkey/SporeCrawlerUproot_NRS=U
-Button/Hotkey/SporeCrawlerUproot_SC1=U
 Button/Hotkey/Stalker=S
-Button/Hotkey/Stalker_NRS=L
-Button/Hotkey/Stalker_SC1=D
 Button/Hotkey/StalkerHallucination=S
-Button/Hotkey/StalkerHallucination_NRS=L
 Button/Hotkey/Stargate=S
-Button/Hotkey/Stargate_NRS=G
 Button/Hotkey/Starport=S
-Button/Hotkey/Starport_NRS=P
 Button/Hotkey/Stim=T
-Button/Hotkey/Stim_NRS=I
 Button/Hotkey/StimMarauder=T
-Button/Hotkey/StimMarauder_NRS=I
 Button/Hotkey/StimPack=T
-Button/Hotkey/StimPack_NRS=I
 Button/Hotkey/Stop=S
-Button/Hotkey/StopRoachBurrowed=S
-Button/Hotkey/StopSpecial=S
 Button/Hotkey/StopGenerateCreep=C
-Button/Hotkey/StopGenerateCreep_NRS=T
-Button/Hotkey/StopGenerateCreep_SC1=G
 Button/Hotkey/StopPlanetaryFortress=P
 Button/Hotkey/SummonNydusWorm=N
-Button/Hotkey/SummonNydusWorm_SC1=P
 Button/Hotkey/SupplyDepot=S
-Button/Hotkey/SupplyDepot_NRS=P
 Button/Hotkey/SupplyDrop=X
 Button/Hotkey/TechLabBarracks=X
-Button/Hotkey/TechLabBarracks_NRS=L
 Button/Hotkey/TechLabFactory=X
-Button/Hotkey/TechLabFactory_NRS=L
 Button/Hotkey/TechLabStarport=X
-Button/Hotkey/TechLabStarport_NRS=L
 Button/Hotkey/TemplarArchive=T
-Button/Hotkey/TemplarArchive_NRS=L
 Button/Hotkey/TemporalRift=R
 Button/Hotkey/TerranBuild=B
 Button/Hotkey/TerranBuildAdvanced=V
-Button/Hotkey/TerranBuildAdvanced_NRS=N
 Button/Hotkey/TerranInfantryArmorLevel1=A
 Button/Hotkey/TerranInfantryArmorLevel2=A
 Button/Hotkey/TerranInfantryArmorLevel3=A
@@ -2107,68 +1899,44 @@ Button/Hotkey/TerranInfantryWeaponsLevel1=W
 Button/Hotkey/TerranInfantryWeaponsLevel2=W
 Button/Hotkey/TerranInfantryWeaponsLevel3=W
 Button/Hotkey/TerranShipPlatingLevel1=P
-Button/Hotkey/TerranShipPlatingLevel1_SC1=H
 Button/Hotkey/TerranShipPlatingLevel2=P
-Button/Hotkey/TerranShipPlatingLevel2_SC1=H
 Button/Hotkey/TerranShipPlatingLevel3=P
-Button/Hotkey/TerranShipPlatingLevel3_SC1=H
 Button/Hotkey/TerranShipWeaponsLevel1=S
 Button/Hotkey/TerranShipWeaponsLevel2=S
 Button/Hotkey/TerranShipWeaponsLevel3=S
 Button/Hotkey/TerranVehiclePlatingLevel1=V
-Button/Hotkey/TerranVehiclePlatingLevel1_SC1=P
 Button/Hotkey/TerranVehiclePlatingLevel2=V
-Button/Hotkey/TerranVehiclePlatingLevel2_SC1=P
 Button/Hotkey/TerranVehiclePlatingLevel3=V
-Button/Hotkey/TerranVehiclePlatingLevel3_SC1=P
 Button/Hotkey/TerranVehicleWeaponsLevel1=W
 Button/Hotkey/TerranVehicleWeaponsLevel2=W
 Button/Hotkey/TerranVehicleWeaponsLevel3=W
 Button/Hotkey/Thor=T
-Button/Hotkey/Thor_NRS=K
-Button/Hotkey/Thor_SC1=O
 Button/Hotkey/TimeWarp=C
-Button/Hotkey/TimeWarp_NRS=O
 Button/Hotkey/Transfusion=T
 Button/Hotkey/TransportMode=T
+Button/Hotkey/Turn=T
 Button/Hotkey/TwilightCouncil=C
-Button/Hotkey/TwilightCouncil_NRS=I
 Button/Hotkey/Ultralisk=U
 Button/Hotkey/UltraliskCavern=U
 Button/Hotkey/Unsiege=D
-Button/Hotkey/Unsiege_NRS=O
-Button/Hotkey/Unsiege_SC1=O
 Button/Hotkey/UpgradeBuildingArmorLevel1=B
 Button/Hotkey/UpgradeToPlanetaryFortress=P
 Button/Hotkey/UpgradeToWarpGate=G
 Button/Hotkey/VikingFighter=V
-Button/Hotkey/VikingFighter_NRS=K
 Button/Hotkey/VoidRay=V
-Button/Hotkey/VoidRay_NRS=O
-Button/Hotkey/VoidRay_SC1=O
 Button/Hotkey/VoidRayHallucination=V
 Button/Hotkey/Vortex=V
-Button/Hotkey/Vortex_NRS=O
 Button/Hotkey/WarpPrism=A
-Button/Hotkey/WarpPrism_NRS=P
-Button/Hotkey/WarpPrism_SC1=S
-Button/Hotkey/WarpPrismHallucination=R
-Button/Hotkey/WarpPrismHallucination_NRS=R
+Button/Hotkey/WarpPrismHallucination=A
 Button/Hotkey/WarpPrismLoad=L
-Button/Hotkey/WarpPrismLoad_NRS=A
 Button/Hotkey/WarpPrismUnloadAll=D
-Button/Hotkey/WarpPrismUnloadAll_SC1=U
 Button/Hotkey/WormholeTransit=T
 Button/Hotkey/YamatoGun=Y
 Button/Hotkey/Zealot=Z
-Button/Hotkey/Zealot_NRS=O
 Button/Hotkey/ZealotHallucination=Z
-Button/Hotkey/ZealotHallucination_NRS=O
 Button/Hotkey/ZergBuild=B
 Button/Hotkey/ZergBuildAdvanced=V
-Button/Hotkey/ZergBuildAdvanced_NRS=N
 Button/Hotkey/Zergling=Z
-Button/Hotkey/Zergling_NRS=L
 Button/Hotkey/hydraliskspeed=G
 Button/Hotkey/overlordspeed=P
 Button/Hotkey/zergflyerarmor1=C
@@ -2188,18 +1956,6 @@ Button/Hotkey/zergmeleeweapons3=M
 Button/Hotkey/zergmissileweapons1=A
 Button/Hotkey/zergmissileweapons2=A
 Button/Hotkey/zergmissileweapons3=A
-Button/Hotkey/AcquireMove=A
-Button/Hotkey/AcquireMove_NRS=K
-Button/Hotkey/Cancel=Escape
-Button/Hotkey/Cancel_NRS=F12
-Button/Hotkey/Cancel_GRS=F12
-Button/Hotkey/HoldFire=F
-Button/Hotkey/Infestation=T
-Button/Hotkey/Move=M
-Button/Hotkey/MoveHoldPosition=H
-Button/Hotkey/MovePatrol=P
-Button/Hotkey/MovePatrol_NRS=R
-Button/Hotkey/Turn=T
 Button/Name/250mmStrikeCannons=250mm Strike Cannons
 Button/Name/AWrp=Archon Warp
 Button/Name/AcidSpores=Acid Spores
@@ -2213,7 +1969,6 @@ Button/Name/Assimilator=Warp in Assimilator
 Button/Name/Attack=Attack
 Button/Name/AttackBuilding=Attack
 Button/Name/AttackRedirect=Attack
-Button/Name/AttackWarpPrism=Attack
 Button/Name/AutoTurret=Build Auto-Turret
 Button/Name/Baneling=Morph To Baneling
 Button/Name/BanelingFromZerglingBurrowed=Morph To Baneling
@@ -2231,15 +1986,12 @@ Button/Name/Bunker=Build Bunker
 Button/Name/BunkerLoad=Load
 Button/Name/BunkerUnloadAll=Unload All
 Button/Name/BurrowDown=Burrow
-Button/Name/BurrowMove=Burrow
 Button/Name/BurrowUp=Unburrow
 Button/Name/CalldownMULE=Calldown:  MULE
 Button/Name/Cancel=Cancel
-Button/Name/CancelBuilding=Cancel
 Button/Name/CancelSlot=Cancel
 Button/Name/Carrier=Warp in Carrier
 Button/Name/Charge=Charge
-Button/Name/Cheer=Cheer
 Button/Name/ChitinousPlating=Chitinous Plating
 Button/Name/CliffWalk=Cliff Walk
 Button/Name/CloakOff=Decloak
@@ -2257,7 +2009,7 @@ Button/Name/CorruptionAbility=Corruption
 Button/Name/Corruptor=Morph To Corruptor
 Button/Name/CreepTumor=Creep Tumor
 Button/Name/CyberneticsCore=Warp in Cybernetics Core
-Button/Name/Dance=Dance
+Button/Name/D8Charge=D-8 Charge
 Button/Name/DarkShrine=Warp in Dark Shrine
 Button/Name/DarkTemplar=Warp in Dark Templar
 Button/Name/Detector=Detector
@@ -2279,7 +2031,6 @@ Button/Name/EvolveVentralSacks=Evolve Ventral Sacs
 Button/Name/Explode=Explode
 Button/Name/Extractor=Mutate into Extractor
 Button/Name/Factory=Build Factory
-Button/Name/Feedback=Feedback
 Button/Name/FighterMode=Fighter Mode
 Button/Name/FleetBeacon=Warp in Fleet Beacon
 Button/Name/ForceField=Force Field
@@ -2299,7 +2050,6 @@ Button/Name/GravitonBeam=Graviton Beam
 Button/Name/GreaterSpire=Mutate into Greater Spire
 Button/Name/GuardianShield=Guardian Shield
 Button/Name/Hallucination=Hallucination
-Button/Name/Halt=Halt
 Button/Name/HardenedShield=Hardened Shield
 Button/Name/Hatchery=Mutate into Hatchery
 Button/Name/Heal=Heal
@@ -2308,14 +2058,13 @@ Button/Name/HighTemplar=Warp in High Templar
 Button/Name/HighTemplarHallucination=Summon 2 High Templar Hallucinations
 Button/Name/Hive=Mutate into Hive
 Button/Name/HoldFire=Hold Fire
-Button/Name/HoldFireSpecial=Hold Fire (Special)
 Button/Name/HunterSeekerMissile=Seeker Missile
 Button/Name/Hydralisk=Morph To Hydralisk
 Button/Name/HydraliskDen=Mutate into Hydralisk Den
 Button/Name/Immortal=Warp in Immortal
 Button/Name/ImmortalHallucination=Summon Immortal Hallucination
 Button/Name/InfestationPit=Mutate into Infestation Pit
-Button/Name/InfestedTerrans=Infested Terran
+Button/Name/InfestedTerrans=Infested Terrans
 Button/Name/Infestor=Morph To Infestor
 Button/Name/Interceptor=Train Interceptor
 Button/Name/JetPack=Jet Pack
@@ -2327,7 +2076,6 @@ Button/Name/Load=Load
 Button/Name/Lower=Lower
 Button/Name/Marauder=Train Marauder
 Button/Name/Marine=Train Marine
-Button/Name/MassRecall=Mass Recall
 Button/Name/Medivac=Build Medivac
 Button/Name/MedivacLoad=Load
 Button/Name/MedivacUnloadAll=Unload All
@@ -2343,7 +2091,7 @@ Button/Name/NeuralParasite=Neural Parasite
 Button/Name/Nexus=Warp in Nexus
 Button/Name/NuclearReactor=Build Reactor
 Button/Name/NukeArm=Arm Silo with Nuke
-Button/Name/NukeCalldown=Tac Nuke Strike
+Button/Name/NukeCalldown=Tactical Nuke
 Button/Name/NydusCanal=Mutate into Nydus Worm
 Button/Name/NydusCanalLoad=Load
 Button/Name/NydusCanalUnloadAll=Unload All
@@ -2374,8 +2122,8 @@ Button/Name/ProtossAirArmorLevel3=Upgrade Air Armor Level 3
 Button/Name/ProtossAirWeaponsLevel1=Upgrade Air Weapons Level 1
 Button/Name/ProtossAirWeaponsLevel2=Upgrade Air Weapons Level 2
 Button/Name/ProtossAirWeaponsLevel3=Upgrade Air Weapons Level 3
-Button/Name/ProtossBuild=Warp in Structure
-Button/Name/ProtossBuildAdvanced=Warp in Advanced Structure
+Button/Name/ProtossBuild=Warp-in Structure
+Button/Name/ProtossBuildAdvanced=Warp-in Advanced Structure
 Button/Name/ProtossGroundArmorLevel1=Upgrade Ground Armor Level 1
 Button/Name/ProtossGroundArmorLevel2=Upgrade Ground Armor Level 2
 Button/Name/ProtossGroundArmorLevel3=Upgrade Ground Armor Level 3
@@ -2393,7 +2141,6 @@ Button/Name/RadarField=Radar
 Button/Name/Raise=Raise
 Button/Name/Rally=Set Rally Point
 Button/Name/RallyEgg=Set Worker Rally Point
-Button/Name/RallyExtra=Set Rally Point (Extra)
 Button/Name/RapidRegeneration=Rapid Regeneration
 Button/Name/Raven=Build Raven
 Button/Name/Reaper=Train Reaper
@@ -2465,8 +2212,6 @@ Button/Name/StimPack=Research Stimpack
 Button/Name/Stop=Stop
 Button/Name/StopGenerateCreep=Stop Generate Creep
 Button/Name/StopPlanetaryFortress=Stop
-Button/Name/StopRoachBurrowed=Stop
-Button/Name/StopSpecial=Stop (Special)
 Button/Name/SummonNydusWorm=Summon Nydus Worm
 Button/Name/SupplyDepot=Build Supply Depot
 Button/Name/SupplyDrop=Calldown:  Extra Supplies
@@ -2556,39 +2301,34 @@ Button/Tooltip/Assimilator=Built over a Vespene Geyser to allow harvesting of Ve
 Button/Tooltip/Attack=Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.
 Button/Tooltip/AttackBuilding=Targets and attacks the target unit until it is destroyed or moves out of range.
 Button/Tooltip/AttackRedirect=Targets and attacks the target unit until it is destroyed or moves out of range.
-Button/Tooltip/AttackWarpPrism=Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.
 Button/Tooltip/AutoTurret=Automated defensive turret. Times out after <d ref="Behavior,AutoTurretTimedLife,Duration"/> seconds.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/Baneling=Suicide unit. Does damage over a small area. <n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/BanelingEgg=This egg contains a Zergling as it is morphing into a powerful Baneling.
 Button/Tooltip/BanelingFromZerglingBurrowed=Suicide unit. Does damage over a small area. <n/><n/>Zergling will unburrow before morphing.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/BanelingNest=Contains upgrades for Banelings.<n/><n/><c val="ffff8a">Enables:</c><n/>- Banelings from Zerglings
 Button/Tooltip/Banshee=Tactical strike aircraft.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/Barracks=Infantry production facility. <n/><n/><c val="ffff8a">Enables:</c><n/>- Marines<n/>- Bunkers from SCVs<n/>- Orbital Commands from Command Centers
+Button/Tooltip/Barracks=Infantry production facility. Can use the Lift Off ability.<n/><n/><c val="ffff8a">Enables:</c><n/>- Marines<n/>- Bunkers from SCVs<n/>- Orbital Commands from Command Centers
 Button/Tooltip/BarracksFlying=Barracks must land to start unit production.
 Button/Tooltip/Battlecruiser=Powerful warship. Can be upgraded with the Yamato Cannon ability.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/Blink=Teleports the Stalker to a nearby target location.  Ability can only be used once every <d ref="Abil,Blink,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/BraxisAlphaDestructible1x1=A barrier that can be destroyed to allow access to new areas.
 Button/Tooltip/BroodLord=Flying heavy assault unit. Shoots Broodlings at its target. A Broodling is a small creature that can attack ground units.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/BroodLordCocoon=This egg contains a Corruptor as it is morphing into a powerful Brood Lord.
 Button/Tooltip/Broodling=Fast melee creature that will last for a short duration.<n/><n/><c val="ffff8a">Can attack ground units.</c>
-Button/Tooltip/BuildCreepTumor=A burrowed creep generator. Creep feeds nearby Zerg structures.  A Creep Tumor can spawn one additional creep tumor.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
-Button/Tooltip/BuildTechLabBarracks=Infantry research structure. Tech Lab can fit onto any production building.<n/><n/><c val="ffff8a">Enables:</c><n/>- Marauders<n/>- Reapers with Ghost Academy<n/>- Ghosts with Ghost Academy
+Button/Tooltip/BuildCreepTumor=Creates a burrowed creep generator. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
+Button/Tooltip/BuildTechLabBarracks=Infantry research structure. Tech Lab can fit onto any production building.<n/><n/><c val="ffff8a">Enables:</c><n/>- Marauders<n/>- Reapers<n/>- Ghosts with Ghost Academy
 Button/Tooltip/BuildTechLabFactory=Vehicle research structure. Tech Lab can fit onto any production building.<n/><n/><c val="ffff8a">Enables:</c><n/>- Siege Tanks<n/>- Thors with Armory
 Button/Tooltip/BuildTechLabStarport=Aircraft research structure. Tech Lab can fit onto any production building.<n/><n/><c val="ffff8a">Enables:</c><n/>- Banshees<n/>- Ravens<n/>- Battlecruisers with Fusion Core
-Button/Tooltip/Bunker=Defensive structure. <n/>Infantry fight from inside. <n/><n/><c val="#ColorAttackInfo">Bonus: +1 range to units inside.</c>
+Button/Tooltip/Bunker=Defensive structure able to protect up to <d ref="Abil,BunkerTransport,TotalCargoSpace"/> cargo spaces of infantry units. Bunker can be salvaged.<n/><n/><c val="#ColorAttackInfo">Bonus: +1 range to units inside.</c>
 Button/Tooltip/BunkerLoad=Loads infantry into Bunker.
 Button/Tooltip/BunkerUnloadAll=Unloads all units.
 Button/Tooltip/BurrowDown=Buries the unit underground. Burrowed units are unable to move or attack, but cannot be seen without detection.
-Button/Tooltip/BurrowMove=Buries the unit underground. Burrowed units are unable to attack, but cannot be seen without detection. This unit may move while burrowed.
 Button/Tooltip/BurrowUp=Returns the unit to the surface.
 Button/Tooltip/CalldownMULE=Drops an experimental robotic MULE miner onto the target mineral field.  MULEs collect minerals more quickly than SCVs.  <n/><n/>MULEs last 90 seconds before their systems fail.
 Button/Tooltip/Cancel=Drops the current order without issuing it and allows you to select a different order.
-Button/Tooltip/CancelBuilding=Cancels construction of this building, destroying the building and giving a partial refund.
 Button/Tooltip/CancelSlot=Drops a specific selected order from a point in the queue without issuing it.
 Button/Tooltip/Carrier=Capital ship. Can build and launch Interceptors to make attacks.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/Changeling=Changelings cannot attack. When it first encounters an enemy unit it will match its color and change into a Zealot, Marine, or Zergling, depending on the enemy race. Dies after 150 seconds.
 Button/Tooltip/Charge=Allows Zealots to intercept nearby enemies. Also increases the movement speed of Zealots. Ability can only be used once every <d ref="Abil,Charge,Cost.Cooldown.TimeUse"/> seconds.
-Button/Tooltip/Cheer=Orders selected units to cheer. (If they have the animations to do so)
 Button/Tooltip/ChitinousPlating=Gives +2 armor to Ultralisks.
 Button/Tooltip/CliffWalk=The Colossus can walk up and down cliffs.
 Button/Tooltip/CloakOff=Decloaks the selected unit, making it visible to enemies.
@@ -2605,10 +2345,10 @@ Button/Tooltip/ConcussiveGrenade=Targets hit by the Marauder are temporarily slo
 Button/Tooltip/Corruption=The Corruptor corrupts units it attacks, causing them to turn into destructive stationary turrets upon death.
 Button/Tooltip/CorruptionAbility=Covers the target structure in zerg slime, preventing it from functioning in any capacity for 30 seconds.  
 Button/Tooltip/Corruptor=Anti-air flyer. Can corrupt enemy buildings, making them unable to function. Can morph into Brood Lord.<n/><n/><c val="ffff8a">Can attack air units.</c>
-Button/Tooltip/CreepTumor=A burrowed creep generator. Creep feeds nearby Zerg structures.  A Creep Tumor can spawn one additional creep tumor.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
+Button/Tooltip/CreepTumor=A burrowed creep generator. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/CreepTumorBurrowed=A burrowed creep generator. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/CyberneticsCore=Contains weapon and armor upgrades for Protoss air units, upgrades for Sentries, and the Warp Gate upgrade.<n/><n/><c val="ffff8a">Enables:</c><n/>- Stalkers at the Gateway.<n/>- Sentries at the Gateway.
-Button/Tooltip/Dance=Orders selected units to dance. (If they have the animations to do so)
+Button/Tooltip/D8Charge=D-8 Charges are thrown into the target area and explode after a short delay.  Ability can only be used once every <d ref="Abil,D8Charge,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/DarkShrine=Dark Templar tech structure.<n/><n/><c val="ffff8a">Enables:</c><n/>- Dark Templar at the Gateway
 Button/Tooltip/DarkTemplar=Deadly warrior-assassin. Cloak renders the unit invisible to enemies without detection. Can transform into an Archon.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/DestructibleBullhornLights=
@@ -2642,14 +2382,13 @@ Button/Tooltip/EvolveTunnelingClaws=Enables Roaches to move while burrowed.
 Button/Tooltip/EvolveVentralSacks=Allows Overlords to transport units.
 Button/Tooltip/Explode=The Baneling detonates where it is standing, damaging nearby enemy units and structures.
 Button/Tooltip/Extractor=Built over a Vespene Geyser to allow harvesting of Vespene Gas.
-Button/Tooltip/Factory=Vehicle production facility. <n/><n/><c val="ffff8a">Enables:</c><n/>- Hellions
+Button/Tooltip/Factory=Vehicle production facility. Can use the Lift Off ability.<n/><n/><c val="ffff8a">Enables:</c><n/>- Hellions
 Button/Tooltip/FactoryFlying=Factory must land to start unit production.
-Button/Tooltip/Feedback=Purges all energy from the target. Deals 1 damage per point of energy.
 Button/Tooltip/FighterMode=Transforms the Viking into Fighter Mode. In this mode Vikings fly, but they can only attack air targets.
 Button/Tooltip/FleetBeacon=Upgrades for Void Rays and Carriers.<n/><n/><c val="ffff8a">Enables:</c><n/>- Carriers at the Stargate<n/>- Mothership at the Nexus
 Button/Tooltip/ForceField=Creates a force field that lasts 15 seconds and impedes movement of ground units.
 Button/Tooltip/Forge=Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<n/><n/><c val="ffff8a">Enables:</c><n/>- Photon Cannons from Probes.
-Button/Tooltip/FungalGrowth=Immoblizes target units and causes 36 life damage over 8 seconds.  Reveals cloaked and burrowed units.
+Button/Tooltip/FungalGrowth=Snares units in the target area, immobilizing them and causing a total of 20 damage over 8 seconds.  Cloaked and burrowed units hit by Fungal Growth are revealed for a short time.
 Button/Tooltip/FusionCore=Contains Battlecruiser upgrades. <n/><n/><c val="ffff8a">Enables:</c><n/>- Battlecruisers at the Starport
 Button/Tooltip/Gateway=Warps-in Protoss ground units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Zealots
 Button/Tooltip/Gather=Orders unit to gather resources from a selected Mineral Field or Vespene Geyser.
@@ -2659,18 +2398,17 @@ Button/Tooltip/GatherTerr=Orders SCV to gather resources from a selected Mineral
 Button/Tooltip/GatherZerg=Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser.
 Button/Tooltip/GenerateCreep=Makes the Overlord start generating creep. Creep will only be generated when the Overlord stands still. Creep feeds nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/Ghost=Sniper. Can use Snipe, EMP Round and Cloak.  Can call down Nukes built at the Ghost Academy.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/GhostAcademy=Can build nukes for Ghosts. Contains upgrades for Ghosts.<n/><n/><c val="ffff8a">Enables:</c><n/>- Ghosts at the Barracks
+Button/Tooltip/GhostAcademy=Can build nukes that Ghosts can use. Contains upgrades for Ghosts.<n/><n/><c val="ffff8a">Enables:</c><n/>- Ghosts at the Barracks
 Button/Tooltip/GravitonBeam=Makes the target unit float into the air disabling its abilities. Effect lasts up to 10 seconds.<n/><n/><c val="#ColorAttackInfo">Massive units are immune.</c><n/><c val="ffff8a">Channeled ability.</c>
 Button/Tooltip/GreaterSpire=Contains upgrades for Zerg air units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Brood Lords from Corruptors
 Button/Tooltip/GuardianShield=Creates a range 4 aura that reduces incoming ranged damage to friendly units by 2. Lasts 15 seconds.
-Button/Tooltip/Hallucination=Creates hallucinations that cannot use active abilities or deal damage, and die more easily. Hallucinations last <d ref="Behavior,HallucinationTimedLife,Duration"/> seconds. Enemy detectors reveal hallucinations.
-Button/Tooltip/Halt=Halts construction on this building. The partial construction will remain.
+Button/Tooltip/Hallucination=Creates hallucinations that cannot deal damage and die more easily. Hallucinations last <d ref="Behavior,HallucinationTimedLife,Duration"/> seconds. Enemy detectors reveal hallucinations.
 Button/Tooltip/HardenedShield=The Immortal's Hardened Shields reduce the damage of incoming high damage attacks to 10 if his shields are still up.
 Button/Tooltip/Hatchery=Primary structure, used to spawn all Zerg units and to receive gathered resources. Grows creep, used to feed nearby Zerg structures. Can mutate into a Lair.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/Heal=Heals a friendly biological target.<n/><n/><c val="f078ff"> Heals 3 life per 1 energy.</c>
 Button/Tooltip/Hellion=Fast scout. Has a flame attack that damages all enemy units in its line of fire.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/HighTemplar=Potent psionic master. Can use Feedback and Psionic Storm. Can transform into an Archon.
-Button/Tooltip/HighTemplarHallucination=These hallucinated copies function like the original unit, but cannot use abilities or deal damage, and die more easily. Hallucinations last 60 seconds before they disappear.
+Button/Tooltip/HighTemplar=Potent psionic master. Can use Phase Shift and Psionic Storm. Can transform into an Archon.
+Button/Tooltip/HighTemplarHallucination=These hallucinated copies function like the original unit, but cannot deal damage and die more easily. Hallucinations last 60 seconds before they disappear.
 Button/Tooltip/HighYieldMineralField=Workers can harvest resources from this mineral field at a faster rate than normal.
 Button/Tooltip/Hive=Further evolved version of the Hatchery which allows for additional upgrades and buildings to be produced. Also spawns all Zerg units and receives gathered resources. 
 Button/Tooltip/HoldFire=Orders selected units to stay where they are and ignore enemies that are within range. Units will neither chase down enemies nor move to engage.
@@ -2680,13 +2418,13 @@ Button/Tooltip/HydraliskDen=Contains upgrades for Hydralisks.<n/><n/><c val="fff
 Button/Tooltip/Immortal=Assault strider. Has shields that deflect high damage attacks.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
 Button/Tooltip/ImmortalHallucination=This hallucinated copy functions like the original unit, but cannot deal damage and dies more easily. Hallucinations last 60 seconds before they disappear.
 Button/Tooltip/InfestationPit=Contains upgrades for Infestors.<n/><n/><c val="ffff8a">Enables:</c><n/>- Infestors from Larva
-Button/Tooltip/InfestedTerrans=Spawn an Infested Terran. Infested Terrans last <d ref="Behavior,SwarmlingFate,Duration"/> seconds.
+Button/Tooltip/InfestedTerrans=Spawn 4 Infested Terrans at the target area. Infested Terrans last <d ref="Behavior,SwarmlingFate,Duration"/> seconds.
 Button/Tooltip/InfestedTerransEgg=Hatches into an Infested Terran after a short period.
-Button/Tooltip/Infestor=Infestation specialist. Can move while burrowed. Can use the Infested Terran, Neural Parasite, and Fungal Growth abilities.
+Button/Tooltip/Infestor=Infestation specialist. Can move while burrowed. Can use the Siphon Life, Fungal Growth, and Neural Parasite abilities.
 Button/Tooltip/InfestorTerran=Infested Terran does moderate damage and lasts for <d ref="Behavior,SwarmlingFate,Duration"/> seconds.<n/><n/><c val="FFFF8A">Can attack ground and air units.</c>
 Button/Tooltip/Interceptor=Builds Interceptors that automatically attack the Carrier's target. Carriers may not attack without Interceptors.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InterceptorUnit=Combat drones that automatically strafe their Carrier's target. Carriers may not attack without Interceptors.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/JetPack=Reapers can jump up and down cliffs.  
+Button/Tooltip/JetPack=Allows Reapers to jump up and down cliffs.
 Button/Tooltip/Lair=Evolved version of the Hatchery which allows for additional upgrades and buildings to be produced. Also spawns all Zerg units and receives gathered resources.<n/><n/><c val="ffff8a">Enables:</c><n/>- Overseers from Overlords
 Button/Tooltip/Land=Lands the building at a target location, allowing it to once again build units, research upgrades, and use abilities.
 Button/Tooltip/Larva=Morphs into Zerg units.
@@ -2694,30 +2432,30 @@ Button/Tooltip/Lift=Transforms structure to a slow air unit for redeployment. Ma
 Button/Tooltip/Load=Loads units into the Nydus Worm.
 Button/Tooltip/Lower=Lowers the building, allowing ground units to walk across it.
 Button/Tooltip/MULE=Prototype harvesting unit. Gathers minerals more quickly than regular SCVs. MULEs last 90 seconds before their systems fail.
-Button/Tooltip/Marauder=Heavy assault infantry. Fires a punisher grenade that slows down targets that are hit.<n/><n/><c val="#ColorAttackInfo">Massive units immune to concussion.</c><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/Marauder=Heavy assault infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/Marine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/MassRecall=Teleports all units owned by the player in the targeted area to the Mothership.
 Button/Tooltip/Medivac=Air transport. Heals nearby biological units.
 Button/Tooltip/MedivacLoad=Loads units into the Medivac's hold.
 Button/Tooltip/MedivacUnloadAll=Unloads all units.
 Button/Tooltip/MineralField=Workers can harvest resources from this mineral field.
-Button/Tooltip/MissileTurret=Anti-air defensive structure.<n/><n/><c val="#ColorAttackInfo">Can attack air units only.</c><n/><c val="FFE303">Detector</c>
+Button/Tooltip/MissileTurret=Primary anti-air defensive structure.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c><n/><c val="FFE303">Detector</c>
 Button/Tooltip/MorphBackToGateway=Morph this Warp Gate back to a Gateway.
 Button/Tooltip/MorphMorphalisk=Target Hatchery, Lair, or Hive spawns 4 Larva in <d ref="Behavior,SpawnMutantLarvaTimer,Duration"/> seconds.  If Hatchery, Lair or Hive has more than 3 Larva at one time, regular larva production will stop until there is less than 3 larva.
-Button/Tooltip/Mothership=Ultimate Protoss vessel.  Can use Vortex and Mass Recall.  Cloaks nearby units and structures.  <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
+Button/Tooltip/Mothership=Ultimate Protoss vessel.  Can use Vortex, Temporal Rift, and Wormhole Transit.  Cloaks nearby units and structures.  <n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/Move=Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.
 Button/Tooltip/MoveHoldPosition=Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.
 Button/Tooltip/MovePatrol=Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.
 Button/Tooltip/Mutalisk=Air unit that bounces its shot to strike multiple targets.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
-Button/Tooltip/NeuralParasite=Target unit is controlled by the Infestor until one of them dies, or the Infestor relinquishes control. The Infestor cannot take any other action while controlling an enemy unit.<n/><n/><c val="#ColorAttackInfo">Can target ground units.</c><n/><c val="ffff8a">Channeled ability.</c>
+Button/Tooltip/MutaliskCocoon=This egg contains a Corruptor as it is morphing into a powerful Brood Lord.
+Button/Tooltip/NeuralParasite=Target unit is controlled by the Zerg for <d ref="Behavior,NeuralParasite,Duration"/> seconds.<n/><n/><c val="#ColorAttackInfo">Can only target Biological units.</c>
 Button/Tooltip/Nexus=Primary structure. Can receive gathered resources. Can use the Chrono Boost ability.<n/><n/><c val="ffff8a">Enables:</c><n/>- Probes
 Button/Tooltip/NuclearReactor=Allows two units to be built simultaneously.
 Button/Tooltip/NukeArm=Arms the Silo with a tactical nuke.<n/><n/>Nukes take 20 seconds to land, but deal up to 300 damage (+200 vs Structures) in a large radius.<n/><n/>Use a Ghost to designate the target.
 Button/Tooltip/NukeCalldown=Calls down a Nuclear Strike at a target location. Nukes take 20 seconds to land, but deal up to 300 (+200 vs Structures) damage to enemies in a large radius.
-Button/Tooltip/NydusCanal=Friendly ground units can use a Nydus Worm to instantly travel to any other Nydus Worm or Nydus Network owned by the player. Grows creep, used to feed nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
+Button/Tooltip/NydusCanal=Friendly units can use a Nydus Worm to instantly travel to any other Nydus Worm or Nydus Network owned by the player. Grows creep, used to feed nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
 Button/Tooltip/NydusCanalLoad=Loads units into the Nydus Network.
 Button/Tooltip/NydusCanalUnloadAll=Unloads all units.
-Button/Tooltip/NydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.
+Button/Tooltip/NydusNetwork=Friendly units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.
 Button/Tooltip/Observatory=Provides vision of the area surrounding the Xel'Naga Tower. Can only be activated by ground units.
 Button/Tooltip/Observer=Flying spy. Cloak renders the unit invisible to enemies without detection.<n/><n/><c val="FFE303">Detector</c>
 Button/Tooltip/OrbitalCommand=Upgrades Command Center to an Orbital Command unlocking Scanner Sweep, Calldown: MULE, and Calldown: Extra Supplies.
@@ -2728,18 +2466,18 @@ Button/Tooltip/OverlordCocoon=This egg contains an Overlord as it is morphing in
 Button/Tooltip/OverlordTransportLoad=Loads units into the Overlord's ventral sacs.
 Button/Tooltip/OverlordTransportUnload=Unloads all units.
 Button/Tooltip/Overseer=Advanced aerial observer. Maintains the unit cap set by the Overlord. Can use Spawn Changeling.<n/><n/><c val="FFE303">Detector</c>
-Button/Tooltip/OverseerMut=Advanced aerial observer. Provides the same supply as an Overlord. Can use the Spawn Changeling ability.<n/><n/><c val="FFE303">Detector</c>
+Button/Tooltip/OverseerMut=Advanced aerial observer. Provides the same supply as an Overlord. Can use the Spawn Changeling and Fungal Growth abilities.<n/><n/><c val="FFE303">Detector</c>
 Button/Tooltip/PermanentlyCloaked=The Dark Templar is permanently cloaked.
 Button/Tooltip/PermanentlyCloakedObserver=The Observer is permanently cloaked.
 Button/Tooltip/PhaseShift=Causes the targeted unit to phase out for <d ref="Behavior,Ethereal,Duration"/> seconds.  Phased units are immune to all damage and most effects, but are unable to attack or use abilities.
 Button/Tooltip/PhasingMode=Deploys the Warp Prism into Phasing Mode and generates a power radius similar to that of a Pylon. The Warp Prism cannot move in this mode.
 Button/Tooltip/Phoenix=Air superiority fighter. Can use Graviton Beam.<n/><n/><c val="ffff8a">Can attack air units.</c>
-Button/Tooltip/PhoenixHallucination=This hallucinated copy functions like the original unit, but cannot use abilities or deal damage, and dies more easily. Hallucinations last 60 seconds before they disappear.
+Button/Tooltip/PhoenixHallucination=This hallucinated copy functions like the original unit, but cannot deal damage and dies more easily. Hallucinations last 60 seconds before they disappear.
 Button/Tooltip/PhotonCannon=Primary defensive structure.<n/><n/><c val="ffff8a">Can attack ground and air units.</c><n/><c val="FFE303">Detector</c>
-Button/Tooltip/PlanetaryFortress=Defensive strong-point. <n/>Used to receive gathered resources. <n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/PlanetaryFortress=Defensive strong-point. Used to receive gathered resources. Has large guns good against swarms of smaller enemies.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/PlanetaryFortressLoad=Loads nearby SCVs into the Planetary Fortress.
 Button/Tooltip/PointDefense=Automated defensive laser that intercepts enemy projectiles.<n/><n/>Effective against Marauders, Vikings, Banshees, Battlecruisers, Thors, Missile Turrets, Stalkers, Phoenix, Photon Cannons, Queens, Mutalisks, Corruptors, Hydralisks, Spore Crawlers.
-Button/Tooltip/PointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes <d ref="Weapon,PointDefenseLaser,Cost.Vital[2]"/> energy.</c>
+Button/Tooltip/PointDefenseDrone=Uses a laser to shoot down enemy missiles.  Cannot target special attacks. Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes <d ref="Weapon,PointDefenseLaser,Cost.Vital[2]"/> energy.</c>
 Button/Tooltip/PrismaticBeam=The Void Ray's damage output increases the longer it remains on a single target.
 Button/Tooltip/Probe=Basic worker unit. Can gather resources and warp in Protoss structures.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/ProbeHallucination=These hallucinated copies function like the original unit, but cannot deal damage, warp in structures or gather resources, and die more easily. Hallucinations last 60 seconds before they disappear.
@@ -2749,8 +2487,8 @@ Button/Tooltip/ProtossAirArmorLevel3=Maximizes the armor of Protoss air units.
 Button/Tooltip/ProtossAirWeaponsLevel1=Upgrades the damage dealt by Protoss air units.
 Button/Tooltip/ProtossAirWeaponsLevel2=Further upgrades the damage dealt by Protoss air units.
 Button/Tooltip/ProtossAirWeaponsLevel3=Maximizes the damage dealt by Protoss air units.
-Button/Tooltip/ProtossBuild=A list of basic structures.
-Button/Tooltip/ProtossBuildAdvanced=A list of the advanced structures.
+Button/Tooltip/ProtossBuild=Brings up a list of the basic structures that you may choose to construct.
+Button/Tooltip/ProtossBuildAdvanced=Brings up a list of the advanced structures that you may choose to construct.
 Button/Tooltip/ProtossGroundArmorLevel1=Upgrades the armor of Protoss ground units.
 Button/Tooltip/ProtossGroundArmorLevel2=Further upgrades the armor of Protoss ground units.
 Button/Tooltip/ProtossGroundArmorLevel3=Maximizes the armor of Protoss ground units.
@@ -2761,17 +2499,16 @@ Button/Tooltip/ProtossShieldsLevel1=Upgrades the shields of all Protoss units an
 Button/Tooltip/ProtossShieldsLevel2=Further upgrades the shields of all Protoss units and structures.
 Button/Tooltip/ProtossShieldsLevel3=Maximizes the shields of all Protoss units and structures.
 Button/Tooltip/PsiStorm=Creates a storm of psionic energy that lasts 4 seconds, causing up to 80 damage to all units in the target area.  Ability can only be used once every <d ref="Abil,PsiStorm,Cost[0].Cooldown.TimeUse"/> seconds.
-Button/Tooltip/Pylon=Provides supply.<n/>Supply allows you to train more units.<n/>Creates power for nearby structures.
+Button/Tooltip/Pylon=Provides supply to increase maximum size of Protoss force. Creates a field to power nearby structures.
 Button/Tooltip/Queen=Defensive unit. Can Spawn Creep Tumors, Spawn Larva, and use the Transfusion ability. Moves much faster on creep.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/QueenEgg=This egg can be morphed into a Queen.
 Button/Tooltip/RadarField=This structure is able to expose enemy movements within its radar capacity. Does not reveal the area.
 Button/Tooltip/Raise=Raises the building, preventing ground units from moving across it.
 Button/Tooltip/Rally=Sends constructed units to the designated point. Units will engage enemies encountered along the way. Workers sent to minerals or Vespene Refineries will automatically begin harvesting.
 Button/Tooltip/RallyEgg=Sends created units to the designated point. Workers sent to minerals or Vespene Refineries will automatically begin harvesting.
-Button/Tooltip/RallyExtra=Sends constructed units to the designated point. Units will engage enemies encountered along the way. Workers sent to minerals or Vespene Refineries will automatically begin harvesting.
 Button/Tooltip/RapidRegeneration=The Roach regenerates health very quickly while burrowed.
 Button/Tooltip/Raven=Aerial support unit. Can use Auto Turret, Point Defense Drone and Seeker Missile abilities.<n/><n/><c val="FFE303">Detector</c>
-Button/Tooltip/Reaper=Raider. Capable of jumping up and down cliffs. <n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/Reaper=Raider. Capable of jumping up and down cliffs. Throws explosive mines.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/ReaperSpeed=Increases the movement speed of Reapers.
 Button/Tooltip/Refinery=Built over a Vespene Geyser to allow harvesting of Vespene Gas.
 Button/Tooltip/Repair=Restores health to mechanical units and structures at the cost of resources.
@@ -2785,7 +2522,7 @@ Button/Tooltip/ResearchExtendedThermalLance=Increases the range of the Colossus 
 Button/Tooltip/ResearchGhostEnergyUpgrade=Increases the starting energy of Ghosts by <d ref="Upgrade,GhostMoebiusReactor,EffectArray[0].Value"/>.
 Button/Tooltip/ResearchGraviticBooster=Increases the movement speed of Observers.
 Button/Tooltip/ResearchGraviticDrive=Increases the movement speed of Warp Prisms.
-Button/Tooltip/ResearchHallucination=Allows Sentries to use Hallucination.<n/><n/>Hallucination creates copies of the selected unit. These copies function like the original unit, but cannot use active abilities or deal damage, and die more easily. Hallucinations last <d ref="Behavior,HallucinationTimedLife,Duration"/> seconds before they disappear. Enemy detectors are able to distinguish between hallucinated Protoss units, and real Protoss units.
+Button/Tooltip/ResearchHallucination=Allows Sentries to use Hallucination.<n/><n/>Hallucination creates copies of the selected unit. These copies function like the original unit, but cannot deal damage and die more easily. Hallucinations last <d ref="Behavior,HallucinationTimedLife,Duration"/> seconds before they disappear. Enemy detectors are able to distinguish between hallucinated Protoss units, and real Protoss units.
 Button/Tooltip/ResearchHiSecAutoTracking=Adds +1 range to Auto-Turrets, Missile Turrets, Planetary Fortresses and Point Defense Drones.
 Button/Tooltip/ResearchHighCapacityBarrels=Improves the Hellion's flame thrower to give +10 damage vs. Light.
 Button/Tooltip/ResearchHighTemplarEnergyUpgrade=Increases the starting energy of High Templar by <d ref="Upgrade,HighTemplarKhaydarinAmulet,EffectArray[0].Value"/>.
@@ -2824,17 +2561,17 @@ Button/Tooltip/Siphon=Siphons 4 life per second from the target. Half of the lif
 Button/Tooltip/Snipe=A careful shot, dealing 45 damage.  Ignores Armor.<n/><n/><c val="#ColorAttackInfo">Can only target Biological units.</c>
 Button/Tooltip/SpawnChangeling=Creates a Changeling.  Changelings cannot attack and die after 150 seconds. When it first encounters an enemy unit it will match its color and change into a Zealot, Marine, or Zergling, depending on the enemy race.
 Button/Tooltip/SpawningPool=Contains upgrades for Zerglings.<n/><n/><c val="ffff8a">Enables:</c><n/>- Queens from Hatchery, Lair or Hive<n/>- Zerglings from Larva<n/>- Spine Crawlers from Drones
-Button/Tooltip/SpineCrawler=Anti-ground defensive structure. <n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/SpineCrawler=Anti-ground defensive structure. Can be ordered to uproot and move. Must be on creep to root again. Cannot attack while uprooted.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/SpineCrawlerRoot=Roots the Spine Crawler.  A rooted Spine Crawler has the ability to attack ground units, but is unable to move.
 Button/Tooltip/SpineCrawlerUproot=Uproots the Spine Crawler. An uprooted Spine Crawler has the ability to move, but cannot attack. Moves much faster on creep.
 Button/Tooltip/Spire=Contains upgrades for Zerg air units. Can mutate into a Greater Spire.<n/><n/><c val="ffff8a">Enables:</c><n/>- Mutalisks from Larva<n/>- Corruptors from Larva
-Button/Tooltip/SporeCrawler=Anti-air defensive structure. <n/><n/><c val="ffff8a">Can attack air units.</c><n/><c val="FFE303">Detector</c>
+Button/Tooltip/SporeCrawler=Anti-air defensive structure. Can be ordered to uproot and move. Must be on creep to root again. Cannot attack while uprooted.<n/><n/><c val="ffff8a">Can attack air units.</c><n/><c val="FFE303">Detector</c>
 Button/Tooltip/SporeCrawlerRoot=Roots the Spore Crawler.  A rooted Spore Crawler has the ability to attack air units and detect cloaked units, but is unable to move.
 Button/Tooltip/SporeCrawlerUproot=Uproots the Spore Crawler.  An uprooted Spore Crawler has the ability to move, but cannot attack. Moves much faster on creep.
 Button/Tooltip/Stalker=Ranged support strider.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
-Button/Tooltip/StalkerHallucination=These hallucinated copies function like the original unit, but cannot use abilities or deal damage, and die more easily. Hallucinations last 60 seconds before they disappear.
+Button/Tooltip/StalkerHallucination=These hallucinated copies function like the original unit, but cannot deal damage and die more easily. Hallucinations last 60 seconds before they disappear.
 Button/Tooltip/Stargate=Warps-in Protoss air units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Phoenixes<n/>- Void Rays
-Button/Tooltip/Starport=Air unit production facility. <n/><n/><c val="ffff8a">Enables:</c><n/>- Vikings<n/>- Medivacs
+Button/Tooltip/Starport=Air unit production facility. Can use the Lift Off ability.<n/><n/><c val="ffff8a">Enables:</c><n/>- Vikings<n/>- Medivacs
 Button/Tooltip/StarportFlying=Starport must land to start unit production.
 Button/Tooltip/Stim=Injects the unit with powerful stimulants that greatly increase attack and movement speed for a few seconds. Injures the unit for 10 of the unit's health.
 Button/Tooltip/StimMarauder=Injects the unit with powerful stimulants that greatly increase attack and movement speed for a few seconds. Injures the unit for 20 of the unit's health.
@@ -2842,10 +2579,8 @@ Button/Tooltip/StimPack=Enables Marines, and Marauders to use the Stimpack abili
 Button/Tooltip/Stop=Orders selected units to cancel all orders and stop moving.
 Button/Tooltip/StopGenerateCreep=Stops generating creep.
 Button/Tooltip/StopPlanetaryFortress=Orders selected units to cancel all orders and stop moving.
-Button/Tooltip/StopRoachBurrowed=Orders selected units to cancel all orders and stop moving.
-Button/Tooltip/StopSpecial=Orders selected units to cancel all orders and stop moving.
-Button/Tooltip/SummonNydusWorm=Summons a Nydus Worm at the target location.<n/>Friendly ground units can use a Nydus Worm to instantly travel to any other Nydus Worm or Nydus Network owned by the player. Grows creep, used to feed nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
-Button/Tooltip/SupplyDepot=Provides supply.<n/>Supply allows you to train more units.
+Button/Tooltip/SummonNydusWorm=Summons a Nydus Worm at the target location.<n/>Friendly units can use a Nydus Worm to instantly travel to any other Nydus Worm or Nydus Network owned by the player. Grows creep, used to feed nearby Zerg structures.<n/><n/><c val="#ColorAttackInfo">Bonus: Zerg move faster on creep.</c>
+Button/Tooltip/SupplyDepot=Provides supply, which increases the maximum number of units that can be trained. Supply Depots can be lowered or raised.
 Button/Tooltip/SupplyDepotLowered=Provides supply, which increases the maximum number of units that can be trained. Supply Depots can be lowered or raised.
 Button/Tooltip/SupplyDrop=Drops additional supplies, permanently increasing the supply output of the target Supply Depot by <d ref="Behavior,SupplyDrop,Modification.Food"/>.
 Button/Tooltip/SwarmSeeds=The Brood Lord shoots Broodlings at its target. A Broodling is a small creature that can attack ground units.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
@@ -2855,8 +2590,8 @@ Button/Tooltip/TechLabFactory=Vehicle research structure. Tech Lab can fit onto 
 Button/Tooltip/TechLabStarport=Aircraft research structure. Tech Lab can fit onto any production building.<n/><n/><c val="ffff8a">Enables:</c><n/>- Banshees<n/>- Ravens<n/>- Battlecruisers with Fusion Core
 Button/Tooltip/TemplarArchive=Contains upgrades for High Templar.<n/><n/><c val="ffff8a">Enables:</c><n/>- High Templar at Gateway
 Button/Tooltip/TemporalRift=Creates a distortion field at the target location. Ground units caught inside of this field have their movement speed, attack speed, and ability usage times slowed by two-thirds. Lasts 30 seconds.
-Button/Tooltip/TerranBuild=A list of the basic structures.
-Button/Tooltip/TerranBuildAdvanced=A list of the advanced structures.
+Button/Tooltip/TerranBuild=Brings up a list of the basic structures that you may choose to construct.
+Button/Tooltip/TerranBuildAdvanced=Brings up a list of the advanced structures that you may choose to construct.
 Button/Tooltip/TerranInfantryArmorLevel1=Upgrades the armor of infantry units.
 Button/Tooltip/TerranInfantryArmorLevel2=Further upgrades the armor of infantry units.
 Button/Tooltip/TerranInfantryArmorLevel3=Maximizes the armor of infantry units.
@@ -2876,7 +2611,7 @@ Button/Tooltip/TerranVehicleWeaponsLevel1=Upgrades the damage dealt by ground ve
 Button/Tooltip/TerranVehicleWeaponsLevel2=Further upgrades the damage dealt by ground vehicles.
 Button/Tooltip/TerranVehicleWeaponsLevel3=Maximizes damage dealt by ground vehicles.
 Button/Tooltip/Thor=Heavy assault mech.  Can use 250mm Strike Cannons.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/TimeWarp=Places target building in a Chrono Boost.  All buildings will operate 50% faster for 20 seconds.
+Button/Tooltip/TimeWarp=Places target building in a Chrono Boost.  All buildings will operate 50 percent faster for 30 seconds.
 Button/Tooltip/Transfusion=Instantly restores 125 health to target biological unit or structure.
 Button/Tooltip/TransportMode=Reverts the Warp Prism back into Transport Mode, allowing it to move.
 Button/Tooltip/Turn=Orders selected units to turn toward the target area or unit.
@@ -2896,16 +2631,16 @@ Button/Tooltip/VoidRayHallucination=This hallucinated copy functions like the or
 Button/Tooltip/Vortex=Creates a gravity vortex that incapacitates ground and air units in the target area. Units within the Vortex are invulnerable to all damage and effects. Vortex lasts for 20 seconds.
 Button/Tooltip/WarpGate=Enables warp-in of Protoss ground units.
 Button/Tooltip/WarpPrism=Flying transport. Can load and unload units. Can also deploy to create a power field.
-Button/Tooltip/WarpPrismHallucination=This hallucinated copy functions like the original unit, but cannot use abilities or deal damage, and dies more easily. Hallucinations last 60 seconds before they disappear.
+Button/Tooltip/WarpPrismHallucination=This hallucinated copy functions like the original unit, but cannot deal damage and dies more easily. Hallucinations last 60 seconds before they disappear.
 Button/Tooltip/WarpPrismLoad=Loads units into the Warp Prism's matrix.
 Button/Tooltip/WarpPrismPhasing=Flying transport. Can load and unload units. Can also deploy to act as a Pylon.
 Button/Tooltip/WarpPrismUnloadAll=Unloads all units.
 Button/Tooltip/WormholeTransit=Creates an artificial wormhole allowing the Mothership to instantly travel to the target owned building.
 Button/Tooltip/YamatoGun=Blasts a target with a devastating plasma cannon, causing 300 damage.
 Button/Tooltip/Zealot=Powerful melee warrior.<n/><n/><c val="ffff8a">Can attack ground units.</c>
-Button/Tooltip/ZealotHallucination=These hallucinated copies function like the original unit, but cannot use abilities or deal damage, and die more easily. Hallucinations last 60 seconds before they disappear.
-Button/Tooltip/ZergBuild=A list of basic structures.
-Button/Tooltip/ZergBuildAdvanced=A list of the advanced structures.
+Button/Tooltip/ZealotHallucination=These hallucinated copies function like the original unit, but cannot deal damage and die more easily. Hallucinations last 60 seconds before they disappear.
+Button/Tooltip/ZergBuild=Brings up a list of the basic structures that you may choose to construct.
+Button/Tooltip/ZergBuildAdvanced=Brings up a list of the advanced structures that you may choose to construct.
 Button/Tooltip/Zergling=Fast melee creature. Can morph into a Baneling.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
 Button/Tooltip/hydraliskspeed=Increases the attack range of Hydralisks.
 Button/Tooltip/overlordspeed=Increases the movement speed of Overlords and Overseers.
@@ -7958,7 +7693,6 @@ Unit/Name/BraxisAlphaDestructible2x2=Destructible Debris
 Unit/Name/BroodLord=Brood Lord
 Unit/Name/BroodLordWeapon=Brood Lord Weapon
 Unit/Name/Broodling=Broodling
-Unit/Name/BroodlingDefault=Broodling
 Unit/Name/Bunker=Bunker
 Unit/Name/Carrier=Carrier
 Unit/Name/CarrionBird=Carrion Bird
@@ -7984,15 +7718,7 @@ Unit/Name/DarkShrine=Dark Shrine
 Unit/Name/DarkTemplar=Dark Templar
 Unit/Name/DestructibleBullhornLights=Bullhorn Lights
 Unit/Name/DestructibleDebris4x4=Destructible Debris
-Unit/Name/DestructibleDebris4x4HighlightTooltip=Attack this to destroy it
 Unit/Name/DestructibleDebris6x6=Destructible Debris
-Unit/Name/DestructibleDebris6x6HighlightTooltip=Attack this to destroy it
-Unit/Name/DestructibleRock2x4HorizontalHighlightTooltip=Attack this to destroy it
-Unit/Name/DestructibleRock2x4VerticalHighlightTooltip=Attack this to destroy it
-Unit/Name/DestructibleRock2x6HorizontalHighlightTooltip=Attack this to destroy it
-Unit/Name/DestructibleRock2x6VerticalHighlightTooltip=Attack this to destroy it
-Unit/Name/DestructibleRock4x4HighlightTooltip=Attack this to destroy it
-Unit/Name/DestructibleRock6x6HighlightTooltip=Attack this to destroy it
 Unit/Name/DestructibleGarage=Garage
 Unit/Name/DestructibleGarageLarge=Garage (Large)
 Unit/Name/DestructibleRampDiagonalHugeBLUR=Destructible Rocks
@@ -8079,7 +7805,6 @@ Unit/Name/Nuke=Nuclear Missile
 Unit/Name/NydusCanal=Nydus Worm
 Unit/Name/NydusNetwork=Nydus Network
 Unit/Name/Observatory=Xel'Naga Tower
-Unit/Name/ObservatoryHighlightTooltip=Provides vision to nearby units
 Unit/Name/Observer=Observer
 Unit/Name/OrbitalCommand=Orbital Command
 Unit/Name/OrbitalCommandFlying=Orbital Command

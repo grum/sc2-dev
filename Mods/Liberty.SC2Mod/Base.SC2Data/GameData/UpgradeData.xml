@@ -433,8 +433,7 @@
         <EffectArray Reference="Weapon,VoidRay,Level" Value="1"/>
         <EffectArray Reference="Effect,VoidRayMUx1,Amount" Value="1"/>
         <EffectArray Reference="Effect,VoidRayMUx2,Amount" Value="1"/>
-        <EffectArray Reference="Effect,VoidRayMUx2,AttributeBonus[e_unitAttributeArmored]" Value="1.000000"/>
-        <EffectArray Reference="Effect,VoidRayMUx3,Amount" Value="2"/>
+        <EffectArray Reference="Effect,VoidRayMUx3,Amount" Value="1"/>
         <EffectArray Reference="Effect,VoidRayMUx3,AttributeBonus[e_unitAttributeArmored]" Value="2.000000"/>
         <!--  Carrier -->
         <EffectArray Reference="Weapon,CarrierInterceptor,Level" Value="1"/>
@@ -605,7 +604,7 @@
         <EffectArray Reference="Unit,BroodLord,LifeArmor" Value="1"/>
         <EffectArray Reference="Unit,OverlordCocoon,LifeArmorLevel" Value="1"/>
         <EffectArray Reference="Unit,OverlordCocoon,LifeArmor" Value="1"/>
-        <EffectArray Operation="Set" Reference="Unit,EngineeringBay,-"/>
+        <EffectArray Operation="Set" Reference="Unit,EngineeringBay,"/>
         <EffectArray Reference="Unit,MutaliskCocoon,LifeArmorLevel" Value="1"/>
         <EffectArray Reference="Unit,MutaliskCocoon,LifeArmor" Value="1"/>
         <AffectedUnitArray value="BroodLord"/>
@@ -690,7 +689,7 @@
         <Race value="Zerg"/>
         <ScoreAmount value="200"/>
         <ScoreResult value="BuildOrder"/>
-        <EffectArray Reference="Unit,RoachBurrowed,Speed" Value="2.000000"/>
+        <EffectArray Reference="Unit,RoachBurrowed,Speed" Value="1.406000"/>
         <EditorCategories value="Race:Zerg,UpgradeType:Talents"/>
         <AffectedUnitArray value="Roach"/>
         <AffectedUnitArray value="RoachBurrowed"/>
@@ -879,7 +878,7 @@
         <InfoTooltipPriority value="21"/>
     </CUpgrade>
     <CUpgrade id="PunisherGrenades">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-cleave.dds"/>
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade.dds"/>
         <Race value="Terr"/>
         <ScoreAmount value="300"/>
         <ScoreResult value="BuildOrder"/>

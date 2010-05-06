@@ -186,6 +186,10 @@
     <CRequirementCountUpgrade id="CountUpgradeProtossShieldsLevel2QueuedOrBetter">
         <Count Link="ProtossShieldsLevel2" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradePunisherGrenadesCompleteOnly627199108">
+        <Tooltip value="RequirementNode/Tooltip/CountUpgradePunisherGrenadesCompleteOnly627199108"/>
+        <Count Link="PunisherGrenades" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="CountUpgradePunisherGrenadesQueuedOrBetter">
         <Count Link="PunisherGrenades" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
