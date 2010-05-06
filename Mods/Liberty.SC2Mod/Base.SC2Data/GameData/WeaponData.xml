@@ -511,7 +511,7 @@
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel1.dds"/>
         <DisplayEffect value="MothershipBeamDamage"/>
-        <DisplayAttackCount value="8"/>
+        <DisplayAttackCount value="6"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="7"/>
         <Arc value="360"/>

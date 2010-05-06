@@ -129,11 +129,13 @@ e_errorXMLStateNotTagContent=XML: State not TagContent
 // Gfx2
 e_gfxErrorFailedToInitialize=Starcraft II has encountered an error while initializing your videocard. Please try starting Starcraft II again. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
 e_gfxErrorOutofVideoMemory=Starcraft II has encountered an error. Your system may be running low on available video memory. Please restart your machine. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
-e_gfxErrorWeRequireAdditionalPShaders=Starcraft II requires a videocard with pixel shader 2.0 support.
-e_gfxErrorWeRequireAdditionalVShaders=Starcraft II requires a videocard with vertex shader 2.0 support.
+e_gfxErrorWeRequireAdditionalPShaders=Starcraft II requires a videocard with pixel shader 2.0 support. This PC does not meet minimum system requirements. For more information on required hardware, consult our support website at http://starcraft2.com/support.
+e_gfxErrorWeRequireAdditionalVShaders=Starcraft II requires a videocard with vertex shader 2.0 support. This PC does not meet minimum system requirements. For more information on required hardware, consult our support website at http://starcraft2.com/support.
 e_gfxGraphicsAPIError=Starcraft II has encountered an unexpected D3D/OpenGL error. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
-e_gfxErrorNoHardwareAcceleration=Starcraft II requires a videocard with 3D acceleration support.
-e_gfxErrorDeviceUnavailable=Graphics device is not available at this time.
+e_gfxErrorNoHardwareAcceleration=Starcraft II requires a videocard with 3D acceleration support. This PC does not meet minimum system requirements. For more information on required hardware, consult our support website at http://starcraft2.com/support.
+e_gfxErrorDeviceUnavailable=Graphics device is not available at this time. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
+e_gfxErrorFailedToInitDueToExclusiveAccess=The videocard is not accessible because another 3D application has exclusive access or the machine was locked. Please close any 3D applications or games and try starting Starcraft II again. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
+e_gfxErrorIdCreationFailed=D3D creation failed. If the problem persists, for more information consult our support website at http://starcraft2.com/support.
 
 // Galaxy
 e_badLValue=Cannot assign to the left side of assignment expression

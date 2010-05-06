@@ -429,7 +429,7 @@
         <TimeScaleSource Value="Caster"/>
         <Flags index="Channeled" value="1"/>
         <InitialEffect value="MothershipBeamInitialDummyDamage"/>
-        <PeriodCount value="4"/>
+        <PeriodCount value="3"/>
         <PeriodicValidator value="CasterNotDead"/>
         <PeriodicEffectArray value="MothershipBeamDamage"/>
         <PeriodicPeriodArray value="0.375"/>
@@ -437,7 +437,7 @@
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="MothershipBeamPersistent">
         <EditorCategories value="Race:Protoss"/>
-        <PeriodCount value="4"/>
+        <PeriodCount value="3"/>
         <WhichLocation Value="TargetUnit"/>
         <PeriodicEffectArray value="MothershipBeamDamage"/>
         <PeriodicPeriodArray value="0.375"/>
@@ -2172,7 +2172,7 @@
         <EditorCategories value="Race:Zerg"/>
         <Amount value="12"/>
         <Visibility value="Visible"/>
-        <AttributeBonus index="Massive" value="8"/>
+        <AttributeBonus index="Massive" value="10"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="CorruptorInfest">
         <EditorCategories value="Race:Zerg"/>

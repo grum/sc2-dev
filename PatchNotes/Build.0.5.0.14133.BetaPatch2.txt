@@ -1,0 +1,59 @@
+StarCraft II Beta - Patch 2 (version 0.4.0.14133)
+
+Balance Changes
+
+
+    * TERRAN
+
+          o Banshee
+
+                + Cloak: This ability no longer requires Fusion Core to research.
+
+          o Barracks
+
+                + The build time for this building has decreased from 65 to 60.
+
+          o Factory
+
+                + The build time for this building has decreased from 65 to 60.
+
+          o Reactor
+
+                + The build time for this building has decreased from 40 to 25.
+
+          o Reaper
+
+                + The build time for this unit has increased from 30 to 40.
+                + Nitro Boost: The build time for this upgrade has increased from 90 to 100.
+
+          o Starport
+
+                + The build time for this building has decreased from 55 to 50.
+
+          o Tech Lab
+
+                + The build time for this building has decreased from 30 to 25.
+
+    * PROTOSS
+
+          o Mothership
+
+                + The build time for this unit has increased from 120 to 160.
+                + The food cost of this unit has increased from 6 to 8.
+                + The number of shots fired by this unit has decreased from 8 to 6.
+                + The shield of this unit has decreased from 400 to 350.
+                + The health of this unit has decreased from 400 to 350.
+                + The acceleration of this unit has decreased from 1.3125 to 0.3125.
+                + The deceleration of this unit has increased from 0 to 1.
+
+          o Nexus
+
+                + Chrono Boost: The duration of this ability has decreased from 30 to 20.
+
+    * ZERG
+
+          o Corruptor
+
+                + The damage done by this unit has increased from 12 (+8 massive) to 12 (+10 massive).
+
+

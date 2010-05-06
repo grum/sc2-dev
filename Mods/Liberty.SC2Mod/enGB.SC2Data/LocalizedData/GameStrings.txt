@@ -2625,7 +2625,7 @@ Button/Tooltip/TerranVehicleWeaponsLevel1=Upgrades the damage dealt by ground ve
 Button/Tooltip/TerranVehicleWeaponsLevel2=Further upgrades the damage dealt by ground vehicles.
 Button/Tooltip/TerranVehicleWeaponsLevel3=Maximizes damage dealt by ground vehicles.
 Button/Tooltip/Thor=Heavy assault mech.  Can use 250mm Strike Cannons.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/TimeWarp=Places target building in a Chrono Boost.  All buildings will operate 50 percent faster for 30 seconds.
+Button/Tooltip/TimeWarp=Places target building in a Chrono Boost.  All buildings will operate 50 percent faster for 20 seconds.
 Button/Tooltip/Transfusion=Instantly restores 125 health to target biological unit or structure.
 Button/Tooltip/TransportMode=Reverts the Warp Prism back into Transport Mode, allowing it to move.
 Button/Tooltip/Turn=Orders selected units to turn toward the target area or unit.

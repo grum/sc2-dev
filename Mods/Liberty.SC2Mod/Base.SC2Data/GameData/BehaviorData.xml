@@ -233,7 +233,7 @@
         </Cost>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-overpower.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
-        <Duration value="30"/>
+        <Duration value="20"/>
         <Modification TimeScale="1.5">
             <VitalRegenArray index="Energy" value="-0.1992"/>
         </Modification>
@@ -246,7 +246,7 @@
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <RemoveValidatorArray value="TimewarpResearch"/>
         <TimeScaleSource Value="Global"/>
-        <Duration value="30"/>
+        <Duration value="20"/>
         <Modification TimeScale="1.5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="UnderConstruction">

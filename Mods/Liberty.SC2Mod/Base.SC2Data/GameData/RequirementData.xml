@@ -528,7 +528,6 @@
     </CRequirement>
     <CRequirement id="LearnCloakingField">
         <EditorCategories value="Race:Terran"/>
-	<NodeArray index="Use" Link="UnitFusionCoreCompleteOnly"/>
         <NodeArray index="Show" Link="NotCountUpgradeBansheeCloakQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="LearnPersonnelCloaking">

@@ -2335,17 +2335,18 @@
         <Facing value="45"/>
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
+        <LifeStart value="350"/>
+        <LifeMax value="350"/>
         <LifeArmor value="2"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
-        <ShieldsStart value="400"/>
-        <ShieldsMax value="400"/>
+        <ShieldsStart value="350"/>
+        <ShieldsMax value="350"/>
         <ShieldRegenRate value="2"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <Mover value="Fly"/>
         <Speed value="1.4062"/>
-        <Acceleration value="1.3125"/>
+        <Acceleration value="0.3125"/>
+        <Deceleration value="1"/>
         <Height value="3.75"/>
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
@@ -2394,7 +2395,7 @@
         <CostResource index="Vespene" value="400"/>
         <TacticalAIThink value="AIThinkMothership"/>
         <TacticalAIRange value="AIRangeMothership"/>
-        <Food value="-6"/>
+        <Food value="-8"/>
         <WeaponArray Link="MothershipBeam" Turret="FreeRotate"/>
         <WeaponArray Turret="MothershipRotate"/>
         <ShieldRegenDelay value="10"/>

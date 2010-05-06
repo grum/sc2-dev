@@ -6665,8 +6665,8 @@ Terran_AttackLaunch"/>
         <HeroIcon value="Assets\Textures\btn-building-zerg-nydusworm.dds"/>
         <GroupIconLayer value="Assets\Textures\Wireframe-Zerg-NydusWorm.dds"/>
         <WireframeLayer value="Assets\Textures\Wireframe-Zerg-NydusWorm.dds"/>
-        <SoundArray index="Birth" value="NydusWorm_Birth"/>
-        <SoundArray index="Ready" value="NydusWorm_Birth"/>
+        <SoundArray index="Birth" value=""/>
+        <SoundArray index="Ready" value="NydusWorm_Ready"/>
         <SoundArray index="What" value="NydusWorm_What"/>
         <SoundArray index="Yes" value="NydusWorm_What"/>
         <SoundArray index="Construction" value="Zerg_BuildingMorphWhat"/>
@@ -6687,6 +6687,10 @@ Terran_AttackLaunch"/>
     </CActorSound>
     <CActorSound id="NydusWorm_DeathCry" parent="SoundOneShot">
         <On Terms="UnitDeathCustomize.NydusCanal; PassChance 100.000000" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="NydusWorm_Birth" parent="SoundOneShot">
+        <FogVisibility value="Visible"/>
+        <On Terms="UnitBirth.NydusCanal" Send="Create"/>
     </CActorSound>
     <!--                                                                                         -->
     <!-- Overlord .............................................................................. -->
