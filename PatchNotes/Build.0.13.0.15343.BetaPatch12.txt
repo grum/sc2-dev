@@ -1,0 +1,30 @@
+StarCraft II Beta -- Patch 12 (version 0.14.0.15343)
+
+The latest patch notes can always be found on our StarCraft II Beta General Discussion forum.
+
+Balance Changes
+
+    * PROTOSS
+          o Forge
+                + Build time increased from 35 to 45.
+                + Life and shield values decreased from 550/550 to 400/400.
+          o Mothership
+                + Vortex now removes Force Fields within its area of effect.
+
+    * TERRAN
+          o Thor
+                + Radius decreased from 1.375 to 0.8125.
+                + Model size reduced to match new radius.
+
+    * ZERG
+          o Roach
+                + Supply count increased from 1 to 2.
+
+User Interface
+
+    * Several Hotkey changes have been made (German client only).
+
+Bug Fixes
+
+    * Fixed a crash which sometimes occurred when quitting the program.
+

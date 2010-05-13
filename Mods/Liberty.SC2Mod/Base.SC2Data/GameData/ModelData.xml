@@ -4562,8 +4562,8 @@
     <CModel id="GhostPortrait" parent="Portrait" Race="Terran"/>
     <CModel id="Thor" parent="Unit" Race="Terran">
         <Occlusion value="Show"/>
-        <ScaleMax value="0.650000,0.650000,0.650000"/>
-        <ScaleMin value="0.650000,0.650000,0.650000"/>
+        <ScaleMax value="0.550000,0.550000,0.550000"/>
+        <ScaleMin value="0.550000,0.550000,0.550000"/>
         <SelectionRadius value="1.8457"/>
         <AttachProps Id="Ref_Weapon 05">
             <Keys index="SetA" value="0"/>
@@ -4627,8 +4627,8 @@
         <EditorCategories value="Race:Terran"/>
     </CModel>
     <CModel id="ThorTransit" parent="PersistentSpellFX">
-        <ScaleMax value="0.650000,0.650000,0.650000"/>
-        <ScaleMin value="0.650000,0.650000,0.650000"/>
+        <ScaleMax value="0.550000,0.550000,0.550000"/>
+        <ScaleMin value="0.550000,0.550000,0.550000"/>
         <Model value="Assets\Units\Terran\ThorTransit\ThorTransit.m3"/>
         <EditorCategories value="Race:Terran"/>
         <SelectionRadius value="0.769"/>

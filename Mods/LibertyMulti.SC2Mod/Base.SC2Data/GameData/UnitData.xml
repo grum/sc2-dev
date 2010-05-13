@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CUnit id="Forge">
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <ShieldsStart value="400"/>
+        <ShieldsMax value="400"/>
+    </CUnit>
     <CUnit id="Hydralisk"/>
     <CUnit id="HydraliskBurrowed"/>
     <CUnit id="VoidRay"/>

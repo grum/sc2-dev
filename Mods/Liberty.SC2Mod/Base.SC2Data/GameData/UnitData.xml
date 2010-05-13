@@ -2368,12 +2368,12 @@
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
         <FogVisibility value="Snapshot"/>
-        <LifeStart value="550"/>
-        <LifeMax value="550"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
         <LifeArmor value="1"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
-        <ShieldsStart value="550"/>
-        <ShieldsMax value="550"/>
+        <ShieldsStart value="400"/>
+        <ShieldsMax value="400"/>
         <ShieldRegenRate value="2"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <StationaryTurningRate value="719.4726"/>
@@ -3015,7 +3015,7 @@
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
         <KillXP value="160"/>
-        <Radius value="1.375"/>
+        <Radius value="0.8125"/>
         <SeparationRadius value="1"/>
         <InnerRadius value="0.8125"/>
         <ScoreMake value="1000"/>
@@ -4784,7 +4784,7 @@
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <Food value="-1"/>
+        <Food value="-2"/>
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
@@ -4849,7 +4849,7 @@
         <LifeMax value="145"/>
         <LifeRegenRate value="5"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
-        <Food value="-1"/>
+        <Food value="-2"/>
         <AttackTargetPriority value="20"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>

@@ -932,6 +932,11 @@
         <Amount value="-0.1"/>
         <ValidatorArray value="IsNotWarpBubble"/>
     </CEffectApplyForce>
+    <CEffectDamage id="VortexKillForceField">
+        <ValidatorArray value="TargetIsForceField"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Flags index="Kill" value="1"/>
+    </CEffectDamage>
     <CEffectEnumArea id="VortexSearchArea">
         <EditorCategories value="Race:Protoss"/>
         <SearchFilters value="-;Self,Structure,Missile,Item,Dead,Hidden"/>
@@ -969,12 +974,12 @@
     </CEffectIssueOrder>
     <CEffectSet id="VortexEffect">
         <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="VortexKillForceField"/>
         <EffectArray value="VortexUnburrow"/>
         <EffectArray value="VortexDummy"/>
         <EffectArray value="VortexUnsiege"/>
         <EffectArray value="VortexApplyDisable"/>
         <EffectArray value="VortexForce"/>
-        <ValidatorArray value="NotForceField"/>
     </CEffectSet>
     <CEffectApplyBehavior id="VortexEventHorizon">
         <EditorCategories value="Race:Protoss"/>

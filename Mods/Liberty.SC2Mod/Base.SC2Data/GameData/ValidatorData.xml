@@ -567,6 +567,9 @@
         <Value value="Fly"/>
         <Find value="1"/>
     </CValidatorUnitMover>
+    <CValidatorUnitType id="TargetIsForceField">
+        <Value value="ForceField"/>
+    </CValidatorUnitType>
     <CValidatorUnitMover id="TargetIsGround">
         <Value value="Ground"/>
         <Find value="1"/>

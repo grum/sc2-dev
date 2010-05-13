@@ -586,7 +586,7 @@
             <SortArray value="TSMarker"/>
             <SortArray value="TSDistance"/>
         </TargetSorts>
-        <TargetFilters value="Ground,Structure,Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Ground,Structure,Visible;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="InfestedTerrans">
         <Range value="9"/>
@@ -1610,7 +1610,7 @@
             <Resource index="Minerals" value="150"/>
             <Button DefaultButtonFace="Gateway" State="Suppressed" Requirements="HaveNexus"/>
         </InfoArray>
-        <InfoArray index="Build5" Unit="Forge" Time="35">
+        <InfoArray index="Build5" Unit="Forge" Time="45">
             <Resource index="Minerals" value="150"/>
             <Button DefaultButtonFace="Forge" Requirements="HaveNexus"/>
         </InfoArray>
