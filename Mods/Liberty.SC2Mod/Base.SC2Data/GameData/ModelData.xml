@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="ContaminateWeapon" parent="MissileFX">
+        <Model value="Assets\Effects\Zerg\SlimeMissile\SlimeMissile.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="ContaminateModel" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\Infestation\Infestation.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="FrenzyModel" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\TerrorcystInfection\TerrorcystInfection.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="FrenzyStartImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\StimpackStartImpact\StimpackStartImpact.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="FrenzyEndImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\StimpackEndImpact\StimpackEndImpact.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="FrenzyWeapon" parent="MissileFX">
+        <Model value="Assets\Effects\Zerg\BioPlasmaMissile\BioPlasmaMissile.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
+    <CModel id="FrenzyWeaponImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Zerg\FrenzyMissileImpact\FrenzyMissileImpact.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CModel>
     <CModel id="SiphonTentacle" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Zerg\InfestorSiphon\InfestorSiphon.m3"/>
         <EditorCategories value="Race:Zerg"/>

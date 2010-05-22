@@ -74,6 +74,7 @@
 <file label="PreviewerSound"            ><dir>TextureDir</dir>UI-EditorIcon-Previewer_Tree_Sound</file>
 <file label="CinematicsSendToGame"      ><dir>ImageDir</dir>ToolbarRedo</file>
 <file label="CinematicsPreview"         ><dir>ImageDir</dir>TriggerLabels/Camera</file>
+<file label="MatrixCardDigit"           ><dir>TextureDir</dir>decalnumber*_diffuse</file>
     
 <file label="MinimapStartLocation"      ><dir>ImageDir</dir>MinimapStartLocation</file>
 

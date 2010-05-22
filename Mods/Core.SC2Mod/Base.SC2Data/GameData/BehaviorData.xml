@@ -53,6 +53,8 @@
         <Range value="500"/>
     </CBehaviorSpawn>
     <CBehaviorVeterancy default="1">
+        <Flags index="CombineNumericModifications" value="1"/>
+        <Flags index="CombineXP" value="1"/>
         <ShareFilters index="DamageDealt" value="Player;Ally,Neutral,Enemy,Hallucination"/>
         <ShareFilters index="DamageTaken" value="Player;Ally,Neutral,Enemy,Hallucination"/>
         <ShareFilters index="Kills" value="Player;Ally,Neutral,Enemy,Hallucination"/>

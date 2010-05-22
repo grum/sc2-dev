@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CUnit id="FrenzyWeapon" parent="MISSILE_INVULNERABLE">
+        <Race value="Zerg"/>
+        <Mover value="Frenzy"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
     <CUnit default="1" id="BroodlingDefault">
         <Name value="Unit/Name/Broodling"/>
         <Description value="Button/Tooltip/Broodling"/>
@@ -191,6 +196,7 @@
         <KillDisplay value="Never"/>
     </CUnit>
     <CUnit id="InfestedTerransEgg">
+        <Collide index="ForceField" value="1"/>
         <Race value="Zerg"/>
         <FlagArray index="UseLineOfSight" value="1"/>
         <FlagArray index="NoScore" value="1"/>
@@ -216,6 +222,7 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="InfestedTerransEggPlacement">
+        <Collide index="ForceField" value="1"/>
         <Race value="Zerg"/>
         <FlagArray index="Uncommandable" value="1"/>
         <FlagArray index="Unselectable" value="1"/>
@@ -233,6 +240,7 @@
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="InfestorTerransEgg">
+        <Collide index="ForceField" value="1"/>
         <Race value="Zerg"/>
         <FlagArray index="Unselectable" value="1"/>
         <FlagArray index="Untargetable" value="1"/>
@@ -254,6 +262,7 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="MULE">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
@@ -315,7 +324,7 @@
     </CUnit>
     <CUnit id="InfestedTerransWeapon" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
-        <Mover value="MissileDefault"/>
+        <Mover value="InfestedTerransLayEggWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="InfestorTerransWeapon" parent="MISSILE_INVULNERABLE">
@@ -1012,6 +1021,7 @@
         <LifeArmorName value="Unit/LifeArmorName/HardenedMaterial"/>
     </CUnit>
     <CUnit id="Probe">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
@@ -1111,6 +1121,7 @@
         <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="Zealot">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
@@ -1180,6 +1191,7 @@
         <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="HighTemplar">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
@@ -1264,6 +1276,7 @@
         <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="DarkTemplar">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
@@ -1518,6 +1531,7 @@
         <Description value="Button/Tooltip/InterceptorUnit"/>
     </CUnit>
     <CUnit id="Archon">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
@@ -1839,6 +1853,7 @@
     </CUnit>
     <CUnit id="Stalker">
         <DeathRevealRadius value="3"/>
+        <Collide index="ForceField" value="1"/>
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
         <LifeStart value="80"/>
@@ -2324,7 +2339,7 @@
         <ScoreMake value="75"/>
         <ScoreKill value="225"/>
         <ScoreResult value="BuildOrder"/>
-        <SubgroupPriority value="2"/>
+        <SubgroupPriority value="3"/>
         <MinimapRadius value="1.75"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
         <FlagArray index="Turnable" value="0"/>
@@ -2552,6 +2567,7 @@
     </CUnit>
     <CUnit id="SCV">
         <DeathRevealRadius value="3"/>
+        <Collide index="ForceField" value="1"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
         <DefaultAcquireLevel value="Defensive"/>
@@ -2640,6 +2656,7 @@
     </CUnit>
     <CUnit id="Marine">
         <DeathRevealRadius value="3"/>
+        <Collide index="ForceField" value="1"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
         <LifeStart value="45"/>
@@ -2706,6 +2723,7 @@
     </CUnit>
     <CUnit id="Reaper">
         <DeathRevealRadius value="3"/>
+        <Collide index="ForceField" value="1"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
         <LifeStart value="50"/>
@@ -2793,6 +2811,7 @@
     </CUnit>
     <CUnit id="Ghost">
         <DeathRevealRadius value="3"/>
+        <Collide index="ForceField" value="1"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
         <LifeStart value="100"/>
@@ -2869,6 +2888,7 @@
         </Fidget>
     </CUnit>
     <CUnit id="SiegeTank">
+        <Collide index="ForceField" value="1"/>
         <TechAliasArray value="Alias_SiegeTank"/>
         <DeathRevealRadius value="3"/>
         <Race value="Terr"/>
@@ -2937,6 +2957,7 @@
         </Fidget>
     </CUnit>
     <CUnit id="SiegeTankSieged">
+        <Collide index="ForceField" value="1"/>
         <SelectAlias value="SiegeTank"/>
         <TechAliasArray value="Alias_SiegeTank"/>
         <DeathRevealRadius value="3"/>
@@ -4378,6 +4399,7 @@
         <AbilArray Link="move"/>
     </CUnit>
     <CUnit id="VikingAssault">
+        <Collide index="ForceField" value="1"/>
         <GlossaryAlias value="VikingFighter"/>
         <TechAliasArray value="Alias_Viking"/>
         <DeathRevealRadius value="3"/>
@@ -4629,6 +4651,7 @@
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
     </CUnit>
     <CUnit id="Drone">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -4771,6 +4794,7 @@
         <KillDisplay value="Always"/>
     </CUnit>
     <CUnit id="Roach">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -4897,6 +4921,7 @@
         <Description value="Button/Tooltip/Roach"/>
     </CUnit>
     <CUnit id="BanelingEgg">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <LifeStart value="50"/>
@@ -5083,6 +5108,9 @@
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
         <AbilArray Link="SpawnChangeling"/>
+        <AbilArray Link="InfestedTerransLayEgg"/>
+        <AbilArray Link="InfestedTerransLayEgg"/>
+        <AbilArray Link="Contaminate"/>
         <BehaviorArray Link="Detector11"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
@@ -5092,6 +5120,8 @@
             <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="SpawnChangeling" Type="AbilCmd" AbilCmd="SpawnChangeling,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="Contaminate" Type="AbilCmd" AbilCmd="Contaminate,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="InfestedTerrans" Type="AbilCmd" AbilCmd="InfestedTerransLayEgg,Execute" Row="2" Column="2"/>
             <LayoutButtons Face="Detector" Type="Passive" Row="1" Column="0"/>
         </CardLayouts>
         <EnergyRegenRate value="0.5625"/>
@@ -5109,7 +5139,13 @@
         <FlagArray index="AISupport" value="1"/>
         <Facing value="45"/>
     </CUnit>
+    <CUnit id="ContaminateWeapon" parent="MISSILE_INVULNERABLE">
+        <Race value="Zerg"/>
+        <Mover value="Contaminate"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
     <CUnit id="Zergling">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -5224,6 +5260,7 @@
         <Description value="Button/Tooltip/Zergling"/>
     </CUnit>
     <CUnit id="Hydralisk">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -5507,8 +5544,8 @@
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
-        <LifeStart value="600"/>
-        <LifeMax value="600"/>
+        <LifeStart value="450"/>
+        <LifeMax value="450"/>
         <LifeArmor value="1"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
@@ -5580,8 +5617,8 @@
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
         <Mover value="Burrowed"/>
-        <LifeStart value="600"/>
-        <LifeMax value="600"/>
+        <LifeStart value="450"/>
+        <LifeMax value="450"/>
         <LifeArmor value="1"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
@@ -6115,6 +6152,7 @@
         <WeaponArray Link="SpineCrawler" Turret="SpineCrawler"/>
     </CUnit>
     <CUnit id="SpineCrawlerUprooted">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -6242,6 +6280,7 @@
         <WeaponArray Link="SporeCrawler" Turret="SporeCrawler"/>
     </CUnit>
     <CUnit id="SporeCrawlerUprooted">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -6687,6 +6726,7 @@
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="Baneling">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -7372,6 +7412,7 @@
         <LeaderAlias value=""/>
     </CUnit>
     <CUnit id="Infestor">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -7415,14 +7456,14 @@
         <AbilArray Link="BurrowInfestorDown"/>
         <AbilArray Link="NeuralParasite"/>
         <AbilArray Link="FungalGrowth"/>
-        <AbilArray Link="InfestedTerrans"/>
+        <AbilArray Link="Frenzy"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="NeuralParasite" Type="AbilCmd" AbilCmd="NeuralParasite,Execute" Row="2" Column="2"/>
-            <LayoutButtons Face="InfestedTerrans" Type="AbilCmd" AbilCmd="InfestedTerrans,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="Frenzy" Type="AbilCmd" AbilCmd="Frenzy,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="FungalGrowth" Type="AbilCmd" AbilCmd="FungalGrowth,Execute" Row="2" Column="1"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
@@ -7537,6 +7578,7 @@
         <PlacementFootprint value="Footprint2x2"/>
     </CUnit>
     <CUnit id="InfestorTerran">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -7999,6 +8041,7 @@
         <FlagArray index="UseLineOfSight" value="1"/>
         <PlaneArray index="Ground" value="1"/>
         <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
         <Sight value="9"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
@@ -8110,6 +8153,13 @@
         <SeparationRadius value="0"/>
         <SubgroupPriority value="31"/>
         <MinimapRadius value="0"/>
+        <Collide index="Ground" value="0"/>
+        <Collide index="Colossus" value="0"/>
+        <Collide index="ForceField" value="1"/>
+        <AbilArray Link="Shatter"/>
+        <CardLayouts>
+            <LayoutButtons Face="Shatter" Type="AbilCmd" AbilCmd="Shatter,Execute" Row="0" Column="0"/>
+        </CardLayouts>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
         <FlagArray index="Turnable" value="0"/>
         <FlagArray index="Uncommandable" value="1"/>
@@ -8125,8 +8175,6 @@
         <PlaneArray index="Ground" value="1"/>
         <DeathRevealRadius value="0"/>
         <DeathRevealDuration value="0"/>
-        <Collide index="Ground" value="1"/>
-        <Collide index="Colossus" value="1"/>
         <PlacementFootprint value="Footprint3x3ForceField"/>
         <!-- Do not give this unit a footprint because that can allow units to walk into unpathable areas -->
     </CUnit>
@@ -8185,6 +8233,7 @@
         <TechTreeUnlockedUnitArray value="Battlecruiser"/>
     </CUnit>
     <CUnit id="Marauder">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
@@ -8384,6 +8433,7 @@
         <GlossaryWeakArray value="Corruptor"/>
     </CUnit>
     <CUnit id="Broodling" parent="BroodlingDefault">
+        <Collide index="ForceField" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
         <PlaneArray index="Ground" value="1"/>
         <Collide index="Ground" value="1"/>
@@ -8492,6 +8542,7 @@
         <GlossaryWeakArray value="VoidRay"/>
     </CUnit>
     <CUnit id="Disruptor">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Prot"/>
         <Mob value="Multiplayer"/>
@@ -8603,6 +8654,7 @@
         <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="Queen">
+        <Collide index="ForceField" value="1"/>
         <TechAliasArray value="Alias_Queen"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
@@ -8732,6 +8784,7 @@
         <Description value="Button/Tooltip/Queen"/>
     </CUnit>
     <CUnit id="Hellion">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
@@ -8993,6 +9046,7 @@
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="Changeling">
+        <Collide index="ForceField" value="1"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -9052,6 +9106,7 @@
         </Fidget>
     </CUnit>
     <CUnit id="ChangelingZealot" parent="Zealot">
+        <Collide index="ForceField" value="1"/>
         <Name value="Unit/Name/Changeling"/>
         <LeaderAlias value="Changeling"/>
         <Food value="0"/>
@@ -9084,6 +9139,7 @@
         <Race value="Zerg"/>
     </CUnit>
     <CUnit id="ChangelingMarineShield" parent="Marine">
+        <Collide index="ForceField" value="1"/>
         <Name value="Unit/Name/Changeling"/>
         <LeaderAlias value="Changeling"/>
         <LifeStart value="55"/>
@@ -9113,6 +9169,7 @@
         <Race value="Zerg"/>
     </CUnit>
     <CUnit id="ChangelingMarine" parent="Marine">
+        <Collide index="ForceField" value="1"/>
         <Name value="Unit/Name/Changeling"/>
         <LeaderAlias value="Changeling"/>
         <Food value="0"/>
@@ -9140,6 +9197,7 @@
         <Race value="Zerg"/>
     </CUnit>
     <CUnit id="ChangelingZergling" parent="Zergling">
+        <Collide index="ForceField" value="1"/>
         <Name value="Unit/Name/Changeling"/>
         <LeaderAlias value="Changeling"/>
         <Food value="0"/>
@@ -9171,6 +9229,7 @@
         <SelectAlias value="Changeling"/>
     </CUnit>
     <CUnit id="ChangelingZerglingWings" parent="Zergling">
+        <Collide index="ForceField" value="1"/>
         <Name value="Unit/Name/Changeling"/>
         <LeaderAlias value="Changeling"/>
         <Food value="0"/>

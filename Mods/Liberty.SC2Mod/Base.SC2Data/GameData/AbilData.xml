@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CAbilEffectTarget id="Shatter">
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Effect index="0" value="suicide"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Shatter"/>
+        <Range value="0.1"/>
+        <AutoCastRange value="1"/>
+        <AutoCastFilters value="Ground,Massive;Structure,Missile,Destructible,Stasis,Dead,Hidden"/>
+        <Cost>
+            <Cooldown TimeUse="0.5"/>
+        </Cost>
+        <Arc value="360"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="Frenzy">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="FrenzyLaunchMissile"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge Link=""/>
+            <Cooldown Link=""/>
+        </Cost>
+        <TargetFilters value="Biological,Visible;Enemy,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="9"/>
+        <AINotifyEffect value=""/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Frenzy"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="Contaminate">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Charge Link=""/>
+            <Cooldown Link=""/>
+        </Cost>
+        <TargetFilters value="Structure,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <AINotifyEffect value=""/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Contaminate"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+    </CAbilEffectTarget>
     <CAbilBuild default="1" id="TerranAddOns">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Alert value="AddOnComplete"/>
@@ -605,6 +646,17 @@
         <UninterruptibleArray index="Finish" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="InfestedTerransLayEgg">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedTerrans"/>
+        <Cost>
+            <Vital index="Energy" value="125"/>
+        </Cost>
+        <ProducedUnitArray value="InfestedTerran"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+    </CAbilEffectInstant>
     <CAbilEffectTarget id="NeuralParasite">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Cost>
@@ -1421,13 +1473,13 @@
     <CAbilResearch id="BarracksTechLabResearch">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
         <InfoArray index="Research1" Time="140" Upgrade="StimPack">
-            <Resource index="Minerals" value="150"/>
-            <Resource index="Vespene" value="150"/>
+            <Resource index="Minerals" value="100"/>
+            <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="StimPack" State="Restricted" Requirements="LearnStimpack"/>
         </InfoArray>
         <InfoArray index="Research2" Time="110" Upgrade="ShieldWall">
-            <Resource index="Minerals" value="150"/>
-            <Resource index="Vespene" value="150"/>
+            <Resource index="Minerals" value="100"/>
+            <Resource index="Vespene" value="100"/>
             <Button DefaultButtonFace="ResearchShieldWall" State="Restricted" Requirements="LearnShieldWall"/>
         </InfoArray>
         <InfoArray index="Research3" Time="60" Upgrade="PunisherGrenades">

@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectEnumArea id="FrenzyWeaponImpact">
+        <EditorCategories value="Race:Zerg"/>
+    </CEffectEnumArea>
+    <CEffectLaunchMissile id="FrenzyLaunchMissile">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <AmmoUnit value="FrenzyWeapon"/>
+        <Visibility value="Visible"/>
+        <ImpactEffect value="FrenzyApplyBehavior"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="FrenzyApplyBehavior">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="Frenzy"/>
+    </CEffectApplyBehavior>
+    <CEffectIssueOrder id="AttackCancel">
+        <EditorCategories value="Race:Terran"/>
+        <Abil value="stop"/>
+    </CEffectIssueOrder>
+    <CEffectCreatePersistent id="Contaminate">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <Flags index="Channeled" value="1"/>
+        <InitialEffect value="ContaminateApplyBehavior"/>
+        <PeriodCount value="8"/>
+        <PeriodicValidator value="NotDead"/>
+        <PeriodicEffectArray value="ContaminateLaunchMissile"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <ValidatorArray value="noMarkers"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="ContaminateDummy">
+        <EditorCategories value="Race:Zerg"/>
+    </CEffectEnumArea>
+    <CEffectLaunchMissile id="ContaminateLaunchMissile">
+        <ValidatorArray index="0" value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <AmmoUnit value="ContaminateWeapon"/>
+        <Visibility value="Visible"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="ContaminateApplyBehavior">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="Contaminated"/>
+    </CEffectApplyBehavior>
     <CEffectLaunchMissile default="1" id="HydraliskBase">
         <EditorCategories value="Race:Zerg"/>
         <ImpactEffect value="HydraliskU"/>
@@ -116,6 +158,14 @@
         <EditorCategories value="Race:Zerg"/>
         <Abil value="MorphtoInfestedTerran"/>
     </CEffectIssueOrder>
+    <CEffectCreateUnit id="InfestedTerransLayEgg">
+        <EditorCategories value="Race:Zerg"/>
+<!--        <WhichLocation Value="TargetPoint"/> -->
+        <SpawnEffect value="InfestedTerransInitialSet"/>
+        <SpawnUnit value="InfestedTerransEgg"/>
+        <ValidatorArray value="CliffLevelGE1"/>
+        <SpawnRange value="3"/>
+    </CEffectCreateUnit>
     <CEffectSet id="MassRecallSet">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="MassRecallTeleport"/>
@@ -178,22 +228,25 @@
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
     </CEffectApplyBehavior>
+    <CEffectSet id="FungalGrowthSet">
+        <ValidatorArray value=""/>
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="FungalGrowthApplyBehavior"/>
+        <EffectArray value="FungalGrowthApplyMovementBehavior"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="FungalGrowthApplyBehavior">
         <EditorCategories value="Race:Zerg"/>
-        <Behavior value="FungalGrowthRoot"/>
+        <Behavior value="FungalGrowth"/>
     </CEffectApplyBehavior>
-    <CEffectLaunchMissile id="FungalGrowthMissile">
-        <ValidatorArray index="0" value=""/>
+    <CEffectApplyBehavior id="FungalGrowthApplyMovementBehavior">
         <EditorCategories value="Race:Zerg"/>
-        <ImpactLocation Value="TargetPoint"/>
-        <ImpactEffect value="FungalGrowthSearch"/>
-        <AmmoUnit value="FungalGrowthMissile"/>
-    </CEffectLaunchMissile>
+        <Behavior value="FungalGrowthMovement"/>
+    </CEffectApplyBehavior>
     <CEffectEnumArea id="FungalGrowthSearch">
         <EditorCategories value="Race:Zerg"/>
         <ImpactLocation Value="TargetPoint"/>
         <SearchFilters value="-;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="2" Effect="FungalGrowthApplyBehavior"/>
+        <AreaArray Radius="2" Effect="FungalGrowthSet"/>
     </CEffectEnumArea>
     <CEffectDamage id="ArenaTurretDamage">
         <EditorCategories value="Race:Terran"/>
@@ -300,7 +353,7 @@
         <EditorCategories value="Race:Zerg"/>
         <FinishEffect value="InfestedSwarmImpact"/>
         <AmmoUnit value="InfestedTerransWeapon"/>
-        <Movers Link="InfestorSwarm"/>
+        <Movers Link="InfestedTerransLayEggWeapon"/>
         <LaunchLocation Value="CasterUnit"/>
     </CEffectLaunchMissile>
     <!--    <CEffectCreatePersistent id="InfestedTerransGestationPersistent">
@@ -428,6 +481,7 @@
         <Movers Link="InfestorNeuralParasite" IfRangeLTE="500"/>
         <ValidatorArray index="0" value="noMarkers"/>
         <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="NotFrenzied"/>
         <Flags index="Channeled" value="1"/>
         <Marker Link="Abil/NeuralParasite">
             <MatchFlags index="Link" value="1"/>
@@ -695,7 +749,7 @@
         <Behavior value="DisableEnergyRegen"/>
     </CEffectApplyBehavior>
     <CEffectCreatePersistent id="GravitonBeam">
-        <ValidatorArray value="IsNotWarpBubble"/>
+        <ValidatorArray value="NotFrenzied"/>
         <ValidatorArray value="NoGravitonBeamInProgress"/>
         <EditorCategories value="Race:Protoss"/>
         <WhichLocation Value="TargetUnit"/>
@@ -875,7 +929,7 @@
     <CEffectDamage id="UltraliskHeadAttackDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/UltraliskHeadAttackDamag"/>
-        <Amount value="60"/>
+        <Amount value="75"/>
         <Death value="Eviscerate"/>
     </CEffectDamage>
     <CEffectSet id="VoidRayDamageSet2">
@@ -1054,6 +1108,7 @@
         <ValidatorArray index="0" value="PunisherGrenadesResearched"/>
         <ValidatorArray value="MarauderSlowTargetFilters"/>
         <ValidatorArray value="NotStructure"/>
+        <ValidatorArray value="NotFrenzied"/>
         <EditorCategories value="Race:Terran"/>
     </CEffectApplyBehavior>
     <CEffectDamage id="SiegeTank" parent="DU_WEAP">
@@ -1679,10 +1734,13 @@
         <ImpactLocation Value="SourceUnit"/>
     </CEffectEnumArea>
     <CEffectDamage id="UltraliskCleave" parent="DU_WEAP">
-        <EditorCategories value="Race:Zerg"/>
-        <Amount value="25"/>
-        <Death value="Eviscerate"/>
-        <Kind value="Splash"/>
+        <Amount value="15"/>
+        <AreaArray Arc="180" Radius="2" Fraction="0.33"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <AttributeBonus index="Armored" value="25"/>
     </CEffectDamage>
     <CEffectSet id="UltraliskSet">
         <EditorCategories value="Race:Zerg"/>

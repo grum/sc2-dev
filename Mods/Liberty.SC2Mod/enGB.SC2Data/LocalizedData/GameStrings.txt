@@ -421,6 +421,7 @@ Behavior/Name/Charging=Charging
 Behavior/Name/CloakField=Cloak Field
 Behavior/Name/CloakingFieldEffect=Cloaking Field Effect
 Behavior/Name/Conjoined=Conjoined
+Behavior/Name/Contaminated=Contaminated
 Behavior/Name/Corruption=Corruption
 Behavior/Name/CritterBurrow=Critter Burrow
 Behavior/Name/CritterExplode=Critter Explode
@@ -437,6 +438,7 @@ Behavior/Name/Ethereal=Phase Shift
 Behavior/Name/FactoryNuclearReactor=Nuclear Reactor - Factory
 Behavior/Name/FactoryTechLab=Tech Lab - Factory
 Behavior/Name/ForceFieldFate=ForceField Fate
+Behavior/Name/Frenzy=Frenzy
 Behavior/Name/FungalGrowthRoot=Fungal Growth
 Behavior/Name/GravitonBeam=Graviton Beam
 Behavior/Name/GravitonBeamHeight=Anti Gravity Height
@@ -516,9 +518,11 @@ Behavior/Tooltip/BansheeCloak=This unit is cloaked and will only be revealed by 
 Behavior/Tooltip/Charging=This Zealot is charging, allowing it to quickly close the distance with its target.
 Behavior/Tooltip/CloakField=Friendly ground units close enough to the Mothership are cloaked.
 Behavior/Tooltip/CloakingFieldEffect=This unit is cloaked unless revealed by detector units or effects.
+Behavior/Tooltip/Contaminated=Cannot train units or research upgrades.
 Behavior/Tooltip/Corruption=Takes 20% more damage.
 Behavior/Tooltip/EMPDecloak=Target was recently hit by an EMP Round, making it unable to cloak for a short duration.
 Behavior/Tooltip/Ethereal=Target is immune to all damage and effects but is unable to attack or use abilities.
+Behavior/Tooltip/Frenzy=Deals 25% more damage, and is immune to slows, stuns, and mind control.
 Behavior/Tooltip/FungalGrowthRoot=Target is affected by Fungal Growth.  Target is detected and cannot move.
 Behavior/Tooltip/GravitonBeam=Target is being lifted in the air and is now vulnerable to air attacks. This unit cannot attack or use abilities during the Graviton Beam duration.
 Behavior/Tooltip/GuardianShield=Incoming ranged damage reduced by 2.
@@ -592,6 +596,7 @@ Button/Name/ColossusHallucination=Summon Colossus Hallucination
 Button/Name/CommandCenter=Build Command Center
 Button/Name/CommandCenterLoad=Load
 Button/Name/ConcussiveGrenade=Concussive Shells
+Button/Name/Contaminate=Contaminate
 Button/Name/Corruption=Corruption
 Button/Name/CorruptionAbility=Corruption
 Button/Name/Corruptor=Morph To Corruptor
@@ -624,6 +629,7 @@ Button/Name/FighterMode=Fighter Mode
 Button/Name/FleetBeacon=Warp in Fleet Beacon
 Button/Name/ForceField=Force Field
 Button/Name/Forge=Warp in Forge
+Button/Name/Frenzy=Frenzy
 Button/Name/FungalGrowth=Fungal Growth
 Button/Name/FusionCore=Build Fusion Core
 Button/Name/Gateway=Warp in Gateway
@@ -946,6 +952,7 @@ Button/Tooltip/CommandCenter=Primary structure. Used to receive gathered resourc
 Button/Tooltip/CommandCenterFlying=Primary structure. Must land to receive resources, produce units, or use abilities.
 Button/Tooltip/CommandCenterLoad=Loads nearby SCVs into Command Center.
 Button/Tooltip/ConcussiveGrenade=Targets hit by the Marauder are temporarily slowed.<n/><n/><c val="#ColorAttackInfo">Massive units are immune.</c>
+Button/Tooltip/Contaminate=Covers an enemy structure in slime. The structure will be unable to train units or research ugprades for <d ref="Behavior,Contaminated,Duration"/> seconds.
 Button/Tooltip/Corruption=The Corruptor corrupts units it attacks, causing them to turn into destructive stationary turrets upon death.
 Button/Tooltip/CorruptionAbility=Covers the target unit in acidic spores, increasing damage taken by 20% for 30 seconds.  
 Button/Tooltip/Corruptor=Anti-air flyer. Can corrupt enemy units, causing them to take more damage. Can morph into Brood Lord.<n/><n/><c val="ffff8a">Can attack air units.</c>
@@ -992,6 +999,7 @@ Button/Tooltip/FighterMode=Transforms the Viking into Fighter Mode. In this mode
 Button/Tooltip/FleetBeacon=Upgrades for Void Rays and Carriers.<n/><n/><c val="ffff8a">Enables:</c><n/>- Carriers at the Stargate<n/>- Mothership at the Nexus
 Button/Tooltip/ForceField=Creates a force field that lasts 15 seconds and impedes movement of ground units.
 Button/Tooltip/Forge=Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<n/><n/><c val="ffff8a">Enables:</c><n/>- Photon Cannons from Probes.
+Button/Tooltip/Frenzy=Sends a biological unit into a frenzy for 30 seconds. The unit is rendered immune to slows, stuns, and mind control, and will deal 25% more damage.
 Button/Tooltip/FungalGrowth=Immoblizes target units and causes 36 life damage over 8 seconds.  Reveals cloaked and burrowed units.
 Button/Tooltip/FusionCore=Contains Battlecruiser upgrades. <n/><n/><c val="ffff8a">Enables:</c><n/>- Battlecruisers at the Starport
 Button/Tooltip/Gateway=Warps-in Protoss ground units.<n/><n/><c val="ffff8a">Enables:</c><n/>- Zealots
@@ -2006,6 +2014,7 @@ ConversationState/TutorialLoadScreenText/Tutorial Load Screen Text/Info/=These t
 ConversationState/TutorialLoadScreenText/Tutorial Load Screen Text/Info/Tutorial Load Screen Text=These tutorials will explain basic gameplay in StarCraft II. An introduction to protoss and zerg gameplay is also covered. If you miss anything the Adjutant says you can press Message Log [F11] at any time to see a transcript.
 Error/AlreadyHasExtraSupplies=That Supply Depot already has Extra Supplies
 Error/AlreadySpawningLarva=Already Spawning Additional Larva
+Error/CantTargetFrenziedUnits=Can't target Frenzied units.
 Error/CantTarget250mmStrikeCannons=Can't target units affected by 250mm Strike Cannons
 Error/CantTargetGravitonBeam=Can't target units affected by Graviton Beam
 Error/CantTargetLarva=Can't target Larva

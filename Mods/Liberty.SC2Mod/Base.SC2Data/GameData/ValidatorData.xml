@@ -138,6 +138,7 @@
         <Type value="And"/>
         <CombineArray value="NotHidden"/>
         <CombineArray value="CasterHasEnergyAndNotDead"/>
+        <CombineArray value="NotFrenzied"/>
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="NotDoubleDamage">
         <WhichUnit Value="Caster"/>
@@ -364,6 +365,10 @@
     <CValidatorUnitType id="IsPlanetaryFortress">
         <Value value="PlanetaryFortress"/>
     </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="NotFungalGrowthed">
+        <Behavior value="FungalGrowth"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitType id="IsNexus">
         <Value value="Nexus"/>
     </CValidatorUnitType>
@@ -405,6 +410,10 @@
         <CombineArray value="IsNotFungalGrowthRooted"/>
         <Type value="And"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="NotFrenzied">
+        <Behavior value="Frenzy"/>
+        <ResultFailed value="MustTargetStructures,Error/CantTargetFrenziedUnits"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitType id="IsEgg">
         <Value value="Egg"/>
     </CValidatorUnitType>
@@ -525,6 +534,7 @@
         <Type value="And"/>
         <CombineArray value="CasterHasEnergyAndNotDead"/>
         <CombineArray value="NotVortexd"/>
+        <CombineArray value="NotFrenzied"/>
         <CombineArray value="IsNotWarpBubble"/>
     </CValidatorCombine>
     <CValidatorPlayerRequirement id="CleaveResearched">

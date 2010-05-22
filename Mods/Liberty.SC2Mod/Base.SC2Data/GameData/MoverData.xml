@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CMoverMissile id="Frenzy" parent="MissileDefault"/>
+    <CMoverMissile id="Contaminate" parent="MissileDefault"/>
     <CMoverMissile id="FungalGrowthWeapon">
         <MotionPhases>
             <Driver value="Guidance"/>
@@ -560,5 +562,15 @@
             <YawPitchRoll value="719.2968"/>
         </MotionPhases>
         <MotionPhases YawPitchRoll="MAX"/>
+    </CMoverMissile>
+    <CMoverMissile id="InfestedTerransLayEggWeapon">
+        <HeightMap value="Air"/>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <MaxSpeed value="20"/>
+            <Speed value="20"/>
+            <YawPitchRoll value="MAX"/>
+            <ArrivalTestType value="3D"/>
+        </MotionPhases>
     </CMoverMissile>
 </Catalog>

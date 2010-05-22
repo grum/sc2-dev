@@ -111,7 +111,7 @@
         <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
         <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
         <ArcSlop value="39.9902"/>
-        <Range value="7"/>
+        <Range value="6"/>
         <RangeSlop value="2"/>
         <Backswing value="0"/>
     </CWeaponLegacy>
@@ -439,7 +439,7 @@
         <Period value="0.861"/>
         <DamagePoint value="0.3332"/>
         <Options index="Melee" value="1"/>
-        <Effect value="UltraliskSet"/>
+        <Effect value="UltraliskCleave"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="UltraliskHeadAttack">
         <EditorCategories value="Race:Zerg"/>

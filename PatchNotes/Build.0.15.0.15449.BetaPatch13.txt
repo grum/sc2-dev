@@ -1,0 +1,90 @@
+
+StarCraft II Beta -- Patch 13 (version 0.15.0.15449)
+
+General
+
+
+    * Map Publishing is now enabled: Using the map editor, you can upload your custom maps to share with the Battle.net community.
+    * Facebook feature is integrated: Here’s a quick way to expand your social network by seeing who among your existing Facebook friends also has a Battle.net account.
+    * 3v3 and 4v4 formats are now enabled.
+    * Numerous updates have been made to the Leagues & Ladders system:
+
+          o Removed Copper League and added Diamond League above Platinum League.
+          o Player ratings start at 0, rather than 1000.
+          o No longer displays loading screen odds in placement or practice league matches.
+          o Matchmaking system logic updated.
+
+    * UDP is enabled to help improve game performance.
+    * Numerous performance and stability improvements.
+
+
+Balance Changes
+
+
+    * PROTOSS
+
+          o Sentry
+
+                + Force Fields can now be destroyed by Massive ground units walking over them.
+
+          o Void Ray
+
+                + Range decreased from 7 to 6.
+
+          o Warp Gate
+
+                + Subgroup selection priority changed from 2 to 3 so that it takes priority over Gateways when selected.
+
+    * TERRAN
+
+          o Marine
+
+                + Stimpack research cost decreased from 150/150 to 100/100.
+                + Combat Shield research cost decreased from 150/150 to 100/100.
+
+    * ZERG
+
+          o Infestor
+
+                + Infested Terran spell removed.
+                + Frenzy spell added:
+
+                      # Costs 25 energy.
+                      # Targets a single biological unit which deals 25% more damage and is immune to snare, stuns, and mind control for 30 seconds.
+
+          o Overseer
+
+                + Contaminate spell added:
+
+                      # Costs 75 energy.
+                      # Targets a single enemy structure which cannot train units or research upgrades for 30 seconds.
+
+                + Infested Terran spell added:
+
+                      # Costs 125 energy.
+                      # Infested Terrans have the same stats as those previously created by the Infestor and are placed directly under the Overseer when spawned.
+
+          o Ultralisk
+
+                + Life decreased from 600 to 450.
+                + Damage changed from 25 to 15 (+25 Armored).
+                + Damage versus structures increased from 60 to 75.
+
+
+Hotkey Changes (English Only):
+
+
+    * Zerg Set Worker Rally Point changed from R to G.
+    * Zerg Spore Crawler changed from W to A to avoid conflict with the Select All Warp Gates hotkey.
+
+
+Battle.net Interface
+
+
+    * Revamped summary pages for player Profiles and Leagues & Ladders.
+    * Added a Help system with tech trees and other tips and tricks.
+    * Removed identifier from the character naming process and added the ability to refer friends for invitation into your party or lobby.
+    * Updated the Battle.net user interface to consistently use a nested menu system.
+    * Added in-game blocking and player muting.
+
+

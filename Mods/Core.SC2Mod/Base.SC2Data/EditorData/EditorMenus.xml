@@ -1982,6 +1982,32 @@
     <item><command>ObjEdConvColorModeSpeaker</command></item>
     <item><command>ObjEdConvColorModeSound</command></item>
 </menu>
+    
+<menu label="ObjectEditor.Hotkeys.FieldDetail">
+    <item><command>ObjEdConvAddLine</command>                         </item>
+    <item><command>ObjEdConvAddRunActions</command>                   </item>
+    <item><command>ObjEdConvAddWait</command>                         </item>
+    <item><command>ObjEdConvAddJump</command>                         </item>
+    <item><command>ObjEdConvAddChoice</command>                       </item>
+    <item><command>ObjEdConvAddGroup</command>                        </item>
+    <item><command>ObjEdConvAddComment</command>                      </item>
+    <item><command>ObjEdConvMoveUp</command>                          </item>
+    <item><command>ObjEdConvMoveDown</command>                        </item>
+    <item><command>ObjEdConvMoveIn</command>                          </item>
+    <item><command>ObjEdConvMoveOut</command>                         </item>
+    <item><command>Cut</command>                                      </item>
+    <item><command>Copy</command>                                     </item>
+    <item><command>Paste</command>                                    </item>
+    <item><command>Clear</command>                                    </item>
+    <item><command>ObjectRename</command>                             </item>
+    <item><command>ObjEdConvExportText</command>                      </item>
+    <item><command>ObjEdConvExportFacial</command>                    </item>
+    <item><command>ObjEdConvFindSound</command>                       </item>
+    <item><command>ObjEdConvShowSpeaker</command>                     </item>
+    <item><command>ObjEdConvShowFacialAnim</command>                  </item>
+    <item><command>ObjEdConvAutoSoundCreate</command>                 </item>
+    <item><command>ObjEdConvAutoSoundUpdate</command>                 </item>
+</menu>
 
 <menu label="TerrainEditor.Hotkeys">
     <item><command>NextDoc</command></item>

@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CBehaviorBuff id="Frenzy">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-plague.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="30"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <Modification>
+            <DamageDealtFraction index="Melee" value="0.25"/>
+            <DamageDealtFraction index="Ranged" value="0.25"/>
+            <DamageDealtFraction index="Splash" value="0.25"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="Contaminated">
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Modification>
+            <AbilLinkDisableArray value="que5"/>
+            <AbilLinkDisableArray value="NexusTrainMothership"/>
+            <AbilLinkDisableArray value="CommandCenterTrain"/>
+            <AbilLinkDisableArray value="BarracksTrain"/>
+            <AbilLinkDisableArray value="FactoryTrain"/>
+            <AbilLinkDisableArray value="StarportTrain"/>
+            <AbilLinkDisableArray value="GatewayTrain"/>
+            <AbilLinkDisableArray value="StargateTrain"/>
+            <AbilLinkDisableArray value="RoboticsFacilityTrain"/>
+            <AbilLinkDisableArray value="NexusTrain"/>
+            <AbilLinkDisableArray value="TrainQueen"/>
+            <BehaviorLinkDisableArray value="SpawnLarva"/>
+        </Modification>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-corruption.dds"/>
+        <Duration value="30"/>
+    </CBehaviorBuff>
     <CBehaviorBuff default="1" id="Salvage">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
         <Duration value="5"/>
@@ -114,16 +150,23 @@
         <Alignment value="Negative"/>
         <RemoveValidatorArray value="IsNotBuried"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="FungalGrowthRoot">
+    <CBehaviorBuff id="FungalGrowth">
         <Alignment value="Negative"/>
-        <Cost>
-            <Charge Link="Behavior/FungalGrowth"/>
-            <Cooldown Link="Behavior/FungalGrowth"/>
-        </Cost>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Modification>
-            <ModifyFlags index="SuppressMoving" value="1"/>
             <StateFlags index="SuppressCloak" value="1"/>
+        </Modification>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-fungalgrowth.dds"/>
+        <Duration value="8"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="FungalGrowthDamage"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FungalGrowthMovement">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
             <AbilClassDisableArray index="CAbilMove" value="1"/>
             <AbilLinkDisableArray value="BurrowInfestorUp"/>
             <AbilLinkDisableArray value="BurrowInfestorDown"/>
@@ -143,23 +186,11 @@
             <AbilLinkDisableArray value="BurrowHydraliskDown"/>
             <AbilLinkDisableArray value="BurrowInfestorTerranUp"/>
             <AbilLinkDisableArray value="BurrowInfestorTerranDown"/>
-            <DeathResponse>
-                <Cost>
-                    <Charge Link="Behavior/FungalGrowth"/>
-                    <Cooldown Link="Behavior/FungalGrowth"/>
-                </Cost>
-            </DeathResponse>
         </Modification>
-        <DamageResponse>
-            <Cost>
-                <Charge Link="Behavior/FungalGrowth"/>
-                <Cooldown Link="Behavior/FungalGrowth"/>
-            </Cost>
-        </DamageResponse>
-        <InfoIcon value="Assets\Textures\btn-ability-zerg-corruption.dds"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-fungalgrowth.dds"/>
         <Duration value="8"/>
-        <Period value="0.5"/>
-        <PeriodicEffect value="FungalGrowthDamage"/>
+        <DisableValidatorArray value="NotFrenzied"/>
+        <RemoveValidatorArray value="NotFungalGrowthed"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="GuardianShield">
         <Alignment value="Positive"/>
@@ -328,6 +359,7 @@
         </Modification>
         <BuffFlags index="Channeled" value="1"/>
         <RemoveValidatorArray value="NotHidden"/>
+        <RemoveValidatorArray value="NotFrenzied"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="NeuralParasiteWait">
         <Alignment value="Negative"/>
@@ -399,6 +431,7 @@
         <BuffFlags index="Channeling" value="1"/>
         <Period value="0.25"/>
         <MaxStackCount value="20"/>
+        <DisableValidatorArray value="NotFrenzied"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="BroodlingFate" parent="TimedLife">
         <InfoIcon value="Assets\Textures\btn-ability-zerg-explode.dds"/>

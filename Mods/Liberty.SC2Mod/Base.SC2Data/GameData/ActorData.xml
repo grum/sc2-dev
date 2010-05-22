@@ -3254,7 +3254,7 @@
     </CActorSiteOpRandomPointInCircle>
     <CActorRange id="250mmStrikeCannonsRange" parent="RangeAbil" abil="250mmStrikeCannons"/>
     <CActorModel id="250mmStrikeCannonsImpact" parent="ModelAnimationStyleOneShot">
-        <HostSiteOps Ops="SOpTargetPoint ThorBarrageVariance"/>
+        <HostSiteOps Ops="ThorBarrageVariance"/>
         <On Terms="Effect.250mmStrikeCannonsDamage.Start; At Target" Send="Create"/>
     </CActorModel>
     <CActorSound id="250mmStrikeCannonsMorph" parent="SoundOneShot">
@@ -5167,27 +5167,33 @@
         <DeathArray index="Normal" ModelLink="StargateDeath" SoundLink="Stargate_Explode"/>
         <DeathArray index="UnderConstruction" ModelLink="ProtossWarpInDeath" SoundLink="Stargate_Explode"/>
         <On Terms="UnitDeathCustomize; ValidateUnit CasterIsUnpoweredAndNotUnderConstruction" Send="DeathCustomize Variation2"/>
-        <On Terms="ActorCreation" Send="StatusSet WarpingIn"/>
+        <On Terms="ActorCreation" Send="StatusSet WarpingIn 0"/>
         <!-- all this is needed due to the possibility of the stargate losing pylon power, as well as units being cancelled from the queue during loss of pylon power -->
         <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Phoenix; !ValidateUnit HasNoPower" Send="Create PhoenixWarpInStargate"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Phoenix; !ValidateUnit HasNoPower" Target="VoidRayWarpInStargate" Send="Destroy"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Phoenix; !ValidateUnit HasNoPower" Target="CarrierWarpInStargate" Send="Destroy"/>
         <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced VoidRay; !ValidateUnit HasNoPower" Send="Create VoidRayWarpInStargate"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced VoidRay; !ValidateUnit HasNoPower" Target="PhoenixWarpInStargate" Send="Destroy"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced VoidRay; !ValidateUnit HasNoPower" Target="CarrierWarpInStargate" Send="Destroy"/>
         <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Carrier; !ValidateUnit HasNoPower" Send="Create CarrierWarpInStargate"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Carrier; !ValidateUnit HasNoPower" Target="PhoenixWarpInStargate" Send="Destroy"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Carrier; !ValidateUnit HasNoPower" Target="VoidRayWarpInStargate" Send="Destroy"/>
         <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Phoenix; !ValidateUnit HasNoPower" Send="StatusSet WarpingIn 1"/>
         <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced VoidRay; !ValidateUnit HasNoPower" Send="StatusSet WarpingIn 2"/>
         <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Carrier; !ValidateUnit HasNoPower" Send="StatusSet WarpingIn 3"/>
-        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Phoenix; ValidateUnit HasNoPower" Send="StatusSet WarpingIn 6"/>
-        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced VoidRay; ValidateUnit HasNoPower" Send="StatusSet WarpingIn 7"/>
-        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Carrier; ValidateUnit HasNoPower" Send="StatusSet WarpingIn 8"/>
-        <On Terms="Abil.que5.Stop; IsStatus WarpingIn 1" Send="StatusSet WarpingIn 6"/>
-        <On Terms="Abil.que5.Stop; IsStatus WarpingIn 2" Send="StatusSet WarpingIn 7"/>
-        <On Terms="Abil.que5.Stop; IsStatus WarpingIn 3" Send="StatusSet WarpingIn 8"/>
-        <On Terms="Abil.que5.Start; IsStatus WarpingIn 6" Send="Create PhoenixWarpInStargate"/>
-        <On Terms="Abil.que5.Start; IsStatus WarpingIn 7" Send="Create VoidRayWarpInStargate"/>
-        <On Terms="Abil.que5.Start; IsStatus WarpingIn 8" Send="Create CarrierWarpInStargate"/>
-        <On Terms="Abil.que5.Start; IsStatus WarpingIn 6" Send="StatusSet WarpingIn 1"/>
-        <On Terms="Abil.que5.Start; IsStatus WarpingIn 7" Send="StatusSet WarpingIn 2"/>
-        <On Terms="Abil.que5.Start; IsStatus WarpingIn 8" Send="StatusSet WarpingIn 3"/>
-        <On Terms="AbilTrain.StargateTrain.Finish" Send="StatusSet WarpingIn"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Phoenix; ValidateUnit HasNoPower" Send="StatusSet WarpingIn 11"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced VoidRay; ValidateUnit HasNoPower" Send="StatusSet WarpingIn 12"/>
+        <On Terms="AbilTrain.StargateTrain.Start; AbilTrainProduced Carrier; ValidateUnit HasNoPower" Send="StatusSet WarpingIn 13"/>
+        <On Terms="Abil.que5.Stop; IsStatus WarpingIn 1" Send="StatusSet WarpingIn 11"/>
+        <On Terms="Abil.que5.Stop; IsStatus WarpingIn 2" Send="StatusSet WarpingIn 12"/>
+        <On Terms="Abil.que5.Stop; IsStatus WarpingIn 3" Send="StatusSet WarpingIn 13"/>
+        <On Terms="Abil.que5.Start; IsStatus WarpingIn 11" Send="Create PhoenixWarpInStargate"/>
+        <On Terms="Abil.que5.Start; IsStatus WarpingIn 12" Send="Create VoidRayWarpInStargate"/>
+        <On Terms="Abil.que5.Start; IsStatus WarpingIn 13" Send="Create CarrierWarpInStargate"/>
+        <On Terms="Abil.que5.Start; IsStatus WarpingIn 11" Send="StatusSet WarpingIn 1"/>
+        <On Terms="Abil.que5.Start; IsStatus WarpingIn 12" Send="StatusSet WarpingIn 2"/>
+        <On Terms="Abil.que5.Start; IsStatus WarpingIn 13" Send="StatusSet WarpingIn 3"/>
+        <On Terms="AbilTrain.StargateTrain.Finish" Send="StatusSet WarpingIn 0"/>
         <DeathCustoms ModelLink="StargateDeathUnpowered" SoundLink="Stargate_Explode" Name="Variation2"/>
         <EventDataSound Name="BuildingWarpIn" Actor="UnitSound" Sound="Protoss_BuildingWarpIn"/>
         <SoundArray index="Ready" value="Stargate_What"/>
@@ -5214,17 +5220,14 @@
     <CActorSplat id="StargateSplat" parent="GenericUnitSplat" unitName="Stargate"/>
     <CActorModel id="PhoenixWarpInStargate" parent="ModelAddition">
         <HostSiteOps Ops="SOpAttachCenter"/>
-<!--        <On Terms="Abil.StargateTrain.Stop" Send="Destroy"/> -->
         <On Terms="Abil.que5.Stop" Send="Destroy"/>
     </CActorModel>
     <CActorModel id="VoidRayWarpInStargate" parent="ModelAddition">
         <HostSiteOps Ops="SOpAttachCenter"/>
-<!--        <On Terms="Abil.StargateTrain.Stop" Send="Destroy"/> -->
         <On Terms="Abil.que5.Stop" Send="Destroy"/>
     </CActorModel>
     <CActorModel id="CarrierWarpInStargate" parent="ModelAddition">
         <HostSiteOps Ops="SOpAttachCenter"/>
-<!--        <On Terms="Abil.StargateTrain.Stop" Send="Destroy"/> -->
         <On Terms="Abil.que5.Stop" Send="Destroy"/>
     </CActorModel>
     <!--                                                                                         -->
@@ -6549,6 +6552,37 @@
         <On Terms="AbilMorph.*.Finish; MorphFrom InfestorBurrowed" Send="RefClear ::Host"/>
         <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
     </CActorSplat>
+    <!-- Frenzy .................................................................................. -->
+    <CActorRange id="FrenzyRange" parent="RangeAbil" abil="Frenzy"/>
+    <CActorMissile id="FrenzyMissile" parent="GenericAttackMissile" unitName="FrenzyWeapon">
+        <On Terms="ActorCreation" Send="SetTintColor 255,128,128 0.500000"/>
+    </CActorMissile>
+    <CActorAction id="Frenzy" parent="GenericAttack" effectImpact="FrenzyWeaponImpact" effectLaunch="FrenzyLaunchMissile">
+        <ImpactSiteOps Ops="SOpAttachHarness VoidRaySOpForwardLaunch SOpForwardLaunchGuide"/>
+        <AccuracyHalfArc value="10.000000"/>
+    </CActorAction>
+    <CActorSound id="Frenzy_Enable" parent="SoundOneShot">
+        <On Terms="Abil.Frenzy.SourceCastStart" Send="Create"/>
+    </CActorSound>
+    <CActorSimple id="FrenzyTinter">
+        <Aliases value="_FrenzyTinter"/>
+        <On Terms="Behavior.Frenzy.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetTintColor 255,128,128 0.500000"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.500000 ColorDown"/>
+        <On Terms="TimerExpired; TimerName ColorDown" Target="_Unit" Send="SetTintColor 255,255,255 1.500000"/>
+        <On Terms="TimerExpired; TimerName ColorDown" Send="TimerSet 1.510000 KillTimer"/>
+        <On Terms="TimerExpired; TimerName KillTimer" Send="Destroy"/>
+        <On Terms="Behavior.Frenzy.Off" Target="_Unit" Send="SetTintColor 255,255,255"/>
+        <On Terms="Behavior.Frenzy.Off" Send="Destroy"/>
+    </CActorSimple>
+    <CActorModel id="FrenzyModel" parent="ModelAddition">
+        <On Terms="ActorCreation" Send="SetTintColor 255,128,128 0.500000"/>
+        <AutoScaleFactor value="1.500000"/>
+        <Inherits index="TintColor" value="0"/>
+        <On Terms="Behavior.Frenzy.On" Send="Create"/>
+        <On Terms="Behavior.Frenzy.Off" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
     <!-- Infested Swarm                                                                          -->
     <CActorSplat id="InfestedTerransCursorSplat" parent="ZergCursorSplat" abil="InfestedTerrans"/>
     <CActorRange id="InfestedTerransRange" parent="RangeAbil" abil="InfestedTerrans"/>
@@ -6622,8 +6656,8 @@
     <CActorModel id="FungalGrowth" parent="ModelAddition">
         <AutoScaleFactor value="1.000000"/>
         <HostSiteOps Ops="SOpAttachCenter"/>
-        <On Terms="Behavior.FungalGrowthRoot.On" Send="Create"/>
-        <On Terms="Behavior.FungalGrowthRoot.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.FungalGrowth.On" Send="Create"/>
+        <On Terms="Behavior.FungalGrowth.Off" Send="AnimBracketStop BSD"/>
         <On Terms="ActorCreation" Send="SetScale 1.400000 0.400000"/>
         <On Terms="UnitDeath" Send="Destroy"/>
     </CActorModel>
@@ -7098,6 +7132,38 @@
     <CActorSound id="AcidSporesImpactSound" parent="SoundOneShot">
         <Sound value="Infestor_AcidSporesImpact"/>
         <On Terms="Behavior.AcidSpores.On" Send="Create"/>
+    </CActorSound>
+    <!-- Contaminate                                                             -->
+    <CActorMissile id="ContaminateMissile" parent="GenericAttackMissile" unitName="ContaminateWeapon"/>
+    <CActorAction id="Contaminate" parent="GenericAttack" effectImpact="ContaminateDummy" effectLaunch="ContaminateLaunchMissile">
+        <ImpactSiteOps Ops="SOpAttachHarness VoidRaySOpForwardLaunch SOpForwardLaunchGuide"/>
+        <AccuracyHalfArc value="10.000000"/>
+    </CActorAction>
+    <CActorSound id="ContaminateLaunchSound" parent="SoundOneShot">
+        <Sound value="Corruptor_CorruptionLaunch"/>
+        <On Terms="Abil.Contaminate.SourceChannelStop" Send="Create"/>
+        <On Terms="Abil.Contaminate.SourceCastStart" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="ContaminateLoopSound" parent="SoundContinuous">
+        <Sound value="Corruptor_CorruptionLoop"/>
+        <On Terms="Abil.Contaminate.SourceChannelStart" Send="Create"/>
+        <On Terms="Abil.Contaminate.SourceChannelStop" Send="Destroy"/>
+    </CActorSound>
+    <CActorModel id="ContaminateModel" parent="ModelAddition">
+        <AutoScaleFactor value="0.350000"/>
+        <Inherits index="TintColor" value="0"/>
+        <On Terms="Behavior.Contaminated.On" Send="Create"/>
+        <On Terms="Behavior.Contaminated.Off" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorRange id="ContaminateRange" parent="RangeAbil" abil="Contaminate"/>
+    <CActorSound id="ContaminateImpactSound" parent="SoundOneShot">
+        <Sound value="Corruptor_CorruptionImpact"/>
+        <On Terms="Behavior.Contaminated.On" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="ContaminateEndSound" parent="SoundOneShot">
+        <Sound value="Corruptor_CorruptionEnd"/>
+        <On Terms="Behavior.Contaminated.Off" Send="Create"/>
     </CActorSound>
     <!--                                                                                         -->
     <!-- Changeling                                                                              -->
@@ -11406,6 +11472,8 @@
         <HostSiteOps Ops="SOpAttachCenter SOpShadow"/>
         <Inherits index="Scale" value="1"/>
         <Inherits index="ScaleVariance" value="1"/>
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
         <On Terms="ActorCreation" Send="$Stand,00"/>
         <On Terms="AnimDone; AnimName Stand" Send="Destroy"/>
         <On Terms="Abil.MedivacTransport.CargoUnload" Send="Create"/>
